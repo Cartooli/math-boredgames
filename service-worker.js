@@ -1,11 +1,11 @@
 // Service Worker for MathBored PWA
 const CACHE_NAME = 'mathbored-v1';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/app.js',
-  '/data.js'
+  './',
+  './index.html',
+  './styles.css',
+  './app.js',
+  './data.js'
 ];
 
 // Install event - cache resources

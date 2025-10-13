@@ -1159,7 +1159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Register service worker for PWA support
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/service-worker.js')
+        navigator.serviceWorker.register('./service-worker.js')
             .then(registration => {
                 console.log('ServiceWorker registered:', registration);
             })
