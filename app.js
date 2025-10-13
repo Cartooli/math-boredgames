@@ -884,6 +884,15 @@ class MathBoredApp {
         setTimeout(() => document.getElementById('answerInput')?.focus(), 100);
     }
     
+    // Helper methods for problem generation
+    randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
+    randomFrom(array) {
+        return array[Math.floor(Math.random() * array.length)];
+    }
+    
     generateProblem() {
         const concept = getConceptByName(this.currentTopic);
         if (!concept) return;
@@ -892,6 +901,302 @@ class MathBoredApp {
         const maxNum = Math.min(20 + gradeNum * 15, 200);
         
         const generators = {
+            // ========== KINDERGARTEN TOPICS ==========
+            "Counting and Cardinality": () => {
+                const count = this.randomInt(1, 20);
+                const emoji = this.randomFrom(['⭐', '🍎', '🎈', '🎯', '🌟']);
+                return {
+                    display: `How many ${emoji} are there?<br><div style="font-size: 2rem; margin: 20px 0;">${emoji.repeat(count)}</div>`,
+                    answer: count
+                };
+            },
+            
+            "Number Recognition": () => {
+                const num = this.randomInt(0, 20);
+                const words = ['zero','one','two','three','four','five','six','seven','eight','nine','ten',
+                              'eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty'];
+                return {
+                    display: `What number is this?<br><div style="font-size: 4rem; margin: 20px 0; font-weight: bold;">${num}</div>`,
+                    answer: words[num],
+                    numericAnswer: num
+                };
+            },
+            
+            "Basic Shapes": () => {
+                const shapes = [
+                    {name: 'circle', sides: 0},
+                    {name: 'triangle', sides: 3},
+                    {name: 'square', sides: 4},
+                    {name: 'rectangle', sides: 4},
+                    {name: 'pentagon', sides: 5},
+                    {name: 'hexagon', sides: 6}
+                ];
+                const shape = this.randomFrom(shapes);
+                return {
+                    display: `How many sides does a ${shape.name} have?`,
+                    answer: shape.sides
+                };
+            },
+            
+            "Measurement Comparison": () => {
+                const a = this.randomInt(5, 20);
+                const b = this.randomInt(5, 20);
+                const unit = this.randomFrom(['inches', 'centimeters', 'feet']);
+                if (a > b) {
+                    return {
+                        display: `Which is longer: ${a} ${unit} or ${b} ${unit}?`,
+                        answer: a,
+                        acceptedAnswers: [a, `${a}`, `${a} ${unit}`]
+                    };
+                } else {
+                    return {
+                        display: `Which is longer: ${a} ${unit} or ${b} ${unit}?`,
+                        answer: b,
+                        acceptedAnswers: [b, `${b}`, `${b} ${unit}`]
+                    };
+                }
+            },
+            
+            "Patterns": () => {
+                const patterns = [
+                    {seq: [1,2,1,2,1], ans: 2},
+                    {seq: [🔴,🔵,🔴,🔵,🔴], ans: '🔵'},
+                    {seq: ['A','B','C','A','B'], ans: 'C'}
+                ];
+                const pattern = this.randomFrom(patterns);
+                return {
+                    display: `What comes next in the pattern?<br><div style="font-size: 1.5rem; margin: 15px 0;">${pattern.seq.join(' ')}, ?</div>`,
+                    answer: pattern.ans
+                };
+            },
+            
+            "Ordinal Numbers": () => {
+                const pos = this.randomInt(1, 10);
+                const ordinals = ['','first','second','third','fourth','fifth','sixth','seventh','eighth','ninth','tenth'];
+                return {
+                    display: `What is the ordinal number for position ${pos}?`,
+                    answer: ordinals[pos]
+                };
+            },
+            
+            "Simple Data Collection": () => {
+                const colors = ['red', 'blue', 'green', 'yellow'];
+                const color = this.randomFrom(colors);
+                const count = this.randomInt(3, 8);
+                return {
+                    display: `If we sorted ${count} ${color} balls into a group, how many ${color} balls do we have?`,
+                    answer: count
+                };
+            },
+            
+            // ========== GRADE 1 TOPICS ==========
+            "Place Value": () => {
+                const tens = this.randomInt(1, 9);
+                const ones = this.randomInt(0, 9);
+                const num = tens * 10 + ones;
+                return {
+                    display: `How many tens are in ${num}?`,
+                    answer: tens
+                };
+            },
+            
+            "Two-Digit Addition": () => {
+                const a = this.randomInt(10, 99);
+                const b = this.randomInt(10, 99);
+                return {
+                    display: `${a} + ${b} = ?`,
+                    answer: a + b
+                };
+            },
+            
+            "Two-Digit Subtraction": () => {
+                const a = this.randomInt(20, 99);
+                const b = this.randomInt(10, a);
+                return {
+                    display: `${a} - ${b} = ?`,
+                    answer: a - b
+                };
+            },
+            
+            "Comparing Numbers": () => {
+                const a = this.randomInt(1, 100);
+                const b = this.randomInt(1, 100);
+                const symbol = a > b ? '>' : a < b ? '<' : '=';
+                return {
+                    display: `${a} ___ ${b}<br><small>Enter >, <, or =</small>`,
+                    answer: symbol
+                };
+            },
+            
+            "Telling Time": () => {
+                const hour = this.randomInt(1, 12);
+                const minute = this.randomFrom([0, 30]);
+                const time = minute === 0 ? `${hour}:00` : `${hour}:30`;
+                return {
+                    display: `What time is shown: ${time}?<br><small>Answer like "1 o'clock" or "1 thirty"</small>`,
+                    answer: minute === 0 ? `${hour} o'clock` : `${hour} thirty`,
+                    acceptedAnswers: [time, `${hour}:${minute === 0 ? '00' : '30'}`, `${hour} o'clock`, `${hour} thirty`]
+                };
+            },
+            
+            "Measurement (Length)": () => {
+                const length = this.randomInt(5, 20);
+                const unit = this.randomFrom(['inches', 'feet', 'centimeters']);
+                return {
+                    display: `A pencil is ${length} ${unit} long. How many ${unit}?`,
+                    answer: length
+                };
+            },
+            
+            "Basic Shapes and Attributes": () => {
+                const shapes = [{name: 'triangle', vertices: 3}, {name: 'square', vertices: 4}, {name: 'rectangle', vertices: 4}];
+                const shape = this.randomFrom(shapes);
+                return {
+                    display: `How many vertices (corners) does a ${shape.name} have?`,
+                    answer: shape.vertices
+                };
+            },
+            
+            "Word Problems (Addition/Subtraction)": () => {
+                const a = this.randomInt(5, 20);
+                const b = this.randomInt(1, 15);
+                const op = this.randomFrom(['+', '-']);
+                if (op === '+') {
+                    return {
+                        display: `Sam has ${a} apples. He gets ${b} more. How many does he have now?`,
+                        answer: a + b
+                    };
+                } else {
+                    return {
+                        display: `Sara has ${a} cookies. She eats ${b}. How many are left?`,
+                        answer: a - b
+                    };
+                }
+            },
+            
+            "Data Organization": () => {
+                const count = this.randomInt(5, 15);
+                return {
+                    display: `If a bar graph shows ${count} students like pizza, how many students is that?`,
+                    answer: count
+                };
+            },
+            
+            "Number Bonds": () => {
+                const total = this.randomInt(5, 10);
+                const part = this.randomInt(1, total - 1);
+                return {
+                    display: `${total} = ${part} + ?`,
+                    answer: total - part
+                };
+            },
+            
+            "Fact Families": () => {
+                const a = this.randomInt(2, 9);
+                const b = this.randomInt(1, 9);
+                const sum = a + b;
+                return {
+                    display: `If ${a} + ${b} = ${sum}, then ${sum} - ${a} = ?`,
+                    answer: b
+                };
+            },
+            
+            // ========== GRADE 2 TOPICS ==========
+            "Even and Odd Numbers": () => {
+                const num = this.randomInt(1, 50);
+                return {
+                    display: `Is ${num} even or odd?`,
+                    answer: num % 2 === 0 ? 'even' : 'odd'
+                };
+            },
+            
+            "Skip Counting": () => {
+                const skip = this.randomFrom([2, 5, 10]);
+                const start = skip;
+                const seq = [start, start + skip, start + 2*skip];
+                return {
+                    display: `Skip count by ${skip}: ${seq.join(', ')}, ?`,
+                    answer: start + 3*skip
+                };
+            },
+            
+            "Three-Digit Numbers": () => {
+                const num = this.randomInt(100, 999);
+                const hundreds = Math.floor(num / 100);
+                return {
+                    display: `How many hundreds are in ${num}?`,
+                    answer: hundreds
+                };
+            },
+            
+            "Regrouping": () => {
+                const a = this.randomInt(25, 99);
+                const b = this.randomInt(15, 99);
+                return {
+                    display: `${a} + ${b} = ?<br><small>(You may need to regroup!)</small>`,
+                    answer: a + b
+                };
+            },
+            
+            "Money": () => {
+                const quarters = this.randomInt(1, 4);
+                const dimes = this.randomInt(0, 5);
+                const nickels = this.randomInt(0, 4);
+                const cents = quarters * 25 + dimes * 10 + nickels * 5;
+                return {
+                    display: `${quarters} quarter(s), ${dimes} dime(s), ${nickels} nickel(s) = ? cents`,
+                    answer: cents
+                };
+            },
+            
+            "Time to 5 Minutes": () => {
+                const hour = this.randomInt(1, 12);
+                const minute = this.randomInt(0, 11) * 5;
+                return {
+                    display: `What time is ${hour}:${minute.toString().padStart(2, '0')}?<br><small>Answer in minutes past the hour</small>`,
+                    answer: minute,
+                    acceptedAnswers: [minute, `${minute}`, `${hour}:${minute.toString().padStart(2, '0')}`]
+                };
+            },
+            
+            "Bar Graphs and Picture Graphs": () => {
+                const count = this.randomInt(5, 20);
+                return {
+                    display: `A bar graph shows ${count} votes for pizza. How many votes?`,
+                    answer: count
+                };
+            },
+            
+            "Measurement Units": () => {
+                const feet = this.randomInt(1, 5);
+                return {
+                    display: `${feet} feet = ? inches`,
+                    answer: feet * 12
+                };
+            },
+            
+            "Arrays (Introduction)": () => {
+                const rows = this.randomInt(2, 5);
+                const cols = this.randomInt(2, 5);
+                return {
+                    display: `An array has ${rows} rows and ${cols} columns. How many items total?`,
+                    answer: rows * cols
+                };
+            },
+            
+            "Estimating Quantities": () => {
+                const actual = this.randomInt(20, 50);
+                const estimates = [
+                    Math.floor(actual / 10) * 10,
+                    Math.round(actual / 10) * 10,
+                    Math.ceil(actual / 10) * 10
+                ];
+                return {
+                    display: `Round ${actual} to the nearest 10`,
+                    answer: Math.round(actual / 10) * 10
+                };
+            },
+            // ========== CORE OPERATIONS ==========
             "Addition": () => {
                 const a = Math.floor(Math.random() * maxNum) + 1;
                 const b = Math.floor(Math.random() * maxNum) + 1;
@@ -933,6 +1238,180 @@ class MathBoredApp {
                 };
             },
             
+            // ========== GRADE 3 TOPICS ==========
+            "Area and Perimeter": () => {
+                const length = this.randomInt(3, 15);
+                const width = this.randomInt(2, 12);
+                const which = this.randomFrom(['area', 'perimeter']);
+                if (which === 'area') {
+                    return {
+                        display: `A rectangle is ${length} cm long and ${width} cm wide. What is the area?`,
+                        answer: length * width
+                    };
+                } else {
+                    return {
+                        display: `A rectangle is ${length} cm long and ${width} cm wide. What is the perimeter?`,
+                        answer: 2 * (length + width)
+                    };
+                }
+            },
+            
+            "Telling Time to the Minute": () => {
+                const hour = this.randomInt(1, 12);
+                const minute = this.randomInt(0, 59);
+                return {
+                    display: `How many minutes after ${hour} o'clock is ${hour}:${minute.toString().padStart(2, '0')}?`,
+                    answer: minute
+                };
+            },
+            
+            "Measurement Conversions": () => {
+                const conversions = [
+                    {q: 'feet to inches', mult: 12, unit: 'inches'},
+                    {q: 'yards to feet', mult: 3, unit: 'feet'},
+                    {q: 'meters to centimeters', mult: 100, unit: 'centimeters'}
+                ];
+                const conv = this.randomFrom(conversions);
+                const val = this.randomInt(2, 10);
+                return {
+                    display: `${val} ${conv.q.split(' to ')[0]} = ? ${conv.unit}`,
+                    answer: val * conv.mult
+                };
+            },
+            
+            "Rounding": () => {
+                const num = this.randomInt(15, 95);
+                const to = this.randomFrom([10, 100]);
+                return {
+                    display: `Round ${num} to the nearest ${to}`,
+                    answer: Math.round(num / to) * to
+                };
+            },
+            
+            "Properties of Multiplication": () => {
+                const a = this.randomInt(2, 9);
+                const b = this.randomInt(2, 9);
+                return {
+                    display: `If ${a} × ${b} = ${a * b}, then ${b} × ${a} = ?<br><small>(Commutative Property)</small>`,
+                    answer: a * b
+                };
+            },
+            
+            "Factors and Multiples (Basic)": () => {
+                const num = this.randomInt(6, 24);
+                const factors = [];
+                for (let i = 1; i <= num; i++) {
+                    if (num % i === 0) factors.push(i);
+                }
+                return {
+                    display: `How many factors does ${num} have?`,
+                    answer: factors.length
+                };
+            },
+            
+            "Data Interpretation": () => {
+                const scale = this.randomFrom([2, 5, 10]);
+                const bars = this.randomInt(3, 8);
+                return {
+                    display: `On a bar graph with scale ${scale}, a bar shows ${bars} units. What is the value?`,
+                    answer: bars * scale
+                };
+            },
+            
+            // ========== GRADE 4 TOPICS ==========
+            "Equivalent Fractions": () => {
+                const num = this.randomInt(1, 6);
+                const den = this.randomInt(num + 1, 12);
+                const mult = this.randomInt(2, 4);
+                return {
+                    display: `${num}/${den} = ?/${den * mult}`,
+                    answer: num * mult
+                };
+            },
+            
+            "Mixed Numbers": () => {
+                const whole = this.randomInt(1, 5);
+                const num = this.randomInt(1, 7);
+                const den = this.randomInt(num + 1, 8);
+                const improper = whole * den + num;
+                return {
+                    display: `Convert ${improper}/${den} to a mixed number. What is the whole number part?`,
+                    answer: whole
+                };
+            },
+            
+            "Rounding and Estimation": () => {
+                const a = this.randomInt(23, 87);
+                const b = this.randomInt(15, 78);
+                const rounded_a = Math.round(a / 10) * 10;
+                const rounded_b = Math.round(b / 10) * 10;
+                return {
+                    display: `Estimate ${a} + ${b} by rounding to nearest 10`,
+                    answer: rounded_a + rounded_b
+                };
+            },
+            
+            "Angle Measurement": () => {
+                const angle = this.randomFrom([30, 45, 60, 90, 120, 135, 150, 180]);
+                const type = angle < 90 ? 'acute' : angle === 90 ? 'right' : angle < 180 ? 'obtuse' : 'straight';
+                return {
+                    display: `A ${angle}° angle is what type?<br><small>(acute, right, obtuse, or straight)</small>`,
+                    answer: type
+                };
+            },
+            
+            "Line Plots": () => {
+                const values = [1, 2, 2, 3, 3, 3, 4, 4, 5];
+                const mode = 3;
+                return {
+                    display: `On a line plot, which value appears most: 1(×1), 2(×2), 3(×3), 4(×2), 5(×1)?`,
+                    answer: mode
+                };
+            },
+            
+            "Factors and Divisibility": () => {
+                const nums = [12, 15, 18, 20, 24, 30];
+                const num = this.randomFrom(nums);
+                return {
+                    display: `Is ${num} divisible by 3?<br><small>(yes or no)</small>`,
+                    answer: num % 3 === 0 ? 'yes' : 'no'
+                };
+            },
+            
+            "Multiples and Least Common Multiple": () => {
+                const a = this.randomFrom([2, 3, 4, 5, 6]);
+                const b = this.randomFrom([2, 3, 4, 5, 6]);
+                const lcm = (a * b) / this.gcd(a, b);
+                return {
+                    display: `What is the LCM of ${a} and ${b}?`,
+                    answer: lcm
+                };
+            },
+            
+            "Greatest Common Factor": () => {
+                const pairs = [[12, 18], [20, 30], [15, 25], [24, 36]];
+                const pair = this.randomFrom(pairs);
+                const gcd = this.gcd(pair[0], pair[1]);
+                return {
+                    display: `What is the GCF of ${pair[0]} and ${pair[1]}?`,
+                    answer: gcd
+                };
+            },
+            
+            "Two-Dimensional Figures": () => {
+                const figures = [
+                    {name: 'square', sides: 4, angles: 4},
+                    {name: 'rectangle', sides: 4, angles: 4},
+                    {name: 'triangle', sides: 3, angles: 3},
+                    {name: 'pentagon', sides: 5, angles: 5}
+                ];
+                const fig = this.randomFrom(figures);
+                return {
+                    display: `How many sides does a ${fig.name} have?`,
+                    answer: fig.sides
+                };
+            },
+            
             "Fractions": () => {
                 const a = Math.floor(Math.random() * 10) + 1;
                 const b = Math.floor(Math.random() * 10) + 2;
@@ -956,34 +1435,14 @@ class MathBoredApp {
                 };
             },
             
-            "Percentages": () => {
-                const percent = [10, 20, 25, 50, 75][Math.floor(Math.random() * 5)];
-                const total = Math.floor(Math.random() * 100) + 10;
-                const answer = (total * percent / 100);
+            //========== GRADE 5 TOPICS ==========
+            "Prime Numbers": () => {
+                const nums = [7, 11, 13, 17, 19, 23, 29, 31, 37, 12, 15, 18, 21, 24, 27, 30];
+                const num = this.randomFrom(nums);
+                const isPrime = num > 1 && ![...Array(num).keys()].slice(2, num).some(i => num % i === 0);
                 return {
-                    percent, total,
-                    display: `What is ${percent}% of ${total}?`,
-                    answer: answer
-                };
-            },
-            
-            "Integers": () => {
-                const a = Math.floor(Math.random() * 20) - 10;
-                const b = Math.floor(Math.random() * 20) - 10;
-                return {
-                    a, b,
-                    display: `${a} + (${b}) = ?`,
-                    answer: a + b
-                };
-            },
-            
-            "Exponents": () => {
-                const base = Math.floor(Math.random() * 8) + 2;
-                const exp = Math.floor(Math.random() * 4) + 2;
-                return {
-                    base, exp,
-                    display: `${base}^${exp} = ?`,
-                    answer: Math.pow(base, exp)
+                    display: `Is ${num} prime?<br><small>(yes or no)</small>`,
+                    answer: isPrime ? 'yes' : 'no'
                 };
             },
             
@@ -996,9 +1455,818 @@ class MathBoredApp {
                     display: `${a} + ${b} × ${c} = ?`,
                     answer: answer
                 };
+            },
+            
+            "Fraction Addition and Subtraction": () => {
+                const a = this.randomInt(1, 5);
+                const b = this.randomInt(1, 5);
+                const den = this.randomFrom([6, 8, 10, 12]);
+                const sum = a + b;
+                return {
+                    display: `${a}/${den} + ${b}/${den} = ?/${den}`,
+                    answer: sum
+                };
+            },
+            
+            "Fraction Multiplication and Division": () => {
+                const a = this.randomInt(1, 6);
+                const b = this.randomInt(2, 8);
+                const c = this.randomInt(1, 6);
+                const d = this.randomInt(2, 8);
+                const result = (a * c) / (b * d);
+                return {
+                    display: `${a}/${b} × ${c}/${d} = ?<br><small>(Answer as decimal, rounded to 2 places)</small>`,
+                    answer: parseFloat(result.toFixed(2))
+                };
+            },
+            
+            "Coordinate Graphing": () => {
+                const x = this.randomInt(1, 10);
+                const y = this.randomInt(1, 10);
+                return {
+                    display: `What is the y-coordinate of point (${x}, ${y})?`,
+                    answer: y
+                };
+            },
+            
+            "Volume of Rectangular Prisms": () => {
+                const l = this.randomInt(2, 10);
+                const w = this.randomInt(2, 8);
+                const h = this.randomInt(2, 6);
+                return {
+                    display: `Volume = ${l} × ${w} × ${h} = ?`,
+                    answer: l * w * h
+                };
+            },
+            
+            "Measurement Conversion": () => {
+                const convs = [{from: 'km', to: 'm', mult: 1000}, {from: 'kg', to: 'g', mult: 1000}, {from: 'L', to: 'mL', mult: 1000}];
+                const conv = this.randomFrom(convs);
+                const val = this.randomInt(1, 5);
+                return {
+                    display: `${val} ${conv.from} = ? ${conv.to}`,
+                    answer: val * conv.mult
+                };
+            },
+            
+            "Decimal Operations": () => {
+                const a = (Math.random() * 10).toFixed(1);
+                const b = (Math.random() * 10).toFixed(1);
+                const op = this.randomFrom(['+', '-', '×']);
+                let answer;
+                if (op === '+') answer = (parseFloat(a) + parseFloat(b)).toFixed(2);
+                else if (op === '-') answer = (parseFloat(a) - parseFloat(b)).toFixed(2);
+                else answer = (parseFloat(a) * parseFloat(b)).toFixed(2);
+                return {
+                    display: `${a} ${op} ${b} = ?`,
+                    answer: parseFloat(answer)
+                };
+            },
+            
+            "Exponents (Introduction)": () => {
+                const exp = this.randomInt(1, 4);
+                return {
+                    display: `10^${exp} = ?`,
+                    answer: Math.pow(10, exp)
+                };
+            },
+            
+            "Expressions": () => {
+                const x = this.randomInt(1, 10);
+                const a = this.randomInt(2, 9);
+                const b = this.randomInt(1, 15);
+                return {
+                    display: `Evaluate ${a}x + ${b} when x = ${x}`,
+                    answer: a * x + b
+                };
+            },
+            
+            "Data and Graphs": () => {
+                const values = [12, 15, 18, 22, 25];
+                const range = Math.max(...values) - Math.min(...values);
+                return {
+                    display: `Data set: ${values.join(', ')}. What is the range?`,
+                    answer: range
+                };
+            },
+            
+            // ========== GRADE 6 TOPICS ==========
+            "Integers": () => {
+                const a = Math.floor(Math.random() * 20) - 10;
+                const b = Math.floor(Math.random() * 20) - 10;
+                return {
+                    a, b,
+                    display: `${a} + (${b}) = ?`,
+                    answer: a + b
+                };
+            },
+            
+            "Ratios and Proportions": () => {
+                const a = this.randomInt(2, 9);
+                const b = this.randomInt(2, 9);
+                const mult = this.randomInt(2, 5);
+                return {
+                    display: `If ${a}:${b} = ?:${b * mult}, what is the missing value?`,
+                    answer: a * mult
+                };
+            },
+            
+            "Percentages": () => {
+                const percent = [10, 20, 25, 50, 75][Math.floor(Math.random() * 5)];
+                const total = Math.floor(Math.random() * 100) + 10;
+                const answer = (total * percent / 100);
+                return {
+                    percent, total,
+                    display: `What is ${percent}% of ${total}?`,
+                    answer: answer
+                };
+            },
+            
+            "Coordinate Plane": () => {
+                const x = this.randomInt(-10, 10);
+                const y = this.randomInt(-10, 10);
+                const quadrant = x > 0 && y > 0 ? 'I' : x < 0 && y > 0 ? 'II' : x < 0 && y < 0 ? 'III' : 'IV';
+                return {
+                    display: `Point (${x}, ${y}) is in which quadrant?<br><small>(I, II, III, or IV)</small>`,
+                    answer: quadrant
+                };
+            },
+            
+            "Absolute Value": () => {
+                const num = this.randomInt(-20, 20);
+                return {
+                    display: `|${num}| = ?`,
+                    answer: Math.abs(num)
+                };
+            },
+            
+            "Statistical Questions": () => {
+                const data = [12, 15, 18, 20, 25];
+                const mean = data.reduce((a, b) => a + b) / data.length;
+                return {
+                    display: `Mean of ${data.join(', ')} = ?`,
+                    answer: mean
+                };
+            },
+            
+            "Rate and Unit Rate": () => {
+                const distance = this.randomInt(100, 500);
+                const time = this.randomFrom([2, 4, 5, 10]);
+                return {
+                    display: `${distance} miles in ${time} hours = ? miles per hour`,
+                    answer: distance / time
+                };
+            },
+            
+            "Expressions and Variables": () => {
+                const a = this.randomInt(2, 9);
+                const b = this.randomInt(1, 15);
+                const x = this.randomInt(1, 10);
+                return {
+                    display: `Evaluate ${a}x + ${b} when x = ${x}`,
+                    answer: a * x + b
+                };
+            },
+            
+            "One-Step Equations": () => {
+                const x = this.randomInt(1, 20);
+                const a = this.randomInt(2, 10);
+                const b = a * x;
+                return {
+                    display: `Solve: ${a}x = ${b}`,
+                    answer: x
+                };
+            },
+            
+            "Area of Triangles and Polygons": () => {
+                const base = this.randomInt(4, 20);
+                const height = this.randomInt(3, 15);
+                return {
+                    display: `Triangle with base ${base} and height ${height}. Area = ?`,
+                    answer: (base * height) / 2
+                };
+            },
+            
+            "Surface Area": () => {
+                const l = this.randomInt(2, 8);
+                const w = this.randomInt(2, 6);
+                const h = this.randomInt(2, 5);
+                const sa = 2 * (l * w + l * h + w * h);
+                return {
+                    display: `Rectangular prism: ${l}×${w}×${h}. Surface area = ?`,
+                    answer: sa
+                };
+            },
+            
+            // ========== GRADE 7+ TOPICS ==========
+            "Expressions and Equations": () => {
+                const m = this.randomInt(2, 8);
+                const b = this.randomInt(-10, 10);
+                const x = this.randomInt(1, 5);
+                const y = m * x + b;
+                return {
+                    display: `If y = ${m}x + ${b}, find y when x = ${x}`,
+                    answer: y
+                };
+            },
+            
+            "Inequalities": () => {
+                const x = this.randomInt(1, 20);
+                const a = this.randomInt(1, 5);
+                const b = a * x + this.randomInt(1, 10);
+                return {
+                    display: `Solve for x: ${a}x < ${b}`,
+                    answer: `x < ${Math.floor(b/a)}`,
+                    acceptedAnswers: [`x < ${Math.floor(b/a)}`, `x<${Math.floor(b/a)}`]
+                };
+            },
+            
+            "Area": () => {
+                const r = this.randomInt(3, 10);
+                const area = parseFloat((Math.PI * r * r).toFixed(2));
+                return {
+                    display: `Circle with radius ${r}. Area = ? (use π ≈ 3.14)`,
+                    answer: area
+                };
+            },
+            
+            "Angles and Triangles": () => {
+                const a = this.randomInt(30, 80);
+                const b = this.randomInt(30, 80);
+                const c = 180 - a - b;
+                return {
+                    display: `In a triangle, two angles are ${a}° and ${b}°. The third angle is ?°`,
+                    answer: c
+                };
+            },
+            
+            "Circles": () => {
+                const r = this.randomInt(3, 12);
+                const circumference = parseFloat((2 * Math.PI * r).toFixed(2));
+                return {
+                    display: `Circle with radius ${r}. Circumference = ? (use π ≈ 3.14)`,
+                    answer: circumference
+                };
+            },
+            
+            "Scale Drawings": () => {
+                const scale = this.randomInt(2, 5);
+                const actual = this.randomInt(10, 50);
+                return {
+                    display: `If 1 cm = ${scale} m, then ${actual} m = ? cm`,
+                    answer: actual / scale
+                };
+            },
+            
+            "Probability Basics": () => {
+                const favorable = this.randomInt(1, 5);
+                const total = this.randomInt(favorable + 2, 12);
+                const prob = parseFloat((favorable / total).toFixed(2));
+                return {
+                    display: `${favorable} favorable outcomes out of ${total} total. Probability = ? (as decimal)`,
+                    answer: prob
+                };
+            },
+            
+            "Proportional Relationships": () => {
+                const k = this.randomInt(2, 8);
+                const x = this.randomInt(1, 10);
+                return {
+                    display: `If y = ${k}x, find y when x = ${x}`,
+                    answer: k * x
+                };
+            },
+            
+            "Percent Applications": () => {
+                const price = this.randomInt(20, 100);
+                const discount = this.randomFrom([10, 15, 20, 25]);
+                const savings = price * discount / 100;
+                return {
+                    display: `$${price} item with ${discount}% discount. How much do you save?`,
+                    answer: savings
+                };
+            },
+            
+            "Two-Step Equations": () => {
+                const x = this.randomInt(1, 15);
+                const a = this.randomInt(2, 8);
+                const b = this.randomInt(1, 10);
+                const c = a * x + b;
+                return {
+                    display: `Solve: ${a}x + ${b} = ${c}`,
+                    answer: x
+                };
+            },
+            
+            // Grade 8+
+            "Volume": () => {
+                const l = this.randomInt(2, 10);
+                const w = this.randomInt(2, 8);
+                const h = this.randomInt(2, 6);
+                return {
+                    display: `Volume of ${l} × ${w} × ${h} box = ?`,
+                    answer: l * w * h
+                };
+            },
+            
+            "Pythagorean Theorem": () => {
+                const triples = [[3,4,5], [5,12,13], [8,15,17], [7,24,25]];
+                const triple = this.randomFrom(triples);
+                return {
+                    display: `Right triangle with legs ${triple[0]} and ${triple[1]}. Hypotenuse = ?`,
+                    answer: triple[2]
+                };
+            },
+            
+            "Slope": () => {
+                const x1 = this.randomInt(1, 5);
+                const y1 = this.randomInt(1, 5);
+                const x2 = this.randomInt(6, 10);
+                const y2 = this.randomInt(6, 10);
+                const slope = parseFloat(((y2 - y1) / (x2 - x1)).toFixed(2));
+                return {
+                    display: `Slope between (${x1},${y1}) and (${x2},${y2}) = ?`,
+                    answer: slope
+                };
+            },
+            
+            "Exponents": () => {
+                const base = this.randomInt(2, 6);
+                const exp = this.randomInt(2, 4);
+                return {
+                    display: `${base}^${exp} = ?`,
+                    answer: Math.pow(base, exp)
+                };
+            },
+            
+            "Systems of Equations": () => {
+                const x = this.randomInt(1, 5);
+                const y = this.randomInt(1, 5);
+                const a = this.randomInt(2, 5);
+                const sum = x + y;
+                return {
+                    display: `If x + y = ${sum} and x = ${x}, then y = ?`,
+                    answer: y
+                };
+            },
+            
+            "Scientific Notation": () => {
+                const coef = this.randomInt(1, 9) + Math.random().toFixed(1);
+                const exp = this.randomInt(2, 6);
+                const value = parseFloat(coef) * Math.pow(10, exp);
+                return {
+                    display: `${coef} × 10^${exp} = ?`,
+                    answer: value
+                };
+            },
+            
+            "Transformations": () => {
+                const x = this.randomInt(1, 8);
+                const y = this.randomInt(1, 8);
+                const dx = this.randomInt(1, 5);
+                return {
+                    display: `Point (${x},${y}) translated ${dx} units right. New x-coordinate = ?`,
+                    answer: x + dx
+                };
+            },
+            
+            "Functions (Introduction)": () => {
+                const a = this.randomInt(2, 8);
+                const b = this.randomInt(-5, 5);
+                const x = this.randomInt(1, 10);
+                return {
+                    display: `f(x) = ${a}x + ${b}. Find f(${x})`,
+                    answer: a * x + b
+                };
+            },
+            
+            "Scatter Plots": () => {
+                const correlation = this.randomFrom(['positive', 'negative', 'none']);
+                return {
+                    display: `Points trending upward from left to right show what correlation?`,
+                    answer: 'positive'
+                };
+            },
+            
+            // Grade 9+
+            "Polynomials": () => {
+                const a = this.randomInt(1, 5);
+                const b = this.randomInt(1, 10);
+                const x = this.randomInt(1, 5);
+                const result = a * x * x + b;
+                return {
+                    display: `Evaluate ${a}x² + ${b} when x = ${x}`,
+                    answer: result
+                };
+            },
+            
+            "Quadratic Equations": () => {
+                const solutions = [[1, 2], [2, 3], [1, 5], [-2, 3]];
+                const sol = this.randomFrom(solutions);
+                const b = -(sol[0] + sol[1]);
+                const c = sol[0] * sol[1];
+                return {
+                    display: `x² + ${b}x + ${c} = 0. One solution is x = ${sol[0]}. The other is ?`,
+                    answer: sol[1]
+                };
+            },
+            
+            "Functions": () => {
+                const a = this.randomInt(2, 8);
+                const x = this.randomInt(1, 10);
+                return {
+                    display: `f(x) = ${a}x². Find f(${x})`,
+                    answer: a * x * x
+                };
+            },
+            
+            "Factoring": () => {
+                const a = this.randomInt(2, 6);
+                const b = this.randomInt(2, 6);
+                const sum = a + b;
+                const product = a * b;
+                return {
+                    display: `Factor x² + ${sum}x + ${product}. What are the two numbers? (enter smaller number)`,
+                    answer: Math.min(a, b)
+                };
+            },
+            
+            "Radical Expressions": () => {
+                const squares = [4, 9, 16, 25, 36, 49, 64, 81, 100];
+                const num = this.randomFrom(squares);
+                return {
+                    display: `√${num} = ?`,
+                    answer: Math.sqrt(num)
+                };
+            },
+            
+            "Rational Expressions": () => {
+                const num = this.randomInt(2, 12);
+                const den = this.randomInt(2, 12);
+                const gcd = this.gcd(num, den);
+                return {
+                    display: `Simplify ${num}/${den}. Numerator after simplifying = ?`,
+                    answer: num / gcd
+                };
+            },
+            
+            "Linear Systems (Methods)": () => {
+                const x = this.randomInt(1, 8);
+                const y = this.randomInt(1, 8);
+                const a = this.randomInt(2, 5);
+                const b = this.randomInt(2, 5);
+                const c = a * x + b * y;
+                return {
+                    display: `${a}x + ${b}y = ${c}. If x = ${x}, then y = ?`,
+                    answer: y
+                };
+            },
+            
+            "Absolute Value Equations": () => {
+                const a = this.randomInt(3, 15);
+                return {
+                    display: `|x| = ${a}. What is the positive solution?`,
+                    answer: a
+                };
+            },
+            
+            "Square Root Functions": () => {
+                const x = this.randomFrom([4, 9, 16, 25, 36]);
+                return {
+                    display: `f(x) = √x. Find f(${x})`,
+                    answer: Math.sqrt(x)
+                };
+            },
+            
+            "Exponential Growth and Decay": () => {
+                const initial = this.randomInt(100, 1000);
+                const rate = this.randomFrom([0.05, 0.1, 0.15]);
+                const years = this.randomFrom([1, 2, 3]);
+                const result = initial * Math.pow(1 + rate, years);
+                return {
+                    display: `$${initial} growing at ${rate * 100}% per year for ${years} years ≈ ?<br><small>(round to nearest dollar)</small>`,
+                    answer: Math.round(result)
+                };
+            },
+            
+            // Grade 10+
+            "Trigonometry": () => {
+                const angles = [{angle: 30, sin: 0.5}, {angle: 45, sin: 0.707}, {angle: 60, sin: 0.866}];
+                const a = this.randomFrom(angles);
+                return {
+                    display: `sin(${a.angle}°) ≈ ?<br><small>(round to 2 decimals)</small>`,
+                    answer: a.sin
+                };
+            },
+            
+            "Probability": () => {
+                const favorable = this.randomInt(1, 6);
+                const total = this.randomInt(favorable + 3, 15);
+                const prob = parseFloat((favorable / total).toFixed(3));
+                return {
+                    display: `P(A) = ${favorable}/${total}. As decimal = ?`,
+                    answer: prob
+                };
+            },
+            
+            "Statistics": () => {
+                const data = [10, 15, 20, 25, 30];
+                const median = data[2];
+                return {
+                    display: `Data: ${data.join(', ')}. Median = ?`,
+                    answer: median
+                };
+            },
+            
+            "Circles (Advanced)": () => {
+                const r = this.randomInt(5, 15);
+                const degrees = this.randomFrom([60, 90, 120, 180]);
+                const arcLength = parseFloat((2 * Math.PI * r * degrees / 360).toFixed(2));
+                return {
+                    display: `Circle radius ${r}, arc of ${degrees}°. Arc length ≈ ? (π ≈ 3.14)`,
+                    answer: arcLength
+                };
+            },
+            
+            "Combinations and Permutations": () => {
+                const n = this.randomInt(4, 8);
+                const r = 2;
+                const nPr = n * (n - 1);
+                return {
+                    display: `How many ways to arrange ${r} items from ${n}? (Permutation, order matters)`,
+                    answer: nPr
+                };
+            },
+            
+            "Systems of Inequalities": () => {
+                const a = this.randomInt(5, 20);
+                return {
+                    display: `If x > ${a}, what is the smallest integer value of x?`,
+                    answer: a + 1
+                };
+            },
+            
+            "Normal Distribution": () => {
+                const mean = this.randomInt(50, 100);
+                const value = mean + this.randomInt(0, 20);
+                return {
+                    display: `Mean = ${mean}. Is ${value} above or below the mean?`,
+                    answer: value > mean ? 'above' : value < mean ? 'below' : 'equal'
+                };
+            },
+            
+            "Conditional Probability": () => {
+                const pA = 0.5;
+                const pB = 0.4;
+                const pAandB = 0.2;
+                const pAgivenB = pAandB / pB;
+                return {
+                    display: `P(A∩B) = 0.2, P(B) = 0.4. P(A|B) = ?`,
+                    answer: pAgivenB
+                };
+            },
+            
+            "Expected Value": () => {
+                const values = [10, 20, 30];
+                const probs = [0.5, 0.3, 0.2];
+                const ev = values.reduce((sum, val, i) => sum + val * probs[i], 0);
+                return {
+                    display: `Win $10 (50%), $20 (30%), or $30 (20%). Expected value = ?`,
+                    answer: ev
+                };
+            },
+            
+            "Circle Geometry": () => {
+                const inscribed = this.randomInt(30, 80);
+                const central = inscribed * 2;
+                return {
+                    display: `Inscribed angle = ${inscribed}°. Central angle = ?°`,
+                    answer: central
+                };
+            },
+            
+            // Grade 11+
+            "Law of Sines": () => {
+                const a = this.randomInt(5, 15);
+                const A = 30;
+                const B = 60;
+                const b = parseFloat((a * Math.sin(B * Math.PI / 180) / Math.sin(A * Math.PI / 180)).toFixed(2));
+                return {
+                    display: `a/${Math.sin(A * Math.PI / 180).toFixed(3)} = b/${Math.sin(B * Math.PI / 180).toFixed(3)}. If a = ${a}, b ≈ ?`,
+                    answer: b
+                };
+            },
+            
+            "Law of Cosines": () => {
+                const a = 5;
+                const b = 7;
+                const C = 60;
+                const c = Math.sqrt(a * a + b * b - 2 * a * b * Math.cos(C * Math.PI / 180));
+                return {
+                    display: `Triangle: a=5, b=7, C=60°. c ≈ ?<br><small>(round to 1 decimal)</small>`,
+                    answer: parseFloat(c.toFixed(1))
+                };
+            },
+            
+            "Logarithms": () => {
+                const base = this.randomFrom([2, 10]);
+                const exponent = this.randomInt(2, 4);
+                const value = Math.pow(base, exponent);
+                return {
+                    display: `log₁₀(${Math.pow(10, exponent)}) = ?`,
+                    answer: exponent
+                };
+            },
+            
+            "Exponential Functions": () => {
+                const a = this.randomInt(2, 10);
+                const b = 2;
+                const x = this.randomInt(1, 4);
+                const y = a * Math.pow(b, x);
+                return {
+                    display: `y = ${a}(2)^x. Find y when x = ${x}`,
+                    answer: y
+                };
+            },
+            
+            "Complex Numbers": () => {
+                const a = this.randomInt(1, 5);
+                const b = this.randomInt(1, 5);
+                return {
+                    display: `(${a} + 2i) + (3 + ${b}i). Real part = ?`,
+                    answer: a + 3
+                };
+            },
+            
+            "Conic Sections": () => {
+                const a = this.randomInt(2, 8);
+                return {
+                    display: `Equation x² + y² = ${a * a}. This is a circle with radius ?`,
+                    answer: a
+                };
+            },
+            
+            "Sequences (Arithmetic/Geometric)": () => {
+                const a1 = this.randomInt(2, 10);
+                const d = this.randomInt(2, 5);
+                const n = this.randomInt(5, 10);
+                const an = a1 + (n - 1) * d;
+                return {
+                    display: `Arithmetic: a₁ = ${a1}, d = ${d}. Find a${n}`,
+                    answer: an
+                };
+            },
+            
+            "Series and Summation": () => {
+                const n = this.randomInt(5, 10);
+                const sum = n * (n + 1) / 2;
+                return {
+                    display: `Sum of 1 + 2 + 3 + ... + ${n} = ?`,
+                    answer: sum
+                };
+            },
+            
+            "Inverse Functions": () => {
+                const a = this.randomInt(2, 8);
+                const b = this.randomInt(1, 10);
+                const y = this.randomInt(10, 50);
+                const x = (y - b) / a;
+                return {
+                    display: `If f(x) = ${a}x + ${b}, find x when f(x) = ${y}`,
+                    answer: x
+                };
+            },
+            
+            "Rational Exponents": () => {
+                const base = this.randomFrom([4, 8, 16, 27]);
+                const exp = base === 27 ? 1/3 : 1/2;
+                const result = Math.pow(base, exp);
+                return {
+                    display: `${base}^(1/${exp === 1/2 ? 2 : 3}) = ?`,
+                    answer: result
+                };
+            },
+            
+            "Polynomial Division": () => {
+                const divisor = this.randomInt(2, 5);
+                const quotient = this.randomInt(3, 10);
+                const dividend = divisor * quotient;
+                return {
+                    display: `(${dividend}x) ÷ (${divisor}x) = ?`,
+                    answer: quotient
+                };
+            },
+            
+            // Grade 12
+            "Derivatives": () => {
+                const a = this.randomInt(2, 10);
+                const x = this.randomInt(1, 5);
+                const derivative = 2 * a * x;
+                return {
+                    display: `If f(x) = ${a}x², then f'(${x}) = ?`,
+                    answer: derivative
+                };
+            },
+            
+            "Integrals": () => {
+                const a = this.randomInt(2, 8);
+                return {
+                    display: `∫${a}dx = ?<br><small>(ignore constant of integration, answer like "${a}x")</small>`,
+                    answer: `${a}x`,
+                    acceptedAnswers: [`${a}x`, `${a} x`]
+                };
+            },
+            
+            "Sequences and Series": () => {
+                const n = this.randomInt(5, 15);
+                const sum = n * (n + 1) / 2;
+                return {
+                    display: `Σ(i=1 to ${n}) i = ?`,
+                    answer: sum
+                };
+            },
+            
+            "Matrices": () => {
+                const a = this.randomInt(1, 5);
+                const b = this.randomInt(1, 5);
+                const c = this.randomInt(1, 5);
+                const d = this.randomInt(1, 5);
+                return {
+                    display: `Add matrices: [${a} ${b}] + [${c} ${d}]. First element = ?`,
+                    answer: a + c
+                };
+            },
+            
+            "Standard Deviation": () => {
+                const data = [10, 20, 30];
+                const mean = 20;
+                return {
+                    display: `Data: ${data.join(', ')}. Mean = ${mean}. What is the mean?`,
+                    answer: mean
+                };
+            },
+            
+            "Limits": () => {
+                const a = this.randomInt(2, 8);
+                const x = this.randomInt(1, 5);
+                const limit = a * x;
+                return {
+                    display: `lim(x→${x}) ${a}x = ?`,
+                    answer: limit
+                };
+            },
+            
+            "Vectors": () => {
+                const x1 = this.randomInt(1, 5);
+                const y1 = this.randomInt(1, 5);
+                const x2 = this.randomInt(1, 5);
+                const y2 = this.randomInt(1, 5);
+                return {
+                    display: `⟨${x1},${y1}⟩ + ⟨${x2},${y2}⟩ = ⟨?,?⟩. First component = ?`,
+                    answer: x1 + x2
+                };
+            },
+            
+            "Rational Functions": () => {
+                const x = this.randomInt(1, 5);
+                const a = this.randomInt(2, 10);
+                const b = this.randomInt(1, 10);
+                const result = parseFloat((a / (x + b)).toFixed(2));
+                return {
+                    display: `f(x) = ${a}/(x + ${b}). Find f(${x})`,
+                    answer: result
+                };
+            },
+            
+            "Parametric Equations": () => {
+                const t = this.randomInt(1, 5);
+                const a = this.randomInt(2, 8);
+                const x = a * t;
+                return {
+                    display: `x = ${a}t, y = t². When t = ${t}, x = ?`,
+                    answer: x
+                };
+            },
+            
+            "Polar Coordinates": () => {
+                const r = this.randomInt(3, 10);
+                const theta = 90;
+                return {
+                    display: `Point (${r}, 90°) in polar. r = ?`,
+                    answer: r
+                };
+            },
+            
+            "L'Hôpital's Rule": () => {
+                const a = this.randomInt(2, 8);
+                return {
+                    display: `lim(x→0) ${a}x/x = ?`,
+                    answer: a
+                };
             }
         };
         
+        // Fallback to Addition if generator doesn't exist
         const generator = generators[concept.concept] || generators["Addition"];
         const problem = generator();
         
@@ -1007,7 +2275,7 @@ class MathBoredApp {
     }
     
     checkAnswer() {
-        const userInput = document.getElementById('answerInput').value.trim();
+        const userInput = document.getElementById('answerInput').value.trim().toLowerCase();
         const feedbackDiv = document.getElementById('feedback');
         
         if (!userInput) {
@@ -1015,91 +2283,70 @@ class MathBoredApp {
             return;
         }
         
-        // Parse user answer (handle different formats)
-        let userAnswer = userInput;
-        const expectedAnswer = String(this.currentAnswer);
+        // Check if problem has acceptedAnswers array
+        const acceptedAnswers = this.currentProblem.acceptedAnswers || [];
+        const expectedAnswer = String(this.currentAnswer).toLowerCase();
         
-        // For numeric answers
-        if (!isNaN(parseFloat(userInput))) {
-            userAnswer = parseFloat(userInput);
-            const isCorrect = Math.abs(userAnswer - parseFloat(expectedAnswer)) < 0.01;
-            
-            this.stats.totalAttempts++;
-            
-            if (isCorrect) {
-                this.stats.correctAnswers++;
-                this.stats.streak++;
-                this.stats.score += 10;
-                this.saveStats();
-                this.updateStatsDisplay();
-                
-                feedbackDiv.innerHTML = `
-                    <div class="feedback correct">
-                        ✓ Excellent! That's correct! 🎉
-                        <p style="margin-top: 10px; font-size: 1rem;">+10 points • ${this.stats.streak} streak!</p>
-                    </div>
-                    <button class="btn-new" onclick="app.renderPractice(document.getElementById('contentArea'))">
-                        Next Problem
-                    </button>
-                `;
+        // Check against accepted answers first
+        let isCorrect = false;
+        if (acceptedAnswers.length > 0) {
+            isCorrect = acceptedAnswers.some(ans => 
+                String(ans).toLowerCase() === userInput || 
+                String(ans).toLowerCase().replace(/\s/g, '') === userInput.replace(/\s/g, '')
+            );
+        }
+        
+        // If not in accepted answers, try standard matching
+        if (!isCorrect) {
+            // For numeric answers
+            if (!isNaN(parseFloat(userInput)) && !isNaN(parseFloat(expectedAnswer))) {
+                const userAnswer = parseFloat(userInput);
+                const expected = parseFloat(expectedAnswer);
+                isCorrect = Math.abs(userAnswer - expected) < 0.01;
             } else {
-                this.stats.streak = 0;
-                this.saveStats();
-                this.updateStatsDisplay();
-                
-                feedbackDiv.innerHTML = `
-                    <div class="feedback incorrect">
-                        ✗ Not quite. Try again or see the solution below.
-                    </div>
-                    <div class="solution">
-                        <div class="solution-title">💡 Solution:</div>
-                        <p style="font-size: 1.3rem; margin: 15px 0;">The correct answer is <strong>${this.formatAnswer(this.currentAnswer)}</strong></p>
-                        <p>${this.getSolutionExplanation()}</p>
-                    </div>
-                    <button class="btn-new" onclick="app.renderPractice(document.getElementById('contentArea'))">
-                        Try Another Problem
-                    </button>
-                `;
+                // For text answers (case-insensitive, ignore extra spaces)
+                const cleanUser = userInput.replace(/\s+/g, ' ').trim();
+                const cleanExpected = expectedAnswer.replace(/\s+/g, ' ').trim();
+                isCorrect = cleanUser === cleanExpected;
             }
+        }
+        
+        this.stats.totalAttempts++;
+        
+        if (isCorrect) {
+            this.stats.correctAnswers++;
+            this.stats.streak++;
+            this.stats.score += 10;
+            this.saveStats();
+            this.updateStatsDisplay();
+            
+            feedbackDiv.innerHTML = `
+                <div class="feedback correct">
+                    ✓ Excellent! That's correct! 🎉
+                    <p style="margin-top: 10px; font-size: 1rem;">+10 points • ${this.stats.streak} streak!</p>
+                </div>
+                <button class="btn-new" onclick="app.renderPractice(document.getElementById('contentArea'))">
+                    Next Problem
+                </button>
+            `;
         } else {
-            // For non-numeric answers (like fractions)
-            const isCorrect = userAnswer === expectedAnswer;
-            this.stats.totalAttempts++;
+            this.stats.streak = 0;
+            this.saveStats();
+            this.updateStatsDisplay();
             
-            if (isCorrect) {
-                this.stats.correctAnswers++;
-                this.stats.streak++;
-                this.stats.score += 10;
-                this.saveStats();
-                this.updateStatsDisplay();
-                
-                feedbackDiv.innerHTML = `
-                    <div class="feedback correct">
-                        ✓ Perfect! That's the right answer! 🎉
-                        <p style="margin-top: 10px;">+10 points • ${this.stats.streak} streak!</p>
-                    </div>
-                    <button class="btn-new" onclick="app.renderPractice(document.getElementById('contentArea'))">
-                        Next Problem
-                    </button>
-                `;
-            } else {
-                this.stats.streak = 0;
-                this.saveStats();
-                this.updateStatsDisplay();
-                
-                feedbackDiv.innerHTML = `
-                    <div class="feedback incorrect">
-                        ✗ Not quite right. See the solution below!
-                    </div>
-                    <div class="solution">
-                        <div class="solution-title">💡 Solution:</div>
-                        <p style="font-size: 1.3rem;">The correct answer is <strong>${this.formatAnswer(this.currentAnswer)}</strong></p>
-                    </div>
-                    <button class="btn-new" onclick="app.renderPractice(document.getElementById('contentArea'))">
-                        Try Another Problem
-                    </button>
-                `;
-            }
+            feedbackDiv.innerHTML = `
+                <div class="feedback incorrect">
+                    ✗ Not quite. Try again or see the solution below.
+                </div>
+                <div class="solution">
+                    <div class="solution-title">💡 Solution:</div>
+                    <p style="font-size: 1.3rem; margin: 15px 0;">The correct answer is <strong>${this.formatAnswer(this.currentAnswer)}</strong></p>
+                    <p>${this.getSolutionExplanation()}</p>
+                </div>
+                <button class="btn-new" onclick="app.renderPractice(document.getElementById('contentArea'))">
+                    Try Another Problem
+                </button>
+            `;
         }
     }
     
