@@ -1063,6 +1063,777 @@ const mathConcepts = [
         relatedOperations: "Limits",
         relatedTopics: "Derivatives",
         gradeLevel: "12"
+    },
+    // NEW ADDITIONS - K-6 FOUNDATIONAL TOPICS
+    {
+        concept: "Number Writing (0-20)",
+        keyFormulas: "",
+        keyConcepts: "Writing numerals correctly, number formation",
+        relatedOperations: "Number recognition",
+        relatedTopics: "Counting and cardinality",
+        gradeLevel: "K"
+    },
+    {
+        concept: "More/Less/Equal",
+        keyFormulas: "",
+        keyConcepts: "Comparing quantities using more, less, equal",
+        relatedOperations: "Comparing",
+        relatedTopics: "Number sense",
+        gradeLevel: "K"
+    },
+    {
+        concept: "Sorting and Classifying",
+        keyFormulas: "",
+        keyConcepts: "Categorizing objects by attributes",
+        relatedOperations: "Grouping",
+        relatedTopics: "Data organization",
+        gradeLevel: "K"
+    },
+    {
+        concept: "Position Words",
+        keyFormulas: "",
+        keyConcepts: "Above, below, beside, next to, in front, behind",
+        relatedOperations: "Spatial reasoning",
+        relatedTopics: "Geometry",
+        gradeLevel: "K"
+    },
+    {
+        concept: "Simple Addition Stories",
+        keyFormulas: "+",
+        keyConcepts: "Visual addition word problems within 5",
+        relatedOperations: "Addition",
+        relatedTopics: "Word problems",
+        gradeLevel: "K"
+    },
+    {
+        concept: "Calendar Skills",
+        keyFormulas: "",
+        keyConcepts: "Days of week, months, seasons",
+        relatedOperations: "Time",
+        relatedTopics: "Patterns",
+        gradeLevel: "K"
+    },
+    {
+        concept: "Three-Addend Addition",
+        keyFormulas: "+",
+        keyConcepts: "Adding three numbers together",
+        relatedOperations: "Addition",
+        relatedTopics: "Mental math",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Missing Addends",
+        keyFormulas: "+",
+        keyConcepts: "Finding unknown in equations (5 + ? = 8)",
+        relatedOperations: "Inverse operations",
+        relatedTopics: "Fact families",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Number Line Operations",
+        keyFormulas: "+, -",
+        keyConcepts: "Using number lines for addition and subtraction",
+        relatedOperations: "Visual math",
+        relatedTopics: "Addition, subtraction",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Coin Recognition",
+        keyFormulas: "",
+        keyConcepts: "Identifying penny, nickel, dime, quarter",
+        relatedOperations: "Money",
+        relatedTopics: "Counting",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Half Hour Time",
+        keyFormulas: "",
+        keyConcepts: "Reading clocks at half-past",
+        relatedOperations: "Time",
+        relatedTopics: "Telling time",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Equal Parts",
+        keyFormulas: "",
+        keyConcepts: "Introduction to halves and fourths",
+        relatedOperations: "Fractions",
+        relatedTopics: "Division",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Tally Marks",
+        keyFormulas: "",
+        keyConcepts: "Counting and organizing with tallies",
+        relatedOperations: "Counting by 5s",
+        relatedTopics: "Data organization",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Greater Than/Less Than Symbols",
+        keyFormulas: "<, >, =",
+        keyConcepts: "Using comparison symbols correctly",
+        relatedOperations: "Comparing numbers",
+        relatedTopics: "Number sense",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Place Value (Hundreds)",
+        keyFormulas: "",
+        keyConcepts: "Understanding 3-digit place value deeply",
+        relatedOperations: "Decomposing numbers",
+        relatedTopics: "Three-digit numbers",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Mental Math Strategies",
+        keyFormulas: "+, -",
+        keyConcepts: "Adding 10, 100; subtracting 10 mentally",
+        relatedOperations: "Place value",
+        relatedTopics: "Number sense",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Measurement (Inches/Centimeters)",
+        keyFormulas: "",
+        keyConcepts: "Using rulers to measure length",
+        relatedOperations: "Measurement",
+        relatedTopics: "Units",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Repeated Addition",
+        keyFormulas: "+",
+        keyConcepts: "Foundation for multiplication",
+        relatedOperations: "Addition",
+        relatedTopics: "Multiplication",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Equal Groups",
+        keyFormulas: "÷",
+        keyConcepts: "Division concept introduction",
+        relatedOperations: "Division",
+        relatedTopics: "Multiplication",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Shapes (2D Properties)",
+        keyFormulas: "",
+        keyConcepts: "Understanding sides, vertices, angles",
+        relatedOperations: "Counting",
+        relatedTopics: "Geometry",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Line Plots (Simple)",
+        keyFormulas: "",
+        keyConcepts: "Organizing measurement data on line plots",
+        relatedOperations: "Data collection",
+        relatedTopics: "Graphs",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Counting Money",
+        keyFormulas: "",
+        keyConcepts: "Mixed coins (calculating totals)",
+        relatedOperations: "Addition",
+        relatedTopics: "Money",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Quarter Hours",
+        keyFormulas: "",
+        keyConcepts: "Time to 15-minute intervals",
+        relatedOperations: "Time",
+        relatedTopics: "Telling time",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Number Patterns (100s chart)",
+        keyFormulas: "",
+        keyConcepts: "Patterns in 100s chart",
+        relatedOperations: "Skip counting",
+        relatedTopics: "Patterns",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Multiplication Tables (Focus)",
+        keyFormulas: "×",
+        keyConcepts: "Fluency with 0-12 multiplication tables",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Division",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Division with Remainders",
+        keyFormulas: "÷",
+        keyConcepts: "Understanding and calculating remainders",
+        relatedOperations: "Division",
+        relatedTopics: "Multiplication",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Fraction Comparison",
+        keyFormulas: "<, >, =",
+        keyConcepts: "Comparing fractions to determine which is larger",
+        relatedOperations: "Fractions",
+        relatedTopics: "Equivalent fractions",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Unit Fractions",
+        keyFormulas: "1/n",
+        keyConcepts: "Understanding 1/2, 1/3, 1/4, etc.",
+        relatedOperations: "Fractions",
+        relatedTopics: "Equal parts",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Liquid Measurement",
+        keyFormulas: "",
+        keyConcepts: "Cups, pints, quarts, gallons",
+        relatedOperations: "Measurement",
+        relatedTopics: "Units",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Weight Measurement",
+        keyFormulas: "",
+        keyConcepts: "Ounces, pounds, grams, kilograms",
+        relatedOperations: "Measurement",
+        relatedTopics: "Units",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Perimeter of Polygons",
+        keyFormulas: "P = sum of all sides",
+        keyConcepts: "Finding perimeter of various shapes",
+        relatedOperations: "Addition",
+        relatedTopics: "Area and perimeter",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Scaled Picture Graphs",
+        keyFormulas: "",
+        keyConcepts: "Each symbol represents multiple units",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Data interpretation",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Scaled Bar Graphs",
+        keyFormulas: "",
+        keyConcepts: "Interpreting scales on bar graphs",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Data interpretation",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Frequency Tables",
+        keyFormulas: "",
+        keyConcepts: "Organizing categorical data",
+        relatedOperations: "Counting",
+        relatedTopics: "Data organization",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Elapsed Time",
+        keyFormulas: "",
+        keyConcepts: "Time intervals and duration",
+        relatedOperations: "Subtraction",
+        relatedTopics: "Time",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Temperature",
+        keyFormulas: "",
+        keyConcepts: "Reading thermometers, Fahrenheit/Celsius",
+        relatedOperations: "Measurement",
+        relatedTopics: "Units",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Multi-Digit Multiplication",
+        keyFormulas: "×",
+        keyConcepts: "2-digit × 2-digit multiplication",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Place value",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Long Division",
+        keyFormulas: "÷",
+        keyConcepts: "Multi-digit divisors",
+        relatedOperations: "Division",
+        relatedTopics: "Multiplication",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Fraction Ordering",
+        keyFormulas: "<, >, =",
+        keyConcepts: "Ordering multiple fractions",
+        relatedOperations: "Comparison",
+        relatedTopics: "Equivalent fractions",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Fraction Models",
+        keyFormulas: "",
+        keyConcepts: "Visual representations (number lines, area)",
+        relatedOperations: "Fractions",
+        relatedTopics: "Equivalent fractions",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Decimal Place Value",
+        keyFormulas: "",
+        keyConcepts: "Understanding tenths and hundredths",
+        relatedOperations: "Place value",
+        relatedTopics: "Decimals",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Decimal Comparison",
+        keyFormulas: "<, >, =",
+        keyConcepts: "Comparing decimal values",
+        relatedOperations: "Comparison",
+        relatedTopics: "Place value",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Protractor Use",
+        keyFormulas: "",
+        keyConcepts: "Measuring angles with protractor",
+        relatedOperations: "Measurement",
+        relatedTopics: "Angles",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Symmetry",
+        keyFormulas: "",
+        keyConcepts: "Lines of symmetry in figures",
+        relatedOperations: "Geometry",
+        relatedTopics: "Shapes",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Classifying Triangles",
+        keyFormulas: "",
+        keyConcepts: "By angles (acute, right, obtuse) and sides (equilateral, isosceles, scalene)",
+        relatedOperations: "Classification",
+        relatedTopics: "Geometry",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Coordinate Grids (First Quadrant)",
+        keyFormulas: "(x, y)",
+        keyConcepts: "Plotting points in first quadrant",
+        relatedOperations: "Ordered pairs",
+        relatedTopics: "Coordinate plane",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Division of Decimals",
+        keyFormulas: "÷",
+        keyConcepts: "Dividing with decimal divisors",
+        relatedOperations: "Division",
+        relatedTopics: "Decimal operations",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Powers of 10",
+        keyFormulas: "10^n",
+        keyConcepts: "Multiplying/dividing by powers of 10",
+        relatedOperations: "Place value",
+        relatedTopics: "Exponents",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Fraction to Decimal Conversion",
+        keyFormulas: "÷",
+        keyConcepts: "Converting between fractions and decimals",
+        relatedOperations: "Division",
+        relatedTopics: "Fractions, decimals",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Percentage Basics",
+        keyFormulas: "%",
+        keyConcepts: "Understanding percent as per hundred",
+        relatedOperations: "Fractions",
+        relatedTopics: "Decimals",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Three-Dimensional Figures",
+        keyFormulas: "",
+        keyConcepts: "Identifying prisms, pyramids, cylinders, cones, spheres",
+        relatedOperations: "Classification",
+        relatedTopics: "Geometry",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Cubic Units",
+        keyFormulas: "units³",
+        keyConcepts: "Understanding volume units",
+        relatedOperations: "Volume",
+        relatedTopics: "Measurement",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Order of Operations (PEMDAS)",
+        keyFormulas: "PEMDAS",
+        keyConcepts: "Parentheses, exponents, multiplication/division, addition/subtraction",
+        relatedOperations: "All operations",
+        relatedTopics: "Expressions",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Numerical Patterns",
+        keyFormulas: "",
+        keyConcepts: "Identifying rules and sequences",
+        relatedOperations: "Patterns",
+        relatedTopics: "Sequences",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Mean (Average)",
+        keyFormulas: "sum ÷ count",
+        keyConcepts: "Calculating and interpreting mean",
+        relatedOperations: "Division",
+        relatedTopics: "Statistics",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Line Graphs",
+        keyFormulas: "",
+        keyConcepts: "Creating and interpreting trends over time",
+        relatedOperations: "Data analysis",
+        relatedTopics: "Graphs",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Dividing Fractions",
+        keyFormulas: "÷, reciprocal",
+        keyConcepts: "Using reciprocals to divide fractions",
+        relatedOperations: "Division",
+        relatedTopics: "Multiplication of fractions",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Negative Numbers",
+        keyFormulas: "",
+        keyConcepts: "Number line with negative values",
+        relatedOperations: "Integers",
+        relatedTopics: "Absolute value",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Operations with Integers",
+        keyFormulas: "+, -, ×, ÷",
+        keyConcepts: "All four operations with positive and negative numbers",
+        relatedOperations: "Integer rules",
+        relatedTopics: "Number sense",
+        gradeLevel: "6"
+    },
+    {
+        concept: "GCF Applications",
+        keyFormulas: "GCF",
+        keyConcepts: "Using GCF to simplify fractions",
+        relatedOperations: "Simplification",
+        relatedTopics: "Greatest common factor",
+        gradeLevel: "6"
+    },
+    {
+        concept: "LCM Applications",
+        keyFormulas: "LCM",
+        keyConcepts: "Using LCM for adding fractions",
+        relatedOperations: "Fraction addition",
+        relatedTopics: "Least common multiple",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Ratio Tables",
+        keyFormulas: "a:b",
+        keyConcepts: "Equivalent ratios in table format",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Ratios and proportions",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Double Number Lines",
+        keyFormulas: "",
+        keyConcepts: "Visual representation for ratios and proportions",
+        relatedOperations: "Ratios",
+        relatedTopics: "Proportional relationships",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Percent of a Number",
+        keyFormulas: "% × n",
+        keyConcepts: "Finding percentages of quantities",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Percentages",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Box Plots",
+        keyFormulas: "",
+        keyConcepts: "Reading and creating box-and-whisker plots",
+        relatedOperations: "Data analysis",
+        relatedTopics: "Statistics",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Histograms",
+        keyFormulas: "",
+        keyConcepts: "Frequency distributions with intervals",
+        relatedOperations: "Data analysis",
+        relatedTopics: "Bar graphs",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Median and Mode",
+        keyFormulas: "",
+        keyConcepts: "Additional measures of center",
+        relatedOperations: "Statistics",
+        relatedTopics: "Mean",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Interquartile Range (IQR)",
+        keyFormulas: "Q3 - Q1",
+        keyConcepts: "Understanding spread in data",
+        relatedOperations: "Subtraction",
+        relatedTopics: "Box plots",
+        gradeLevel: "6"
+    },
+    // GRADE 7-8 ADDITIONS
+    {
+        concept: "Multi-Step Equations",
+        keyFormulas: "",
+        keyConcepts: "Solving complex algebraic equations with multiple operations",
+        relatedOperations: "All operations",
+        relatedTopics: "Two-step equations",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Combining Like Terms",
+        keyFormulas: "",
+        keyConcepts: "Simplifying expressions by combining terms",
+        relatedOperations: "Addition, subtraction",
+        relatedTopics: "Expressions",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Distributive Property",
+        keyFormulas: "a(b + c) = ab + ac",
+        keyConcepts: "Expanding expressions using distribution",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Properties of operations",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Simple Interest",
+        keyFormulas: "I = PRT",
+        keyConcepts: "Principal, rate, time calculations",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Percentages",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Percent Change",
+        keyFormulas: "(new - old)/old × 100%",
+        keyConcepts: "Percent increase and decrease",
+        relatedOperations: "Percentages",
+        relatedTopics: "Percent applications",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Complementary and Supplementary Angles",
+        keyFormulas: "90°, 180°",
+        keyConcepts: "Angle relationships and pairs",
+        relatedOperations: "Subtraction",
+        relatedTopics: "Angles",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Volume of Cylinders",
+        keyFormulas: "V = πr²h",
+        keyConcepts: "Circular base volume calculations",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Volume",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Sample Space",
+        keyFormulas: "",
+        keyConcepts: "Listing all possible outcomes",
+        relatedOperations: "Counting",
+        relatedTopics: "Probability",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Simultaneous Equations (Graphing)",
+        keyFormulas: "",
+        keyConcepts: "Visual solution method for systems",
+        relatedOperations: "Graphing",
+        relatedTopics: "Systems of equations",
+        gradeLevel: "8"
+    },
+    {
+        concept: "Distance Formula",
+        keyFormulas: "d = √[(x₂-x₁)² + (y₂-y₁)²]",
+        keyConcepts: "Finding distance between two points",
+        relatedOperations: "Square roots",
+        relatedTopics: "Pythagorean theorem",
+        gradeLevel: "8"
+    },
+    {
+        concept: "Volume of Cones and Spheres",
+        keyFormulas: "V = (1/3)πr²h, V = (4/3)πr³",
+        keyConcepts: "Advanced 3D geometry volume",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Volume",
+        gradeLevel: "8"
+    },
+    {
+        concept: "Bivariate Data",
+        keyFormulas: "",
+        keyConcepts: "Two-variable relationships and correlation",
+        relatedOperations: "Data analysis",
+        relatedTopics: "Scatter plots",
+        gradeLevel: "8"
+    },
+    {
+        concept: "Linear vs Non-Linear Functions",
+        keyFormulas: "",
+        keyConcepts: "Identifying function types from tables/graphs",
+        relatedOperations: "Pattern recognition",
+        relatedTopics: "Functions",
+        gradeLevel: "8"
+    },
+    {
+        concept: "Roots and Radicals",
+        keyFormulas: "³√, ⁴√",
+        keyConcepts: "Cube roots and higher-order roots",
+        relatedOperations: "Radicals",
+        relatedTopics: "Exponents",
+        gradeLevel: "8"
+    },
+    {
+        concept: "Rational vs Irrational Numbers",
+        keyFormulas: "",
+        keyConcepts: "Number classification and properties",
+        relatedOperations: "Number theory",
+        relatedTopics: "Real numbers",
+        gradeLevel: "8"
+    },
+    {
+        concept: "Frequency Tables (Two-Way)",
+        keyFormulas: "",
+        keyConcepts: "Categorical data with two variables",
+        relatedOperations: "Data analysis",
+        relatedTopics: "Statistics",
+        gradeLevel: "8"
+    },
+    // GRADE 9-12 ADDITIONS
+    {
+        concept: "Completing the Square",
+        keyFormulas: "x² + bx + (b/2)²",
+        keyConcepts: "Quadratic solving method",
+        relatedOperations: "Algebra",
+        relatedTopics: "Quadratic equations",
+        gradeLevel: "9"
+    },
+    {
+        concept: "Quadratic Formula",
+        keyFormulas: "x = [-b ± √(b²-4ac)]/2a",
+        keyConcepts: "Using formula to solve quadratics",
+        relatedOperations: "Substitution",
+        relatedTopics: "Quadratic equations",
+        gradeLevel: "9"
+    },
+    {
+        concept: "Parent Functions",
+        keyFormulas: "",
+        keyConcepts: "Basic function families (linear, quadratic, etc.)",
+        relatedOperations: "Function analysis",
+        relatedTopics: "Functions",
+        gradeLevel: "9"
+    },
+    {
+        concept: "Function Transformations",
+        keyFormulas: "f(x) + k, f(x + h), af(x)",
+        keyConcepts: "Shifts, stretches, reflections of functions",
+        relatedOperations: "Graphing",
+        relatedTopics: "Functions",
+        gradeLevel: "9"
+    },
+    {
+        concept: "Regression Lines",
+        keyFormulas: "y = mx + b",
+        keyConcepts: "Line of best fit for data",
+        relatedOperations: "Statistics",
+        relatedTopics: "Scatter plots",
+        gradeLevel: "10"
+    },
+    {
+        concept: "Standard Form to Slope-Intercept",
+        keyFormulas: "Ax + By = C → y = mx + b",
+        keyConcepts: "Converting between linear equation forms",
+        relatedOperations: "Algebra",
+        relatedTopics: "Linear equations",
+        gradeLevel: "10"
+    },
+    {
+        concept: "Unit Circle",
+        keyFormulas: "x² + y² = 1",
+        keyConcepts: "Trigonometry on the unit circle",
+        relatedOperations: "Trig functions",
+        relatedTopics: "Trigonometry",
+        gradeLevel: "11"
+    },
+    {
+        concept: "Trig Identities",
+        keyFormulas: "sin²θ + cos²θ = 1",
+        keyConcepts: "Pythagorean and reciprocal identities",
+        relatedOperations: "Trigonometry",
+        relatedTopics: "Trig functions",
+        gradeLevel: "11"
+    },
+    {
+        concept: "Arc Length and Sector Area",
+        keyFormulas: "s = rθ, A = (1/2)r²θ",
+        keyConcepts: "Circle calculations with radians",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Circles",
+        gradeLevel: "11"
+    },
+    {
+        concept: "Asymptotes",
+        keyFormulas: "",
+        keyConcepts: "Vertical, horizontal, and oblique asymptotes",
+        relatedOperations: "Limits",
+        relatedTopics: "Rational functions",
+        gradeLevel: "12"
+    },
+    {
+        concept: "Continuity",
+        keyFormulas: "",
+        keyConcepts: "Function continuity concepts and definitions",
+        relatedOperations: "Limits",
+        relatedTopics: "Calculus",
+        gradeLevel: "12"
+    },
+    {
+        concept: "Chain Rule",
+        keyFormulas: "dy/dx = dy/du × du/dx",
+        keyConcepts: "Composite function derivatives",
+        relatedOperations: "Differentiation",
+        relatedTopics: "Derivatives",
+        gradeLevel: "12"
     }
 ];
 

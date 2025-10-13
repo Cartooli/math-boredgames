@@ -2263,6 +2263,1100 @@ class MathBoredApp {
                     display: `lim(x→0) ${a}x/x = ?`,
                     answer: a
                 };
+            },
+            
+            // ========== NEW 96 TOPICS GENERATORS ==========
+            // KINDERGARTEN NEW TOPICS
+            "Number Writing (0-20)": () => {
+                const problemTypes = [
+                    // Word to numeral
+                    () => {
+                        const num = this.randomInt(0, 20);
+                        const words = ['zero','one','two','three','four','five','six','seven','eight','nine','ten',
+                                      'eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen','twenty'];
+                        return {
+                            display: `Write the number for: <strong>${words[num]}</strong>`,
+                            answer: num
+                        };
+                    },
+                    // Visual counting
+                    () => {
+                        const count = this.randomInt(1, 20);
+                        const emoji = this.randomFrom(['🍎', '⭐', '🎈', '🎯']);
+                        return {
+                            display: `Count and write the number:<br><div style="font-size: 1.5rem; margin: 10px 0;">${emoji.repeat(count)}</div>`,
+                            answer: count
+                        };
+                    },
+                    // Number sequence
+                    () => {
+                        const num = this.randomInt(1, 19);
+                        return {
+                            display: `What number comes after ${num}?`,
+                            answer: num + 1
+                        };
+                    },
+                    // Missing number
+                    () => {
+                        const num = this.randomInt(2, 18);
+                        return {
+                            display: `Fill in the blank: ${num - 1}, ${num}, ___, ${num + 2}`,
+                            answer: num + 1
+                        };
+                    }
+                ];
+                return this.randomFrom(problemTypes)();
+            },
+            
+            "More/Less/Equal": () => {
+                const a = this.randomInt(1, 20);
+                const b = this.randomInt(1, 20);
+                const questions = [
+                    {q: `Which has more: ${a} or ${b}?`, ans: Math.max(a, b)},
+                    {q: `Which has less: ${a} or ${b}?`, ans: Math.min(a, b)},
+                    {q: `${a} is ${a > b ? 'more' : a < b ? 'less' : 'equal'} than ${b}. True or false?`, ans: 'true'}
+                ];
+                const question = this.randomFrom(questions);
+                return {
+                    display: question.q,
+                    answer: question.ans
+                };
+            },
+            
+            "Sorting and Classifying": () => {
+                const categories = ['shapes', 'colors', 'sizes'];
+                const category = this.randomFrom(categories);
+                if (category === 'shapes') {
+                    return {
+                        display: `How many categories of shapes are there: circle, square, circle, triangle, square?`,
+                        answer: 3
+                    };
+                } else if (category === 'colors') {
+                    const colors = ['red', 'blue', 'green'];
+                    const color = this.randomFrom(colors);
+                    return {
+                        display: `If we sort items by color (red, blue, green, red, blue), how many red items?`,
+                        answer: 2
+                    };
+                } else {
+                    return {
+                        display: `We sort by size: big, small, big, big, small. How many big items?`,
+                        answer: 3
+                    };
+                }
+            },
+            
+            "Position Words": () => {
+                const positions = ['above', 'below', 'beside', 'next to', 'in front of', 'behind'];
+                const position = this.randomFrom(positions);
+                return {
+                    display: `If the cat is ${position} the box, where is the cat?`,
+                    answer: position.replace(' of', ''),
+                    acceptedAnswers: [position, position.replace(' of', ''), position.replace('next to', 'beside')]
+                };
+            },
+            
+            "Simple Addition Stories": () => {
+                const a = this.randomInt(1, 5);
+                const b = this.randomInt(1, 5 - a);
+                return {
+                    display: `Sam has ${a} apples. He gets ${b} more. How many apples does he have?`,
+                    answer: a + b
+                };
+            },
+            
+            "Calendar Skills": () => {
+                const types = [
+                    () => {
+                        const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                        const idx = this.randomInt(0, 6);
+                        return {
+                            display: `What day comes after ${days[idx]}?`,
+                            answer: days[(idx + 1) % 7].toLowerCase()
+                        };
+                    },
+                    () => {
+                        const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                                       'July', 'August', 'September', 'October', 'November', 'December'];
+                        return {
+                            display: `How many months are in a year?`,
+                            answer: 12
+                        };
+                    },
+                    () => {
+                        return {
+                            display: `How many days are in a week?`,
+                            answer: 7
+                        };
+                    }
+                ];
+                return this.randomFrom(types)();
+            },
+            
+            // GRADE 1 NEW TOPICS
+            "Three-Addend Addition": () => {
+                const a = this.randomInt(1, 10);
+                const b = this.randomInt(1, 10);
+                const c = this.randomInt(1, 10);
+                return {
+                    display: `${a} + ${b} + ${c} = ?`,
+                    answer: a + b + c
+                };
+            },
+            
+            "Missing Addends": () => {
+                const sum = this.randomInt(5, 15);
+                const a = this.randomInt(1, sum - 1);
+                return {
+                    display: `${a} + ? = ${sum}`,
+                    answer: sum - a
+                };
+            },
+            
+            "Number Line Operations": () => {
+                const start = this.randomInt(1, 20);
+                const jump = this.randomInt(1, 10);
+                const op = this.randomFrom(['+', '-']);
+                if (op === '+') {
+                    return {
+                        display: `On a number line, start at ${start} and jump ${jump} spaces forward. Where do you land?`,
+                        answer: start + jump
+                    };
+                } else {
+                    return {
+                        display: `On a number line, start at ${start} and jump ${jump} spaces backward. Where do you land?`,
+                        answer: start - jump
+                    };
+                }
+            },
+            
+            "Coin Recognition": () => {
+                const coins = [
+                    {name: 'penny', value: 1, emoji: '🪙'},
+                    {name: 'nickel', value: 5, emoji: '🪙'},
+                    {name: 'dime', value: 10, emoji: '🪙'},
+                    {name: 'quarter', value: 25, emoji: '🪙'}
+                ];
+                const coin = this.randomFrom(coins);
+                return {
+                    display: `How many cents is a ${coin.name} worth?`,
+                    answer: coin.value
+                };
+            },
+            
+            "Half Hour Time": () => {
+                const hour = this.randomInt(1, 12);
+                return {
+                    display: `What time is ${hour}:30?<br><small>Answer like "${hour}:30" or "half past ${hour}"</small>`,
+                    answer: `${hour}:30`,
+                    acceptedAnswers: [`${hour}:30`, `half past ${hour}`, `${hour} thirty`]
+                };
+            },
+            
+            "Equal Parts": () => {
+                const types = [
+                    {shape: 'circle', parts: 2, name: 'halves'},
+                    {shape: 'rectangle', parts: 2, name: 'halves'},
+                    {shape: 'square', parts: 4, name: 'fourths'},
+                    {shape: 'pizza', parts: 4, name: 'fourths'}
+                ];
+                const type = this.randomFrom(types);
+                return {
+                    display: `A ${type.shape} is divided into ${type.name}. How many equal parts?`,
+                    answer: type.parts
+                };
+            },
+            
+            "Tally Marks": () => {
+                const count = this.randomInt(5, 25);
+                const fives = Math.floor(count / 5);
+                const ones = count % 5;
+                const tally = '𝍸 '.repeat(fives) + '| '.repeat(ones);
+                return {
+                    display: `Count the tally marks: ${tally}<br>How many total?`,
+                    answer: count
+                };
+            },
+            
+            "Greater Than/Less Than Symbols": () => {
+                const a = this.randomInt(1, 50);
+                const b = this.randomInt(1, 50);
+                const symbol = a > b ? '>' : a < b ? '<' : '=';
+                return {
+                    display: `${a} ___ ${b}<br><small>What symbol goes in the blank? (>, <, or =)</small>`,
+                    answer: symbol
+                };
+            },
+            
+            // GRADE 2 NEW TOPICS
+            "Place Value (Hundreds)": () => {
+                const num = this.randomInt(100, 999);
+                const questions = [
+                    {q: 'hundreds', ans: Math.floor(num / 100)},
+                    {q: 'tens', ans: Math.floor((num % 100) / 10)},
+                    {q: 'ones', ans: num % 10}
+                ];
+                const question = this.randomFrom(questions);
+                return {
+                    display: `In the number ${num}, what digit is in the ${question.q} place?`,
+                    answer: question.ans
+                };
+            },
+            
+            "Mental Math Strategies": () => {
+                const strategies = [
+                    () => {
+                        const num = this.randomInt(10, 90);
+                        return {
+                            display: `${num} + 10 = ?<br><small>(Add mentally!)</small>`,
+                            answer: num + 10
+                        };
+                    },
+                    () => {
+                        const num = this.randomInt(20, 99);
+                        return {
+                            display: `${num} - 10 = ?<br><small>(Subtract mentally!)</small>`,
+                            answer: num - 10
+                        };
+                    },
+                    () => {
+                        const num = this.randomInt(100, 500);
+                        return {
+                            display: `${num} + 100 = ?<br><small>(Add mentally!)</small>`,
+                            answer: num + 100
+                        };
+                    }
+                ];
+                return this.randomFrom(strategies)();
+            },
+            
+            "Measurement (Inches/Centimeters)": () => {
+                const length = this.randomInt(1, 12);
+                const unit = this.randomFrom(['inches', 'centimeters']);
+                return {
+                    display: `A pencil measures ${length} ${unit}. How many ${unit}?`,
+                    answer: length
+                };
+            },
+            
+            "Repeated Addition": () => {
+                const addend = this.randomInt(2, 10);
+                const times = this.randomInt(2, 5);
+                return {
+                    display: `${addend} + ${addend}` + ` + ${addend}`.repeat(times - 2) + ` = ?<br><small>(This is repeated addition!)</small>`,
+                    answer: addend * times
+                };
+            },
+            
+            "Equal Groups": () => {
+                const total = this.randomInt(6, 24);
+                const groups = this.randomFrom([2, 3, 4, 6]);
+                if (total % groups === 0) {
+                    return {
+                        display: `${total} items divided into ${groups} equal groups. How many in each group?`,
+                        answer: total / groups
+                    };
+                } else {
+                    const newTotal = Math.floor(total / groups) * groups;
+                    return {
+                        display: `${newTotal} items divided into ${groups} equal groups. How many in each group?`,
+                        answer: newTotal / groups
+                    };
+                }
+            },
+            
+            "Shapes (2D Properties)": () => {
+                const shapes = [
+                    {name: 'triangle', sides: 3, vertices: 3},
+                    {name: 'square', sides: 4, vertices: 4},
+                    {name: 'rectangle', sides: 4, vertices: 4},
+                    {name: 'pentagon', sides: 5, vertices: 5},
+                    {name: 'hexagon', sides: 6, vertices: 6}
+                ];
+                const shape = this.randomFrom(shapes);
+                const question = this.randomFrom(['sides', 'vertices']);
+                return {
+                    display: `How many ${question} does a ${shape.name} have?`,
+                    answer: question === 'sides' ? shape.sides : shape.vertices
+                };
+            },
+            
+            "Line Plots (Simple)": () => {
+                const values = [2, 3, 3, 4, 4, 4, 5, 5];
+                const mode = 4;
+                return {
+                    display: `Data: 2, 3, 3, 4, 4, 4, 5, 5. Which value appears most?`,
+                    answer: mode
+                };
+            },
+            
+            "Counting Money": () => {
+                const quarters = this.randomInt(0, 3);
+                const dimes = this.randomInt(0, 4);
+                const nickels = this.randomInt(0, 3);
+                const pennies = this.randomInt(0, 4);
+                const total = quarters * 25 + dimes * 10 + nickels * 5 + pennies;
+                return {
+                    display: `${quarters} quarter(s), ${dimes} dime(s), ${nickels} nickel(s), ${pennies} penn${pennies === 1 ? 'y' : 'ies'} = ? cents`,
+                    answer: total
+                };
+            },
+            
+            "Quarter Hours": () => {
+                const hour = this.randomInt(1, 12);
+                const minute = this.randomFrom([0, 15, 30, 45]);
+                return {
+                    display: `What time is ${hour}:${minute.toString().padStart(2, '0')}?<br><small>Answer as minutes (e.g., 15, 30, 45)</small>`,
+                    answer: minute
+                };
+            },
+            
+            "Number Patterns (100s chart)": () => {
+                const start = this.randomInt(1, 80);
+                const pattern = this.randomFrom([1, 10, 2, 5]);
+                return {
+                    display: `Pattern: ${start}, ${start + pattern}, ${start + 2*pattern}, ?<br><small>What comes next?</small>`,
+                    answer: start + 3*pattern
+                };
+            },
+            
+            // GRADE 3 NEW TOPICS
+            "Multiplication Tables (Focus)": () => {
+                const a = this.randomInt(0, 12);
+                const b = this.randomInt(0, 12);
+                return {
+                    display: `${a} × ${b} = ?`,
+                    answer: a * b
+                };
+            },
+            
+            "Division with Remainders": () => {
+                const divisor = this.randomInt(2, 9);
+                const quotient = this.randomInt(2, 10);
+                const remainder = this.randomInt(1, divisor - 1);
+                const dividend = divisor * quotient + remainder;
+                return {
+                    display: `${dividend} ÷ ${divisor} = ? R ?<br><small>Enter just the remainder</small>`,
+                    answer: remainder
+                };
+            },
+            
+            "Fraction Comparison": () => {
+                const fractions = [
+                    {a: 1, b: 2, c: 1, d: 3, larger: '1/2'},
+                    {a: 1, b: 4, c: 1, d: 2, larger: '1/2'},
+                    {a: 2, b: 3, c: 1, d: 3, larger: '2/3'},
+                    {a: 3, b: 4, c: 1, d: 4, larger: '3/4'}
+                ];
+                const f = this.randomFrom(fractions);
+                return {
+                    display: `Which is larger: ${f.a}/${f.b} or ${f.c}/${f.d}?<br><small>Answer like "1/2"</small>`,
+                    answer: f.larger
+                };
+            },
+            
+            "Unit Fractions": () => {
+                const denominator = this.randomInt(2, 10);
+                return {
+                    display: `A whole is divided into ${denominator} equal parts. What is one part?<br><small>Answer like "1/2"</small>`,
+                    answer: `1/${denominator}`
+                };
+            },
+            
+            "Liquid Measurement": () => {
+                const conversions = [
+                    {from: 'cups', to: 'pint', mult: 2, q: 'cups in a pint'},
+                    {from: 'pints', to: 'quart', mult: 2, q: 'pints in a quart'},
+                    {from: 'quarts', to: 'gallon', mult: 4, q: 'quarts in a gallon'}
+                ];
+                const conv = this.randomFrom(conversions);
+                return {
+                    display: `How many ${conv.from} are in one ${conv.to}?`,
+                    answer: conv.mult
+                };
+            },
+            
+            "Weight Measurement": () => {
+                const conversions = [
+                    {q: 'ounces in a pound', ans: 16},
+                    {q: 'grams in a kilogram', ans: 1000},
+                    {q: 'pounds in a ton', ans: 2000}
+                ];
+                const conv = this.randomFrom(conversions);
+                return {
+                    display: `How many ${conv.q}?`,
+                    answer: conv.ans
+                };
+            },
+            
+            "Perimeter of Polygons": () => {
+                const sides = this.randomInt(3, 6);
+                const length = this.randomInt(3, 12);
+                return {
+                    display: `A regular ${sides}-sided polygon has sides of ${length} units. Perimeter = ?`,
+                    answer: sides * length
+                };
+            },
+            
+            "Scaled Picture Graphs": () => {
+                const scale = this.randomFrom([2, 5, 10]);
+                const symbols = this.randomInt(2, 8);
+                return {
+                    display: `On a picture graph, each symbol = ${scale} items. There are ${symbols} symbols. Total items = ?`,
+                    answer: scale * symbols
+                };
+            },
+            
+            "Scaled Bar Graphs": () => {
+                const scale = this.randomFrom([2, 5, 10]);
+                const bars = this.randomInt(3, 10);
+                return {
+                    display: `On a bar graph with scale ${scale}, a bar reaches ${bars} marks. Value = ?`,
+                    answer: scale * bars
+                };
+            },
+            
+            "Frequency Tables": () => {
+                const data = {red: 5, blue: 8, green: 3};
+                return {
+                    display: `Frequency: Red=5, Blue=8, Green=3. Which color appears most?`,
+                    answer: 'blue'
+                };
+            },
+            
+            "Elapsed Time": () => {
+                const start = this.randomInt(1, 10);
+                const duration = this.randomInt(1, 5);
+                return {
+                    display: `Movie starts at ${start}:00 and lasts ${duration} hour(s). What time does it end?`,
+                    answer: start + duration
+                };
+            },
+            
+            "Temperature": () => {
+                const temp = this.randomInt(32, 100);
+                return {
+                    display: `The thermometer reads ${temp}°F. What is the temperature?`,
+                    answer: temp
+                };
+            },
+            
+            // GRADE 4 NEW TOPICS
+            "Multi-Digit Multiplication": () => {
+                const a = this.randomInt(11, 99);
+                const b = this.randomInt(11, 99);
+                return {
+                    display: `${a} × ${b} = ?`,
+                    answer: a * b
+                };
+            },
+            
+            "Long Division": () => {
+                const divisor = this.randomInt(11, 25);
+                const quotient = this.randomInt(3, 15);
+                const dividend = divisor * quotient;
+                return {
+                    display: `${dividend} ÷ ${divisor} = ?`,
+                    answer: quotient
+                };
+            },
+            
+            "Fraction Ordering": () => {
+                return {
+                    display: `Order from smallest to largest: 1/2, 1/4, 3/4<br><small>Which is smallest?</small>`,
+                    answer: '1/4'
+                };
+            },
+            
+            "Fraction Models": () => {
+                const num = this.randomInt(1, 7);
+                const den = this.randomInt(num + 1, 10);
+                return {
+                    display: `On a number line from 0 to 1, where does ${num}/${den} fall?<br><small>Closer to 0, 1/2, or 1?</small>`,
+                    answer: num / den < 0.35 ? '0' : num / den > 0.65 ? '1' : '1/2'
+                };
+            },
+            
+            "Decimal Place Value": () => {
+                const whole = this.randomInt(1, 50);
+                const tenths = this.randomInt(0, 9);
+                const hundredths = this.randomInt(0, 9);
+                const num = `${whole}.${tenths}${hundredths}`;
+                const question = this.randomFrom(['tenths', 'hundredths']);
+                return {
+                    display: `In ${num}, what digit is in the ${question} place?`,
+                    answer: question === 'tenths' ? tenths : hundredths
+                };
+            },
+            
+            "Decimal Comparison": () => {
+                const a = (Math.random() * 10).toFixed(2);
+                const b = (Math.random() * 10).toFixed(2);
+                const symbol = parseFloat(a) > parseFloat(b) ? '>' : parseFloat(a) < parseFloat(b) ? '<' : '=';
+                return {
+                    display: `${a} ___ ${b}<br><small>What symbol? (>, <, =)</small>`,
+                    answer: symbol
+                };
+            },
+            
+            "Protractor Use": () => {
+                const angle = this.randomFrom([30, 45, 60, 90, 120, 135, 150]);
+                return {
+                    display: `An angle measures ${angle}°. What is the measurement?`,
+                    answer: angle
+                };
+            },
+            
+            "Symmetry": () => {
+                const shapes = [
+                    {name: 'square', lines: 4},
+                    {name: 'rectangle', lines: 2},
+                    {name: 'equilateral triangle', lines: 3},
+                    {name: 'circle', lines: 'infinite'}
+                ];
+                const shape = this.randomFrom(shapes.filter(s => typeof s.lines === 'number'));
+                return {
+                    display: `How many lines of symmetry does a ${shape.name} have?`,
+                    answer: shape.lines
+                };
+            },
+            
+            "Classifying Triangles": () => {
+                const triangles = [
+                    {angles: '60°, 60°, 60°', type: 'equilateral'},
+                    {angles: '90°, 45°, 45°', type: 'right'},
+                    {angles: '100°, 40°, 40°', type: 'obtuse'},
+                    {angles: '70°, 60°, 50°', type: 'acute'}
+                ];
+                const tri = this.randomFrom(triangles);
+                return {
+                    display: `Triangle with angles ${tri.angles}. What type?<br><small>(acute, right, obtuse, or equilateral)</small>`,
+                    answer: tri.type
+                };
+            },
+            
+            "Coordinate Grids (First Quadrant)": () => {
+                const x = this.randomInt(1, 10);
+                const y = this.randomInt(1, 10);
+                const question = this.randomFrom(['x', 'y']);
+                return {
+                    display: `Point (${x}, ${y}). What is the ${question}-coordinate?`,
+                    answer: question === 'x' ? x : y
+                };
+            },
+            
+            // GRADE 5 NEW TOPICS
+            "Division of Decimals": () => {
+                const dividend = (Math.random() * 50 + 10).toFixed(1);
+                const divisor = this.randomFrom([2, 5, 10]);
+                const answer = (parseFloat(dividend) / divisor).toFixed(2);
+                return {
+                    display: `${dividend} ÷ ${divisor} = ?`,
+                    answer: parseFloat(answer)
+                };
+            },
+            
+            "Powers of 10": () => {
+                const num = Math.random() * 100;
+                const power = this.randomFrom([10, 100, 1000]);
+                const op = this.randomFrom(['×', '÷']);
+                if (op === '×') {
+                    return {
+                        display: `${num.toFixed(2)} × ${power} = ?`,
+                        answer: parseFloat((num * power).toFixed(2))
+                    };
+                } else {
+                    return {
+                        display: `${num.toFixed(2)} ÷ ${power} = ?`,
+                        answer: parseFloat((num / power).toFixed(4))
+                    };
+                }
+            },
+            
+            "Fraction to Decimal Conversion": () => {
+                const fractions = [{n: 1, d: 2, dec: 0.5}, {n: 1, d: 4, dec: 0.25}, {n: 3, d: 4, dec: 0.75}, {n: 1, d: 5, dec: 0.2}];
+                const frac = this.randomFrom(fractions);
+                return {
+                    display: `Convert ${frac.n}/${frac.d} to a decimal`,
+                    answer: frac.dec
+                };
+            },
+            
+            "Percentage Basics": () => {
+                const percent = this.randomInt(1, 100);
+                return {
+                    display: `${percent}% means ${percent} out of how many?`,
+                    answer: 100
+                };
+            },
+            
+            "Three-Dimensional Figures": () => {
+                const figures = ['prism', 'pyramid', 'cylinder', 'cone', 'sphere'];
+                const figure = this.randomFrom(figures);
+                const bases = {prism: 2, pyramid: 1, cylinder: 2, cone: 1, sphere: 0};
+                return {
+                    display: `How many bases does a ${figure} have?`,
+                    answer: bases[figure]
+                };
+            },
+            
+            "Cubic Units": () => {
+                const side = this.randomInt(2, 5);
+                return {
+                    display: `A cube has sides of ${side} units. Volume = ? cubic units`,
+                    answer: side * side * side
+                };
+            },
+            
+            "Order of Operations (PEMDAS)": () => {
+                const a = this.randomInt(2, 8);
+                const b = this.randomInt(2, 8);
+                const c = this.randomInt(1, 5);
+                return {
+                    display: `${a} + ${b} × ${c} = ?<br><small>(Remember PEMDAS!)</small>`,
+                    answer: a + (b * c)
+                };
+            },
+            
+            "Numerical Patterns": () => {
+                const start = this.randomInt(2, 10);
+                const rule = this.randomFrom([2, 3, 5]);
+                return {
+                    display: `Pattern: ${start}, ${start * rule}, ${start * rule * rule}. What's the rule?<br><small>(multiply by ?)</small>`,
+                    answer: rule
+                };
+            },
+            
+            "Mean (Average)": () => {
+                const data = [this.randomInt(10, 30), this.randomInt(10, 30), this.randomInt(10, 30), this.randomInt(10, 30)];
+                const mean = data.reduce((a, b) => a + b) / data.length;
+                return {
+                    display: `Data: ${data.join(', ')}. Mean = ?`,
+                    answer: parseFloat(mean.toFixed(1))
+                };
+            },
+            
+            "Line Graphs": () => {
+                const values = [10, 15, 12, 18, 20];
+                return {
+                    display: `Line graph shows: Day 1: 10, Day 2: 15, Day 3: 12, Day 4: 18, Day 5: 20. Highest value?`,
+                    answer: 20
+                };
+            },
+            
+            // GRADE 6 NEW TOPICS
+            "Dividing Fractions": () => {
+                const a = this.randomInt(1, 4);
+                const b = this.randomInt(2, 6);
+                const c = this.randomInt(1, 4);
+                const d = this.randomInt(2, 6);
+                const result = (a / b) / (c / d);
+                return {
+                    display: `${a}/${b} ÷ ${c}/${d} = ?<br><small>(Answer as decimal)</small>`,
+                    answer: parseFloat(result.toFixed(2))
+                };
+            },
+            
+            "Negative Numbers": () => {
+                const num = this.randomInt(-20, 20);
+                return {
+                    display: `On a number line, where is ${num}?<br><small>(left of 0, right of 0, or at 0)</small>`,
+                    answer: num < 0 ? 'left' : num > 0 ? 'right' : 'at',
+                    acceptedAnswers: [num < 0 ? 'left' : num > 0 ? 'right' : 'at', num < 0 ? 'left of 0' : num > 0 ? 'right of 0' : 'at 0']
+                };
+            },
+            
+            "Operations with Integers": () => {
+                const a = this.randomInt(-10, 10);
+                const b = this.randomInt(-10, 10);
+                const op = this.randomFrom(['+', '-', '×']);
+                let answer;
+                if (op === '+') answer = a + b;
+                else if (op === '-') answer = a - b;
+                else answer = a * b;
+                return {
+                    display: `${a} ${op} ${b} = ?`,
+                    answer: answer
+                };
+            },
+            
+            "GCF Applications": () => {
+                const pairs = [[12, 18], [20, 30], [15, 25], [24, 36]];
+                const pair = this.randomFrom(pairs);
+                const gcd = this.gcd(pair[0], pair[1]);
+                const simplified_num = pair[0] / gcd;
+                const simplified_den = pair[1] / gcd;
+                return {
+                    display: `Simplify ${pair[0]}/${pair[1]} using GCF. Numerator after simplifying?`,
+                    answer: simplified_num
+                };
+            },
+            
+            "LCM Applications": () => {
+                const pairs = [[2, 3], [3, 4], [4, 6], [2, 5]];
+                const pair = this.randomFrom(pairs);
+                const lcm = (pair[0] * pair[1]) / this.gcd(pair[0], pair[1]);
+                return {
+                    display: `To add 1/${pair[0]} + 1/${pair[1]}, find LCM of denominators. LCM = ?`,
+                    answer: lcm
+                };
+            },
+            
+            "Ratio Tables": () => {
+                const a = this.randomInt(2, 8);
+                const b = this.randomInt(2, 8);
+                const mult = this.randomInt(2, 5);
+                return {
+                    display: `Ratio table: ${a}:${b} = ${a * mult}:?`,
+                    answer: b * mult
+                };
+            },
+            
+            "Double Number Lines": () => {
+                const rate = this.randomInt(2, 10);
+                const quantity = this.randomInt(3, 8);
+                return {
+                    display: `If 1 unit costs $${rate}, then ${quantity} units cost $?`,
+                    answer: rate * quantity
+                };
+            },
+            
+            "Percent of a Number": () => {
+                const percent = this.randomFrom([10, 20, 25, 50]);
+                const number = this.randomInt(20, 100);
+                return {
+                    display: `${percent}% of ${number} = ?`,
+                    answer: (percent / 100) * number
+                };
+            },
+            
+            "Box Plots": () => {
+                return {
+                    display: `Box plot shows: Min=10, Q1=15, Median=20, Q3=25, Max=30. What is the median?`,
+                    answer: 20
+                };
+            },
+            
+            "Histograms": () => {
+                return {
+                    display: `Histogram: 0-10 (5 people), 10-20 (8 people), 20-30 (3 people). Which interval has most?`,
+                    answer: '10-20',
+                    acceptedAnswers: ['10-20', '10 to 20', '10-20']
+                };
+            },
+            
+            "Median and Mode": () => {
+                const data = [5, 7, 7, 9, 12];
+                return {
+                    display: `Data: ${data.join(', ')}. What is the mode?`,
+                    answer: 7
+                };
+            },
+            
+            "Interquartile Range (IQR)": () => {
+                const q1 = this.randomInt(10, 30);
+                const q3 = q1 + this.randomInt(10, 30);
+                return {
+                    display: `Q1 = ${q1}, Q3 = ${q3}. IQR = ?`,
+                    answer: q3 - q1
+                };
+            },
+            
+            // GRADE 7-8 NEW TOPICS
+            "Multi-Step Equations": () => {
+                const x = this.randomInt(1, 10);
+                const a = this.randomInt(2, 5);
+                const b = this.randomInt(1, 10);
+                const c = this.randomInt(1, 10);
+                const result = a * x + b - c;
+                return {
+                    display: `Solve: ${a}x + ${b} - ${c} = ${result}`,
+                    answer: x
+                };
+            },
+            
+            "Combining Like Terms": () => {
+                const a = this.randomInt(2, 8);
+                const b = this.randomInt(2, 8);
+                return {
+                    display: `Simplify: ${a}x + ${b}x<br><small>Coefficient of x?</small>`,
+                    answer: a + b
+                };
+            },
+            
+            "Distributive Property": () => {
+                const a = this.randomInt(2, 8);
+                const b = this.randomInt(2, 8);
+                const c = this.randomInt(2, 8);
+                return {
+                    display: `Expand: ${a}(${b} + ${c})<br><small>What is the result?</small>`,
+                    answer: a * (b + c)
+                };
+            },
+            
+            "Simple Interest": () => {
+                const p = this.randomInt(100, 1000);
+                const r = this.randomFrom([0.05, 0.10, 0.15]);
+                const t = this.randomInt(1, 5);
+                const interest = p * r * t;
+                return {
+                    display: `P = $${p}, R = ${r * 100}%, T = ${t} years. Simple Interest = ?`,
+                    answer: parseFloat(interest.toFixed(2))
+                };
+            },
+            
+            "Percent Change": () => {
+                const old_val = this.randomInt(50, 200);
+                const new_val = old_val + this.randomInt(10, 50);
+                const change = ((new_val - old_val) / old_val) * 100;
+                return {
+                    display: `Price changed from $${old_val} to $${new_val}. Percent increase?<br><small>(Round to nearest whole %)</small>`,
+                    answer: Math.round(change)
+                };
+            },
+            
+            "Complementary and Supplementary Angles": () => {
+                const type = this.randomFrom(['complementary', 'supplementary']);
+                const angle = type === 'complementary' ? this.randomInt(20, 70) : this.randomInt(40, 140);
+                const complement = type === 'complementary' ? 90 - angle : 180 - angle;
+                return {
+                    display: `Two angles are ${type}. One is ${angle}°. The other is ?°`,
+                    answer: complement
+                };
+            },
+            
+            "Volume of Cylinders": () => {
+                const r = this.randomInt(2, 8);
+                const h = this.randomInt(3, 10);
+                const volume = Math.PI * r * r * h;
+                return {
+                    display: `Cylinder: radius = ${r}, height = ${h}. Volume ≈ ?<br><small>(Use π ≈ 3.14, round to nearest whole)</small>`,
+                    answer: Math.round(volume)
+                };
+            },
+            
+            "Sample Space": () => {
+                const coins = this.randomInt(1, 3);
+                const outcomes = Math.pow(2, coins);
+                return {
+                    display: `Flipping ${coins} coin(s). How many possible outcomes?`,
+                    answer: outcomes
+                };
+            },
+            
+            "Simultaneous Equations (Graphing)": () => {
+                const x = this.randomInt(1, 5);
+                const y = this.randomInt(1, 5);
+                return {
+                    display: `Two lines intersect at (${x}, ${y}). What is the x-coordinate of the solution?`,
+                    answer: x
+                };
+            },
+            
+            "Distance Formula": () => {
+                const x1 = this.randomInt(0, 5);
+                const y1 = this.randomInt(0, 5);
+                const x2 = x1 + this.randomInt(3, 5);
+                const y2 = y1 + this.randomInt(3, 5);
+                const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+                return {
+                    display: `Distance between (${x1},${y1}) and (${x2},${y2}) ≈ ?<br><small>(Round to 1 decimal)</small>`,
+                    answer: parseFloat(distance.toFixed(1))
+                };
+            },
+            
+            "Volume of Cones and Spheres": () => {
+                const type = this.randomFrom(['cone', 'sphere']);
+                const r = this.randomInt(3, 8);
+                if (type === 'cone') {
+                    const h = this.randomInt(5, 12);
+                    const volume = (1/3) * Math.PI * r * r * h;
+                    return {
+                        display: `Cone: r = ${r}, h = ${h}. Volume ≈ ?<br><small>(Use π ≈ 3.14, round to nearest whole)</small>`,
+                        answer: Math.round(volume)
+                    };
+                } else {
+                    const volume = (4/3) * Math.PI * r * r * r;
+                    return {
+                        display: `Sphere: r = ${r}. Volume ≈ ?<br><small>(Use π ≈ 3.14, round to nearest whole)</small>`,
+                        answer: Math.round(volume)
+                    };
+                }
+            },
+            
+            "Bivariate Data": () => {
+                return {
+                    display: `Scatter plot shows points trending upward. What type of correlation?`,
+                    answer: 'positive'
+                };
+            },
+            
+            "Linear vs Non-Linear Functions": () => {
+                const types = [
+                    {desc: 'y = 2x + 3', type: 'linear'},
+                    {desc: 'y = x²', type: 'non-linear'},
+                    {desc: 'y = 5x - 1', type: 'linear'},
+                    {desc: 'y = 3x² + 2', type: 'non-linear'}
+                ];
+                const func = this.randomFrom(types);
+                return {
+                    display: `${func.desc} is what type of function?`,
+                    answer: func.type,
+                    acceptedAnswers: [func.type, func.type.replace('-', ' '), func.type === 'non-linear' ? 'nonlinear' : 'linear']
+                };
+            },
+            
+            "Roots and Radicals": () => {
+                const cubes = [8, 27, 64, 125];
+                const num = this.randomFrom(cubes);
+                return {
+                    display: `³√${num} = ?`,
+                    answer: Math.cbrt(num)
+                };
+            },
+            
+            "Rational vs Irrational Numbers": () => {
+                const numbers = [
+                    {n: '0.5', type: 'rational'},
+                    {n: '√2', type: 'irrational'},
+                    {n: '3/4', type: 'rational'},
+                    {n: 'π', type: 'irrational'},
+                    {n: '7', type: 'rational'}
+                ];
+                const num = this.randomFrom(numbers);
+                return {
+                    display: `Is ${num.n} rational or irrational?`,
+                    answer: num.type
+                };
+            },
+            
+            "Frequency Tables (Two-Way)": () => {
+                return {
+                    display: `Table: Boys-Soccer=10, Girls-Soccer=8, Boys-Tennis=5, Girls-Tennis=12. Total girls?`,
+                    answer: 20
+                };
+            },
+            
+            // GRADE 9-12 NEW TOPICS
+            "Completing the Square": () => {
+                const b = this.randomInt(2, 10) * 2;  // Make it even for easier math
+                const toAdd = (b / 2) ** 2;
+                return {
+                    display: `To complete the square for x² + ${b}x, add ?`,
+                    answer: toAdd
+                };
+            },
+            
+            "Quadratic Formula": () => {
+                const solutions = [[1, 2], [2, 3], [1, 5], [-2, 3]];
+                const sol = this.randomFrom(solutions);
+                const b = -(sol[0] + sol[1]);
+                const c = sol[0] * sol[1];
+                return {
+                    display: `x² ${b >= 0 ? '+' : ''}${b}x ${c >= 0 ? '+' : ''}${c} = 0<br>One solution: x = ${sol[0]}. Other solution?`,
+                    answer: sol[1]
+                };
+            },
+            
+            "Parent Functions": () => {
+                const functions = [
+                    {name: 'linear', form: 'y = x'},
+                    {name: 'quadratic', form: 'y = x²'},
+                    {name: 'absolute value', form: 'y = |x|'},
+                    {name: 'exponential', form: 'y = 2^x'}
+                ];
+                const func = this.randomFrom(functions);
+                return {
+                    display: `What is the parent function for ${func.name} functions?<br><small>Answer like "y = x"</small>`,
+                    answer: func.form
+                };
+            },
+            
+            "Function Transformations": () => {
+                const k = this.randomInt(2, 8);
+                const dir = this.randomFrom(['up', 'down', 'left', 'right']);
+                return {
+                    display: `f(x) + ${k} shifts the graph ${k} units which direction?`,
+                    answer: 'up'
+                };
+            },
+            
+            "Regression Lines": () => {
+                const m = this.randomInt(2, 8);
+                const b = this.randomInt(1, 10);
+                const x = this.randomInt(1, 5);
+                return {
+                    display: `Line of best fit: y = ${m}x + ${b}. When x = ${x}, y = ?`,
+                    answer: m * x + b
+                };
+            },
+            
+            "Standard Form to Slope-Intercept": () => {
+                const a = this.randomInt(1, 5);
+                const b = this.randomInt(1, 5);
+                const c = this.randomInt(5, 20);
+                return {
+                    display: `Convert ${a}x + ${b}y = ${c} to slope-intercept. What is the y-intercept?`,
+                    answer: parseFloat((c / b).toFixed(2))
+                };
+            },
+            
+            "Unit Circle": () => {
+                const angles = [
+                    {deg: 0, cos: 1, sin: 0},
+                    {deg: 90, cos: 0, sin: 1},
+                    {deg: 180, cos: -1, sin: 0},
+                    {deg: 270, cos: 0, sin: -1}
+                ];
+                const angle = this.randomFrom(angles);
+                return {
+                    display: `On unit circle, cos(${angle.deg}°) = ?`,
+                    answer: angle.cos
+                };
+            },
+            
+            "Trig Identities": () => {
+                const angle = this.randomInt(20, 70);
+                return {
+                    display: `If sin²(${angle}°) = 0.25, then cos²(${angle}°) = ?<br><small>(sin² + cos² = 1)</small>`,
+                    answer: 0.75
+                };
+            },
+            
+            "Arc Length and Sector Area": () => {
+                const r = this.randomInt(4, 10);
+                const theta = this.randomFrom([30, 45, 60, 90]);
+                const arcLength = 2 * Math.PI * r * (theta / 360);
+                return {
+                    display: `Circle radius ${r}, arc ${theta}°. Arc length ≈ ?<br><small>(Use π ≈ 3.14, round to 1 decimal)</small>`,
+                    answer: parseFloat(arcLength.toFixed(1))
+                };
+            },
+            
+            "Asymptotes": () => {
+                const a = this.randomInt(1, 5);
+                const h = this.randomInt(1, 5);
+                return {
+                    display: `f(x) = ${a}/(x - ${h}). What is the vertical asymptote?<br><small>Answer like "x = 3"</small>`,
+                    answer: `x = ${h}`,
+                    acceptedAnswers: [`x = ${h}`, `x=${h}`, `${h}`]
+                };
+            },
+            
+            "Continuity": () => {
+                return {
+                    display: `Is f(x) = x² continuous at x = 0?<br><small>(yes or no)</small>`,
+                    answer: 'yes'
+                };
+            },
+            
+            "Chain Rule": () => {
+                const outer = this.randomInt(2, 5);
+                const inner = this.randomInt(2, 5);
+                return {
+                    display: `If f(x) = (${inner}x)², what is f'(1)?<br><small>(Use chain rule)</small>`,
+                    answer: 2 * inner * inner
+                };
             }
         };
         
