@@ -33,11 +33,91 @@ const mathConcepts = [
         gradeLevel: "K"
     },
     {
+        concept: "Basic Shapes",
+        keyFormulas: "",
+        keyConcepts: "Identifying circles, squares, triangles, rectangles",
+        relatedOperations: "Counting sides",
+        relatedTopics: "Geometry",
+        gradeLevel: "K"
+    },
+    {
+        concept: "Measurement Comparison",
+        keyFormulas: "",
+        keyConcepts: "Longer/shorter, heavier/lighter concepts",
+        relatedOperations: "Comparing",
+        relatedTopics: "Measurement",
+        gradeLevel: "K"
+    },
+    {
         concept: "Place Value",
         keyFormulas: "Decomposition by 10s",
         keyConcepts: "Understanding base-ten system",
         relatedOperations: "Addition",
         relatedTopics: "Subtraction",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Two-Digit Addition",
+        keyFormulas: "+",
+        keyConcepts: "Adding numbers up to 100",
+        relatedOperations: "Place value",
+        relatedTopics: "Regrouping",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Two-Digit Subtraction",
+        keyFormulas: "-",
+        keyConcepts: "Subtracting numbers up to 100",
+        relatedOperations: "Place value",
+        relatedTopics: "Regrouping",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Comparing Numbers",
+        keyFormulas: ">, <, =",
+        keyConcepts: "Greater than, less than, equal to",
+        relatedOperations: "Place value",
+        relatedTopics: "Number sense",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Telling Time",
+        keyFormulas: "",
+        keyConcepts: "Reading clocks to hour and half-hour",
+        relatedOperations: "Counting",
+        relatedTopics: "Measurement",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Measurement (Length)",
+        keyFormulas: "",
+        keyConcepts: "Non-standard and standard units",
+        relatedOperations: "Comparing",
+        relatedTopics: "Measurement comparison",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Basic Shapes and Attributes",
+        keyFormulas: "",
+        keyConcepts: "Defining and composing shapes",
+        relatedOperations: "Counting sides",
+        relatedTopics: "Basic shapes",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Word Problems (Addition/Subtraction)",
+        keyFormulas: "",
+        keyConcepts: "Real-world applications",
+        relatedOperations: "Addition",
+        relatedTopics: "Subtraction",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Data Organization",
+        keyFormulas: "",
+        keyConcepts: "Simple graphs and charts",
+        relatedOperations: "Counting",
+        relatedTopics: "Statistics",
         gradeLevel: "1"
     },
     {
@@ -54,6 +134,54 @@ const mathConcepts = [
         keyConcepts: "Counting by multiples",
         relatedOperations: "Addition",
         relatedTopics: "Multiplication",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Three-Digit Numbers",
+        keyFormulas: "",
+        keyConcepts: "Reading, writing, and comparing",
+        relatedOperations: "Place value",
+        relatedTopics: "Comparing numbers",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Regrouping",
+        keyFormulas: "",
+        keyConcepts: "Carrying and borrowing",
+        relatedOperations: "Addition",
+        relatedTopics: "Subtraction",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Money",
+        keyFormulas: "$, ¢",
+        keyConcepts: "Coins, dollars, and counting money",
+        relatedOperations: "Addition",
+        relatedTopics: "Decimals",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Time to 5 Minutes",
+        keyFormulas: "",
+        keyConcepts: "Reading analog and digital clocks",
+        relatedOperations: "Skip counting",
+        relatedTopics: "Telling time",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Bar Graphs and Picture Graphs",
+        keyFormulas: "",
+        keyConcepts: "Creating and interpreting data",
+        relatedOperations: "Counting",
+        relatedTopics: "Data organization",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Measurement Units",
+        keyFormulas: "in, ft, cm, m",
+        keyConcepts: "Standard units of length",
+        relatedOperations: "Measurement",
+        relatedTopics: "Conversion",
         gradeLevel: "2"
     },
     {
@@ -78,6 +206,30 @@ const mathConcepts = [
         keyConcepts: "Part-to-whole relationships",
         relatedOperations: "Division",
         relatedTopics: "Decimals",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Area and Perimeter",
+        keyFormulas: "P=2l+2w, A=lw",
+        keyConcepts: "Measuring rectangles and squares",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Measurement",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Telling Time to the Minute",
+        keyFormulas: "",
+        keyConcepts: "Reading clocks and elapsed time",
+        relatedOperations: "Addition",
+        relatedTopics: "Time to 5 minutes",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Measurement Conversions",
+        keyFormulas: "",
+        keyConcepts: "Converting within same system",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Measurement units",
         gradeLevel: "3"
     },
     {
@@ -113,6 +265,22 @@ const mathConcepts = [
         gradeLevel: "4"
     },
     {
+        concept: "Angle Measurement",
+        keyFormulas: "°",
+        keyConcepts: "Measuring angles with protractor",
+        relatedOperations: "Addition",
+        relatedTopics: "Geometry",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Line Plots",
+        keyFormulas: "",
+        keyConcepts: "Creating and interpreting data",
+        relatedOperations: "Fractions",
+        relatedTopics: "Statistics",
+        gradeLevel: "4"
+    },
+    {
         concept: "Prime Numbers",
         keyFormulas: "",
         keyConcepts: "Numbers divisible only by 1 and itself",
@@ -126,6 +294,54 @@ const mathConcepts = [
         keyConcepts: "Sequence of operations",
         relatedOperations: "Multiplication",
         relatedTopics: "Parentheses",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Fraction Addition and Subtraction",
+        keyFormulas: "a/b ± c/d",
+        keyConcepts: "Adding and subtracting unlike denominators",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Equivalent fractions",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Fraction Multiplication and Division",
+        keyFormulas: "(a/b) × (c/d), (a/b) ÷ (c/d)",
+        keyConcepts: "Multiplying and dividing fractions",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Fractions",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Coordinate Graphing",
+        keyFormulas: "(x,y)",
+        keyConcepts: "Plotting in first quadrant",
+        relatedOperations: "Ordered pairs",
+        relatedTopics: "Coordinate plane",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Volume of Rectangular Prisms",
+        keyFormulas: "V = l × w × h",
+        keyConcepts: "Three-dimensional measurement",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Volume",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Measurement Conversion",
+        keyFormulas: "",
+        keyConcepts: "Converting between different units",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Measurement conversions",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Decimal Operations",
+        keyFormulas: "+, -, ×, ÷",
+        keyConcepts: "Operations with decimals",
+        relatedOperations: "Place value",
+        relatedTopics: "Decimals",
         gradeLevel: "5"
     },
     {
@@ -161,6 +377,22 @@ const mathConcepts = [
         gradeLevel: "6"
     },
     {
+        concept: "Absolute Value",
+        keyFormulas: "|x|",
+        keyConcepts: "Distance from zero",
+        relatedOperations: "Integers",
+        relatedTopics: "Number line",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Statistical Questions",
+        keyFormulas: "mean, median, mode, range",
+        keyConcepts: "Analyzing data distributions",
+        relatedOperations: "Addition",
+        relatedTopics: "Statistics",
+        gradeLevel: "6"
+    },
+    {
         concept: "Expressions and Equations",
         keyFormulas: "y = mx + b",
         keyConcepts: "Using variables",
@@ -182,6 +414,38 @@ const mathConcepts = [
         keyConcepts: "2D measurement",
         relatedOperations: "Multiplication",
         relatedTopics: "Perimeter",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Angles and Triangles",
+        keyFormulas: "Sum of angles = 180°",
+        keyConcepts: "Triangle properties and angle relationships",
+        relatedOperations: "Addition",
+        relatedTopics: "Geometry",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Circles",
+        keyFormulas: "C=2πr, A=πr²",
+        keyConcepts: "Circumference and area",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Pi",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Scale Drawings",
+        keyFormulas: "scale factor",
+        keyConcepts: "Proportional reasoning",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Ratios and proportions",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Probability Basics",
+        keyFormulas: "P(A) = favorable/total",
+        keyConcepts: "Simple probability concepts",
+        relatedOperations: "Division",
+        relatedTopics: "Fractions",
         gradeLevel: "7"
     },
     {
@@ -217,6 +481,30 @@ const mathConcepts = [
         gradeLevel: "8"
     },
     {
+        concept: "Systems of Equations",
+        keyFormulas: "y = mx + b",
+        keyConcepts: "Solving linear systems",
+        relatedOperations: "Substitution",
+        relatedTopics: "Equations",
+        gradeLevel: "8"
+    },
+    {
+        concept: "Scientific Notation",
+        keyFormulas: "a × 10ⁿ",
+        keyConcepts: "Working with very large and small numbers",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Exponents",
+        gradeLevel: "8"
+    },
+    {
+        concept: "Transformations",
+        keyFormulas: "",
+        keyConcepts: "Translations, rotations, reflections, dilations",
+        relatedOperations: "Coordinate plane",
+        relatedTopics: "Geometry",
+        gradeLevel: "8"
+    },
+    {
         concept: "Polynomials",
         keyFormulas: "ax²+bx+c",
         keyConcepts: "Combining like terms",
@@ -249,6 +537,22 @@ const mathConcepts = [
         gradeLevel: "9"
     },
     {
+        concept: "Radical Expressions",
+        keyFormulas: "√x, ∛x",
+        keyConcepts: "Simplifying and operations with radicals",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Exponents",
+        gradeLevel: "9"
+    },
+    {
+        concept: "Rational Expressions",
+        keyFormulas: "a/b",
+        keyConcepts: "Simplifying rational expressions",
+        relatedOperations: "Division",
+        relatedTopics: "Fractions",
+        gradeLevel: "9"
+    },
+    {
         concept: "Trigonometry",
         keyFormulas: "sinθ, cosθ, tanθ",
         keyConcepts: "Ratios of sides in right triangles",
@@ -270,6 +574,30 @@ const mathConcepts = [
         keyConcepts: "Analyzing data sets",
         relatedOperations: "Addition",
         relatedTopics: "Probability",
+        gradeLevel: "10"
+    },
+    {
+        concept: "Circles (Advanced)",
+        keyFormulas: "arc length, sector area",
+        keyConcepts: "Arcs, sectors, circle theorems",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Circles",
+        gradeLevel: "10"
+    },
+    {
+        concept: "Combinations and Permutations",
+        keyFormulas: "nCr, nPr",
+        keyConcepts: "Counting principles",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Probability",
+        gradeLevel: "10"
+    },
+    {
+        concept: "Systems of Inequalities",
+        keyFormulas: "y > mx + b",
+        keyConcepts: "Graphing and solving",
+        relatedOperations: "Inequalities",
+        relatedTopics: "Linear equations",
         gradeLevel: "10"
     },
     {
@@ -302,6 +630,22 @@ const mathConcepts = [
         keyConcepts: "Growth and decay",
         relatedOperations: "Multiplication",
         relatedTopics: "Logarithms",
+        gradeLevel: "11"
+    },
+    {
+        concept: "Complex Numbers",
+        keyFormulas: "a + bi",
+        keyConcepts: "Operations with imaginary unit i",
+        relatedOperations: "Addition",
+        relatedTopics: "Quadratic equations",
+        gradeLevel: "11"
+    },
+    {
+        concept: "Conic Sections",
+        keyFormulas: "parabola, ellipse, hyperbola",
+        keyConcepts: "Equations of conic sections",
+        relatedOperations: "Quadratics",
+        relatedTopics: "Circles",
         gradeLevel: "11"
     },
     {
@@ -342,6 +686,30 @@ const mathConcepts = [
         keyConcepts: "Measure of spread",
         relatedOperations: "Subtraction",
         relatedTopics: "Variance",
+        gradeLevel: "12"
+    },
+    {
+        concept: "Limits",
+        keyFormulas: "lim(x→a) f(x)",
+        keyConcepts: "Approaching values in calculus",
+        relatedOperations: "Substitution",
+        relatedTopics: "Derivatives",
+        gradeLevel: "12"
+    },
+    {
+        concept: "Vectors",
+        keyFormulas: "⟨x,y,z⟩",
+        keyConcepts: "Vector operations and applications",
+        relatedOperations: "Addition",
+        relatedTopics: "Linear algebra",
+        gradeLevel: "12"
+    },
+    {
+        concept: "Rational Functions",
+        keyFormulas: "f(x) = p(x)/q(x)",
+        keyConcepts: "Asymptotes and graphing",
+        relatedOperations: "Division",
+        relatedTopics: "Rational expressions",
         gradeLevel: "12"
     }
 ];
