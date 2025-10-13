@@ -231,9 +231,17 @@ Visit: **[math.boredgames.site](http://math.boredgames.site)**
 
 Aligned with Common Core State Standards for Mathematics (K-12)
 
-## 🐛 Bug Reports
+## 💬 Feedback & Support
 
-Found a bug? Please open an issue on GitHub with:
+### In-App Feedback
+Look for the floating 💬 feedback button in the bottom-right corner of the app! Click it to:
+- Share your thoughts
+- Report bugs
+- Suggest features
+- Ask questions
+
+### GitHub Issues
+You can also directly open an issue on GitHub with:
 - What happened
 - What you expected
 - Steps to reproduce

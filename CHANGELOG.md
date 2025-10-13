@@ -5,6 +5,16 @@ All notable changes to MathBored will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-10-13
+
+### Added
+- 💬 **Floating Feedback Button**: Users can now easily send feedback or report issues via a floating button in the bottom-right corner that links to GitHub Issues
+- Improved user engagement and feedback collection mechanism
+
+### Changed
+- Updated README with feedback & support section
+- Enhanced documentation for user feedback process
+
 ## [1.0.0] - 2025-10-13
 
 ### 🎉 Initial Release
