@@ -3491,6 +3491,78 @@ class MathBoredApp {
             this.stats = JSON.parse(saved);
         }
     }
+    
+    async shareStats() {
+        const shareBtn = document.getElementById('shareBtn');
+        
+        // Disable button during share
+        shareBtn.disabled = true;
+        
+        // Calculate accuracy
+        const accuracy = this.stats.totalAttempts > 0 
+            ? Math.round((this.stats.correctAnswers / this.stats.totalAttempts) * 100)
+            : 0;
+        
+        // Get grade display name
+        const gradeNames = {
+            'K': 'Kindergarten',
+            '1': '1st Grade', '2': '2nd Grade', '3': '3rd Grade',
+            '4': '4th Grade', '5': '5th Grade', '6': '6th Grade',
+            '7': '7th Grade', '8': '8th Grade', '9': '9th Grade',
+            '10': '10th Grade', '11': '11th Grade', '12': '12th Grade'
+        };
+        const gradeName = gradeNames[this.currentGrade] || `Grade ${this.currentGrade}`;
+        
+        // Create share text
+        const shareText = `📚 Just practiced math on MathBored! 🎯
+
+Topic: ${this.currentTopic || 'Math Practice'}
+Grade: ${gradeName}
+
+✓ ${this.stats.correctAnswers}/${this.stats.totalAttempts} correct (${accuracy}%)
+🔥 ${this.stats.streak} problem streak
+📊 ${this.stats.score} points
+
+Never be bored with math again!
+math.boredgames.site`;
+        
+        try {
+            // Try native Web Share API first (mobile)
+            if (navigator.share) {
+                await navigator.share({
+                    title: 'My MathBored Progress',
+                    text: shareText
+                });
+                
+                // Show success feedback
+                shareBtn.textContent = '✓ Shared!';
+                shareBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                
+            } else {
+                // Fallback to clipboard (desktop)
+                await navigator.clipboard.writeText(shareText);
+                
+                // Show success feedback
+                shareBtn.textContent = '✓ Copied to Clipboard!';
+                shareBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            }
+            
+            // Reset button after 2 seconds
+            setTimeout(() => {
+                shareBtn.textContent = '📤 Share Progress';
+                shareBtn.style.background = '';
+                shareBtn.disabled = false;
+            }, 2000);
+            
+        } catch (err) {
+            // User cancelled or error occurred
+            console.log('Share cancelled or failed:', err);
+            
+            // Reset button immediately on error
+            shareBtn.textContent = '📤 Share Progress';
+            shareBtn.disabled = false;
+        }
+    }
 }
 
 // Initialize app when DOM is ready

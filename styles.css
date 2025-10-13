@@ -250,6 +250,37 @@ select:hover, select:focus {
     color: var(--accent);
 }
 
+.share-btn {
+    grid-column: 1 / -1;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, var(--accent), #2563eb);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    margin-top: 5px;
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, #2563eb, var(--accent));
+}
+
+.share-btn:active {
+    transform: translateY(0);
+}
+
+.share-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
 .content-area {
     background: var(--bg-secondary);
     padding: 35px;
