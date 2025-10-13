@@ -5,6 +5,21 @@ All notable changes to MathBored will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2025-10-13
+
+### Changed
+- 🔒 **Privacy Enhancement**: Switched feedback mechanism from public GitHub Issues to anonymous Google Form
+- Updated feedback button to link to privacy-respecting anonymous form
+- No login required, no email needed (optional), completely anonymous by default
+- Better for K-12 students and parents who value privacy
+- GitHub Issues still available for technical users who prefer public tracking
+
+### Improved
+- Lower barrier to feedback (no GitHub account required)
+- More student and parent-friendly
+- COPPA-compliant (no personal data collection)
+- Enhanced trust for educational use
+
 ## [1.0.1] - 2025-10-13
 
 ### Added
