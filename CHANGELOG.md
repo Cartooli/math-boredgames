@@ -5,6 +5,24 @@ All notable changes to MathBored will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.3] - 2025-10-13
+
+### Security
+- 🛡️ **Removed GitHub link from app UI** for enhanced security and privacy
+- Prevents exposure of developer identity to potential spam bots and bad actors
+- GitHub repository information moved to README (developers only)
+- Simplified user-facing feedback to single anonymous channel
+
+### Changed
+- Updated footer to emphasize feedback privacy
+- Reorganized README with separate "For Developers & Contributors" section
+- All user feedback now exclusively through anonymous Google Form
+
+### Improved
+- Reduced attack surface for the developer
+- Enhanced privacy protection for both users and maintainer
+- Cleaner, simpler user experience (one feedback channel)
+
 ## [1.0.2] - 2025-10-13
 
 ### Changed

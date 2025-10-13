@@ -236,20 +236,28 @@ Aligned with Common Core State Standards for Mathematics (K-12)
 ### Anonymous Feedback Form
 Look for the floating 💬 feedback button in the bottom-right corner of the app! 
 
-**Your feedback is completely anonymous** - no login required, no email needed (unless you want a response).
+**Your feedback is completely anonymous and private** - no login required, no email needed (unless you want a response).
 
-Click it to:
+Click the 💬 button to:
 - Share your thoughts
-- Report bugs
+- Report bugs or issues
 - Suggest features
 - Ask questions
 - Rate your experience
 
-**Privacy First:** We respect your privacy. All feedback is anonymous by default.
+**Privacy First:** We respect your privacy. All feedback is anonymous by default and only visible to the maintainers.
 
-### GitHub Issues (For Technical Users)
-Developers and technical users can also open issues on GitHub:
-https://github.com/Cartooli/math-boredgames/issues
+---
+
+## 👨‍💻 For Developers & Contributors
+
+Interested in contributing code or reporting technical issues?
+
+- **View Source:** https://github.com/Cartooli/math-boredgames
+- **Contributions Welcome:** See [CONTRIBUTING.md](CONTRIBUTING.md)
+- **Technical Issues:** Use the anonymous feedback form or email for security-sensitive reports
+
+We keep GitHub information separate from the app to protect user privacy and reduce spam.
 
 ## 🎉 Acknowledgments
 
