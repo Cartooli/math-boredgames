@@ -5,6 +5,9 @@ Addition,+,Combining two groups to make a whole,Counting on,Subtraction,K
 Subtraction,-,Taking away from a whole,Counting back,Addition,K
 Basic Shapes,,Identifying circles, squares, triangles, rectangles,Counting sides,Geometry,K
 Measurement Comparison,,Longer/shorter, heavier/lighter concepts,Comparing,Measurement,K
+Patterns,,Recognizing and extending patterns,Sequencing,Number sense,K
+Ordinal Numbers,,"First, second, third positions",Counting,Number recognition,K
+Simple Data Collection,,Sorting and categorizing objects,Comparing,Data organization,K
 Place Value,Decomposition by 10s,Understanding base-ten system,Addition,Subtraction,1
 Two-Digit Addition,+,Adding numbers up to 100,Place value,Regrouping,1
 Two-Digit Subtraction,-,Subtracting numbers up to 100,Place value,Regrouping,1
@@ -14,6 +17,8 @@ Measurement (Length),,Non-standard and standard units,Comparing,Measurement comp
 Basic Shapes and Attributes,,Defining and composing shapes,Counting sides,Basic shapes,1
 Word Problems (Addition/Subtraction),,Real-world applications,Addition,Subtraction,1
 Data Organization,,Simple graphs and charts,Counting,Statistics,1
+Number Bonds,,Part-part-whole relationships for numbers to 10,Addition,Subtraction,1
+Fact Families,,Relating addition and subtraction,Addition,Subtraction,1
 Even and Odd Numbers,,Classifying numbers,Division by 2,Patterns,2
 Skip Counting,,Counting by multiples,Addition,Multiplication,2
 Three-Digit Numbers,,"Reading, writing, and comparing",Place value,Comparing numbers,2
@@ -22,18 +27,28 @@ Regrouping,,Carrying and borrowing,Addition,Subtraction,2
 Time to 5 Minutes,,Reading analog and digital clocks,Skip counting,Telling time,2
 Bar Graphs and Picture Graphs,,Creating and interpreting data,Counting,Data organization,2
 Measurement Units,"in, ft, cm, m",Standard units of length,Measurement,Conversion,2
+Arrays (Introduction),,Equal groups in rows and columns,Addition,Multiplication,2
+Estimating Quantities,,Reasonable estimates for small numbers,Rounding,Number sense,2
 Multiplication,×,Repeated addition,Arrays,Division,3
 Division,÷,Repeated subtraction,Multiplication,Factors and multiples,3
 Fractions,a/b,Part-to-whole relationships,Division,Decimals,3
 Area and Perimeter,"P=2l+2w, A=lw",Measuring rectangles and squares,Multiplication,Measurement,3
 Telling Time to the Minute,,Reading clocks and elapsed time,Addition,Time to 5 minutes,3
 Measurement Conversions,,Converting within same system,Multiplication,Measurement units,3
+Rounding,,To nearest 10 and 100,Place value,Estimation,3
+Properties of Multiplication,"Commutative, Associative, Distributive",Understanding multiplication properties,Multiplication,Addition,3
+Factors and Multiples (Basic),,Finding factors of numbers up to 100,Division,Multiplication,3
+Data Interpretation,,Reading and creating scaled graphs,Multiplication,Bar graphs and picture graphs,3
 Equivalent Fractions,a/b = c/d,Simplifying fractions,Multiplication,Ratio,4
 Mixed Numbers,a b/c,Whole + fractional parts,Addition,Improper fractions,4
 Decimals,"Place value tenths, hundredths",Relationship to fractions,Addition,Money,4
 Rounding and Estimation,≈,Approximation to nearest place,Addition,Subtraction,4
 Angle Measurement,°,Measuring angles with protractor,Addition,Geometry,4
 Line Plots,,Creating and interpreting data,Fractions,Statistics,4
+Factors and Divisibility,,Divisibility rules and factor pairs,Division,Prime numbers,4
+Multiples and Least Common Multiple,LCM,Finding least common multiple,Multiplication,Fractions,4
+Greatest Common Factor,GCF,Finding greatest common factor,Division,Factors and divisibility,4
+Two-Dimensional Figures,,Properties of quadrilaterals and triangles,Classification,Geometry,4
 Prime Numbers,,Numbers divisible only by 1 and itself,Division,Composite numbers,5
 Order of Operations,PEMDAS,Sequence of operations,Multiplication,Parentheses,5
 Fraction Addition and Subtraction,a/b ± c/d,Adding and subtracting unlike denominators,Multiplication,Equivalent fractions,5
@@ -42,12 +57,20 @@ Coordinate Graphing,"(x,y)",Plotting in first quadrant,Ordered pairs,Coordinate 
 Volume of Rectangular Prisms,V = l × w × h,Three-dimensional measurement,Multiplication,Volume,5
 Measurement Conversion,,Converting between different units,Multiplication,Measurement conversions,5
 "Decimal Operations","+, -, ×, ÷",Operations with decimals,Place value,Decimals,5
+Exponents (Introduction),10ⁿ,Powers of 10 and basic exponent notation,Multiplication,Place value,5
+Expressions,,Writing and evaluating numerical expressions,Order of operations,Variables,5
+"Data and Graphs",,"Histograms, line graphs, stem-and-leaf plots",Data interpretation,Statistics,5
 Integers,,Positive and negative numbers,Addition,Absolute value,6
 Ratios and Proportions,a:b = c:d,Comparing quantities,Division,Percentages,6
 Percentages,% = part/whole × 100,Per hundred relationships,Division,Decimals,6
 Coordinate Plane,"(x,y)",Plotting points,Addition,Geometry,6
 Absolute Value,|x|,Distance from zero,Integers,Number line,6
 "Statistical Questions","mean, median, mode, range",Analyzing data distributions,Addition,Statistics,6
+Rate and Unit Rate,rate = distance/time,"Speed, cost per unit, unit conversion",Division,Ratios and proportions,6
+Expressions and Variables,,Writing and evaluating algebraic expressions,Substitution,Order of operations,6
+One-Step Equations,"x + a = b, ax = b",Solving simple equations,Inverse operations,Variables,6
+Area of Triangles and Polygons,A = ½bh,Area of triangles and composite shapes,Multiplication,Area and perimeter,6
+Surface Area,SA = 2lw + 2lh + 2wh,Nets and surface area of prisms,Addition,Volume,6
 Expressions and Equations,y = mx + b,Using variables,Addition,Algebraic manipulation,7
 Inequalities,x > y,Comparing values,Subtraction,Number lines,7
 Area,"A=lw, A=πr²",2D measurement,Multiplication,Perimeter,7
@@ -55,6 +78,9 @@ Angles and Triangles,Sum of angles = 180°,Triangle properties and angle relatio
 Circles,"C=2πr, A=πr²",Circumference and area,Multiplication,Pi,7
 Scale Drawings,scale factor,Proportional reasoning,Multiplication,Ratios and proportions,7
 Probability Basics,P(A) = favorable/total,Simple probability concepts,Division,Fractions,7
+Proportional Relationships,y = kx,Direct proportion and constant of proportionality,Multiplication,Ratios and proportions,7
+Percent Applications,,"Tax, tip, discount, markup",Multiplication,Percentages,7
+Two-Step Equations,ax + b = c,Solving multi-step equations,Inverse operations,One-step equations,7
 Volume,V=lwh,3D measurement,Multiplication,Surface area,8
 Pythagorean Theorem,a²+b²=c²,Right triangle relationships,Square root,Distance formula,8
 Slope,m=(y₂−y₁)/(x₂−x₁),Rate of change,Division,Linear equations,8
@@ -62,24 +88,39 @@ Exponents,aⁿ,Repeated multiplication,Multiplication,Powers,8
 Systems of Equations,y = mx + b,Solving linear systems,Substitution,Equations,8
 Scientific Notation,a × 10ⁿ,Working with very large and small numbers,Multiplication,Exponents,8
 Transformations,,"Translations, rotations, reflections, dilations",Coordinate plane,Geometry,8
+Functions (Introduction),y = f(x),Linear vs non-linear functions,Graphing,Slope,8
+Scatter Plots,,Correlation and trend lines,Graphing,Statistics,8
 Polynomials,ax²+bx+c,Combining like terms,Addition,Factoring,9
 Quadratic Equations,ax²+bx+c=0,Parabolic relationships,Square roots,Vertex form,9
 Functions,f(x),Input-output mapping,Substitution,Domain/range,9
 Factoring,x²+bx+c=(x+m)(x+n),Breaking down expressions,Multiplication,Quadratics,9
 Radical Expressions,"√x, ∛x",Simplifying and operations with radicals,Multiplication,Exponents,9
 Rational Expressions,a/b,Simplifying rational expressions,Division,Fractions,9
+Linear Systems (Methods),,Substitution, elimination, graphing methods,Systems of equations,Linear equations,9
+Absolute Value Equations,|x| = a,Solving equations with absolute value,Absolute value,Equations,9
+Square Root Functions,y = √x,Graphing and properties,Square roots,Functions,9
+Exponential Growth and Decay,y = a(1±r)ᵗ,Real-world exponential problems,Exponents,Exponential functions,9
 Trigonometry,"sinθ, cosθ, tanθ",Ratios of sides in right triangles,Division,Unit circle,10
 Probability,P(A)=favorable/total,Chance of events,Multiplication,Statistics,10
 Statistics,"mean, median, mode",Analyzing data sets,Addition,Probability,10
 Circles (Advanced),"arc length, sector area","Arcs, sectors, circle theorems",Multiplication,Circles,10
 Combinations and Permutations,"nCr, nPr",Counting principles,Multiplication,Probability,10
 Systems of Inequalities,y > mx + b,Graphing and solving,Inequalities,Linear equations,10
+Normal Distribution,z-score,Bell curves and standard scores,Statistics,Standard deviation,10
+Conditional Probability,P(A|B) = P(A∩B)/P(B),Probability given conditions,Division,Probability,10
+Expected Value,E(X) = Σ(x·P(x)),Probability and expected outcomes,Multiplication,Probability,10
+Circle Geometry,,Inscribed angles and tangent lines,Angles,Circles (Advanced),10
 Law of Sines,a/sinA=b/sinB,Triangle relationships,Division,Law of Cosines,11
 Law of Cosines,c²=a²+b²−2abcosC,Non-right triangles,Multiplication,Trigonometry,11
 Logarithms,logₐx=y ↔ aʸ=x,Inverse of exponents,Division,Exponential functions,11
 Exponential Functions,y=a·bˣ,Growth and decay,Multiplication,Logarithms,11
 Complex Numbers,a + bi,Operations with imaginary unit i,Addition,Quadratic equations,11
 Conic Sections,"parabola, ellipse, hyperbola",Equations of conic sections,Quadratics,Circles,11
+Sequences (Arithmetic/Geometric),"aₙ = a₁ + (n-1)d, aₙ = a₁rⁿ⁻¹",nth term and recursive formulas,Patterns,Sequences and series,11
+"Series and Summation","Σ, Sₙ",Arithmetic and geometric series,Addition,Sequences,11
+Inverse Functions,f⁻¹(x),Finding and graphing inverses,Functions,Composition,11
+Rational Exponents,x^(m/n) = ⁿ√(xᵐ),Fractional exponents and radical form,Exponents,Radicals,11
+Polynomial Division,,Long division and synthetic division,Division,Polynomials,11
 Derivatives,dy/dx,Instantaneous rate of change,Subtraction,Calculus,12
 Integrals,∫f(x)dx,Area under a curve,Addition,Antiderivatives,12
 Sequences and Series,Σaₙ,Sum of patterns,Addition,Progressions,12
@@ -88,3 +129,6 @@ Standard Deviation,σ=√Σ(x−μ)²/n,Measure of spread,Subtraction,Variance,1
 Limits,lim(x→a) f(x),Approaching values in calculus,Substitution,Derivatives,12
 Vectors,⟨x,y,z⟩,Vector operations and applications,Addition,Linear algebra,12
 Rational Functions,f(x) = p(x)/q(x),Asymptotes and graphing,Division,Rational expressions,12
+Parametric Equations,"x = f(t), y = g(t)",Parametric curves and eliminating parameters,Substitution,Functions,12
+"Polar Coordinates","r, θ",Converting between polar and rectangular,Trigonometry,Coordinate plane,12
+L'Hôpital's Rule,lim f/g = lim f'/g',Evaluating limits of indeterminate forms,Limits,Derivatives,12

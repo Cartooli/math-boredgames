@@ -49,6 +49,30 @@ const mathConcepts = [
         gradeLevel: "K"
     },
     {
+        concept: "Patterns",
+        keyFormulas: "",
+        keyConcepts: "Recognizing and extending patterns",
+        relatedOperations: "Sequencing",
+        relatedTopics: "Number sense",
+        gradeLevel: "K"
+    },
+    {
+        concept: "Ordinal Numbers",
+        keyFormulas: "",
+        keyConcepts: "First, second, third positions",
+        relatedOperations: "Counting",
+        relatedTopics: "Number recognition",
+        gradeLevel: "K"
+    },
+    {
+        concept: "Simple Data Collection",
+        keyFormulas: "",
+        keyConcepts: "Sorting and categorizing objects",
+        relatedOperations: "Comparing",
+        relatedTopics: "Data organization",
+        gradeLevel: "K"
+    },
+    {
         concept: "Place Value",
         keyFormulas: "Decomposition by 10s",
         keyConcepts: "Understanding base-ten system",
@@ -121,6 +145,22 @@ const mathConcepts = [
         gradeLevel: "1"
     },
     {
+        concept: "Number Bonds",
+        keyFormulas: "",
+        keyConcepts: "Part-part-whole relationships for numbers to 10",
+        relatedOperations: "Addition",
+        relatedTopics: "Subtraction",
+        gradeLevel: "1"
+    },
+    {
+        concept: "Fact Families",
+        keyFormulas: "",
+        keyConcepts: "Relating addition and subtraction",
+        relatedOperations: "Addition",
+        relatedTopics: "Subtraction",
+        gradeLevel: "1"
+    },
+    {
         concept: "Even and Odd Numbers",
         keyFormulas: "",
         keyConcepts: "Classifying numbers",
@@ -185,6 +225,22 @@ const mathConcepts = [
         gradeLevel: "2"
     },
     {
+        concept: "Arrays (Introduction)",
+        keyFormulas: "",
+        keyConcepts: "Equal groups in rows and columns",
+        relatedOperations: "Addition",
+        relatedTopics: "Multiplication",
+        gradeLevel: "2"
+    },
+    {
+        concept: "Estimating Quantities",
+        keyFormulas: "",
+        keyConcepts: "Reasonable estimates for small numbers",
+        relatedOperations: "Rounding",
+        relatedTopics: "Number sense",
+        gradeLevel: "2"
+    },
+    {
         concept: "Multiplication",
         keyFormulas: "×",
         keyConcepts: "Repeated addition",
@@ -233,6 +289,38 @@ const mathConcepts = [
         gradeLevel: "3"
     },
     {
+        concept: "Rounding",
+        keyFormulas: "",
+        keyConcepts: "To nearest 10 and 100",
+        relatedOperations: "Place value",
+        relatedTopics: "Estimation",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Properties of Multiplication",
+        keyFormulas: "Commutative, Associative, Distributive",
+        keyConcepts: "Understanding multiplication properties",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Addition",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Factors and Multiples (Basic)",
+        keyFormulas: "",
+        keyConcepts: "Finding factors of numbers up to 100",
+        relatedOperations: "Division",
+        relatedTopics: "Multiplication",
+        gradeLevel: "3"
+    },
+    {
+        concept: "Data Interpretation",
+        keyFormulas: "",
+        keyConcepts: "Reading and creating scaled graphs",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Bar graphs and picture graphs",
+        gradeLevel: "3"
+    },
+    {
         concept: "Equivalent Fractions",
         keyFormulas: "a/b = c/d",
         keyConcepts: "Simplifying fractions",
@@ -278,6 +366,38 @@ const mathConcepts = [
         keyConcepts: "Creating and interpreting data",
         relatedOperations: "Fractions",
         relatedTopics: "Statistics",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Factors and Divisibility",
+        keyFormulas: "",
+        keyConcepts: "Divisibility rules and factor pairs",
+        relatedOperations: "Division",
+        relatedTopics: "Prime numbers",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Multiples and Least Common Multiple",
+        keyFormulas: "LCM",
+        keyConcepts: "Finding least common multiple",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Fractions",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Greatest Common Factor",
+        keyFormulas: "GCF",
+        keyConcepts: "Finding greatest common factor",
+        relatedOperations: "Division",
+        relatedTopics: "Factors and divisibility",
+        gradeLevel: "4"
+    },
+    {
+        concept: "Two-Dimensional Figures",
+        keyFormulas: "",
+        keyConcepts: "Properties of quadrilaterals and triangles",
+        relatedOperations: "Classification",
+        relatedTopics: "Geometry",
         gradeLevel: "4"
     },
     {
@@ -345,6 +465,30 @@ const mathConcepts = [
         gradeLevel: "5"
     },
     {
+        concept: "Exponents (Introduction)",
+        keyFormulas: "10ⁿ",
+        keyConcepts: "Powers of 10 and basic exponent notation",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Place value",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Expressions",
+        keyFormulas: "",
+        keyConcepts: "Writing and evaluating numerical expressions",
+        relatedOperations: "Order of operations",
+        relatedTopics: "Variables",
+        gradeLevel: "5"
+    },
+    {
+        concept: "Data and Graphs",
+        keyFormulas: "",
+        keyConcepts: "Histograms, line graphs, stem-and-leaf plots",
+        relatedOperations: "Data interpretation",
+        relatedTopics: "Statistics",
+        gradeLevel: "5"
+    },
+    {
         concept: "Integers",
         keyFormulas: "",
         keyConcepts: "Positive and negative numbers",
@@ -390,6 +534,46 @@ const mathConcepts = [
         keyConcepts: "Analyzing data distributions",
         relatedOperations: "Addition",
         relatedTopics: "Statistics",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Rate and Unit Rate",
+        keyFormulas: "rate = distance/time",
+        keyConcepts: "Speed, cost per unit, unit conversion",
+        relatedOperations: "Division",
+        relatedTopics: "Ratios and proportions",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Expressions and Variables",
+        keyFormulas: "",
+        keyConcepts: "Writing and evaluating algebraic expressions",
+        relatedOperations: "Substitution",
+        relatedTopics: "Order of operations",
+        gradeLevel: "6"
+    },
+    {
+        concept: "One-Step Equations",
+        keyFormulas: "x + a = b, ax = b",
+        keyConcepts: "Solving simple equations",
+        relatedOperations: "Inverse operations",
+        relatedTopics: "Variables",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Area of Triangles and Polygons",
+        keyFormulas: "A = ½bh",
+        keyConcepts: "Area of triangles and composite shapes",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Area and perimeter",
+        gradeLevel: "6"
+    },
+    {
+        concept: "Surface Area",
+        keyFormulas: "SA = 2lw + 2lh + 2wh",
+        keyConcepts: "Nets and surface area of prisms",
+        relatedOperations: "Addition",
+        relatedTopics: "Volume",
         gradeLevel: "6"
     },
     {
@@ -449,6 +633,30 @@ const mathConcepts = [
         gradeLevel: "7"
     },
     {
+        concept: "Proportional Relationships",
+        keyFormulas: "y = kx",
+        keyConcepts: "Direct proportion and constant of proportionality",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Ratios and proportions",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Percent Applications",
+        keyFormulas: "",
+        keyConcepts: "Tax, tip, discount, markup",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Percentages",
+        gradeLevel: "7"
+    },
+    {
+        concept: "Two-Step Equations",
+        keyFormulas: "ax + b = c",
+        keyConcepts: "Solving multi-step equations",
+        relatedOperations: "Inverse operations",
+        relatedTopics: "One-step equations",
+        gradeLevel: "7"
+    },
+    {
         concept: "Volume",
         keyFormulas: "V=lwh",
         keyConcepts: "3D measurement",
@@ -505,6 +713,22 @@ const mathConcepts = [
         gradeLevel: "8"
     },
     {
+        concept: "Functions (Introduction)",
+        keyFormulas: "y = f(x)",
+        keyConcepts: "Linear vs non-linear functions",
+        relatedOperations: "Graphing",
+        relatedTopics: "Slope",
+        gradeLevel: "8"
+    },
+    {
+        concept: "Scatter Plots",
+        keyFormulas: "",
+        keyConcepts: "Correlation and trend lines",
+        relatedOperations: "Graphing",
+        relatedTopics: "Statistics",
+        gradeLevel: "8"
+    },
+    {
         concept: "Polynomials",
         keyFormulas: "ax²+bx+c",
         keyConcepts: "Combining like terms",
@@ -550,6 +774,38 @@ const mathConcepts = [
         keyConcepts: "Simplifying rational expressions",
         relatedOperations: "Division",
         relatedTopics: "Fractions",
+        gradeLevel: "9"
+    },
+    {
+        concept: "Linear Systems (Methods)",
+        keyFormulas: "",
+        keyConcepts: "Substitution, elimination, graphing methods",
+        relatedOperations: "Systems of equations",
+        relatedTopics: "Linear equations",
+        gradeLevel: "9"
+    },
+    {
+        concept: "Absolute Value Equations",
+        keyFormulas: "|x| = a",
+        keyConcepts: "Solving equations with absolute value",
+        relatedOperations: "Absolute value",
+        relatedTopics: "Equations",
+        gradeLevel: "9"
+    },
+    {
+        concept: "Square Root Functions",
+        keyFormulas: "y = √x",
+        keyConcepts: "Graphing and properties",
+        relatedOperations: "Square roots",
+        relatedTopics: "Functions",
+        gradeLevel: "9"
+    },
+    {
+        concept: "Exponential Growth and Decay",
+        keyFormulas: "y = a(1±r)ᵗ",
+        keyConcepts: "Real-world exponential problems",
+        relatedOperations: "Exponents",
+        relatedTopics: "Exponential functions",
         gradeLevel: "9"
     },
     {
@@ -601,6 +857,38 @@ const mathConcepts = [
         gradeLevel: "10"
     },
     {
+        concept: "Normal Distribution",
+        keyFormulas: "z-score",
+        keyConcepts: "Bell curves and standard scores",
+        relatedOperations: "Statistics",
+        relatedTopics: "Standard deviation",
+        gradeLevel: "10"
+    },
+    {
+        concept: "Conditional Probability",
+        keyFormulas: "P(A|B) = P(A∩B)/P(B)",
+        keyConcepts: "Probability given conditions",
+        relatedOperations: "Division",
+        relatedTopics: "Probability",
+        gradeLevel: "10"
+    },
+    {
+        concept: "Expected Value",
+        keyFormulas: "E(X) = Σ(x·P(x))",
+        keyConcepts: "Probability and expected outcomes",
+        relatedOperations: "Multiplication",
+        relatedTopics: "Probability",
+        gradeLevel: "10"
+    },
+    {
+        concept: "Circle Geometry",
+        keyFormulas: "",
+        keyConcepts: "Inscribed angles and tangent lines",
+        relatedOperations: "Angles",
+        relatedTopics: "Circles (Advanced)",
+        gradeLevel: "10"
+    },
+    {
         concept: "Law of Sines",
         keyFormulas: "a/sinA=b/sinB",
         keyConcepts: "Triangle relationships",
@@ -646,6 +934,46 @@ const mathConcepts = [
         keyConcepts: "Equations of conic sections",
         relatedOperations: "Quadratics",
         relatedTopics: "Circles",
+        gradeLevel: "11"
+    },
+    {
+        concept: "Sequences (Arithmetic/Geometric)",
+        keyFormulas: "aₙ = a₁ + (n-1)d, aₙ = a₁rⁿ⁻¹",
+        keyConcepts: "nth term and recursive formulas",
+        relatedOperations: "Patterns",
+        relatedTopics: "Sequences and series",
+        gradeLevel: "11"
+    },
+    {
+        concept: "Series and Summation",
+        keyFormulas: "Σ, Sₙ",
+        keyConcepts: "Arithmetic and geometric series",
+        relatedOperations: "Addition",
+        relatedTopics: "Sequences",
+        gradeLevel: "11"
+    },
+    {
+        concept: "Inverse Functions",
+        keyFormulas: "f⁻¹(x)",
+        keyConcepts: "Finding and graphing inverses",
+        relatedOperations: "Functions",
+        relatedTopics: "Composition",
+        gradeLevel: "11"
+    },
+    {
+        concept: "Rational Exponents",
+        keyFormulas: "x^(m/n) = ⁿ√(xᵐ)",
+        keyConcepts: "Fractional exponents and radical form",
+        relatedOperations: "Exponents",
+        relatedTopics: "Radicals",
+        gradeLevel: "11"
+    },
+    {
+        concept: "Polynomial Division",
+        keyFormulas: "",
+        keyConcepts: "Long division and synthetic division",
+        relatedOperations: "Division",
+        relatedTopics: "Polynomials",
         gradeLevel: "11"
     },
     {
@@ -710,6 +1038,30 @@ const mathConcepts = [
         keyConcepts: "Asymptotes and graphing",
         relatedOperations: "Division",
         relatedTopics: "Rational expressions",
+        gradeLevel: "12"
+    },
+    {
+        concept: "Parametric Equations",
+        keyFormulas: "x = f(t), y = g(t)",
+        keyConcepts: "Parametric curves and eliminating parameters",
+        relatedOperations: "Substitution",
+        relatedTopics: "Functions",
+        gradeLevel: "12"
+    },
+    {
+        concept: "Polar Coordinates",
+        keyFormulas: "r, θ",
+        keyConcepts: "Converting between polar and rectangular",
+        relatedOperations: "Trigonometry",
+        relatedTopics: "Coordinate plane",
+        gradeLevel: "12"
+    },
+    {
+        concept: "L'Hôpital's Rule",
+        keyFormulas: "lim f/g = lim f'/g'",
+        keyConcepts: "Evaluating limits of indeterminate forms",
+        relatedOperations: "Limits",
+        relatedTopics: "Derivatives",
         gradeLevel: "12"
     }
 ];
