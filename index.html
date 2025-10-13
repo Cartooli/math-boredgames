@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free, open-source K-12 math learning and practice application. Master math concepts from kindergarten to calculus with lessons, walkthroughs, and unlimited practice problems.">
+    <meta name="keywords" content="math, education, learning, practice, K-12, free, open-source, mathematics, algebra, geometry, calculus">
+    <meta name="author" content="MathBored Project">
+    <title>MathBored - Never Be Bored with Math Again</title>
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <meta name="theme-color" content="#3b82f6">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MathBored">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>🎯 MathBored</h1>
+                    <div class="tagline">Never be bored with math again • Always free, always helpful</div>
+                </div>
+                <div class="theme-selector">
+                    <div class="theme-btn theme-midnight active" data-theme="" title="Midnight"></div>
+                    <div class="theme-btn theme-ocean" data-theme="ocean" title="Ocean"></div>
+                    <div class="theme-btn theme-forest" data-theme="forest" title="Forest"></div>
+                    <div class="theme-btn theme-sunset" data-theme="sunset" title="Sunset"></div>
+                    <div class="theme-btn theme-purple" data-theme="purple" title="Purple"></div>
+                    <div class="theme-btn theme-light" data-theme="light" title="Light"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="controls">
+            <div class="control-group">
+                <label>📚 Grade Level</label>
+                <select id="gradeSelect">
+                    <option value="K">Kindergarten</option>
+                    <option value="1">1st Grade</option>
+                    <option value="2">2nd Grade</option>
+                    <option value="3">3rd Grade</option>
+                    <option value="4">4th Grade</option>
+                    <option value="5" selected>5th Grade</option>
+                    <option value="6">6th Grade</option>
+                    <option value="7">7th Grade</option>
+                    <option value="8">8th Grade</option>
+                    <option value="9">9th Grade (Algebra I)</option>
+                    <option value="10">10th Grade (Geometry)</option>
+                    <option value="11">11th Grade (Algebra II)</option>
+                    <option value="12">12th Grade (Pre-Calculus/Calculus)</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>📖 Topic</label>
+                <select id="topicSelect"></select>
+            </div>
+
+            <div class="control-group">
+                <label>🎮 Learning Mode</label>
+                <div class="mode-tabs">
+                    <button class="mode-tab active" data-mode="lesson">📝 Lesson</button>
+                    <button class="mode-tab" data-mode="walkthrough">🔍 Walkthrough</button>
+                    <button class="mode-tab" data-mode="practice">💪 Practice</button>
+                </div>
+            </div>
+
+            <div class="stats-panel">
+                <div class="stat-item">
+                    <span class="stat-label">Streak</span>
+                    <span class="stat-value" id="streakCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Score</span>
+                    <span class="stat-value" id="scoreCount">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Accuracy</span>
+                    <span class="stat-value" id="accuracyPercent">--%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-area" id="contentArea">
+            <!-- Content loads here dynamically -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>MathBored @ math.boredgames.site • Free forever • No logins, no limits, just learning</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Helping students master math, one problem at a time 🚀</p>
+        </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+

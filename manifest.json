@@ -1,0 +1,20 @@
+{
+  "name": "MathBored - Never Be Bored with Math Again",
+  "short_name": "MathBored",
+  "description": "A free, open-source K-12 math learning and practice application",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "orientation": "any",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
+
