@@ -2324,6 +2324,518 @@ class MathBoredApp {
                         <strong>Answer:</strong> ${percent}% of ${total} is ${this.currentAnswer}
                     </div>
                 `;
+            },
+            
+            // Walkthrough generators for all major topics
+            "Integers": () => {
+                const {a, b, op} = this.currentProblem;
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Identify the numbers and operation:</strong> We have ${a} ${op} ${b}
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Apply integer rules:</strong> ${op === '+' ? 
+                            'Same signs add and keep sign. Different signs subtract and keep sign of larger.' : 
+                            'Change subtraction to adding the opposite, then follow addition rules.'}
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Calculate:</strong> ${a} ${op} ${b} = ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Decimals": () => {
+                const {a, b, operation} = this.currentProblem;
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Line up the decimal points:</strong> Make sure decimals are aligned
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Perform the operation:</strong> ${a} ${operation} ${b}
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Answer:</strong> ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Pythagorean Theorem": () => {
+                const {a, b} = this.currentProblem;
+                const c = this.currentAnswer;
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Write the formula:</strong> a² + b² = c² (where c is the hypotenuse)
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Substitute values:</strong> ${a}² + ${b}² = ${a*a} + ${b*b} = ${a*a + b*b}
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Take the square root:</strong> c = √${a*a + b*b} = ${c.toFixed(2)}
+                    </div>
+                `;
+            },
+            
+            "Quadratic Equations": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Identify the coefficients:</strong> In ax² + bx + c = 0, identify a, b, and c
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Apply quadratic formula:</strong> x = (-b ± √(b² - 4ac)) / 2a
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Calculate both solutions:</strong> Solve for + and - to get both roots
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">4</span>
+                        <strong>Answer:</strong> x = ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Order of Operations": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Remember PEMDAS:</strong> Parentheses, Exponents, Multiplication/Division (left to right), Addition/Subtraction (left to right)
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Work through each step:</strong> Follow the order carefully
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Final answer:</strong> ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Slope": () => {
+                const {x1, y1, x2, y2} = this.currentProblem;
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Slope formula:</strong> m = (y₂ - y₁) / (x₂ - x₁)
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Substitute points:</strong> m = (${y2} - ${y1}) / (${x2} - ${x1}) = ${y2-y1} / ${x2-x1}
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Simplify:</strong> m = ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Exponents": () => {
+                const {base, exp} = this.currentProblem;
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Understand the notation:</strong> ${base}^${exp} means multiply ${base} by itself ${exp} times
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Calculate:</strong> ${base} × ${base}${exp > 2 ? ` × ${base}`.repeat(exp-2) : ''} = ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Scientific Notation": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Form: a × 10^n</strong> where 1 ≤ a < 10 and n is an integer
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Move decimal point:</strong> Count how many places to move
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Write in form:</strong> ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Place Value": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Identify each digit's place:</strong> Each position has a different value
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Break apart the number:</strong> Decompose into tens and ones
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Answer:</strong> ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Comparing Numbers": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Compare place values:</strong> Start with the biggest place value
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Use symbols:</strong> > (greater than), < (less than), = (equal)
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Answer:</strong> ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Area and Perimeter": () => {
+                const {length, width} = this.currentProblem;
+                const isArea = this.currentProblem.display.includes('area');
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>${isArea ? 'Area formula:' : 'Perimeter formula:'}</strong> ${isArea ? `A = length × width` : `P = 2(length + width)`}
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Substitute values:</strong> ${isArea ? `A = ${length} × ${width}` : `P = 2(${length} + ${width})`}
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Calculate:</strong> ${this.currentAnswer} ${isArea ? 'square units' : 'units'}
+                    </div>
+                `;
+            },
+            
+            "Ratios and Proportions": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Set up the proportion:</strong> a/b = c/d
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Cross multiply:</strong> a × d = b × c
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Solve for unknown:</strong> ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Probability": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Probability formula:</strong> P = (favorable outcomes) / (total outcomes)
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Count outcomes:</strong> Identify favorable and total outcomes
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Calculate:</strong> P = ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            // Additional walkthroughs for Grade 1-5 topics
+            "Two-Digit Addition": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Line up the numbers:</strong> Write the numbers vertically, aligning ones and tens places
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Add the ones place first:</strong> If the sum is 10 or more, regroup (carry) 1 ten
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Add the tens place:</strong> Don't forget to add any regrouped tens
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">4</span>
+                        <strong>Answer:</strong> ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Two-Digit Subtraction": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Line up the numbers:</strong> Write vertically with places aligned
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Subtract the ones:</strong> If top digit is smaller, borrow 1 ten (regroup)
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Subtract the tens:</strong> Remember to subtract 1 if you borrowed
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">4</span>
+                        <strong>Answer:</strong> ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Prime Numbers": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Definition:</strong> A prime number has exactly 2 factors: 1 and itself
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Check divisibility:</strong> Try dividing by small numbers (2, 3, 5, 7...)
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Determine:</strong> If no whole divisors exist (except 1 and the number), it's prime
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">4</span>
+                        <strong>Answer:</strong> ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Volume": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Volume formula:</strong> V = length × width × height (for rectangular prisms)
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Identify dimensions:</strong> Find l, w, and h from the problem
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Multiply:</strong> Calculate l × w × h
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">4</span>
+                        <strong>Answer:</strong> ${this.currentAnswer} cubic units
+                    </div>
+                `;
+            },
+            
+            "Coordinate Plane": () => {
+                const {x, y} = this.currentProblem;
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Understand coordinates:</strong> Points are written as (x, y)
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Plot the point:</strong> Start at origin (0,0), move ${x} units horizontally, then ${y} units vertically
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Mark the location:</strong> This is point (${x}, ${y})
+                    </div>
+                `;
+            },
+            
+            "One-Step Equations": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Identify the operation:</strong> What's being done to the variable?
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Use inverse operation:</strong> Do the opposite to isolate the variable
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Solve:</strong> x = ${this.currentAnswer}
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">4</span>
+                        <strong>Check:</strong> Substitute back to verify your answer
+                    </div>
+                `;
+            },
+            
+            "Two-Step Equations": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Undo addition/subtraction first:</strong> Get the term with the variable by itself
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Undo multiplication/division:</strong> Isolate the variable completely
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Simplify:</strong> x = ${this.currentAnswer}
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">4</span>
+                        <strong>Verify:</strong> Check by substituting back into the original equation
+                    </div>
+                `;
+            },
+            
+            "Systems of Equations": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Choose a method:</strong> Substitution, elimination, or graphing
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Solve for one variable:</strong> Use your chosen method
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Find the other variable:</strong> Substitute back to find the second value
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">4</span>
+                        <strong>Solution:</strong> (x, y) = ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Polynomials": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Identify like terms:</strong> Terms with the same variable and exponent
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Combine coefficients:</strong> Add or subtract the numbers in front
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Simplified form:</strong> ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Factoring": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Find two numbers:</strong> That multiply to c and add to b (in x² + bx + c)
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Write factors:</strong> (x + m)(x + n)
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Verify:</strong> Multiply back to check
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">4</span>
+                        <strong>Factored form:</strong> ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Trigonometry": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Identify the ratio:</strong> SOH-CAH-TOA (sin = opp/hyp, cos = adj/hyp, tan = opp/adj)
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Find the sides:</strong> Label opposite, adjacent, and hypotenuse
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Calculate the ratio:</strong> Divide the appropriate sides
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">4</span>
+                        <strong>Result:</strong> ${this.formatAnswer(this.currentAnswer)}
+                    </div>
+                `;
+            },
+            
+            "Logarithms": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Understand the relationship:</strong> log_a(x) = y means a^y = x
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Convert to exponential form:</strong> Rewrite as needed
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Solve:</strong> ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Derivatives": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Identify the function type:</strong> Polynomial, trig, exponential, etc.
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Apply derivative rules:</strong> Power rule, product rule, chain rule as needed
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Simplify:</strong> f'(x) = ${this.currentAnswer}
+                    </div>
+                `;
+            },
+            
+            "Integrals": () => {
+                return `
+                    <div class="walkthrough-step">
+                        <span class="step-number">1</span>
+                        <strong>Identify the integrand:</strong> What function are we integrating?
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">2</span>
+                        <strong>Apply integration rules:</strong> Power rule, u-substitution as needed
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">3</span>
+                        <strong>Don't forget +C:</strong> Add the constant of integration
+                    </div>
+                    <div class="walkthrough-step">
+                        <span class="step-number">4</span>
+                        <strong>Answer:</strong> ${this.currentAnswer} + C
+                    </div>
+                `;
             }
         };
         
@@ -2333,18 +2845,30 @@ class MathBoredApp {
     }
     
     generateGenericWalkthrough() {
+        const concept = getConceptByName(this.currentTopic);
+        const conceptName = concept ? concept.concept : this.currentTopic;
+        const keyFormulas = concept ? concept.keyFormulas : '';
+        const keyConcepts = concept ? concept.keyConcepts : '';
+        const relatedOps = concept ? concept.relatedOperations : '';
+        
         return `
             <div class="walkthrough-step">
                 <span class="step-number">1</span>
-                <strong>Identify what we're solving:</strong> Look at the problem and identify the key information.
+                <strong>Understand the problem:</strong> ${this.currentProblem.display}
+                ${keyConcepts ? `<p style="margin-top: 8px; color: var(--text-secondary);">This topic involves: ${keyConcepts}</p>` : ''}
             </div>
             <div class="walkthrough-step">
                 <span class="step-number">2</span>
-                <strong>Apply the concept:</strong> Use the rules and formulas for this topic.
+                <strong>Apply the concept:</strong> ${conceptName} - ${relatedOps || 'Use the rules and formulas for this topic'}
+                ${keyFormulas ? `<p style="margin-top: 8px;"><strong>Formula:</strong> ${keyFormulas}</p>` : ''}
             </div>
             <div class="walkthrough-step">
                 <span class="step-number">3</span>
-                <strong>Calculate:</strong> Work through the steps carefully.
+                <strong>Work through the solution:</strong> Follow the steps systematically and check your work.
+            </div>
+            <div class="walkthrough-step">
+                <span class="step-number">4</span>
+                <strong>Final answer:</strong> <span style="font-size: 1.3rem; color: var(--accent);">${this.formatAnswer(this.currentAnswer)}</span>
             </div>
         `;
     }
