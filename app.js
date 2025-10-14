@@ -924,6 +924,1221 @@ class MathBoredApp {
                     <li>To see patterns</li>
                     <li>To compare things</li>
                 </ul>
+            `,
+            
+            // === GRADE 1 LESSONS (19 topics) ===
+            
+            "Place Value": `
+                <h2>Place Value</h2>
+                <p>Place value is understanding what each digit in a number means based on its position. It's the foundation of our number system!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Understanding Ones and Tens</h3>
+                <p>Every number has different places, and each place has a different value:</p>
+                
+                <div class="example">
+                    <div class="example-title">The Number 23</div>
+                    <p><strong>2</strong> is in the <strong>tens place</strong> = 2 tens = 20</p>
+                    <p><strong>3</strong> is in the <strong>ones place</strong> = 3 ones = 3</p>
+                    <p>Together: 20 + 3 = <strong>23</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Visual Representation</div>
+                    <p>We can show 23 using base-ten blocks:</p>
+                    <p>📦📦 🔷🔷🔷 (2 tens and 3 ones)</p>
+                    <p>Each box 📦 = 10, Each diamond 🔷 = 1</p>
+                </div>
+                
+                <h3>Breaking Numbers Apart</h3>
+                <p>We can decompose (break apart) numbers to see their place values:</p>
+                
+                <div class="example">
+                    <div class="example-title">Number 47</div>
+                    <p>47 = <strong>4 tens + 7 ones</strong></p>
+                    <p>47 = <strong>40 + 7</strong></p>
+                    <p>📦📦📦📦 🔷🔷🔷🔷🔷🔷🔷</p>
+                </div>
+                
+                <h3>Why Place Value Matters</h3>
+                <ul>
+                    <li>Helps us read and write numbers correctly</li>
+                    <li>Essential for adding and subtracting</li>
+                    <li>Makes understanding larger numbers easier</li>
+                    <li>Used in real life (money, addresses, etc.)</li>
+                </ul>
+                
+                <h3>Practice</h3>
+                <p>Look at the number 56:</p>
+                <ul>
+                    <li>What digit is in the tens place? <strong>5</strong></li>
+                    <li>What does that 5 mean? <strong>5 tens = 50</strong></li>
+                    <li>What digit is in the ones place? <strong>6</strong></li>
+                    <li>So 56 = <strong>50 + 6</strong></li>
+                </ul>
+            `,
+
+            "Two-Digit Addition": `
+                <h2>Two-Digit Addition</h2>
+                <p>Two-digit addition means adding numbers from 10 to 99. Once you understand place value, adding bigger numbers becomes much easier!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Adding Without Regrouping</h3>
+                <p>When the ones add up to less than 10, it's straightforward:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 23 + 45</div>
+                    <pre>  23
++ 45
+----
+  68</pre>
+                    <p><strong>Step 1:</strong> Add the ones: 3 + 5 = 8</p>
+                    <p><strong>Step 2:</strong> Add the tens: 20 + 40 = 60</p>
+                    <p><strong>Answer:</strong> 60 + 8 = <strong>68</strong></p>
+                </div>
+                
+                <h3>Adding With Regrouping (Carrying)</h3>
+                <p>When ones add up to 10 or more, we need to regroup:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 27 + 15</div>
+                    <pre>  ¹27
++ 15
+----
+  42</pre>
+                    <p><strong>Step 1:</strong> Add the ones: 7 + 5 = 12</p>
+                    <p>That's 1 ten and 2 ones! Write 2, carry the 1 ten.</p>
+                    <p><strong>Step 2:</strong> Add the tens: 1 + 2 + 1 = 4 tens</p>
+                    <p><strong>Answer:</strong> <strong>42</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Visual Method</div>
+                    <p>27 + 15 using base-ten blocks:</p>
+                    <p>27: 📦📦 🔷🔷🔷🔷🔷🔷🔷</p>
+                    <p>15: 📦 🔷🔷🔷🔷🔷</p>
+                    <p>Combine: 📦📦📦 🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷</p>
+                    <p>That's 12 ones! Trade 10 ones for 1 ten:</p>
+                    <p>📦📦📦📦 🔷🔷 = <strong>42</strong></p>
+                </div>
+                
+                <h3>Tips for Success</h3>
+                <ul>
+                    <li>Always line up the ones and tens columns</li>
+                    <li>Start by adding the ones place first</li>
+                    <li>Remember: 10 ones = 1 ten</li>
+                    <li>Check your work by estimating first</li>
+                </ul>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li>Adding scores in games</li>
+                    <li>Counting money</li>
+                    <li>Finding totals when shopping</li>
+                    <li>Adding up collections</li>
+                </ul>
+            `,
+
+            "Two-Digit Subtraction": `
+                <h2>Two-Digit Subtraction</h2>
+                <p>Subtraction means taking away or finding the difference. With two-digit numbers, we use place value to make it easier!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Subtracting Without Regrouping</h3>
+                <p>When each digit in the first number is bigger, subtraction is simple:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 48 − 23</div>
+                    <pre>  48
+− 23
+----
+  25</pre>
+                    <p><strong>Step 1:</strong> Subtract the ones: 8 − 3 = 5</p>
+                    <p><strong>Step 2:</strong> Subtract the tens: 4 − 2 = 2 tens = 20</p>
+                    <p><strong>Answer:</strong> <strong>25</strong></p>
+                </div>
+                
+                <h3>Subtracting With Regrouping (Borrowing)</h3>
+                <p>When the bottom ones digit is bigger, we need to regroup:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 52 − 27</div>
+                    <pre>  ⁴¹52
+− 27
+----
+  25</pre>
+                    <p><strong>Step 1:</strong> Can't do 2 − 7, so borrow!</p>
+                    <p>Borrow 1 ten from 5 tens → 4 tens and 12 ones</p>
+                    <p><strong>Step 2:</strong> Now: 12 − 7 = 5 ones</p>
+                    <p><strong>Step 3:</strong> And: 4 − 2 = 2 tens</p>
+                    <p><strong>Answer:</strong> <strong>25</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Visual Method</div>
+                    <p>52 − 27 using base-ten blocks:</p>
+                    <p>Start with: 📦📦📦📦📦 🔷🔷</p>
+                    <p>Need to take away 7 ones, but only have 2!</p>
+                    <p>Trade 1 ten for 10 ones:</p>
+                    <p>📦📦📦📦 🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷</p>
+                    <p>Now take away 27 (2 tens and 7 ones):</p>
+                    <p>📦📦 🔷🔷🔷🔷🔷 = <strong>25</strong></p>
+                </div>
+                
+                <h3>Steps to Remember</h3>
+                <ol>
+                    <li>Line up the places correctly</li>
+                    <li>Start with the ones place</li>
+                    <li>If needed, borrow from the tens</li>
+                    <li>Subtract the tens place</li>
+                </ol>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li>Finding how much change you get</li>
+                    <li>Calculating age differences</li>
+                    <li>Figuring out how many more you need</li>
+                    <li>Finding scores in games</li>
+                </ul>
+            `,
+
+            "Comparing Numbers": `
+                <h2>Comparing Numbers</h2>
+                <p>Comparing numbers means figuring out which is greater, which is less, or if they're equal. We use special symbols to show comparisons!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>The Three Comparison Symbols</h3>
+                
+                <div class="example">
+                    <div class="example-title">Greater Than (>)</div>
+                    <p><strong>25 > 18</strong></p>
+                    <p>25 is <strong>greater than</strong> 18</p>
+                    <p>Think of it like a hungry alligator eating the bigger number! 🐊</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Less Than (<)</div>
+                    <p><strong>15 < 22</strong></p>
+                    <p>15 is <strong>less than</strong> 22</p>
+                    <p>The alligator wants to eat 22 (the bigger number)! 🐊</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Equal To (=)</div>
+                    <p><strong>20 = 20</strong></p>
+                    <p>20 is <strong>equal to</strong> 20</p>
+                    <p>The numbers are the same!</p>
+                </div>
+                
+                <h3>How to Compare Two-Digit Numbers</h3>
+                
+                <div class="example">
+                    <div class="example-title">Step-by-Step: Compare 47 and 52</div>
+                    <p><strong>Step 1:</strong> Compare the tens place first</p>
+                    <p>47 has 4 tens, 52 has 5 tens</p>
+                    <p>5 tens > 4 tens, so 52 > 47</p>
+                    <p><strong>Answer: 47 < 52</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Step-by-Step: Compare 34 and 38</div>
+                    <p><strong>Step 1:</strong> Compare the tens place</p>
+                    <p>Both have 3 tens (they're the same!)</p>
+                    <p><strong>Step 2:</strong> Compare the ones place</p>
+                    <p>4 ones < 8 ones</p>
+                    <p><strong>Answer: 34 < 38</strong></p>
+                </div>
+                
+                <h3>The Alligator Trick</h3>
+                <p>Remember: The alligator's mouth always opens toward the BIGGER number!</p>
+                <ul>
+                    <li>35 🐊 28 means 35 > 28</li>
+                    <li>15 🐊 42 means 15 < 42</li>
+                    <li>The open mouth eats the bigger number!</li>
+                </ul>
+                
+                <h3>Practice Tips</h3>
+                <ul>
+                    <li>Always compare tens place first</li>
+                    <li>If tens are equal, compare ones place</li>
+                    <li>Use number lines to visualize</li>
+                    <li>Remember: greater means "more than"</li>
+                </ul>
+            `,
+
+            "Telling Time": `
+                <h2>Telling Time</h2>
+                <p>Learning to tell time helps you know when things happen during the day. Let's learn to read both analog (clock with hands) and digital clocks!</p>
+                
+                <h3>Parts of a Clock</h3>
+                <div class="example">
+                    <div class="example-title">Clock Basics</div>
+                    <ul>
+                        <li><strong>Hour Hand:</strong> The short hand (shows the hour)</li>
+                        <li><strong>Minute Hand:</strong> The long hand (shows the minutes)</li>
+                        <li><strong>Numbers:</strong> 1 through 12 around the clock</li>
+                    </ul>
+                </div>
+                
+                <h3>Telling Time to the Hour</h3>
+                <div class="example">
+                    <div class="example-title">On the Hour</div>
+                    <p>When the minute hand points to 12:</p>
+                    <p>⏰ If the hour hand points to 3, it's <strong>3:00</strong> (3 o'clock)</p>
+                    <p>⏰ If the hour hand points to 7, it's <strong>7:00</strong> (7 o'clock)</p>
+                    <p>⏰ If the hour hand points to 12, it's <strong>12:00</strong> (12 o'clock)</p>
+                </div>
+                
+                <h3>Telling Time to the Half Hour</h3>
+                <div class="example">
+                    <div class="example-title">Half Past the Hour</div>
+                    <p>When the minute hand points to 6:</p>
+                    <p>⏰ If the hour hand is halfway between 2 and 3, it's <strong>2:30</strong> (half past 2)</p>
+                    <p>⏰ If the hour hand is halfway between 5 and 6, it's <strong>5:30</strong> (half past 5)</p>
+                    <p>The minute hand at 6 means <strong>30 minutes</strong>!</p>
+                </div>
+                
+                <h3>Digital vs Analog</h3>
+                <div class="example">
+                    <div class="example-title">Same Time, Different Display</div>
+                    <p><strong>Analog Clock:</strong> Shows 4 o'clock with hands</p>
+                    <p><strong>Digital Clock:</strong> Shows <strong>4:00</strong> with numbers</p>
+                    <p>Both mean the same time!</p>
+                </div>
+                
+                <h3>Times of Day</h3>
+                <ul>
+                    <li><strong>Morning:</strong> When you wake up (7:00, 8:00, 9:00)</li>
+                    <li><strong>Afternoon:</strong> After lunch (1:00, 2:00, 3:00)</li>
+                    <li><strong>Evening:</strong> Before bed (6:00, 7:00, 8:00)</li>
+                    <li><strong>Night:</strong> When it's dark (9:00, 10:00, 11:00)</li>
+                </ul>
+                
+                <h3>Real-Life Time</h3>
+                <ul>
+                    <li>School starts at 8:00</li>
+                    <li>Lunch might be at 12:00</li>
+                    <li>Bedtime might be at 8:00 or 8:30</li>
+                    <li>Your favorite show comes on at a certain time!</li>
+                </ul>
+            `,
+
+            "Measurement (Length)": `
+                <h2>Measurement (Length)</h2>
+                <p>Measurement tells us how long, tall, or wide something is. We can measure using different tools and units!</p>
+                
+                <h3>Non-Standard Units</h3>
+                <p>Before learning inches and centimeters, we can measure with everyday objects:</p>
+                
+                <div class="example">
+                    <div class="example-title">Measuring with Paper Clips</div>
+                    <p>📎📎📎📎📎</p>
+                    <p>This pencil is <strong>5 paper clips long</strong></p>
+                    <p>We line up paper clips end-to-end to measure!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Other Non-Standard Units</div>
+                    <ul>
+                        <li>Cubes: "The book is 8 cubes wide"</li>
+                        <li>Hands: "The desk is 4 hands high"</li>
+                        <li>Footsteps: "The room is 12 steps across"</li>
+                    </ul>
+                </div>
+                
+                <h3>Standard Units</h3>
+                <p>Standard units are the same for everyone:</p>
+                
+                <div class="example">
+                    <div class="example-title">Inches (in)</div>
+                    <p>An inch is about as long as your thumb! 👍</p>
+                    <p>We use a <strong>ruler</strong> to measure inches</p>
+                    <p>12 inches = 1 foot</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Centimeters (cm)</div>
+                    <p>A centimeter is smaller than an inch</p>
+                    <p>About the width of your pinky finger</p>
+                    <p>We also use a ruler to measure centimeters</p>
+                </div>
+                
+                <h3>Using a Ruler</h3>
+                <div class="example">
+                    <div class="example-title">How to Measure</div>
+                    <ol>
+                        <li>Line up one end of the object with the 0 on the ruler</li>
+                        <li>Look at where the other end reaches</li>
+                        <li>Read the number - that's the length!</li>
+                        <li>Don't forget to say the unit (inches or centimeters)</li>
+                    </ol>
+                </div>
+                
+                <h3>Which Tool to Use?</h3>
+                <ul>
+                    <li><strong>Ruler:</strong> For small things (pencils, books, hands)</li>
+                    <li><strong>Yardstick:</strong> For medium things (desks, doors)</li>
+                    <li><strong>Tape Measure:</strong> For big things (rooms, people's height)</li>
+                </ul>
+                
+                <h3>Practice Ideas</h3>
+                <p>Measure things around you!</p>
+                <ul>
+                    <li>How long is your pencil?</li>
+                    <li>How wide is your desk?</li>
+                    <li>How tall are you?</li>
+                    <li>How long is your shoe?</li>
+                </ul>
+            `,
+
+            "Basic Shapes and Attributes": `
+                <h2>Basic Shapes and Attributes</h2>
+                <p>Shapes have special features called attributes. Let's explore what makes each shape unique!</p>
+                
+                <h3>Shape Attributes</h3>
+                <p><strong>Attributes</strong> are special features of shapes:</p>
+                <ul>
+                    <li><strong>Sides:</strong> The straight edges of a shape</li>
+                    <li><strong>Vertices (corners):</strong> Where two sides meet</li>
+                    <li><strong>Size:</strong> How big or small</li>
+                    <li><strong>Color:</strong> What color it is</li>
+                </ul>
+                
+                <h3>Triangle Attributes</h3>
+                <div class="example">
+                    <div class="example-title">Triangle 🔺</div>
+                    <ul>
+                        <li><strong>Sides:</strong> 3 straight sides</li>
+                        <li><strong>Vertices:</strong> 3 corners</li>
+                        <li><strong>Special feature:</strong> Always has 3 sides, no matter the size!</li>
+                    </ul>
+                    <p>All these are triangles: 🔺 ▲ △</p>
+                </div>
+                
+                <h3>Square Attributes</h3>
+                <div class="example">
+                    <div class="example-title">Square ⬜</div>
+                    <ul>
+                        <li><strong>Sides:</strong> 4 equal sides (all the same length!)</li>
+                        <li><strong>Vertices:</strong> 4 corners (all square corners)</li>
+                        <li><strong>Special feature:</strong> All sides must be equal</li>
+                    </ul>
+                </div>
+                
+                <h3>Rectangle Attributes</h3>
+                <div class="example">
+                    <div class="example-title">Rectangle ▭</div>
+                    <ul>
+                        <li><strong>Sides:</strong> 4 sides (2 long, 2 short)</li>
+                        <li><strong>Vertices:</strong> 4 square corners</li>
+                        <li><strong>Special feature:</strong> Opposite sides are equal</li>
+                    </ul>
+                    <p>A square is a special type of rectangle!</p>
+                </div>
+                
+                <h3>Circle Attributes</h3>
+                <div class="example">
+                    <div class="example-title">Circle ⭕</div>
+                    <ul>
+                        <li><strong>Sides:</strong> 0 sides (it's curved!)</li>
+                        <li><strong>Vertices:</strong> 0 corners</li>
+                        <li><strong>Special feature:</strong> Perfectly round, every point on the edge is the same distance from the center</li>
+                    </ul>
+                </div>
+                
+                <h3>Composing Shapes</h3>
+                <p>We can make new shapes by putting shapes together!</p>
+                <div class="example">
+                    <div class="example-title">Making New Shapes</div>
+                    <p>Two triangles 🔺🔺 → Can make a square!</p>
+                    <p>Two squares ⬜⬜ → Can make a rectangle!</p>
+                    <p>Three triangles 🔺🔺🔺 → Can make a trapezoid!</p>
+                </div>
+                
+                <h3>Shape Detective</h3>
+                <p>Look around you! Can you find:</p>
+                <ul>
+                    <li>3 triangles in your room?</li>
+                    <li>5 rectangles?</li>
+                    <li>2 circles?</li>
+                    <li>Any shapes made from other shapes?</li>
+                </ul>
+            `,
+
+            "Word Problems (Addition/Subtraction)": `
+                <h2>Word Problems (Addition/Subtraction)</h2>
+                <p>Word problems are math stories! They describe real situations where we need to use math to find an answer.</p>
+                
+                <h3>Steps to Solve Word Problems</h3>
+                <div class="example">
+                    <div class="example-title">The Four Steps</div>
+                    <ol>
+                        <li><strong>Read</strong> the problem carefully</li>
+                        <li><strong>Understand</strong> what it's asking</li>
+                        <li><strong>Solve</strong> using addition or subtraction</li>
+                        <li><strong>Check</strong> if your answer makes sense</li>
+                    </ol>
+                </div>
+                
+                <h3>Addition Word Problems</h3>
+                <p>Look for words like: <strong>total, altogether, in all, combined</strong></p>
+                
+                <div class="example">
+                    <div class="example-title">Example 1: Adding Together</div>
+                    <p><strong>Problem:</strong> Sarah has 5 apples. Her friend gives her 3 more apples. How many apples does Sarah have now?</p>
+                    <p><strong>Step 1:</strong> What do we know? Sarah starts with 5, gets 3 more</p>
+                    <p><strong>Step 2:</strong> What do we find? How many <strong>in all</strong></p>
+                    <p><strong>Step 3:</strong> 5 + 3 = 8</p>
+                    <p><strong>Answer:</strong> Sarah has <strong>8 apples</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 2: Combining</div>
+                    <p><strong>Problem:</strong> There are 7 birds in a tree and 4 birds on the ground. How many birds are there altogether?</p>
+                    <p><strong>Solution:</strong> 7 + 4 = <strong>11 birds</strong></p>
+                </div>
+                
+                <h3>Subtraction Word Problems</h3>
+                <p>Look for words like: <strong>left, remain, how many more, difference</strong></p>
+                
+                <div class="example">
+                    <div class="example-title">Example 3: Taking Away</div>
+                    <p><strong>Problem:</strong> Jake had 9 crayons. He gave 4 to his sister. How many crayons does Jake have left?</p>
+                    <p><strong>Step 1:</strong> What do we know? Starts with 9, gives away 4</p>
+                    <p><strong>Step 2:</strong> What do we find? How many <strong>left</strong></p>
+                    <p><strong>Step 3:</strong> 9 − 4 = 5</p>
+                    <p><strong>Answer:</strong> Jake has <strong>5 crayons</strong> left</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 4: Comparison</div>
+                    <p><strong>Problem:</strong> Emma has 12 stickers. Ben has 7 stickers. How many more stickers does Emma have?</p>
+                    <p><strong>Solution:</strong> 12 − 7 = <strong>5 more stickers</strong></p>
+                </div>
+                
+                <h3>Key Words to Watch For</h3>
+                <ul>
+                    <li><strong>Addition:</strong> total, sum, altogether, in all, combined, both</li>
+                    <li><strong>Subtraction:</strong> left, remain, difference, how many more, take away</li>
+                </ul>
+                
+                <h3>Drawing Pictures Helps!</h3>
+                <p>Draw circles, stars, or boxes to represent the objects in the problem. It makes the math easier to see!</p>
+            `,
+
+            "Data Organization": `
+                <h2>Data Organization</h2>
+                <p>Organizing data means arranging information so it's easy to see and understand. Graphs and charts help us do this!</p>
+                
+                <h3>Picture Graphs</h3>
+                <p>Picture graphs use pictures or symbols to show data:</p>
+                
+                <div class="example">
+                    <div class="example-title">Favorite Pets</div>
+                    <p><strong>Dogs:</strong> 🐕🐕🐕🐕🐕 (5 students)</p>
+                    <p><strong>Cats:</strong> 🐈🐈🐈 (3 students)</p>
+                    <p><strong>Fish:</strong> 🐠🐠 (2 students)</p>
+                    <p><strong>What do we learn?</strong> More students prefer dogs!</p>
+                </div>
+                
+                <h3>Simple Bar Graphs</h3>
+                <p>Bar graphs use bars to show amounts:</p>
+                
+                <div class="example">
+                    <div class="example-title">Favorite Colors</div>
+                    <p>Each square = 1 student</p>
+                    <p><strong>Red:</strong> ⬜⬜⬜⬜ (4 students)</p>
+                    <p><strong>Blue:</strong> ⬜⬜⬜⬜⬜⬜ (6 students)</p>
+                    <p><strong>Green:</strong> ⬜⬜ (2 students)</p>
+                    <p><strong>What's most popular?</strong> Blue!</p>
+                </div>
+                
+                <h3>Tally Charts</h3>
+                <p>Tally charts use marks to count:</p>
+                
+                <div class="example">
+                    <div class="example-title">Weather This Week</div>
+                    <p><strong>Sunny:</strong> |||| (4 days)</p>
+                    <p><strong>Rainy:</strong> || (2 days)</p>
+                    <p><strong>Cloudy:</strong> | (1 day)</p>
+                    <p>Remember: |||| means 5</p>
+                </div>
+                
+                <h3>Reading Graphs</h3>
+                <p>When you look at a graph, ask:</p>
+                <ul>
+                    <li>What is the graph about? (Read the title)</li>
+                    <li>What do the pictures/bars represent?</li>
+                    <li>Which has the most?</li>
+                    <li>Which has the least?</li>
+                    <li>How many altogether?</li>
+                </ul>
+                
+                <h3>Making Your Own Graph</h3>
+                <div class="example">
+                    <div class="example-title">Steps to Create a Graph</div>
+                    <ol>
+                        <li>Collect your data (survey friends, count objects)</li>
+                        <li>Choose your graph type (picture or bar)</li>
+                        <li>Draw and label your graph</li>
+                        <li>Add a title</li>
+                        <li>Share what you learned!</li>
+                    </ol>
+                </div>
+                
+                <h3>Why Organize Data?</h3>
+                <ul>
+                    <li>Makes information easy to understand</li>
+                    <li>Helps us compare different things</li>
+                    <li>Shows patterns we might not notice otherwise</li>
+                    <li>Helps us make decisions</li>
+                </ul>
+            `,
+
+            "Number Bonds": `
+                <h2>Number Bonds</h2>
+                <p>Number bonds show how numbers can be broken into parts. They help us understand how numbers work together!</p>
+                
+                <h3>What is a Number Bond?</h3>
+                <p>A number bond shows a whole number and its parts:</p>
+                
+                <div class="example">
+                    <div class="example-title">Number Bond for 5</div>
+                    <p>The number 5 can be made from different parts:</p>
+                    <p><strong>5 = 2 + 3</strong></p>
+                    <p><strong>5 = 1 + 4</strong></p>
+                    <p><strong>5 = 0 + 5</strong></p>
+                    <p>We draw this like a tree: 5 at the top, parts at the bottom</p>
+                </div>
+                
+                <h3>Part-Part-Whole</h3>
+                <div class="example">
+                    <div class="example-title">Understanding the Relationship</div>
+                    <p><strong>Whole:</strong> The total number (8)</p>
+                    <p><strong>Part:</strong> One piece of the whole (5)</p>
+                    <p><strong>Part:</strong> The other piece (3)</p>
+                    <p>Together: 5 + 3 = 8</p>
+                </div>
+                
+                <h3>Number Bonds for 10</h3>
+                <p>The number 10 is very important! Here are all the bonds for 10:</p>
+                
+                <div class="example">
+                    <div class="example-title">All the Ways to Make 10</div>
+                    <ul>
+                        <li>10 = <strong>0 + 10</strong></li>
+                        <li>10 = <strong>1 + 9</strong></li>
+                        <li>10 = <strong>2 + 8</strong></li>
+                        <li>10 = <strong>3 + 7</strong></li>
+                        <li>10 = <strong>4 + 6</strong></li>
+                        <li>10 = <strong>5 + 5</strong></li>
+                    </ul>
+                    <p>Memorizing these helps with mental math!</p>
+                </div>
+                
+                <h3>Using Number Bonds</h3>
+                <div class="example">
+                    <div class="example-title">Example: Missing Part</div>
+                    <p><strong>Problem:</strong> The whole is 7. One part is 4. What's the other part?</p>
+                    <p><strong>Think:</strong> 4 + ? = 7</p>
+                    <p><strong>Solution:</strong> 4 + <strong>3</strong> = 7</p>
+                    <p>The missing part is <strong>3</strong>!</p>
+                </div>
+                
+                <h3>Real-Life Number Bonds</h3>
+                <ul>
+                    <li>You have 8 toys total. 5 are cars, 3 are trucks.</li>
+                    <li>A pizza has 10 slices. You eat 3, there are 7 left.</li>
+                    <li>Your class has 6 boys and 4 girls, that's 10 students total.</li>
+                </ul>
+                
+                <h3>Why Number Bonds Matter</h3>
+                <ul>
+                    <li>Helps with addition and subtraction</li>
+                    <li>Makes mental math easier</li>
+                    <li>Shows how numbers relate to each other</li>
+                    <li>Foundation for algebra later on!</li>
+                </ul>
+            `,
+
+            "Fact Families": `
+                <h2>Fact Families</h2>
+                <p>Fact families are groups of related addition and subtraction facts that use the same numbers. They show how addition and subtraction are connected!</p>
+                
+                <h3>What is a Fact Family?</h3>
+                <p>A fact family uses the same 3 numbers to make 4 different equations:</p>
+                
+                <div class="example">
+                    <div class="example-title">Fact Family: 2, 3, and 5</div>
+                    <p><strong>Addition Facts:</strong></p>
+                    <p>2 + 3 = 5</p>
+                    <p>3 + 2 = 5</p>
+                    <p><strong>Subtraction Facts:</strong></p>
+                    <p>5 − 2 = 3</p>
+                    <p>5 − 3 = 2</p>
+                    <p>All four use the numbers 2, 3, and 5!</p>
+                </div>
+                
+                <h3>How Fact Families Work</h3>
+                <div class="example">
+                    <div class="example-title">The Connection</div>
+                    <p>If you know <strong>4 + 5 = 9</strong>, then you also know:</p>
+                    <ul>
+                        <li>5 + 4 = 9 (addition is commutative!)</li>
+                        <li>9 − 4 = 5 (subtraction is the opposite)</li>
+                        <li>9 − 5 = 4 (subtraction is the opposite)</li>
+                    </ul>
+                    <p><strong>One fact helps you know four facts!</strong></p>
+                </div>
+                
+                <h3>Building a Fact Family</h3>
+                <div class="example">
+                    <div class="example-title">Example: Numbers 3, 6, and 9</div>
+                    <p><strong>Step 1:</strong> Start with the smallest numbers</p>
+                    <p>3 + 6 = 9</p>
+                    <p><strong>Step 2:</strong> Flip the addition</p>
+                    <p>6 + 3 = 9</p>
+                    <p><strong>Step 3:</strong> Write the subtraction facts</p>
+                    <p>9 − 3 = 6</p>
+                    <p>9 − 6 = 3</p>
+                </div>
+                
+                <h3>Special Fact Families</h3>
+                <div class="example">
+                    <div class="example-title">Doubles: 4, 4, and 8</div>
+                    <p>When two numbers are the same:</p>
+                    <p>4 + 4 = 8</p>
+                    <p>8 − 4 = 4</p>
+                    <p>Only 2 facts instead of 4!</p>
+                </div>
+                
+                <h3>Why Fact Families Are Useful</h3>
+                <ul>
+                    <li>Shows addition and subtraction are related</li>
+                    <li>Helps you check your work</li>
+                    <li>Makes memorizing facts easier (know 1, get 4!)</li>
+                    <li>Builds number sense</li>
+                </ul>
+                
+                <h3>Practice Activity</h3>
+                <p>Try making fact families for these numbers:</p>
+                <ul>
+                    <li>2, 5, 7</li>
+                    <li>4, 3, 7</li>
+                    <li>1, 8, 9</li>
+                </ul>
+                
+                <h3>Real-World Connection</h3>
+                <p>You have 7 crayons. 3 are red, 4 are blue.</p>
+                <ul>
+                    <li>3 + 4 = 7 (total crayons)</li>
+                    <li>7 − 3 = 4 (blue crayons left if you remove red)</li>
+                </ul>
+            `,
+
+            "Three-Addend Addition": `
+                <h2>Three-Addend Addition</h2>
+                <p>Sometimes we need to add THREE numbers together! The good news is, we already know how to do this - we just add step by step.</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Adding Three Numbers</h3>
+                <p>When adding three numbers, add any two first, then add the third:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 4 + 3 + 2</div>
+                    <p><strong>Method 1: Add left to right</strong></p>
+                    <p>Step 1: 4 + 3 = 7</p>
+                    <p>Step 2: 7 + 2 = <strong>9</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Same Problem, Different Strategy</div>
+                    <p><strong>Method 2: Look for a 10!</strong></p>
+                    <p>4 + 3 + 2</p>
+                    <p>Notice: 3 + 2 = 5, and 4 + 5 is easy!</p>
+                    <p>Or better: 4 + 2 = 6, then 6 + 3 = 9!</p>
+                </div>
+                
+                <h3>Making Tens Strategy</h3>
+                <p>Looking for numbers that make 10 makes adding easier:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 7 + 8 + 3</div>
+                    <p>Look! 7 + 3 = 10 (that's easy!)</p>
+                    <p>Then: 10 + 8 = <strong>18</strong></p>
+                    <p>Much easier than 7 + 8 first!</p>
+                </div>
+                
+                <h3>Doubles Strategy</h3>
+                <div class="example">
+                    <div class="example-title">Example: 5 + 5 + 2</div>
+                    <p>I know my doubles! 5 + 5 = 10</p>
+                    <p>Then: 10 + 2 = <strong>12</strong></p>
+                </div>
+                
+                <h3>Any Order Works!</h3>
+                <p>Remember the commutative property? You can add in ANY order:</p>
+                <ul>
+                    <li>2 + 3 + 5 = 10</li>
+                    <li>3 + 5 + 2 = 10</li>
+                    <li>5 + 2 + 3 = 10</li>
+                    <li>All the same answer!</li>
+                </ul>
+                
+                <h3>Real-Life Examples</h3>
+                <ul>
+                    <li>You have 3 red marbles, 4 blue marbles, and 2 green marbles. How many total? 3 + 4 + 2 = 9</li>
+                    <li>Three friends bring cookies: 5, 3, and 4. How many cookies? 5 + 3 + 4 = 12</li>
+                </ul>
+            `,
+
+            "Missing Addends": `
+                <h2>Missing Addends</h2>
+                <p>Sometimes in addition problems, one number is missing! We need to be detectives and figure out what it is.</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is a Missing Addend?</h3>
+                <p>A missing addend is the unknown number in an addition problem:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 5 + ? = 8</div>
+                    <p>We know: One addend is 5, the sum is 8</p>
+                    <p>We need to find: The missing addend</p>
+                    <p><strong>Question:</strong> 5 plus what equals 8?</p>
+                    <p><strong>Answer:</strong> 5 + <strong>3</strong> = 8</p>
+                </div>
+                
+                <h3>Strategies to Find Missing Addends</h3>
+                
+                <div class="example">
+                    <div class="example-title">Strategy 1: Count Up</div>
+                    <p>Problem: 6 + ? = 10</p>
+                    <p>Start at 6 and count up to 10:</p>
+                    <p>6... 7, 8, 9, 10</p>
+                    <p>That's 4 jumps! 6 + <strong>4</strong> = 10</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Strategy 2: Use Subtraction</div>
+                    <p>Problem: 7 + ? = 12</p>
+                    <p><strong>Think:</strong> This is related to subtraction!</p>
+                    <p>12 − 7 = 5</p>
+                    <p>So: 7 + <strong>5</strong> = 12</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Strategy 3: Use Number Bonds</div>
+                    <p>Problem: 4 + ? = 9</p>
+                    <p>Think of 9 broken into parts: 4 and ?</p>
+                    <p>9 = 4 + 5</p>
+                    <p>The missing part is <strong>5</strong>!</p>
+                </div>
+                
+                <h3>Missing Addend in Different Positions</h3>
+                <p>The mystery number can be anywhere:</p>
+                <ul>
+                    <li>? + 3 = 7 (missing first addend: <strong>4</strong>)</li>
+                    <li>5 + ? = 8 (missing second addend: <strong>3</strong>)</li>
+                    <li>Both work the same way!</li>
+                </ul>
+                
+                <h3>Real-World Problems</h3>
+                <div class="example">
+                    <div class="example-title">Story Problem</div>
+                    <p>Emma has some stickers. Her friend gives her 3 more. Now she has 10 stickers. How many did Emma start with?</p>
+                    <p><strong>Equation:</strong> ? + 3 = 10</p>
+                    <p><strong>Solution:</strong> 10 − 3 = 7</p>
+                    <p>Emma started with <strong>7 stickers</strong></p>
+                </div>
+            `,
+
+            "Number Line Operations": `
+                <h2>Number Line Operations</h2>
+                <p>A number line is like a math road! It helps us see addition and subtraction as jumps forward and backward.</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is a Number Line?</h3>
+                <p>A number line shows numbers in order on a line:</p>
+                <div class="example">
+                    <div class="example-title">A Simple Number Line</div>
+                    <p>0 ── 1 ── 2 ── 3 ── 4 ── 5 ── 6 ── 7 ── 8 ── 9 ── 10</p>
+                    <p>Numbers get bigger as you move right →</p>
+                    <p>Numbers get smaller as you move left ←</p>
+                </div>
+                
+                <h3>Addition on a Number Line</h3>
+                <p>Addition means jumping FORWARD (to the right):</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 3 + 4</div>
+                    <p><strong>Step 1:</strong> Start at 3</p>
+                    <p><strong>Step 2:</strong> Jump forward 4 times</p>
+                    <p>3 → 4 → 5 → 6 → 7</p>
+                    <p><strong>Answer:</strong> 3 + 4 = <strong>7</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Showing Jumps</div>
+                    <p>0 ── 1 ── 2 ── 3 →→→→ 7</p>
+                    <p>Start at 3, jump forward 4, land on 7!</p>
+                </div>
+                
+                <h3>Subtraction on a Number Line</h3>
+                <p>Subtraction means jumping BACKWARD (to the left):</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 8 − 3</div>
+                    <p><strong>Step 1:</strong> Start at 8</p>
+                    <p><strong>Step 2:</strong> Jump backward 3 times</p>
+                    <p>8 → 7 → 6 → 5</p>
+                    <p><strong>Answer:</strong> 8 − 3 = <strong>5</strong></p>
+                </div>
+                
+                <h3>Why Use Number Lines?</h3>
+                <ul>
+                    <li>Makes addition and subtraction visual</li>
+                    <li>Helps you see how numbers relate</li>
+                    <li>Easy to check your work</li>
+                    <li>Great for mental math practice</li>
+                </ul>
+                
+                <h3>Practice Tip</h3>
+                <p>Make your own number line!</p>
+                <ul>
+                    <li>Draw a line on paper</li>
+                    <li>Mark numbers 0 to 20</li>
+                    <li>Use your finger to jump</li>
+                    <li>Practice both addition and subtraction!</li>
+                </ul>
+            `,
+
+            "Coin Recognition": `
+                <h2>Coin Recognition</h2>
+                <p>Money is an important part of everyday life! Let's learn to recognize the four most common coins and their values.</p>
+                
+                <h3>The Four Main Coins</h3>
+                
+                <div class="example">
+                    <div class="example-title">Penny 🪙</div>
+                    <p><strong>Value:</strong> 1 cent (1¢)</p>
+                    <p><strong>Color:</strong> Brown/copper</p>
+                    <p><strong>Front:</strong> Abraham Lincoln</p>
+                    <p><strong>Back:</strong> Lincoln Memorial or shield</p>
+                    <p><strong>Remember:</strong> "A penny for your thoughts" = 1 cent</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Nickel 🪙</div>
+                    <p><strong>Value:</strong> 5 cents (5¢)</p>
+                    <p><strong>Color:</strong> Silver</p>
+                    <p><strong>Front:</strong> Thomas Jefferson</p>
+                    <p><strong>Size:</strong> Bigger than a penny</p>
+                    <p><strong>Remember:</strong> <strong>Nick</strong>el = <strong>5</strong> (both have 5 letters!)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Dime 🪙</div>
+                    <p><strong>Value:</strong> 10 cents (10¢)</p>
+                    <p><strong>Color:</strong> Silver</p>
+                    <p><strong>Front:</strong> Franklin D. Roosevelt</p>
+                    <p><strong>Size:</strong> Smallest coin!</p>
+                    <p><strong>Remember:</strong> <strong>D</strong>ime = <strong>D</strong>ecade = <strong>10</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Quarter 🪙</div>
+                    <p><strong>Value:</strong> 25 cents (25¢)</p>
+                    <p><strong>Color:</strong> Silver</p>
+                    <p><strong>Front:</strong> George Washington</p>
+                    <p><strong>Size:</strong> Biggest silver coin</p>
+                    <p><strong>Remember:</strong> <strong>Quarter</strong> = 1/4 of a dollar (100¢ ÷ 4 = 25¢)</p>
+                </div>
+                
+                <h3>Comparing Coin Values</h3>
+                <ul>
+                    <li>1 nickel = 5 pennies</li>
+                    <li>1 dime = 10 pennies = 2 nickels</li>
+                    <li>1 quarter = 25 pennies = 5 nickels = 2 dimes + 1 nickel</li>
+                </ul>
+                
+                <h3>Coin Recognition Tips</h3>
+                <ul>
+                    <li><strong>Size:</strong> Dime is smallest, quarter is biggest</li>
+                    <li><strong>Color:</strong> Only penny is brown, others are silver</li>
+                    <li><strong>Edges:</strong> Pennies and nickels are smooth, dimes and quarters have ridges</li>
+                </ul>
+                
+                <h3>Practice Activity</h3>
+                <p>Look at the coins in your house!</p>
+                <ul>
+                    <li>Can you name each coin?</li>
+                    <li>Can you tell how much each is worth?</li>
+                    <li>Can you put them in order from least to greatest value?</li>
+                </ul>
+            `,
+
+            "Half Hour Time": `
+                <h2>Half Hour Time</h2>
+                <p>You've learned to tell time on the hour (3:00, 4:00). Now let's learn half-hour time - when the minute hand points to 6!</p>
+                
+                <h3>Understanding "Half Past"</h3>
+                <p>Half past means 30 minutes after the hour - halfway to the next hour!</p>
+                
+                <div class="example">
+                    <div class="example-title">The Minute Hand at 6</div>
+                    <p>When the <strong>minute hand (long hand)</strong> points straight down at the 6:</p>
+                    <p>It means <strong>30 minutes</strong> have passed</p>
+                    <p>This is called "half past" because 30 minutes is half of 60 minutes!</p>
+                </div>
+                
+                <h3>Reading Half-Hour Time</h3>
+                
+                <div class="example">
+                    <div class="example-title">3:30 (Half Past 3)</div>
+                    <p>⏰ <strong>Hour hand:</strong> Halfway between 3 and 4</p>
+                    <p>⏰ <strong>Minute hand:</strong> Points to 6</p>
+                    <p><strong>We say:</strong> "Three thirty" or "Half past three"</p>
+                    <p><strong>We write:</strong> 3:30</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">7:30 (Half Past 7)</div>
+                    <p>⏰ <strong>Hour hand:</strong> Halfway between 7 and 8</p>
+                    <p>⏰ <strong>Minute hand:</strong> Points to 6</p>
+                    <p><strong>We say:</strong> "Seven thirty" or "Half past seven"</p>
+                    <p><strong>We write:</strong> 7:30</p>
+                </div>
+                
+                <h3>Important: Where's the Hour Hand?</h3>
+                <p>At half-hour times, the hour hand is <strong>between</strong> two numbers!</p>
+                <ul>
+                    <li>At 2:00, hour hand points to 2</li>
+                    <li>At 2:30, hour hand is halfway between 2 and 3</li>
+                    <li>At 3:00, hour hand points to 3</li>
+                </ul>
+                
+                <h3>Digital vs Analog</h3>
+                <div class="example">
+                    <div class="example-title">Same Time, Two Ways</div>
+                    <p><strong>Analog (clock with hands):</strong></p>
+                    <p>Hour hand between 4 and 5, minute hand at 6</p>
+                    <p><strong>Digital:</strong> 4:30</p>
+                    <p><strong>In words:</strong> Half past four OR Four thirty</p>
+                </div>
+                
+                <h3>Real-Life Half Hours</h3>
+                <ul>
+                    <li>School might start at 8:30</li>
+                    <li>Lunch might be at 12:30</li>
+                    <li>Your favorite show might come on at 3:30</li>
+                    <li>Dinner might be at 6:30</li>
+                </ul>
+                
+                <h3>Practice Tip</h3>
+                <p>Remember: The minute hand at 6 always means :30!</p>
+            `,
+
+            "Equal Parts": `
+                <h2>Equal Parts</h2>
+                <p>Equal parts means dividing something into pieces that are exactly the same size. This is the beginning of understanding fractions!</p>
+                
+                <h3>What Does Equal Mean?</h3>
+                <p>Equal means <strong>exactly the same</strong> - same size, same amount.</p>
+                
+                <div class="example">
+                    <div class="example-title">Equal vs Not Equal</div>
+                    <p><strong>Equal Parts:</strong> ▭ ▭ (two parts the same size)</p>
+                    <p><strong>Not Equal:</strong> ▭ ▭▭ (parts are different sizes)</p>
+                </div>
+                
+                <h3>Halves: Dividing into 2 Equal Parts</h3>
+                <div class="example">
+                    <div class="example-title">Understanding Halves</div>
+                    <p>When we cut something into <strong>2 equal parts</strong>, each part is called a <strong>half</strong></p>
+                    <p>🍕 cut into 2 equal pieces → Each piece is <strong>1/2</strong> (one half)</p>
+                    <p>Both halves together make one whole!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Real-Life Halves</div>
+                    <ul>
+                        <li>Half an apple: 🍎 cut into 2 equal parts</li>
+                        <li>Half a sandwich: cut down the middle</li>
+                        <li>Half a cookie: shared equally with a friend</li>
+                    </ul>
+                </div>
+                
+                <h3>Fourths: Dividing into 4 Equal Parts</h3>
+                <div class="example">
+                    <div class="example-title">Understanding Fourths</div>
+                    <p>When we cut something into <strong>4 equal parts</strong>, each part is called a <strong>fourth</strong> or a <strong>quarter</strong></p>
+                    <p>🍕 cut into 4 equal pieces → Each piece is <strong>1/4</strong> (one fourth)</p>
+                    <p>All four fourths together make one whole!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Real-Life Fourths</div>
+                    <ul>
+                        <li>Quarter of a pizza: pizza cut into 4 equal parts</li>
+                        <li>Quarter of a dollar: 25 cents (100¢ ÷ 4 = 25¢)</li>
+                        <li>Quarter of an hour: 15 minutes (60 min ÷ 4 = 15 min)</li>
+                    </ul>
+                </div>
+                
+                <h3>Important Rules for Equal Parts</h3>
+                <ul>
+                    <li>All pieces must be <strong>exactly the same size</strong></li>
+                    <li>It doesn't matter what shape they are</li>
+                    <li>Equal parts add up to make one whole</li>
+                </ul>
+                
+                <h3>Comparing Halves and Fourths</h3>
+                <div class="example">
+                    <div class="example-title">Which is Bigger?</div>
+                    <p>Imagine a pizza cut two ways:</p>
+                    <p>Cut into 2 pieces: Each piece is 1/2 (BIGGER!)</p>
+                    <p>Cut into 4 pieces: Each piece is 1/4 (smaller)</p>
+                    <p><strong>Remember:</strong> Fewer pieces = bigger pieces!</p>
+                </div>
+            `,
+
+            "Tally Marks": `
+                <h2>Tally Marks</h2>
+                <p>Tally marks are a quick way to count and keep track of things. They're like a shorthand for counting!</p>
+                
+                <h3>How Tally Marks Work</h3>
+                <p>We make one mark for each thing we count:</p>
+                
+                <div class="example">
+                    <div class="example-title">Counting with Tallies</div>
+                    <p>| = 1</p>
+                    <p>|| = 2</p>
+                    <p>||| = 3</p>
+                    <p>|||| = 4</p>
+                    <p><strong>||||</strong> = 5 (We draw the fifth tally across the first four!)</p>
+                </div>
+                
+                <h3>Why Group by 5?</h3>
+                <p>Grouping by 5 makes counting faster and easier!</p>
+                
+                <div class="example">
+                    <div class="example-title">Counting Larger Numbers</div>
+                    <p>|||| |||| |||| ||</p>
+                    <p>Count by 5s: 5, 10, 15... plus 2 = <strong>17</strong></p>
+                    <p>Much easier than counting 17 single marks!</p>
+                </div>
+                
+                <h3>Using Tally Marks</h3>
+                <div class="example">
+                    <div class="example-title">Example: Favorite Colors Survey</div>
+                    <p><strong>Red:</strong> |||| |||| (10 students)</p>
+                    <p><strong>Blue:</strong> |||| |||| ||| (13 students)</p>
+                    <p><strong>Green:</strong> |||| || (7 students)</p>
+                    <p>We can quickly see blue is most popular!</p>
+                </div>
+                
+                <h3>When to Use Tally Marks</h3>
+                <ul>
+                    <li>Taking surveys or polls</li>
+                    <li>Counting things as they happen (cars passing by, birds at a feeder)</li>
+                    <li>Keeping score in games</li>
+                    <li>Organizing data before making a graph</li>
+                </ul>
+                
+                <h3>Reading Tally Marks</h3>
+                <div class="example">
+                    <div class="example-title">Practice Reading</div>
+                    <p>|||| |||| |||| ||||</p>
+                    <p><strong>Count:</strong> 5, 10, 15, 20!</p>
+                    <p>Four groups of 5 = <strong>20</strong></p>
+                </div>
+                
+                <h3>Tally Marks vs Numbers</h3>
+                <ul>
+                    <li><strong>Tally Marks:</strong> Good for counting as you go</li>
+                    <li><strong>Numbers:</strong> Good for final totals</li>
+                    <li>Often we use tallies to count, then write the number!</li>
+                </ul>
+                
+                <h3>Fun Fact</h3>
+                <p>People have used tally marks for thousands of years - even before written numbers were invented!</p>
+            `,
+
+            "Greater Than/Less Than Symbols": `
+                <h2>Greater Than/Less Than Symbols</h2>
+                <p>These special symbols (> and <) help us compare numbers in a quick, mathematical way!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>The Three Symbols</h3>
+                <div class="example">
+                    <div class="example-title">What Each Symbol Means</div>
+                    <p><strong>></strong> Greater than (bigger)</p>
+                    <p><strong><</strong> Less than (smaller)</p>
+                    <p><strong>=</strong> Equal to (same)</p>
+                </div>
+                
+                <h3>The Alligator Trick</h3>
+                <p>Think of the symbol as an alligator's mouth - it always wants to eat the BIGGER number!</p>
+                
+                <div class="example">
+                    <div class="example-title">Hungry Alligator 🐊</div>
+                    <p><strong>8 > 3</strong></p>
+                    <p>The alligator's mouth opens toward 8 (the bigger number)</p>
+                    <p>We read this: "8 is greater than 3"</p>
+                    <p><strong>3 < 8</strong></p>
+                    <p>The alligator's mouth still opens toward 8!</p>
+                    <p>We read this: "3 is less than 8"</p>
+                </div>
+                
+                <h3>Using > (Greater Than)</h3>
+                <div class="example">
+                    <div class="example-title">Examples</div>
+                    <p>9 > 7 (9 is greater than 7)</p>
+                    <p>15 > 10 (15 is greater than 10)</p>
+                    <p>20 > 19 (20 is greater than 19)</p>
+                    <p>The mouth opens toward the FIRST number (the bigger one)</p>
+                </div>
+                
+                <h3>Using < (Less Than)</h3>
+                <div class="example">
+                    <div class="example-title">Examples</div>
+                    <p>4 < 7 (4 is less than 7)</p>
+                    <p>12 < 18 (12 is less than 18)</p>
+                    <p>6 < 10 (6 is less than 10)</p>
+                    <p>The mouth opens toward the SECOND number (the bigger one)</p>
+                </div>
+                
+                <h3>Easy Tricks to Remember</h3>
+                <ul>
+                    <li><strong>Alligator trick:</strong> The mouth eats the bigger number 🐊</li>
+                    <li><strong>Arrow trick:</strong> The point aims at the smaller number →</li>
+                    <li><strong>L trick:</strong> < looks like an L, and L is for "Less than"</li>
+                </ul>
+                
+                <h3>Practice</h3>
+                <p>Which symbol goes in each blank?</p>
+                <ul>
+                    <li>5 ___ 8 (Answer: 5 < 8)</li>
+                    <li>10 ___ 7 (Answer: 10 > 7)</li>
+                    <li>3 ___ 3 (Answer: 3 = 3)</li>
+                </ul>
+                
+                <h3>Real-World Use</h3>
+                <p>We use these symbols to show:</p>
+                <ul>
+                    <li>Who scored more points in a game</li>
+                    <li>Which item costs more</li>
+                    <li>Who is taller or older</li>
+                    <li>Which group has more items</li>
+                </ul>
             `
         };
         
