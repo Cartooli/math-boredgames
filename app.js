@@ -7331,7 +7331,7 @@ class MathBoredApp {
             "Patterns": () => {
                 const patterns = [
                     {seq: [1,2,1,2,1], ans: 2},
-                    {seq: [🔴,🔵,🔴,🔵,🔴], ans: '🔵'},
+                    {seq: ['🔴','🔵','🔴','🔵','🔴'], ans: '🔵'},
                     {seq: ['A','B','C','A','B'], ans: 'C'}
                 ];
                 const pattern = this.randomFrom(patterns);
