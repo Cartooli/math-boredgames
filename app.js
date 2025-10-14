@@ -672,6 +672,258 @@ class MathBoredApp {
                     <li><strong>Economics:</strong> Profit maximization</li>
                     <li><strong>Sports:</strong> Trajectory of a ball</li>
                 </ul>
+            `,
+
+            "Basic Shapes": `
+                <h2>Basic Shapes</h2>
+                <p>Shapes are all around us! Learning to identify and name shapes is an important early math skill.</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>The Four Basic Shapes</h3>
+                
+                <div class="example">
+                    <div class="example-title">Circle ⭕</div>
+                    <p>A circle is round with no corners or sides.</p>
+                    <p><strong>Examples:</strong> Wheels, coins, plates, the sun</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Square ⬜</div>
+                    <p>A square has 4 equal sides and 4 corners.</p>
+                    <p><strong>Examples:</strong> Windows, crackers, tiles</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Triangle 🔺</div>
+                    <p>A triangle has 3 sides and 3 corners.</p>
+                    <p><strong>Examples:</strong> Slices of pizza, road signs, roofs</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Rectangle ▭</div>
+                    <p>A rectangle has 4 sides (2 long, 2 short) and 4 corners.</p>
+                    <p><strong>Examples:</strong> Doors, books, phones</p>
+                </div>
+                
+                <h3>Shape Hunt Activity</h3>
+                <p>Look around your room! Can you find examples of each shape?</p>
+                <ul>
+                    <li>Find 3 circles</li>
+                    <li>Find 3 squares</li>
+                    <li>Find 3 triangles</li>
+                    <li>Find 3 rectangles</li>
+                </ul>
+                
+                <h3>Counting Sides and Corners</h3>
+                <ul>
+                    <li><strong>Circle:</strong> 0 sides, 0 corners</li>
+                    <li><strong>Triangle:</strong> 3 sides, 3 corners</li>
+                    <li><strong>Square:</strong> 4 sides, 4 corners</li>
+                    <li><strong>Rectangle:</strong> 4 sides, 4 corners</li>
+                </ul>
+            `,
+
+            "Measurement Comparison": `
+                <h2>Measurement Comparison</h2>
+                <p>Comparing means finding out which object is bigger, smaller, heavier, or lighter!</p>
+                
+                <h3>Length Comparison</h3>
+                <div class="example">
+                    <div class="example-title">Longer and Shorter</div>
+                    <p>A pencil is <strong>longer</strong> than a crayon.</p>
+                    <p>A crayon is <strong>shorter</strong> than a pencil.</p>
+                    <p>📏 (pencil) vs 🖍️ (crayon)</p>
+                </div>
+                
+                <h3>Weight Comparison</h3>
+                <div class="example">
+                    <div class="example-title">Heavier and Lighter</div>
+                    <p>A book is <strong>heavier</strong> than a feather.</p>
+                    <p>A feather is <strong>lighter</strong> than a book.</p>
+                    <p>📚 (heavy) vs 🪶 (light)</p>
+                </div>
+                
+                <h3>Height Comparison</h3>
+                <div class="example">
+                    <div class="example-title">Taller and Shorter</div>
+                    <p>A tree is <strong>taller</strong> than a flower.</p>
+                    <p>A flower is <strong>shorter</strong> than a tree.</p>
+                    <p>🌳 (tall) vs 🌸 (short)</p>
+                </div>
+                
+                <h3>Comparison Words</h3>
+                <ul>
+                    <li><strong>Longer/Shorter:</strong> For length</li>
+                    <li><strong>Taller/Shorter:</strong> For height</li>
+                    <li><strong>Heavier/Lighter:</strong> For weight</li>
+                    <li><strong>More/Less:</strong> For amounts</li>
+                </ul>
+                
+                <h3>Practice</h3>
+                <p>Compare these objects in your classroom:</p>
+                <ul>
+                    <li>Which is longer: a ruler or a pencil?</li>
+                    <li>Which is heavier: a book or a piece of paper?</li>
+                    <li>Which is taller: your desk or your chair?</li>
+                </ul>
+            `,
+
+            "Patterns": `
+                <h2>Patterns</h2>
+                <p>Patterns are things that repeat in a predictable way. Finding and making patterns helps develop important math thinking skills!</p>
+                
+                <h3>What is a Pattern?</h3>
+                <p>A pattern is when something happens over and over in the same order.</p>
+                
+                <div class="example">
+                    <div class="example-title">Color Pattern</div>
+                    <p>🔴 🔵 🔴 🔵 🔴 🔵</p>
+                    <p>This pattern is: <strong>red, blue, red, blue...</strong></p>
+                    <p>What comes next? <strong>Red!</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Shape Pattern</div>
+                    <p>⭐ ⭕ ⭐ ⭕ ⭐ ⭕</p>
+                    <p>This pattern is: <strong>star, circle, star, circle...</strong></p>
+                    <p>What comes next? <strong>Star!</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Number Pattern</div>
+                    <p>1, 2, 1, 2, 1, 2...</p>
+                    <p>What comes next? <strong>1!</strong></p>
+                </div>
+                
+                <h3>Types of Patterns</h3>
+                <ul>
+                    <li><strong>AB Pattern:</strong> Two things repeating (🔴🔵🔴🔵)</li>
+                    <li><strong>ABC Pattern:</strong> Three things repeating (🔴🔵🟢🔴🔵🟢)</li>
+                    <li><strong>ABB Pattern:</strong> One then two (🔴🔵🔵🔴🔵🔵)</li>
+                </ul>
+                
+                <h3>Patterns in Real Life</h3>
+                <p>Patterns are everywhere!</p>
+                <ul>
+                    <li>Days of the week repeat</li>
+                    <li>Seasons repeat: Spring, Summer, Fall, Winter</li>
+                    <li>Stripes on clothes</li>
+                    <li>Tiles on floors</li>
+                </ul>
+                
+                <h3>Make Your Own Pattern</h3>
+                <p>Try creating patterns with:</p>
+                <ul>
+                    <li>Blocks or toys</li>
+                    <li>Crayons or markers</li>
+                    <li>Movements (clap, stomp, clap, stomp)</li>
+                    <li>Sounds (beep, boop, beep, boop)</li>
+                </ul>
+            `,
+
+            "Ordinal Numbers": `
+                <h2>Ordinal Numbers</h2>
+                <p>Ordinal numbers tell us the position or order of things. They help us describe where something is in a line or sequence!</p>
+                
+                <h3>The First Ten Ordinal Numbers</h3>
+                <div class="example">
+                    <div class="example-title">Ordinal Numbers 1-10</div>
+                    <ul>
+                        <li><strong>1st</strong> - First</li>
+                        <li><strong>2nd</strong> - Second</li>
+                        <li><strong>3rd</strong> - Third</li>
+                        <li><strong>4th</strong> - Fourth</li>
+                        <li><strong>5th</strong> - Fifth</li>
+                        <li><strong>6th</strong> - Sixth</li>
+                        <li><strong>7th</strong> - Seventh</li>
+                        <li><strong>8th</strong> - Eighth</li>
+                        <li><strong>9th</strong> - Ninth</li>
+                        <li><strong>10th</strong> - Tenth</li>
+                    </ul>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Race Positions</div>
+                    <p>🏃 🏃 🏃 🏃 🏃</p>
+                    <p>The person in front is in <strong>first</strong> place.</p>
+                    <p>The next person is in <strong>second</strong> place.</p>
+                    <p>Who won the race? The person who finished <strong>first</strong>!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Days of the Week</div>
+                    <p>Monday is the <strong>first</strong> day of the school week.</p>
+                    <p>Tuesday is the <strong>second</strong> day.</p>
+                    <p>What is the <strong>third</strong> day? <strong>Wednesday!</strong></p>
+                </div>
+                
+                <h3>Ordinal vs Cardinal</h3>
+                <ul>
+                    <li><strong>Cardinal:</strong> How many? (1, 2, 3) "I have 3 apples"</li>
+                    <li><strong>Ordinal:</strong> What position? (1st, 2nd, 3rd) "I'm 3rd in line"</li>
+                </ul>
+                
+                <h3>Where We Use Ordinal Numbers</h3>
+                <ul>
+                    <li>Race positions (1st place, 2nd place)</li>
+                    <li>Floors in buildings (1st floor, 2nd floor)</li>
+                    <li>Steps in recipes (First, mix eggs. Second, add flour.)</li>
+                    <li>Waiting in line</li>
+                </ul>
+            `,
+
+            "Simple Data Collection": `
+                <h2>Simple Data Collection</h2>
+                <p>Data collection means gathering information and organizing it. Even young mathematicians can collect and sort data!</p>
+                
+                <h3>What is Data?</h3>
+                <p>Data is information we collect. It can be about anything - favorite colors, types of pets, or what we had for snack!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Favorite Fruit Survey</div>
+                    <p>We asked 10 friends: "What's your favorite fruit?"</p>
+                    <p>🍎 🍎 🍎 🍎 (4 picked apples)</p>
+                    <p>🍌 🍌 🍌 (3 picked bananas)</p>
+                    <p>🍊 🍊 (2 picked oranges)</p>
+                    <p>🍇 (1 picked grapes)</p>
+                    <p><strong>Result:</strong> Apples are the most popular!</p>
+                </div>
+                
+                <h3>Ways to Organize Data</h3>
+                
+                <div class="example">
+                    <div class="example-title">Sorting by Category</div>
+                    <p>We can sort things into groups:</p>
+                    <ul>
+                        <li><strong>Animals:</strong> 🐕 🐈 🐦</li>
+                        <li><strong>Food:</strong> 🍎 🍕 🍪</li>
+                        <li><strong>Toys:</strong> 🧸 ⚽ 🎮</li>
+                    </ul>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Using Tally Marks</div>
+                    <p>Tally marks help us count quickly:</p>
+                    <p><strong>Dogs:</strong> |||| (4 dogs)</p>
+                    <p><strong>Cats:</strong> ||| (3 cats)</p>
+                </div>
+                
+                <h3>Data Collection Activities</h3>
+                <ul>
+                    <li>Survey classmates about their favorite color</li>
+                    <li>Count different types of vehicles that pass by</li>
+                    <li>Track the weather for a week</li>
+                    <li>Count different shapes in your classroom</li>
+                </ul>
+                
+                <h3>Why Collect Data?</h3>
+                <ul>
+                    <li>To answer questions</li>
+                    <li>To make decisions</li>
+                    <li>To see patterns</li>
+                    <li>To compare things</li>
+                </ul>
             `
         };
         
