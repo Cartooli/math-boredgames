@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathBored Debug Page</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #000;
+            color: #0f0;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #0f0;
+        }
+        .error { color: #f00; }
+        .success { color: #0f0; }
+        .warning { color: #ff0; }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 500px;
+        }
+        option {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 MathBored Dropdown Debug</h1>
+    
+    <div class="section">
+        <h2>1. Data Loading Check</h2>
+        <div id="dataCheck"></div>
+    </div>
+    
+    <div class="section">
+        <h2>2. Function Availability</h2>
+        <div id="functionCheck"></div>
+    </div>
+    
+    <div class="section">
+        <h2>3. Grade 5 Topics</h2>
+        <div id="topicsCheck"></div>
+    </div>
+    
+    <div class="section">
+        <h2>4. Actual Dropdown Test</h2>
+        <label>Grade:</label>
+        <select id="gradeSelect">
+            <option value="5" selected>5th Grade</option>
+        </select>
+        <br><br>
+        <label>Topic (should populate automatically):</label>
+        <select id="topicSelect">
+            <option>Waiting...</option>
+        </select>
+        <br><br>
+        <div id="dropdownStatus"></div>
+    </div>
+    
+    <div class="section">
+        <h2>5. Console Output</h2>
+        <div id="console"></div>
+    </div>
+    
+    <script src="data.js?v=4"></script>
+    <script>
+        const consoleDiv = document.getElementById('console');
+        const originalLog = console.log;
+        const originalError = console.error;
+        
+        function log(msg, type = 'log') {
+            originalLog(msg);
+            const p = document.createElement('p');
+            p.className = type === 'error' ? 'error' : type === 'warn' ? 'warning' : 'success';
+            p.textContent = new Date().toLocaleTimeString() + ' - ' + msg;
+            consoleDiv.appendChild(p);
+        }
+        
+        console.log = function(...args) {
+            log(args.join(' '));
+            originalLog.apply(console, args);
+        };
+        
+        console.error = function(...args) {
+            log(args.join(' '), 'error');
+            originalError.apply(console, args);
+        };
+        
+        // Test 1: Data Loading
+        setTimeout(() => {
+            const dataCheck = document.getElementById('dataCheck');
+            if (typeof mathConcepts !== 'undefined') {
+                dataCheck.innerHTML = `<span class="success">✅ mathConcepts loaded: ${mathConcepts.length} concepts</span>`;
+            } else {
+                dataCheck.innerHTML = `<span class="error">❌ mathConcepts NOT loaded!</span>`;
+            }
+            
+            // Test 2: Functions
+            const functionCheck = document.getElementById('functionCheck');
+            let funcHtml = '';
+            funcHtml += `<p>getTopicsByGrade: <span class="${typeof getTopicsByGrade === 'function' ? 'success' : 'error'}">${typeof getTopicsByGrade}</span></p>`;
+            funcHtml += `<p>getConceptByName: <span class="${typeof getConceptByName === 'function' ? 'success' : 'error'}">${typeof getConceptByName}</span></p>`;
+            funcHtml += `<p>window.getTopicsByGrade: <span class="${typeof window.getTopicsByGrade === 'function' ? 'success' : 'error'}">${typeof window.getTopicsByGrade}</span></p>`;
+            functionCheck.innerHTML = funcHtml;
+            
+            // Test 3: Grade 5 Topics
+            const topicsCheck = document.getElementById('topicsCheck');
+            try {
+                const topics = getTopicsByGrade('5');
+                let topicsHtml = `<p class="success">✅ Found ${topics.length} topics for grade 5:</p><ul>`;
+                topics.forEach(t => {
+                    topicsHtml += `<li>${t.concept}</li>`;
+                });
+                topicsHtml += '</ul>';
+                topicsCheck.innerHTML = topicsHtml;
+                
+                // Test 4: Populate Dropdown
+                const topicSelect = document.getElementById('topicSelect');
+                const dropdownStatus = document.getElementById('dropdownStatus');
+                
+                console.log('Clearing dropdown...');
+                topicSelect.innerHTML = '';
+                
+                console.log('Adding options...');
+                topics.forEach((topic, i) => {
+                    const option = document.createElement('option');
+                    option.value = topic.concept;
+                    option.textContent = topic.concept;
+                    topicSelect.appendChild(option);
+                    console.log(`Added: ${topic.concept}`);
+                });
+                
+                dropdownStatus.innerHTML = `<p class="success">✅ Dropdown populated with ${topicSelect.options.length} options</p>`;
+                console.log('Dropdown population complete!');
+                
+            } catch (error) {
+                topicsCheck.innerHTML = `<p class="error">❌ Error: ${error.message}</p>`;
+                console.error('Error getting topics:', error);
+            }
+            
+        }, 200);
+    </script>
+</body>
+</html>
