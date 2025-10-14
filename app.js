@@ -135,9 +135,14 @@ class MathBoredApp {
     updateTopics() {
         try {
             console.log('📚 Updating topics for grade:', this.currentGrade);
+            console.log('📚 getTopicsByGrade function type:', typeof getTopicsByGrade);
+            console.log('📚 mathConcepts available:', typeof mathConcepts !== 'undefined' ? mathConcepts.length : 'undefined');
             
             const topics = getTopicsByGrade(this.currentGrade);
             console.log(`📚 Found ${topics.length} topics for grade ${this.currentGrade}`);
+            if (topics.length > 0) {
+                console.log('📚 First few topics:', topics.slice(0, 3).map(t => t.concept));
+            }
             
             const topicSelect = document.getElementById('topicSelect');
             
@@ -146,20 +151,26 @@ class MathBoredApp {
                 return;
             }
             
+            console.log('📚 Clearing topic dropdown...');
             topicSelect.innerHTML = '';
             
             if (topics.length > 0) {
-                topics.forEach(topic => {
+                console.log('📚 Adding', topics.length, 'options to dropdown...');
+                topics.forEach((topic, index) => {
                     const option = document.createElement('option');
                     option.value = topic.concept;
                     option.textContent = topic.concept;
                     topicSelect.appendChild(option);
+                    if (index < 3) {
+                        console.log(`  Added option ${index + 1}:`, topic.concept);
+                    }
                 });
                 
                 // Set the internal state and explicitly set the dropdown value
                 this.currentTopic = topics[0].concept;
                 topicSelect.value = this.currentTopic;
                 console.log('✅ Set current topic to:', this.currentTopic);
+                console.log('✅ Dropdown now has', topicSelect.options.length, 'options');
             } else {
                 // Handle case where no topics are available for this grade
                 console.warn('⚠️ No topics found for grade:', this.currentGrade);
@@ -173,7 +184,8 @@ class MathBoredApp {
             this.render();
         } catch (error) {
             console.error('❌ ERROR in updateTopics:', error);
-            alert('Error loading topics. Please refresh the page.');
+            console.error('❌ Error stack:', error.stack);
+            alert('Error loading topics. Please refresh the page. Error: ' + error.message);
         }
     }
     
@@ -9928,7 +9940,20 @@ math.boredgames.site`;
 
 // Initialize app when DOM is ready
 let app;
-document.addEventListener('DOMContentLoaded', () => {
+
+function initializeApp() {
+    console.log('🚀 Initializing MathBored App...');
+    console.log('DOM ready:', document.readyState);
+    console.log('getTopicsByGrade available:', typeof getTopicsByGrade);
+    console.log('mathConcepts available:', typeof mathConcepts);
+    
+    // Ensure data.js has loaded
+    if (typeof getTopicsByGrade === 'undefined' || typeof mathConcepts === 'undefined') {
+        console.warn('⚠️ Data not ready yet, retrying in 100ms...');
+        setTimeout(initializeApp, 100);
+        return;
+    }
+    
     app = new MathBoredApp();
     
     // Register service worker for PWA support
@@ -9941,5 +9966,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.log('ServiceWorker registration failed:', error);
             });
     }
-});
+}
+
+// Try to initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+    // DOM is already ready, initialize immediately
+    initializeApp();
+}
 
