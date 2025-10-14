@@ -22,41 +22,100 @@ class MathBoredApp {
     }
     
     init() {
-        this.setupEventListeners();
-        this.updateTopics();
-        this.updateStatsDisplay();
+        try {
+            console.log('🎯 MathBored initializing...');
+            
+            // Verify data.js functions are available
+            if (typeof getTopicsByGrade !== 'function') {
+                console.error('❌ ERROR: getTopicsByGrade function not found! Check that data.js loaded correctly.');
+                alert('Error: Math data failed to load. Please refresh the page.');
+                return;
+            }
+            
+            if (typeof getConceptByName !== 'function') {
+                console.error('❌ ERROR: getConceptByName function not found!');
+                alert('Error: Math data failed to load. Please refresh the page.');
+                return;
+            }
+            
+            console.log('✅ Data functions verified');
+            
+            this.setupEventListeners();
+            console.log('✅ Event listeners set up');
+            
+            this.updateTopics();
+            console.log('✅ Topics updated for grade:', this.currentGrade);
+            
+            this.updateStatsDisplay();
+            console.log('✅ Stats display updated');
+            
+            console.log('🎯 MathBored initialized successfully!');
+        } catch (error) {
+            console.error('❌ FATAL ERROR during initialization:', error);
+            alert('Failed to initialize MathBored. Please refresh the page. Error: ' + error.message);
+        }
     }
     
     setupEventListeners() {
-        // Grade selection
-        document.getElementById('gradeSelect').addEventListener('change', (e) => {
-            this.currentGrade = e.target.value;
-            this.updateTopics();
-        });
-        
-        // Topic selection
-        document.getElementById('topicSelect').addEventListener('change', (e) => {
-            this.currentTopic = e.target.value;
-            this.render();
-        });
-        
-        // Mode tabs
-        document.querySelectorAll('.mode-tab').forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
-                e.target.classList.add('active');
-                this.currentMode = e.target.dataset.mode;
+        try {
+            // Grade selection
+            const gradeSelect = document.getElementById('gradeSelect');
+            if (!gradeSelect) {
+                console.error('❌ ERROR: Grade select element not found!');
+                return;
+            }
+            
+            gradeSelect.addEventListener('change', (e) => {
+                console.log('📊 Grade changed to:', e.target.value);
+                this.currentGrade = e.target.value;
+                this.updateTopics();
+            });
+            
+            // Topic selection
+            const topicSelect = document.getElementById('topicSelect');
+            if (!topicSelect) {
+                console.error('❌ ERROR: Topic select element not found!');
+                return;
+            }
+            
+            topicSelect.addEventListener('change', (e) => {
+                console.log('📖 Topic changed to:', e.target.value);
+                this.currentTopic = e.target.value;
                 this.render();
             });
-        });
-        
-        // Theme selector
-        document.querySelectorAll('.theme-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const theme = e.target.dataset.theme;
-                this.setTheme(theme);
+            
+            // Mode tabs
+            const modeTabs = document.querySelectorAll('.mode-tab');
+            if (modeTabs.length === 0) {
+                console.warn('⚠️ WARNING: No mode tabs found!');
+            }
+            
+            modeTabs.forEach(tab => {
+                tab.addEventListener('click', (e) => {
+                    console.log('🎮 Mode changed to:', e.target.dataset.mode);
+                    document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+                    e.target.classList.add('active');
+                    this.currentMode = e.target.dataset.mode;
+                    this.render();
+                });
             });
-        });
+            
+            // Theme selector
+            const themeButtons = document.querySelectorAll('.theme-btn');
+            if (themeButtons.length === 0) {
+                console.warn('⚠️ WARNING: No theme buttons found!');
+            }
+            
+            themeButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const theme = e.target.dataset.theme;
+                    console.log('🎨 Theme changed to:', theme || 'default');
+                    this.setTheme(theme);
+                });
+            });
+        } catch (error) {
+            console.error('❌ ERROR in setupEventListeners:', error);
+        }
     }
     
     setTheme(theme) {
@@ -74,32 +133,48 @@ class MathBoredApp {
     }
     
     updateTopics() {
-        const topics = getTopicsByGrade(this.currentGrade);
-        const topicSelect = document.getElementById('topicSelect');
-        
-        topicSelect.innerHTML = '';
-        
-        if (topics.length > 0) {
-            topics.forEach(topic => {
-                const option = document.createElement('option');
-                option.value = topic.concept;
-                option.textContent = topic.concept;
-                topicSelect.appendChild(option);
-            });
+        try {
+            console.log('📚 Updating topics for grade:', this.currentGrade);
             
-            // Set the internal state and explicitly set the dropdown value
-            this.currentTopic = topics[0].concept;
-            topicSelect.value = this.currentTopic;
-        } else {
-            // Handle case where no topics are available for this grade
-            this.currentTopic = null;
-            const option = document.createElement('option');
-            option.value = '';
-            option.textContent = 'No topics available';
-            topicSelect.appendChild(option);
+            const topics = getTopicsByGrade(this.currentGrade);
+            console.log(`📚 Found ${topics.length} topics for grade ${this.currentGrade}`);
+            
+            const topicSelect = document.getElementById('topicSelect');
+            
+            if (!topicSelect) {
+                console.error('❌ ERROR: Topic select element not found!');
+                return;
+            }
+            
+            topicSelect.innerHTML = '';
+            
+            if (topics.length > 0) {
+                topics.forEach(topic => {
+                    const option = document.createElement('option');
+                    option.value = topic.concept;
+                    option.textContent = topic.concept;
+                    topicSelect.appendChild(option);
+                });
+                
+                // Set the internal state and explicitly set the dropdown value
+                this.currentTopic = topics[0].concept;
+                topicSelect.value = this.currentTopic;
+                console.log('✅ Set current topic to:', this.currentTopic);
+            } else {
+                // Handle case where no topics are available for this grade
+                console.warn('⚠️ No topics found for grade:', this.currentGrade);
+                this.currentTopic = null;
+                const option = document.createElement('option');
+                option.value = '';
+                option.textContent = 'No topics available';
+                topicSelect.appendChild(option);
+            }
+            
+            this.render();
+        } catch (error) {
+            console.error('❌ ERROR in updateTopics:', error);
+            alert('Error loading topics. Please refresh the page.');
         }
-        
-        this.render();
     }
     
     render() {

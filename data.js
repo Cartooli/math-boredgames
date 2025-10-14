@@ -1849,3 +1849,10 @@ function getConceptByName(name) {
     );
 }
 
+// Explicitly expose functions globally to prevent any scoping issues
+window.getTopicsByGrade = getTopicsByGrade;
+window.getConceptByName = getConceptByName;
+window.mathConcepts = mathConcepts;
+
+console.log('✅ Math data loaded:', mathConcepts.length, 'concepts');
+
