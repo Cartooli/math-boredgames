@@ -2139,6 +2139,1408 @@ class MathBoredApp {
                     <li>Who is taller or older</li>
                     <li>Which group has more items</li>
                 </ul>
+            `,
+            
+            // === GRADE 5 LESSONS (21 topics) ===
+            
+            "Fraction Addition and Subtraction": `
+                <h2>Fraction Addition and Subtraction</h2>
+                <p>Adding and subtracting fractions is like combining or separating pieces of a whole. The key is making sure the pieces are the same size!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Adding Fractions with Same Denominators</h3>
+                <p>When fractions have the same denominator (bottom number), just add the numerators!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 2/5 + 1/5</div>
+                    <p><strong>Step 1:</strong> Check denominators - both are 5 ✓</p>
+                    <p><strong>Step 2:</strong> Add numerators: 2 + 1 = 3</p>
+                    <p><strong>Step 3:</strong> Keep denominator: /5</p>
+                    <p><strong>Answer:</strong> 2/5 + 1/5 = <strong>3/5</strong></p>
+                    <p>Think: 2 fifths + 1 fifth = 3 fifths</p>
+                </div>
+                
+                <h3>Adding Fractions with Different Denominators</h3>
+                <p>When denominators are different, we need to find a common denominator first!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 1/2 + 1/4</div>
+                    <p><strong>Step 1:</strong> Find common denominator (4 works for both)</p>
+                    <p><strong>Step 2:</strong> Convert: 1/2 = 2/4</p>
+                    <p><strong>Step 3:</strong> Now add: 2/4 + 1/4 = 3/4</p>
+                    <p><strong>Answer:</strong> 1/2 + 1/4 = <strong>3/4</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: 1/3 + 1/6</div>
+                    <p><strong>Step 1:</strong> Common denominator is 6</p>
+                    <p><strong>Step 2:</strong> Convert: 1/3 = 2/6</p>
+                    <p><strong>Step 3:</strong> Add: 2/6 + 1/6 = 3/6</p>
+                    <p><strong>Step 4:</strong> Simplify: 3/6 = <strong>1/2</strong></p>
+                </div>
+                
+                <h3>Subtracting Fractions</h3>
+                <p>Subtraction works the same way as addition!</p>
+                
+                <div class="example">
+                    <div class="example-title">Same Denominators: 5/8 − 2/8</div>
+                    <p>Subtract numerators: 5 − 2 = 3</p>
+                    <p>Keep denominator: /8</p>
+                    <p><strong>Answer:</strong> <strong>3/8</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Different Denominators: 3/4 − 1/2</div>
+                    <p><strong>Step 1:</strong> Common denominator is 4</p>
+                    <p><strong>Step 2:</strong> Convert: 1/2 = 2/4</p>
+                    <p><strong>Step 3:</strong> Subtract: 3/4 − 2/4 = <strong>1/4</strong></p>
+                </div>
+                
+                <h3>Finding Common Denominators</h3>
+                <ul>
+                    <li><strong>List multiples:</strong> Find multiples of each denominator</li>
+                    <li><strong>Find smallest common:</strong> Pick the LCM (Least Common Multiple)</li>
+                    <li><strong>Convert both:</strong> Make equivalent fractions</li>
+                    <li><strong>Add or subtract:</strong> Work with numerators only</li>
+                </ul>
+                
+                <h3>Remember to Simplify!</h3>
+                <p>Always check if your answer can be simplified:</p>
+                <ul>
+                    <li>4/8 = 1/2</li>
+                    <li>6/9 = 2/3</li>
+                    <li>10/15 = 2/3</li>
+                </ul>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Cooking:</strong> Adding 1/4 cup + 1/2 cup of flour</li>
+                    <li><strong>Time:</strong> 1/2 hour + 1/4 hour = 3/4 hour (45 minutes)</li>
+                    <li><strong>Distance:</strong> Walking 2/3 mile then 1/6 mile more</li>
+                </ul>
+            `,
+
+            "Fraction Multiplication and Division": `
+                <h2>Fraction Multiplication and Division</h2>
+                <p>Multiplying and dividing fractions follows different rules than addition! Let's learn these powerful operations.</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Multiplying Fractions</h3>
+                <p>To multiply fractions: multiply numerators together, then multiply denominators together!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 2/3 × 3/4</div>
+                    <p><strong>Step 1:</strong> Multiply numerators: 2 × 3 = 6</p>
+                    <p><strong>Step 2:</strong> Multiply denominators: 3 × 4 = 12</p>
+                    <p><strong>Step 3:</strong> Result: 6/12</p>
+                    <p><strong>Step 4:</strong> Simplify: 6/12 = <strong>1/2</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Multiply Across - Easy!</div>
+                    <pre>  2   ×   3   =   2×3   =   6    =  1
+  3       4       3×4      12      2</pre>
+                </div>
+                
+                <h3>Multiplying with Whole Numbers</h3>
+                <div class="example">
+                    <div class="example-title">Example: 3 × 2/5</div>
+                    <p><strong>Step 1:</strong> Write whole number as fraction: 3 = 3/1</p>
+                    <p><strong>Step 2:</strong> Multiply: (3/1) × (2/5) = 6/5</p>
+                    <p><strong>Step 3:</strong> Convert to mixed number: <strong>1 1/5</strong></p>
+                </div>
+                
+                <h3>Dividing Fractions: Flip and Multiply!</h3>
+                <p>To divide by a fraction, multiply by its reciprocal (flip it!):</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 1/2 ÷ 1/4</div>
+                    <p><strong>Step 1:</strong> Flip the second fraction: 1/4 becomes 4/1</p>
+                    <p><strong>Step 2:</strong> Change ÷ to ×: 1/2 × 4/1</p>
+                    <p><strong>Step 3:</strong> Multiply: 1×4 / 2×1 = 4/2</p>
+                    <p><strong>Step 4:</strong> Simplify: 4/2 = <strong>2</strong></p>
+                    <p><strong>Makes sense:</strong> How many quarters fit in a half? 2!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: 3/4 ÷ 2/3</div>
+                    <p><strong>Step 1:</strong> Flip 2/3 to get 3/2</p>
+                    <p><strong>Step 2:</strong> Multiply: 3/4 × 3/2</p>
+                    <p><strong>Step 3:</strong> Calculate: (3×3)/(4×2) = 9/8</p>
+                    <p><strong>Step 4:</strong> Mixed number: <strong>1 1/8</strong></p>
+                </div>
+                
+                <h3>Remember: KCF Method for Division</h3>
+                <ul>
+                    <li><strong>K</strong>eep the first fraction</li>
+                    <li><strong>C</strong>hange division to multiplication</li>
+                    <li><strong>F</strong>lip the second fraction (reciprocal)</li>
+                </ul>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Recipes:</strong> Making 1/2 of a recipe that calls for 2/3 cup: 1/2 × 2/3 = 1/3 cup</li>
+                    <li><strong>Sharing:</strong> Dividing 3/4 pizza among 3 friends: (3/4) ÷ 3</li>
+                    <li><strong>Measurement:</strong> How many 1/4 inch pieces in a 3 inch board?</li>
+                </ul>
+            `,
+
+            "Coordinate Graphing": `
+                <h2>Coordinate Graphing</h2>
+                <p>Coordinate graphing lets us show points and shapes on a grid. It's like a treasure map for math!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Understanding the Coordinate Plane</h3>
+                <p>The coordinate plane has two number lines that cross:</p>
+                
+                <div class="example">
+                    <div class="example-title">The Axes</div>
+                    <ul>
+                        <li><strong>X-axis:</strong> The horizontal line (left-right) →</li>
+                        <li><strong>Y-axis:</strong> The vertical line (up-down) ↑</li>
+                        <li><strong>Origin:</strong> Where they cross (0, 0)</li>
+                    </ul>
+                </div>
+                
+                <h3>Reading Coordinates (x, y)</h3>
+                <p>Every point is described by an <strong>ordered pair</strong> (x, y):</p>
+                
+                <div class="example">
+                    <div class="example-title">The Point (3, 4)</div>
+                    <p><strong>x-coordinate:</strong> 3 (move 3 units RIGHT from origin)</p>
+                    <p><strong>y-coordinate:</strong> 4 (move 4 units UP)</p>
+                    <p><strong>Remember:</strong> x comes first (alphabetical order!)</p>
+                    <p>Think: "Walk before you fly" - go sideways (x) before going up (y)</p>
+                </div>
+                
+                <h3>Plotting Points Step-by-Step</h3>
+                <div class="example">
+                    <div class="example-title">Plot (5, 2)</div>
+                    <p><strong>Step 1:</strong> Start at origin (0, 0)</p>
+                    <p><strong>Step 2:</strong> Move 5 units RIGHT (x = 5)</p>
+                    <p><strong>Step 3:</strong> Move 2 units UP (y = 2)</p>
+                    <p><strong>Step 4:</strong> Mark the point!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Different Points</div>
+                    <p>(0, 0) = Origin (starting point)</p>
+                    <p>(4, 0) = On the x-axis (4 right, 0 up)</p>
+                    <p>(0, 5) = On the y-axis (0 right, 5 up)</p>
+                    <p>(3, 3) = Diagonal from origin</p>
+                </div>
+                
+                <h3>The First Quadrant</h3>
+                <p>In 5th grade, we focus on the first quadrant where both x and y are positive (0 and greater).</p>
+                
+                <h3>Connecting Points</h3>
+                <p>When we connect points in order, we can make shapes!</p>
+                <div class="example">
+                    <div class="example-title">Making a Rectangle</div>
+                    <p>Connect these points: (1,1), (5,1), (5,3), (1,3)</p>
+                    <p>You've drawn a rectangle on the coordinate plane!</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Maps:</strong> Finding locations using coordinates</li>
+                    <li><strong>Video Games:</strong> Character positions on screen</li>
+                    <li><strong>GPS:</strong> Latitude and longitude</li>
+                    <li><strong>Battleship:</strong> The game uses coordinates!</li>
+                </ul>
+            `,
+
+            "Volume of Rectangular Prisms": `
+                <h2>Volume of Rectangular Prisms</h2>
+                <p>Volume measures how much space a 3D object takes up. Think of it as how much water could fill a box!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is Volume?</h3>
+                <p>Volume is the amount of 3D space inside an object. We measure it in <strong>cubic units</strong> (like cubic inches or cubic centimeters).</p>
+                
+                <h3>Understanding Rectangular Prisms</h3>
+                <div class="example">
+                    <div class="example-title">What's a Rectangular Prism?</div>
+                    <p>A 3D shape that looks like a box:</p>
+                    <ul>
+                        <li>6 faces (all rectangles)</li>
+                        <li>8 vertices (corners)</li>
+                        <li>12 edges</li>
+                    </ul>
+                    <p><strong>Examples:</strong> Shoe boxes, books, refrigerators, rooms</p>
+                </div>
+                
+                <h3>The Volume Formula</h3>
+                <p><strong>V = length × width × height</strong></p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Box that is 5 cm × 3 cm × 4 cm</div>
+                    <p><strong>Length:</strong> 5 cm</p>
+                    <p><strong>Width:</strong> 3 cm</p>
+                    <p><strong>Height:</strong> 4 cm</p>
+                    <p><strong>Calculate:</strong> V = 5 × 3 × 4</p>
+                    <p>V = 15 × 4</p>
+                    <p>V = <strong>60 cubic centimeters (cm³)</strong></p>
+                </div>
+                
+                <h3>Why We Multiply All Three</h3>
+                <div class="example">
+                    <div class="example-title">Think of Layers</div>
+                    <p>Imagine stacking cubes:</p>
+                    <p><strong>Bottom layer:</strong> 5 × 3 = 15 cubes</p>
+                    <p><strong>How many layers?</strong> 4 layers tall</p>
+                    <p><strong>Total cubes:</strong> 15 × 4 = 60 cubes</p>
+                    <p>Each cube = 1 cm³, so total volume = 60 cm³</p>
+                </div>
+                
+                <h3>Units for Volume</h3>
+                <ul>
+                    <li><strong>Cubic inches</strong> (in³) - small objects</li>
+                    <li><strong>Cubic feet</strong> (ft³) - medium objects</li>
+                    <li><strong>Cubic meters</strong> (m³) - large objects</li>
+                    <li><strong>Cubic centimeters</strong> (cm³) - metric small</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Practice Problem</div>
+                    <p>A storage box is 8 inches long, 6 inches wide, and 5 inches tall.</p>
+                    <p>V = 8 × 6 × 5 = <strong>240 in³</strong></p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li>Finding how much a container can hold</li>
+                    <li>Calculating space in a moving truck</li>
+                    <li>Determining fish tank capacity</li>
+                    <li>Figuring out if furniture fits in a room</li>
+                </ul>
+            `,
+
+            "Measurement Conversion": `
+                <h2>Measurement Conversion</h2>
+                <p>Converting between units means changing from one measurement to another. It's essential for real-world problem solving!</p>
+                
+                <h3>Length Conversions (US Customary)</h3>
+                <div class="example">
+                    <div class="example-title">Common Length Conversions</div>
+                    <ul>
+                        <li>1 foot = <strong>12 inches</strong></li>
+                        <li>1 yard = <strong>3 feet</strong> = 36 inches</li>
+                        <li>1 mile = <strong>5,280 feet</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Convert 4 feet to inches</div>
+                    <p><strong>What we know:</strong> 1 foot = 12 inches</p>
+                    <p><strong>Calculate:</strong> 4 feet × 12 inches/foot = 48 inches</p>
+                    <p><strong>Answer:</strong> 4 feet = <strong>48 inches</strong></p>
+                </div>
+                
+                <h3>Length Conversions (Metric)</h3>
+                <div class="example">
+                    <div class="example-title">Metric Length</div>
+                    <ul>
+                        <li>1 meter = <strong>100 centimeters</strong></li>
+                        <li>1 meter = <strong>1,000 millimeters</strong></li>
+                        <li>1 kilometer = <strong>1,000 meters</strong></li>
+                    </ul>
+                </div>
+                
+                <h3>Weight/Mass Conversions</h3>
+                <div class="example">
+                    <div class="example-title">US Customary Weight</div>
+                    <ul>
+                        <li>1 pound = <strong>16 ounces</strong></li>
+                        <li>1 ton = <strong>2,000 pounds</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Metric Mass</div>
+                    <ul>
+                        <li>1 kilogram = <strong>1,000 grams</strong></li>
+                        <li>1 metric ton = <strong>1,000 kilograms</strong></li>
+                    </ul>
+                </div>
+                
+                <h3>Capacity/Volume Conversions</h3>
+                <div class="example">
+                    <div class="example-title">Liquid Measurement (US)</div>
+                    <ul>
+                        <li>1 cup = <strong>8 fluid ounces</strong></li>
+                        <li>1 pint = <strong>2 cups</strong></li>
+                        <li>1 quart = <strong>2 pints</strong> = 4 cups</li>
+                        <li>1 gallon = <strong>4 quarts</strong> = 16 cups</li>
+                    </ul>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Gallons to Quarts</div>
+                    <p>Convert 3 gallons to quarts</p>
+                    <p>1 gallon = 4 quarts</p>
+                    <p>3 gallons × 4 = <strong>12 quarts</strong></p>
+                </div>
+                
+                <h3>Conversion Strategy</h3>
+                <p><strong>Larger to Smaller:</strong> Multiply</p>
+                <ul>
+                    <li>5 feet to inches: 5 × 12 = 60 inches</li>
+                </ul>
+                
+                <p><strong>Smaller to Larger:</strong> Divide</p>
+                <ul>
+                    <li>24 inches to feet: 24 ÷ 12 = 2 feet</li>
+                </ul>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Cooking:</strong> Converting tablespoons to cups</li>
+                    <li><strong>Construction:</strong> Converting feet to inches for precise cuts</li>
+                    <li><strong>Travel:</strong> Understanding kilometers vs miles</li>
+                    <li><strong>Science:</strong> Converting grams to kilograms</li>
+                </ul>
+            `,
+
+            "Decimal Operations": `
+                <h2>Decimal Operations</h2>
+                <p>Decimals let us work with parts of whole numbers. We can add, subtract, multiply, and divide them just like whole numbers, with some special rules!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Adding and Subtracting Decimals</h3>
+                <p>The key is to <strong>line up the decimal points</strong>!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 3.45 + 2.8</div>
+                    <pre>  3.45
++ 2.80  (add zero as placeholder)
+------
+  6.25</pre>
+                    <p><strong>Key Steps:</strong></p>
+                    <ol>
+                        <li>Write numbers vertically</li>
+                        <li>Line up decimal points</li>
+                        <li>Add zeros as placeholders if needed</li>
+                        <li>Add normally, bringing down the decimal point</li>
+                    </ol>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: 7.2 − 3.47</div>
+                    <pre>  7.20
+− 3.47
+------
+  3.73</pre>
+                    <p>Add zero to make 7.20, then subtract normally!</p>
+                </div>
+                
+                <h3>Multiplying Decimals</h3>
+                <p>Multiply as if they're whole numbers, then count decimal places!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 2.5 × 3.2</div>
+                    <p><strong>Step 1:</strong> Ignore decimals temporarily: 25 × 32 = 800</p>
+                    <p><strong>Step 2:</strong> Count total decimal places: 1 + 1 = 2 places</p>
+                    <p><strong>Step 3:</strong> Put decimal in answer: <strong>8.00 = 8</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: 4.6 × 0.3</div>
+                    <p>46 × 3 = 138</p>
+                    <p>Count places: 1 + 1 = 2</p>
+                    <p>Answer: <strong>1.38</strong></p>
+                </div>
+                
+                <h3>Dividing Decimals</h3>
+                <p>Make the divisor a whole number by moving decimal points!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 6.4 ÷ 0.2</div>
+                    <p><strong>Step 1:</strong> Move decimal in 0.2 one place right → 2</p>
+                    <p><strong>Step 2:</strong> Move decimal in 6.4 one place right → 64</p>
+                    <p><strong>Step 3:</strong> Now divide: 64 ÷ 2 = <strong>32</strong></p>
+                </div>
+                
+                <h3>Quick Tips</h3>
+                <ul>
+                    <li><strong>Add/Subtract:</strong> Line up decimal points!</li>
+                    <li><strong>Multiply:</strong> Count total decimal places</li>
+                    <li><strong>Divide:</strong> Move decimals to make divisor whole</li>
+                    <li><strong>Always:</strong> Estimate first to check if answer makes sense</li>
+                </ul>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Money:</strong> $3.50 + $2.75 = $6.25</li>
+                    <li><strong>Measurements:</strong> 2.5 meters + 3.8 meters</li>
+                    <li><strong>Grades:</strong> Calculating averages (87.5, 92.3)</li>
+                    <li><strong>Science:</strong> Precise measurements in experiments</li>
+                </ul>
+            `,
+
+            "Exponents (Introduction)": `
+                <h2>Exponents (Introduction)</h2>
+                <p>Exponents are a shorthand way to show repeated multiplication. They're super powerful in math!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is an Exponent?</h3>
+                <p>An exponent tells us how many times to multiply a number by itself:</p>
+                
+                <div class="example">
+                    <div class="example-title">Understanding 10³</div>
+                    <p>10³ means "10 × 10 × 10"</p>
+                    <ul>
+                        <li><strong>Base:</strong> 10 (the number being multiplied)</li>
+                        <li><strong>Exponent:</strong> 3 (how many times to multiply)</li>
+                        <li><strong>Value:</strong> 10 × 10 × 10 = <strong>1,000</strong></li>
+                    </ul>
+                    <p>We say: "10 to the 3rd power" or "10 cubed"</p>
+                </div>
+                
+                <h3>Powers of 10</h3>
+                <p>Powers of 10 are especially important - they're the foundation of our number system!</p>
+                
+                <div class="example">
+                    <div class="example-title">Powers of 10 Chart</div>
+                    <ul>
+                        <li>10⁰ = <strong>1</strong></li>
+                        <li>10¹ = <strong>10</strong></li>
+                        <li>10² = <strong>100</strong> (10 × 10)</li>
+                        <li>10³ = <strong>1,000</strong> (10 × 10 × 10)</li>
+                        <li>10⁴ = <strong>10,000</strong> (10 × 10 × 10 × 10)</li>
+                    </ul>
+                    <p><strong>Pattern:</strong> The exponent tells you how many zeros!</p>
+                </div>
+                
+                <h3>Other Examples</h3>
+                <div class="example">
+                    <div class="example-title">Different Bases</div>
+                    <p>2³ = 2 × 2 × 2 = <strong>8</strong></p>
+                    <p>5² = 5 × 5 = <strong>25</strong></p>
+                    <p>3⁴ = 3 × 3 × 3 × 3 = <strong>81</strong></p>
+                </div>
+                
+                <h3>Special Exponent Names</h3>
+                <ul>
+                    <li><strong>x² :</strong> "x squared" (forms a square when visualized)</li>
+                    <li><strong>x³ :</strong> "x cubed" (forms a cube in 3D)</li>
+                    <li><strong>x⁴ :</strong> "x to the fourth power"</li>
+                </ul>
+                
+                <h3>Multiplying by Powers of 10</h3>
+                <div class="example">
+                    <div class="example-title">Quick Trick</div>
+                    <p>To multiply by 10ⁿ, move the decimal point n places RIGHT:</p>
+                    <p>4.5 × 10² = 4.5 × 100 = <strong>450</strong> (move 2 places right)</p>
+                    <p>2.36 × 10³ = 2.36 × 1,000 = <strong>2,360</strong> (move 3 places)</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Large numbers:</strong> Population, distances in space</li>
+                    <li><strong>Scientific notation:</strong> 3 × 10⁸ meters/second (speed of light)</li>
+                    <li><strong>Computer memory:</strong> 2¹⁰ = 1,024 (kilobyte)</li>
+                    <li><strong>Growth:</strong> Compound interest, population growth</li>
+                </ul>
+            `,
+
+            "Expressions": `
+                <h2>Expressions</h2>
+                <p>Mathematical expressions are like sentences made with numbers and operations. They show a value but don't have an equals sign!</p>
+                
+                <h3>What is an Expression?</h3>
+                <p>An expression is a mathematical phrase that can contain:</p>
+                <ul>
+                    <li><strong>Numbers:</strong> 5, 12, 3.7</li>
+                    <li><strong>Operations:</strong> +, −, ×, ÷</li>
+                    <li><strong>Grouping symbols:</strong> ( ), [ ], { }</li>
+                    <li><strong>Variables (later):</strong> x, y, n</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Expression vs Equation</div>
+                    <p><strong>Expression:</strong> 3 + 5 × 2 (just shows a value)</p>
+                    <p><strong>Equation:</strong> 3 + 5 × 2 = 13 (has an equals sign)</p>
+                </div>
+                
+                <h3>Evaluating Expressions</h3>
+                <p>To evaluate means to find the value:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Evaluate 4 + 6 × 2</div>
+                    <p><strong>Remember Order of Operations!</strong></p>
+                    <p><strong>Step 1:</strong> Do multiplication first: 6 × 2 = 12</p>
+                    <p><strong>Step 2:</strong> Then add: 4 + 12 = 16</p>
+                    <p><strong>Value:</strong> <strong>16</strong></p>
+                </div>
+                
+                <h3>Expressions with Parentheses</h3>
+                <div class="example">
+                    <div class="example-title">Example: (8 + 2) × 3</div>
+                    <p><strong>Step 1:</strong> Parentheses first: 8 + 2 = 10</p>
+                    <p><strong>Step 2:</strong> Then multiply: 10 × 3 = 30</p>
+                    <p><strong>Value:</strong> <strong>30</strong></p>
+                    <p><strong>Compare:</strong> 8 + 2 × 3 = 8 + 6 = 14 (different!)</p>
+                </div>
+                
+                <h3>Writing Expressions from Words</h3>
+                <div class="example">
+                    <div class="example-title">Translating to Math</div>
+                    <p><strong>"5 more than 3":</strong> 3 + 5</p>
+                    <p><strong>"The product of 4 and 6":</strong> 4 × 6</p>
+                    <p><strong>"8 decreased by 3":</strong> 8 − 3</p>
+                    <p><strong>"Twice 7":</strong> 2 × 7</p>
+                    <p><strong>"10 divided by 2":</strong> 10 ÷ 2</p>
+                </div>
+                
+                <h3>Parts of an Expression</h3>
+                <div class="example">
+                    <div class="example-title">In the expression: 3 + 5 × 2 − 4</div>
+                    <ul>
+                        <li><strong>Terms:</strong> Parts separated by + or − (3, 5×2, 4)</li>
+                        <li><strong>Operations:</strong> +, ×, −</li>
+                        <li><strong>Factors:</strong> Numbers being multiplied (5 and 2)</li>
+                    </ul>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Shopping:</strong> (3 × $4.50) + (2 × $6.00) for buying items</li>
+                    <li><strong>Perimeter:</strong> 2 × (length + width)</li>
+                    <li><strong>Recipes:</strong> 2 × (3 cups + 1 cup) when doubling</li>
+                </ul>
+            `,
+
+            "Data and Graphs": `
+                <h2>Data and Graphs</h2>
+                <p>Data and graphs help us organize, display, and understand information. In 5th grade, we work with more advanced types of graphs!</p>
+                
+                <h3>Types of Graphs</h3>
+                
+                <div class="example">
+                    <div class="example-title">1. Histograms</div>
+                    <p>Histograms show data grouped into ranges (intervals):</p>
+                    <p><strong>Example:</strong> Test scores by range</p>
+                    <p>60-69: ▮▮▮ (3 students)</p>
+                    <p>70-79: ▮▮▮▮▮▮▮ (7 students)</p>
+                    <p>80-89: ▮▮▮▮▮ (5 students)</p>
+                    <p>90-100: ▮▮▮▮ (4 students)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">2. Line Graphs</div>
+                    <p>Line graphs show changes over time:</p>
+                    <p><strong>Use for:</strong> Temperature changes, growth over months, stock prices</p>
+                    <p><strong>Shows:</strong> Trends (going up, down, staying same)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">3. Stem-and-Leaf Plots</div>
+                    <p>Shows data using place value:</p>
+                    <p><strong>Data:</strong> 23, 25, 27, 31, 33, 35, 38</p>
+                    <p><strong>Stem | Leaf</strong></p>
+                    <p>2 | 3 5 7</p>
+                    <p>3 | 1 3 5 8</p>
+                    <p>Stem = tens, Leaf = ones</p>
+                </div>
+                
+                <h3>Analyzing Graphs</h3>
+                <p>When reading any graph, ask:</p>
+                <ul>
+                    <li><strong>What</strong> does it show? (Read title and labels)</li>
+                    <li><strong>What's the trend?</strong> (Going up? Down? Patterns?)</li>
+                    <li><strong>What's the range?</strong> (Highest and lowest values)</li>
+                    <li><strong>What can we conclude?</strong> (What does the data tell us?)</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Reading a Line Graph</div>
+                    <p><strong>Title:</strong> "Temperature Throughout the Day"</p>
+                    <p><strong>X-axis:</strong> Time (hours)</p>
+                    <p><strong>Y-axis:</strong> Temperature (°F)</p>
+                    <p><strong>Observation:</strong> Temperature rises from morning to afternoon, then falls</p>
+                    <p><strong>Conclusion:</strong> Hottest time is around 3 PM</p>
+                </div>
+                
+                <h3>Creating Graphs</h3>
+                <ol>
+                    <li>Collect your data</li>
+                    <li>Choose appropriate graph type</li>
+                    <li>Draw and label axes</li>
+                    <li>Plot data accurately</li>
+                    <li>Add title and any necessary labels</li>
+                </ol>
+                
+                <h3>Which Graph to Use?</h3>
+                <ul>
+                    <li><strong>Bar graph:</strong> Comparing categories</li>
+                    <li><strong>Line graph:</strong> Changes over time</li>
+                    <li><strong>Histogram:</strong> Data in intervals</li>
+                    <li><strong>Circle graph:</strong> Parts of a whole (pie chart)</li>
+                </ul>
+            `,
+
+            "Division of Decimals": `
+                <h2>Division of Decimals</h2>
+                <p>Dividing with decimals might seem tricky, but it's just like regular division once we move the decimal points!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>The Key Rule</h3>
+                <p>Make the divisor (the number you're dividing BY) a whole number!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 8.4 ÷ 0.4</div>
+                    <p><strong>Step 1:</strong> The divisor is 0.4 (has 1 decimal place)</p>
+                    <p><strong>Step 2:</strong> Move decimal 1 place right in BOTH numbers:</p>
+                    <p>0.4 → 4 and 8.4 → 84</p>
+                    <p><strong>Step 3:</strong> Now divide: 84 ÷ 4 = <strong>21</strong></p>
+                </div>
+                
+                <h3>Dividing by Whole Numbers</h3>
+                <div class="example">
+                    <div class="example-title">Example: 6.8 ÷ 2</div>
+                    <p>The divisor is already whole, so just divide!</p>
+                    <p>6.8 ÷ 2 = <strong>3.4</strong></p>
+                    <p><strong>Tip:</strong> Keep the decimal point aligned in your answer</p>
+                </div>
+                
+                <h3>More Complex Example</h3>
+                <div class="example">
+                    <div class="example-title">Example: 12.6 ÷ 0.03</div>
+                    <p><strong>Step 1:</strong> Divisor 0.03 has 2 decimal places</p>
+                    <p><strong>Step 2:</strong> Move decimal 2 places right in both:</p>
+                    <p>0.03 → 3 and 12.6 → 1260</p>
+                    <p><strong>Step 3:</strong> Divide: 1260 ÷ 3 = <strong>420</strong></p>
+                </div>
+                
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Count decimal places in divisor</li>
+                    <li>Move decimal that many places RIGHT in both numbers</li>
+                    <li>Divide as you would with whole numbers</li>
+                    <li>Place decimal point in answer carefully</li>
+                </ol>
+                
+                <h3>Why This Works</h3>
+                <p>Moving the decimal the same amount in both numbers doesn't change the answer!</p>
+                <div class="example">
+                    <div class="example-title">Same Result</div>
+                    <p>6 ÷ 2 = 3</p>
+                    <p>60 ÷ 20 = 3</p>
+                    <p>600 ÷ 200 = 3</p>
+                    <p>All equal because we multiplied both by the same amount!</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Money:</strong> Splitting $12.50 among 5 people</li>
+                    <li><strong>Recipes:</strong> Dividing 2.5 cups into 5 portions</li>
+                    <li><strong>Measurement:</strong> How many 0.5 meter pieces from 4.5 meters?</li>
+                    <li><strong>Gas mileage:</strong> 234.6 miles ÷ 12.3 gallons</li>
+                </ul>
+            `,
+
+            "Powers of 10": `
+                <h2>Powers of 10</h2>
+                <p>Powers of 10 are the backbone of our number system! Understanding them makes working with large numbers and decimals much easier.</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What are Powers of 10?</h3>
+                <p>Powers of 10 show how many times we multiply 10 by itself:</p>
+                
+                <div class="example">
+                    <div class="example-title">Powers of 10 Table</div>
+                    <ul>
+                        <li>10⁰ = <strong>1</strong> (any number to the 0 power is 1!)</li>
+                        <li>10¹ = <strong>10</strong></li>
+                        <li>10² = <strong>100</strong> (10 × 10)</li>
+                        <li>10³ = <strong>1,000</strong> (10 × 10 × 10)</li>
+                        <li>10⁴ = <strong>10,000</strong> (10 × 10 × 10 × 10)</li>
+                        <li>10⁵ = <strong>100,000</strong></li>
+                        <li>10⁶ = <strong>1,000,000</strong> (one million!)</li>
+                    </ul>
+                    <p><strong>Pattern:</strong> The exponent tells you how many zeros!</p>
+                </div>
+                
+                <h3>Multiplying by Powers of 10</h3>
+                <p>Moving the decimal point makes multiplication super easy!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 4.5 × 10²</div>
+                    <p><strong>Exponent is 2:</strong> Move decimal 2 places RIGHT</p>
+                    <p>4.5 → 4<strong>5</strong>.0 → 45<strong>0</strong></p>
+                    <p><strong>Answer:</strong> 4.5 × 100 = <strong>450</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: 0.72 × 10³</div>
+                    <p><strong>Exponent is 3:</strong> Move decimal 3 places RIGHT</p>
+                    <p>0.72 → 0.7<strong>2</strong>0 → 07<strong>2</strong>0 → <strong>720</strong></p>
+                    <p><strong>Answer:</strong> 0.72 × 1,000 = <strong>720</strong></p>
+                </div>
+                
+                <h3>Dividing by Powers of 10</h3>
+                <p>Division moves the decimal point LEFT!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 350 ÷ 10²</div>
+                    <p><strong>Exponent is 2:</strong> Move decimal 2 places LEFT</p>
+                    <p>350.0 → 3<strong>5</strong>0.0 → <strong>3.50</strong> = 3.5</p>
+                    <p><strong>Answer:</strong> 350 ÷ 100 = <strong>3.5</strong></p>
+                </div>
+                
+                <h3>Quick Rules</h3>
+                <ul>
+                    <li><strong>Multiply by 10ⁿ:</strong> Move decimal n places RIGHT</li>
+                    <li><strong>Divide by 10ⁿ:</strong> Move decimal n places LEFT</li>
+                    <li><strong>Add zeros:</strong> If needed as placeholders</li>
+                </ul>
+                
+                <h3>Place Value Connection</h3>
+                <p>Our number system IS based on powers of 10!</p>
+                <div class="example">
+                    <div class="example-title">The Number 3,456</div>
+                    <p>3 × 10³ = 3,000</p>
+                    <p>4 × 10² = 400</p>
+                    <p>5 × 10¹ = 50</p>
+                    <p>6 × 10⁰ = 6</p>
+                    <p><strong>Total:</strong> 3,000 + 400 + 50 + 6 = 3,456</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Money:</strong> $100 bills, $10 bills, $1 bills</li>
+                    <li><strong>Measurement:</strong> Converting meters to centimeters (×100)</li>
+                    <li><strong>Population:</strong> Millions (10⁶), billions (10⁹)</li>
+                    <li><strong>Technology:</strong> Kilobytes, megabytes, gigabytes</li>
+                </ul>
+            `,
+
+            "Fraction to Decimal Conversion": `
+                <h2>Fraction to Decimal Conversion</h2>
+                <p>Fractions and decimals are two ways to show the same thing - parts of a whole! Let's learn how to convert between them.</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Fraction to Decimal: Just Divide!</h3>
+                <p>To convert a fraction to a decimal, divide the numerator by the denominator:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 1/2 to decimal</div>
+                    <p><strong>Think:</strong> 1 ÷ 2</p>
+                    <p><strong>Calculate:</strong> 1 ÷ 2 = <strong>0.5</strong></p>
+                    <p>So 1/2 = 0.5</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: 3/4 to decimal</div>
+                    <p><strong>Divide:</strong> 3 ÷ 4 = <strong>0.75</strong></p>
+                    <p>So 3/4 = 0.75</p>
+                </div>
+                
+                <h3>Common Fraction-Decimal Pairs</h3>
+                <p>Memorizing these makes conversions faster!</p>
+                <div class="example">
+                    <div class="example-title">Useful Equivalents</div>
+                    <ul>
+                        <li>1/2 = <strong>0.5</strong></li>
+                        <li>1/4 = <strong>0.25</strong>, 3/4 = <strong>0.75</strong></li>
+                        <li>1/5 = <strong>0.2</strong>, 2/5 = <strong>0.4</strong></li>
+                        <li>1/10 = <strong>0.1</strong>, 3/10 = <strong>0.3</strong></li>
+                        <li>1/100 = <strong>0.01</strong></li>
+                    </ul>
+                </div>
+                
+                <h3>Decimal to Fraction</h3>
+                <p>Read the decimal, then write it as a fraction!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 0.6 to fraction</div>
+                    <p><strong>Read it:</strong> "six tenths"</p>
+                    <p><strong>Write it:</strong> 6/10</p>
+                    <p><strong>Simplify:</strong> 6/10 = <strong>3/5</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: 0.25 to fraction</div>
+                    <p><strong>Read it:</strong> "twenty-five hundredths"</p>
+                    <p><strong>Write it:</strong> 25/100</p>
+                    <p><strong>Simplify:</strong> 25/100 = <strong>1/4</strong></p>
+                </div>
+                
+                <h3>Place Value Helps!</h3>
+                <ul>
+                    <li><strong>One decimal place:</strong> Tenths (0.3 = 3/10)</li>
+                    <li><strong>Two decimal places:</strong> Hundredths (0.45 = 45/100)</li>
+                    <li><strong>Three decimal places:</strong> Thousandths (0.125 = 125/1000)</li>
+                </ul>
+                
+                <h3>Repeating and Terminating Decimals</h3>
+                <div class="example">
+                    <div class="example-title">Types of Decimals</div>
+                    <p><strong>Terminating:</strong> Ends (1/2 = 0.5)</p>
+                    <p><strong>Repeating:</strong> Repeats forever (1/3 = 0.333...)</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Money:</strong> $0.50 = 1/2 dollar</li>
+                    <li><strong>Measurement:</strong> 0.5 meters = 1/2 meter</li>
+                    <li><strong>Sports:</strong> Batting average .250 = 1/4</li>
+                    <li><strong>Cooking:</strong> 0.25 cup = 1/4 cup</li>
+                </ul>
+            `,
+
+            "Percentage Basics": `
+                <h2>Percentage Basics</h2>
+                <p>Percent means "per hundred" - it's another way to show parts of a whole, just like fractions and decimals!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is a Percent?</h3>
+                <p>Percent (%) means "out of 100":</p>
+                
+                <div class="example">
+                    <div class="example-title">Understanding 25%</div>
+                    <p>25% means <strong>25 out of 100</strong></p>
+                    <p>25% = 25/100 = 1/4 = 0.25</p>
+                    <p>All four mean the same thing!</p>
+                </div>
+                
+                <h3>Percent-Decimal-Fraction Connections</h3>
+                <div class="example">
+                    <div class="example-title">Converting Between Forms</div>
+                    <p><strong>50%</strong> (percent)</p>
+                    <p>= 50/100 = <strong>1/2</strong> (fraction)</p>
+                    <p>= <strong>0.50 = 0.5</strong> (decimal)</p>
+                </div>
+                
+                <h3>Percent to Decimal: Drop % and Move Point</h3>
+                <div class="example">
+                    <div class="example-title">Examples</div>
+                    <p>75% → Move decimal 2 places LEFT → <strong>0.75</strong></p>
+                    <p>20% → <strong>0.20 = 0.2</strong></p>
+                    <p>5% → <strong>0.05</strong></p>
+                    <p>100% → <strong>1.00 = 1</strong> (the whole!)</p>
+                </div>
+                
+                <h3>Decimal to Percent: Move Point and Add %</h3>
+                <div class="example">
+                    <div class="example-title">Examples</div>
+                    <p>0.8 → Move decimal 2 places RIGHT → <strong>80%</strong></p>
+                    <p>0.45 → <strong>45%</strong></p>
+                    <p>0.03 → <strong>3%</strong></p>
+                    <p>1.5 → <strong>150%</strong> (more than the whole!)</p>
+                </div>
+                
+                <h3>Fraction to Percent</h3>
+                <div class="example">
+                    <div class="example-title">Method 1: Convert to Decimal First</div>
+                    <p>1/4 → 1 ÷ 4 = 0.25 → <strong>25%</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Method 2: Make Denominator 100</div>
+                    <p>1/5 = ?/100</p>
+                    <p>1/5 = 20/100 = <strong>20%</strong></p>
+                </div>
+                
+                <h3>Common Percents to Know</h3>
+                <ul>
+                    <li>100% = 1 (the whole thing)</li>
+                    <li>50% = 1/2 = 0.5 (half)</li>
+                    <li>25% = 1/4 = 0.25 (quarter)</li>
+                    <li>75% = 3/4 = 0.75</li>
+                    <li>10% = 1/10 = 0.1</li>
+                    <li>1% = 1/100 = 0.01</li>
+                </ul>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Tests:</strong> Scoring 18 out of 20 = 90%</li>
+                    <li><strong>Sales:</strong> "25% off!" discount</li>
+                    <li><strong>Phones:</strong> Battery at 75%</li>
+                    <li><strong>Weather:</strong> 30% chance of rain</li>
+                </ul>
+            `,
+
+            "Three-Dimensional Figures": `
+                <h2>Three-Dimensional Figures</h2>
+                <p>3D figures have length, width, AND height - they take up real space! Let's learn to identify and describe them.</p>
+                
+                <h3>What is 3D?</h3>
+                <p>Three-dimensional means having three dimensions:</p>
+                <ul>
+                    <li><strong>Length:</strong> How long</li>
+                    <li><strong>Width:</strong> How wide</li>
+                    <li><strong>Height:</strong> How tall/deep</li>
+                </ul>
+                <p>You can hold 3D objects - they're real!</p>
+                
+                <h3>Types of 3D Figures</h3>
+                
+                <div class="example">
+                    <div class="example-title">Rectangular Prism (Box)</div>
+                    <ul>
+                        <li><strong>Faces:</strong> 6 rectangular faces</li>
+                        <li><strong>Edges:</strong> 12 edges</li>
+                        <li><strong>Vertices:</strong> 8 corners</li>
+                    </ul>
+                    <p><strong>Examples:</strong> Books, boxes, bricks, rooms</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Cube (Special Box)</div>
+                    <ul>
+                        <li><strong>Faces:</strong> 6 square faces (all equal!)</li>
+                        <li><strong>Edges:</strong> 12 equal edges</li>
+                        <li><strong>Vertices:</strong> 8 corners</li>
+                    </ul>
+                    <p><strong>Examples:</strong> Dice, Rubik's cube, sugar cubes</p>
+                    <p>A cube is a special rectangular prism where all edges are equal!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Cylinder</div>
+                    <ul>
+                        <li><strong>Faces:</strong> 2 circular faces (top and bottom)</li>
+                        <li><strong>Curved surface:</strong> 1 curved surface connecting the circles</li>
+                        <li><strong>Edges:</strong> 2 circular edges</li>
+                    </ul>
+                    <p><strong>Examples:</strong> Cans, drums, pipes, water bottles</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Cone</div>
+                    <ul>
+                        <li><strong>Base:</strong> 1 circular base</li>
+                        <li><strong>Vertex:</strong> 1 point at the top</li>
+                        <li><strong>Curved surface:</strong> Connects base to vertex</li>
+                    </ul>
+                    <p><strong>Examples:</strong> Ice cream cones, traffic cones, funnels</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Sphere</div>
+                    <ul>
+                        <li><strong>Surface:</strong> One continuous curved surface</li>
+                        <li><strong>No edges or vertices!</strong></li>
+                        <li><strong>Special property:</strong> Every point on surface is same distance from center</li>
+                    </ul>
+                    <p><strong>Examples:</strong> Balls, planets, oranges, bubbles</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Pyramid</div>
+                    <ul>
+                        <li><strong>Base:</strong> Can be any polygon (triangle, square, etc.)</li>
+                        <li><strong>Faces:</strong> Triangular sides meeting at a point</li>
+                        <li><strong>Vertex:</strong> 1 point at the top (apex)</li>
+                    </ul>
+                    <p><strong>Examples:</strong> Egyptian pyramids, tent, roof</p>
+                </div>
+                
+                <h3>Faces, Edges, and Vertices</h3>
+                <ul>
+                    <li><strong>Face:</strong> A flat surface</li>
+                    <li><strong>Edge:</strong> Where two faces meet</li>
+                    <li><strong>Vertex:</strong> A corner where edges meet</li>
+                </ul>
+                
+                <h3>2D vs 3D</h3>
+                <div class="example">
+                    <div class="example-title">Comparison</div>
+                    <p><strong>2D (flat):</strong> Circle, square, triangle</p>
+                    <p><strong>3D (solid):</strong> Sphere, cube, pyramid</p>
+                </div>
+                
+                <h3>Real-World Identification</h3>
+                <p>Look around - what 3D shapes do you see?</p>
+                <ul>
+                    <li>Your pencil is a <strong>cylinder</strong></li>
+                    <li>A die is a <strong>cube</strong></li>
+                    <li>A basketball is a <strong>sphere</strong></li>
+                    <li>Your room is a <strong>rectangular prism</strong></li>
+                </ul>
+            `,
+
+            "Cubic Units": `
+                <h2>Cubic Units</h2>
+                <p>Cubic units measure volume - the amount of 3D space something takes up. Understanding cubic units helps us measure the real world!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is a Cubic Unit?</h3>
+                <p>A cubic unit is a cube with sides that are 1 unit long:</p>
+                
+                <div class="example">
+                    <div class="example-title">1 Cubic Centimeter (1 cm³)</div>
+                    <p>A tiny cube where each edge is 1 cm</p>
+                    <p><strong>Volume:</strong> 1 cm × 1 cm × 1 cm = 1 cm³</p>
+                    <p><strong>Size:</strong> About the size of a sugar cube</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">1 Cubic Inch (1 in³)</div>
+                    <p>A small cube where each edge is 1 inch</p>
+                    <p><strong>Volume:</strong> 1 in × 1 in × 1 in = 1 in³</p>
+                    <p><strong>Size:</strong> About the size of a large die</p>
+                </div>
+                
+                <h3>Why "Cubic"?</h3>
+                <p>We call them cubic because they come from cubes!</p>
+                <div class="example">
+                    <div class="example-title">Building with Unit Cubes</div>
+                    <p>If you fill a box with unit cubes:</p>
+                    <p>📦📦📦 (3 cubes)</p>
+                    <p>📦📦📦 (3 cubes)</p>
+                    <p>That's 2 layers × 3 cubes = 6 cubic units</p>
+                    <p>The volume is <strong>6 cubic units</strong></p>
+                </div>
+                
+                <h3>Common Cubic Units</h3>
+                <div class="example">
+                    <div class="example-title">US Customary</div>
+                    <ul>
+                        <li><strong>Cubic inches (in³):</strong> Small objects (phone, book)</li>
+                        <li><strong>Cubic feet (ft³):</strong> Medium objects (suitcase, box)</li>
+                        <li><strong>Cubic yards (yd³):</strong> Large amounts (dirt, concrete)</li>
+                    </ul>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Metric</div>
+                    <ul>
+                        <li><strong>Cubic centimeters (cm³):</strong> Small (dice, erasers)</li>
+                        <li><strong>Cubic meters (m³):</strong> Large (rooms, pools)</li>
+                    </ul>
+                </div>
+                
+                <h3>Volume Conversions</h3>
+                <div class="example">
+                    <div class="example-title">Important Relationships</div>
+                    <p>1 cubic foot = <strong>1,728 cubic inches</strong> (12 × 12 × 12)</p>
+                    <p>1 cubic yard = <strong>27 cubic feet</strong> (3 × 3 × 3)</p>
+                    <p>1 cubic meter = <strong>1,000,000 cm³</strong> (100 × 100 × 100)</p>
+                </div>
+                
+                <h3>Why We Use Cubic Units</h3>
+                <ul>
+                    <li>Measure how much a container holds</li>
+                    <li>Calculate space for storage</li>
+                    <li>Determine amount of material needed</li>
+                    <li>Find capacity of aquariums, pools</li>
+                </ul>
+                
+                <h3>Remember the Symbol</h3>
+                <p>The small ³ means cubic!</p>
+                <ul>
+                    <li>5 cm³ = 5 cubic centimeters</li>
+                    <li>20 in³ = 20 cubic inches</li>
+                    <li>100 ft³ = 100 cubic feet</li>
+                </ul>
+            `,
+
+            "Order of Operations (PEMDAS)": `
+                <h2>Order of Operations (PEMDAS)</h2>
+                <p>When we have multiple operations in one problem, we need to know which to do first. That's where PEMDAS comes in!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is PEMDAS?</h3>
+                <p>PEMDAS is an acronym that tells us the order to solve operations:</p>
+                
+                <div class="example">
+                    <div class="example-title">PEMDAS Breakdown</div>
+                    <ul>
+                        <li><strong>P</strong> - Parentheses ( )</li>
+                        <li><strong>E</strong> - Exponents (powers) x²</li>
+                        <li><strong>M</strong> - Multiplication ×</li>
+                        <li><strong>D</strong> - Division ÷</li>
+                        <li><strong>A</strong> - Addition +</li>
+                        <li><strong>S</strong> - Subtraction −</li>
+                    </ul>
+                    <p><strong>Memory trick:</strong> "Please Excuse My Dear Aunt Sally"</p>
+                </div>
+                
+                <h3>Important: M/D and A/S Are Equal!</h3>
+                <p>Multiplication and Division are done LEFT TO RIGHT (whichever comes first)</p>
+                <p>Addition and Subtraction are done LEFT TO RIGHT (whichever comes first)</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 3 + 4 × 2</div>
+                    <p><strong>WRONG:</strong> 3 + 4 = 7, then 7 × 2 = 14 ✗</p>
+                    <p><strong>RIGHT:</strong> 4 × 2 = 8 first (multiplication before addition)</p>
+                    <p>Then: 3 + 8 = <strong>11</strong> ✓</p>
+                </div>
+                
+                <h3>With Parentheses</h3>
+                <div class="example">
+                    <div class="example-title">Example: (3 + 4) × 2</div>
+                    <p><strong>Step 1:</strong> Parentheses first! 3 + 4 = 7</p>
+                    <p><strong>Step 2:</strong> Then multiply: 7 × 2 = <strong>14</strong></p>
+                    <p><strong>Notice:</strong> Parentheses changed the answer! (11 vs 14)</p>
+                </div>
+                
+                <h3>Step-by-Step Practice</h3>
+                <div class="example">
+                    <div class="example-title">Example: 20 − 3 × 2 + 8 ÷ 4</div>
+                    <p><strong>Step 1:</strong> Multiply: 3 × 2 = 6</p>
+                    <p>Now: 20 − 6 + 8 ÷ 4</p>
+                    <p><strong>Step 2:</strong> Divide: 8 ÷ 4 = 2</p>
+                    <p>Now: 20 − 6 + 2</p>
+                    <p><strong>Step 3:</strong> Left to right: 20 − 6 = 14</p>
+                    <p><strong>Step 4:</strong> Then: 14 + 2 = <strong>16</strong></p>
+                </div>
+                
+                <h3>With Exponents</h3>
+                <div class="example">
+                    <div class="example-title">Example: 2 + 3²  × 4</div>
+                    <p><strong>Step 1:</strong> Exponent first: 3² = 9</p>
+                    <p>Now: 2 + 9 × 4</p>
+                    <p><strong>Step 2:</strong> Multiply: 9 × 4 = 36</p>
+                    <p><strong>Step 3:</strong> Add: 2 + 36 = <strong>38</strong></p>
+                </div>
+                
+                <h3>Common Mistakes to Avoid</h3>
+                <ul>
+                    <li>❌ Don't just go left to right!</li>
+                    <li>❌ Don't add before multiplying (unless in parentheses)</li>
+                    <li>✓ Always do multiplication/division before addition/subtraction</li>
+                    <li>✓ Always start with parentheses and exponents</li>
+                </ul>
+                
+                <h3>Real-World Importance</h3>
+                <p>PEMDAS ensures everyone gets the same answer!</p>
+                <ul>
+                    <li><strong>Calculators</strong> follow PEMDAS</li>
+                    <li><strong>Computer programming</strong> uses these rules</li>
+                    <li><strong>Engineering calculations</strong> must be precise</li>
+                </ul>
+            `,
+
+            "Numerical Patterns": `
+                <h2>Numerical Patterns</h2>
+                <p>Number patterns follow rules! Finding and extending patterns develops critical thinking and prepares you for algebra.</p>
+                
+                <h3>What is a Numerical Pattern?</h3>
+                <p>A sequence of numbers that follows a rule:</p>
+                
+                <div class="example">
+                    <div class="example-title">Pattern: 2, 4, 6, 8, 10...</div>
+                    <p><strong>Rule:</strong> Add 2 each time</p>
+                    <p><strong>Next number:</strong> 10 + 2 = <strong>12</strong></p>
+                </div>
+                
+                <h3>Types of Patterns</h3>
+                
+                <div class="example">
+                    <div class="example-title">Addition Pattern (Arithmetic)</div>
+                    <p>5, 8, 11, 14, 17...</p>
+                    <p><strong>Rule:</strong> +3 each time</p>
+                    <p><strong>Next:</strong> 17 + 3 = <strong>20</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Multiplication Pattern (Geometric)</div>
+                    <p>2, 6, 18, 54...</p>
+                    <p><strong>Rule:</strong> ×3 each time</p>
+                    <p><strong>Next:</strong> 54 × 3 = <strong>162</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Mixed Operation Pattern</div>
+                    <p>1, 3, 9, 27...</p>
+                    <p><strong>Look closely:</strong> 1 × 3 = 3, 3 × 3 = 9, 9 × 3 = 27</p>
+                    <p><strong>Rule:</strong> Multiply by 3</p>
+                    <p><strong>Next:</strong> 27 × 3 = <strong>81</strong></p>
+                </div>
+                
+                <h3>Finding the Rule</h3>
+                <p>Steps to find a pattern's rule:</p>
+                <ol>
+                    <li><strong>Compare consecutive numbers:</strong> Look at the difference or ratio</li>
+                    <li><strong>Check if it's consistent:</strong> Does the same rule work for all?</li>
+                    <li><strong>State the rule:</strong> "Add 5" or "Multiply by 2"</li>
+                    <li><strong>Test it:</strong> Use the rule to find the next number</li>
+                </ol>
+                
+                <div class="example">
+                    <div class="example-title">Practice: Find the Rule</div>
+                    <p>Pattern: 100, 90, 80, 70...</p>
+                    <p><strong>Analysis:</strong> 100 − 90 = 10, 90 − 80 = 10</p>
+                    <p><strong>Rule:</strong> Subtract 10</p>
+                    <p><strong>Next numbers:</strong> 60, 50, 40...</p>
+                </div>
+                
+                <h3>Growing Patterns</h3>
+                <div class="example">
+                    <div class="example-title">Position and Value</div>
+                    <p>Position 1: 5</p>
+                    <p>Position 2: 10</p>
+                    <p>Position 3: 15</p>
+                    <p><strong>Rule:</strong> Position × 5 = Value</p>
+                    <p>Position 10 would be: 10 × 5 = <strong>50</strong></p>
+                </div>
+                
+                <h3>Real-World Patterns</h3>
+                <ul>
+                    <li><strong>Counting by 5s:</strong> Nickels (5¢, 10¢, 15¢...)</li>
+                    <li><strong>Doubling:</strong> Cell division (1, 2, 4, 8, 16...)</li>
+                    <li><strong>Skip counting:</strong> Multiplication tables</li>
+                    <li><strong>Sequences:</strong> Years (2020, 2021, 2022...)</li>
+                </ul>
+            `,
+
+            "Mean (Average)": `
+                <h2>Mean (Average)</h2>
+                <p>The mean, also called the average, tells us the "typical" value in a set of numbers. It's one of the most useful statistics!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is the Mean?</h3>
+                <p>The mean is found by adding all numbers and dividing by how many numbers there are:</p>
+                
+                <div class="example">
+                    <div class="example-title">Formula</div>
+                    <p><strong>Mean = (sum of all values) ÷ (count of values)</strong></p>
+                </div>
+                
+                <h3>Calculating the Mean</h3>
+                <div class="example">
+                    <div class="example-title">Example: Test Scores</div>
+                    <p><strong>Scores:</strong> 85, 90, 78, 92, 80</p>
+                    <p><strong>Step 1:</strong> Add all scores:</p>
+                    <p>85 + 90 + 78 + 92 + 80 = 425</p>
+                    <p><strong>Step 2:</strong> Count how many scores: 5 scores</p>
+                    <p><strong>Step 3:</strong> Divide sum by count:</p>
+                    <p>425 ÷ 5 = <strong>85</strong></p>
+                    <p><strong>Mean score:</strong> 85</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Daily Temperatures</div>
+                    <p><strong>Temperatures:</strong> 72°, 75°, 68°, 70°</p>
+                    <p><strong>Sum:</strong> 72 + 75 + 68 + 70 = 285</p>
+                    <p><strong>Count:</strong> 4 days</p>
+                    <p><strong>Mean:</strong> 285 ÷ 4 = <strong>71.25°</strong></p>
+                </div>
+                
+                <h3>What the Mean Tells Us</h3>
+                <p>The mean gives us a single number that represents the whole group:</p>
+                <ul>
+                    <li>It's the "balance point" of the data</li>
+                    <li>Half the values might be above it, half below</li>
+                    <li>It's sensitive to very high or very low values</li>
+                </ul>
+                
+                <h3>Mean vs Median vs Mode</h3>
+                <div class="example">
+                    <div class="example-title">Data Set: 3, 5, 5, 8, 9</div>
+                    <p><strong>Mean:</strong> (3+5+5+8+9) ÷ 5 = 30 ÷ 5 = <strong>6</strong></p>
+                    <p><strong>Median:</strong> The middle value = <strong>5</strong></p>
+                    <p><strong>Mode:</strong> The most frequent = <strong>5</strong> (appears twice)</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>School:</strong> Grade averages (GPA)</li>
+                    <li><strong>Sports:</strong> Batting average, points per game</li>
+                    <li><strong>Weather:</strong> Average temperature for the month</li>
+                    <li><strong>Money:</strong> Average spending per day</li>
+                    <li><strong>Health:</strong> Average heart rate, weight</li>
+                </ul>
+                
+                <h3>Practice Tip</h3>
+                <p>Always check: Does your mean make sense?</p>
+                <ul>
+                    <li>It should be between the smallest and largest values</li>
+                    <li>It should be close to the middle of your data</li>
+                </ul>
+            `,
+
+            "Line Graphs": `
+                <h2>Line Graphs</h2>
+                <p>Line graphs show how data changes over time. They help us see trends and make predictions!</p>
+                
+                <h3>When to Use Line Graphs</h3>
+                <p>Use line graphs to show:</p>
+                <ul>
+                    <li>Changes over time</li>
+                    <li>Continuous data (temperature, height, speed)</li>
+                    <li>Trends (going up, down, or staying the same)</li>
+                </ul>
+                
+                <h3>Parts of a Line Graph</h3>
+                <div class="example">
+                    <div class="example-title">Components</div>
+                    <ul>
+                        <li><strong>Title:</strong> What the graph shows</li>
+                        <li><strong>X-axis:</strong> Usually time (days, months, years)</li>
+                        <li><strong>Y-axis:</strong> The measurement (temperature, growth, etc.)</li>
+                        <li><strong>Data points:</strong> Dots showing values</li>
+                        <li><strong>Line:</strong> Connecting the dots to show the trend</li>
+                    </ul>
+                </div>
+                
+                <h3>Reading a Line Graph</h3>
+                <div class="example">
+                    <div class="example-title">Example: Plant Growth Over Time</div>
+                    <p><strong>X-axis:</strong> Weeks (1, 2, 3, 4)</p>
+                    <p><strong>Y-axis:</strong> Height in cm</p>
+                    <p><strong>Data points:</strong></p>
+                    <ul>
+                        <li>Week 1: 2 cm</li>
+                        <li>Week 2: 5 cm</li>
+                        <li>Week 3: 9 cm</li>
+                        <li>Week 4: 14 cm</li>
+                    </ul>
+                    <p><strong>Observation:</strong> The plant is growing faster each week (steeper slope)</p>
+                </div>
+                
+                <h3>Identifying Trends</h3>
+                <div class="example">
+                    <div class="example-title">What the Line Shows</div>
+                    <p><strong>Line going UP:</strong> Values are increasing</p>
+                    <p><strong>Line going DOWN:</strong> Values are decreasing</p>
+                    <p><strong>Flat/horizontal line:</strong> Values staying the same</p>
+                    <p><strong>Steep line:</strong> Changing quickly</p>
+                    <p><strong>Gentle slope:</strong> Changing slowly</p>
+                </div>
+                
+                <h3>Making Predictions</h3>
+                <p>Line graphs help us predict future values!</p>
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>If a line shows steady growth, we can estimate where it will go next</p>
+                    <p>If temperature rose 5° each hour for 3 hours, we might predict it will rise 5° more in the next hour</p>
+                </div>
+                
+                <h3>Creating a Line Graph</h3>
+                <ol>
+                    <li>Draw and label both axes</li>
+                    <li>Choose appropriate scales</li>
+                    <li>Plot each data point</li>
+                    <li>Connect points with a line</li>
+                    <li>Add title and labels</li>
+                </ol>
+                
+                <h3>Real-World Examples</h3>
+                <ul>
+                    <li><strong>Weather:</strong> Temperature throughout the day</li>
+                    <li><strong>Stocks:</strong> Stock prices over time</li>
+                    <li><strong>Health:</strong> Weight or height tracking</li>
+                    <li><strong>Science:</strong> Experiment results over time</li>
+                    <li><strong>Sports:</strong> Performance improvement</li>
+                </ul>
             `
         };
         
