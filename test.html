@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Test - MathBored</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #1a1a1a;
+            color: white;
+        }
+        select {
+            padding: 15px;
+            font-size: 16px;
+            width: 400px;
+            margin: 10px 0;
+        }
+        .info {
+            background: #2a2a2a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .success { color: #10b981; }
+        .error { color: #ef4444; }
+    </style>
+</head>
+<body>
+    <h1>🧪 MathBored Dropdown Test</h1>
+    <p>This page tests if the dropdown population works without service worker interference.</p>
+    
+    <div class="info">
+        <h3>Grade Level:</h3>
+        <select id="gradeSelect">
+            <option value="K">Kindergarten</option>
+            <option value="5" selected>5th Grade</option>
+            <option value="12">12th Grade</option>
+        </select>
+        
+        <h3>Topic:</h3>
+        <select id="topicSelect">
+            <option>Loading...</option>
+        </select>
+    </div>
+    
+    <div class="info" id="output"></div>
+    
+    <script src="data.js?v=4"></script>
+    <script>
+        const output = document.getElementById('output');
+        const gradeSelect = document.getElementById('gradeSelect');
+        const topicSelect = document.getElementById('topicSelect');
+        
+        function log(msg, isError = false) {
+            console.log(msg);
+            const p = document.createElement('p');
+            p.className = isError ? 'error' : 'success';
+            p.textContent = msg;
+            output.appendChild(p);
+        }
+        
+        log('🚀 Test starting...');
+        log('typeof getTopicsByGrade: ' + typeof getTopicsByGrade);
+        log('typeof mathConcepts: ' + typeof mathConcepts);
+        
+        if (typeof mathConcepts !== 'undefined') {
+            log('✅ mathConcepts loaded: ' + mathConcepts.length + ' concepts');
+        } else {
+            log('❌ mathConcepts NOT loaded!', true);
+        }
+        
+        function updateTopics() {
+            const grade = gradeSelect.value;
+            log('---');
+            log('📚 Getting topics for grade: ' + grade);
+            
+            try {
+                const topics = getTopicsByGrade(grade);
+                log('✅ Found ' + topics.length + ' topics');
+                
+                topicSelect.innerHTML = '';
+                
+                if (topics.length > 0) {
+                    topics.forEach((topic, i) => {
+                        const option = document.createElement('option');
+                        option.value = topic.concept;
+                        option.textContent = topic.concept;
+                        topicSelect.appendChild(option);
+                        
+                        if (i < 5) {
+                            log('  • ' + topic.concept);
+                        }
+                    });
+                    
+                    if (topics.length > 5) {
+                        log('  ... and ' + (topics.length - 5) + ' more');
+                    }
+                    
+                    log('✅ SUCCESS: Dropdown populated with ' + topics.length + ' options');
+                } else {
+                    log('❌ No topics found for grade ' + grade, true);
+                }
+            } catch (error) {
+                log('❌ ERROR: ' + error.message, true);
+                console.error(error);
+            }
+        }
+        
+        gradeSelect.addEventListener('change', updateTopics);
+        
+        // Wait a moment for data.js to load, then run test
+        setTimeout(() => {
+            updateTopics();
+        }, 100);
+    </script>
+</body>
+</html>
