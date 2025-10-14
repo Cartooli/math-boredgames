@@ -78,15 +78,25 @@ class MathBoredApp {
         const topicSelect = document.getElementById('topicSelect');
         
         topicSelect.innerHTML = '';
-        topics.forEach(topic => {
-            const option = document.createElement('option');
-            option.value = topic.concept;
-            option.textContent = topic.concept;
-            topicSelect.appendChild(option);
-        });
         
         if (topics.length > 0) {
+            topics.forEach(topic => {
+                const option = document.createElement('option');
+                option.value = topic.concept;
+                option.textContent = topic.concept;
+                topicSelect.appendChild(option);
+            });
+            
+            // Set the internal state and explicitly set the dropdown value
             this.currentTopic = topics[0].concept;
+            topicSelect.value = this.currentTopic;
+        } else {
+            // Handle case where no topics are available for this grade
+            this.currentTopic = null;
+            const option = document.createElement('option');
+            option.value = '';
+            option.textContent = 'No topics available';
+            topicSelect.appendChild(option);
         }
         
         this.render();
@@ -109,9 +119,14 @@ class MathBoredApp {
     }
     
     renderLesson(container) {
+        if (!this.currentTopic) {
+            container.innerHTML = '<div class="loading">Please select a topic to view the lesson.</div>';
+            return;
+        }
+        
         const conceptData = getConceptByName(this.currentTopic);
         if (!conceptData) {
-            container.innerHTML = '<div class="loading">Loading lesson...</div>';
+            container.innerHTML = '<div class="loading">Topic data not found. Please select another topic.</div>';
             return;
         }
         
@@ -713,8 +728,10 @@ class MathBoredApp {
     }
     
     generateWalkthroughSteps() {
+        if (!this.currentTopic) return '<p class="loading">Please select a topic to view the walkthrough.</p>';
+        
         const concept = getConceptByName(this.currentTopic);
-        if (!concept) return '<p>Loading steps...</p>';
+        if (!concept) return '<p class="loading">Topic data not found. Please select another topic.</p>';
         
         const walkthroughs = {
             "Addition": () => {
@@ -894,8 +911,20 @@ class MathBoredApp {
     }
     
     generateProblem() {
+        if (!this.currentTopic) {
+            // No topic selected, cannot generate problem
+            this.currentProblem = { display: 'Please select a topic to practice.' };
+            this.currentAnswer = null;
+            return;
+        }
+        
         const concept = getConceptByName(this.currentTopic);
-        if (!concept) return;
+        if (!concept) {
+            // Topic not found in data
+            this.currentProblem = { display: 'Topic data not found. Please select another topic.' };
+            this.currentAnswer = null;
+            return;
+        }
         
         const gradeNum = this.currentGrade === 'K' ? 0 : parseInt(this.currentGrade);
         const maxNum = Math.min(20 + gradeNum * 15, 200);
@@ -3445,8 +3474,10 @@ class MathBoredApp {
     }
     
     getSolutionExplanation() {
+        if (!this.currentTopic) return 'Please select a topic to practice.';
+        
         const concept = getConceptByName(this.currentTopic);
-        if (!concept) return '';
+        if (!concept) return 'Topic data not found.';
         
         const explanations = {
             "Addition": () => `When we add ${this.currentProblem.a} and ${this.currentProblem.b}, we get ${this.currentAnswer}.`,
