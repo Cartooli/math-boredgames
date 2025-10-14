@@ -9960,10 +9960,29 @@ function initializeApp() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./service-worker.js')
             .then(registration => {
-                console.log('ServiceWorker registered:', registration);
+                console.log('✅ ServiceWorker registered:', registration);
+                
+                // Check for updates every time the page loads
+                registration.update();
+                
+                // Listen for updates
+                registration.addEventListener('updatefound', () => {
+                    const newWorker = registration.installing;
+                    console.log('🔄 New service worker found, installing...');
+                    
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'activated') {
+                            console.log('✅ New service worker activated!');
+                            // Optionally reload the page to use new version
+                            if (confirm('A new version is available! Reload to update?')) {
+                                window.location.reload();
+                            }
+                        }
+                    });
+                });
             })
             .catch(error => {
-                console.log('ServiceWorker registration failed:', error);
+                console.log('❌ ServiceWorker registration failed:', error);
             });
     }
 }

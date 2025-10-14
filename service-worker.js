@@ -1,23 +1,27 @@
 // Service Worker for MathBored PWA
-const CACHE_NAME = 'mathbored-v3'; // UPDATED VERSION - forces cache refresh for dropdown fix
+const CACHE_NAME = 'mathbored-v4'; // UPDATED VERSION - aggressive cache busting
 const urlsToCache = [
   './',
   './index.html',
   './styles.css',
-  './app.js',
-  './data.js'
+  './app.js?v=4',
+  './data.js?v=4'
 ];
 
 // Install event - cache resources
 self.addEventListener('install', event => {
+  console.log('🔧 Service Worker installing:', CACHE_NAME);
   // Force the waiting service worker to become the active service worker
   self.skipWaiting();
   
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('Opened cache:', CACHE_NAME);
+        console.log('✅ Opened cache:', CACHE_NAME);
         return cache.addAll(urlsToCache);
+      })
+      .catch(err => {
+        console.error('❌ Cache installation failed:', err);
       })
   );
 });
@@ -45,15 +49,17 @@ self.addEventListener('fetch', event => {
 
 // Activate event - clean up old caches and take control immediately
 self.addEventListener('activate', event => {
+  console.log('🚀 Service Worker activating:', CACHE_NAME);
   const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
     Promise.all([
       // Delete old caches
       caches.keys().then(cacheNames => {
+        console.log('📦 Found caches:', cacheNames);
         return Promise.all(
           cacheNames.map(cacheName => {
             if (cacheWhitelist.indexOf(cacheName) === -1) {
-              console.log('Deleting old cache:', cacheName);
+              console.log('🗑️ Deleting old cache:', cacheName);
               return caches.delete(cacheName);
             }
           })
@@ -62,6 +68,8 @@ self.addEventListener('activate', event => {
       // Take control of all pages immediately
       self.clients.claim()
     ])
-  );
+  ).then(() => {
+    console.log('✅ Service Worker activated and controlling pages');
+  });
 });
 
