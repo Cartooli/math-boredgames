@@ -1,5 +1,5 @@
 // Service Worker for MathBored PWA
-const CACHE_NAME = 'mathbored-v2'; // UPDATED VERSION - forces cache refresh
+const CACHE_NAME = 'mathbored-v3'; // UPDATED VERSION - forces cache refresh for dropdown fix
 const urlsToCache = [
   './',
   './index.html',
