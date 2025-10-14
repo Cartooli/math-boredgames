@@ -4948,6 +4948,1461 @@ class MathBoredApp {
                     <li>Numbers ending in 5 are in the middle column</li>
                     <li>Each row starts with a different tens digit</li>
                 </ul>
+            `,
+            
+            // === GRADE 6 LESSONS (23 topics) ===
+            
+            "Ratios and Proportions": `
+                <h2>Ratios and Proportions</h2>
+                <p>Ratios compare two quantities, and proportions show that two ratios are equal. These are powerful tools for solving real-world problems!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is a Ratio?</h3>
+                <p>A ratio compares two quantities. We write ratios three ways:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 3 Cats to 5 Dogs</div>
+                    <p><strong>With colon:</strong> 3:5</p>
+                    <p><strong>With "to":</strong> 3 to 5</p>
+                    <p><strong>As fraction:</strong> 3/5</p>
+                    <p>All three mean the same thing!</p>
+                </div>
+                
+                <h3>Understanding Ratios</h3>
+                <div class="example">
+                    <div class="example-title">Real-Life Ratio</div>
+                    <p>A recipe needs 2 cups flour to 1 cup sugar</p>
+                    <p><strong>Ratio:</strong> 2:1 (flour to sugar)</p>
+                    <p>For every 2 cups flour, you need 1 cup sugar</p>
+                </div>
+                
+                <h3>Equivalent Ratios</h3>
+                <p>Equivalent ratios have the same relationship, just like equivalent fractions!</p>
+                
+                <div class="example">
+                    <div class="example-title">Doubling a Recipe</div>
+                    <p><strong>Original ratio:</strong> 2:1 (flour:sugar)</p>
+                    <p><strong>Double it:</strong> 4:2 (still 2:1 ratio!)</p>
+                    <p><strong>Triple it:</strong> 6:3 (still 2:1 ratio!)</p>
+                    <p>2:1 = 4:2 = 6:3 (all equivalent!)</p>
+                </div>
+                
+                <h3>What is a Proportion?</h3>
+                <p>A proportion is an equation showing two ratios are equal:</p>
+                
+                <div class="example">
+                    <div class="example-title">Proportion Example</div>
+                    <p>2/3 = 4/6</p>
+                    <p>Or: 2:3 = 4:6</p>
+                    <p>We read: "2 is to 3 as 4 is to 6"</p>
+                </div>
+                
+                <h3>Solving Proportions: Cross Multiply</h3>
+                <div class="example">
+                    <div class="example-title">Find the Missing Number</div>
+                    <p>3/4 = x/12</p>
+                    <p><strong>Step 1: Cross multiply:</strong> 3 × 12 = 4 × x</p>
+                    <p><strong>Step 2: Calculate:</strong> 36 = 4x</p>
+                    <p><strong>Step 3: Divide:</strong> x = 36 ÷ 4 = <strong>9</strong></p>
+                    <p><strong>Check:</strong> 3/4 = 9/12 ✓ (both = 0.75)</p>
+                </div>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Cooking:</strong> Scaling recipes up or down</li>
+                    <li><strong>Maps:</strong> 1 inch = 50 miles (scale)</li>
+                    <li><strong>Shopping:</strong> Unit prices ($3 for 2 cans, how much for 10?)</li>
+                    <li><strong>Art:</strong> Maintaining proportions when resizing</li>
+                </ul>
+            `,
+
+            "Coordinate Plane": `
+                <h2>Coordinate Plane</h2>
+                <p>The coordinate plane extends our coordinate system to include all four quadrants, including negative numbers!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Four Quadrants</h3>
+                <p>The coordinate plane is divided into 4 sections by the x and y axes:</p>
+                
+                <div class="example">
+                    <div class="example-title">The Quadrants</div>
+                    <p><strong>Quadrant I (top right):</strong> (+x, +y) Both positive</p>
+                    <p><strong>Quadrant II (top left):</strong> (−x, +y) x negative, y positive</p>
+                    <p><strong>Quadrant III (bottom left):</strong> (−x, −y) Both negative</p>
+                    <p><strong>Quadrant IV (bottom right):</strong> (+x, −y) x positive, y negative</p>
+                </div>
+                
+                <h3>Plotting Points with Negatives</h3>
+                <div class="example">
+                    <div class="example-title">Example: Plot (−3, 4)</div>
+                    <p><strong>Step 1:</strong> Start at origin (0, 0)</p>
+                    <p><strong>Step 2:</strong> Move 3 units LEFT (x = −3)</p>
+                    <p><strong>Step 3:</strong> Move 4 units UP (y = 4)</p>
+                    <p><strong>Location:</strong> Quadrant II</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Plot (2, −5)</div>
+                    <p><strong>x = 2:</strong> Move 2 units RIGHT</p>
+                    <p><strong>y = −5:</strong> Move 5 units DOWN</p>
+                    <p><strong>Location:</strong> Quadrant IV</p>
+                </div>
+                
+                <h3>The Axes</h3>
+                <ul>
+                    <li><strong>X-axis:</strong> Horizontal line (y = 0)</li>
+                    <li><strong>Y-axis:</strong> Vertical line (x = 0)</li>
+                    <li><strong>Origin:</strong> (0, 0) where axes meet</li>
+                </ul>
+                
+                <h3>Special Points</h3>
+                <div class="example">
+                    <div class="example-title">Points on the Axes</div>
+                    <p>(5, 0) - On x-axis (y is 0)</p>
+                    <p>(0, −3) - On y-axis (x is 0)</p>
+                    <p>(0, 0) - Origin (both are 0)</p>
+                </div>
+                
+                <h3>Reflections and Symmetry</h3>
+                <div class="example">
+                    <div class="example-title">Opposite Points</div>
+                    <p>(3, 4) and (−3, −4) are opposites through origin</p>
+                    <p>(3, 4) and (3, −4) are reflections across x-axis</p>
+                    <p>(3, 4) and (−3, 4) are reflections across y-axis</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>GPS:</strong> Latitude and longitude coordinates</li>
+                    <li><strong>Video games:</strong> Character positions (x, y)</li>
+                    <li><strong>Graphing data:</strong> Positive and negative values</li>
+                    <li><strong>Navigation:</strong> Maps and directions</li>
+                </ul>
+            `,
+
+            "Absolute Value": `
+                <h2>Absolute Value</h2>
+                <p>Absolute value is the distance a number is from zero. Distance is always positive, even if the number is negative!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is Absolute Value?</h3>
+                <p>Absolute value measures how far a number is from 0 on the number line:</p>
+                
+                <div class="example">
+                    <div class="example-title">Understanding Distance</div>
+                    <p>|5| = <strong>5</strong> (5 is 5 units from zero)</p>
+                    <p>|−5| = <strong>5</strong> (−5 is also 5 units from zero!)</p>
+                    <p>|0| = <strong>0</strong> (0 is 0 units from zero)</p>
+                </div>
+                
+                <h3>Visualizing on Number Line</h3>
+                <div class="example">
+                    <div class="example-title">Number Line</div>
+                    <p>... −5 −4 −3 −2 −1  0  1  2  3  4  5 ...</p>
+                    <p><strong>−5 to 0:</strong> 5 steps → |−5| = 5</p>
+                    <p><strong>0 to 5:</strong> 5 steps → |5| = 5</p>
+                    <p>Both are the same distance from zero!</p>
+                </div>
+                
+                <h3>Absolute Value Rules</h3>
+                <ul>
+                    <li>Absolute value is <strong>never negative</strong></li>
+                    <li>|positive number| = the same number</li>
+                    <li>|negative number| = the opposite (positive version)</li>
+                    <li>|0| = 0</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">More Examples</div>
+                    <p>|12| = <strong>12</strong></p>
+                    <p>|−8| = <strong>8</strong></p>
+                    <p>|−100| = <strong>100</strong></p>
+                    <p>|3.5| = <strong>3.5</strong></p>
+                </div>
+                
+                <h3>Comparing with Absolute Values</h3>
+                <div class="example">
+                    <div class="example-title">Which is Greater?</div>
+                    <p>Compare: −7 and 3</p>
+                    <p><strong>Actual values:</strong> −7 < 3 (3 is greater)</p>
+                    <p><strong>Absolute values:</strong> |−7| = 7, |3| = 3</p>
+                    <p>7 > 3, so |−7| > |3|</p>
+                    <p>−7 is farther from zero!</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Temperature:</strong> Change from 30° to 20° = |20−30| = 10° change</li>
+                    <li><strong>Elevation:</strong> Both 50ft above and 50ft below sea level are 50ft away</li>
+                    <li><strong>Distance:</strong> Whether you walk 5 blocks east or west, you walked |5| = 5 blocks</li>
+                    <li><strong>Money:</strong> $50 debt has magnitude of |−50| = $50</li>
+                </ul>
+            `,
+
+            "Statistical Questions": `
+                <h2>Statistical Questions</h2>
+                <p>Statistical questions require collecting data that varies. They help us understand groups and make predictions!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What Makes a Question Statistical?</h3>
+                <p>A statistical question expects variability in the answers - not just one answer!</p>
+                
+                <div class="example">
+                    <div class="example-title">Statistical vs Non-Statistical</div>
+                    <p><strong>NOT Statistical:</strong> "How old is John?" (One answer: 12)</p>
+                    <p><strong>Statistical:</strong> "How old are students in 6th grade?" (Many answers: 11, 12, 13)</p>
+                    
+                    <p><strong>NOT Statistical:</strong> "What's 5 + 7?" (One answer: 12)</p>
+                    <p><strong>Statistical:</strong> "How many siblings do students have?" (Varies: 0, 1, 2, 3...)</p>
+                </div>
+                
+                <h3>Measures of Center</h3>
+                
+                <div class="example">
+                    <div class="example-title">Mean (Average)</div>
+                    <p><strong>Formula:</strong> Sum of all values ÷ count of values</p>
+                    <p><strong>Example:</strong> Test scores: 85, 90, 78, 92, 80</p>
+                    <p>Mean = (85+90+78+92+80) ÷ 5 = 425 ÷ 5 = <strong>85</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Median (Middle Value)</div>
+                    <p><strong>How to find:</strong> Put data in order, pick the middle</p>
+                    <p><strong>Example:</strong> 3, 7, 12, 15, 20</p>
+                    <p>Median = <strong>12</strong> (middle number)</p>
+                    <p>If even count: average the two middle numbers</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Mode (Most Frequent)</div>
+                    <p><strong>Definition:</strong> The value that appears most often</p>
+                    <p><strong>Example:</strong> 5, 7, 7, 8, 7, 9</p>
+                    <p>Mode = <strong>7</strong> (appears 3 times)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Range (Spread)</div>
+                    <p><strong>Formula:</strong> Maximum − Minimum</p>
+                    <p><strong>Example:</strong> Data: 12, 18, 15, 25, 20</p>
+                    <p>Range = 25 − 12 = <strong>13</strong></p>
+                    <p>Shows how spread out the data is</p>
+                </div>
+                
+                <h3>Analyzing Data Distributions</h3>
+                <p>When you have statistical data:</p>
+                <ol>
+                    <li><strong>Organize:</strong> Put in order or make a graph</li>
+                    <li><strong>Calculate:</strong> Find mean, median, mode, range</li>
+                    <li><strong>Interpret:</strong> What does the data tell us?</li>
+                    <li><strong>Conclude:</strong> Answer the statistical question!</li>
+                </ol>
+                
+                <h3>Real-World Statistical Questions</h3>
+                <ul>
+                    <li>"How tall are 6th graders?" (collect heights, find average)</li>
+                    <li>"What time do students go to bed?" (survey, analyze results)</li>
+                    <li>"How many books do students read per month?" (varies by student)</li>
+                </ul>
+            `,
+
+            "Rate and Unit Rate": `
+                <h2>Rate and Unit Rate</h2>
+                <p>Rates compare two different kinds of quantities, like miles per hour or cost per item. Unit rates make comparisons easy!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is a Rate?</h3>
+                <p>A rate compares two different types of measurements:</p>
+                
+                <div class="example">
+                    <div class="example-title">Common Rates</div>
+                    <ul>
+                        <li><strong>Speed:</strong> 60 miles per hour (60 miles/hour)</li>
+                        <li><strong>Price:</strong> $3 for 2 pounds ($3/2 pounds)</li>
+                        <li><strong>Typing:</strong> 40 words per minute (40 words/minute)</li>
+                        <li><strong>Heartbeat:</strong> 72 beats per minute</li>
+                    </ul>
+                </div>
+                
+                <h3>What is a Unit Rate?</h3>
+                <p>A unit rate has a denominator of 1 - it shows the rate for ONE unit:</p>
+                
+                <div class="example">
+                    <div class="example-title">Finding Unit Rate</div>
+                    <p><strong>Rate:</strong> $6 for 3 pounds</p>
+                    <p><strong>Unit rate:</strong> $6 ÷ 3 = <strong>$2 per 1 pound</strong></p>
+                    <p>Or simply: <strong>$2/pound</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Speed Example</div>
+                    <p><strong>Rate:</strong> 150 miles in 3 hours</p>
+                    <p><strong>Unit rate:</strong> 150 ÷ 3 = <strong>50 miles per hour</strong></p>
+                    <p>This tells us the speed for ONE hour</p>
+                </div>
+                
+                <h3>Why Unit Rates are Useful</h3>
+                <p>Unit rates make it easy to compare options!</p>
+                
+                <div class="example">
+                    <div class="example-title">Comparing Prices</div>
+                    <p><strong>Store A:</strong> $8 for 4 apples = $2 per apple</p>
+                    <p><strong>Store B:</strong> $9 for 3 apples = $3 per apple</p>
+                    <p><strong>Better deal:</strong> Store A!</p>
+                </div>
+                
+                <h3>Calculating Unit Rates</h3>
+                <p><strong>Formula:</strong> Divide the first quantity by the second</p>
+                
+                <div class="example">
+                    <div class="example-title">Step-by-Step</div>
+                    <p><strong>Problem:</strong> 200 words in 5 minutes</p>
+                    <p><strong>Divide:</strong> 200 ÷ 5 = 40</p>
+                    <p><strong>Unit rate:</strong> <strong>40 words per minute</strong></p>
+                </div>
+                
+                <h3>Using Unit Rates</h3>
+                <div class="example">
+                    <div class="example-title">Scaling Up</div>
+                    <p>If you type 40 words/minute, how many in 8 minutes?</p>
+                    <p>40 × 8 = <strong>320 words</strong></p>
+                </div>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Shopping:</strong> Price per ounce to find best deal</li>
+                    <li><strong>Travel:</strong> Miles per gallon for fuel efficiency</li>
+                    <li><strong>Work:</strong> Dollars per hour (hourly wage)</li>
+                    <li><strong>Sports:</strong> Points per game average</li>
+                </ul>
+            `,
+
+            "Expressions and Variables": `
+                <h2>Expressions and Variables</h2>
+                <p>Variables are letters that represent unknown numbers. Using variables opens up the power of algebra!</p>
+                
+                <h3>What is a Variable?</h3>
+                <p>A variable is a letter (like x, y, n) that stands for a number we don't know yet:</p>
+                
+                <div class="example">
+                    <div class="example-title">Understanding Variables</div>
+                    <p><strong>x + 5</strong> means "some number plus 5"</p>
+                    <p>If x = 3, then x + 5 = 3 + 5 = 8</p>
+                    <p>If x = 10, then x + 5 = 10 + 5 = 15</p>
+                    <p>The value of the expression changes based on x!</p>
+                </div>
+                
+                <h3>Writing Algebraic Expressions</h3>
+                <p>Translating words into algebra:</p>
+                
+                <div class="example">
+                    <div class="example-title">Word Phrases to Expressions</div>
+                    <p><strong>"5 more than n":</strong> n + 5</p>
+                    <p><strong>"3 times x":</strong> 3x or 3 × x</p>
+                    <p><strong>"y decreased by 7":</strong> y − 7</p>
+                    <p><strong>"Half of m":</strong> m/2 or ½m</p>
+                    <p><strong>"The product of 4 and n":</strong> 4n</p>
+                </div>
+                
+                <h3>Evaluating Expressions</h3>
+                <p>To evaluate, substitute the variable's value and calculate:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Evaluate 3x + 7 when x = 4</div>
+                    <p><strong>Step 1:</strong> Substitute: 3(4) + 7</p>
+                    <p><strong>Step 2:</strong> Multiply: 12 + 7</p>
+                    <p><strong>Step 3:</strong> Add: <strong>19</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Evaluate 2y − 5 when y = 8</div>
+                    <p><strong>Substitute:</strong> 2(8) − 5</p>
+                    <p><strong>Calculate:</strong> 16 − 5 = <strong>11</strong></p>
+                </div>
+                
+                <h3>Order of Operations with Variables</h3>
+                <p>PEMDAS still applies!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: x² + 2x − 3 when x = 5</div>
+                    <p><strong>Substitute:</strong> 5² + 2(5) − 3</p>
+                    <p><strong>Exponent first:</strong> 25 + 2(5) − 3</p>
+                    <p><strong>Multiply:</strong> 25 + 10 − 3</p>
+                    <p><strong>Add/Subtract left to right:</strong> 35 − 3 = <strong>32</strong></p>
+                </div>
+                
+                <h3>Multiple Variables</h3>
+                <div class="example">
+                    <div class="example-title">Example: 2x + 3y when x = 4, y = 2</div>
+                    <p><strong>Substitute both:</strong> 2(4) + 3(2)</p>
+                    <p><strong>Calculate:</strong> 8 + 6 = <strong>14</strong></p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Formulas:</strong> Distance = speed × time (d = st)</li>
+                    <li><strong>Perimeter:</strong> P = 2l + 2w (l and w are variables)</li>
+                    <li><strong>Money:</strong> Total cost = price × quantity (c = pq)</li>
+                    <li><strong>Age:</strong> "In n years, I'll be 12 + n"</li>
+                </ul>
+            `,
+
+            "One-Step Equations": `
+                <h2>One-Step Equations</h2>
+                <p>Equations are like puzzles - we solve them to find the unknown value! One-step equations need just one operation to solve.</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is an Equation?</h3>
+                <p>An equation has an equals sign (=) and shows two expressions are equal:</p>
+                
+                <div class="example">
+                    <div class="example-title">Parts of an Equation</div>
+                    <p><strong>x + 5 = 12</strong></p>
+                    <p>Left side: x + 5</p>
+                    <p>Right side: 12</p>
+                    <p>They're equal!</p>
+                </div>
+                
+                <h3>Solving by Using Inverse Operations</h3>
+                <p>To isolate the variable, do the OPPOSITE operation:</p>
+                
+                <div class="example">
+                    <div class="example-title">Addition → Use Subtraction</div>
+                    <p><strong>Equation:</strong> x + 7 = 15</p>
+                    <p><strong>Think:</strong> "What plus 7 equals 15?"</p>
+                    <p><strong>Solve:</strong> Subtract 7 from both sides</p>
+                    <p>x + 7 − 7 = 15 − 7</p>
+                    <p>x = <strong>8</strong></p>
+                    <p><strong>Check:</strong> 8 + 7 = 15 ✓</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Subtraction → Use Addition</div>
+                    <p><strong>Equation:</strong> x − 4 = 9</p>
+                    <p><strong>Solve:</strong> Add 4 to both sides</p>
+                    <p>x − 4 + 4 = 9 + 4</p>
+                    <p>x = <strong>13</strong></p>
+                    <p><strong>Check:</strong> 13 − 4 = 9 ✓</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Multiplication → Use Division</div>
+                    <p><strong>Equation:</strong> 5x = 30</p>
+                    <p><strong>Solve:</strong> Divide both sides by 5</p>
+                    <p>5x ÷ 5 = 30 ÷ 5</p>
+                    <p>x = <strong>6</strong></p>
+                    <p><strong>Check:</strong> 5 × 6 = 30 ✓</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Division → Use Multiplication</div>
+                    <p><strong>Equation:</strong> x/3 = 7</p>
+                    <p><strong>Solve:</strong> Multiply both sides by 3</p>
+                    <p>x/3 × 3 = 7 × 3</p>
+                    <p>x = <strong>21</strong></p>
+                    <p><strong>Check:</strong> 21/3 = 7 ✓</p>
+                </div>
+                
+                <h3>The Balance Method</h3>
+                <p>Think of equations like a balanced scale:</p>
+                <ul>
+                    <li>What you do to one side, do to the other</li>
+                    <li>This keeps the equation balanced</li>
+                    <li>Goal: Get the variable alone on one side</li>
+                </ul>
+                
+                <h3>Always Check Your Answer!</h3>
+                <p>Substitute your answer back into the original equation to verify</p>
+                
+                <h3>Real-World Equation Problems</h3>
+                <ul>
+                    <li>"I have some money. I earn $12 more and now have $35. How much did I start with?" → x + 12 = 35</li>
+                    <li>"5 friends equally split a bill of $45. How much does each pay?" → 5x = 45</li>
+                </ul>
+            `,
+
+            "Area of Triangles and Polygons": `
+                <h2>Area of Triangles and Polygons</h2>
+                <p>Finding the area of triangles and other polygons helps us measure all kinds of shapes, not just rectangles!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Area of a Triangle</h3>
+                <p><strong>Formula: A = ½bh</strong> (half of base times height)</p>
+                
+                <div class="example">
+                    <div class="example-title">Understanding the Formula</div>
+                    <p><strong>Base (b):</strong> Any side of the triangle</p>
+                    <p><strong>Height (h):</strong> Perpendicular distance from base to opposite vertex</p>
+                    <p><strong>Why ½?</strong> A triangle is half of a rectangle!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Triangle with base = 8 cm, height = 5 cm</div>
+                    <p><strong>Step 1:</strong> Write formula: A = ½bh</p>
+                    <p><strong>Step 2:</strong> Substitute: A = ½ × 8 × 5</p>
+                    <p><strong>Step 3:</strong> Calculate: A = ½ × 40 = <strong>20 cm²</strong></p>
+                    <p>Or: A = (8 × 5) ÷ 2 = 40 ÷ 2 = 20 cm²</p>
+                </div>
+                
+                <h3>Why Half of a Rectangle?</h3>
+                <div class="example">
+                    <div class="example-title">Visual Proof</div>
+                    <p>Draw a rectangle 8 × 5 = 40 square units</p>
+                    <p>Draw a diagonal - it splits into 2 triangles</p>
+                    <p>Each triangle = 40 ÷ 2 = <strong>20 square units</strong></p>
+                </div>
+                
+                <h3>Area of Composite Shapes</h3>
+                <p>Break complex shapes into simpler ones!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: L-Shaped Figure</div>
+                    <p><strong>Strategy:</strong> Break into 2 rectangles</p>
+                    <p>Rectangle 1: 4 × 3 = 12 sq units</p>
+                    <p>Rectangle 2: 2 × 5 = 10 sq units</p>
+                    <p><strong>Total area:</strong> 12 + 10 = <strong>22 sq units</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: House Shape (Rectangle + Triangle)</div>
+                    <p>Rectangle (walls): 10 × 8 = 80 sq ft</p>
+                    <p>Triangle (roof): ½ × 10 × 4 = 20 sq ft</p>
+                    <p><strong>Total:</strong> 80 + 20 = <strong>100 sq ft</strong></p>
+                </div>
+                
+                <h3>Area of Parallelograms</h3>
+                <div class="example">
+                    <div class="example-title">Parallelogram Formula</div>
+                    <p><strong>A = bh</strong> (base times height)</p>
+                    <p>Note: Height is PERPENDICULAR to base!</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Flooring:</strong> Calculate tile needed for a room</li>
+                    <li><strong>Painting:</strong> How much paint for walls?</li>
+                    <li><strong>Gardening:</strong> Size of triangular garden bed</li>
+                    <li><strong>Construction:</strong> Roof area for shingles</li>
+                </ul>
+            `,
+
+            "Surface Area": `
+                <h2>Surface Area</h2>
+                <p>Surface area is the total area of all faces of a 3D object. It tells us how much material we need to cover something!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is Surface Area?</h3>
+                <p>Surface area is the sum of the areas of all faces (surfaces) of a 3D shape:</p>
+                
+                <h3>Surface Area of Rectangular Prisms</h3>
+                <p>A rectangular prism (box) has 6 faces!</p>
+                
+                <div class="example">
+                    <div class="example-title">The 6 Faces</div>
+                    <p>A box has:</p>
+                    <ul>
+                        <li>2 front/back faces (length × height)</li>
+                        <li>2 left/right faces (width × height)</li>
+                        <li>2 top/bottom faces (length × width)</li>
+                    </ul>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Formula: SA = 2lw + 2lh + 2wh</div>
+                    <p><strong>l</strong> = length, <strong>w</strong> = width, <strong>h</strong> = height</p>
+                    <p>Or think: 2(lw + lh + wh)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Box 5 cm × 3 cm × 4 cm</div>
+                    <p><strong>Top/Bottom:</strong> 2(5 × 3) = 2(15) = 30 cm²</p>
+                    <p><strong>Front/Back:</strong> 2(5 × 4) = 2(20) = 40 cm²</p>
+                    <p><strong>Sides:</strong> 2(3 × 4) = 2(12) = 24 cm²</p>
+                    <p><strong>Total SA:</strong> 30 + 40 + 24 = <strong>94 cm²</strong></p>
+                </div>
+                
+                <h3>Using Nets</h3>
+                <p>A net is a flat pattern that folds into a 3D shape:</p>
+                
+                <div class="example">
+                    <div class="example-title">Box Net</div>
+                    <p>If you unfold a box, you see all 6 faces laid flat</p>
+                    <p>Find area of each face, then add them all!</p>
+                </div>
+                
+                <h3>Surface Area vs Volume</h3>
+                <ul>
+                    <li><strong>Surface Area:</strong> Outside covering (measured in square units)</li>
+                    <li><strong>Volume:</strong> Space inside (measured in cubic units)</li>
+                </ul>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Wrapping gifts:</strong> How much paper needed?</li>
+                    <li><strong>Painting:</strong> How much paint for all walls?</li>
+                    <li><strong>Construction:</strong> Material for building exterior</li>
+                    <li><strong>Packaging:</strong> Cardboard needed for a box</li>
+                </ul>
+            `,
+
+            "Dividing Fractions": `
+                <h2>Dividing Fractions</h2>
+                <p>Dividing fractions uses a clever trick: Keep, Change, Flip! Once you know this method, fraction division becomes easy.</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>The KCF Method</h3>
+                <p>Three simple steps to divide any fractions:</p>
+                
+                <div class="example">
+                    <div class="example-title">K-C-F Strategy</div>
+                    <ul>
+                        <li><strong>K</strong>eep the first fraction the same</li>
+                        <li><strong>C</strong>hange ÷ to ×</li>
+                        <li><strong>F</strong>lip the second fraction (reciprocal)</li>
+                    </ul>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: 2/3 ÷ 1/4</div>
+                    <p><strong>Keep:</strong> 2/3</p>
+                    <p><strong>Change:</strong> ÷ becomes ×</p>
+                    <p><strong>Flip:</strong> 1/4 becomes 4/1</p>
+                    <p><strong>New problem:</strong> 2/3 × 4/1</p>
+                    <p><strong>Multiply:</strong> (2×4)/(3×1) = 8/3</p>
+                    <p><strong>Mixed number:</strong> <strong>2 2/3</strong></p>
+                </div>
+                
+                <h3>Understanding Why It Works</h3>
+                <div class="example">
+                    <div class="example-title">Example: 1/2 ÷ 1/4</div>
+                    <p><strong>Question:</strong> How many 1/4s fit in 1/2?</p>
+                    <p>🍕 Half a pizza vs 🍕 Quarter of pizza</p>
+                    <p><strong>Answer:</strong> 2 quarters fit in 1 half</p>
+                    <p><strong>Math:</strong> 1/2 ÷ 1/4 = 1/2 × 4/1 = 4/2 = <strong>2</strong> ✓</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: 3/5 ÷ 2/3</div>
+                    <p><strong>Step 1:</strong> Keep 3/5</p>
+                    <p><strong>Step 2:</strong> Change to multiply</p>
+                    <p><strong>Step 3:</strong> Flip 2/3 to 3/2</p>
+                    <p><strong>Calculate:</strong> 3/5 × 3/2 = 9/10</p>
+                </div>
+                
+                <h3>Dividing with Whole Numbers</h3>
+                <div class="example">
+                    <div class="example-title">Fraction ÷ Whole Number</div>
+                    <p>3/4 ÷ 2 = ?</p>
+                    <p><strong>Write 2 as fraction:</strong> 2/1</p>
+                    <p><strong>K-C-F:</strong> 3/4 × 1/2 = 3/8</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Whole Number ÷ Fraction</div>
+                    <p>6 ÷ 1/3 = ?</p>
+                    <p><strong>Write 6 as fraction:</strong> 6/1</p>
+                    <p><strong>K-C-F:</strong> 6/1 × 3/1 = 18/1 = <strong>18</strong></p>
+                    <p><strong>Makes sense:</strong> How many thirds in 6? 18!</p>
+                </div>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Recipes:</strong> How many 1/4 cup servings in 2 cups?</li>
+                    <li><strong>Wood cutting:</strong> How many 1/2 foot pieces from 6 feet?</li>
+                    <li><strong>Fabric:</strong> How many 2/3 yard pieces from 4 yards?</li>
+                </ul>
+            `,
+
+            "Negative Numbers": `
+                <h2>Negative Numbers</h2>
+                <p>Negative numbers are less than zero. They help us describe opposites like debt, below zero, and going backward!</p>
+                
+                <h3>Understanding Negative Numbers</h3>
+                <p>The number line extends in both directions from zero:</p>
+                
+                <div class="example">
+                    <div class="example-title">Extended Number Line</div>
+                    <p>... −5, −4, −3, −2, −1, 0, 1, 2, 3, 4, 5 ...</p>
+                    <p><strong>Positive numbers:</strong> Right of zero (greater than 0)</p>
+                    <p><strong>Negative numbers:</strong> Left of zero (less than 0)</p>
+                    <p><strong>Zero:</strong> Neither positive nor negative</p>
+                </div>
+                
+                <h3>Reading Negative Numbers</h3>
+                <div class="example">
+                    <div class="example-title">How to Say Them</div>
+                    <p>−5 = "negative 5" or "minus 5"</p>
+                    <p>−12 = "negative twelve"</p>
+                    <p>−0.5 = "negative zero point five"</p>
+                </div>
+                
+                <h3>Comparing Negative Numbers</h3>
+                <p>The farther left on the number line, the SMALLER the number:</p>
+                
+                <div class="example">
+                    <div class="example-title">Which is Greater?</div>
+                    <p>−3 vs −7</p>
+                    <p>On number line: ... −7 ... −3 ... 0 ...</p>
+                    <p>−3 is closer to zero (to the right)</p>
+                    <p><strong>Answer:</strong> −3 > −7</p>
+                    <p><strong>Remember:</strong> −3 is GREATER than −7!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">More Comparisons</div>
+                    <p>−2 > −5 (−2 is closer to zero)</p>
+                    <p>−10 < −1 (−10 is farther from zero)</p>
+                    <p>0 > −100 (any positive/zero > any negative)</p>
+                </div>
+                
+                <h3>Opposites</h3>
+                <div class="example">
+                    <div class="example-title">Opposites on Number Line</div>
+                    <p>5 and −5 are <strong>opposites</strong></p>
+                    <p>They're the same distance from zero, just in opposite directions</p>
+                    <p>The opposite of −3 is 3</p>
+                    <p>The opposite of 7 is −7</p>
+                </div>
+                
+                <h3>Real-World Negative Numbers</h3>
+                <ul>
+                    <li><strong>Temperature:</strong> −10°F (below zero)</li>
+                    <li><strong>Money:</strong> −$50 (debt, you owe money)</li>
+                    <li><strong>Elevation:</strong> −200 feet (below sea level)</li>
+                    <li><strong>Time:</strong> 5 BC (before year 0)</li>
+                    <li><strong>Golf:</strong> −3 (3 under par)</li>
+                </ul>
+                
+                <h3>Ordering Negative Numbers</h3>
+                <div class="example">
+                    <div class="example-title">Order from Least to Greatest</div>
+                    <p><strong>Numbers:</strong> 3, −2, 0, −5, 1</p>
+                    <p><strong>Ordered:</strong> −5, −2, 0, 1, 3</p>
+                    <p>Move left to right on number line!</p>
+                </div>
+            `,
+
+            "Operations with Integers": `
+                <h2>Operations with Integers</h2>
+                <p>Integers include all positive and negative whole numbers, plus zero. Let's learn how to add, subtract, multiply, and divide them!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Integer Rules Summary</h3>
+                <div class="example">
+                    <div class="example-title">Quick Reference</div>
+                    <p><strong>Same signs → Add, keep sign</strong></p>
+                    <p><strong>Different signs → Subtract, keep sign of larger</strong></p>
+                </div>
+                
+                <h3>Adding Integers</h3>
+                
+                <div class="example">
+                    <div class="example-title">Same Signs: Add</div>
+                    <p><strong>Positive + Positive:</strong> 5 + 3 = <strong>8</strong> (move right)</p>
+                    <p><strong>Negative + Negative:</strong> −5 + (−3) = <strong>−8</strong> (move left)</p>
+                    <p>Add the numbers, keep the sign!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Different Signs: Subtract</div>
+                    <p><strong>Positive + Negative:</strong> 8 + (−3)</p>
+                    <p>Think: 8 − 3 = <strong>5</strong> (larger was positive)</p>
+                    
+                    <p><strong>Negative + Positive:</strong> −8 + 3</p>
+                    <p>Think: 8 − 3 = 5, but larger was negative: <strong>−5</strong></p>
+                </div>
+                
+                <h3>Subtracting Integers</h3>
+                <p>Change subtraction to "add the opposite"!</p>
+                
+                <div class="example">
+                    <div class="example-title">Change to Adding Opposite</div>
+                    <p>5 − 8 = 5 + (−8) = <strong>−3</strong></p>
+                    <p>−3 − 5 = −3 + (−5) = <strong>−8</strong></p>
+                    <p>−4 − (−7) = −4 + 7 = <strong>3</strong></p>
+                    <p>6 − (−2) = 6 + 2 = <strong>8</strong></p>
+                </div>
+                
+                <h3>Multiplying and Dividing Integers</h3>
+                
+                <div class="example">
+                    <div class="example-title">Sign Rules</div>
+                    <p><strong>Same signs → Positive result</strong></p>
+                    <p>3 × 4 = <strong>12</strong> (both positive)</p>
+                    <p>−3 × −4 = <strong>12</strong> (both negative)</p>
+                    
+                    <p><strong>Different signs → Negative result</strong></p>
+                    <p>3 × −4 = <strong>−12</strong></p>
+                    <p>−3 × 4 = <strong>−12</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Division Works the Same</div>
+                    <p>12 ÷ 3 = <strong>4</strong> (same signs → positive)</p>
+                    <p>−12 ÷ −3 = <strong>4</strong> (same signs → positive)</p>
+                    <p>−12 ÷ 3 = <strong>−4</strong> (different signs → negative)</p>
+                    <p>12 ÷ −3 = <strong>−4</strong> (different signs → negative)</p>
+                </div>
+                
+                <h3>Memory Tricks</h3>
+                <ul>
+                    <li><strong>"Two negatives make a positive"</strong> (−3 × −4 = +12)</li>
+                    <li><strong>"A positive and negative make a negative"</strong> (3 × −4 = −12)</li>
+                </ul>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Temperature changes:</strong> Rising and falling temps</li>
+                    <li><strong>Money:</strong> Earnings (+) and spending (−)</li>
+                    <li><strong>Elevation:</strong> Above and below sea level</li>
+                    <li><strong>Directions:</strong> Forward/backward, up/down</li>
+                </ul>
+            `,
+
+            "GCF Applications": `
+                <h2>GCF Applications</h2>
+                <p>The Greatest Common Factor (GCF) has many practical uses, especially for simplifying fractions and solving real-world problems!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Review: What is GCF?</h3>
+                <p>The GCF is the largest number that divides evenly into two or more numbers:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: GCF of 12 and 18</div>
+                    <p><strong>Factors of 12:</strong> 1, 2, 3, 4, 6, 12</p>
+                    <p><strong>Factors of 18:</strong> 1, 2, 3, 6, 9, 18</p>
+                    <p><strong>Common factors:</strong> 1, 2, 3, 6</p>
+                    <p><strong>GCF:</strong> <strong>6</strong> (the greatest one)</p>
+                </div>
+                
+                <h3>Application 1: Simplifying Fractions</h3>
+                <p>Use GCF to reduce fractions to simplest form!</p>
+                
+                <div class="example">
+                    <div class="example-title">Simplify 24/36</div>
+                    <p><strong>Step 1:</strong> Find GCF of 24 and 36</p>
+                    <p>GCF = 12</p>
+                    <p><strong>Step 2:</strong> Divide both by GCF</p>
+                    <p>24 ÷ 12 = 2</p>
+                    <p>36 ÷ 12 = 3</p>
+                    <p><strong>Simplified:</strong> 24/36 = <strong>2/3</strong></p>
+                </div>
+                
+                <h3>Application 2: Equal Groups</h3>
+                <div class="example">
+                    <div class="example-title">Real-World Problem</div>
+                    <p><strong>Problem:</strong> You have 20 pencils and 15 erasers. You want to make identical gift bags with no items left over. What's the greatest number of bags you can make?</p>
+                    <p><strong>Solution:</strong> Find GCF of 20 and 15</p>
+                    <p>GCF = 5</p>
+                    <p><strong>Answer:</strong> <strong>5 bags</strong></p>
+                    <p>Each bag: 4 pencils, 3 erasers</p>
+                </div>
+                
+                <h3>Application 3: Tiling Problems</h3>
+                <div class="example">
+                    <div class="example-title">Square Tiles</div>
+                    <p><strong>Problem:</strong> Cover a 24 in × 30 in rectangle with largest square tiles possible. What size?</p>
+                    <p><strong>Solution:</strong> GCF of 24 and 30</p>
+                    <p>GCF = 6</p>
+                    <p><strong>Answer:</strong> <strong>6 in × 6 in tiles</strong></p>
+                </div>
+                
+                <h3>Finding GCF Methods</h3>
+                <div class="example">
+                    <div class="example-title">Method 1: List Factors</div>
+                    <p>List all factors, circle common ones, pick greatest</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Method 2: Prime Factorization</div>
+                    <p>24 = 2³ × 3</p>
+                    <p>36 = 2² × 3²</p>
+                    <p>GCF = 2² × 3 = 4 × 3 = <strong>12</strong></p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li>Simplifying fractions in recipes</li>
+                    <li>Making equal groups or teams</li>
+                    <li>Tiling floors or walls</li>
+                    <li>Cutting materials into largest equal pieces</li>
+                </ul>
+            `,
+
+            "LCM Applications": `
+                <h2>LCM Applications</h2>
+                <p>The Least Common Multiple (LCM) helps us find when things happen together and add fractions with different denominators!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Review: What is LCM?</h3>
+                <p>The LCM is the smallest number that is a multiple of two or more numbers:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: LCM of 4 and 6</div>
+                    <p><strong>Multiples of 4:</strong> 4, 8, 12, 16, 20, 24...</p>
+                    <p><strong>Multiples of 6:</strong> 6, 12, 18, 24, 30...</p>
+                    <p><strong>Common multiples:</strong> 12, 24, 36...</p>
+                    <p><strong>LCM:</strong> <strong>12</strong> (the least/smallest one)</p>
+                </div>
+                
+                <h3>Application 1: Adding Fractions</h3>
+                <p>LCM gives us the Least Common Denominator!</p>
+                
+                <div class="example">
+                    <div class="example-title">Add 1/4 + 1/6</div>
+                    <p><strong>Step 1:</strong> Find LCM of 4 and 6 = 12</p>
+                    <p><strong>Step 2:</strong> Convert both fractions:</p>
+                    <p>1/4 = 3/12 (multiply by 3/3)</p>
+                    <p>1/6 = 2/12 (multiply by 2/2)</p>
+                    <p><strong>Step 3:</strong> Add: 3/12 + 2/12 = <strong>5/12</strong></p>
+                </div>
+                
+                <h3>Application 2: Repeating Events</h3>
+                <div class="example">
+                    <div class="example-title">Real-World Problem</div>
+                    <p><strong>Problem:</strong> Bus A comes every 6 minutes. Bus B comes every 8 minutes. If both just left, when will they both be here again?</p>
+                    <p><strong>Solution:</strong> Find LCM of 6 and 8</p>
+                    <p>LCM = 24</p>
+                    <p><strong>Answer:</strong> In <strong>24 minutes</strong></p>
+                </div>
+                
+                <h3>Application 3: Scheduling</h3>
+                <div class="example">
+                    <div class="example-title">Calendar Problem</div>
+                    <p><strong>Problem:</strong> You exercise every 3 days and volunteer every 5 days. If you do both today, when's the next time you do both on the same day?</p>
+                    <p><strong>Solution:</strong> LCM of 3 and 5 = 15</p>
+                    <p><strong>Answer:</strong> In <strong>15 days</strong></p>
+                </div>
+                
+                <h3>Finding LCM Methods</h3>
+                <div class="example">
+                    <div class="example-title">Method 1: List Multiples</div>
+                    <p>List multiples until you find the smallest common one</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Method 2: Prime Factorization</div>
+                    <p>12 = 2² × 3</p>
+                    <p>18 = 2 × 3²</p>
+                    <p>LCM = 2² × 3² = 4 × 9 = <strong>36</strong></p>
+                    <p>Take highest power of each prime</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li>Finding common denominators</li>
+                    <li>Scheduling repeating events</li>
+                    <li>Ordering materials that come in different package sizes</li>
+                    <li>Music: Finding when beats align</li>
+                </ul>
+            `,
+
+            "Ratio Tables": `
+                <h2>Ratio Tables</h2>
+                <p>Ratio tables organize equivalent ratios in rows and columns, making it easy to find missing values and see patterns!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is a Ratio Table?</h3>
+                <p>A ratio table shows equivalent ratios organized in a table:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Recipe Ratio 2:3</div>
+                    <p style="font-family: monospace;">
+                    Flour  | 2  | 4  | 6  | 8  |<br>
+                    Sugar  | 3  | 6  | 9  | 12 |
+                    </p>
+                    <p>Each column shows an equivalent ratio!</p>
+                    <p>2:3 = 4:6 = 6:9 = 8:12</p>
+                </div>
+                
+                <h3>Building a Ratio Table</h3>
+                <div class="example">
+                    <div class="example-title">Ratio: 3 apples cost $5</div>
+                    <p style="font-family: monospace;">
+                    Apples | 3  | 6  | 9  | 12 | 15 |<br>
+                    Cost   | $5 |$10 |$15 | $20| $25|
+                    </p>
+                    <p><strong>Pattern:</strong> Multiply both quantities by the same number</p>
+                </div>
+                
+                <h3>Finding Missing Values</h3>
+                <div class="example">
+                    <div class="example-title">Example: Complete the Table</div>
+                    <p style="font-family: monospace;">
+                    Miles | 30 | 60 | ? | 120 |<br>
+                    Hours | 1  | 2  | 3 | 4   |
+                    </p>
+                    <p><strong>Pattern:</strong> Ratio is 30:1</p>
+                    <p><strong>Missing value:</strong> 30 × 3 = <strong>90 miles</strong></p>
+                </div>
+                
+                <h3>Using Ratio Tables to Solve</h3>
+                <div class="example">
+                    <div class="example-title">Problem</div>
+                    <p><strong>Question:</strong> If 5 books cost $35, how much do 8 books cost?</p>
+                    <p style="font-family: monospace;">
+                    Books | 5  | 8  |<br>
+                    Cost  |$35 | ?  |
+                    </p>
+                    <p><strong>Find unit rate:</strong> $35 ÷ 5 = $7 per book</p>
+                    <p><strong>Calculate:</strong> 8 × $7 = <strong>$56</strong></p>
+                </div>
+                
+                <h3>Advantages of Ratio Tables</h3>
+                <ul>
+                    <li>Makes patterns visible</li>
+                    <li>Easy to find equivalent ratios</li>
+                    <li>Helps solve proportion problems</li>
+                    <li>Shows relationship clearly</li>
+                </ul>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Recipes:</strong> Scaling ingredients</li>
+                    <li><strong>Shopping:</strong> Comparing bulk prices</li>
+                    <li><strong>Travel:</strong> Distance vs time tables</li>
+                    <li><strong>Currency:</strong> Exchange rate tables</li>
+                </ul>
+            `,
+
+            "Double Number Lines": `
+                <h2>Double Number Lines</h2>
+                <p>Double number lines use two parallel number lines to show equivalent ratios visually. They're great for solving ratio and proportion problems!</p>
+                
+                <h3>What are Double Number Lines?</h3>
+                <p>Two number lines aligned to show corresponding values:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Miles and Hours</div>
+                    <p style="font-family: monospace;">
+                    Miles  |--|--|--|--|--|<br>
+                           0 50 100 150 200<br>
+                    <br>
+                    Hours  |--|--|--|--|--|<br>
+                           0  1  2  3  4
+                    </p>
+                    <p><strong>Shows:</strong> 50 miles per hour</p>
+                    <p>2 hours = 100 miles, 3 hours = 150 miles</p>
+                </div>
+                
+                <h3>Creating a Double Number Line</h3>
+                <ol>
+                    <li>Draw two parallel number lines</li>
+                    <li>Mark 0 on both (align them!)</li>
+                    <li>Use the ratio to mark corresponding points</li>
+                    <li>Extend to find more equivalent ratios</li>
+                </ol>
+                
+                <div class="example">
+                    <div class="example-title">Example: 3 pounds cost $12</div>
+                    <p style="font-family: monospace;">
+                    Pounds |--|--|--|--|<br>
+                           0  3  6  9 12<br>
+                    <br>
+                    Dollars|--|--|--|--|<br>
+                           0 12 24 36 48
+                    </p>
+                    <p><strong>Ratio:</strong> 3 pounds:$12</p>
+                    <p><strong>Unit rate:</strong> 1 pound = $4</p>
+                </div>
+                
+                <h3>Solving Problems with Double Number Lines</h3>
+                <div class="example">
+                    <div class="example-title">Problem</div>
+                    <p><strong>Question:</strong> A car travels 120 miles in 2 hours. How far in 5 hours?</p>
+                    <p style="font-family: monospace;">
+                    Hours |--|--|--|--|--|<br>
+                          0  1  2  3  4  5<br>
+                    <br>
+                    Miles |--|--|--|--|--|<br>
+                          0 60 120 180 240 300
+                    </p>
+                    <p><strong>Answer:</strong> <strong>300 miles</strong></p>
+                </div>
+                
+                <h3>Advantages</h3>
+                <ul>
+                    <li>Visual representation of ratios</li>
+                    <li>Easy to see patterns</li>
+                    <li>Great for proportional reasoning</li>
+                    <li>Helps understand unit rates</li>
+                </ul>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Recipes:</strong> Scaling up or down</li>
+                    <li><strong>Speed:</strong> Distance over time</li>
+                    <li><strong>Unit pricing:</strong> Cost per item</li>
+                    <li><strong>Conversions:</strong> Inches to feet, km to miles</li>
+                </ul>
+            `,
+
+            "Percent of a Number": `
+                <h2>Percent of a Number</h2>
+                <p>Finding a percent of a number is one of the most useful math skills! It's used in sales, taxes, tips, and more.</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>The Formula</h3>
+                <p><strong>Percent of a number = (percent ÷ 100) × number</strong></p>
+                <p>Or: <strong>Convert percent to decimal, then multiply</strong></p>
+                
+                <h3>Method 1: Convert to Decimal</h3>
+                <div class="example">
+                    <div class="example-title">Example: 25% of 80</div>
+                    <p><strong>Step 1:</strong> Convert 25% to decimal</p>
+                    <p>25% = 25/100 = 0.25</p>
+                    <p><strong>Step 2:</strong> Multiply</p>
+                    <p>0.25 × 80 = <strong>20</strong></p>
+                    <p>So 25% of 80 = 20</p>
+                </div>
+                
+                <h3>Method 2: Use Fraction</h3>
+                <div class="example">
+                    <div class="example-title">Example: 30% of 50</div>
+                    <p><strong>Step 1:</strong> Write as fraction</p>
+                    <p>30% = 30/100 = 3/10</p>
+                    <p><strong>Step 2:</strong> Multiply</p>
+                    <p>3/10 × 50 = 150/10 = <strong>15</strong></p>
+                </div>
+                
+                <h3>Easy Percents to Know</h3>
+                <div class="example">
+                    <div class="example-title">Mental Math Shortcuts</div>
+                    <p><strong>50% of any number:</strong> Divide by 2</p>
+                    <p>50% of 60 = 60 ÷ 2 = <strong>30</strong></p>
+                    
+                    <p><strong>25% of any number:</strong> Divide by 4</p>
+                    <p>25% of 80 = 80 ÷ 4 = <strong>20</strong></p>
+                    
+                    <p><strong>10% of any number:</strong> Divide by 10</p>
+                    <p>10% of 70 = 70 ÷ 10 = <strong>7</strong></p>
+                    
+                    <p><strong>1% of any number:</strong> Divide by 100</p>
+                    <p>1% of 200 = 200 ÷ 100 = <strong>2</strong></p>
+                </div>
+                
+                <h3>Building from 10%</h3>
+                <div class="example">
+                    <div class="example-title">Using 10% to Find Others</div>
+                    <p>Find 30% of 60:</p>
+                    <p><strong>10% of 60 = 6</strong></p>
+                    <p>30% = 3 × 10%, so: 3 × 6 = <strong>18</strong></p>
+                </div>
+                
+                <h3>Real-World Applications</h3>
+                <div class="example">
+                    <div class="example-title">Sales Tax</div>
+                    <p>Item costs $40, tax is 8%</p>
+                    <p>Tax = 0.08 × $40 = <strong>$3.20</strong></p>
+                    <p>Total cost = $40 + $3.20 = $43.20</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Tip at Restaurant</div>
+                    <p>Bill is $25, you want to tip 20%</p>
+                    <p>Tip = 0.20 × $25 = <strong>$5</strong></p>
+                </div>
+                
+                <h3>Common Uses</h3>
+                <ul>
+                    <li><strong>Sales:</strong> "20% off $50 = save $10"</li>
+                    <li><strong>Grades:</strong> "Got 85% on a 40-point test = 34 points"</li>
+                    <li><strong>Growth:</strong> "Population increased 15%"</li>
+                    <li><strong>Discounts:</strong> "30% off means pay 70%"</li>
+                </ul>
+            `,
+
+            "Box Plots": `
+                <h2>Box Plots</h2>
+                <p>Box plots (also called box-and-whisker plots) show how data is spread out. They display the five-number summary in a visual way!</p>
+                
+                <h3>The Five-Number Summary</h3>
+                <p>Every box plot shows these 5 key values:</p>
+                
+                <div class="example">
+                    <div class="example-title">The Five Numbers</div>
+                    <ol>
+                        <li><strong>Minimum:</strong> Smallest value</li>
+                        <li><strong>Q1 (First Quartile):</strong> 25% of data is below this</li>
+                        <li><strong>Median (Q2):</strong> Middle value (50%)</li>
+                        <li><strong>Q3 (Third Quartile):</strong> 75% of data is below this</li>
+                        <li><strong>Maximum:</strong> Largest value</li>
+                    </ol>
+                </div>
+                
+                <h3>Reading a Box Plot</h3>
+                <div class="example">
+                    <div class="example-title">Box Plot Structure</div>
+                    <p style="font-family: monospace;">
+                    Min Q1  Med  Q3  Max<br>
+                     |   [   |   ]   |<br>
+                     ●───┤───┼───├───●<br>
+                    whisker box  whisker
+                    </p>
+                    <p><strong>Box:</strong> Contains middle 50% of data (Q1 to Q3)</p>
+                    <p><strong>Line in box:</strong> Median</p>
+                    <p><strong>Whiskers:</strong> Extend to min and max</p>
+                </div>
+                
+                <h3>Creating a Box Plot</h3>
+                <p><strong>Data:</strong> 12, 15, 18, 20, 22, 25, 28, 30, 35</p>
+                
+                <div class="example">
+                    <div class="example-title">Step-by-Step</div>
+                    <p><strong>Step 1:</strong> Order data (already done)</p>
+                    <p><strong>Step 2:</strong> Find five-number summary:</p>
+                    <ul>
+                        <li>Min = 12</li>
+                        <li>Q1 = 18 (median of lower half: 12,15,18,20)</li>
+                        <li>Median = 22 (middle value)</li>
+                        <li>Q3 = 28 (median of upper half: 25,28,30,35)</li>
+                        <li>Max = 35</li>
+                    </ul>
+                    <p><strong>Step 3:</strong> Draw number line and plot the 5 values</p>
+                    <p><strong>Step 4:</strong> Draw box from Q1 to Q3, mark median, add whiskers</p>
+                </div>
+                
+                <h3>What Box Plots Tell Us</h3>
+                <ul>
+                    <li><strong>Spread:</strong> Long whiskers = data spread out</li>
+                    <li><strong>Skewness:</strong> Box closer to one side = skewed</li>
+                    <li><strong>Median position:</strong> Line in middle of box = symmetric</li>
+                    <li><strong>IQR:</strong> Box width shows middle 50% spread</li>
+                </ul>
+                
+                <h3>Comparing Data Sets</h3>
+                <p>Box plots make it easy to compare two groups!</p>
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>Compare test scores for Class A vs Class B</p>
+                    <p>Draw both box plots above same number line</p>
+                    <p>Higher median? Better average performance</p>
+                    <p>Smaller IQR? More consistent scores</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li>Comparing test scores between classes</li>
+                    <li>Analyzing sports statistics</li>
+                    <li>Understanding income distributions</li>
+                    <li>Weather data analysis</li>
+                </ul>
+            `,
+
+            "Histograms": `
+                <h2>Histograms</h2>
+                <p>Histograms display data by grouping values into intervals (bins). They show the shape and distribution of data!</p>
+                
+                <h3>What is a Histogram?</h3>
+                <p>A histogram looks like a bar graph, but shows data grouped into ranges:</p>
+                
+                <div class="example">
+                    <div class="example-title">Histogram vs Bar Graph</div>
+                    <p><strong>Bar Graph:</strong> Each bar = one category (apples, oranges)</p>
+                    <p><strong>Histogram:</strong> Each bar = a range of values (60-69, 70-79)</p>
+                    <p><strong>Histogram bars touch!</strong> (continuous data)</p>
+                </div>
+                
+                <h3>Reading a Histogram</h3>
+                <div class="example">
+                    <div class="example-title">Test Scores Histogram</div>
+                    <p><strong>Intervals (bins):</strong></p>
+                    <p>60-69: ▮▮▮ (3 students)</p>
+                    <p>70-79: ▮▮▮▮▮▮▮ (7 students)</p>
+                    <p>80-89: ▮▮▮▮▮ (5 students)</p>
+                    <p>90-100: ▮▮▮▮ (4 students)</p>
+                    <p><strong>Total students:</strong> 3+7+5+4 = 19</p>
+                    <p><strong>Most common range:</strong> 70-79</p>
+                </div>
+                
+                <h3>Frequency</h3>
+                <p>Frequency means "how many" fall in each interval:</p>
+                <div class="example">
+                    <div class="example-title">Frequency Table</div>
+                    <p>Interval | Frequency</p>
+                    <p>0-9      | 2</p>
+                    <p>10-19    | 5</p>
+                    <p>20-29    | 8</p>
+                    <p>30-39    | 3</p>
+                </div>
+                
+                <h3>Creating a Histogram</h3>
+                <ol>
+                    <li><strong>Organize data:</strong> Decide on intervals (equal width!)</li>
+                    <li><strong>Tally frequency:</strong> Count how many in each interval</li>
+                    <li><strong>Draw axes:</strong> X-axis = intervals, Y-axis = frequency</li>
+                    <li><strong>Draw bars:</strong> Height = frequency, bars touch!</li>
+                    <li><strong>Label:</strong> Title, axes labels</li>
+                </ol>
+                
+                <h3>Analyzing Histograms</h3>
+                <p>Shape tells us about the data:</p>
+                <ul>
+                    <li><strong>Symmetric:</strong> Both sides similar (bell-shaped)</li>
+                    <li><strong>Skewed right:</strong> Tail on right side</li>
+                    <li><strong>Skewed left:</strong> Tail on left side</li>
+                    <li><strong>Uniform:</strong> All bars about same height</li>
+                </ul>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Test scores:</strong> Grade distributions</li>
+                    <li><strong>Heights:</strong> Class height ranges</li>
+                    <li><strong>Ages:</strong> Population age groups</li>
+                    <li><strong>Sales:</strong> Product sales by price range</li>
+                </ul>
+            `,
+
+            "Median and Mode": `
+                <h2>Median and Mode</h2>
+                <p>Along with the mean, median and mode help us understand data. They're different ways to find the "typical" value!</p>
+                
+                <h3>The Median (Middle Value)</h3>
+                <p>The median is the middle number when data is ordered:</p>
+                
+                <div class="example">
+                    <div class="example-title">Finding Median (Odd Count)</div>
+                    <p><strong>Data:</strong> 3, 7, 12, 15, 20</p>
+                    <p><strong>Already ordered!</strong></p>
+                    <p><strong>Middle value:</strong> <strong>12</strong></p>
+                    <p>Median = 12 (exactly in the middle)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Finding Median (Even Count)</div>
+                    <p><strong>Data:</strong> 4, 8, 12, 15, 18, 22</p>
+                    <p><strong>Two middle values:</strong> 12 and 15</p>
+                    <p><strong>Average them:</strong> (12 + 15) ÷ 2 = 27 ÷ 2 = <strong>13.5</strong></p>
+                    <p>Median = 13.5</p>
+                </div>
+                
+                <h3>The Mode (Most Frequent)</h3>
+                <p>The mode is the value that appears most often:</p>
+                
+                <div class="example">
+                    <div class="example-title">Finding Mode</div>
+                    <p><strong>Data:</strong> 5, 7, 7, 8, 7, 9, 10</p>
+                    <p><strong>Count frequency:</strong></p>
+                    <p>5 appears 1 time</p>
+                    <p>7 appears <strong>3 times</strong> ← most!</p>
+                    <p>8, 9, 10 appear 1 time each</p>
+                    <p><strong>Mode = 7</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Special Cases</div>
+                    <p><strong>No mode:</strong> All values appear once (1, 2, 3, 4, 5)</p>
+                    <p><strong>Bimodal:</strong> Two modes (2, 3, 3, 5, 5, 7 → modes are 3 and 5)</p>
+                    <p><strong>Multimodal:</strong> More than two modes</p>
+                </div>
+                
+                <h3>Mean vs Median vs Mode</h3>
+                <div class="example">
+                    <div class="example-title">Compare All Three</div>
+                    <p><strong>Data:</strong> 3, 5, 5, 8, 9, 100</p>
+                    <p><strong>Mean:</strong> (3+5+5+8+9+100) ÷ 6 = 130 ÷ 6 = 21.7</p>
+                    <p><strong>Median:</strong> (5 + 8) ÷ 2 = 6.5</p>
+                    <p><strong>Mode:</strong> 5 (appears twice)</p>
+                    <p><strong>Note:</strong> 100 is an outlier - affects mean but not median/mode!</p>
+                </div>
+                
+                <h3>When to Use Each</h3>
+                <ul>
+                    <li><strong>Mean:</strong> When data has no extreme outliers</li>
+                    <li><strong>Median:</strong> When there are outliers (home prices, income)</li>
+                    <li><strong>Mode:</strong> For categorical data (favorite color, most popular size)</li>
+                </ul>
+                
+                <h3>Real-World Examples</h3>
+                <ul>
+                    <li><strong>Test scores:</strong> Find typical score (median)</li>
+                    <li><strong>Shoe sizes:</strong> Most common size (mode)</li>
+                    <li><strong>House prices:</strong> Median better than mean (outliers!)</li>
+                    <li><strong>Survey results:</strong> Mode shows most popular choice</li>
+                </ul>
+            `,
+
+            "Interquartile Range (IQR)": `
+                <h2>Interquartile Range (IQR)</h2>
+                <p>The IQR measures the spread of the middle 50% of data. It's less affected by outliers than the range!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is IQR?</h3>
+                <p><strong>IQR = Q3 − Q1</strong> (Third quartile minus First quartile)</p>
+                <p>It shows how spread out the middle half of data is</p>
+                
+                <h3>Understanding Quartiles</h3>
+                <p>Quartiles divide ordered data into four equal parts:</p>
+                
+                <div class="example">
+                    <div class="example-title">The Four Quarters</div>
+                    <p>Imagine data divided into 4 equal groups:</p>
+                    <ul>
+                        <li><strong>Q1:</strong> 25% of data below, 75% above</li>
+                        <li><strong>Q2 (Median):</strong> 50% below, 50% above</li>
+                        <li><strong>Q3:</strong> 75% below, 25% above</li>
+                    </ul>
+                </div>
+                
+                <h3>Finding IQR Step-by-Step</h3>
+                <div class="example">
+                    <div class="example-title">Data: 10, 12, 15, 18, 20, 22, 25, 28, 30</div>
+                    <p><strong>Step 1:</strong> Data already ordered</p>
+                    <p><strong>Step 2:</strong> Find median (Q2) = 20</p>
+                    <p><strong>Step 3:</strong> Find Q1 (median of lower half)</p>
+                    <p>Lower half: 10, 12, 15, 18</p>
+                    <p>Q1 = (12 + 15) ÷ 2 = <strong>13.5</strong></p>
+                    <p><strong>Step 4:</strong> Find Q3 (median of upper half)</p>
+                    <p>Upper half: 22, 25, 28, 30</p>
+                    <p>Q3 = (25 + 28) ÷ 2 = <strong>26.5</strong></p>
+                    <p><strong>Step 5:</strong> Calculate IQR</p>
+                    <p>IQR = Q3 − Q1 = 26.5 − 13.5 = <strong>13</strong></p>
+                </div>
+                
+                <h3>What IQR Tells Us</h3>
+                <ul>
+                    <li><strong>Small IQR:</strong> Data is clustered/consistent</li>
+                    <li><strong>Large IQR:</strong> Data is spread out/variable</li>
+                    <li><strong>Ignores extremes:</strong> Not affected by outliers</li>
+                </ul>
+                
+                <h3>IQR vs Range</h3>
+                <div class="example">
+                    <div class="example-title">Comparing Measures of Spread</div>
+                    <p><strong>Range:</strong> Max − Min (includes ALL data)</p>
+                    <p><strong>IQR:</strong> Q3 − Q1 (middle 50% only)</p>
+                    <p>IQR is more reliable when outliers exist!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example with Outlier</div>
+                    <p>Data: 10, 12, 13, 15, 16, 100</p>
+                    <p><strong>Range:</strong> 100 − 10 = 90 (huge!)</p>
+                    <p><strong>IQR:</strong> 16 − 12 = 4 (more reasonable)</p>
+                    <p>IQR ignores the outlier (100)</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Test scores:</strong> Measure consistency</li>
+                    <li><strong>Income data:</strong> Middle class spread</li>
+                    <li><strong>Sports:</strong> Player consistency</li>
+                    <li><strong>Quality control:</strong> Product variation</li>
+                </ul>
             `
         };
         
