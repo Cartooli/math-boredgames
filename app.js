@@ -3541,6 +3541,349 @@ class MathBoredApp {
                     <li><strong>Science:</strong> Experiment results over time</li>
                     <li><strong>Sports:</strong> Performance improvement</li>
                 </ul>
+            `,
+            
+            // === GRADE 2 LESSONS (20 topics) ===
+            
+            "Even and Odd Numbers": `
+                <h2>Even and Odd Numbers</h2>
+                <p>All whole numbers are either even or odd. Understanding this helps with patterns, skip counting, and division!</p>
+                
+                <h3>What are Even Numbers?</h3>
+                <p>Even numbers can be divided into 2 equal groups with nothing left over:</p>
+                
+                <div class="example">
+                    <div class="example-title">Even Number: 8</div>
+                    <p>🔷🔷🔷🔷 | 🔷🔷🔷🔷</p>
+                    <p>8 divided into 2 groups = 4 and 4 (equal!)</p>
+                    <p>8 ÷ 2 = 4 (no remainder)</p>
+                    <p><strong>8 is EVEN</strong></p>
+                </div>
+                
+                <h3>Even Numbers Pattern</h3>
+                <div class="example">
+                    <div class="example-title">Even Numbers 0-20</div>
+                    <p>0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20...</p>
+                    <p><strong>Pattern:</strong> They all end in 0, 2, 4, 6, or 8</p>
+                    <p><strong>Quick check:</strong> Look at the last digit!</p>
+                </div>
+                
+                <h3>What are Odd Numbers?</h3>
+                <p>Odd numbers CANNOT be divided into 2 equal groups - there's always 1 left over:</p>
+                
+                <div class="example">
+                    <div class="example-title">Odd Number: 7</div>
+                    <p>🔷🔷🔷🔷 | 🔷🔷🔷</p>
+                    <p>7 divided into 2 groups = 3 and 4 (NOT equal!)</p>
+                    <p>Or: 🔷🔷🔷 | 🔷🔷🔷 | 🔷 (1 left over)</p>
+                    <p>7 ÷ 2 = 3 remainder 1</p>
+                    <p><strong>7 is ODD</strong></p>
+                </div>
+                
+                <h3>Odd Numbers Pattern</h3>
+                <div class="example">
+                    <div class="example-title">Odd Numbers 1-19</div>
+                    <p>1, 3, 5, 7, 9, 11, 13, 15, 17, 19...</p>
+                    <p><strong>Pattern:</strong> They all end in 1, 3, 5, 7, or 9</p>
+                    <p><strong>Quick check:</strong> Look at the last digit!</p>
+                </div>
+                
+                <h3>Quick Rules</h3>
+                <ul>
+                    <li><strong>Even:</strong> Ends in 0, 2, 4, 6, or 8</li>
+                    <li><strong>Odd:</strong> Ends in 1, 3, 5, 7, or 9</li>
+                    <li><strong>Even ± Even</strong> = Even (4 + 6 = 10)</li>
+                    <li><strong>Odd ± Odd</strong> = Even (5 + 7 = 12)</li>
+                    <li><strong>Even ± Odd</strong> = Odd (4 + 5 = 9)</li>
+                </ul>
+                
+                <h3>Real-World Examples</h3>
+                <ul>
+                    <li><strong>Pairing up:</strong> Even numbers can make perfect pairs</li>
+                    <li><strong>House numbers:</strong> Often even on one side, odd on the other</li>
+                    <li><strong>Sharing:</strong> Even numbers share equally between 2 people</li>
+                </ul>
+                
+                <h3>Fun Facts</h3>
+                <ul>
+                    <li>0 is EVEN (0 ÷ 2 = 0)</li>
+                    <li>2 is the only even prime number!</li>
+                    <li>The pattern continues forever: even, odd, even, odd...</li>
+                </ul>
+            `,
+
+            "Skip Counting": `
+                <h2>Skip Counting</h2>
+                <p>Skip counting means counting by numbers other than 1. It's faster than counting one by one and is the foundation for multiplication!</p>
+                
+                <h3>Counting by 2s</h3>
+                <div class="example">
+                    <div class="example-title">Skip Count by 2</div>
+                    <p>2, 4, 6, 8, 10, 12, 14, 16, 18, 20...</p>
+                    <p><strong>Notice:</strong> These are all even numbers!</p>
+                    <p><strong>Use for:</strong> Counting pairs (shoes, gloves)</p>
+                </div>
+                
+                <h3>Counting by 5s</h3>
+                <div class="example">
+                    <div class="example-title">Skip Count by 5</div>
+                    <p>5, 10, 15, 20, 25, 30, 35, 40, 45, 50...</p>
+                    <p><strong>Pattern:</strong> Ends in 5 or 0</p>
+                    <p><strong>Use for:</strong> Counting nickels (5¢ each), telling time (5-minute marks)</p>
+                </div>
+                
+                <h3>Counting by 10s</h3>
+                <div class="example">
+                    <div class="example-title">Skip Count by 10</div>
+                    <p>10, 20, 30, 40, 50, 60, 70, 80, 90, 100...</p>
+                    <p><strong>Pattern:</strong> Ones place stays 0, tens place goes up</p>
+                    <p><strong>Use for:</strong> Counting dimes (10¢ each), understanding place value</p>
+                </div>
+                
+                <h3>Why Skip Counting Matters</h3>
+                <p>Skip counting is really just repeated addition!</p>
+                <div class="example">
+                    <div class="example-title">Connection to Multiplication</div>
+                    <p>Counting by 5s six times:</p>
+                    <p>5, 10, 15, 20, 25, 30</p>
+                    <p>This is the same as: <strong>6 × 5 = 30</strong></p>
+                </div>
+                
+                <h3>Counting Backward</h3>
+                <p>We can also skip count backward!</p>
+                <div class="example">
+                    <div class="example-title">Backward by 10s</div>
+                    <p>100, 90, 80, 70, 60, 50...</p>
+                    <p><strong>Use for:</strong> Countdown, subtraction practice</p>
+                </div>
+                
+                <h3>Practice Different Numbers</h3>
+                <ul>
+                    <li><strong>By 2s:</strong> 2, 4, 6, 8...</li>
+                    <li><strong>By 5s:</strong> 5, 10, 15, 20...</li>
+                    <li><strong>By 10s:</strong> 10, 20, 30, 40...</li>
+                    <li><strong>By 100s:</strong> 100, 200, 300, 400...</li>
+                </ul>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Money:</strong> Counting coins (nickels by 5, dimes by 10)</li>
+                    <li><strong>Time:</strong> Minutes on a clock (5, 10, 15, 20...)</li>
+                    <li><strong>Groups:</strong> Counting pairs, groups of 5 or 10</li>
+                </ul>
+            `,
+
+            "Three-Digit Numbers": `
+                <h2>Three-Digit Numbers</h2>
+                <p>Three-digit numbers range from 100 to 999. They have hundreds, tens, and ones places!</p>
+                
+                <h3>Understanding Three Digits</h3>
+                <p>Every three-digit number has three place values:</p>
+                
+                <div class="example">
+                    <div class="example-title">The Number 347</div>
+                    <p><strong>3</strong> is in the <strong>hundreds place</strong> = 3 hundreds = 300</p>
+                    <p><strong>4</strong> is in the <strong>tens place</strong> = 4 tens = 40</p>
+                    <p><strong>7</strong> is in the <strong>ones place</strong> = 7 ones = 7</p>
+                    <p><strong>Together:</strong> 300 + 40 + 7 = <strong>347</strong></p>
+                </div>
+                
+                <h3>Reading Three-Digit Numbers</h3>
+                <div class="example">
+                    <div class="example-title">How to Say It</div>
+                    <p>523 = "Five hundred twenty-three"</p>
+                    <p>608 = "Six hundred eight" (no tens!)</p>
+                    <p>900 = "Nine hundred" (just hundreds!)</p>
+                </div>
+                
+                <h3>Writing in Expanded Form</h3>
+                <div class="example">
+                    <div class="example-title">Different Ways to Write 456</div>
+                    <p><strong>Standard form:</strong> 456</p>
+                    <p><strong>Expanded form:</strong> 400 + 50 + 6</p>
+                    <p><strong>Word form:</strong> Four hundred fifty-six</p>
+                    <p><strong>Place value:</strong> 4 hundreds, 5 tens, 6 ones</p>
+                </div>
+                
+                <h3>Comparing Three-Digit Numbers</h3>
+                <p>Compare from left to right, starting with hundreds:</p>
+                <div class="example">
+                    <div class="example-title">Compare 567 and 589</div>
+                    <p><strong>Step 1:</strong> Compare hundreds: both have 5 (same!)</p>
+                    <p><strong>Step 2:</strong> Compare tens: 6 vs 8</p>
+                    <p>8 > 6, so 589 > 567</p>
+                    <p><strong>Answer:</strong> 567 < 589</p>
+                </div>
+                
+                <h3>Number Patterns</h3>
+                <ul>
+                    <li><strong>100-199:</strong> "One hundred something"</li>
+                    <li><strong>200-299:</strong> "Two hundred something"</li>
+                    <li><strong>500:</strong> Exactly five hundred (no tens or ones)</li>
+                    <li><strong>999:</strong> Largest three-digit number!</li>
+                    <li><strong>1000:</strong> First four-digit number!</li>
+                </ul>
+                
+                <h3>Real-World Three-Digit Numbers</h3>
+                <ul>
+                    <li><strong>Money:</strong> $145, $278</li>
+                    <li><strong>Pages:</strong> Page 234 in a book</li>
+                    <li><strong>Scores:</strong> 487 points in a game</li>
+                    <li><strong>Distance:</strong> 523 miles</li>
+                </ul>
+            `,
+
+            "Regrouping": `
+                <h2>Regrouping</h2>
+                <p>Regrouping (also called carrying and borrowing) helps us add and subtract larger numbers by trading between place values!</p>
+                
+                <h3>What is Regrouping?</h3>
+                <p>Regrouping means trading 10 of one place value for 1 of the next higher place:</p>
+                <ul>
+                    <li>10 ones = 1 ten</li>
+                    <li>10 tens = 1 hundred</li>
+                    <li>And so on!</li>
+                </ul>
+                
+                <h3>Regrouping in Addition (Carrying)</h3>
+                <p>When a column adds to 10 or more, we carry to the next column:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 47 + 36</div>
+                    <pre>  ¹47
++ 36
+----
+  83</pre>
+                    <p><strong>Step 1:</strong> Add ones: 7 + 6 = 13</p>
+                    <p>That's 1 ten and 3 ones!</p>
+                    <p><strong>Step 2:</strong> Write 3, carry the 1 ten to tens column</p>
+                    <p><strong>Step 3:</strong> Add tens: 1 + 4 + 3 = 8 tens</p>
+                    <p><strong>Answer:</strong> <strong>83</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Visual: Trading Up</div>
+                    <p>13 ones: 🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷</p>
+                    <p>Trade 10 ones for 1 ten:</p>
+                    <p>📦 🔷🔷🔷 = 1 ten and 3 ones</p>
+                </div>
+                
+                <h3>Regrouping in Subtraction (Borrowing)</h3>
+                <p>When we can't subtract, we borrow from the next column:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 63 − 28</div>
+                    <pre>  ⁵¹63
+− 28
+----
+  35</pre>
+                    <p><strong>Step 1:</strong> Can't do 3 − 8, so borrow!</p>
+                    <p>Borrow 1 ten from 6 tens → 5 tens and 13 ones</p>
+                    <p><strong>Step 2:</strong> Now: 13 − 8 = 5 ones</p>
+                    <p><strong>Step 3:</strong> Then: 5 tens − 2 tens = 3 tens</p>
+                    <p><strong>Answer:</strong> <strong>35</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Visual: Trading Down</div>
+                    <p>1 ten = 📦</p>
+                    <p>Trade for 10 ones: 🔷🔷🔷🔷🔷🔷🔷🔷🔷🔷</p>
+                    <p>Now you have more ones to subtract!</p>
+                </div>
+                
+                <h3>When Do We Regroup?</h3>
+                <p><strong>In Addition:</strong> When a column sum is 10 or more → Carry</p>
+                <p><strong>In Subtraction:</strong> When top digit is smaller → Borrow</p>
+                
+                <h3>Multiple Regrouping</h3>
+                <div class="example">
+                    <div class="example-title">Example: 67 + 85</div>
+                    <pre>  ¹¹67
++ 85
+----
+ 152</pre>
+                    <p>Ones: 7 + 5 = 12 (carry 1)</p>
+                    <p>Tens: 1 + 6 + 8 = 15 (carry 1)</p>
+                    <p>Hundreds: 1</p>
+                    <p><strong>Answer:</strong> <strong>152</strong></p>
+                </div>
+                
+                <h3>Practice Tips</h3>
+                <ul>
+                    <li>Always write numbers neatly in columns</li>
+                    <li>Start with the ones place</li>
+                    <li>Mark your carried or borrowed numbers small above</li>
+                    <li>Check your work by estimating first</li>
+                </ul>
+            `,
+
+            "Money": `
+                <h2>Money</h2>
+                <p>Money is how we buy things! Understanding coins and bills helps you in everyday life.</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Understanding Dollars and Cents</h3>
+                <p>Money in the US uses dollars ($) and cents (¢):</p>
+                <ul>
+                    <li>1 dollar = <strong>100 cents</strong></li>
+                    <li>$1.00 = 100¢</li>
+                </ul>
+                
+                <h3>The Four Main Coins</h3>
+                <div class="example">
+                    <div class="example-title">Coin Values</div>
+                    <p>🪙 <strong>Penny:</strong> 1¢</p>
+                    <p>🪙 <strong>Nickel:</strong> 5¢ = 5 pennies</p>
+                    <p>🪙 <strong>Dime:</strong> 10¢ = 10 pennies = 2 nickels</p>
+                    <p>🪙 <strong>Quarter:</strong> 25¢ = 25 pennies = 5 nickels = 2½ dimes</p>
+                </div>
+                
+                <h3>Counting Mixed Coins</h3>
+                <p>Start with the largest value coins and count up!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 2 quarters, 1 dime, 1 nickel</div>
+                    <p><strong>Quarters first:</strong> 25¢, 50¢ (count by 25s)</p>
+                    <p><strong>Add dime:</strong> 50¢ + 10¢ = 60¢</p>
+                    <p><strong>Add nickel:</strong> 60¢ + 5¢ = <strong>65¢</strong></p>
+                </div>
+                
+                <h3>Dollar Bills</h3>
+                <div class="example">
+                    <div class="example-title">Common Bills</div>
+                    <ul>
+                        <li><strong>$1 bill:</strong> One dollar = 100¢</li>
+                        <li><strong>$5 bill:</strong> Five dollars = 500¢</li>
+                        <li><strong>$10 bill:</strong> Ten dollars = 1,000¢</li>
+                        <li><strong>$20 bill:</strong> Twenty dollars = 2,000¢</li>
+                    </ul>
+                </div>
+                
+                <h3>Writing Money Amounts</h3>
+                <div class="example">
+                    <div class="example-title">Money Notation</div>
+                    <p><strong>Cents only:</strong> 45¢ or $0.45</p>
+                    <p><strong>Dollars and cents:</strong> $3.50 (3 dollars and 50 cents)</p>
+                    <p><strong>Whole dollars:</strong> $5.00 or $5</p>
+                </div>
+                
+                <h3>Making Change</h3>
+                <div class="example">
+                    <div class="example-title">Example: Buy item for 35¢ with 50¢</div>
+                    <p><strong>Cost:</strong> 35¢</p>
+                    <p><strong>Paid:</strong> 50¢</p>
+                    <p><strong>Change:</strong> 50¢ − 35¢ = <strong>15¢</strong></p>
+                    <p>Could be: 1 dime + 1 nickel</p>
+                </div>
+                
+                <h3>Real-World Money Skills</h3>
+                <ul>
+                    <li>Counting your savings</li>
+                    <li>Buying items at a store</li>
+                    <li>Getting correct change</li>
+                    <li>Comparing prices</li>
+                </ul>
             `
         };
         
