@@ -3884,6 +3884,1070 @@ class MathBoredApp {
                     <li>Getting correct change</li>
                     <li>Comparing prices</li>
                 </ul>
+            `,
+
+            "Time to 5 Minutes": `
+                <h2>Time to 5 Minutes</h2>
+                <p>Now that you can tell time by the hour and half-hour, let's learn to read time to every 5 minutes!</p>
+                
+                <h3>Understanding the Clock</h3>
+                <p>The minute hand points to numbers, but each number represents 5 minutes!</p>
+                
+                <div class="example">
+                    <div class="example-title">The 5-Minute Marks</div>
+                    <ul>
+                        <li>At <strong>1</strong>: 5 minutes</li>
+                        <li>At <strong>2</strong>: 10 minutes</li>
+                        <li>At <strong>3</strong>: 15 minutes</li>
+                        <li>At <strong>4</strong>: 20 minutes</li>
+                        <li>At <strong>5</strong>: 25 minutes</li>
+                        <li>At <strong>6</strong>: 30 minutes</li>
+                        <li>At <strong>7</strong>: 35 minutes</li>
+                        <li>At <strong>8</strong>: 40 minutes</li>
+                        <li>At <strong>9</strong>: 45 minutes</li>
+                        <li>At <strong>10</strong>: 50 minutes</li>
+                        <li>At <strong>11</strong>: 55 minutes</li>
+                        <li>At <strong>12</strong>: 60 minutes (00)</li>
+                    </ul>
+                </div>
+                
+                <h3>Reading the Time</h3>
+                <div class="example">
+                    <div class="example-title">Example: 4:15</div>
+                    <p>⏰ <strong>Hour hand:</strong> Between 4 and 5</p>
+                    <p>⏰ <strong>Minute hand:</strong> Points to 3</p>
+                    <p><strong>Think:</strong> 3 × 5 = 15 minutes</p>
+                    <p><strong>Time:</strong> 4:15 (four fifteen)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: 7:45</div>
+                    <p>⏰ <strong>Hour hand:</strong> Between 7 and 8 (almost to 8!)</p>
+                    <p>⏰ <strong>Minute hand:</strong> Points to 9</p>
+                    <p><strong>Think:</strong> 9 × 5 = 45 minutes</p>
+                    <p><strong>Time:</strong> 7:45 (seven forty-five)</p>
+                </div>
+                
+                <h3>Special Time Names</h3>
+                <ul>
+                    <li><strong>:00</strong> - "o'clock" (2:00 = 2 o'clock)</li>
+                    <li><strong>:15</strong> - "quarter past" (3:15 = quarter past 3)</li>
+                    <li><strong>:30</strong> - "half past" (5:30 = half past 5)</li>
+                    <li><strong>:45</strong> - "quarter to" (6:45 = quarter to 7)</li>
+                </ul>
+                
+                <h3>Skip Counting Connection</h3>
+                <p>Reading minutes uses skip counting by 5!</p>
+                <div class="example">
+                    <div class="example-title">Count Around the Clock</div>
+                    <p>Starting at 12, count by 5s:</p>
+                    <p>12=0, 1=5, 2=10, 3=15, 4=20, 5=25, 6=30...</p>
+                </div>
+                
+                <h3>Practice Tips</h3>
+                <ul>
+                    <li>Learn to skip count by 5s first</li>
+                    <li>Remember which hand is which (short = hours, long = minutes)</li>
+                    <li>The hour hand moves gradually as minutes pass</li>
+                </ul>
+                
+                <h3>Real-Life Times</h3>
+                <ul>
+                    <li>School starts at 8:15</li>
+                    <li>Recess at 10:30</li>
+                    <li>Lunch at 12:15</li>
+                    <li>Home at 3:20</li>
+                </ul>
+            `,
+
+            "Bar Graphs and Picture Graphs": `
+                <h2>Bar Graphs and Picture Graphs</h2>
+                <p>Graphs help us see data in a visual way! Bar graphs and picture graphs make it easy to compare information.</p>
+                
+                <h3>Picture Graphs</h3>
+                <p>Picture graphs use pictures or symbols to show data:</p>
+                
+                <div class="example">
+                    <div class="example-title">Favorite Sports</div>
+                    <p><strong>Soccer:</strong> ⚽⚽⚽⚽⚽⚽ (6 students)</p>
+                    <p><strong>Basketball:</strong> 🏀🏀🏀🏀 (4 students)</p>
+                    <p><strong>Baseball:</strong> ⚾⚾⚾⚾⚾⚾⚾ (7 students)</p>
+                    <p><strong>Each symbol = 1 student</strong></p>
+                    <p><strong>Most popular:</strong> Baseball!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Reading a Picture Graph</div>
+                    <p>Ask yourself:</p>
+                    <ul>
+                        <li>What does each picture represent?</li>
+                        <li>How many pictures are in each row?</li>
+                        <li>Which has the most/least?</li>
+                        <li>How many altogether?</li>
+                    </ul>
+                </div>
+                
+                <h3>Bar Graphs</h3>
+                <p>Bar graphs use bars to show amounts:</p>
+                
+                <div class="example">
+                    <div class="example-title">Books Read This Month</div>
+                    <p><strong>Week 1:</strong> ▮▮▮▮ (4 books)</p>
+                    <p><strong>Week 2:</strong> ▮▮▮ (3 books)</p>
+                    <p><strong>Week 3:</strong> ▮▮▮▮▮▮ (6 books)</p>
+                    <p><strong>Week 4:</strong> ▮▮▮▮▮ (5 books)</p>
+                    <p><strong>Total:</strong> 4 + 3 + 6 + 5 = 18 books!</p>
+                </div>
+                
+                <h3>Creating a Bar Graph</h3>
+                <ol>
+                    <li>Draw a horizontal line (x-axis) and vertical line (y-axis)</li>
+                    <li>Label what you're comparing (x-axis)</li>
+                    <li>Label the scale/numbers (y-axis)</li>
+                    <li>Draw bars to show amounts</li>
+                    <li>Add a title</li>
+                </ol>
+                
+                <h3>Picture Graph vs Bar Graph</h3>
+                <div class="example">
+                    <div class="example-title">When to Use Each</div>
+                    <p><strong>Picture graphs:</strong> Fun, visual, good for small numbers</p>
+                    <p><strong>Bar graphs:</strong> Clearer for larger numbers, easier to compare</p>
+                    <p>Both show the same information!</p>
+                </div>
+                
+                <h3>Reading Graphs</h3>
+                <p>Important questions to ask:</p>
+                <ul>
+                    <li>What is the title?</li>
+                    <li>What is being counted?</li>
+                    <li>Which category has the most?</li>
+                    <li>Which has the least?</li>
+                    <li>What's the difference between highest and lowest?</li>
+                </ul>
+                
+                <h3>Real-World Graphs</h3>
+                <ul>
+                    <li>Comparing heights of classmates</li>
+                    <li>Tracking favorite foods</li>
+                    <li>Showing weather data</li>
+                    <li>Displaying test results</li>
+                </ul>
+            `,
+
+            "Measurement Units": `
+                <h2>Measurement Units</h2>
+                <p>Units tell us HOW we're measuring. Using the right unit helps us measure accurately!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>US Customary Length Units</h3>
+                <div class="example">
+                    <div class="example-title">From Smallest to Largest</div>
+                    <ul>
+                        <li><strong>Inch (in):</strong> About your thumb width</li>
+                        <li><strong>Foot (ft):</strong> 12 inches, about your foot length</li>
+                        <li><strong>Yard (yd):</strong> 3 feet, about one big step</li>
+                        <li><strong>Mile (mi):</strong> 5,280 feet, for long distances</li>
+                    </ul>
+                </div>
+                
+                <h3>Metric Length Units</h3>
+                <div class="example">
+                    <div class="example-title">Metric System</div>
+                    <ul>
+                        <li><strong>Centimeter (cm):</strong> Width of your pinky</li>
+                        <li><strong>Meter (m):</strong> 100 cm, about a big step</li>
+                        <li><strong>Kilometer (km):</strong> 1,000 m, for long distances</li>
+                    </ul>
+                </div>
+                
+                <h3>Choosing the Right Unit</h3>
+                <div class="example">
+                    <div class="example-title">What to Use When</div>
+                    <p><strong>Inches/Centimeters:</strong> Small things (pencils, hands, books)</p>
+                    <p><strong>Feet/Meters:</strong> Medium things (people, rooms, cars)</p>
+                    <p><strong>Miles/Kilometers:</strong> Long distances (trips, races)</p>
+                </div>
+                
+                <h3>Comparing Measurements</h3>
+                <div class="example">
+                    <div class="example-title">Which is Longer?</div>
+                    <p>5 inches or 1 foot?</p>
+                    <p><strong>Think:</strong> 1 foot = 12 inches</p>
+                    <p>12 inches > 5 inches</p>
+                    <p><strong>Answer:</strong> 1 foot is longer!</p>
+                </div>
+                
+                <h3>Tools for Measuring</h3>
+                <ul>
+                    <li><strong>Ruler:</strong> Measures in inches or centimeters (small)</li>
+                    <li><strong>Yardstick/Meter stick:</strong> Longer measurements</li>
+                    <li><strong>Tape measure:</strong> Flexible, for any shape</li>
+                </ul>
+                
+                <h3>Practice Activity</h3>
+                <p>Measure objects and choose the best unit:</p>
+                <ul>
+                    <li>Your desk width: <strong>feet or meters</strong></li>
+                    <li>Your pencil length: <strong>inches or centimeters</strong></li>
+                    <li>Distance to school: <strong>miles or kilometers</strong></li>
+                </ul>
+            `,
+
+            "Arrays (Introduction)": `
+                <h2>Arrays (Introduction)</h2>
+                <p>An array is a way to arrange objects in equal rows and columns. Arrays help us see multiplication!</p>
+                
+                <h3>What is an Array?</h3>
+                <p>An array is objects arranged in rows and columns, like a grid:</p>
+                
+                <div class="example">
+                    <div class="example-title">Array of Stars</div>
+                    <p>⭐⭐⭐⭐</p>
+                    <p>⭐⭐⭐⭐</p>
+                    <p>⭐⭐⭐⭐</p>
+                    <p><strong>3 rows</strong> and <strong>4 columns</strong></p>
+                    <p>Total stars: 3 × 4 = <strong>12 stars</strong></p>
+                </div>
+                
+                <h3>Rows and Columns</h3>
+                <div class="example">
+                    <div class="example-title">Understanding the Grid</div>
+                    <p><strong>Rows:</strong> Go across (horizontal) →</p>
+                    <p><strong>Columns:</strong> Go up and down (vertical) ↑</p>
+                    <p>Think: Rows are like rows of seats, columns like pillars!</p>
+                </div>
+                
+                <h3>Counting with Arrays</h3>
+                <p>There are three ways to count an array:</p>
+                
+                <div class="example">
+                    <div class="example-title">Array: 4 rows × 5 columns</div>
+                    <p><strong>Method 1: Count all:</strong> 1, 2, 3, 4, 5... 20</p>
+                    <p><strong>Method 2: Add rows:</strong> 5 + 5 + 5 + 5 = 20</p>
+                    <p><strong>Method 3: Multiply:</strong> 4 × 5 = 20</p>
+                    <p>All give the same answer: <strong>20</strong></p>
+                </div>
+                
+                <h3>Arrays Show Multiplication</h3>
+                <div class="example">
+                    <div class="example-title">Connection to Multiplication</div>
+                    <p>🔷🔷🔷</p>
+                    <p>🔷🔷🔷</p>
+                    <p><strong>2 rows of 3</strong> = 2 × 3 = 6</p>
+                    <p>OR</p>
+                    <p><strong>3 columns of 2</strong> = 3 × 2 = 6</p>
+                    <p>Same array, same answer!</p>
+                </div>
+                
+                <h3>Commutative Property</h3>
+                <p>You can turn an array and the total stays the same:</p>
+                <div class="example">
+                    <div class="example-title">Rotating an Array</div>
+                    <p>3 rows × 4 columns = 12</p>
+                    <p>4 rows × 3 columns = 12</p>
+                    <p>3 × 4 = 4 × 3 ✓</p>
+                </div>
+                
+                <h3>Real-World Arrays</h3>
+                <ul>
+                    <li><strong>Egg cartons:</strong> 2 rows × 6 = 12 eggs</li>
+                    <li><strong>Muffin tins:</strong> 3 rows × 4 = 12 muffins</li>
+                    <li><strong>Classroom desks:</strong> 5 rows × 4 = 20 desks</li>
+                    <li><strong>Checkerboard:</strong> 8 rows × 8 = 64 squares</li>
+                </ul>
+                
+                <h3>Making Your Own Arrays</h3>
+                <p>Try arranging objects (coins, buttons, blocks) into arrays!</p>
+                <ul>
+                    <li>Can you make a 2 × 5 array?</li>
+                    <li>How about a 3 × 3 array?</li>
+                    <li>What numbers can you NOT make into equal arrays? (odd numbers!)</li>
+                </ul>
+            `,
+
+            "Estimating Quantities": `
+                <h2>Estimating Quantities</h2>
+                <p>Estimating means making a good guess about "about how many." It helps us check if our answers make sense!</p>
+                
+                <h3>What is an Estimate?</h3>
+                <p>An estimate is an educated guess that's close to the real answer:</p>
+                <ul>
+                    <li><strong>Not exact</strong> - but close enough to be useful</li>
+                    <li><strong>Quick to do</strong> - faster than counting</li>
+                    <li><strong>Helps you check</strong> - if exact answer is way off, you made a mistake!</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Example: Estimate Jelly Beans</div>
+                    <p>🫘🫘🫘🫘🫘🫘🫘🫘🫘🫘🫘🫘🫘🫘🫘🫘🫘</p>
+                    <p><strong>Too many to count quickly!</strong></p>
+                    <p><strong>Estimate:</strong> "About 15 or 20"</p>
+                    <p><strong>Actual count:</strong> 17 (our estimate was close!)</p>
+                </div>
+                
+                <h3>Estimation Strategies</h3>
+                
+                <div class="example">
+                    <div class="example-title">Strategy 1: Group and Count</div>
+                    <p>Group items by 5s or 10s, then count groups</p>
+                    <p>|||| |||| |||| (3 groups of 5 = about 15)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Strategy 2: Round to Nearby Number</div>
+                    <p>48 is close to <strong>50</strong></p>
+                    <p>23 is close to <strong>20</strong></p>
+                    <p>To estimate 48 + 23: 50 + 20 = <strong>about 70</strong></p>
+                    <p>(Actual: 71 - very close!)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Strategy 3: Use Reference Points</div>
+                    <p>Compare to something you know:</p>
+                    <p>"This pile has about twice as many as that pile"</p>
+                    <p>"This looks like about 10, so this must be about 30"</p>
+                </div>
+                
+                <h3>When to Estimate</h3>
+                <ul>
+                    <li><strong>Too many to count:</strong> Crowd size, grains of sand</li>
+                    <li><strong>Quick check needed:</strong> Does $47.89 + $23.12 ≈ $71? Yes!</li>
+                    <li><strong>No exact count needed:</strong> "About how long will this take?"</li>
+                </ul>
+                
+                <h3>Estimation Words</h3>
+                <p>These words mean we're estimating:</p>
+                <ul>
+                    <li><strong>About</strong> - about 30 people</li>
+                    <li><strong>Approximately</strong> - approximately 50 miles</li>
+                    <li><strong>Around</strong> - around 100 students</li>
+                    <li><strong>Nearly</strong> - nearly 20 minutes</li>
+                    <li><strong>Close to</strong> - close to $5</li>
+                </ul>
+                
+                <h3>Checking Your Work</h3>
+                <div class="example">
+                    <div class="example-title">Using Estimation to Check</div>
+                    <p><strong>Problem:</strong> 52 + 38 = ?</p>
+                    <p><strong>Your answer:</strong> 810</p>
+                    <p><strong>Estimate:</strong> 50 + 40 = 90</p>
+                    <p><strong>Check:</strong> 810 is WAY different from 90 - there's a mistake!</p>
+                    <p><strong>Correct answer:</strong> 90 (the estimate was right!)</p>
+                </div>
+                
+                <h3>Practice Estimating</h3>
+                <ul>
+                    <li>Estimate how many books are on a shelf</li>
+                    <li>Estimate how many students in your class</li>
+                    <li>Estimate how many steps from your desk to the door</li>
+                </ul>
+            `,
+
+            "Place Value (Hundreds)": `
+                <h2>Place Value (Hundreds)</h2>
+                <p>Now we're working with three-digit numbers! Understanding hundreds place makes big numbers easier to work with.</p>
+                
+                <h3>The Three Places</h3>
+                <p>Every three-digit number has hundreds, tens, and ones:</p>
+                
+                <div class="example">
+                    <div class="example-title">The Number 456</div>
+                    <p><strong>4</strong> is in the <strong>hundreds place</strong> = 4 hundreds = 400</p>
+                    <p><strong>5</strong> is in the <strong>tens place</strong> = 5 tens = 50</p>
+                    <p><strong>6</strong> is in the <strong>ones place</strong> = 6 ones = 6</p>
+                    <p><strong>Total:</strong> 400 + 50 + 6 = <strong>456</strong></p>
+                </div>
+                
+                <h3>Visual Representation</h3>
+                <div class="example">
+                    <div class="example-title">Using Base-Ten Blocks</div>
+                    <p>For 234:</p>
+                    <p>📊📊 (2 hundreds flats = 200)</p>
+                    <p>📦📦📦 (3 tens rods = 30)</p>
+                    <p>🔷🔷🔷🔷 (4 ones cubes = 4)</p>
+                    <p><strong>Total:</strong> 234</p>
+                </div>
+                
+                <h3>Expanded Form</h3>
+                <div class="example">
+                    <div class="example-title">Writing 583 Different Ways</div>
+                    <p><strong>Standard:</strong> 583</p>
+                    <p><strong>Expanded:</strong> 500 + 80 + 3</p>
+                    <p><strong>Word form:</strong> Five hundred eighty-three</p>
+                    <p><strong>Place value:</strong> 5 hundreds, 8 tens, 3 ones</p>
+                </div>
+                
+                <h3>Comparing Three-Digit Numbers</h3>
+                <p>Always start with the biggest place value!</p>
+                <div class="example">
+                    <div class="example-title">Which is Greater: 647 or 652?</div>
+                    <p><strong>Hundreds:</strong> Both have 6 (same!)</p>
+                    <p><strong>Tens:</strong> 4 vs 5 → 5 is greater</p>
+                    <p><strong>Answer:</strong> 652 > 647</p>
+                </div>
+                
+                <h3>Important Numbers</h3>
+                <ul>
+                    <li><strong>100:</strong> One hundred (smallest 3-digit number)</li>
+                    <li><strong>500:</strong> Five hundred (halfway to 1000)</li>
+                    <li><strong>999:</strong> Nine hundred ninety-nine (largest 3-digit)</li>
+                    <li><strong>1000:</strong> One thousand (first 4-digit number!)</li>
+                </ul>
+                
+                <h3>Real-World Examples</h3>
+                <ul>
+                    <li><strong>Money:</strong> $347 = 3 hundred-dollar bills, 4 tens, 7 ones</li>
+                    <li><strong>Pages:</strong> Page 582 in a thick book</li>
+                    <li><strong>Addresses:</strong> 729 Main Street</li>
+                </ul>
+            `,
+
+            "Mental Math Strategies": `
+                <h2>Mental Math Strategies</h2>
+                <p>Mental math means solving problems in your head without writing them down. These strategies make it faster and easier!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Adding 10 or 100</h3>
+                <p>Adding 10 or 100 is super easy - just change one digit!</p>
+                
+                <div class="example">
+                    <div class="example-title">Adding 10</div>
+                    <p>45 + 10 = <strong>55</strong> (tens place goes up by 1)</p>
+                    <p>82 + 10 = <strong>92</strong></p>
+                    <p>127 + 10 = <strong>137</strong></p>
+                    <p><strong>Trick:</strong> Only the tens digit changes!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Adding 100</div>
+                    <p>234 + 100 = <strong>334</strong> (hundreds place goes up by 1)</p>
+                    <p>567 + 100 = <strong>667</strong></p>
+                    <p><strong>Trick:</strong> Only the hundreds digit changes!</p>
+                </div>
+                
+                <h3>Subtracting 10 or 100</h3>
+                <div class="example">
+                    <div class="example-title">Subtracting 10</div>
+                    <p>68 − 10 = <strong>58</strong> (tens place goes down by 1)</p>
+                    <p>91 − 10 = <strong>81</strong></p>
+                    <p>145 − 10 = <strong>135</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Subtracting 100</div>
+                    <p>456 − 100 = <strong>356</strong> (hundreds place goes down by 1)</p>
+                    <p>723 − 100 = <strong>623</strong></p>
+                </div>
+                
+                <h3>Making Tens Strategy</h3>
+                <p>Look for numbers that make 10 to make addition easier:</p>
+                <div class="example">
+                    <div class="example-title">Example: 8 + 7</div>
+                    <p><strong>Think:</strong> 8 + 2 = 10, and I have 5 more</p>
+                    <p>So: 10 + 5 = <strong>15</strong></p>
+                    <p>Or: 7 + 3 = 10, and I have 5 more, so 10 + 5 = 15</p>
+                </div>
+                
+                <h3>Doubles and Near Doubles</h3>
+                <div class="example">
+                    <div class="example-title">Doubles</div>
+                    <p>5 + 5 = 10 (easy!)</p>
+                    <p>7 + 7 = 14</p>
+                    <p>9 + 9 = 18</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Near Doubles</div>
+                    <p>6 + 7 = ?</p>
+                    <p><strong>Think:</strong> 6 + 6 = 12, plus 1 more = <strong>13</strong></p>
+                </div>
+                
+                <h3>Counting On/Back</h3>
+                <p>For small differences, just count!</p>
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>47 + 3: Start at 47, count up: 48, 49, 50</p>
+                    <p>50 − 3: Start at 50, count back: 49, 48, 47</p>
+                </div>
+                
+                <h3>Why Mental Math Matters</h3>
+                <ul>
+                    <li>Faster than writing</li>
+                    <li>Builds number sense</li>
+                    <li>Useful in everyday life (shopping, time)</li>
+                    <li>Strengthens your brain!</li>
+                </ul>
+            `,
+
+            "Measurement (Inches/Centimeters)": `
+                <h2>Measurement (Inches/Centimeters)</h2>
+                <p>Learning to use a ruler precisely is an important skill! Let's master measuring in inches and centimeters.</p>
+                
+                <h3>Parts of a Ruler</h3>
+                <div class="example">
+                    <div class="example-title">Reading a Ruler</div>
+                    <ul>
+                        <li><strong>Inches side:</strong> Usually on top, marked 1, 2, 3...</li>
+                        <li><strong>Centimeters side:</strong> Usually on bottom, marked 1, 2, 3...</li>
+                        <li><strong>Start:</strong> Always begins at 0</li>
+                        <li><strong>Lines:</strong> Small marks show parts of an inch/cm</li>
+                    </ul>
+                </div>
+                
+                <h3>Measuring in Inches</h3>
+                <div class="example">
+                    <div class="example-title">How to Measure</div>
+                    <p><strong>Step 1:</strong> Line up one end with 0</p>
+                    <p><strong>Step 2:</strong> Look where the other end reaches</p>
+                    <p><strong>Step 3:</strong> Read the number</p>
+                    <p><strong>Step 4:</strong> Say the unit: "inches" or write "in"</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Measuring a Crayon</div>
+                    <p>Start at 0, end at 3</p>
+                    <p><strong>Length:</strong> 3 inches</p>
+                </div>
+                
+                <h3>Measuring in Centimeters</h3>
+                <div class="example">
+                    <div class="example-title">Centimeter Basics</div>
+                    <p>Centimeters are smaller than inches:</p>
+                    <p>1 inch ≈ 2.5 centimeters</p>
+                    <p>The process is exactly the same - start at 0 and read where it ends!</p>
+                </div>
+                
+                <h3>Half Inches and Half Centimeters</h3>
+                <p>Sometimes objects land between two numbers:</p>
+                <div class="example">
+                    <div class="example-title">Between Numbers</div>
+                    <p>If something reaches halfway between 2 and 3:</p>
+                    <p><strong>Inches:</strong> 2½ inches or 2.5 inches</p>
+                    <p><strong>Centimeters:</strong> 2.5 cm</p>
+                </div>
+                
+                <h3>Being Accurate</h3>
+                <ul>
+                    <li>Always start at 0, not at the edge!</li>
+                    <li>Keep the ruler straight and flat</li>
+                    <li>Read at eye level (not from an angle)</li>
+                    <li>Be as precise as you can</li>
+                </ul>
+                
+                <h3>Comparing Inches and Centimeters</h3>
+                <div class="example">
+                    <div class="example-title">Same Object, Different Units</div>
+                    <p>A pencil might be:</p>
+                    <p><strong>7 inches</strong> long</p>
+                    <p>OR</p>
+                    <p><strong>18 centimeters</strong> long</p>
+                    <p>Same pencil, different units!</p>
+                </div>
+                
+                <h3>Practice Activity</h3>
+                <p>Find and measure these objects:</p>
+                <ul>
+                    <li>Your pencil (in inches AND centimeters)</li>
+                    <li>A book width</li>
+                    <li>Your hand span</li>
+                    <li>A piece of paper</li>
+                </ul>
+            `,
+
+            "Repeated Addition": `
+                <h2>Repeated Addition</h2>
+                <p>Repeated addition is adding the same number over and over. It's the foundation for understanding multiplication!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is Repeated Addition?</h3>
+                <p>When you add the same number multiple times:</p>
+                
+                <div class="example">
+                    <div class="example-title">Adding 5 Three Times</div>
+                    <p>5 + 5 + 5 = <strong>15</strong></p>
+                    <p>We added 5 three times!</p>
+                </div>
+                
+                <h3>Visual Repeated Addition</h3>
+                <div class="example">
+                    <div class="example-title">Groups of 4</div>
+                    <p>🔷🔷🔷🔷 + 🔷🔷🔷🔷 + 🔷🔷🔷🔷</p>
+                    <p>Three groups of 4</p>
+                    <p>4 + 4 + 4 = <strong>12</strong></p>
+                </div>
+                
+                <h3>Connection to Multiplication</h3>
+                <p>Repeated addition is what multiplication means!</p>
+                
+                <div class="example">
+                    <div class="example-title">Two Ways to Write It</div>
+                    <p><strong>Repeated addition:</strong> 3 + 3 + 3 + 3 + 3 = 15</p>
+                    <p><strong>Multiplication:</strong> 5 × 3 = 15</p>
+                    <p>Both mean "5 groups of 3"!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Reading Multiplication</div>
+                    <p><strong>4 × 6</strong> means:</p>
+                    <ul>
+                        <li>"4 groups of 6" → 6 + 6 + 6 + 6</li>
+                        <li>"6 added 4 times" → 6 + 6 + 6 + 6</li>
+                        <li>Answer: <strong>24</strong></li>
+                    </ul>
+                </div>
+                
+                <h3>Real-World Examples</h3>
+                <div class="example">
+                    <div class="example-title">Story: Bags of Apples</div>
+                    <p>You have 5 bags. Each bag has 3 apples.</p>
+                    <p><strong>Repeated addition:</strong> 3 + 3 + 3 + 3 + 3 = 15</p>
+                    <p><strong>Multiplication:</strong> 5 × 3 = 15</p>
+                    <p><strong>Total apples:</strong> 15</p>
+                </div>
+                
+                <h3>Building Multiplication Tables</h3>
+                <p>Repeated addition helps you learn multiplication facts:</p>
+                <ul>
+                    <li>2 + 2 + 2 = 6, so 3 × 2 = 6</li>
+                    <li>4 + 4 + 4 + 4 = 16, so 4 × 4 = 16</li>
+                    <li>5 + 5 = 10, so 2 × 5 = 10</li>
+                </ul>
+                
+                <h3>Practice</h3>
+                <p>Write these as repeated addition AND multiplication:</p>
+                <ul>
+                    <li>4 groups of 7</li>
+                    <li>2 added 6 times</li>
+                    <li>5 groups of 5</li>
+                </ul>
+            `,
+
+            "Equal Groups": `
+                <h2>Equal Groups</h2>
+                <p>Equal groups are sets that have the same number of items. Understanding equal groups helps with both multiplication and division!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What are Equal Groups?</h3>
+                <p>Equal groups have the exact same amount in each group:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 3 Equal Groups</div>
+                    <p>🍎🍎🍎🍎 | 🍎🍎🍎🍎 | 🍎🍎🍎🍎</p>
+                    <p><strong>3 groups</strong> of <strong>4 apples</strong> each</p>
+                    <p><strong>Total:</strong> 3 × 4 = 12 apples</p>
+                </div>
+                
+                <h3>Equal Groups and Multiplication</h3>
+                <div class="example">
+                    <div class="example-title">Groups Show Multiplication</div>
+                    <p>If you have <strong>5 boxes</strong> with <strong>3 toys</strong> in each box:</p>
+                    <p>🎁🎁🎁 | 🎁🎁🎁 | 🎁🎁🎁 | 🎁🎁🎁 | 🎁🎁🎁</p>
+                    <p><strong>Number of groups:</strong> 5</p>
+                    <p><strong>Size of each group:</strong> 3</p>
+                    <p><strong>Total:</strong> 5 × 3 = 15 toys</p>
+                </div>
+                
+                <h3>Equal Groups and Division</h3>
+                <p>Division splits a total into equal groups!</p>
+                
+                <div class="example">
+                    <div class="example-title">Two Types of Division Problems</div>
+                    <p><strong>Type 1: How many groups?</strong></p>
+                    <p>12 cookies, put 3 in each bag. How many bags?</p>
+                    <p>12 ÷ 3 = <strong>4 bags</strong></p>
+                    
+                    <p><strong>Type 2: How many in each group?</strong></p>
+                    <p>12 cookies, split into 4 bags. How many in each?</p>
+                    <p>12 ÷ 4 = <strong>3 in each bag</strong></p>
+                </div>
+                
+                <h3>Making Equal Groups</h3>
+                <div class="example">
+                    <div class="example-title">Activity: 15 Items</div>
+                    <p>Can you make equal groups?</p>
+                    <ul>
+                        <li><strong>3 groups:</strong> 15 ÷ 3 = 5 in each ✓</li>
+                        <li><strong>5 groups:</strong> 15 ÷ 5 = 3 in each ✓</li>
+                        <li><strong>2 groups:</strong> 15 ÷ 2 = 7 R1 (not equal!)</li>
+                    </ul>
+                </div>
+                
+                <h3>Unequal vs Equal</h3>
+                <div class="example">
+                    <div class="example-title">Compare</div>
+                    <p><strong>Unequal:</strong> 🔷🔷🔷 | 🔷🔷 | 🔷🔷🔷🔷 (3, 2, 4)</p>
+                    <p><strong>Equal:</strong> 🔷🔷🔷 | 🔷🔷🔷 | 🔷🔷🔷 (3, 3, 3)</p>
+                    <p>Only the second set has equal groups!</p>
+                </div>
+                
+                <h3>Real-World Equal Groups</h3>
+                <ul>
+                    <li><strong>Sharing fairly:</strong> 20 candies among 4 friends = 5 each</li>
+                    <li><strong>Packing:</strong> 24 cookies in boxes of 6 = 4 boxes</li>
+                    <li><strong>Teams:</strong> 18 players in teams of 6 = 3 teams</li>
+                </ul>
+            `,
+
+            "Shapes (2D Properties)": `
+                <h2>Shapes (2D Properties)</h2>
+                <p>Two-dimensional shapes are flat and have special properties. Let's explore sides, vertices (corners), and angles!</p>
+                
+                <h3>Properties of Shapes</h3>
+                <p>Every 2D shape has these features:</p>
+                <ul>
+                    <li><strong>Sides:</strong> The straight or curved edges</li>
+                    <li><strong>Vertices:</strong> The corners (where sides meet)</li>
+                    <li><strong>Angles:</strong> The space where two sides meet</li>
+                </ul>
+                
+                <h3>Triangle Properties</h3>
+                <div class="example">
+                    <div class="example-title">Triangle 🔺</div>
+                    <ul>
+                        <li><strong>Sides:</strong> 3 straight sides</li>
+                        <li><strong>Vertices:</strong> 3 corners</li>
+                        <li><strong>Angles:</strong> 3 angles</li>
+                    </ul>
+                    <p><strong>Types:</strong> Can be big, small, pointy, or wide - still a triangle!</p>
+                </div>
+                
+                <h3>Quadrilateral Properties</h3>
+                <p>Quadrilaterals are shapes with 4 sides:</p>
+                
+                <div class="example">
+                    <div class="example-title">Square ⬜</div>
+                    <ul>
+                        <li><strong>Sides:</strong> 4 equal sides</li>
+                        <li><strong>Vertices:</strong> 4 square corners (90° angles)</li>
+                        <li><strong>Special:</strong> All sides MUST be the same length</li>
+                    </ul>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Rectangle ▭</div>
+                    <ul>
+                        <li><strong>Sides:</strong> 4 sides (opposite sides equal)</li>
+                        <li><strong>Vertices:</strong> 4 square corners</li>
+                        <li><strong>Special:</strong> 2 long sides, 2 short sides</li>
+                    </ul>
+                    <p>Note: A square is a special rectangle!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Trapezoid</div>
+                    <ul>
+                        <li><strong>Sides:</strong> 4 sides</li>
+                        <li><strong>Special:</strong> At least 2 sides are parallel (go same direction)</li>
+                    </ul>
+                </div>
+                
+                <h3>Pentagon, Hexagon, Octagon</h3>
+                <div class="example">
+                    <div class="example-title">More Shapes</div>
+                    <p><strong>Pentagon:</strong> 5 sides, 5 vertices</p>
+                    <p><strong>Hexagon:</strong> 6 sides, 6 vertices (like a honeycomb!)</p>
+                    <p><strong>Octagon:</strong> 8 sides, 8 vertices (like a stop sign!)</p>
+                </div>
+                
+                <h3>Circle is Different</h3>
+                <div class="example">
+                    <div class="example-title">Circle ⭕</div>
+                    <ul>
+                        <li><strong>Sides:</strong> 0 (it's curved!)</li>
+                        <li><strong>Vertices:</strong> 0 corners</li>
+                        <li><strong>Special:</strong> Every point is the same distance from center</li>
+                    </ul>
+                </div>
+                
+                <h3>Counting Sides and Vertices</h3>
+                <p><strong>Pattern:</strong> Most shapes have the same number of sides and vertices!</p>
+                <ul>
+                    <li>Triangle: 3 sides, 3 vertices</li>
+                    <li>Square: 4 sides, 4 vertices</li>
+                    <li>Pentagon: 5 sides, 5 vertices</li>
+                </ul>
+                
+                <h3>Shape Hunt</h3>
+                <p>Find these shapes around you:</p>
+                <ul>
+                    <li>Windows (rectangles)</li>
+                    <li>Doors (rectangles)</li>
+                    <li>Pizza slices (triangles)</li>
+                    <li>Stop signs (octagons)</li>
+                    <li>Coins (circles)</li>
+                </ul>
+            `,
+
+            "Line Plots (Simple)": `
+                <h2>Line Plots (Simple)</h2>
+                <p>Line plots organize measurement data on a number line. They help us see all our data at once and find patterns!</p>
+                
+                <h3>What is a Line Plot?</h3>
+                <p>A line plot shows data above a number line using X's or dots:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Pencil Lengths (in inches)</div>
+                    <p style="font-family: monospace;">
+                    <strong>X</strong><br>
+                    <strong>X  X</strong><br>
+                    <strong>X  X  X</strong><br>
+                    4  5  6  7  inches
+                    </p>
+                    <p><strong>Data shown:</strong> 1 pencil is 4 inches, 2 are 5 inches, 3 are 6 inches</p>
+                </div>
+                
+                <h3>Creating a Line Plot</h3>
+                <ol>
+                    <li><strong>Draw a number line:</strong> Include all values from your data</li>
+                    <li><strong>Label it:</strong> Write what you're measuring and the unit</li>
+                    <li><strong>Mark each data point:</strong> Put an X above the number for each measurement</li>
+                    <li><strong>Stack X's:</strong> If multiple items have same measurement, stack the X's</li>
+                </ol>
+                
+                <div class="example">
+                    <div class="example-title">Example: Shoe Lengths</div>
+                    <p><strong>Data:</strong> 6, 7, 6, 8, 7, 7, 6</p>
+                    <p style="font-family: monospace;">
+                    <strong>   X</strong><br>
+                    <strong>X  X  X</strong><br>
+                    <strong>X  X  X</strong><br>
+                    6  7  8  inches
+                    </p>
+                    <p><strong>We see:</strong> 3 shoes are 6 inches, 3 are 7 inches, 1 is 8 inches</p>
+                    <p><strong>Most common:</strong> 6 and 7 inches (mode)</p>
+                </div>
+                
+                <h3>Reading a Line Plot</h3>
+                <p>When you see a line plot, ask:</p>
+                <ul>
+                    <li><strong>What's being measured?</strong> (Read the label)</li>
+                    <li><strong>What's the range?</strong> (Smallest to largest value)</li>
+                    <li><strong>What's most common?</strong> (Tallest column of X's)</li>
+                    <li><strong>How many total?</strong> (Count all X's)</li>
+                </ul>
+                
+                <h3>Why Use Line Plots?</h3>
+                <ul>
+                    <li>Shows ALL the data at once</li>
+                    <li>Easy to see patterns</li>
+                    <li>Shows gaps (values with no X's)</li>
+                    <li>Simple to create</li>
+                </ul>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li>Measuring plant heights over time</li>
+                    <li>Recording daily temperatures</li>
+                    <li>Tracking how long tasks take</li>
+                    <li>Comparing lengths or weights</li>
+                </ul>
+            `,
+
+            "Counting Money": `
+                <h2>Counting Money</h2>
+                <p>Counting mixed coins is an important real-world skill! Let's learn to count combinations of pennies, nickels, dimes, and quarters.</p>
+                
+                <h3>The Strategy: Start with Largest</h3>
+                <p>Always count largest value coins first, then work down to smallest!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Mixed Coins</div>
+                    <p><strong>Coins:</strong> 3 quarters, 2 dimes, 1 nickel, 3 pennies</p>
+                    <p><strong>Step 1 - Quarters (25¢):</strong> 25¢, 50¢, 75¢</p>
+                    <p><strong>Step 2 - Dimes (10¢):</strong> 75¢ + 10¢ = 85¢, 85¢ + 10¢ = 95¢</p>
+                    <p><strong>Step 3 - Nickels (5¢):</strong> 95¢ + 5¢ = $1.00</p>
+                    <p><strong>Step 4 - Pennies (1¢):</strong> $1.00, $1.01, $1.02, $1.03</p>
+                    <p><strong>Total:</strong> <strong>$1.03</strong> or <strong>103¢</strong></p>
+                </div>
+                
+                <h3>Skip Counting with Coins</h3>
+                <div class="example">
+                    <div class="example-title">Counting 5 Nickels</div>
+                    <p>Skip count by 5: 5¢, 10¢, 15¢, 20¢, 25¢</p>
+                    <p><strong>Total:</strong> 25¢ (same as 1 quarter!)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Counting 4 Dimes</div>
+                    <p>Skip count by 10: 10¢, 20¢, 30¢, 40¢</p>
+                    <p><strong>Total:</strong> 40¢</p>
+                </div>
+                
+                <h3>Making a Dollar</h3>
+                <p>There are many ways to make $1.00 (100¢):</p>
+                <ul>
+                    <li>100 pennies</li>
+                    <li>20 nickels (20 × 5¢)</li>
+                    <li>10 dimes (10 × 10¢)</li>
+                    <li>4 quarters (4 × 25¢)</li>
+                    <li>Combinations: 3 quarters + 2 dimes + 1 nickel = 100¢</li>
+                </ul>
+                
+                <h3>Writing Money Amounts</h3>
+                <div class="example">
+                    <div class="example-title">Two Ways</div>
+                    <p><strong>Using ¢:</strong> 47¢</p>
+                    <p><strong>Using $:</strong> $0.47</p>
+                    <p>Both mean forty-seven cents!</p>
+                    <p><strong>Dollars and cents:</strong> $2.35 = 2 dollars and 35 cents</p>
+                </div>
+                
+                <h3>Practice Tips</h3>
+                <ul>
+                    <li>Group same coins together</li>
+                    <li>Count largest values first</li>
+                    <li>Use skip counting for speed</li>
+                    <li>Double-check by counting again</li>
+                </ul>
+                
+                <h3>Real-Life Money Counting</h3>
+                <ul>
+                    <li>Counting your piggy bank</li>
+                    <li>Paying for items at a store</li>
+                    <li>Making sure you have enough money</li>
+                    <li>Figuring out change</li>
+                </ul>
+            `,
+
+            "Quarter Hours": `
+                <h2>Quarter Hours</h2>
+                <p>Quarter hours divide the clock into 4 equal parts. Understanding them helps with reading time more precisely!</p>
+                
+                <h3>What is a Quarter Hour?</h3>
+                <p>A quarter hour is 15 minutes - one quarter (1/4) of an hour:</p>
+                <ul>
+                    <li>1 hour = 60 minutes</li>
+                    <li>60 ÷ 4 = <strong>15 minutes</strong></li>
+                    <li>So 1/4 hour = 15 minutes</li>
+                </ul>
+                
+                <h3>The Four Quarter Hours</h3>
+                <div class="example">
+                    <div class="example-title">Dividing the Hour</div>
+                    <p><strong>:00</strong> - On the hour (12 at top)</p>
+                    <p><strong>:15</strong> - Quarter past (3 on right)</p>
+                    <p><strong>:30</strong> - Half past (6 at bottom)</p>
+                    <p><strong>:45</strong> - Quarter to next hour (9 on left)</p>
+                </div>
+                
+                <h3>Reading Quarter Hours</h3>
+                <div class="example">
+                    <div class="example-title">3:15 (Quarter Past 3)</div>
+                    <p>⏰ <strong>Minute hand:</strong> Points to 3</p>
+                    <p>⏰ <strong>Hour hand:</strong> Just past 3</p>
+                    <p><strong>We say:</strong> "Three fifteen" or "Quarter past three"</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">5:45 (Quarter to 6)</div>
+                    <p>⏰ <strong>Minute hand:</strong> Points to 9</p>
+                    <p>⏰ <strong>Hour hand:</strong> Almost at 6</p>
+                    <p><strong>We say:</strong> "Five forty-five" or "Quarter to six"</p>
+                    <p>It's 15 minutes before 6:00!</p>
+                </div>
+                
+                <h3>Understanding "Quarter To"</h3>
+                <p>When the minute hand points to 9, it's 15 minutes BEFORE the next hour:</p>
+                <div class="example">
+                    <div class="example-title">Quarter To Examples</div>
+                    <p>2:45 = Quarter to 3 (15 minutes until 3:00)</p>
+                    <p>8:45 = Quarter to 9 (15 minutes until 9:00)</p>
+                </div>
+                
+                <h3>All Four Positions on the Clock</h3>
+                <ul>
+                    <li><strong>12 (top):</strong> :00 - on the hour</li>
+                    <li><strong>3 (right):</strong> :15 - quarter past</li>
+                    <li><strong>6 (bottom):</strong> :30 - half past</li>
+                    <li><strong>9 (left):</strong> :45 - quarter to</li>
+                </ul>
+                
+                <h3>Practice</h3>
+                <p>What time is shown?</p>
+                <ul>
+                    <li>Minute hand at 3, hour hand past 7: <strong>7:15</strong></li>
+                    <li>Minute hand at 9, hour hand almost at 4: <strong>3:45</strong></li>
+                    <li>Minute hand at 6, hour hand between 2 and 3: <strong>2:30</strong></li>
+                </ul>
+            `,
+
+            "Number Patterns (100s chart)": `
+                <h2>Number Patterns (100s chart)</h2>
+                <p>The hundreds chart shows numbers 1-100 in a grid. It reveals amazing patterns and helps with skip counting!</p>
+                
+                <h3>What is a Hundreds Chart?</h3>
+                <p>A hundreds chart is a 10 × 10 grid showing numbers 1 to 100:</p>
+                <div class="example">
+                    <div class="example-title">The Chart Layout</div>
+                    <p style="font-family: monospace; line-height: 1.2;">
+                    1   2   3   4   5   6   7   8   9  10<br>
+                    11  12  13  14  15  16  17  18  19  20<br>
+                    21  22  23  24  25  26  27  28  29  30<br>
+                    ...(continues to 100)
+                    </p>
+                    <p>Each row has 10 numbers!</p>
+                </div>
+                
+                <h3>Vertical Patterns (Down)</h3>
+                <div class="example">
+                    <div class="example-title">Going Down Adds 10</div>
+                    <p>Start at 5:</p>
+                    <p>5 → 15 → 25 → 35 → 45 → 55...</p>
+                    <p><strong>Pattern:</strong> Each number down adds 10</p>
+                    <p><strong>Ones digit:</strong> Stays the same! (all end in 5)</p>
+                </div>
+                
+                <h3>Horizontal Patterns (Across)</h3>
+                <div class="example">
+                    <div class="example-title">Going Right Adds 1</div>
+                    <p>Start at 23:</p>
+                    <p>23 → 24 → 25 → 26 → 27 → 28 → 29 → 30</p>
+                    <p><strong>Pattern:</strong> Counting by 1s</p>
+                </div>
+                
+                <h3>Diagonal Patterns</h3>
+                <div class="example">
+                    <div class="example-title">Diagonal Down-Right</div>
+                    <p>1 → 12 → 23 → 34 → 45...</p>
+                    <p><strong>Pattern:</strong> Add 11 each time</p>
+                </div>
+                
+                <h3>Even and Odd Patterns</h3>
+                <div class="example">
+                    <div class="example-title">Visual Patterns</div>
+                    <p><strong>Even numbers:</strong> Make vertical columns ending in 0, 2, 4, 6, 8</p>
+                    <p><strong>Odd numbers:</strong> Make vertical columns ending in 1, 3, 5, 7, 9</p>
+                    <p>They alternate like a checkerboard!</p>
+                </div>
+                
+                <h3>Skip Counting Patterns</h3>
+                <div class="example">
+                    <div class="example-title">Count by 5s</div>
+                    <p>Shade 5, 10, 15, 20, 25, 30... on the chart</p>
+                    <p><strong>Pattern:</strong> Makes a diagonal path!</p>
+                    <p>All end in 5 or 0</p>
+                </div>
+                
+                <h3>Using the Chart</h3>
+                <p>The hundreds chart helps you:</p>
+                <ul>
+                    <li><strong>Add 10:</strong> Just go down one row</li>
+                    <li><strong>Subtract 10:</strong> Go up one row</li>
+                    <li><strong>Add 1:</strong> Go right one space</li>
+                    <li><strong>Subtract 1:</strong> Go left one space</li>
+                </ul>
+                
+                <h3>Fun Patterns to Find</h3>
+                <ul>
+                    <li>All multiples of 10 are in the last column</li>
+                    <li>Numbers ending in 5 are in the middle column</li>
+                    <li>Each row starts with a different tens digit</li>
+                </ul>
             `
         };
         
