@@ -21,7 +21,7 @@ If you're not seeing the latest updates on [https://math.boredgames.site/](https
 ## Full Cache Clear (If Quick Fix Doesn't Work)
 
 ### Chrome/Edge/Brave
-1. Press `F12` to open Developer Tools
+1. Press `F12` (Windows/Linux) or `Cmd + Option + I` (Mac) to open Developer Tools
 2. Right-click the refresh button
 3. Select "Empty Cache and Hard Reload"
 
@@ -47,7 +47,9 @@ If you're not seeing the latest updates on [https://math.boredgames.site/](https
 
 If the above doesn't work, clear the service worker:
 
-1. Press `F12` to open Developer Tools
+1. Open Developer Tools:
+   - **Windows/Linux:** Press `F12`
+   - **Mac:** Press `Cmd + Option + I`
 2. Go to "Application" tab (Chrome) or "Storage" tab (Firefox)
 3. Click "Service Workers" in the left sidebar
 4. Click "Unregister" next to the MathBored service worker
@@ -71,7 +73,11 @@ These changes will help future updates deploy faster!
 
 ## Verify You Have Latest Version
 
-After clearing cache, open the browser console (F12) and look for:
+After clearing cache, open the browser console:
+- **Windows/Linux:** Press `F12`
+- **Mac:** Press `Cmd + Option + I`
+
+Then look for:
 ```
 🚀 Initializing MathBored App...
 DOM ready: complete
