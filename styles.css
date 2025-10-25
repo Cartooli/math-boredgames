@@ -16,6 +16,21 @@
     --error: #ef4444;
     --warning: #f59e0b;
     --border: #475569;
+    
+    /* Typography scale for consistency */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    
+    /* Line heights for better readability */
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
 }
 
 body {
@@ -77,6 +92,7 @@ body.theme-light {
     margin: 0 auto;
     padding: 20px;
     flex: 1;
+    width: 100%;
 }
 
 header {
@@ -93,6 +109,7 @@ header {
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+    min-height: 80px;
 }
 
 h1 {
@@ -108,6 +125,20 @@ h1 {
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin-top: 5px;
+}
+
+.tagline a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.tagline a:hover {
+    background: rgba(59, 130, 246, 0.1);
+    text-decoration: underline;
 }
 
 .theme-selector {
@@ -149,14 +180,14 @@ h1 {
     margin-bottom: 30px;
     border: 1px solid var(--border);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: grid;
+    gap: 20px;
 }
 
 .control-group {
-    margin-bottom: 20px;
-}
-
-.control-group:last-child {
-    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 label {
@@ -180,12 +211,25 @@ select, button {
     cursor: pointer;
     transition: all 0.2s ease;
     font-weight: 500;
+    min-height: 44px; /* Better touch target */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 select:hover, select:focus {
     border-color: var(--accent);
     outline: none;
     transform: translateY(-1px);
+}
+
+/* Better focus states for accessibility */
+button:focus,
+select:focus,
+input:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
 
 .mode-tabs {
@@ -196,12 +240,17 @@ select:hover, select:focus {
 }
 
 .mode-tab {
-    padding: 14px;
+    padding: 16px 20px;
     border: 2px solid var(--border);
     background: var(--bg-tertiary);
     border-radius: 10px;
     transition: all 0.2s ease;
     font-weight: 700;
+    min-height: 48px; /* Better touch target */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .mode-tab:hover {
@@ -219,7 +268,7 @@ select:hover, select:focus {
 
 .stats-panel {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 15px;
     margin-top: 20px;
     padding-top: 20px;
@@ -232,6 +281,10 @@ select:hover, select:focus {
     background: var(--bg-tertiary);
     border-radius: 10px;
     border: 1px solid var(--border);
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .stat-label {
@@ -289,6 +342,8 @@ select:hover, select:focus {
     min-height: 500px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     animation: fadeIn 0.3s ease;
+    max-width: 100%;
+    overflow-x: auto;
 }
 
 @keyframes fadeIn {
@@ -304,24 +359,27 @@ select:hover, select:focus {
 
 .lesson-content h2 {
     color: var(--accent);
-    margin-bottom: 20px;
-    font-size: 2rem;
+    margin-bottom: 24px;
+    font-size: var(--font-size-3xl);
     font-weight: 800;
+    line-height: var(--line-height-tight);
 }
 
 .lesson-content h3 {
     color: var(--text-primary);
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-size: var(--font-size-xl);
     font-weight: 700;
+    line-height: var(--line-height-normal);
 }
 
 .lesson-content p {
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     color: var(--text-secondary);
-    line-height: 1.9;
-    font-size: 1.05rem;
+    line-height: var(--line-height-relaxed);
+    font-size: var(--font-size-lg);
+    max-width: 70ch; /* Optimal reading width */
 }
 
 .lesson-content ul, .lesson-content ol {
@@ -337,10 +395,12 @@ select:hover, select:focus {
 
 .lesson-content code {
     background: var(--bg-tertiary);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-family: 'Courier New', monospace;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
     color: var(--accent);
+    font-size: 0.9em;
+    border: 1px solid var(--border);
 }
 
 .example {
@@ -367,9 +427,11 @@ select:hover, select:focus {
     margin: 20px 0;
     border: 2px solid var(--accent);
     font-size: 1.3rem;
-    font-family: 'Courier New', monospace;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
     color: var(--accent);
     font-weight: 700;
+    overflow-x: auto;
+    word-break: break-all;
 }
 
 .problem-display {
@@ -379,6 +441,9 @@ select:hover, select:focus {
     color: var(--text-primary);
     font-weight: 400;
     letter-spacing: 2px;
+    line-height: 1.2;
+    word-break: break-word;
+    hyphens: auto;
 }
 
 .answer-input {
@@ -386,6 +451,7 @@ select:hover, select:focus {
     gap: 15px;
     max-width: 500px;
     margin: 40px auto;
+    align-items: stretch;
 }
 
 .answer-input input {
@@ -399,6 +465,8 @@ select:hover, select:focus {
     text-align: center;
     font-weight: 600;
     transition: all 0.2s ease;
+    min-height: 60px;
+    font-size: 16px; /* Prevents zoom on iOS */
 }
 
 .answer-input input:focus {
@@ -535,6 +603,40 @@ footer {
     background: var(--bg-secondary);
 }
 
+/* Comprehensive responsive breakpoints */
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+        padding: 15px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .theme-selector {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 992px) {
+    .stats-panel {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .lesson-content h2 {
+        font-size: 1.6rem;
+    }
+    
+    .content-area {
+        padding: 25px;
+    }
+}
+
 @media (max-width: 768px) {
     h1 {
         font-size: 1.8rem;
@@ -562,6 +664,94 @@ footer {
 
     .content-area {
         padding: 20px;
+    }
+    
+    .controls {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+    
+    .tagline {
+        font-size: 0.8rem;
+    }
+    
+    .controls {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .content-area {
+        padding: 15px;
+        min-height: 400px;
+    }
+    
+    .problem-display {
+        font-size: 1.5rem;
+        margin: 30px 0;
+    }
+    
+    .answer-input input {
+        font-size: 1.1rem;
+        padding: 15px;
+    }
+    
+    .btn-submit {
+        padding: 15px 25px;
+        font-size: 1rem;
+    }
+    
+    .theme-btn {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .lesson-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .lesson-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .lesson-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .header-content {
+        gap: 10px;
+    }
+    
+    .theme-selector {
+        gap: 8px;
+    }
+    
+    .theme-btn {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .controls {
+        padding: 12px;
+    }
+    
+    .content-area {
+        padding: 12px;
+    }
+    
+    .problem-display {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
     }
 }
 
@@ -613,6 +803,35 @@ footer {
     color: var(--text-secondary);
 }
 
+/* Loading and skeleton states */
+.loading-skeleton {
+    background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--border) 50%, var(--bg-tertiary) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Improve transitions */
+* {
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Better hover states */
+.mode-tab:hover,
+.theme-btn:hover,
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
 /* Floating Feedback Button */
 .feedback-button {
     position: fixed;
@@ -650,6 +869,40 @@ footer {
         width: 50px;
         height: 50px;
         font-size: 1.5rem;
+    }
+}
+
+/* Print styles for better printing */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .theme-selector,
+    .feedback-button,
+    .share-btn {
+        display: none !important;
+    }
+    
+    .content-area {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+    
+    .problem-display {
+        font-size: 2rem !important;
+        color: black !important;
+    }
+    
+    .lesson-content h2,
+    .lesson-content h3 {
+        color: black !important;
+    }
+    
+    .lesson-content p,
+    .lesson-content li {
+        color: #333 !important;
     }
 }
 

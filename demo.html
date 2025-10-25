@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MathBored Demo - Experience beautiful, focused math practice">
+    <title>MathBored Demo - Simple Math Practice</title>
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <meta name="theme-color" content="#3b82f6">
+    
+    <link rel="stylesheet" href="demo-styles.css">
+</head>
+<body>
+    <!-- Navigation hint (subtle, top-left) -->
+    <nav class="demo-nav">
+        <a href="index.html" class="nav-back" title="Back to main app">← MathBored</a>
+    </nav>
+
+    <!-- Main demo container - full viewport -->
+    <main class="demo-container">
+        <!-- Progress indicator (subtle, top-right) -->
+        <div class="progress-indicator">
+            <span class="current-problem">1</span>
+            <span class="separator">/</span>
+            <span class="total-problems">10</span>
+        </div>
+
+        <!-- Problem area - centered, full focus -->
+        <div class="problem-area">
+            <!-- The math problem - hero element -->
+            <div class="problem-display" id="problemDisplay">
+                <span class="operand">5</span>
+                <span class="operator">+</span>
+                <span class="operand">3</span>
+            </div>
+
+            <!-- Answer input - minimal, focused -->
+            <div class="answer-container">
+                <input 
+                    type="number" 
+                    id="answerInput" 
+                    class="answer-field"
+                    placeholder="?"
+                    autocomplete="off"
+                    autofocus
+                />
+            </div>
+
+            <!-- Feedback area - progressive disclosure -->
+            <div class="feedback-area" id="feedbackArea"></div>
+
+            <!-- Action hint - appears after input -->
+            <div class="action-hint" id="actionHint">
+                Press <kbd>Enter</kbd> or <button class="hint-button" id="submitBtn">Submit</button>
+            </div>
+        </div>
+
+        <!-- Completion screen - hidden initially -->
+        <div class="completion-screen" id="completionScreen">
+            <div class="completion-content">
+                <div class="completion-icon">🎉</div>
+                <h1 class="completion-title">Demo Complete!</h1>
+                <div class="completion-stats">
+                    <div class="stat">
+                        <div class="stat-value" id="finalScore">0</div>
+                        <div class="stat-label">Correct</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="finalAccuracy">0%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                </div>
+                <div class="completion-actions">
+                    <button class="action-btn primary" id="restartBtn">Try Again</button>
+                    <a href="index.html" class="action-btn secondary">Explore Full App</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subtle info footer - progressive disclosure on scroll -->
+        <footer class="demo-footer">
+            <p class="footer-text">
+                <strong>MathBored Demo</strong> • 10 simple problems to get started
+            </p>
+            <p class="footer-subtext">
+                Want more? <a href="index.html" class="footer-link">Explore lessons, walkthroughs & unlimited practice</a>
+            </p>
+        </footer>
+    </main>
+
+    <script src="demo.js"></script>
+</body>
+</html>
+
