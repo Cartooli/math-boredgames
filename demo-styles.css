@@ -66,6 +66,20 @@ body {
     color: var(--text-muted);
     font-weight: 600;
     font-variant-numeric: tabular-nums;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+
+.difficulty-badge {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    opacity: 0.8;
+    animation: fadeIn 0.4s ease;
 }
 
 .current-problem {
@@ -348,6 +362,84 @@ body {
     font-weight: 600;
 }
 
+/* Difficulty selection */
+.difficulty-selection {
+    margin: 30px 0;
+    padding: 30px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.difficulty-selection.show {
+    opacity: 1;
+    max-height: 500px;
+}
+
+.difficulty-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.difficulty-subtitle {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.difficulty-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.difficulty-option {
+    padding: 24px 16px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.difficulty-option:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+    background: var(--bg-tertiary);
+}
+
+.difficulty-option:active {
+    transform: translateY(-2px);
+}
+
+.difficulty-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 4px;
+}
+
+.difficulty-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.difficulty-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
 .completion-actions {
     display: flex;
     flex-direction: column;
@@ -506,6 +598,23 @@ body {
     .action-hint {
         flex-direction: column;
         gap: 12px;
+    }
+    
+    .difficulty-options {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .difficulty-option {
+        padding: 20px 16px;
+    }
+    
+    .difficulty-emoji {
+        font-size: 2rem;
+    }
+    
+    .difficulty-name {
+        font-size: 1.1rem;
     }
 }
 

@@ -74,8 +74,27 @@
                         <div class="stat-label">Accuracy</div>
                     </div>
                 </div>
+                
+                <!-- Difficulty selection - shown only on perfect score -->
+                <div class="difficulty-selection" id="difficultySelection">
+                    <h2 class="difficulty-title">Ready for More?</h2>
+                    <p class="difficulty-subtitle">Choose your next challenge</p>
+                    <div class="difficulty-options">
+                        <button class="difficulty-option medium" data-difficulty="medium">
+                            <div class="difficulty-emoji">🟡</div>
+                            <div class="difficulty-name">Medium</div>
+                            <div class="difficulty-desc">Two-digit numbers</div>
+                        </button>
+                        <button class="difficulty-option hard" data-difficulty="hard">
+                            <div class="difficulty-emoji">🔴</div>
+                            <div class="difficulty-name">Hard</div>
+                            <div class="difficulty-desc">Three-digit numbers</div>
+                        </button>
+                    </div>
+                </div>
+                
                 <div class="completion-actions">
-                    <button class="action-btn primary" id="restartBtn">Try Again</button>
+                    <button class="action-btn primary" id="restartBtn">Start Over</button>
                     <a href="index.html" class="action-btn secondary">Explore Full App</a>
                 </div>
             </div>
