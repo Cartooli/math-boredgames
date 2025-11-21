@@ -21,6 +21,22 @@ class MathBoredApp {
         this.init();
     }
     
+    showError(message) {
+        const contentArea = document.getElementById('contentArea');
+        if (contentArea) {
+            contentArea.innerHTML = `
+                <div class="lesson-content" style="text-align: center; padding: 60px 20px;">
+                    <div style="font-size: 4rem; margin-bottom: 20px;">⚠️</div>
+                    <h2 style="color: var(--error); margin-bottom: 20px;">Oops! Something went wrong</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 30px;">${message}</p>
+                    <button class="btn-submit" onclick="window.location.reload()" style="margin-top: 20px;">
+                        🔄 Refresh Page
+                    </button>
+                </div>
+            `;
+        }
+    }
+    
     init() {
         try {
             console.log('🎯 MathBored initializing...');
@@ -28,13 +44,13 @@ class MathBoredApp {
             // Verify data.js functions are available
             if (typeof getTopicsByGrade !== 'function') {
                 console.error('❌ ERROR: getTopicsByGrade function not found! Check that data.js loaded correctly.');
-                alert('Error: Math data failed to load. Please refresh the page.');
+                this.showError('Math data failed to load. Please try refreshing the page.');
                 return;
             }
             
             if (typeof getConceptByName !== 'function') {
                 console.error('❌ ERROR: getConceptByName function not found!');
-                alert('Error: Math data failed to load. Please refresh the page.');
+                this.showError('Math data failed to load. Please try refreshing the page.');
                 return;
             }
             
@@ -42,6 +58,9 @@ class MathBoredApp {
             
             this.setupEventListeners();
             console.log('✅ Event listeners set up');
+            
+            this.loadTheme();
+            console.log('✅ Theme loaded');
             
             this.updateTopics();
             console.log('✅ Topics updated for grade:', this.currentGrade);
@@ -52,7 +71,7 @@ class MathBoredApp {
             console.log('🎯 MathBored initialized successfully!');
         } catch (error) {
             console.error('❌ FATAL ERROR during initialization:', error);
-            alert('Failed to initialize MathBored. Please refresh the page. Error: ' + error.message);
+            this.showError('Failed to initialize MathBored. Please try refreshing the page.<br><small style="opacity: 0.7;">Error: ' + error.message + '</small>');
         }
     }
     
@@ -126,10 +145,22 @@ class MathBoredApp {
             document.body.classList.add(`theme-${theme}`);
         }
         
-        document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
+        // Update active button state
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.theme === (theme || '')) {
+                btn.classList.add('active');
+            }
+        });
         
-        localStorage.setItem('mathbored-theme', theme);
+        localStorage.setItem('mathbored-theme', theme || '');
+    }
+    
+    loadTheme() {
+        const savedTheme = localStorage.getItem('mathbored-theme');
+        if (savedTheme) {
+            this.setTheme(savedTheme);
+        }
     }
     
     updateTopics() {
@@ -185,7 +216,7 @@ class MathBoredApp {
         } catch (error) {
             console.error('❌ ERROR in updateTopics:', error);
             console.error('❌ Error stack:', error.stack);
-            alert('Error loading topics. Please refresh the page. Error: ' + error.message);
+            this.showError('Error loading topics. Please try refreshing the page.<br><small style="opacity: 0.7;">Error: ' + error.message + '</small>');
         }
     }
     
@@ -7599,9 +7630,16 @@ class MathBoredApp {
             },
             
             "Division": () => {
-                const b = Math.floor(Math.random() * 12) + 1;
+                const b = Math.floor(Math.random() * 12) + 1; // Ensures b is at least 1
                 const answer = Math.floor(Math.random() * 12) + 1;
                 const a = b * answer;
+                
+                // Safety check: prevent division by zero (should never happen with above logic)
+                if (b === 0) {
+                    console.error('❌ Division by zero prevented');
+                    return this.generateProblem(); // Regenerate
+                }
+                
                 return {
                     a, b,
                     display: `${a} ÷ ${b} = ?`,
@@ -9300,6 +9338,13 @@ class MathBoredApp {
             
             "Mean (Average)": () => {
                 const data = [this.randomInt(10, 30), this.randomInt(10, 30), this.randomInt(10, 30), this.randomInt(10, 30)];
+                
+                // Safety check: ensure we have data
+                if (data.length === 0) {
+                    console.error('❌ Empty data array prevented');
+                    return this.generateProblem(); // Regenerate
+                }
+                
                 const mean = data.reduce((a, b) => a + b) / data.length;
                 return {
                     display: `Data: ${data.join(', ')}. Mean = ?`,
@@ -9321,6 +9366,13 @@ class MathBoredApp {
                 const b = this.randomInt(2, 6);
                 const c = this.randomInt(1, 4);
                 const d = this.randomInt(2, 6);
+                
+                // Safety check: prevent division by zero
+                if (b === 0 || c === 0 || d === 0) {
+                    console.error('❌ Division by zero prevented in Dividing Fractions generator');
+                    return this.generateProblem(); // Regenerate
+                }
+                
                 const result = (a / b) / (c / d);
                 return {
                     display: `${a}/${b} ÷ ${c}/${d} = ?<br><small>(Answer as decimal)</small>`,
@@ -9748,6 +9800,13 @@ class MathBoredApp {
             return;
         }
         
+        // Validate that problem and answer exist
+        if (!this.currentProblem || this.currentAnswer === null || this.currentAnswer === undefined) {
+            feedbackDiv.innerHTML = '<div class="feedback incorrect">Problem generation failed. Please try a new problem.</div>';
+            console.error('❌ ERROR: No valid problem or answer generated');
+            return;
+        }
+        
         // Check if problem has acceptedAnswers array
         const acceptedAnswers = this.currentProblem.acceptedAnswers || [];
         const expectedAnswer = String(this.currentAnswer).toLowerCase();
@@ -9767,7 +9826,16 @@ class MathBoredApp {
             if (!isNaN(parseFloat(userInput)) && !isNaN(parseFloat(expectedAnswer))) {
                 const userAnswer = parseFloat(userInput);
                 const expected = parseFloat(expectedAnswer);
-                isCorrect = Math.abs(userAnswer - expected) < 0.01;
+                
+                // Use relative tolerance for better accuracy with large numbers
+                // For numbers close to 0, use absolute tolerance
+                if (Math.abs(expected) < 0.1) {
+                    isCorrect = Math.abs(userAnswer - expected) < 0.01;
+                } else {
+                    // Use 0.1% relative tolerance for larger numbers
+                    const relativeTolerance = Math.abs(expected) * 0.001;
+                    isCorrect = Math.abs(userAnswer - expected) <= relativeTolerance;
+                }
             } else {
                 // For text answers (case-insensitive, ignore extra spaces)
                 const cleanUser = userInput.replace(/\s+/g, ' ').trim();
@@ -9859,9 +9927,63 @@ class MathBoredApp {
     }
     
     loadStats() {
-        const saved = localStorage.getItem('mathbored-stats');
-        if (saved) {
-            this.stats = JSON.parse(saved);
+        try {
+            const saved = localStorage.getItem('mathbored-stats');
+            if (saved) {
+                const parsedStats = JSON.parse(saved);
+                
+                // Validate stats structure and values
+                if (parsedStats && typeof parsedStats === 'object') {
+                    this.stats = {
+                        streak: Math.max(0, parseInt(parsedStats.streak) || 0),
+                        score: Math.max(0, parseInt(parsedStats.score) || 0),
+                        totalAttempts: Math.max(0, parseInt(parsedStats.totalAttempts) || 0),
+                        correctAnswers: Math.max(0, parseInt(parsedStats.correctAnswers) || 0)
+                    };
+                    
+                    // Ensure correctAnswers doesn't exceed totalAttempts
+                    if (this.stats.correctAnswers > this.stats.totalAttempts) {
+                        this.stats.correctAnswers = this.stats.totalAttempts;
+                    }
+                    
+                    console.log('✅ Stats loaded successfully:', this.stats);
+                } else {
+                    console.warn('⚠️ Invalid stats format, using defaults');
+                }
+            }
+        } catch (error) {
+            console.error('❌ Error loading stats, using defaults:', error);
+            // Stats already initialized with defaults in constructor
+        }
+    }
+    
+    resetStats() {
+        // Confirm before resetting
+        if (confirm('Are you sure you want to reset all your statistics? This cannot be undone.')) {
+            // Reset stats to defaults
+            this.stats = {
+                streak: 0,
+                score: 0,
+                totalAttempts: 0,
+                correctAnswers: 0
+            };
+            
+            // Save and update display
+            this.saveStats();
+            this.updateStatsDisplay();
+            
+            // Show confirmation
+            const resetBtn = document.getElementById('resetBtn');
+            const originalText = resetBtn.textContent;
+            resetBtn.textContent = '✓ Stats Reset!';
+            resetBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            
+            setTimeout(() => {
+                resetBtn.textContent = originalText;
+                resetBtn.style.background = '';
+            }, 2000);
+            
+            console.log('✅ Stats reset successfully');
         }
     }
     
@@ -9933,6 +10055,7 @@ math.boredgames.site`;
             
             // Reset button immediately on error
             shareBtn.textContent = '📤 Share Progress';
+            shareBtn.style.background = '';
             shareBtn.disabled = false;
         }
     }
