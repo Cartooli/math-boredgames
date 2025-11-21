@@ -6521,6 +6521,491 @@ class MathBoredApp {
                     <li><strong>Sports:</strong> Player consistency</li>
                     <li><strong>Quality control:</strong> Product variation</li>
                 </ul>
+            `,
+            
+            // ========== ADDITIONAL COMPREHENSIVE LESSONS ==========
+            
+            "Polynomials": `
+                <h2>Polynomials</h2>
+                <p>Polynomials are mathematical expressions with variables raised to whole number powers. They're everywhere in algebra!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is a Polynomial?</h3>
+                <p>A polynomial is a sum of terms, where each term is a coefficient times a variable raised to a non-negative integer power.</p>
+                
+                <div class="example">
+                    <div class="example-title">Examples of Polynomials</div>
+                    <p><strong>3x² + 2x - 5</strong> ← Quadratic (degree 2)</p>
+                    <p><strong>x³ - 4x + 7</strong> ← Cubic (degree 3)</p>
+                    <p><strong>5x - 2</strong> ← Linear (degree 1)</p>
+                    <p><strong>8</strong> ← Constant (degree 0)</p>
+                </div>
+                
+                <h3>Parts of a Polynomial</h3>
+                <p>In 3x² + 2x - 5:</p>
+                <ul>
+                    <li><strong>Terms:</strong> 3x², 2x, and -5</li>
+                    <li><strong>Coefficients:</strong> 3, 2, and -5</li>
+                    <li><strong>Degree:</strong> 2 (highest exponent)</li>
+                    <li><strong>Leading coefficient:</strong> 3 (coefficient of highest degree term)</li>
+                </ul>
+                
+                <h3>Types by Degree</h3>
+                <div class="example">
+                    <div class="example-title">Polynomial Classifications</div>
+                    <p><strong>Linear:</strong> degree 1 (2x + 3)</p>
+                    <p><strong>Quadratic:</strong> degree 2 (x² - 4x + 1)</p>
+                    <p><strong>Cubic:</strong> degree 3 (x³ + 2x² - x + 5)</p>
+                    <p><strong>Quartic:</strong> degree 4 (x⁴ + 3x² + 2)</p>
+                </div>
+                
+                <h3>Adding and Subtracting Polynomials</h3>
+                <p>Combine like terms (same variable and exponent):</p>
+                
+                <div class="example">
+                    <div class="example-title">Addition Example</div>
+                    <p>(3x² + 2x - 5) + (x² - 4x + 3)</p>
+                    <p>= (3x² + x²) + (2x - 4x) + (-5 + 3)</p>
+                    <p>= <strong>4x² - 2x - 2</strong></p>
+                </div>
+                
+                <h3>Multiplying Polynomials</h3>
+                <div class="example">
+                    <div class="example-title">Multiply (x + 2)(x + 3)</div>
+                    <p>Use FOIL: First, Outer, Inner, Last</p>
+                    <p><strong>F:</strong> x · x = x²</p>
+                    <p><strong>O:</strong> x · 3 = 3x</p>
+                    <p><strong>I:</strong> 2 · x = 2x</p>
+                    <p><strong>L:</strong> 2 · 3 = 6</p>
+                    <p>= x² + 3x + 2x + 6 = <strong>x² + 5x + 6</strong></p>
+                </div>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Physics:</strong> Motion equations (distance = at² + bt + c)</li>
+                    <li><strong>Economics:</strong> Profit models</li>
+                    <li><strong>Engineering:</strong> Curve design</li>
+                    <li><strong>Computer Graphics:</strong> Smooth curves</li>
+                </ul>
+            `,
+            
+            "Trigonometry": `
+                <h2>Trigonometry: Sine, Cosine, and Tangent</h2>
+                <p>Trigonometry studies the relationships between angles and sides of triangles. It's essential for navigation, physics, and engineering!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>The Three Main Functions</h3>
+                <p>In a right triangle:</p>
+                
+                <div class="formula-box">
+                    sin(θ) = opposite / hypotenuse<br>
+                    cos(θ) = adjacent / hypotenuse<br>
+                    tan(θ) = opposite / adjacent
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Memory Trick: SOH-CAH-TOA</div>
+                    <p><strong>SOH:</strong> Sine = Opposite / Hypotenuse</p>
+                    <p><strong>CAH:</strong> Cosine = Adjacent / Hypotenuse</p>
+                    <p><strong>TOA:</strong> Tangent = Opposite / Adjacent</p>
+                </div>
+                
+                <h3>Example Triangle</h3>
+                <div class="example">
+                    <div class="example-title">Right Triangle with angle 30°</div>
+                    <p>Opposite side: 5 units</p>
+                    <p>Adjacent side: 8.66 units</p>
+                    <p>Hypotenuse: 10 units</p>
+                    <p><strong>sin(30°)</strong> = 5/10 = 0.5</p>
+                    <p><strong>cos(30°)</strong> = 8.66/10 = 0.866</p>
+                    <p><strong>tan(30°)</strong> = 5/8.66 = 0.577</p>
+                </div>
+                
+                <h3>Special Angles to Know</h3>
+                <div class="example">
+                    <div class="example-title">Common Values</div>
+                    <p><strong>0°:</strong> sin = 0, cos = 1, tan = 0</p>
+                    <p><strong>30°:</strong> sin = 0.5, cos = 0.866, tan = 0.577</p>
+                    <p><strong>45°:</strong> sin = 0.707, cos = 0.707, tan = 1</p>
+                    <p><strong>60°:</strong> sin = 0.866, cos = 0.5, tan = 1.732</p>
+                    <p><strong>90°:</strong> sin = 1, cos = 0, tan = undefined</p>
+                </div>
+                
+                <h3>Using Trig to Find Sides</h3>
+                <div class="example">
+                    <div class="example-title">Find the Missing Side</div>
+                    <p>Right triangle with angle 30° and hypotenuse 20</p>
+                    <p>Find opposite side:</p>
+                    <p>sin(30°) = opposite / 20</p>
+                    <p>0.5 = opposite / 20</p>
+                    <p>opposite = 0.5 × 20 = <strong>10 units</strong></p>
+                </div>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Navigation:</strong> Finding distances and directions</li>
+                    <li><strong>Architecture:</strong> Roof angles and slopes</li>
+                    <li><strong>Astronomy:</strong> Calculating distances to stars</li>
+                    <li><strong>Physics:</strong> Wave motion and oscillations</li>
+                    <li><strong>Engineering:</strong> Bridge design and forces</li>
+                </ul>
+            `,
+            
+            "Probability": `
+                <h2>Probability</h2>
+                <p>Probability measures how likely an event is to occur. It's used everywhere from games to weather forecasts to medical testing!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is Probability?</h3>
+                <p>Probability is a number between 0 and 1 (or 0% to 100%) that describes how likely something is:</p>
+                <ul>
+                    <li><strong>0 (0%):</strong> Impossible</li>
+                    <li><strong>0.5 (50%):</strong> Equally likely</li>
+                    <li><strong>1 (100%):</strong> Certain</li>
+                </ul>
+                
+                <h3>Basic Formula</h3>
+                <div class="formula-box">
+                    P(event) = (Number of favorable outcomes) / (Total number of possible outcomes)
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Flipping a Coin</div>
+                    <p>What's the probability of getting heads?</p>
+                    <p>Favorable outcomes: 1 (heads)</p>
+                    <p>Total outcomes: 2 (heads or tails)</p>
+                    <p>P(heads) = 1/2 = 0.5 = <strong>50%</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Rolling a Die</div>
+                    <p>What's the probability of rolling a 4?</p>
+                    <p>Favorable: 1 (just the number 4)</p>
+                    <p>Total: 6 (numbers 1-6)</p>
+                    <p>P(4) = 1/6 ≈ 0.167 = <strong>16.7%</strong></p>
+                </div>
+                
+                <h3>Multiple Events</h3>
+                <p><strong>AND (Independent):</strong> Multiply probabilities</p>
+                <div class="example">
+                    <div class="example-title">Two Coin Flips</div>
+                    <p>P(heads AND heads) = P(heads) × P(heads)</p>
+                    <p>= 1/2 × 1/2 = 1/4 = <strong>25%</strong></p>
+                </div>
+                
+                <p><strong>OR (Mutually Exclusive):</strong> Add probabilities</p>
+                <div class="example">
+                    <div class="example-title">Rolling a Die</div>
+                    <p>P(rolling 1 OR 2) = P(1) + P(2)</p>
+                    <p>= 1/6 + 1/6 = 2/6 = 1/3 = <strong>33.3%</strong></p>
+                </div>
+                
+                <h3>Complementary Events</h3>
+                <p>The probability of NOT happening:</p>
+                <div class="formula-box">
+                    P(not A) = 1 - P(A)
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Not Rolling a 6</div>
+                    <p>P(not 6) = 1 - P(6)</p>
+                    <p>= 1 - 1/6 = 5/6 = <strong>83.3%</strong></p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Weather:</strong> 70% chance of rain</li>
+                    <li><strong>Medicine:</strong> Treatment success rates</li>
+                    <li><strong>Insurance:</strong> Risk assessment</li>
+                    <li><strong>Games:</strong> Odds and betting</li>
+                    <li><strong>Quality Control:</strong> Defect rates</li>
+                </ul>
+            `,
+            
+            "Logarithms": `
+                <h2>Logarithms</h2>
+                <p>Logarithms are the inverse of exponents. They answer the question: "What power do I need to raise this base to get this number?"</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Understanding Logarithms</h3>
+                <p>If b^x = y, then log_b(y) = x</p>
+                
+                <div class="example">
+                    <div class="example-title">Basic Example</div>
+                    <p><strong>Exponential form:</strong> 2³ = 8</p>
+                    <p><strong>Logarithmic form:</strong> log₂(8) = 3</p>
+                    <p>Reading: "Log base 2 of 8 equals 3"</p>
+                    <p>Meaning: "2 to what power equals 8? Answer: 3"</p>
+                </div>
+                
+                <h3>Common Logarithms</h3>
+                <p><strong>log (without base)</strong> means log₁₀ (base 10)</p>
+                <p><strong>ln</strong> means log_e (natural log, base e ≈ 2.718)</p>
+                
+                <div class="example">
+                    <div class="example-title">Simple Logarithms</div>
+                    <p>log₁₀(100) = 2 (because 10² = 100)</p>
+                    <p>log₁₀(1000) = 3 (because 10³ = 1000)</p>
+                    <p>log₂(16) = 4 (because 2⁴ = 16)</p>
+                    <p>log₅(25) = 2 (because 5² = 25)</p>
+                </div>
+                
+                <h3>Logarithm Rules</h3>
+                <div class="formula-box">
+                    log(ab) = log(a) + log(b)<br>
+                    log(a/b) = log(a) - log(b)<br>
+                    log(a^n) = n · log(a)<br>
+                    log_b(b) = 1<br>
+                    log_b(1) = 0
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Using the Rules</div>
+                    <p>log(100) + log(10) = log(100 × 10)</p>
+                    <p>= log(1000) = <strong>3</strong></p>
+                    <p>log(8) = log(2³) = 3 · log(2)</p>
+                    <p>≈ 3 × 0.301 = <strong>0.903</strong></p>
+                </div>
+                
+                <h3>Why Logarithms Matter</h3>
+                <ul>
+                    <li><strong>Exponential Growth:</strong> Population, bacteria, compound interest</li>
+                    <li><strong>Sound:</strong> Decibels use logarithmic scale</li>
+                    <li><strong>Earthquakes:</strong> Richter scale is logarithmic</li>
+                    <li><strong>pH:</strong> Acidity measured logarithmically</li>
+                    <li><strong>Computing:</strong> Algorithm complexity (Big O)</li>
+                </ul>
+                
+                <h3>Solving Exponential Equations</h3>
+                <div class="example">
+                    <div class="example-title">Find x: 2^x = 32</div>
+                    <p>Take log of both sides:</p>
+                    <p>log(2^x) = log(32)</p>
+                    <p>x · log(2) = log(32)</p>
+                    <p>x = log(32) / log(2)</p>
+                    <p>x = <strong>5</strong> (because 2⁵ = 32)</p>
+                </div>
+            `,
+            
+            "Exponential Functions": `
+                <h2>Exponential Functions</h2>
+                <p>Exponential functions grow (or decay) at an increasing rate. They model everything from population growth to radioactive decay!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>General Form</h3>
+                <div class="formula-box">
+                    f(x) = a · b^x
+                </div>
+                <p>Where:</p>
+                <ul>
+                    <li><strong>a</strong> = initial value</li>
+                    <li><strong>b</strong> = base (growth/decay factor)</li>
+                    <li><strong>x</strong> = exponent (often time)</li>
+                </ul>
+                
+                <h3>Growth vs Decay</h3>
+                <div class="example">
+                    <div class="example-title">Exponential Growth (b > 1)</div>
+                    <p>f(x) = 2^x</p>
+                    <p>x = 0: f(0) = 1</p>
+                    <p>x = 1: f(1) = 2</p>
+                    <p>x = 2: f(2) = 4</p>
+                    <p>x = 3: f(3) = 8</p>
+                    <p>Growing faster and faster!</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Exponential Decay (0 < b < 1)</div>
+                    <p>f(x) = (1/2)^x = 0.5^x</p>
+                    <p>x = 0: f(0) = 1</p>
+                    <p>x = 1: f(1) = 0.5</p>
+                    <p>x = 2: f(2) = 0.25</p>
+                    <p>x = 3: f(3) = 0.125</p>
+                    <p>Decreasing, approaching zero!</p>
+                </div>
+                
+                <h3>The Natural Exponential: e^x</h3>
+                <p>e ≈ 2.71828... is a special number that appears throughout nature</p>
+                <p>f(x) = e^x is THE exponential function</p>
+                
+                <h3>Compound Interest Formula</h3>
+                <div class="formula-box">
+                    A = P(1 + r/n)^(nt)
+                </div>
+                <div class="example">
+                    <div class="example-title">$1000 at 5% for 3 years, compounded monthly</div>
+                    <p>P = 1000 (principal)</p>
+                    <p>r = 0.05 (rate)</p>
+                    <p>n = 12 (monthly)</p>
+                    <p>t = 3 (years)</p>
+                    <p>A = 1000(1 + 0.05/12)^(12×3)</p>
+                    <p>A ≈ <strong>$1161.47</strong></p>
+                </div>
+                
+                <h3>Population Growth</h3>
+                <div class="example">
+                    <div class="example-title">Bacteria Doubling</div>
+                    <p>Starting: 100 bacteria</p>
+                    <p>Doubles every hour</p>
+                    <p>P(t) = 100 · 2^t</p>
+                    <p>After 5 hours:</p>
+                    <p>P(5) = 100 · 2⁵ = 100 · 32 = <strong>3200 bacteria</strong></p>
+                </div>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Finance:</strong> Compound interest, investment growth</li>
+                    <li><strong>Biology:</strong> Population growth, cell division</li>
+                    <li><strong>Physics:</strong> Radioactive decay</li>
+                    <li><strong>Medicine:</strong> Drug concentration in bloodstream</li>
+                    <li><strong>Technology:</strong> Moore's Law (computing power)</li>
+                </ul>
+            `,
+            
+            "Derivatives": `
+                <h2>Derivatives (Calculus)</h2>
+                <p>A derivative measures the rate of change - how fast something is changing at any given moment. It's the foundation of calculus!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is a Derivative?</h3>
+                <p>The derivative of f(x) is written as f'(x) or dy/dx</p>
+                <p>It tells us the <strong>instantaneous rate of change</strong></p>
+                <p>Geometrically: it's the <strong>slope of the tangent line</strong></p>
+                
+                <div class="example">
+                    <div class="example-title">Speed Example</div>
+                    <p>If position = f(t) = 5t²</p>
+                    <p>Then velocity = f'(t) = 10t</p>
+                    <p>At t = 3 seconds:</p>
+                    <p>Velocity = 10(3) = <strong>30 units/second</strong></p>
+                </div>
+                
+                <h3>Power Rule</h3>
+                <p>The most important derivative rule:</p>
+                <div class="formula-box">
+                    If f(x) = x^n, then f'(x) = nx^(n-1)
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Power Rule Examples</div>
+                    <p>f(x) = x³ → f'(x) = <strong>3x²</strong></p>
+                    <p>f(x) = x⁵ → f'(x) = <strong>5x⁴</strong></p>
+                    <p>f(x) = x² → f'(x) = <strong>2x</strong></p>
+                    <p>f(x) = x → f'(x) = <strong>1</strong></p>
+                </div>
+                
+                <h3>Other Basic Rules</h3>
+                <p><strong>Constant Rule:</strong> d/dx(c) = 0</p>
+                <p><strong>Constant Multiple:</strong> d/dx(cf(x)) = c·f'(x)</p>
+                <p><strong>Sum Rule:</strong> d/dx(f + g) = f' + g'</p>
+                
+                <div class="example">
+                    <div class="example-title">Complete Example</div>
+                    <p>Find derivative of f(x) = 3x² + 4x - 5</p>
+                    <p>f'(x) = d/dx(3x²) + d/dx(4x) - d/dx(5)</p>
+                    <p>f'(x) = 3(2x) + 4(1) - 0</p>
+                    <p>f'(x) = <strong>6x + 4</strong></p>
+                </div>
+                
+                <h3>Finding Maximum and Minimum</h3>
+                <p>Where f'(x) = 0, we have a critical point (max, min, or inflection)</p>
+                
+                <div class="example">
+                    <div class="example-title">Optimization Example</div>
+                    <p>f(x) = -x² + 4x + 3</p>
+                    <p>f'(x) = -2x + 4</p>
+                    <p>Set f'(x) = 0:</p>
+                    <p>-2x + 4 = 0</p>
+                    <p>x = 2 ← maximum occurs here!</p>
+                    <p>f(2) = -(2)² + 4(2) + 3 = <strong>7 (maximum value)</strong></p>
+                </div>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Physics:</strong> Velocity, acceleration, force</li>
+                    <li><strong>Economics:</strong> Marginal cost, marginal revenue</li>
+                    <li><strong>Optimization:</strong> Minimizing cost, maximizing profit</li>
+                    <li><strong>Engineering:</strong> Rates of change in systems</li>
+                    <li><strong>Biology:</strong> Population growth rates</li>
+                </ul>
+            `,
+            
+            "Matrices": `
+                <h2>Matrices</h2>
+                <p>A matrix is a rectangular array of numbers arranged in rows and columns. Matrices are powerful tools used in computer graphics, physics, and data science!</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>What is a Matrix?</h3>
+                <p>A matrix is written in brackets with rows and columns:</p>
+                
+                <div class="example">
+                    <div class="example-title">2×3 Matrix (2 rows, 3 columns)</div>
+                    <p>A = [1  2  3]</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;[4  5  6]</p>
+                    <p>This is a "2 by 3" matrix</p>
+                </div>
+                
+                <h3>Matrix Dimensions</h3>
+                <p>An m×n matrix has:</p>
+                <ul>
+                    <li><strong>m</strong> rows (horizontal)</li>
+                    <li><strong>n</strong> columns (vertical)</li>
+                </ul>
+                
+                <h3>Matrix Addition</h3>
+                <p>Add corresponding elements (matrices must be same size):</p>
+                
+                <div class="example">
+                    <div class="example-title">Adding Matrices</div>
+                    <p>[1  2]  +  [5  6]  =  [1+5  2+6]  =  [6   8]</p>
+                    <p>[3  4]     [7  8]     [3+7  4+8]     [10  12]</p>
+                </div>
+                
+                <h3>Scalar Multiplication</h3>
+                <p>Multiply every element by a number:</p>
+                
+                <div class="example">
+                    <div class="example-title">Scalar Example</div>
+                    <p>3 × [1  2]  =  [3   6]</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;[4  5]     [12  15]</p>
+                </div>
+                
+                <h3>Matrix Multiplication</h3>
+                <p>More complex! Row × Column:</p>
+                
+                <div class="example">
+                    <div class="example-title">2×2 Matrix Multiplication</div>
+                    <p>[a  b] × [e  f]  =  [ae+bg  af+bh]</p>
+                    <p>[c  d]   [g  h]     [ce+dg  cf+dh]</p>
+                    <p><strong>Example:</strong></p>
+                    <p>[2  3] × [1  0]  =  [2·1+3·2  2·0+3·3]  =  [8   9]</p>
+                    <p>[4  5]   [2  3]     [4·1+5·2  4·0+5·3]     [14  15]</p>
+                </div>
+                
+                <h3>Identity Matrix</h3>
+                <p>Like multiplying by 1:</p>
+                <div class="example">
+                    <div class="example-title">2×2 Identity Matrix</div>
+                    <p>I = [1  0]</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;[0  1]</p>
+                    <p>A × I = A (no change!)</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li><strong>Computer Graphics:</strong> 3D transformations (rotation, scaling)</li>
+                    <li><strong>Data Science:</strong> Machine learning algorithms</li>
+                    <li><strong>Physics:</strong> Quantum mechanics</li>
+                    <li><strong>Economics:</strong> Input-output models</li>
+                    <li><strong>Networks:</strong> Connection matrices</li>
+                </ul>
             `
         };
         
@@ -9779,6 +10264,326 @@ class MathBoredApp {
                 return {
                     display: `If f(x) = (${inner}x)², what is f'(1)?<br><small>(Use chain rule)</small>`,
                     answer: 2 * inner * inner
+                };
+            },
+            
+            // ========== ADDITIONAL HIGH SCHOOL TOPICS ==========
+            
+            "Polynomials": () => {
+                const a = this.randomInt(2, 5);
+                const b = this.randomInt(1, 10);
+                const c = this.randomInt(1, 10);
+                const x = this.randomInt(1, 3);
+                const result = a * x * x + b * x + c;
+                return {
+                    display: `Evaluate ${a}x² + ${b}x + ${c} when x = ${x}`,
+                    answer: result
+                };
+            },
+            
+            "Quadratic Equations": () => {
+                // Simple factored form (x - a)(x - b) = 0
+                const a = this.randomInt(1, 8);
+                const b = this.randomInt(1, 8);
+                return {
+                    display: `Solve: x² - ${a + b}x + ${a * b} = 0<br><small>One solution is x = ${a}. What is the other?</small>`,
+                    answer: b
+                };
+            },
+            
+            "Functions": () => {
+                const m = this.randomInt(2, 8);
+                const b = this.randomInt(-5, 10);
+                const x = this.randomInt(1, 5);
+                return {
+                    display: `If f(x) = ${m}x ${b >= 0 ? '+' : ''}${b}, find f(${x})`,
+                    answer: m * x + b
+                };
+            },
+            
+            "Factoring": () => {
+                const a = this.randomInt(2, 6);
+                const b = this.randomInt(2, 6);
+                const product = a * b;
+                const sum = a + b;
+                return {
+                    display: `Factor x² + ${sum}x + ${product}<br><small>First term of first factor? (x + ?)</small>`,
+                    answer: a,
+                    acceptedAnswers: [a, b]
+                };
+            },
+            
+            "Trigonometry": () => {
+                const angle = this.randomFrom([0, 30, 45, 60, 90]);
+                const values = {
+                    0: {sin: 0, cos: 1, tan: 0},
+                    30: {sin: 0.5, cos: 0.87, tan: 0.58},
+                    45: {sin: 0.71, cos: 0.71, tan: 1},
+                    60: {sin: 0.87, cos: 0.5, tan: 1.73},
+                    90: {sin: 1, cos: 0, tan: 'undefined'}
+                };
+                const func = this.randomFrom(['sin', 'cos']);
+                return {
+                    display: `${func}(${angle}°) ≈ ?<br><small>(Round to 2 decimals)</small>`,
+                    answer: values[angle][func]
+                };
+            },
+            
+            "Probability": () => {
+                const favorable = this.randomInt(2, 8);
+                const total = this.randomInt(favorable + 2, 20);
+                const prob = favorable / total;
+                return {
+                    display: `${favorable} red balls, ${total - favorable} blue balls. Probability of drawing red?<br><small>(As fraction or decimal)</small>`,
+                    answer: parseFloat(prob.toFixed(2)),
+                    acceptedAnswers: [prob, parseFloat(prob.toFixed(2)), `${favorable}/${total}`]
+                };
+            },
+            
+            "Statistics": () => {
+                const values = [
+                    this.randomInt(10, 30),
+                    this.randomInt(10, 30),
+                    this.randomInt(10, 30),
+                    this.randomInt(10, 30),
+                    this.randomInt(10, 30)
+                ];
+                const mean = values.reduce((a, b) => a + b) / values.length;
+                return {
+                    display: `Data: ${values.join(', ')}<br>Calculate the mean (average).<br><small>(Round to 1 decimal)</small>`,
+                    answer: parseFloat(mean.toFixed(1))
+                };
+            },
+            
+            "Law of Sines and Cosines": () => {
+                // Simple Law of Sines problem
+                const angleA = 30;
+                const sideA = this.randomInt(5, 15);
+                const angleB = 90;
+                const sideB = sideA * 2; // Since sin(30) = 0.5, sin(90) = 1
+                return {
+                    display: `Triangle: Angle A = ${angleA}°, side a = ${sideA}<br>Angle B = ${angleB}°, side b = ?<br><small>(Use Law of Sines)</small>`,
+                    answer: sideB
+                };
+            },
+            
+            "Logarithms": () => {
+                const base = this.randomFrom([2, 10]);
+                const exponent = this.randomInt(2, 4);
+                const value = Math.pow(base, exponent);
+                return {
+                    display: `log${base === 10 ? '' : base}(${value}) = ?<br><small>(${base} to what power equals ${value}?)</small>`,
+                    answer: exponent
+                };
+            },
+            
+            "Exponential Functions": () => {
+                const base = this.randomFrom([2, 3]);
+                const exponent = this.randomInt(2, 5);
+                return {
+                    display: `f(x) = ${base}^x. Calculate f(${exponent})`,
+                    answer: Math.pow(base, exponent)
+                };
+            },
+            
+            "Derivatives": () => {
+                const coef = this.randomInt(2, 8);
+                const exp = this.randomInt(2, 4);
+                const newCoef = coef * exp;
+                const newExp = exp - 1;
+                return {
+                    display: `Find the derivative of ${coef}x^${exp}<br><small>(Power rule: d/dx(ax^n) = nax^(n-1))</small>`,
+                    answer: `${newCoef}x^${newExp}`,
+                    acceptedAnswers: [`${newCoef}x^${newExp}`, `${newCoef}x${newExp}`, newCoef * Math.pow(2, newExp)]
+                };
+            },
+            
+            "Integrals": () => {
+                const coef = this.randomInt(2, 8);
+                const exp = this.randomInt(2, 4);
+                const newExp = exp + 1;
+                return {
+                    display: `∫${coef}x^${exp} dx = ?<br><small>(Power rule, ignore constant C)</small>`,
+                    answer: `${coef}x^${newExp}/${newExp}`,
+                    acceptedAnswers: [`${coef}x^${newExp}/${newExp}`, `${coef}/${newExp}x^${newExp}`]
+                };
+            },
+            
+            "Sequences and Series": () => {
+                const first = this.randomInt(2, 10);
+                const diff = this.randomInt(2, 5);
+                const n = this.randomInt(3, 6);
+                const nthTerm = first + (n - 1) * diff;
+                return {
+                    display: `Arithmetic sequence: ${first}, ${first + diff}, ${first + 2*diff}, ...<br>What is the ${n}th term?`,
+                    answer: nthTerm
+                };
+            },
+            
+            "Matrices": () => {
+                const a = this.randomInt(1, 5);
+                const b = this.randomInt(1, 5);
+                const c = this.randomInt(1, 5);
+                const d = this.randomInt(1, 5);
+                return {
+                    display: `Matrix: [${a} ${b}]<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[${c} ${d}]<br><br>What is element in position (2,1)?`,
+                    answer: c
+                };
+            },
+            
+            "Standard Deviation": () => {
+                const values = [10, 12, 14, 16, 18];
+                const mean = 14;
+                return {
+                    display: `Data: ${values.join(', ')}<br>Mean = ${mean}<br>Squared deviations: 16, 4, 0, 4, 16<br>What is the variance?<br><small>(Sum of squared deviations / n)</small>`,
+                    answer: 8
+                };
+            },
+            
+            // ========== ADDITIONAL MIDDLE SCHOOL TOPICS ==========
+            
+            "Even and Odd Numbers": () => {
+                const num = this.randomInt(10, 50);
+                const isEven = num % 2 === 0;
+                return {
+                    display: `Is ${num} even or odd?`,
+                    answer: isEven ? 'even' : 'odd'
+                };
+            },
+            
+            "Skip Counting": () => {
+                const skip = this.randomFrom([2, 5, 10]);
+                const start = skip;
+                const count = this.randomInt(3, 6);
+                const next = start + (count * skip);
+                return {
+                    display: `Skip count by ${skip}: ${start}, ${start + skip}, ${start + 2*skip}, ...<br>What comes after ${next - skip}?`,
+                    answer: next
+                };
+            },
+            
+            "Equivalent Fractions": () => {
+                const num = this.randomInt(1, 4);
+                const den = this.randomInt(num + 1, 8);
+                const mult = this.randomInt(2, 4);
+                return {
+                    display: `${num}/${den} = ${num * mult}/?<br>What is the missing denominator?`,
+                    answer: den * mult
+                };
+            },
+            
+            "Mixed Numbers": () => {
+                const whole = this.randomInt(2, 5);
+                const num = this.randomInt(1, 3);
+                const den = this.randomInt(num + 1, 4);
+                const improper = whole * den + num;
+                return {
+                    display: `Convert ${whole} ${num}/${den} to improper fraction.<br>What is the numerator?`,
+                    answer: improper
+                };
+            },
+            
+            "Rounding and Estimation": () => {
+                const num = this.randomInt(145, 985);
+                const rounded = Math.round(num / 100) * 100;
+                return {
+                    display: `Round ${num} to the nearest hundred.`,
+                    answer: rounded
+                };
+            },
+            
+            "Ratios and Proportions": () => {
+                const a = this.randomInt(2, 6);
+                const b = this.randomInt(2, 6);
+                const mult = this.randomInt(2, 4);
+                return {
+                    display: `If ${a}:${b} = ${a * mult}:x, then x = ?`,
+                    answer: b * mult
+                };
+            },
+            
+            "Coordinate Plane": () => {
+                const x = this.randomInt(-5, 5);
+                const y = this.randomInt(-5, 5);
+                const ask = this.randomFrom(['x', 'y']);
+                return {
+                    display: `Point (${x}, ${y}) has ${ask}-coordinate = ?`,
+                    answer: ask === 'x' ? x : y
+                };
+            },
+            
+            "Expressions and Equations": () => {
+                const coef = this.randomInt(2, 8);
+                const const1 = this.randomInt(5, 15);
+                const x = this.randomInt(2, 5);
+                return {
+                    display: `Evaluate ${coef}x + ${const1} when x = ${x}`,
+                    answer: coef * x + const1
+                };
+            },
+            
+            "Inequalities": () => {
+                const a = this.randomInt(10, 50);
+                const b = this.randomInt(10, 50);
+                const symbol = a > b ? '>' : a < b ? '<' : '=';
+                return {
+                    display: `${a} ___ ${b}<br><small>Enter >, <, or =</small>`,
+                    answer: symbol
+                };
+            },
+            
+            "Area": () => {
+                const shape = this.randomFrom(['rectangle', 'triangle', 'circle']);
+                if (shape === 'rectangle') {
+                    const l = this.randomInt(5, 15);
+                    const w = this.randomInt(3, 10);
+                    return {
+                        display: `Rectangle: length = ${l}, width = ${w}. Area = ?`,
+                        answer: l * w
+                    };
+                } else if (shape === 'triangle') {
+                    const b = this.randomInt(6, 12);
+                    const h = this.randomInt(4, 10);
+                    return {
+                        display: `Triangle: base = ${b}, height = ${h}. Area = ?<br><small>(A = ½bh)</small>`,
+                        answer: (b * h) / 2
+                    };
+                } else {
+                    const r = this.randomInt(3, 8);
+                    const area = Math.PI * r * r;
+                    return {
+                        display: `Circle: radius = ${r}. Area ≈ ?<br><small>(π ≈ 3.14, round to nearest whole)</small>`,
+                        answer: Math.round(area)
+                    };
+                }
+            },
+            
+            "Pythagorean Theorem": () => {
+                const triples = [[3,4,5], [5,12,13], [8,15,17], [6,8,10]];
+                const triple = this.randomFrom(triples);
+                const missing = this.randomFrom([0, 1, 2]);
+                if (missing === 2) {
+                    return {
+                        display: `Right triangle: a = ${triple[0]}, b = ${triple[1]}. Find c (hypotenuse).<br><small>(a² + b² = c²)</small>`,
+                        answer: triple[2]
+                    };
+                } else {
+                    return {
+                        display: `Right triangle: c = ${triple[2]}, ${missing === 0 ? 'b' : 'a'} = ${triple[missing === 0 ? 1 : 0]}. Find ${missing === 0 ? 'a' : 'b'}.<br><small>(a² + b² = c²)</small>`,
+                        answer: triple[missing]
+                    };
+                }
+            },
+            
+            "Slope": () => {
+                const x1 = this.randomInt(1, 5);
+                const y1 = this.randomInt(1, 5);
+                const x2 = this.randomInt(6, 10);
+                const y2 = this.randomInt(6, 15);
+                const slope = (y2 - y1) / (x2 - x1);
+                return {
+                    display: `Points (${x1}, ${y1}) and (${x2}, ${y2}). Slope = ?<br><small>(m = (y₂-y₁)/(x₂-x₁), round to 1 decimal)</small>`,
+                    answer: parseFloat(slope.toFixed(1))
                 };
             }
         };

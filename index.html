@@ -137,17 +137,62 @@
         </div>
     </footer>
 
-    <!-- Floating Feedback Button -->
-    <a href="https://forms.gle/EgVZZT9ybtyJXHscA" 
-       target="_blank"
-       rel="noopener noreferrer"
-       class="feedback-button"
-       title="Send Anonymous Feedback">
-        💬
-    </a>
+    <!-- Floating Feedback Menu -->
+    <div class="feedback-container">
+        <button class="feedback-button" id="feedbackBtn" title="Feedback & Roadmap">
+            💬
+        </button>
+        <div class="feedback-menu" id="feedbackMenu">
+            <a href="https://forms.gle/EgVZZT9ybtyJXHscA" target="_blank" rel="noopener noreferrer" class="feedback-menu-item">
+                <span class="menu-icon">💬</span>
+                <div class="menu-content">
+                    <div class="menu-title">Anonymous Feedback</div>
+                    <div class="menu-desc">Report bugs, share thoughts</div>
+                </div>
+            </a>
+            <a href="roadmap.html" class="feedback-menu-item">
+                <span class="menu-icon">🗺️</span>
+                <div class="menu-content">
+                    <div class="menu-title">Feature Roadmap</div>
+                    <div class="menu-desc">View & vote on upcoming features</div>
+                </div>
+            </a>
+            <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" rel="noopener noreferrer" class="feedback-menu-item">
+                <span class="menu-icon">💡</span>
+                <div class="menu-content">
+                    <div class="menu-title">Suggest Feature</div>
+                    <div class="menu-desc">Share your ideas on GitHub</div>
+                </div>
+            </a>
+        </div>
+    </div>
 
     <script src="data.js?v=5"></script>
     <script src="app.js?v=5"></script>
+    <script>
+    // Feedback menu toggle
+    document.addEventListener('DOMContentLoaded', () => {
+        const feedbackBtn = document.getElementById('feedbackBtn');
+        const feedbackMenu = document.getElementById('feedbackMenu');
+        
+        if (feedbackBtn && feedbackMenu) {
+            feedbackBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                feedbackMenu.classList.toggle('show');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', () => {
+                feedbackMenu.classList.remove('show');
+            });
+            
+            // Prevent menu close when clicking inside
+            feedbackMenu.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
+    });
+    </script>
 </body>
 </html>
 

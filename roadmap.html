@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MathBored Feature Roadmap - Vote on upcoming features and enhancements">
+    <title>Feature Roadmap - MathBored</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .roadmap-hero {
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 12px;
+        }
+
+        .roadmap-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .roadmap-hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .priority-section {
+            margin-bottom: 50px;
+        }
+
+        .priority-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .priority-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .priority-high {
+            background: var(--error);
+            color: white;
+        }
+
+        .priority-medium {
+            background: var(--warning);
+            color: white;
+        }
+
+        .priority-low {
+            background: var(--accent);
+            color: white;
+        }
+
+        .feature-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.1);
+        }
+
+        .feature-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--accent);
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .feature-meta {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .vote-count {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-tertiary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .status-planned {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .status-in-progress {
+            background: #f59e0b;
+            color: white;
+        }
+
+        .status-completed {
+            background: #10b981;
+            color: white;
+        }
+
+        .feature-description {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .feature-impact {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .impact-tag {
+            background: var(--bg-tertiary);
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .feature-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-vote {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-vote:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-discuss {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .btn-discuss:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .cta-box h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--accent);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            gap: 12px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .error-message {
+            background: var(--bg-secondary);
+            border: 2px solid var(--error);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            .roadmap-hero h1 {
+                font-size: 2rem;
+            }
+
+            .feature-header {
+                flex-direction: column;
+                align-items: start;
+            }
+
+            .feature-actions {
+                flex-direction: column;
+            }
+
+            .btn-vote, .btn-discuss {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>🎯 MathBored</h1>
+                    <div class="tagline">Feature Roadmap & Community Voting</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to App</a>
+
+        <div class="roadmap-hero">
+            <h1>🗺️ Feature Roadmap</h1>
+            <p>Help shape the future of MathBored! Vote on features you want most and suggest new ideas.</p>
+        </div>
+
+        <!-- HIGH PRIORITY SECTION -->
+        <div class="priority-section">
+            <div class="priority-header">
+                <span class="priority-badge priority-high">🔥 High Priority</span>
+                <h2>Content Gaps - Core Functionality</h2>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-title">📚 Complete Problem Generators (35 Topics)</div>
+                    <div class="feature-meta">
+                        <div class="vote-count">
+                            <span>👍</span>
+                            <span id="votes-generators">42</span>
+                        </div>
+                        <span class="status-badge status-in-progress">In Progress</span>
+                    </div>
+                </div>
+                <p class="feature-description">
+                    Currently only 9 of 44 topics have custom problem generators. Users can't practice advanced topics like Trigonometry, Calculus, Matrices, Logarithms, and more. This limits the app's usefulness for high school students.
+                </p>
+                <div class="feature-impact">
+                    <span class="impact-tag">🎯 High School Critical</span>
+                    <span class="impact-tag">💪 Practice Mode</span>
+                    <span class="impact-tag">📊 Grades 9-12</span>
+                </div>
+                <div class="feature-actions">
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-vote">
+                        👍 Vote on GitHub
+                    </a>
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-discuss">
+                        💬 Discuss
+                    </a>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-title">📖 Comprehensive Lessons (32 Topics)</div>
+                    <div class="feature-meta">
+                        <div class="vote-count">
+                            <span>👍</span>
+                            <span id="votes-lessons">38</span>
+                        </div>
+                        <span class="status-badge status-in-progress">In Progress</span>
+                    </div>
+                </div>
+                <p class="feature-description">
+                    Only 12 topics have fully-written lessons. Remaining 32 topics use generic templates with minimal content. Students need detailed explanations, more examples, and real-world applications for all topics.
+                </p>
+                <div class="feature-impact">
+                    <span class="impact-tag">📝 Lesson Mode</span>
+                    <span class="impact-tag">🎓 All Grades</span>
+                    <span class="impact-tag">📚 Content Quality</span>
+                </div>
+                <div class="feature-actions">
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-vote">
+                        👍 Vote on GitHub
+                    </a>
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-discuss">
+                        💬 Discuss
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- MEDIUM PRIORITY SECTION -->
+        <div class="priority-section">
+            <div class="priority-header">
+                <span class="priority-badge priority-medium">⚡ Medium Priority</span>
+                <h2>Learning Enhancements</h2>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-title">🎨 Interactive Visualizations</div>
+                    <div class="feature-meta">
+                        <div class="vote-count">
+                            <span>👍</span>
+                            <span id="votes-visualizations">35</span>
+                        </div>
+                        <span class="status-badge status-planned">Planned</span>
+                    </div>
+                </div>
+                <p class="feature-description">
+                    Add diagrams, animations, and visual representations for geometry, graphing, and functions. Visual learners need to SEE math concepts, not just read about them.
+                </p>
+                <div class="feature-impact">
+                    <span class="impact-tag">👁️ Visual Learning</span>
+                    <span class="impact-tag">📐 Geometry</span>
+                    <span class="impact-tag">📈 Graphing</span>
+                </div>
+                <div class="feature-actions">
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-vote">
+                        👍 Vote on GitHub
+                    </a>
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-discuss">
+                        💬 Discuss
+                    </a>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-title">💡 Progressive Hint System</div>
+                    <div class="feature-meta">
+                        <div class="vote-count">
+                            <span>👍</span>
+                            <span id="votes-hints">31</span>
+                        </div>
+                        <span class="status-badge status-planned">Planned</span>
+                    </div>
+                </div>
+                <p class="feature-description">
+                    Students get stuck with no help between "no info" and "full solution." Add progressive hints that guide without giving away the answer. Example: "First, simplify the equation" → "Combine like terms" → etc.
+                </p>
+                <div class="feature-impact">
+                    <span class="impact-tag">🧠 Learning Support</span>
+                    <span class="impact-tag">💪 Practice Mode</span>
+                    <span class="impact-tag">🎯 Reduces Frustration</span>
+                </div>
+                <div class="feature-actions">
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-vote">
+                        👍 Vote on GitHub
+                    </a>
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-discuss">
+                        💬 Discuss
+                    </a>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-title">🎚️ Difficulty Levels (Easy/Medium/Hard)</div>
+                    <div class="feature-meta">
+                        <div class="vote-count">
+                            <span>👍</span>
+                            <span id="votes-difficulty">28</span>
+                        </div>
+                        <span class="status-badge status-planned">Planned</span>
+                    </div>
+                </div>
+                <p class="feature-description">
+                    All practice problems are the same difficulty. Struggling students need easier problems to build confidence. Advanced students need harder challenges. Add difficulty selector for each topic.
+                </p>
+                <div class="feature-impact">
+                    <span class="impact-tag">📊 Adaptive Learning</span>
+                    <span class="impact-tag">👶 Accessibility</span>
+                    <span class="impact-tag">🚀 Challenge</span>
+                </div>
+                <div class="feature-actions">
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-vote">
+                        👍 Vote on GitHub
+                    </a>
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-discuss">
+                        💬 Discuss
+                    </a>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-title">📊 Graph Plotting Tool</div>
+                    <div class="feature-meta">
+                        <div class="vote-count">
+                            <span>👍</span>
+                            <span id="votes-graphing">24</span>
+                        </div>
+                        <span class="status-badge status-planned">Planned</span>
+                    </div>
+                </div>
+                <p class="feature-description">
+                    For coordinate plane, functions, and slope topics, students need to visualize graphs. Add an interactive graphing calculator to plot functions, points, and lines.
+                </p>
+                <div class="feature-impact">
+                    <span class="impact-tag">📈 Algebra</span>
+                    <span class="impact-tag">📐 Functions</span>
+                    <span class="impact-tag">🎓 Grades 8-12</span>
+                </div>
+                <div class="feature-actions">
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-vote">
+                        👍 Vote on GitHub
+                    </a>
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-discuss">
+                        💬 Discuss
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOW PRIORITY SECTION -->
+        <div class="priority-section">
+            <div class="priority-header">
+                <span class="priority-badge priority-low">💎 Nice to Have</span>
+                <h2>Convenience Features</h2>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-title">⏱️ Timed Challenges & Speed Rounds</div>
+                    <div class="feature-meta">
+                        <div class="vote-count">
+                            <span>👍</span>
+                            <span id="votes-timed">18</span>
+                        </div>
+                        <span class="status-badge status-planned">Planned</span>
+                    </div>
+                </div>
+                <p class="feature-description">
+                    Add optional timed mode for test preparation. Challenge yourself to solve 10 problems in 5 minutes. Great for building speed and confidence before exams.
+                </p>
+                <div class="feature-impact">
+                    <span class="impact-tag">⏱️ Test Prep</span>
+                    <span class="impact-tag">🎮 Gamification</span>
+                    <span class="impact-tag">🏆 Competition</span>
+                </div>
+                <div class="feature-actions">
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-vote">
+                        👍 Vote on GitHub
+                    </a>
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-discuss">
+                        💬 Discuss
+                    </a>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-title">🖨️ Print-Friendly Worksheets</div>
+                    <div class="feature-meta">
+                        <div class="vote-count">
+                            <span>👍</span>
+                            <span id="votes-print">15</span>
+                        </div>
+                        <span class="status-badge status-planned">Planned</span>
+                    </div>
+                </div>
+                <p class="feature-description">
+                    Generate printable PDF worksheets with 10-20 problems. Perfect for teachers, parents, or students who want to practice offline. Include answer key on separate page.
+                </p>
+                <div class="feature-impact">
+                    <span class="impact-tag">👨‍🏫 Teachers</span>
+                    <span class="impact-tag">📄 Offline</span>
+                    <span class="impact-tag">🏠 Homework</span>
+                </div>
+                <div class="feature-actions">
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-vote">
+                        👍 Vote on GitHub
+                    </a>
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-discuss">
+                        💬 Discuss
+                    </a>
+                </div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <div class="feature-title">💾 Export/Import Progress</div>
+                    <div class="feature-meta">
+                        <div class="vote-count">
+                            <span>👍</span>
+                            <span id="votes-export">12</span>
+                        </div>
+                        <span class="status-badge status-planned">Planned</span>
+                    </div>
+                </div>
+                <p class="feature-description">
+                    Download your stats as a file and restore on any device. Prevent data loss if browser cache is cleared. Enable multi-device learning without accounts or tracking.
+                </p>
+                <div class="feature-impact">
+                    <span class="impact-tag">💾 Data Backup</span>
+                    <span class="impact-tag">📱 Multi-Device</span>
+                    <span class="impact-tag">🔒 Still Private</span>
+                </div>
+                <div class="feature-actions">
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-vote">
+                        👍 Vote on GitHub
+                    </a>
+                    <a href="https://github.com/Cartooli/math-boredgames/discussions" target="_blank" class="btn-discuss">
+                        💬 Discuss
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA BOX -->
+        <div class="cta-box">
+            <h2>💡 Have a New Idea?</h2>
+            <p>Your feature request could shape the future of MathBored!</p>
+            <a href="https://github.com/Cartooli/math-boredgames/discussions/new?category=ideas" target="_blank" class="btn-primary">
+                ✨ Suggest a Feature
+            </a>
+        </div>
+
+        <div style="text-align: center; padding: 40px 20px; color: var(--text-secondary);">
+            <p><strong>How Voting Works:</strong></p>
+            <p style="margin-top: 15px;">
+                1. Click "Vote on GitHub" for any feature<br>
+                2. React with 👍 on the discussion thread<br>
+                3. We prioritize based on votes & impact<br>
+                4. No GitHub account? Use our <a href="https://forms.gle/EgVZZT9ybtyJXHscA" style="color: var(--accent);">anonymous feedback form</a>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+        </div>
+    </footer>
+
+    <script>
+        // Load theme from localStorage
+        const savedTheme = localStorage.getItem('mathbored-theme');
+        if (savedTheme) {
+            document.body.className = savedTheme;
+        }
+    </script>
+</body>
+</html>
+
