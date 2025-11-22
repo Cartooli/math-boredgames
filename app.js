@@ -41,7 +41,7 @@ class MathBoredApp {
         }
     }
     
-    // List of topics with comprehensive lessons (147 total: 103 original + 44 new)
+    // List of topics with comprehensive lessons (177 total: 103 original + 44 previous + 20 high-priority + 5 medium-priority + 5 more)
     comprehensiveTopics = new Set([
         "Counting and Cardinality", "Number Recognition", "Addition", "Subtraction", "Multiplication",
         "Division", "Fractions", "Decimals", "Integers", "Percentages", "Pythagorean Theorem",
@@ -79,7 +79,16 @@ class MathBoredApp {
         "Unit Fractions", "Liquid Measurement", "Weight Measurement", "Perimeter of Polygons",
         "Expressions and Equations", "Inequalities", "Area", "Volume", "Slope",
         "Scientific Notation", "Transformations", "Functions (Introduction)", "Factoring",
-        "Radical Expressions", "Rational Expressions"
+        "Radical Expressions", "Rational Expressions",
+        // High-priority additions:
+        "Order of Operations", "Multi-Step Equations", "Combining Like Terms", "Distributive Property",
+        "Simple Interest", "Percent Change", "Complementary and Supplementary Angles", "Volume of Cylinders",
+        "Sample Space", "Distance Formula", "Volume of Cones and Spheres", "Bivariate Data",
+        "Linear vs Non-Linear Functions", "Roots and Radicals", "Rational vs Irrational Numbers",
+        "Frequency Tables (Two-Way)", "Completing the Square", "Quadratic Formula", "Parent Functions",
+        "Function Transformations", "Regression Lines", "Standard Form to Slope-Intercept",
+        // Medium-priority additions:
+        "Unit Circle", "Trig Identities", "Arc Length and Sector Area", "Asymptotes", "Continuity", "Chain Rule"
     ]);
     
     hasComprehensiveLesson(topicName) {
@@ -336,6 +345,7 @@ class MathBoredApp {
         
         const lessonHTML = this.generateLessonContent(conceptData);
         const recommendationsHTML = this.generateRecommendationsHTML();
+        const progressHTML = this.generateProgressIndicator();
         const isCompleted = this.isTopicCompleted(this.currentTopic);
         const completeButtonHTML = isCompleted 
             ? `<div style="text-align: center; margin-top: 30px; padding: 15px; background: var(--success-bg); border-radius: 8px; color: var(--success);">
@@ -346,7 +356,7 @@ class MathBoredApp {
                        ✓ Mark as Complete
                    </button>
                </div>`;
-        container.innerHTML = `<div class="lesson-content">${lessonHTML}${completeButtonHTML}${recommendationsHTML}</div>`;
+        container.innerHTML = `<div class="lesson-content">${lessonHTML}${completeButtonHTML}${progressHTML}${recommendationsHTML}</div>`;
     }
     
     generateLessonContent(concept) {
@@ -9601,6 +9611,2324 @@ class MathBoredApp {
                     <p>= 2x²/4x</p>
                     <p>= <strong>x/2</strong></p>
                 </div>
+            `,
+            
+            // ========== HIGH PRIORITY: Most Commonly Used Topics ==========
+            
+            "Order of Operations": `
+                <h2>Order of Operations (PEMDAS)</h2>
+                <p>The rules that tell us which operations to do first in a math expression!</p>
+                
+                <h3>What is PEMDAS?</h3>
+                <p>A memory trick to remember the correct order:</p>
+                <div class="formula-box">
+                    <strong>P</strong>arentheses<br>
+                    <strong>E</strong>xponents<br>
+                    <strong>M</strong>ultiplication & <strong>D</strong>ivision (left to right)<br>
+                    <strong>A</strong>ddition & <strong>S</strong>ubtraction (left to right)
+                </div>
+                
+                <h3>Why Do We Need This?</h3>
+                <p>Without rules, the same expression could have different answers!</p>
+                <div class="example">
+                    <div class="example-title">Example: 2 + 3 × 4</div>
+                    <p>Wrong way: (2 + 3) × 4 = 5 × 4 = 20</p>
+                    <p>Correct way: 2 + (3 × 4) = 2 + 12 = <strong>14</strong></p>
+                    <p>PEMDAS says: Multiply first, then add!</p>
+                </div>
+                
+                <h3>Step-by-Step Process</h3>
+                <div class="example">
+                    <div class="example-title">Solve: 3 + 4 × (6 - 2)²</div>
+                    <p><strong>Step 1 - Parentheses:</strong> (6 - 2) = 4</p>
+                    <p>Now: 3 + 4 × 4²</p>
+                    <p><strong>Step 2 - Exponents:</strong> 4² = 16</p>
+                    <p>Now: 3 + 4 × 16</p>
+                    <p><strong>Step 3 - Multiplication:</strong> 4 × 16 = 64</p>
+                    <p>Now: 3 + 64</p>
+                    <p><strong>Step 4 - Addition:</strong> 3 + 64 = <strong>67</strong></p>
+                </div>
+                
+                <h3>Multiplication & Division (Same Level)</h3>
+                <p>Do them left to right, whichever comes first!</p>
+                <div class="example">
+                    <div class="example-title">Example: 12 ÷ 3 × 2</div>
+                    <p>12 ÷ 3 = 4 (left first)</p>
+                    <p>4 × 2 = <strong>8</strong></p>
+                    <p>NOT: 3 × 2 = 6, then 12 ÷ 6 = 2 ✗</p>
+                </div>
+                
+                <h3>Addition & Subtraction (Same Level)</h3>
+                <p>Also left to right!</p>
+                <div class="example">
+                    <div class="example-title">Example: 10 - 3 + 2</div>
+                    <p>10 - 3 = 7 (left first)</p>
+                    <p>7 + 2 = <strong>9</strong></p>
+                </div>
+                
+                <h3>Common Mistakes to Avoid</h3>
+                <ul>
+                    <li>✗ Doing operations in the order they appear</li>
+                    <li>✗ Adding before multiplying</li>
+                    <li>✗ Forgetting parentheses</li>
+                    <li>✗ Ignoring exponents</li>
+                </ul>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Calculations:</strong> Scientific formulas</li>
+                    <li><strong>Programming:</strong> Computer code follows these rules</li>
+                    <li><strong>Engineering:</strong> Complex calculations</li>
+                    <li><strong>Finance:</strong> Interest calculations</li>
+                </ul>
+                
+                <h3>Practice Tips</h3>
+                <ol>
+                    <li>Always start with parentheses</li>
+                    <li>Work exponents next</li>
+                    <li>Do multiplication/division left to right</li>
+                    <li>Finish with addition/subtraction left to right</li>
+                    <li>Check your work step by step!</li>
+                </ol>
+            `,
+            
+            "Multi-Step Equations": `
+                <h2>Multi-Step Equations</h2>
+                <p>Solve equations that require more than one step!</p>
+                
+                <h3>What Makes an Equation Multi-Step?</h3>
+                <p>When you need to do multiple operations to isolate the variable.</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: 3x + 5 = 14</div>
+                    <p>This needs TWO steps:</p>
+                    <p>1. Subtract 5 from both sides</p>
+                    <p>2. Divide by 3</p>
+                </div>
+                
+                <h3>Solving Strategy</h3>
+                <ol>
+                    <li><strong>Simplify both sides</strong> (combine like terms, distribute)</li>
+                    <li><strong>Move variable terms</strong> to one side</li>
+                    <li><strong>Move constant terms</strong> to the other side</li>
+                    <li><strong>Isolate the variable</strong> (multiply/divide)</li>
+                    <li><strong>Check your answer!</strong></li>
+                </ol>
+                
+                <h3>Example 1: Basic Multi-Step</h3>
+                <div class="example">
+                    <div class="example-title">Solve: 2x + 7 = 15</div>
+                    <p><strong>Step 1:</strong> Subtract 7 from both sides</p>
+                    <p>2x + 7 - 7 = 15 - 7</p>
+                    <p>2x = 8</p>
+                    <p><strong>Step 2:</strong> Divide both sides by 2</p>
+                    <p>2x ÷ 2 = 8 ÷ 2</p>
+                    <p>x = <strong>4</strong></p>
+                    <p><strong>Check:</strong> 2(4) + 7 = 8 + 7 = 15 ✓</p>
+                </div>
+                
+                <h3>Example 2: With Distribution</h3>
+                <div class="example">
+                    <div class="example-title">Solve: 3(x + 2) = 21</div>
+                    <p><strong>Step 1:</strong> Distribute</p>
+                    <p>3x + 6 = 21</p>
+                    <p><strong>Step 2:</strong> Subtract 6</p>
+                    <p>3x = 15</p>
+                    <p><strong>Step 3:</strong> Divide by 3</p>
+                    <p>x = <strong>5</strong></p>
+                </div>
+                
+                <h3>Example 3: Variables on Both Sides</h3>
+                <div class="example">
+                    <div class="example-title">Solve: 4x - 3 = 2x + 9</div>
+                    <p><strong>Step 1:</strong> Move variable terms (subtract 2x)</p>
+                    <p>4x - 2x - 3 = 2x - 2x + 9</p>
+                    <p>2x - 3 = 9</p>
+                    <p><strong>Step 2:</strong> Move constants (add 3)</p>
+                    <p>2x = 12</p>
+                    <p><strong>Step 3:</strong> Divide by 2</p>
+                    <p>x = <strong>6</strong></p>
+                </div>
+                
+                <h3>Example 4: With Fractions</h3>
+                <div class="example">
+                    <div class="example-title">Solve: (x/3) + 4 = 10</div>
+                    <p><strong>Step 1:</strong> Subtract 4</p>
+                    <p>x/3 = 6</p>
+                    <p><strong>Step 2:</strong> Multiply by 3</p>
+                    <p>x = <strong>18</strong></p>
+                </div>
+                
+                <h3>Key Principles</h3>
+                <ul>
+                    <li>Whatever you do to one side, do to the other</li>
+                    <li>Work in reverse order of operations</li>
+                    <li>Keep the equation balanced</li>
+                    <li>Always check your answer!</li>
+                </ul>
+                
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting to distribute</li>
+                    <li>Not combining like terms first</li>
+                    <li>Making sign errors</li>
+                    <li>Forgetting to check the answer</li>
+                </ul>
+            `,
+            
+            "Combining Like Terms": `
+                <h2>Combining Like Terms</h2>
+                <p>Simplify expressions by adding or subtracting terms with the same variable!</p>
+                
+                <h3>What are Like Terms?</h3>
+                <p>Terms that have the <strong>same variable(s) raised to the same power(s)</strong>.</p>
+                
+                <div class="example">
+                    <div class="example-title">Like Terms Examples</div>
+                    <p>✓ 3x and 5x (both have x to the first power)</p>
+                    <p>✓ 2y² and 7y² (both have y²)</p>
+                    <p>✓ 4 and 9 (both are constants, no variables)</p>
+                    <p>✗ 3x and 3y (different variables)</p>
+                    <p>✗ 2x and 2x² (different powers)</p>
+                </div>
+                
+                <h3>How to Combine</h3>
+                <p>Add or subtract the <strong>coefficients</strong> (numbers in front), keep the variable part the same!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example 1: Simple</div>
+                    <p>3x + 5x</p>
+                    <p>= (3 + 5)x</p>
+                    <p>= <strong>8x</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 2: Multiple Terms</div>
+                    <p>2x + 3y - x + 5y</p>
+                    <p>Group like terms: (2x - x) + (3y + 5y)</p>
+                    <p>= x + 8y</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 3: With Constants</div>
+                    <p>4x + 7 - 2x + 3</p>
+                    <p>= (4x - 2x) + (7 + 3)</p>
+                    <p>= <strong>2x + 10</strong></p>
+                </div>
+                
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Identify like terms</li>
+                    <li>Group them together</li>
+                    <li>Add/subtract coefficients</li>
+                    <li>Keep variable parts unchanged</li>
+                </ol>
+                
+                <h3>With Distribution First</h3>
+                <div class="example">
+                    <div class="example-title">Example: 3(x + 2) + 2x</div>
+                    <p><strong>Step 1:</strong> Distribute</p>
+                    <p>3x + 6 + 2x</p>
+                    <p><strong>Step 2:</strong> Combine like terms</p>
+                    <p>3x + 2x + 6</p>
+                    <p>= <strong>5x + 6</strong></p>
+                </div>
+                
+                <h3>Why This Matters</h3>
+                <ul>
+                    <li>Simplifies expressions</li>
+                    <li>Makes solving equations easier</li>
+                    <li>Foundation for algebra</li>
+                    <li>Used in all higher math</li>
+                </ul>
+                
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Combining unlike terms (3x + 2y ≠ 5xy)</li>
+                    <li>Forgetting to combine constants</li>
+                    <li>Sign errors when subtracting</li>
+                </ul>
+            `,
+            
+            "Distributive Property": `
+                <h2>Distributive Property</h2>
+                <p>Multiply a number across terms inside parentheses!</p>
+                
+                <h3>The Property</h3>
+                <div class="formula-box">
+                    a(b + c) = ab + ac<br>
+                    a(b - c) = ab - ac
+                </div>
+                
+                <h3>Visual Understanding</h3>
+                <p>Think of distributing (handing out) the number to each term inside!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example 1: Basic</div>
+                    <p>3(x + 4)</p>
+                    <p>= 3·x + 3·4</p>
+                    <p>= <strong>3x + 12</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 2: With Subtraction</div>
+                    <p>5(2x - 3)</p>
+                    <p>= 5·2x - 5·3</p>
+                    <p>= <strong>10x - 15</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 3: Multiple Terms</div>
+                    <p>2(3x + 4y - 5)</p>
+                    <p>= 2·3x + 2·4y - 2·5</p>
+                    <p>= <strong>6x + 8y - 10</strong></p>
+                </div>
+                
+                <h3>Why Use It?</h3>
+                <ul>
+                    <li>Simplify expressions</li>
+                    <li>Solve equations</li>
+                    <li>Factor polynomials (reverse)</li>
+                    <li>Mental math shortcuts</li>
+                </ul>
+                
+                <h3>Real-World Example</h3>
+                <div class="example">
+                    <div class="example-title">Pizza Party</div>
+                    <p>3 friends each order (2 slices + 1 drink)</p>
+                    <p>Total: 3(2 + 1) = 3·2 + 3·1 = 6 + 3 = 9 items</p>
+                </div>
+                
+                <h3>Factoring (Reverse)</h3>
+                <p>You can also use it in reverse to factor!</p>
+                <div class="example">
+                    <div class="example-title">Factor: 6x + 9</div>
+                    <p>Find GCF: 3</p>
+                    <p>= 3(2x + 3)</p>
+                    <p>Check: 3(2x + 3) = 6x + 9 ✓</p>
+                </div>
+                
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting to multiply the second term</li>
+                    <li>Sign errors with subtraction</li>
+                    <li>Only distributing to first term</li>
+                </ul>
+            `,
+            
+            "Simple Interest": `
+                <h2>Simple Interest</h2>
+                <p>Calculate interest earned or paid on money over time!</p>
+                
+                <h3>The Formula</h3>
+                <div class="formula-box">
+                    I = PRT<br>
+                    I = Interest<br>
+                    P = Principal (starting amount)<br>
+                    R = Rate (as decimal)<br>
+                    T = Time (in years)
+                </div>
+                
+                <h3>Understanding the Parts</h3>
+                <ul>
+                    <li><strong>Principal (P):</strong> The original amount of money</li>
+                    <li><strong>Rate (R):</strong> Interest rate per year (convert % to decimal)</li>
+                    <li><strong>Time (T):</strong> How long money is invested/borrowed</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Example 1: Savings Account</div>
+                    <p>You deposit $1,000 at 5% interest for 3 years</p>
+                    <p>P = $1,000</p>
+                    <p>R = 5% = 0.05</p>
+                    <p>T = 3 years</p>
+                    <p>I = 1000 × 0.05 × 3</p>
+                    <p>= 1000 × 0.15</p>
+                    <p>= <strong>$150</strong> interest earned</p>
+                    <p>Total: $1,000 + $150 = $1,150</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 2: Loan</div>
+                    <p>Borrow $500 at 8% for 2 years</p>
+                    <p>I = 500 × 0.08 × 2</p>
+                    <p>= <strong>$80</strong> interest to pay</p>
+                    <p>Total to repay: $500 + $80 = $580</p>
+                </div>
+                
+                <h3>Converting Percent to Decimal</h3>
+                <p>Move decimal point 2 places left!</p>
+                <ul>
+                    <li>5% = 0.05</li>
+                    <li>8% = 0.08</li>
+                    <li>12.5% = 0.125</li>
+                </ul>
+                
+                <h3>Time Conversions</h3>
+                <ul>
+                    <li>6 months = 0.5 years</li>
+                    <li>18 months = 1.5 years</li>
+                    <li>3 months = 0.25 years</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Example 3: Months</div>
+                    <p>$2,000 at 6% for 9 months</p>
+                    <p>T = 9/12 = 0.75 years</p>
+                    <p>I = 2000 × 0.06 × 0.75</p>
+                    <p>= <strong>$90</strong></p>
+                </div>
+                
+                <h3>Finding Other Values</h3>
+                <p>Rearrange the formula as needed:</p>
+                <ul>
+                    <li>P = I ÷ (R × T)</li>
+                    <li>R = I ÷ (P × T)</li>
+                    <li>T = I ÷ (P × R)</li>
+                </ul>
+                
+                <h3>Simple vs Compound Interest</h3>
+                <ul>
+                    <li><strong>Simple:</strong> Interest only on principal</li>
+                    <li><strong>Compound:</strong> Interest on principal + previous interest</li>
+                    <li>Simple is easier to calculate!</li>
+                </ul>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li>Savings accounts</li>
+                    <li>Loans</li>
+                    <li>Bonds</li>
+                    <li>Financial planning</li>
+                </ul>
+            `,
+            
+            "Percent Change": `
+                <h2>Percent Change</h2>
+                <p>Calculate how much something increased or decreased as a percentage!</p>
+                
+                <h3>The Formula</h3>
+                <div class="formula-box">
+                    Percent Change = (New - Old) / Old × 100%<br>
+                    Or: (Change / Original) × 100%
+                </div>
+                
+                <h3>Percent Increase</h3>
+                <p>When the new value is larger than the old value.</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Price Increase</div>
+                    <p>Old price: $50</p>
+                    <p>New price: $65</p>
+                    <p>Change = 65 - 50 = 15</p>
+                    <p>Percent Change = (15 / 50) × 100%</p>
+                    <p>= 0.30 × 100%</p>
+                    <p>= <strong>30% increase</strong></p>
+                </div>
+                
+                <h3>Percent Decrease</h3>
+                <p>When the new value is smaller than the old value (answer will be negative).</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Sale Price</div>
+                    <p>Original: $80</p>
+                    <p>Sale price: $60</p>
+                    <p>Change = 60 - 80 = -20</p>
+                    <p>Percent Change = (-20 / 80) × 100%</p>
+                    <p>= -0.25 × 100%</p>
+                    <p>= <strong>-25%</strong> (25% decrease)</p>
+                </div>
+                
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Find the change (new - old)</li>
+                    <li>Divide by the original value</li>
+                    <li>Multiply by 100</li>
+                    <li>Add % sign</li>
+                    <li>Positive = increase, Negative = decrease</li>
+                </ol>
+                
+                <h3>Real-World Examples</h3>
+                
+                <div class="example">
+                    <div class="example-title">Population Growth</div>
+                    <p>City population: 10,000 → 12,000</p>
+                    <p>Change = (12,000 - 10,000) / 10,000 × 100%</p>
+                    <p>= <strong>20% increase</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Test Score</div>
+                    <p>Score: 80 → 92</p>
+                    <p>Change = (92 - 80) / 80 × 100%</p>
+                    <p>= <strong>15% increase</strong></p>
+                </div>
+                
+                <h3>Finding New Value from Percent Change</h3>
+                <div class="example">
+                    <div class="example-title">Example: 20% increase on $100</div>
+                    <p>Increase = 100 × 0.20 = $20</p>
+                    <p>New value = 100 + 20 = <strong>$120</strong></p>
+                    <p>Or: 100 × 1.20 = $120</p>
+                </div>
+                
+                <h3>Common Uses</h3>
+                <ul>
+                    <li>Price changes</li>
+                    <li>Population growth/decline</li>
+                    <li>Test score improvements</li>
+                    <li>Stock market changes</li>
+                    <li>Sales discounts</li>
+                </ul>
+                
+                <h3>Tips</h3>
+                <ul>
+                    <li>Always use original value as denominator</li>
+                    <li>Check if answer makes sense</li>
+                    <li>Positive = increase, Negative = decrease</li>
+                </ul>
+            `,
+            
+            "Complementary and Supplementary Angles": `
+                <h2>Complementary and Supplementary Angles</h2>
+                <p>Special angle pairs that add up to specific values!</p>
+                
+                <h3>Complementary Angles</h3>
+                <p>Two angles that add up to <strong>90°</strong> (a right angle).</p>
+                <div class="formula-box">
+                    ∠A + ∠B = 90°
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>If one angle is 35°, the complement is:</p>
+                    <p>90° - 35° = <strong>55°</strong></p>
+                    <p>Check: 35° + 55° = 90° ✓</p>
+                </div>
+                
+                <h3>Supplementary Angles</h3>
+                <p>Two angles that add up to <strong>180°</strong> (a straight line).</p>
+                <div class="formula-box">
+                    ∠A + ∠B = 180°
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>If one angle is 120°, the supplement is:</p>
+                    <p>180° - 120° = <strong>60°</strong></p>
+                    <p>Check: 120° + 60° = 180° ✓</p>
+                </div>
+                
+                <h3>Visual Examples</h3>
+                <ul>
+                    <li><strong>Complementary:</strong> Two angles forming a corner (L shape)</li>
+                    <li><strong>Supplementary:</strong> Two angles forming a straight line</li>
+                </ul>
+                
+                <h3>Finding Missing Angles</h3>
+                <div class="example">
+                    <div class="example-title">Problem: Find the complement of 67°</div>
+                    <p>Complement = 90° - 67° = <strong>23°</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Problem: Find the supplement of 145°</div>
+                    <p>Supplement = 180° - 145° = <strong>35°</strong></p>
+                </div>
+                
+                <h3>Adjacent vs Non-Adjacent</h3>
+                <ul>
+                    <li><strong>Adjacent:</strong> Share a side and vertex</li>
+                    <li><strong>Non-Adjacent:</strong> Don't share a side</li>
+                    <li>Both can be complementary or supplementary!</li>
+                </ul>
+                
+                <h3>Real-World Examples</h3>
+                <ul>
+                    <li><strong>Complementary:</strong> Corner of a room (90° total)</li>
+                    <li><strong>Supplementary:</strong> Straight line (180° total)</li>
+                    <li><strong>Supplementary:</strong> Clock hands at 6:00 (straight line)</li>
+                </ul>
+                
+                <h3>Key Facts</h3>
+                <ul>
+                    <li>Two complementary angles are both acute (< 90°)</li>
+                    <li>Two supplementary angles can be: both right, one acute + one obtuse, or both right</li>
+                    <li>If angles are adjacent and complementary, they form a right angle</li>
+                    <li>If angles are adjacent and supplementary, they form a straight line</li>
+                </ul>
+            `,
+            
+            "Volume of Cylinders": `
+                <h2>Volume of Cylinders</h2>
+                <p>Calculate the space inside a cylinder!</p>
+                
+                <h3>The Formula</h3>
+                <div class="formula-box">
+                    V = πr²h<br>
+                    V = Volume<br>
+                    r = radius of circular base<br>
+                    h = height<br>
+                    π ≈ 3.14
+                </div>
+                
+                <h3>Understanding the Parts</h3>
+                <ul>
+                    <li><strong>Radius (r):</strong> Distance from center to edge of circular base</li>
+                    <li><strong>Height (h):</strong> Distance between the two circular bases</li>
+                    <li><strong>Base Area:</strong> πr² (area of the circle)</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Example 1: Basic</div>
+                    <p>Cylinder with r = 3 cm, h = 5 cm</p>
+                    <p>V = π(3)²(5)</p>
+                    <p>= π × 9 × 5</p>
+                    <p>= 45π</p>
+                    <p>≈ 45 × 3.14</p>
+                    <p>= <strong>141.3 cm³</strong></p>
+                </div>
+                
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Find the radius (or diameter ÷ 2)</li>
+                    <li>Square the radius</li>
+                    <li>Multiply by π</li>
+                    <li>Multiply by height</li>
+                </ol>
+                
+                <div class="example">
+                    <div class="example-title">Example 2: With Diameter</div>
+                    <p>Cylinder with diameter = 8 m, h = 10 m</p>
+                    <p>r = 8 ÷ 2 = 4 m</p>
+                    <p>V = π(4)²(10)</p>
+                    <p>= π × 16 × 10</p>
+                    <p>= 160π</p>
+                    <p>≈ <strong>502.4 m³</strong></p>
+                </div>
+                
+                <h3>Real-World Examples</h3>
+                <ul>
+                    <li><strong>Cans:</strong> Soda cans, soup cans</li>
+                    <li><strong>Pipes:</strong> Water pipes, oil pipelines</li>
+                    <li><strong>Containers:</strong> Storage tanks, barrels</li>
+                    <li><strong>Columns:</strong> Architectural columns</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Real-World Problem</div>
+                    <p>Water tank: r = 2 m, h = 5 m</p>
+                    <p>V = π(2)²(5) = 20π ≈ 62.8 m³</p>
+                    <p>This tank holds about <strong>62.8 cubic meters</strong> of water</p>
+                </div>
+                
+                <h3>Comparing to Rectangular Prism</h3>
+                <ul>
+                    <li>Rectangular Prism: V = l × w × h</li>
+                    <li>Cylinder: V = (area of base) × h = πr² × h</li>
+                    <li>Same idea: base area times height!</li>
+                </ul>
+                
+                <h3>Units</h3>
+                <p>Volume is always in <strong>cubic units</strong>:</p>
+                <ul>
+                    <li>cm³ (cubic centimeters)</li>
+                    <li>m³ (cubic meters)</li>
+                    <li>in³ (cubic inches)</li>
+                    <li>ft³ (cubic feet)</li>
+                </ul>
+            `,
+            
+            "Sample Space": `
+                <h2>Sample Space</h2>
+                <p>List all possible outcomes of an experiment or event!</p>
+                
+                <h3>What is Sample Space?</h3>
+                <p>The <strong>complete set</strong> of all possible outcomes.</p>
+                <p>Usually written as: S = {outcome1, outcome2, outcome3, ...}</p>
+                
+                <h3>Simple Examples</h3>
+                
+                <div class="example">
+                    <div class="example-title">Example 1: Coin Flip</div>
+                    <p>Sample Space: S = {Heads, Tails}</p>
+                    <p>2 possible outcomes</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 2: Die Roll</div>
+                    <p>Sample Space: S = {1, 2, 3, 4, 5, 6}</p>
+                    <p>6 possible outcomes</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 3: Spinner (4 colors)</div>
+                    <p>Sample Space: S = {Red, Blue, Green, Yellow}</p>
+                    <p>4 possible outcomes</p>
+                </div>
+                
+                <h3>Multiple Events</h3>
+                <p>When you do more than one thing, list all combinations!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example 4: Two Coins</div>
+                    <p>Flip two coins:</p>
+                    <p>S = {HH, HT, TH, TT}</p>
+                    <p>4 possible outcomes</p>
+                    <p>(H = Heads, T = Tails)</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 5: Die + Coin</div>
+                    <p>Roll die and flip coin:</p>
+                    <p>S = {1H, 1T, 2H, 2T, 3H, 3T, 4H, 4T, 5H, 5T, 6H, 6T}</p>
+                    <p>6 × 2 = 12 possible outcomes</p>
+                </div>
+                
+                <h3>Tree Diagrams</h3>
+                <p>Visual way to list all outcomes!</p>
+                <div class="example">
+                    <div class="example-title">Two Coins Tree</div>
+                    <p>First coin → Second coin → Outcome</p>
+                    <p>H → H → HH</p>
+                    <p>H → T → HT</p>
+                    <p>T → H → TH</p>
+                    <p>T → T → TT</p>
+                </div>
+                
+                <h3>Counting Outcomes</h3>
+                <p>For multiple independent events:</p>
+                <div class="formula-box">
+                    Total outcomes = (outcomes for event 1) × (outcomes for event 2) × ...
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>3 coins: 2 × 2 × 2 = 8 outcomes</p>
+                    <p>Die + Coin: 6 × 2 = 12 outcomes</p>
+                </div>
+                
+                <h3>Why Sample Space Matters</h3>
+                <ul>
+                    <li>Foundation for probability</li>
+                    <li>Helps find probability: P(event) = favorable / total</li>
+                    <li>Ensures you don't miss any outcomes</li>
+                    <li>Organizes your thinking</li>
+                </ul>
+                
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting some outcomes</li>
+                    <li>Counting same outcome twice</li>
+                    <li>Not listing systematically</li>
+                </ul>
+            `,
+            
+            "Distance Formula": `
+                <h2>Distance Formula</h2>
+                <p>Find the distance between two points on a coordinate plane!</p>
+                
+                <h3>The Formula</h3>
+                <div class="formula-box">
+                    d = √[(x₂ - x₁)² + (y₂ - y₁)²]<br>
+                    Where (x₁, y₁) and (x₂, y₂) are the two points
+                </div>
+                
+                <h3>Where Does It Come From?</h3>
+                <p>It's the <strong>Pythagorean Theorem</strong> applied to coordinates!</p>
+                <p>Distance is the hypotenuse of a right triangle.</p>
+                
+                <div class="example">
+                    <div class="example-title">Example 1: Basic</div>
+                    <p>Find distance between (2, 3) and (5, 7)</p>
+                    <p>x₁ = 2, y₁ = 3</p>
+                    <p>x₂ = 5, y₂ = 7</p>
+                    <p>d = √[(5 - 2)² + (7 - 3)²]</p>
+                    <p>= √[3² + 4²]</p>
+                    <p>= √[9 + 16]</p>
+                    <p>= √25</p>
+                    <p>= <strong>5 units</strong></p>
+                </div>
+                
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Identify the two points: (x₁, y₁) and (x₂, y₂)</li>
+                    <li>Find the differences: (x₂ - x₁) and (y₂ - y₁)</li>
+                    <li>Square both differences</li>
+                    <li>Add the squares</li>
+                    <li>Take the square root</li>
+                </ol>
+                
+                <div class="example">
+                    <div class="example-title">Example 2: With Negative Coordinates</div>
+                    <p>Find distance between (-1, 2) and (3, -4)</p>
+                    <p>d = √[(3 - (-1))² + (-4 - 2)²]</p>
+                    <p>= √[(3 + 1)² + (-6)²]</p>
+                    <p>= √[4² + 36]</p>
+                    <p>= √[16 + 36]</p>
+                    <p>= √52</p>
+                    <p>= <strong>2√13</strong> or ≈ 7.21 units</p>
+                </div>
+                
+                <h3>Visual Understanding</h3>
+                <p>Draw the points and connect them - you'll see a right triangle!</p>
+                <ul>
+                    <li>Horizontal leg: |x₂ - x₁|</li>
+                    <li>Vertical leg: |y₂ - y₁|</li>
+                    <li>Distance: hypotenuse</li>
+                </ul>
+                
+                <h3>Special Cases</h3>
+                
+                <h4>Horizontal Line</h4>
+                <p>Same y-coordinate: d = |x₂ - x₁|</p>
+                <div class="example">
+                    <div class="example-title">(2, 5) to (8, 5)</div>
+                    <p>d = |8 - 2| = <strong>6 units</strong></p>
+                </div>
+                
+                <h4>Vertical Line</h4>
+                <p>Same x-coordinate: d = |y₂ - y₁|</p>
+                <div class="example">
+                    <div class="example-title">(3, 1) to (3, 9)</div>
+                    <p>d = |9 - 1| = <strong>8 units</strong></p>
+                </div>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li>GPS navigation</li>
+                    <li>Map distances</li>
+                    <li>Game development</li>
+                    <li>Architecture and construction</li>
+                </ul>
+                
+                <h3>Connection to Pythagorean Theorem</h3>
+                <p>If you draw a right triangle with the two points:</p>
+                <div class="formula-box">
+                    a² + b² = c²<br>
+                    (x₂ - x₁)² + (y₂ - y₁)² = d²<br>
+                    Therefore: d = √[(x₂ - x₁)² + (y₂ - y₁)²]
+                </div>
+            `,
+            
+            "Volume of Cones and Spheres": `
+                <h2>Volume of Cones and Spheres</h2>
+                <p>Calculate the space inside these curved 3D shapes!</p>
+                
+                <h3>Volume of a Cone</h3>
+                <div class="formula-box">
+                    V = (1/3)πr²h<br>
+                    r = radius of circular base<br>
+                    h = height (perpendicular to base)
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Cone</div>
+                    <p>Cone with r = 3 cm, h = 9 cm</p>
+                    <p>V = (1/3)π(3)²(9)</p>
+                    <p>= (1/3)π × 9 × 9</p>
+                    <p>= (1/3) × 81π</p>
+                    <p>= 27π</p>
+                    <p>≈ <strong>84.8 cm³</strong></p>
+                </div>
+                
+                <h3>Why 1/3?</h3>
+                <p>A cone is exactly <strong>1/3 the volume</strong> of a cylinder with same base and height!</p>
+                <div class="example">
+                    <div class="example-title">Comparison</div>
+                    <p>Cylinder: V = πr²h</p>
+                    <p>Cone: V = (1/3)πr²h</p>
+                    <p>Cone is 1/3 of cylinder!</p>
+                </div>
+                
+                <h3>Volume of a Sphere</h3>
+                <div class="formula-box">
+                    V = (4/3)πr³<br>
+                    r = radius
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Sphere</div>
+                    <p>Sphere with r = 5 m</p>
+                    <p>V = (4/3)π(5)³</p>
+                    <p>= (4/3)π × 125</p>
+                    <p>= (500/3)π</p>
+                    <p>≈ <strong>523.6 m³</strong></p>
+                </div>
+                
+                <h3>Key Differences</h3>
+                <ul>
+                    <li><strong>Cone:</strong> Has a base and point (vertex)</li>
+                    <li><strong>Sphere:</strong> Perfectly round, no edges</li>
+                    <li><strong>Cone:</strong> Volume depends on r² and h</li>
+                    <li><strong>Sphere:</strong> Volume depends on r³</li>
+                </ul>
+                
+                <h3>Real-World Examples</h3>
+                
+                <h4>Cones</h4>
+                <ul>
+                    <li>Ice cream cones</li>
+                    <li>Traffic cones</li>
+                    <li>Party hats</li>
+                    <li>Funnel shapes</li>
+                </ul>
+                
+                <h4>Spheres</h4>
+                <ul>
+                    <li>Balls (basketball, soccer ball)</li>
+                    <li>Planets</li>
+                    <li>Marbles</li>
+                    <li>Globes</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Real-World Problem</div>
+                    <p>Ice cream cone: r = 2 cm, h = 8 cm</p>
+                    <p>V = (1/3)π(2)²(8) = (1/3)π × 32 ≈ <strong>33.5 cm³</strong></p>
+                    <p>This cone holds about 33.5 cubic centimeters of ice cream!</p>
+                </div>
+                
+                <h3>Finding Radius from Volume</h3>
+                <p>Rearrange the formulas:</p>
+                <ul>
+                    <li>Cone: r = √[3V/(πh)]</li>
+                    <li>Sphere: r = ∛[3V/(4π)]</li>
+                </ul>
+            `,
+            
+            "Bivariate Data": `
+                <h2>Bivariate Data</h2>
+                <p>Data with TWO variables that we can compare and analyze!</p>
+                
+                <h3>What is Bivariate Data?</h3>
+                <p>Data pairs showing the relationship between two variables.</p>
+                <p>Example: (height, weight), (time, distance), (age, test score)</p>
+                
+                <h3>Variables</h3>
+                <ul>
+                    <li><strong>Independent Variable (x):</strong> The one you control or measure first</li>
+                    <li><strong>Dependent Variable (y):</strong> The one that might depend on x</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Example Data Set</div>
+                    <p>Hours Studied (x) | Test Score (y)</p>
+                    <p>1 | 65</p>
+                    <p>2 | 70</p>
+                    <p>3 | 75</p>
+                    <p>4 | 85</p>
+                    <p>5 | 90</p>
+                </div>
+                
+                <h3>Scatter Plots</h3>
+                <p>Best way to visualize bivariate data!</p>
+                <ul>
+                    <li>Each point represents one data pair</li>
+                    <li>x-axis = independent variable</li>
+                    <li>y-axis = dependent variable</li>
+                </ul>
+                
+                <h3>Types of Relationships</h3>
+                
+                <h4>Positive Correlation</h4>
+                <p>As x increases, y tends to increase (points go up and right)</p>
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>Hours studied ↑ → Test score ↑</p>
+                </div>
+                
+                <h4>Negative Correlation</h4>
+                <p>As x increases, y tends to decrease (points go down and right)</p>
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>Temperature ↑ → Hot chocolate sales ↓</p>
+                </div>
+                
+                <h4>No Correlation</h4>
+                <p>No clear pattern (points scattered randomly)</p>
+                
+                <h3>Correlation Strength</h3>
+                <ul>
+                    <li><strong>Strong:</strong> Points form a clear line</li>
+                    <li><strong>Weak:</strong> Points are scattered but show a trend</li>
+                    <li><strong>None:</strong> No pattern at all</li>
+                </ul>
+                
+                <h3>Line of Best Fit</h3>
+                <p>A line that best represents the data trend.</p>
+                <ul>
+                    <li>Shows the general relationship</li>
+                    <li>Can be used to make predictions</li>
+                    <li>May not pass through all points</li>
+                </ul>
+                
+                <h3>Real-World Examples</h3>
+                <ul>
+                    <li><strong>Height vs Weight:</strong> Generally taller people weigh more</li>
+                    <li><strong>Study Time vs Grade:</strong> More study usually = better grade</li>
+                    <li><strong>Temperature vs Ice Cream Sales:</strong> Hotter = more sales</li>
+                    <li><strong>Age vs Height:</strong> (for children) Older = taller</li>
+                </ul>
+                
+                <h3>Important Notes</h3>
+                <ul>
+                    <li>Correlation does NOT mean causation!</li>
+                    <li>Just because two things are related doesn't mean one causes the other</li>
+                    <li>Always consider other factors</li>
+                </ul>
+            `,
+            
+            "Linear vs Non-Linear Functions": `
+                <h2>Linear vs Non-Linear Functions</h2>
+                <p>Learn to identify and understand different types of functions!</p>
+                
+                <h3>Linear Functions</h3>
+                <p>Functions that form a <strong>straight line</strong> when graphed.</p>
+                <div class="formula-box">
+                    General form: y = mx + b<br>
+                    m = slope, b = y-intercept
+                </div>
+                
+                <h3>Characteristics of Linear Functions</h3>
+                <ul>
+                    <li>Constant rate of change (slope)</li>
+                    <li>Graph is a straight line</li>
+                    <li>No exponents on variables (except 1)</li>
+                    <li>No variables multiplied together</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Linear Examples</div>
+                    <p>y = 2x + 3 ✓</p>
+                    <p>y = -5x + 1 ✓</p>
+                    <p>y = 7x ✓</p>
+                    <p>y = 4 ✓ (horizontal line)</p>
+                </div>
+                
+                <h3>Non-Linear Functions</h3>
+                <p>Functions that form a <strong>curve</strong> when graphed.</p>
+                
+                <h4>Quadratic Functions</h4>
+                <div class="formula-box">
+                    y = ax² + bx + c<br>
+                    Graph: Parabola (U-shaped)
+                </div>
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>y = x²</p>
+                    <p>y = 2x² - 3x + 1</p>
+                </div>
+                
+                <h4>Exponential Functions</h4>
+                <div class="formula-box">
+                    y = a·bˣ<br>
+                    Graph: Rapidly increasing or decreasing curve
+                </div>
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>y = 2ˣ</p>
+                    <p>y = 3(2)ˣ</p>
+                </div>
+                
+                <h4>Other Non-Linear</h4>
+                <ul>
+                    <li>y = √x (square root)</li>
+                    <li>y = 1/x (reciprocal)</li>
+                    <li>y = x³ (cubic)</li>
+                </ul>
+                
+                <h3>Identifying from a Table</h3>
+                
+                <h4>Linear: Constant Rate of Change</h4>
+                <div class="example">
+                    <div class="example-title">Linear Table</div>
+                    <p>x | y</p>
+                    <p>0 | 3</p>
+                    <p>1 | 5 (change: +2)</p>
+                    <p>2 | 7 (change: +2)</p>
+                    <p>3 | 9 (change: +2)</p>
+                    <p>Constant change = Linear!</p>
+                </div>
+                
+                <h4>Non-Linear: Changing Rate</h4>
+                <div class="example">
+                    <div class="example-title">Non-Linear Table</div>
+                    <p>x | y</p>
+                    <p>0 | 1</p>
+                    <p>1 | 2 (change: +1)</p>
+                    <p>2 | 4 (change: +2)</p>
+                    <p>3 | 8 (change: +4)</p>
+                    <p>Changing rate = Non-Linear!</p>
+                </div>
+                
+                <h3>Identifying from a Graph</h3>
+                <ul>
+                    <li><strong>Straight line:</strong> Linear</li>
+                    <li><strong>Curved:</strong> Non-Linear</li>
+                    <li><strong>U-shaped:</strong> Quadratic</li>
+                    <li><strong>Rapidly increasing:</strong> Exponential</li>
+                </ul>
+                
+                <h3>Real-World Examples</h3>
+                
+                <h4>Linear</h4>
+                <ul>
+                    <li>Cost per item (constant rate)</li>
+                    <li>Distance at constant speed</li>
+                    <li>Hourly wage</li>
+                </ul>
+                
+                <h4>Non-Linear</h4>
+                <ul>
+                    <li>Population growth (exponential)</li>
+                    <li>Ball thrown in air (quadratic)</li>
+                    <li>Radioactive decay (exponential)</li>
+                </ul>
+            `,
+            
+            "Roots and Radicals": `
+                <h2>Roots and Radicals</h2>
+                <p>Work with square roots, cube roots, and higher-order roots!</p>
+                
+                <h3>Square Roots</h3>
+                <p>The number that, when multiplied by itself, gives the original number.</p>
+                <div class="formula-box">
+                    √x means "what number squared equals x?"<br>
+                    If √x = y, then y² = x
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Perfect Squares</div>
+                    <p>√1 = 1 (because 1² = 1)</p>
+                    <p>√4 = 2 (because 2² = 4)</p>
+                    <p>√9 = 3 (because 3² = 9)</p>
+                    <p>√16 = 4 (because 4² = 16)</p>
+                    <p>√25 = 5 (because 5² = 25)</p>
+                    <p>√36 = 6, √49 = 7, √64 = 8, √81 = 9, √100 = 10</p>
+                </div>
+                
+                <h3>Simplifying Square Roots</h3>
+                <p>Find perfect square factors!</p>
+                <div class="example">
+                    <div class="example-title">Simplify √50</div>
+                    <p>√50 = √(25 × 2)</p>
+                    <p>= √25 × √2</p>
+                    <p>= <strong>5√2</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Simplify √72</div>
+                    <p>√72 = √(36 × 2)</p>
+                    <p>= √36 × √2</p>
+                    <p>= <strong>6√2</strong></p>
+                </div>
+                
+                <h3>Cube Roots</h3>
+                <p>The number that, when cubed, gives the original number.</p>
+                <div class="formula-box">
+                    ∛x means "what number cubed equals x?"<br>
+                    If ∛x = y, then y³ = x
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Perfect Cubes</div>
+                    <p>∛1 = 1 (1³ = 1)</p>
+                    <p>∛8 = 2 (2³ = 8)</p>
+                    <p>∛27 = 3 (3³ = 27)</p>
+                    <p>∛64 = 4 (4³ = 64)</p>
+                    <p>∛125 = 5 (5³ = 125)</p>
+                </div>
+                
+                <h3>Fourth Roots and Higher</h3>
+                <div class="formula-box">
+                    ⁴√x = "what number to the 4th power equals x?"<br>
+                    ⁵√x = "what number to the 5th power equals x?"
+                </div>
+                
+                <h3>Operations with Radicals</h3>
+                
+                <h4>Multiplying</h4>
+                <div class="example">
+                    <div class="example-title">√3 × √12</div>
+                    <p>= √(3 × 12)</p>
+                    <p>= √36</p>
+                    <p>= <strong>6</strong></p>
+                </div>
+                
+                <h4>Dividing</h4>
+                <div class="example">
+                    <div class="example-title">√50 ÷ √2</div>
+                    <p>= √(50/2)</p>
+                    <p>= √25</p>
+                    <p>= <strong>5</strong></p>
+                </div>
+                
+                <h4>Adding/Subtracting</h4>
+                <p>Only combine like radicals (same radicand)!</p>
+                <div class="example">
+                    <div class="example-title">3√5 + 2√5</div>
+                    <p>= (3 + 2)√5</p>
+                    <p>= <strong>5√5</strong></p>
+                </div>
+                <div class="example">
+                    <div class="example-title">Cannot combine: 3√5 + 2√3</div>
+                    <p>Different radicands - leave as is!</p>
+                </div>
+                
+                <h3>Rationalizing Denominators</h3>
+                <p>Remove radicals from the bottom of fractions.</p>
+                <div class="example">
+                    <div class="example-title">Rationalize: 1/√2</div>
+                    <p>Multiply by √2/√2:</p>
+                    <p>= (1 × √2)/(√2 × √2)</p>
+                    <p>= √2/2</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li>Distance formula (uses √)</li>
+                    <li>Pythagorean theorem</li>
+                    <li>Area calculations</li>
+                    <li>Scientific calculations</li>
+                </ul>
+            `,
+            
+            "Rational vs Irrational Numbers": `
+                <h2>Rational vs Irrational Numbers</h2>
+                <p>Classify numbers based on whether they can be written as fractions!</p>
+                
+                <h3>Rational Numbers</h3>
+                <p>Numbers that can be written as a <strong>fraction of two integers</strong> (where denominator ≠ 0).</p>
+                <div class="formula-box">
+                    Rational = a/b where a and b are integers, b ≠ 0
+                </div>
+                
+                <h3>Examples of Rational Numbers</h3>
+                <ul>
+                    <li><strong>Integers:</strong> 5 = 5/1, -3 = -3/1</li>
+                    <li><strong>Fractions:</strong> 3/4, -2/5, 7/2</li>
+                    <li><strong>Decimals that terminate:</strong> 0.5 = 1/2, 0.75 = 3/4</li>
+                    <li><strong>Decimals that repeat:</strong> 0.333... = 1/3, 0.666... = 2/3</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Converting Decimals to Fractions</div>
+                    <p>0.5 = 5/10 = 1/2</p>
+                    <p>0.25 = 25/100 = 1/4</p>
+                    <p>0.333... = 1/3</p>
+                    <p>All rational!</p>
+                </div>
+                
+                <h3>Irrational Numbers</h3>
+                <p>Numbers that <strong>cannot</strong> be written as a fraction of two integers.</p>
+                <p>Their decimal form goes on forever <strong>without repeating</strong>.</p>
+                
+                <h3>Examples of Irrational Numbers</h3>
+                <ul>
+                    <li><strong>√2</strong> ≈ 1.41421356... (never ends, never repeats)</li>
+                    <li><strong>√3</strong> ≈ 1.7320508...</li>
+                    <li><strong>π</strong> ≈ 3.14159265... (pi)</li>
+                    <li><strong>e</strong> ≈ 2.7182818... (Euler's number)</li>
+                </ul>
+                
+                <h3>Key Differences</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <tr style="background: var(--card-bg);">
+                        <th style="padding: 10px; border: 1px solid var(--border);">Rational</th>
+                        <th style="padding: 10px; border: 1px solid var(--border);">Irrational</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid var(--border);">Can be a fraction</td>
+                        <td style="padding: 10px; border: 1px solid var(--border);">Cannot be a fraction</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid var(--border);">Decimal terminates or repeats</td>
+                        <td style="padding: 10px; border: 1px solid var(--border);">Decimal never ends, never repeats</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid var(--border);">Examples: 1/2, 0.5, 3</td>
+                        <td style="padding: 10px; border: 1px solid var(--border);">Examples: √2, π, e</td>
+                    </tr>
+                </table>
+                
+                <h3>Perfect Squares are Rational</h3>
+                <p>If a number is a perfect square, its square root is rational!</p>
+                <div class="example">
+                    <div class="example-title">Examples</div>
+                    <p>√4 = 2 (rational - it's an integer)</p>
+                    <p>√9 = 3 (rational)</p>
+                    <p>√16 = 4 (rational)</p>
+                    <p>But √2, √3, √5 are irrational!</p>
+                </div>
+                
+                <h3>Real Numbers</h3>
+                <p>All numbers (rational + irrational) = <strong>Real Numbers</strong></p>
+                <div class="formula-box">
+                    Real Numbers = Rational Numbers ∪ Irrational Numbers
+                </div>
+                
+                <h3>Identifying Numbers</h3>
+                <div class="example">
+                    <div class="example-title">Practice</div>
+                    <p>5 → Rational (integer)</p>
+                    <p>3/4 → Rational (fraction)</p>
+                    <p>0.6 → Rational (repeating: 0.666...)</p>
+                    <p>√2 → Irrational</p>
+                    <p>π → Irrational</p>
+                    <p>√9 → Rational (equals 3)</p>
+                </div>
+                
+                <h3>Why This Matters</h3>
+                <ul>
+                    <li>Understanding number properties</li>
+                    <li>Simplifying expressions</li>
+                    <li>Solving equations</li>
+                    <li>Foundation for higher math</li>
+                </ul>
+            `,
+            
+            "Frequency Tables (Two-Way)": `
+                <h2>Two-Way Frequency Tables</h2>
+                <p>Organize data with TWO categorical variables!</p>
+                
+                <h3>What is a Two-Way Table?</h3>
+                <p>A table showing the relationship between two categorical variables.</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Favorite Sport by Gender</div>
+                    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                        <tr style="background: var(--card-bg);">
+                            <th style="padding: 10px; border: 1px solid var(--border);"></th>
+                            <th style="padding: 10px; border: 1px solid var(--border);">Basketball</th>
+                            <th style="padding: 10px; border: 1px solid var(--border);">Soccer</th>
+                            <th style="padding: 10px; border: 1px solid var(--border);">Total</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Boys</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">15</td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">10</td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">25</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Girls</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">8</td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">12</td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">20</td>
+                        </tr>
+                        <tr style="background: var(--card-bg);">
+                            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Total</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">23</td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">22</td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">45</td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <h3>Reading the Table</h3>
+                <ul>
+                    <li><strong>Rows:</strong> One category (e.g., Boys, Girls)</li>
+                    <li><strong>Columns:</strong> Other category (e.g., Basketball, Soccer)</li>
+                    <li><strong>Cells:</strong> Count of people in that combination</li>
+                    <li><strong>Margins:</strong> Row and column totals</li>
+                </ul>
+                
+                <h3>Finding Joint Frequencies</h3>
+                <p>The numbers in the cells (where row and column meet).</p>
+                <div class="example">
+                    <div class="example-title">From the table above:</div>
+                    <p>15 boys like basketball (joint frequency)</p>
+                    <p>12 girls like soccer (joint frequency)</p>
+                </div>
+                
+                <h3>Finding Marginal Frequencies</h3>
+                <p>The totals in the margins (edges).</p>
+                <div class="example">
+                    <div class="example-title">From the table:</div>
+                    <p>25 total boys (row marginal)</p>
+                    <p>23 total like basketball (column marginal)</p>
+                    <p>45 total students (grand total)</p>
+                </div>
+                
+                <h3>Relative Frequencies</h3>
+                <p>Convert counts to percentages or proportions.</p>
+                <div class="example">
+                    <div class="example-title">What percent of students are boys who like basketball?</div>
+                    <p>15 / 45 = 0.333 = <strong>33.3%</strong></p>
+                </div>
+                
+                <h3>Conditional Frequencies</h3>
+                <p>Frequencies within a specific group.</p>
+                <div class="example">
+                    <div class="example-title">Among boys, what percent like basketball?</div>
+                    <p>15 / 25 = <strong>60%</strong> of boys like basketball</p>
+                </div>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li>Survey analysis</li>
+                    <li>Market research</li>
+                    <li>Medical studies</li>
+                    <li>Social science research</li>
+                </ul>
+                
+                <h3>Creating a Two-Way Table</h3>
+                <ol>
+                    <li>Identify your two categorical variables</li>
+                    <li>List all categories for each</li>
+                    <li>Count how many fall into each combination</li>
+                    <li>Fill in the table</li>
+                    <li>Calculate row and column totals</li>
+                </ol>
+            `,
+            
+            "Completing the Square": `
+                <h2>Completing the Square</h2>
+                <p>A method to solve quadratic equations by creating a perfect square!</p>
+                
+                <h3>What is Completing the Square?</h3>
+                <p>Rewriting a quadratic expression in the form (x + h)² + k</p>
+                
+                <h3>The Process</h3>
+                <p>For x² + bx + c, we want to create (x + b/2)²</p>
+                
+                <div class="example">
+                    <div class="example-title">Example 1: x² + 6x + 5 = 0</div>
+                    <p><strong>Step 1:</strong> Move constant to right side</p>
+                    <p>x² + 6x = -5</p>
+                    <p><strong>Step 2:</strong> Find (b/2)²</p>
+                    <p>b = 6, so (6/2)² = 3² = 9</p>
+                    <p><strong>Step 3:</strong> Add to both sides</p>
+                    <p>x² + 6x + 9 = -5 + 9</p>
+                    <p>x² + 6x + 9 = 4</p>
+                    <p><strong>Step 4:</strong> Factor the perfect square</p>
+                    <p>(x + 3)² = 4</p>
+                    <p><strong>Step 5:</strong> Take square root</p>
+                    <p>x + 3 = ±2</p>
+                    <p><strong>Step 6:</strong> Solve</p>
+                    <p>x = -3 + 2 = -1</p>
+                    <p>x = -3 - 2 = -5</p>
+                    <p>Solutions: <strong>x = -1 or x = -5</strong></p>
+                </div>
+                
+                <h3>General Formula</h3>
+                <div class="formula-box">
+                    For x² + bx + c = 0:<br>
+                    Add (b/2)² to both sides<br>
+                    Then: (x + b/2)² = (b/2)² - c
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 2: x² - 4x - 5 = 0</div>
+                    <p>x² - 4x = 5</p>
+                    <p>(b/2)² = (-4/2)² = (-2)² = 4</p>
+                    <p>x² - 4x + 4 = 5 + 4</p>
+                    <p>(x - 2)² = 9</p>
+                    <p>x - 2 = ±3</p>
+                    <p>x = 2 + 3 = 5</p>
+                    <p>x = 2 - 3 = -1</p>
+                    <p>Solutions: <strong>x = 5 or x = -1</strong></p>
+                </div>
+                
+                <h3>When Coefficient of x² ≠ 1</h3>
+                <p>Divide everything by the coefficient first!</p>
+                <div class="example">
+                    <div class="example-title">Example: 2x² + 8x - 10 = 0</div>
+                    <p><strong>Step 1:</strong> Divide by 2</p>
+                    <p>x² + 4x - 5 = 0</p>
+                    <p>Now complete the square as before!</p>
+                </div>
+                
+                <h3>Vertex Form</h3>
+                <p>Completing the square gives us vertex form!</p>
+                <div class="formula-box">
+                    y = a(x - h)² + k<br>
+                    Vertex is at (h, k)
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Convert: y = x² + 6x + 5</div>
+                    <p>Complete the square:</p>
+                    <p>y = (x² + 6x + 9) + 5 - 9</p>
+                    <p>y = (x + 3)² - 4</p>
+                    <p>Vertex: <strong>(-3, -4)</strong></p>
+                </div>
+                
+                <h3>Why Use This Method?</h3>
+                <ul>
+                    <li>Works when factoring doesn't</li>
+                    <li>Gives exact answers</li>
+                    <li>Finds vertex of parabola</li>
+                    <li>Foundation for quadratic formula</li>
+                </ul>
+                
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting to add (b/2)² to both sides</li>
+                    <li>Sign errors</li>
+                    <li>Not taking ± when square rooting</li>
+                </ul>
+            `,
+            
+            "Quadratic Formula": `
+                <h2>Quadratic Formula</h2>
+                <p>The universal method to solve ANY quadratic equation!</p>
+                
+                <h3>The Formula</h3>
+                <div class="formula-box">
+                    For ax² + bx + c = 0:<br>
+                    x = [-b ± √(b² - 4ac)] / 2a
+                </div>
+                
+                <h3>Understanding the Parts</h3>
+                <ul>
+                    <li><strong>a:</strong> Coefficient of x²</li>
+                    <li><strong>b:</strong> Coefficient of x</li>
+                    <li><strong>c:</strong> Constant term</li>
+                    <li><strong>±:</strong> Means two solutions (one +, one -)</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Example 1: x² - 5x + 6 = 0</div>
+                    <p>a = 1, b = -5, c = 6</p>
+                    <p>x = [-(-5) ± √((-5)² - 4(1)(6))] / 2(1)</p>
+                    <p>= [5 ± √(25 - 24)] / 2</p>
+                    <p>= [5 ± √1] / 2</p>
+                    <p>= [5 ± 1] / 2</p>
+                    <p>x = (5 + 1)/2 = 6/2 = <strong>3</strong></p>
+                    <p>x = (5 - 1)/2 = 4/2 = <strong>2</strong></p>
+                    <p>Solutions: <strong>x = 2 or x = 3</strong></p>
+                </div>
+                
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Identify a, b, and c</li>
+                    <li>Calculate b² - 4ac (discriminant)</li>
+                    <li>Take square root of discriminant</li>
+                    <li>Calculate -b ± √(discriminant)</li>
+                    <li>Divide by 2a</li>
+                    <li>Simplify both solutions</li>
+                </ol>
+                
+                <div class="example">
+                    <div class="example-title">Example 2: 2x² + 7x - 15 = 0</div>
+                    <p>a = 2, b = 7, c = -15</p>
+                    <p>Discriminant: b² - 4ac = 7² - 4(2)(-15)</p>
+                    <p>= 49 - (-120) = 49 + 120 = 169</p>
+                    <p>√169 = 13</p>
+                    <p>x = [-7 ± 13] / 4</p>
+                    <p>x = (-7 + 13)/4 = 6/4 = <strong>3/2</strong></p>
+                    <p>x = (-7 - 13)/4 = -20/4 = <strong>-5</strong></p>
+                </div>
+                
+                <h3>The Discriminant</h3>
+                <p>b² - 4ac tells us about the solutions:</p>
+                <ul>
+                    <li><strong>Positive:</strong> Two real solutions</li>
+                    <li><strong>Zero:</strong> One real solution (repeated)</li>
+                    <li><strong>Negative:</strong> Two complex solutions (no real solutions)</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Discriminant Examples</div>
+                    <p>x² - 4x + 4 = 0</p>
+                    <p>Discriminant: 16 - 16 = 0 → One solution</p>
+                    <p>x² - 4x + 3 = 0</p>
+                    <p>Discriminant: 16 - 12 = 4 → Two solutions</p>
+                    <p>x² - 4x + 5 = 0</p>
+                    <p>Discriminant: 16 - 20 = -4 → No real solutions</p>
+                </div>
+                
+                <h3>When to Use</h3>
+                <ul>
+                    <li>When factoring is difficult</li>
+                    <li>When completing the square is messy</li>
+                    <li>Always works (universal method)</li>
+                    <li>Good for checking other methods</li>
+                </ul>
+                
+                <h3>Memory Tip</h3>
+                <p>"Negative b, plus or minus square root, b squared minus 4ac, all over 2a"</p>
+                <p>Or sing: "x equals negative b, plus or minus the square root, of b squared minus 4ac, all over 2a"</p>
+            `,
+            
+            "Parent Functions": `
+                <h2>Parent Functions</h2>
+                <p>The basic forms of function families - the building blocks of all functions!</p>
+                
+                <h3>What are Parent Functions?</h3>
+                <p>The simplest form of a function family, before any transformations.</p>
+                
+                <h3>Linear Parent Function</h3>
+                <div class="formula-box">
+                    f(x) = x<br>
+                    Graph: Straight line through origin, slope = 1
+                </div>
+                <div class="example">
+                    <div class="example-title">Examples from this family:</div>
+                    <p>f(x) = 2x (steeper)</p>
+                    <p>f(x) = x + 3 (shifted up)</p>
+                    <p>f(x) = -x (reflected)</p>
+                </div>
+                
+                <h3>Quadratic Parent Function</h3>
+                <div class="formula-box">
+                    f(x) = x²<br>
+                    Graph: Parabola opening upward, vertex at (0,0)
+                </div>
+                <div class="example">
+                    <div class="example-title">Examples from this family:</div>
+                    <p>f(x) = x² + 2 (shifted up)</p>
+                    <p>f(x) = (x - 3)² (shifted right)</p>
+                    <p>f(x) = 2x² (narrower)</p>
+                </div>
+                
+                <h3>Cubic Parent Function</h3>
+                <div class="formula-box">
+                    f(x) = x³<br>
+                    Graph: S-shaped curve through origin
+                </div>
+                
+                <h3>Square Root Parent Function</h3>
+                <div class="formula-box">
+                    f(x) = √x<br>
+                    Graph: Curve starting at (0,0), increasing slowly
+                </div>
+                
+                <h3>Absolute Value Parent Function</h3>
+                <div class="formula-box">
+                    f(x) = |x|<br>
+                    Graph: V-shape with vertex at (0,0)
+                </div>
+                
+                <h3>Exponential Parent Function</h3>
+                <div class="formula-box">
+                    f(x) = 2ˣ (or eˣ)<br>
+                    Graph: Rapidly increasing curve
+                </div>
+                
+                <h3>Logarithmic Parent Function</h3>
+                <div class="formula-box">
+                    f(x) = log(x)<br>
+                    Graph: Slowly increasing curve
+                </div>
+                
+                <h3>Reciprocal Parent Function</h3>
+                <div class="formula-box">
+                    f(x) = 1/x<br>
+                    Graph: Two curves (hyperbola)
+                </div>
+                
+                <h3>Why Parent Functions Matter</h3>
+                <ul>
+                    <li>Understand function families</li>
+                    <li>Recognize patterns</li>
+                    <li>Apply transformations</li>
+                    <li>Graph more easily</li>
+                </ul>
+                
+                <h3>Transformations from Parent</h3>
+                <p>All other functions are just parent functions that have been:</p>
+                <ul>
+                    <li>Shifted (up/down, left/right)</li>
+                    <li>Stretched or compressed</li>
+                    <li>Reflected</li>
+                </ul>
+            `,
+            
+            "Function Transformations": `
+                <h2>Function Transformations</h2>
+                <p>Move, stretch, and flip functions to create new graphs!</p>
+                
+                <h3>Types of Transformations</h3>
+                
+                <h4>Vertical Shifts</h4>
+                <div class="formula-box">
+                    f(x) + k<br>
+                    k > 0: shifts UP k units<br>
+                    k < 0: shifts DOWN |k| units
+                </div>
+                <div class="example">
+                    <div class="example-title">Example: f(x) = x²</div>
+                    <p>f(x) + 3 = x² + 3 (shifted up 3)</p>
+                    <p>f(x) - 2 = x² - 2 (shifted down 2)</p>
+                </div>
+                
+                <h4>Horizontal Shifts</h4>
+                <div class="formula-box">
+                    f(x - h)<br>
+                    h > 0: shifts RIGHT h units<br>
+                    h < 0: shifts LEFT |h| units
+                </div>
+                <div class="example">
+                    <div class="example-title">Example: f(x) = x²</div>
+                    <p>f(x - 3) = (x - 3)² (shifted right 3)</p>
+                    <p>f(x + 2) = (x + 2)² (shifted left 2)</p>
+                </div>
+                
+                <h4>Vertical Stretches/Compressions</h4>
+                <div class="formula-box">
+                    a·f(x)<br>
+                    |a| > 1: stretches vertically<br>
+                    0 < |a| < 1: compresses vertically
+                </div>
+                <div class="example">
+                    <div class="example-title">Example: f(x) = x²</div>
+                    <p>2f(x) = 2x² (stretched, narrower)</p>
+                    <p>(1/2)f(x) = (1/2)x² (compressed, wider)</p>
+                </div>
+                
+                <h4>Horizontal Stretches/Compressions</h4>
+                <div class="formula-box">
+                    f(bx)<br>
+                    |b| > 1: compresses horizontally<br>
+                    0 < |b| < 1: stretches horizontally
+                </div>
+                
+                <h4>Reflections</h4>
+                <ul>
+                    <li><strong>-f(x):</strong> Reflects over x-axis (flips up/down)</li>
+                    <li><strong>f(-x):</strong> Reflects over y-axis (flips left/right)</li>
+                </ul>
+                
+                <h3>Combining Transformations</h3>
+                <div class="example">
+                    <div class="example-title">Example: f(x) = 2(x - 3)² + 4</div>
+                    <p>Parent: x²</p>
+                    <p>Transformations:</p>
+                    <ol>
+                        <li>Shift right 3: (x - 3)²</li>
+                        <li>Stretch by 2: 2(x - 3)²</li>
+                        <li>Shift up 4: 2(x - 3)² + 4</li>
+                    </ol>
+                </div>
+                
+                <h3>Order Matters!</h3>
+                <p>Apply transformations in this order:</p>
+                <ol>
+                    <li>Horizontal shifts</li>
+                    <li>Horizontal stretches/compressions</li>
+                    <li>Reflections</li>
+                    <li>Vertical stretches/compressions</li>
+                    <li>Vertical shifts</li>
+                </ol>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li>Graphing any function</li>
+                    <li>Modeling real situations</li>
+                    <li>Understanding function behavior</li>
+                    <li>Optimization problems</li>
+                </ul>
+            `,
+            
+            "Regression Lines": `
+                <h2>Regression Lines</h2>
+                <p>Find the line that best fits your data points!</p>
+                
+                <h3>What is a Regression Line?</h3>
+                <p>A straight line that best represents the relationship between two variables in a scatter plot.</p>
+                <p>Also called: <strong>Line of Best Fit</strong></p>
+                
+                <h3>Why Use It?</h3>
+                <ul>
+                    <li>Shows the trend in data</li>
+                    <li>Allows predictions</li>
+                    <li>Summarizes relationship</li>
+                    <li>Quantifies correlation</li>
+                </ul>
+                
+                <h3>Equation Form</h3>
+                <div class="formula-box">
+                    y = mx + b<br>
+                    m = slope<br>
+                    b = y-intercept
+                </div>
+                
+                <h3>Finding the Line</h3>
+                <p>Use technology (calculator, software) or estimate visually.</p>
+                
+                <h3>Visual Method</h3>
+                <ol>
+                    <li>Plot all data points</li>
+                    <li>Draw a line that goes through the "middle" of the points</li>
+                    <li>About half the points above, half below</li>
+                    <li>Line should follow the general trend</li>
+                </ol>
+                
+                <h3>Using the Line</h3>
+                <p>Once you have the equation, you can:</p>
+                <ul>
+                    <li><strong>Interpolate:</strong> Predict values within your data range</li>
+                    <li><strong>Extrapolate:</strong> Predict values outside your data range (less reliable)</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Example: Study Time vs Test Score</div>
+                    <p>Regression line: y = 5x + 60</p>
+                    <p>Predict score for 4 hours of study:</p>
+                    <p>y = 5(4) + 60 = 20 + 60 = <strong>80</strong></p>
+                </div>
+                
+                <h3>Correlation Coefficient (r)</h3>
+                <p>Measures how well the line fits:</p>
+                <ul>
+                    <li><strong>r = 1:</strong> Perfect positive correlation</li>
+                    <li><strong>r = -1:</strong> Perfect negative correlation</li>
+                    <li><strong>r = 0:</strong> No correlation</li>
+                    <li><strong>|r| > 0.7:</strong> Strong correlation</li>
+                    <li><strong>|r| < 0.3:</strong> Weak correlation</li>
+                </ul>
+                
+                <h3>Real-World Uses</h3>
+                <ul>
+                    <li>Sales forecasting</li>
+                    <li>Scientific predictions</li>
+                    <li>Economic modeling</li>
+                    <li>Medical research</li>
+                </ul>
+            `,
+            
+            "Standard Form to Slope-Intercept": `
+                <h2>Converting Standard Form to Slope-Intercept Form</h2>
+                <p>Transform linear equations between different forms!</p>
+                
+                <h3>Standard Form</h3>
+                <div class="formula-box">
+                    Ax + By = C<br>
+                    A, B, C are integers<br>
+                    A should be positive
+                </div>
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>3x + 2y = 12</p>
+                    <p>2x - 5y = 10</p>
+                </div>
+                
+                <h3>Slope-Intercept Form</h3>
+                <div class="formula-box">
+                    y = mx + b<br>
+                    m = slope<br>
+                    b = y-intercept
+                </div>
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>y = 2x + 3</p>
+                    <p>y = -1/2 x - 4</p>
+                </div>
+                
+                <h3>Conversion Process</h3>
+                <p>Solve for y!</p>
+                
+                <div class="example">
+                    <div class="example-title">Example 1: 3x + 2y = 12</div>
+                    <p><strong>Step 1:</strong> Move x term to right</p>
+                    <p>2y = -3x + 12</p>
+                    <p><strong>Step 2:</strong> Divide by coefficient of y</p>
+                    <p>y = (-3/2)x + 6</p>
+                    <p>Slope: <strong>-3/2</strong>, y-intercept: <strong>6</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 2: 2x - 5y = 10</div>
+                    <p>2x - 5y = 10</p>
+                    <p>-5y = -2x + 10</p>
+                    <p>y = (2/5)x - 2</p>
+                    <p>Slope: <strong>2/5</strong>, y-intercept: <strong>-2</strong></p>
+                </div>
+                
+                <h3>Why Convert?</h3>
+                <ul>
+                    <li>Easier to graph (slope and y-intercept visible)</li>
+                    <li>Better for understanding behavior</li>
+                    <li>Standard form for some applications</li>
+                    <li>Different forms for different purposes</li>
+                </ul>
+                
+                <h3>Quick Method</h3>
+                <div class="formula-box">
+                    From Ax + By = C:<br>
+                    Slope (m) = -A/B<br>
+                    Y-intercept (b) = C/B
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Quick: 4x + 3y = 9</div>
+                    <p>m = -4/3</p>
+                    <p>b = 9/3 = 3</p>
+                    <p>y = (-4/3)x + 3</p>
+                </div>
+                
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting the negative sign on slope</li>
+                    <li>Dividing incorrectly</li>
+                    <li>Sign errors when moving terms</li>
+                </ul>
+            `,
+            
+            // ========== MEDIUM PRIORITY: Remaining Middle/High School Topics ==========
+            
+            "Unit Circle": `
+                <h2>The Unit Circle</h2>
+                <p>A circle with radius 1, centered at the origin - the foundation of trigonometry!</p>
+                
+                <h3>What is the Unit Circle?</h3>
+                <p>A circle with radius = 1, centered at (0, 0)</p>
+                <div class="formula-box">
+                    Equation: x² + y² = 1
+                </div>
+                
+                <h3>Key Points</h3>
+                <ul>
+                    <li>Radius = 1</li>
+                    <li>Center at origin (0, 0)</li>
+                    <li>Circumference = 2π</li>
+                    <li>Used to define trig functions</li>
+                </ul>
+                
+                <h3>Standard Position Angles</h3>
+                <p>Angles measured counterclockwise from positive x-axis:</p>
+                <ul>
+                    <li>0° (or 0 radians) → (1, 0)</li>
+                    <li>90° (π/2) → (0, 1)</li>
+                    <li>180° (π) → (-1, 0)</li>
+                    <li>270° (3π/2) → (0, -1)</li>
+                    <li>360° (2π) → (1, 0) (back to start)</li>
+                </ul>
+                
+                <h3>Trig Functions on Unit Circle</h3>
+                <p>For any point (x, y) on the unit circle:</p>
+                <div class="formula-box">
+                    cos(θ) = x<br>
+                    sin(θ) = y<br>
+                    tan(θ) = y/x = sin(θ)/cos(θ)
+                </div>
+                
+                <h3>Special Angles</h3>
+                <div class="example">
+                    <div class="example-title">30° (π/6)</div>
+                    <p>Point: (√3/2, 1/2)</p>
+                    <p>sin(30°) = 1/2</p>
+                    <p>cos(30°) = √3/2</p>
+                    <p>tan(30°) = 1/√3</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">45° (π/4)</div>
+                    <p>Point: (√2/2, √2/2)</p>
+                    <p>sin(45°) = cos(45°) = √2/2</p>
+                    <p>tan(45°) = 1</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">60° (π/3)</div>
+                    <p>Point: (1/2, √3/2)</p>
+                    <p>sin(60°) = √3/2</p>
+                    <p>cos(60°) = 1/2</p>
+                    <p>tan(60°) = √3</p>
+                </div>
+                
+                <h3>Reference Angles</h3>
+                <p>The acute angle between the terminal side and x-axis.</p>
+                <ul>
+                    <li>Helps find trig values for any angle</li>
+                    <li>Always between 0° and 90°</li>
+                    <li>Use quadrant to determine signs</li>
+                </ul>
+                
+                <h3>Quadrants</h3>
+                <ul>
+                    <li><strong>Q1:</strong> All positive (sin, cos, tan all +)</li>
+                    <li><strong>Q2:</strong> sin +, cos -, tan -</li>
+                    <li><strong>Q3:</strong> sin -, cos -, tan +</li>
+                    <li><strong>Q4:</strong> sin -, cos +, tan -</li>
+                </ul>
+                
+                <h3>Why It Matters</h3>
+                <ul>
+                    <li>Foundation for all trigonometry</li>
+                    <li>Defines trig functions for all angles</li>
+                    <li>Essential for calculus</li>
+                    <li>Used in physics and engineering</li>
+                </ul>
+            `,
+            
+            "Trig Identities": `
+                <h2>Trigonometric Identities</h2>
+                <p>Equations that are always true for trigonometric functions!</p>
+                
+                <h3>Pythagorean Identities</h3>
+                <div class="formula-box">
+                    sin²θ + cos²θ = 1<br>
+                    1 + tan²θ = sec²θ<br>
+                    1 + cot²θ = csc²θ
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Verify sin²30° + cos²30° = 1</div>
+                    <p>sin(30°) = 1/2, cos(30°) = √3/2</p>
+                    <p>(1/2)² + (√3/2)² = 1/4 + 3/4 = 4/4 = 1 ✓</p>
+                </div>
+                
+                <h3>Reciprocal Identities</h3>
+                <div class="formula-box">
+                    csc θ = 1/sin θ<br>
+                    sec θ = 1/cos θ<br>
+                    cot θ = 1/tan θ
+                </div>
+                
+                <h3>Quotient Identities</h3>
+                <div class="formula-box">
+                    tan θ = sin θ / cos θ<br>
+                    cot θ = cos θ / sin θ
+                </div>
+                
+                <h3>Even/Odd Identities</h3>
+                <ul>
+                    <li>sin(-θ) = -sin θ (odd)</li>
+                    <li>cos(-θ) = cos θ (even)</li>
+                    <li>tan(-θ) = -tan θ (odd)</li>
+                </ul>
+                
+                <h3>Co-Function Identities</h3>
+                <div class="formula-box">
+                    sin(90° - θ) = cos θ<br>
+                    cos(90° - θ) = sin θ<br>
+                    tan(90° - θ) = cot θ
+                </div>
+                
+                <h3>Using Identities</h3>
+                <p>Simplify expressions, prove equations, solve problems!</p>
+                
+                <div class="example">
+                    <div class="example-title">Simplify: sin²θ + cos²θ + tan²θ</div>
+                    <p>= 1 + tan²θ (using Pythagorean identity)</p>
+                    <p>= sec²θ</p>
+                </div>
+                
+                <h3>Double Angle Identities</h3>
+                <div class="formula-box">
+                    sin(2θ) = 2 sin θ cos θ<br>
+                    cos(2θ) = cos²θ - sin²θ<br>
+                    tan(2θ) = 2tan θ / (1 - tan²θ)
+                </div>
+                
+                <h3>Sum and Difference Identities</h3>
+                <div class="formula-box">
+                    sin(A ± B) = sin A cos B ± cos A sin B<br>
+                    cos(A ± B) = cos A cos B ∓ sin A sin B
+                </div>
+                
+                <h3>Why Learn These?</h3>
+                <ul>
+                    <li>Simplify complex expressions</li>
+                    <li>Solve trig equations</li>
+                    <li>Prove mathematical statements</li>
+                    <li>Essential for calculus</li>
+                </ul>
+            `,
+            
+            "Arc Length and Sector Area": `
+                <h2>Arc Length and Sector Area</h2>
+                <p>Measure parts of circles using radians!</p>
+                
+                <h3>Arc Length</h3>
+                <p>The distance along the curved part of a circle.</p>
+                <div class="formula-box">
+                    s = rθ<br>
+                    s = arc length<br>
+                    r = radius<br>
+                    θ = angle in radians
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Arc Length</div>
+                    <p>Circle with r = 5 cm, angle = π/3 radians</p>
+                    <p>s = 5 × (π/3)</p>
+                    <p>= <strong>5π/3 cm</strong> ≈ 5.24 cm</p>
+                </div>
+                
+                <h3>Converting Degrees to Radians</h3>
+                <div class="formula-box">
+                    Radians = Degrees × (π/180)
+                </div>
+                <div class="example">
+                    <div class="example-title">Example</div>
+                    <p>60° = 60 × (π/180) = π/3 radians</p>
+                    <p>180° = 180 × (π/180) = π radians</p>
+                </div>
+                
+                <h3>Sector Area</h3>
+                <p>The area of the "slice" of a circle.</p>
+                <div class="formula-box">
+                    A = (1/2)r²θ<br>
+                    A = sector area<br>
+                    r = radius<br>
+                    θ = angle in radians
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Sector Area</div>
+                    <p>Circle with r = 6 m, angle = π/4 radians</p>
+                    <p>A = (1/2)(6)²(π/4)</p>
+                    <p>= (1/2) × 36 × (π/4)</p>
+                    <p>= 18π/4</p>
+                    <p>= <strong>9π/2 m²</strong> ≈ 14.14 m²</p>
+                </div>
+                
+                <h3>Why Radians?</h3>
+                <p>Radians make formulas simpler!</p>
+                <ul>
+                    <li>Arc length: s = rθ (simple!)</li>
+                    <li>With degrees: s = (π/180)rθ (messy)</li>
+                    <li>Radians are the "natural" unit</li>
+                </ul>
+                
+                <h3>Full Circle</h3>
+                <p>Full circle = 2π radians = 360°</p>
+                <div class="example">
+                    <div class="example-title">Full Circle Arc Length</div>
+                    <p>s = r × 2π = 2πr (circumference!)</p>
+                </div>
+                
+                <h3>Real-World Examples</h3>
+                <ul>
+                    <li><strong>Pizza slice:</strong> Sector area</li>
+                    <li><strong>Wheel rotation:</strong> Arc length</li>
+                    <li><strong>Clock hands:</strong> Arc length</li>
+                    <li><strong>Fan blades:</strong> Sector area</li>
+                </ul>
+                
+                <h3>Key Relationships</h3>
+                <ul>
+                    <li>Arc length is proportional to angle</li>
+                    <li>Sector area is proportional to angle</li>
+                    <li>Both depend on radius</li>
+                </ul>
+            `,
+            
+            "Asymptotes": `
+                <h2>Asymptotes</h2>
+                <p>Lines that a function approaches but never touches!</p>
+                
+                <h3>What are Asymptotes?</h3>
+                <p>Lines that a graph gets closer and closer to but never actually reaches.</p>
+                
+                <h3>Vertical Asymptotes</h3>
+                <p>Occur when the function approaches infinity (or negative infinity).</p>
+                <p>Usually where the denominator equals zero.</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: f(x) = 1/(x - 2)</div>
+                    <p>Vertical asymptote at x = 2</p>
+                    <p>As x approaches 2, f(x) → ±∞</p>
+                </div>
+                
+                <h3>Finding Vertical Asymptotes</h3>
+                <ol>
+                    <li>Set denominator = 0</li>
+                    <li>Solve for x</li>
+                    <li>Check if numerator ≠ 0 at those points</li>
+                </ol>
+                
+                <div class="example">
+                    <div class="example-title">Example: f(x) = (x + 1)/(x² - 4)</div>
+                    <p>Denominator: x² - 4 = 0</p>
+                    <p>x² = 4</p>
+                    <p>x = ±2</p>
+                    <p>Vertical asymptotes at <strong>x = 2 and x = -2</strong></p>
+                </div>
+                
+                <h3>Horizontal Asymptotes</h3>
+                <p>Occur as x approaches ±∞</p>
+                <p>Shows the "end behavior" of the function.</p>
+                
+                <h3>Finding Horizontal Asymptotes</h3>
+                <p>For rational functions f(x) = P(x)/Q(x):</p>
+                <ul>
+                    <li>If degree of P < degree of Q: y = 0</li>
+                    <li>If degree of P = degree of Q: y = (leading coefficients ratio)</li>
+                    <li>If degree of P > degree of Q: No horizontal asymptote</li>
+                </ul>
+                
+                <div class="example">
+                    <div class="example-title">Example 1: f(x) = (2x + 1)/(x² + 3)</div>
+                    <p>Degree of numerator (1) < degree of denominator (2)</p>
+                    <p>Horizontal asymptote: <strong>y = 0</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 2: f(x) = (3x² + 2)/(2x² - 1)</div>
+                    <p>Same degree (2 = 2)</p>
+                    <p>Ratio of leading coefficients: 3/2</p>
+                    <p>Horizontal asymptote: <strong>y = 3/2</strong></p>
+                </div>
+                
+                <h3>Oblique (Slant) Asymptotes</h3>
+                <p>Occur when degree of numerator = degree of denominator + 1</p>
+                <p>Found by polynomial long division.</p>
+                
+                <h3>Real-World Examples</h3>
+                <ul>
+                    <li><strong>Population growth:</strong> Approaches carrying capacity</li>
+                    <li><strong>Cooling:</strong> Temperature approaches room temperature</li>
+                    <li><strong>Economics:</strong> Diminishing returns</li>
+                </ul>
+                
+                <h3>Graphing with Asymptotes</h3>
+                <ol>
+                    <li>Find all asymptotes</li>
+                    <li>Draw asymptotes as dashed lines</li>
+                    <li>Graph function approaching asymptotes</li>
+                    <li>Never cross vertical asymptotes!</li>
+                </ol>
+            `,
+            
+            "Continuity": `
+                <h2>Continuity</h2>
+                <p>Understanding when functions are "smooth" with no breaks!</p>
+                
+                <h3>What is Continuity?</h3>
+                <p>A function is continuous if you can draw it without lifting your pencil.</p>
+                
+                <h3>Three Conditions for Continuity</h3>
+                <p>At point x = a, function f is continuous if:</p>
+                <ol>
+                    <li>f(a) exists (function is defined at a)</li>
+                    <li>lim(x→a) f(x) exists (limit exists)</li>
+                    <li>lim(x→a) f(x) = f(a) (limit equals function value)</li>
+                </ol>
+                
+                <h3>Types of Discontinuities</h3>
+                
+                <h4>Removable Discontinuity</h4>
+                <p>A "hole" in the graph - can be "filled in"</p>
+                <div class="example">
+                    <div class="example-title">Example: f(x) = (x² - 4)/(x - 2)</div>
+                    <p>Hole at x = 2</p>
+                    <p>Can simplify to f(x) = x + 2 (for x ≠ 2)</p>
+                </div>
+                
+                <h4>Jump Discontinuity</h4>
+                <p>Function "jumps" from one value to another</p>
+                <div class="example">
+                    <div class="example-title">Example: Step function</div>
+                    <p>f(x) = 0 for x < 0, f(x) = 1 for x ≥ 0</p>
+                    <p>Jumps at x = 0</p>
+                </div>
+                
+                <h4>Infinite Discontinuity</h4>
+                <p>Function goes to ±∞</p>
+                <div class="example">
+                    <div class="example-title">Example: f(x) = 1/x</div>
+                    <p>Infinite discontinuity at x = 0</p>
+                </div>
+                
+                <h3>Continuous Functions</h3>
+                <ul>
+                    <li>Polynomials (everywhere)</li>
+                    <li>Rational functions (except at vertical asymptotes)</li>
+                    <li>Trig functions (except at discontinuities)</li>
+                    <li>Exponential and logarithmic functions (on their domains)</li>
+                </ul>
+                
+                <h3>Continuity on an Interval</h3>
+                <p>A function is continuous on [a, b] if it's continuous at every point in that interval.</p>
+                
+                <h3>Why Continuity Matters</h3>
+                <ul>
+                    <li>Essential for calculus</li>
+                    <li>Allows use of limit properties</li>
+                    <li>Needed for derivatives</li>
+                    <li>Important for real-world modeling</li>
+                </ul>
+                
+                <h3>Intermediate Value Theorem</h3>
+                <p>If f is continuous on [a, b] and k is between f(a) and f(b), then there exists c in (a, b) such that f(c) = k.</p>
+                <p>Translation: Continuous functions take on all intermediate values!</p>
+            `,
+            
+            "Chain Rule": `
+                <h2>Chain Rule</h2>
+                <p>Differentiate composite functions - functions within functions!</p>
+                
+                <h3>What is the Chain Rule?</h3>
+                <p>A method to find the derivative of composite functions.</p>
+                <div class="formula-box">
+                    If y = f(g(x)), then:<br>
+                    dy/dx = f'(g(x)) × g'(x)<br>
+                    Or: (dy/du) × (du/dx) where u = g(x)
+                </div>
+                
+                <h3>Understanding Composite Functions</h3>
+                <p>Functions "inside" other functions!</p>
+                <div class="example">
+                    <div class="example-title">Example: f(x) = (x² + 1)³</div>
+                    <p>Outer function: u³ (where u = x² + 1)</p>
+                    <p>Inner function: x² + 1</p>
+                </div>
+                
+                <h3>Step-by-Step Process</h3>
+                <ol>
+                    <li>Identify outer and inner functions</li>
+                    <li>Differentiate outer function (treating inner as variable)</li>
+                    <li>Differentiate inner function</li>
+                    <li>Multiply them together</li>
+                </ol>
+                
+                <div class="example">
+                    <div class="example-title">Example 1: f(x) = (x² + 1)³</div>
+                    <p>Outer: u³, derivative: 3u²</p>
+                    <p>Inner: x² + 1, derivative: 2x</p>
+                    <p>f'(x) = 3(x² + 1)² × 2x</p>
+                    <p>= <strong>6x(x² + 1)²</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 2: f(x) = √(3x + 2)</div>
+                    <p>Outer: √u, derivative: 1/(2√u)</p>
+                    <p>Inner: 3x + 2, derivative: 3</p>
+                    <p>f'(x) = [1/(2√(3x + 2))] × 3</p>
+                    <p>= <strong>3/(2√(3x + 2))</strong></p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example 3: f(x) = sin(2x)</div>
+                    <p>Outer: sin(u), derivative: cos(u)</p>
+                    <p>Inner: 2x, derivative: 2</p>
+                    <p>f'(x) = cos(2x) × 2</p>
+                    <p>= <strong>2cos(2x)</strong></p>
+                </div>
+                
+                <h3>Multiple Chain Rule</h3>
+                <p>For functions with multiple "layers":</p>
+                <div class="example">
+                    <div class="example-title">Example: f(x) = sin(cos(x²))</div>
+                    <p>Three layers! Apply chain rule multiple times.</p>
+                </div>
+                
+                <h3>Common Patterns</h3>
+                <ul>
+                    <li>f(g(x))ⁿ → n[f(g(x))]ⁿ⁻¹ × g'(x)</li>
+                    <li>e^(g(x)) → e^(g(x)) × g'(x)</li>
+                    <li>ln(g(x)) → (1/g(x)) × g'(x)</li>
+                </ul>
+                
+                <h3>Why It Matters</h3>
+                <ul>
+                    <li>Essential for calculus</li>
+                    <li>Used in all composite functions</li>
+                    <li>Foundation for more advanced techniques</li>
+                    <li>Critical for optimization problems</li>
+                </ul>
+                
+                <h3>Common Mistakes</h3>
+                <ul>
+                    <li>Forgetting to multiply by inner derivative</li>
+                    <li>Not identifying composite structure</li>
+                    <li>Applying chain rule incorrectly</li>
+                </ul>
             `
         };
         
@@ -10457,6 +12785,9 @@ class MathBoredApp {
         const recommendations = this.getRecommendedTopics();
         if (!recommendations || recommendations.length === 0) return '';
         
+        // Enhanced: Show up to 5 recommendations instead of 3
+        const enhancedRecs = recommendations.slice(0, 5);
+        
         let html = `
             <div class="recommendations-box" style="margin-top: 30px; padding: 20px; background: var(--card-bg); border-radius: 12px; border-left: 4px solid var(--accent);">
                 <h3 style="margin-top: 0; color: var(--accent);">🎯 Recommended Next Topics</h3>
@@ -10464,16 +12795,18 @@ class MathBoredApp {
                 <div style="display: flex; flex-direction: column; gap: 10px;">
         `;
         
-        recommendations.forEach(topic => {
+        enhancedRecs.forEach(topic => {
             const badge = this.hasComprehensiveLesson(topic.concept) ? '📚' : '📝';
             const gradeLabel = topic.gradeLevel === 'K' ? 'Kindergarten' : `Grade ${topic.gradeLevel}`;
+            const isCompleted = this.isTopicCompleted(topic.concept);
+            const completedBadge = isCompleted ? ' ✓' : '';
             html += `
-                <div style="padding: 12px; background: var(--bg); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;" 
+                <div style="padding: 12px; background: var(--bg); border-radius: 8px; cursor: pointer; transition: all 0.2s ease; ${isCompleted ? 'opacity: 0.8;' : ''}" 
                      onclick="app.jumpToTopic('${topic.concept.replace(/'/g, "\\'")}', '${topic.gradeLevel}')"
                      onmouseover="this.style.transform='translateX(5px)'; this.style.borderLeft='3px solid var(--accent)'"
                      onmouseout="this.style.transform='translateX(0)'; this.style.borderLeft='none'">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-weight: 600;">${badge} ${topic.concept}</span>
+                        <span style="font-weight: 600;">${badge} ${topic.concept}${completedBadge}</span>
                         <span style="font-size: 0.85rem; color: var(--text-secondary);">${gradeLabel}</span>
                     </div>
                     <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">${topic.keyConcepts}</div>
@@ -10487,6 +12820,42 @@ class MathBoredApp {
         `;
         
         return html;
+    }
+    
+    getProgressStats() {
+        // Get all topics for current grade
+        const allTopics = getTopicsByGrade(this.currentGrade);
+        const totalTopics = allTopics.length;
+        const completedCount = allTopics.filter(t => this.isTopicCompleted(t.concept)).length;
+        const percentage = totalTopics > 0 ? Math.round((completedCount / totalTopics) * 100) : 0;
+        
+        return {
+            completed: completedCount,
+            total: totalTopics,
+            percentage: percentage
+        };
+    }
+    
+    generateProgressIndicator() {
+        const stats = this.getProgressStats();
+        if (stats.total === 0) return '';
+        
+        return `
+            <div class="progress-indicator" style="margin-top: 20px; padding: 15px; background: var(--card-bg); border-radius: 12px; border-left: 4px solid var(--success);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 style="margin: 0; color: var(--success); font-size: 1.1rem;">📊 Grade ${this.currentGrade === 'K' ? 'Kindergarten' : this.currentGrade} Progress</h3>
+                    <span style="font-weight: 700; color: var(--accent);">${stats.completed}/${stats.total} topics</span>
+                </div>
+                <div style="background: var(--bg); border-radius: 8px; height: 24px; overflow: hidden; position: relative;">
+                    <div style="background: linear-gradient(90deg, var(--success), var(--accent)); height: 100%; width: ${stats.percentage}%; transition: width 0.5s ease; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: white; font-weight: 700; font-size: 0.85rem; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">${stats.percentage}%</span>
+                    </div>
+                </div>
+                <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-secondary); text-align: center;">
+                    ${stats.completed === stats.total ? '🎉 All topics completed!' : `${stats.total - stats.completed} more to go!`}
+                </p>
+            </div>
+        `;
     }
     
     jumpToTopic(topicName, gradeLevel) {
@@ -13555,6 +15924,8 @@ class MathBoredApp {
             console.log('✅ Marked topic as complete:', topicName);
             // Update the dropdown to show checkmark
             this.updateTopics();
+            // Refresh the current view to show updated progress
+            this.render();
         }
     }
     
