@@ -266,6 +266,33 @@ input:focus {
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
+.difficulty-tab {
+    padding: 16px 20px;
+    border: 2px solid var(--border);
+    background: var(--bg-tertiary);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    font-weight: 600;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.difficulty-tab:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.difficulty-tab.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
 .stats-panel {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -515,6 +542,25 @@ input:focus {
     background: var(--accent-hover);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btn-hint {
+    padding: 18px 35px;
+    background: var(--card-bg);
+    color: var(--text);
+    border: 2px solid var(--accent);
+    font-weight: 600;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-hint:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
 }
 
 .feedback {
