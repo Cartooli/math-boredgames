@@ -43,12 +43,63 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Quick Start Modal -->
+    <div id="quickStartModal" class="quick-start-modal">
+        <div class="modal-overlay" onclick="quickStartModal.close()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="quickStartModal.close()" aria-label="Close">&times;</button>
+            <div class="modal-hero">
+                <div class="hero-icon">🚀</div>
+                <h2>Welcome to MathBored!</h2>
+                <p>Let's find the perfect starting point for your math journey</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="quickStartModal.startAssessment()">
+                    <span class="btn-icon">⚡</span>
+                    <span class="btn-text">
+                        <strong>Start Quick Assessment</strong>
+                        <small>10 questions • 2-3 minutes</small>
+                    </span>
+                </button>
+                <button class="btn-secondary" onclick="quickStartModal.close()">
+                    <span>Explore Topics</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="dontShowAgain" onchange="quickStartModal.updatePreference()">
+                    <span>Don't show this again</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assessment Mode Full Screen -->
+    <div id="assessmentMode" class="assessment-mode">
+        <div class="assessment-container">
+            <div class="assessment-header">
+                <div class="assessment-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="assessmentProgress"></div>
+                    </div>
+                    <div class="progress-text" id="assessmentProgressText">Question 1 of 10</div>
+                </div>
+                <button class="btn-exit" onclick="assessmentMode.exit()" aria-label="Exit assessment">
+                    ✕
+                </button>
+            </div>
+            <div class="assessment-content" id="assessmentContent">
+                <!-- Dynamic content loads here -->
+            </div>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="header-content">
                 <div>
                     <h1>🎯 MathBored</h1>
-                    <div class="tagline">Never be bored with math again • Always free, always helpful • <a href="demo.html">Try Demo</a></div>
+                    <div class="tagline">Never be bored with math again • Always free, always helpful • <a href="demo.html">Try Demo</a> • <a href="#" id="quickStartLink">⚡ Quick Start</a></div>
                 </div>
                 <div class="theme-selector">
                     <div class="theme-btn theme-midnight active" data-theme="" title="Midnight"></div>
@@ -179,8 +230,573 @@
     <script src="data.js?v=5"></script>
     <script src="app.js?v=5"></script>
     <script>
-    // Feedback menu toggle
+    // ============================================
+    // QUICK START MODAL CONTROLLER
+    // ============================================
+    const quickStartModal = {
+        show() {
+            const modal = document.getElementById('quickStartModal');
+            if (modal) {
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        },
+        
+        close() {
+            const modal = document.getElementById('quickStartModal');
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        },
+        
+        startAssessment() {
+            this.close();
+            assessmentMode.start();
+        },
+        
+        updatePreference() {
+            const checkbox = document.getElementById('dontShowAgain');
+            if (checkbox && checkbox.checked) {
+                localStorage.setItem('hideQuickStart', 'true');
+            } else {
+                localStorage.removeItem('hideQuickStart');
+            }
+        },
+        
+        init() {
+            // Show modal on first visit (unless user opted out)
+            const hideQuickStart = localStorage.getItem('hideQuickStart');
+            if (!hideQuickStart) {
+                // Show after a brief delay for better UX
+                setTimeout(() => this.show(), 500);
+            }
+            
+            // Add quick start link handler
+            const quickStartLink = document.getElementById('quickStartLink');
+            if (quickStartLink) {
+                quickStartLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.show();
+                });
+            }
+        }
+    };
+    
+    // ============================================
+    // ASSESSMENT MODE CONTROLLER
+    // ============================================
+    const assessmentMode = {
+        questions: [],
+        currentQuestion: 0,
+        score: 0,
+        answers: [],
+        
+        // Helper to generate random integer
+        randomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        },
+        
+        // Helper to pick random item from array
+        randomFrom(array) {
+            return array[Math.floor(Math.random() * array.length)];
+        },
+        
+        // Generate fresh questions for each assessment
+        generateQuestions() {
+            return [
+                this.generateSingleDigitAddition(),
+                this.generateTwoDigitAddition(),
+                this.generateMultiplication(),
+                this.generateFraction(),
+                this.generateArea(),
+                this.generatePercentage(),
+                this.generateEquation(),
+                this.generateInteger(),
+                this.generatePythagorean(),
+                this.generateSlope()
+            ];
+        },
+        
+        generateSingleDigitAddition() {
+            const a = this.randomInt(1, 9);
+            const b = this.randomInt(1, 9);
+            return {
+                level: 'K-1',
+                text: `${a} + ${b} = ?`,
+                answer: a + b,
+                type: 'numeric',
+                topic: 'Single Digit Addition'
+            };
+        },
+        
+        generateTwoDigitAddition() {
+            const a = this.randomInt(10, 89);
+            const b = this.randomInt(10, 50);
+            return {
+                level: '2nd',
+                text: `${a} + ${b} = ?`,
+                answer: a + b,
+                type: 'numeric',
+                topic: 'Two-Digit Addition'
+            };
+        },
+        
+        generateMultiplication() {
+            const a = this.randomInt(2, 12);
+            const b = this.randomInt(2, 12);
+            return {
+                level: '3rd',
+                text: `${a} × ${b} = ?`,
+                answer: a * b,
+                type: 'numeric',
+                topic: 'Multiplication Tables'
+            };
+        },
+        
+        generateFraction() {
+            // Common fraction pairs that result in nice decimals
+            const problems = [
+                { text: 'What is 1/2 + 1/4? (Enter as a decimal)', answer: 0.75 },
+                { text: 'What is 1/4 + 1/4? (Enter as a decimal)', answer: 0.5 },
+                { text: 'What is 3/4 - 1/4? (Enter as a decimal)', answer: 0.5 },
+                { text: 'What is 1/2 + 1/2? (Enter as a decimal)', answer: 1 },
+                { text: 'What is 3/4 + 1/4? (Enter as a decimal)', answer: 1 },
+                { text: 'What is 1/5 + 1/5? (Enter as a decimal)', answer: 0.4 }
+            ];
+            const problem = this.randomFrom(problems);
+            return {
+                level: '4th',
+                text: problem.text,
+                answer: problem.answer,
+                type: 'numeric',
+                topic: 'Fractions'
+            };
+        },
+        
+        generateArea() {
+            const shapes = ['rectangle', 'square'];
+            const shape = this.randomFrom(shapes);
+            
+            if (shape === 'rectangle') {
+                const length = this.randomInt(5, 15);
+                const width = this.randomInt(3, 12);
+                return {
+                    level: '5th',
+                    text: `If a rectangle has length ${length} and width ${width}, what is its area?`,
+                    answer: length * width,
+                    type: 'numeric',
+                    topic: 'Area'
+                };
+            } else {
+                const side = this.randomInt(4, 12);
+                return {
+                    level: '5th',
+                    text: `If a square has a side length of ${side}, what is its area?`,
+                    answer: side * side,
+                    type: 'numeric',
+                    topic: 'Area'
+                };
+            }
+        },
+        
+        generatePercentage() {
+            const percentages = [10, 20, 25, 50, 75];
+            const percent = this.randomFrom(percentages);
+            const number = this.randomInt(20, 100);
+            
+            // Ensure clean result
+            const cleanNumbers = {
+                10: [20, 30, 40, 50, 60, 70, 80, 90, 100],
+                20: [20, 25, 30, 35, 40, 45, 50, 60, 80, 100],
+                25: [20, 40, 60, 80, 100],
+                50: [20, 30, 40, 50, 60, 70, 80, 90, 100],
+                75: [20, 40, 60, 80, 100]
+            };
+            
+            const validNumber = this.randomFrom(cleanNumbers[percent]);
+            const answer = (percent / 100) * validNumber;
+            
+            return {
+                level: '6th',
+                text: `What is ${percent}% of ${validNumber}?`,
+                answer: answer,
+                type: 'numeric',
+                topic: 'Percentages'
+            };
+        },
+        
+        generateEquation() {
+            const coef = this.randomInt(2, 5);
+            const constant = this.randomInt(3, 10);
+            const x = this.randomInt(2, 8);
+            const result = coef * x + constant;
+            
+            return {
+                level: '6th-7th',
+                text: `Solve for x: ${coef}x + ${constant} = ${result}`,
+                answer: x,
+                type: 'numeric',
+                topic: 'Simple Equations'
+            };
+        },
+        
+        generateInteger() {
+            const operations = [
+                { a: this.randomInt(-15, -5), b: this.randomInt(10, 20) },
+                { a: this.randomInt(-10, -3), b: this.randomInt(5, 15) },
+                { a: this.randomInt(5, 15), b: this.randomInt(-12, -3) }
+            ];
+            const op = this.randomFrom(operations);
+            
+            return {
+                level: '7th',
+                text: `What is ${op.a} + ${op.b}?`,
+                answer: op.a + op.b,
+                type: 'numeric',
+                topic: 'Integers'
+            };
+        },
+        
+        generatePythagorean() {
+            // Common Pythagorean triples
+            const triples = [
+                [3, 4, 5],
+                [5, 12, 13],
+                [6, 8, 10],
+                [8, 15, 17],
+                [9, 12, 15]
+            ];
+            const triple = this.randomFrom(triples);
+            
+            // Randomly ask for different sides
+            const askFor = this.randomFrom(['hypotenuse', 'leg']);
+            
+            if (askFor === 'hypotenuse') {
+                return {
+                    level: '8th',
+                    text: `A right triangle has legs of ${triple[0]} and ${triple[1]}. What is the hypotenuse?`,
+                    answer: triple[2],
+                    type: 'numeric',
+                    topic: 'Pythagorean Theorem'
+                };
+            } else {
+                return {
+                    level: '8th',
+                    text: `A right triangle has a hypotenuse of ${triple[2]} and one leg of ${triple[0]}. What is the other leg?`,
+                    answer: triple[1],
+                    type: 'numeric',
+                    topic: 'Pythagorean Theorem'
+                };
+            }
+        },
+        
+        generateSlope() {
+            const x1 = this.randomInt(1, 5);
+            const y1 = this.randomInt(1, 5);
+            const rise = this.randomInt(2, 6);
+            const run = this.randomInt(2, 4);
+            const x2 = x1 + run;
+            const y2 = y1 + rise;
+            const slope = rise / run;
+            
+            // Use integer slopes for simplicity
+            const simpleSlopes = [
+                { x1: 1, y1: 2, x2: 3, y2: 6, slope: 2 },
+                { x1: 2, y1: 3, x2: 4, y2: 7, slope: 2 },
+                { x1: 1, y1: 1, x2: 4, y2: 10, slope: 3 },
+                { x1: 2, y1: 5, x2: 5, y2: 11, slope: 2 },
+                { x1: 1, y1: 3, x2: 3, y2: 9, slope: 3 }
+            ];
+            
+            const problem = this.randomFrom(simpleSlopes);
+            
+            return {
+                level: '8th',
+                text: `What is the slope of a line passing through (${problem.x1}, ${problem.y1}) and (${problem.x2}, ${problem.y2})?`,
+                answer: problem.slope,
+                type: 'numeric',
+                topic: 'Slope'
+            };
+        },
+        
+        start() {
+            this.currentQuestion = 0;
+            this.score = 0;
+            this.answers = [];
+            
+            // Generate fresh questions for this assessment
+            this.questions = this.generateQuestions();
+            console.log('🎯 Generated fresh assessment questions:', this.questions.map(q => q.topic).join(', '));
+            
+            const container = document.getElementById('assessmentMode');
+            if (container) {
+                container.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                this.showQuestion();
+            }
+        },
+        
+        exit() {
+            if (confirm('Are you sure you want to exit the assessment? Your progress will be lost.')) {
+                const container = document.getElementById('assessmentMode');
+                if (container) {
+                    container.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        },
+        
+        showQuestion() {
+            try {
+                const question = this.questions[this.currentQuestion];
+                const content = document.getElementById('assessmentContent');
+                const progress = document.getElementById('assessmentProgress');
+                const progressText = document.getElementById('assessmentProgressText');
+                
+                if (!content) {
+                    console.error('Assessment content element not found');
+                    return;
+                }
+                
+                // Update progress
+                const percent = ((this.currentQuestion + 1) / this.questions.length) * 100;
+                if (progress) progress.style.width = percent + '%';
+                if (progressText) progressText.textContent = `Question ${this.currentQuestion + 1} of ${this.questions.length}`;
+                
+                // Render question
+                content.innerHTML = `
+                    <div class="question-card">
+                        <div class="question-number">${question.topic} • ${question.level} Level</div>
+                        <div class="question-text">${question.text}</div>
+                        <div class="question-input">
+                            <input type="text" 
+                                   class="assessment-answer-input" 
+                                   id="assessmentAnswerInput" 
+                                   placeholder="Your answer"
+                                   onkeypress="if(event.key==='Enter') assessmentMode.submitAnswer()">
+                            <button class="assessment-submit" onclick="assessmentMode.submitAnswer()">
+                                Submit Answer →
+                            </button>
+                        </div>
+                        <div id="assessmentFeedback"></div>
+                    </div>
+                `;
+                
+                // Focus input
+                setTimeout(() => {
+                    const input = document.getElementById('assessmentAnswerInput');
+                    if (input) input.focus();
+                }, 100);
+            } catch (error) {
+                console.error('Error showing question:', error);
+            }
+        },
+        
+        submitAnswer() {
+            const input = document.getElementById('assessmentAnswerInput');
+            const feedback = document.getElementById('assessmentFeedback');
+            const question = this.questions[this.currentQuestion];
+            
+            if (!input || !input.value.trim()) {
+                if (feedback) {
+                    feedback.innerHTML = `<div class="assessment-feedback incorrect">Please enter an answer!</div>`;
+                }
+                return;
+            }
+            
+            const userAnswer = parseFloat(input.value.trim());
+            const expectedAnswer = parseFloat(question.answer);
+            const isCorrect = Math.abs(userAnswer - expectedAnswer) < 0.01;
+            
+            // Store result
+            this.answers.push({
+                question: question.text,
+                userAnswer: input.value,
+                expectedAnswer: question.answer,
+                correct: isCorrect,
+                topic: question.topic
+            });
+            
+            if (isCorrect) {
+                this.score++;
+                if (feedback) {
+                    feedback.innerHTML = `<div class="assessment-feedback correct">✓ Correct! Great job!</div>`;
+                }
+            } else {
+                if (feedback) {
+                    feedback.innerHTML = `<div class="assessment-feedback incorrect">✗ Not quite. The answer is ${question.answer}</div>`;
+                }
+            }
+            
+            // Disable input and button
+            input.disabled = true;
+            
+            // Move to next question or show results
+            setTimeout(() => {
+                this.currentQuestion++;
+                if (this.currentQuestion < this.questions.length) {
+                    this.showQuestion();
+                } else {
+                    this.showResults();
+                }
+            }, 1500);
+        },
+        
+        showResults() {
+            const content = document.getElementById('assessmentContent');
+            const progress = document.getElementById('assessmentProgress');
+            const progressText = document.getElementById('assessmentProgressText');
+            
+            // Update progress to 100%
+            if (progress) progress.style.width = '100%';
+            if (progressText) progressText.textContent = 'Assessment Complete!';
+            
+            // Calculate grade recommendation
+            const percentage = (this.score / this.questions.length) * 100;
+            const recommendation = this.getRecommendation(percentage);
+            
+            // Store results
+            localStorage.setItem('lastAssessmentScore', this.score);
+            localStorage.setItem('lastAssessmentDate', new Date().toISOString());
+            localStorage.setItem('recommendedGrade', recommendation.grade);
+            
+            if (content) {
+                content.innerHTML = `
+                    <div class="results-card">
+                        <div class="results-hero">
+                            <div class="results-icon">${recommendation.emoji}</div>
+                            <h2 class="results-title">Assessment Complete!</h2>
+                            <p class="results-subtitle">Here's how you did</p>
+                        </div>
+                        
+                        <div class="results-score">
+                            <div class="score-value">${this.score}/${this.questions.length}</div>
+                            <div class="score-label">${Math.round(percentage)}% Correct</div>
+                        </div>
+                        
+                        <div class="results-recommendation">
+                            <div class="recommendation-title">📚 Recommended Starting Point</div>
+                            <div class="recommendation-grade">${recommendation.gradeLabel}</div>
+                            <p class="recommendation-text">${recommendation.message}</p>
+                        </div>
+                        
+                        <div class="results-actions">
+                            <button class="btn-start-learning" onclick="assessmentMode.startLearning('${recommendation.grade}')">
+                                Start Learning at ${recommendation.gradeLabel} →
+                            </button>
+                            <button class="btn-retake" onclick="assessmentMode.start()">
+                                🔄 Retake Assessment
+                            </button>
+                            <button class="btn-secondary" onclick="assessmentMode.closeResults()">
+                                Explore All Topics
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }
+        },
+        
+        getRecommendation(percentage) {
+            // Smart grade recommendation based on which questions were answered correctly
+            const lastCorrectIndex = this.answers.reduce((maxIndex, answer, index) => {
+                return answer.correct ? index : maxIndex;
+            }, -1);
+            
+            let grade, gradeLabel, emoji, message;
+            
+            if (percentage >= 90) {
+                grade = '8';
+                gradeLabel = '8th Grade';
+                emoji = '🏆';
+                message = 'Excellent work! You\'re ready for 8th grade math and beyond.';
+            } else if (percentage >= 80) {
+                grade = '7';
+                gradeLabel = '7th Grade';
+                emoji = '🌟';
+                message = 'Great job! You\'re well-prepared for 7th grade math concepts.';
+            } else if (lastCorrectIndex >= 6) {
+                grade = '7';
+                gradeLabel = '7th Grade';
+                emoji = '💪';
+                message = 'You\'re ready for 7th grade! Focus on strengthening these concepts.';
+            } else if (lastCorrectIndex >= 5) {
+                grade = '6';
+                gradeLabel = '6th Grade';
+                emoji = '🎯';
+                message = 'Perfect! 6th grade concepts will help you build a strong foundation.';
+            } else if (lastCorrectIndex >= 4) {
+                grade = '5';
+                gradeLabel = '5th Grade';
+                emoji = '📐';
+                message = '5th grade is a great place to start mastering these skills!';
+            } else if (lastCorrectIndex >= 3) {
+                grade = '4';
+                gradeLabel = '4th Grade';
+                emoji = '✏️';
+                message = '4th grade math will help you build confidence and understanding.';
+            } else if (lastCorrectIndex >= 2) {
+                grade = '3';
+                gradeLabel = '3rd Grade';
+                emoji = '📚';
+                message = 'Start with 3rd grade to build a solid mathematical foundation.';
+            } else if (lastCorrectIndex >= 1) {
+                grade = '2';
+                gradeLabel = '2nd Grade';
+                emoji = '🌱';
+                message = 'Beginning with 2nd grade will set you up for success!';
+            } else {
+                grade = '1';
+                gradeLabel = '1st Grade';
+                emoji = '🎓';
+                message = 'Let\'s start from the beginning and build your math skills step by step!';
+            }
+            
+            return { grade, gradeLabel, emoji, message };
+        },
+        
+        startLearning(grade) {
+            // Close assessment and set the grade in main app
+            const container = document.getElementById('assessmentMode');
+            if (container) {
+                container.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+            
+            // Set grade in main app
+            const gradeSelect = document.getElementById('gradeSelect');
+            if (gradeSelect && app) {
+                gradeSelect.value = grade;
+                app.currentGrade = grade;
+                app.updateTopics();
+                
+                // Smooth scroll to content
+                setTimeout(() => {
+                    const controls = document.querySelector('.controls');
+                    if (controls) {
+                        controls.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }
+        },
+        
+        closeResults() {
+            const container = document.getElementById('assessmentMode');
+            if (container) {
+                container.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    };
+    
+    // ============================================
+    // INITIALIZATION
+    // ============================================
     document.addEventListener('DOMContentLoaded', () => {
+        // Initialize quick start modal
+        quickStartModal.init();
+        
+        // Feedback menu toggle
         const feedbackBtn = document.getElementById('feedbackBtn');
         const feedbackMenu = document.getElementById('feedbackMenu');
         
