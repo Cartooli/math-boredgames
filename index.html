@@ -45,7 +45,7 @@
 <body>
     <!-- Quick Start Modal -->
     <div id="quickStartModal" class="quick-start-modal">
-        <div class="modal-overlay" onclick="quickStartModal.close()"></div>
+        <div class="modal-overlay" onclick="quickStartModal.close()" role="button" aria-label="Close modal"></div>
         <div class="modal-content">
             <button class="modal-close" onclick="quickStartModal.close()" aria-label="Close">&times;</button>
             <div class="modal-hero">
@@ -70,6 +70,20 @@
                     <input type="checkbox" id="dontShowAgain" onchange="quickStartModal.updatePreference()">
                     <span>Don't show this again</span>
                 </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Confirmation Modal -->
+    <div id="confirmModal" class="confirm-modal">
+        <div class="modal-overlay" onclick="confirmModal.close()"></div>
+        <div class="modal-content confirm-modal-content">
+            <div class="confirm-icon">⚠️</div>
+            <h3 class="confirm-title" id="confirmTitle">Confirm Action</h3>
+            <p class="confirm-message" id="confirmMessage">Are you sure you want to proceed?</p>
+            <div class="confirm-actions">
+                <button class="btn-confirm-cancel" id="confirmCancel" onclick="confirmModal.close()">Cancel</button>
+                <button class="btn-confirm-ok" id="confirmOk" onclick="confirmModal.onConfirm()">Confirm</button>
             </div>
         </div>
     </div>
@@ -237,6 +251,11 @@
         show() {
             const modal = document.getElementById('quickStartModal');
             if (modal) {
+                // Reset all styles first
+                modal.style.display = 'flex';
+                modal.style.visibility = '';
+                modal.style.opacity = '';
+                // Then add show class for transition
                 modal.classList.add('show');
                 document.body.style.overflow = 'hidden';
             }
@@ -247,11 +266,28 @@
             if (modal) {
                 modal.classList.remove('show');
                 document.body.style.overflow = '';
+                // Ensure modal is completely hidden after animation
+                setTimeout(() => {
+                    if (!modal.classList.contains('show')) {
+                        modal.style.display = 'none';
+                    }
+                }, 350); // Wait for animation to complete (300ms + buffer)
             }
         },
         
         startAssessment() {
-            this.close();
+            // Immediately hide modal completely (no transition delay)
+            const modal = document.getElementById('quickStartModal');
+            if (modal) {
+                // Remove show class and force all hiding properties immediately
+                modal.classList.remove('show');
+                modal.style.display = 'none';
+                modal.style.visibility = 'hidden';
+                modal.style.opacity = '0';
+                modal.style.pointerEvents = 'none'; // Prevent any interaction
+                document.body.style.overflow = '';
+            }
+            // Start assessment immediately - modal is completely hidden
             assessmentMode.start();
         },
         
@@ -280,6 +316,56 @@
                     this.show();
                 });
             }
+        }
+    };
+    
+    // ============================================
+    // CONFIRMATION MODAL CONTROLLER
+    // ============================================
+    const confirmModal = {
+        onConfirmCallback: null,
+        
+        show(options) {
+            const modal = document.getElementById('confirmModal');
+            const title = document.getElementById('confirmTitle');
+            const message = document.getElementById('confirmMessage');
+            
+            if (modal && title && message) {
+                title.textContent = options.title || 'Confirm Action';
+                message.textContent = options.message || 'Are you sure you want to proceed?';
+                this.onConfirmCallback = options.onConfirm || null;
+                
+                // Ensure modal appears on top
+                modal.style.display = 'flex';
+                modal.style.zIndex = '10002';
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+                
+                console.log('✅ Confirmation modal shown');
+            } else {
+                console.error('❌ Confirmation modal elements not found');
+            }
+        },
+        
+        close() {
+            const modal = document.getElementById('confirmModal');
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    if (!modal.classList.contains('show')) {
+                        modal.style.display = 'none';
+                    }
+                }, 300);
+            }
+            this.onConfirmCallback = null;
+        },
+        
+        onConfirm() {
+            if (this.onConfirmCallback) {
+                this.onConfirmCallback();
+            }
+            this.close();
         }
     };
     
@@ -538,12 +624,23 @@
         },
         
         exit() {
-            if (confirm('Are you sure you want to exit the assessment? Your progress will be lost.')) {
-                const container = document.getElementById('assessmentMode');
-                if (container) {
-                    container.classList.remove('active');
-                    document.body.style.overflow = '';
+            // Use custom confirmation modal
+            console.log('Exit assessment clicked, showing confirmation modal...');
+            confirmModal.show({
+                title: 'Exit Assessment?',
+                message: 'Are you sure you want to exit the assessment? Your progress will be lost.',
+                onConfirm: () => {
+                    console.log('User confirmed exit');
+                    this.closeAssessment();
                 }
+            });
+        },
+        
+        closeAssessment() {
+            const container = document.getElementById('assessmentMode');
+            if (container) {
+                container.classList.remove('active');
+                document.body.style.overflow = '';
             }
         },
         
@@ -795,6 +892,32 @@
     document.addEventListener('DOMContentLoaded', () => {
         // Initialize quick start modal
         quickStartModal.init();
+        
+        // Add Escape key handler for modals
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                // Close confirmation modal first if open
+                const confirmModalEl = document.getElementById('confirmModal');
+                if (confirmModalEl && confirmModalEl.classList.contains('show')) {
+                    confirmModal.close();
+                    return;
+                }
+                
+                // Close quick start modal
+                const modal = document.getElementById('quickStartModal');
+                if (modal && modal.classList.contains('show')) {
+                    quickStartModal.close();
+                    return;
+                }
+                
+                // Exit assessment on Escape (without confirmation for better UX)
+                const assessment = document.getElementById('assessmentMode');
+                if (assessment && assessment.classList.contains('active')) {
+                    // Exit assessment on Escape - users can retake if needed
+                    assessmentMode.closeAssessment();
+                }
+            }
+        });
         
         // Feedback menu toggle
         const feedbackBtn = document.getElementById('feedbackBtn');

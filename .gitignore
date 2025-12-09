@@ -23,3 +23,8 @@ npm-debug.log*
 *.tmp
 .cache/
 
+# Environment variables (GitHub tokens, etc.)
+.env
+.env.local
+.env.*.local
+
