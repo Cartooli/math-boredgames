@@ -79,6 +79,9 @@ const olympiadApp = {
         // Get notes
         const savedNotes = this.notes[questionId] || '';
         
+        // Get solution if available (requires olympiad-solutions.js)
+        const solution = typeof olympiadSolutions !== 'undefined' ? olympiadSolutions.getSolution(questionId) : null;
+        
         const html = `
             <div class="question-header">
                 <div>
@@ -144,33 +147,78 @@ const olympiadApp = {
                         <div class="disclosure-icon">▼</div>
                     </div>
                     <div class="disclosure-content" id="hintsContent">
-                        <p><em>Think about the problem carefully. Consider:</em></p>
-                        <ul class="hint-list">
-                            <li><span class="hint-number">1</span>What is the problem really asking?</li>
-                            <li><span class="hint-number">2</span>Can you break it into smaller parts?</li>
-                            <li><span class="hint-number">3</span>Are there any patterns or symmetries?</li>
-                            <li><span class="hint-number">4</span>Could working backwards help?</li>
-                        </ul>
+                        ${solution && solution.hints && solution.hints.length > 0 ? `
+                            <p><em>Problem-specific hints:</em></p>
+                            <ul class="hint-list">
+                                ${solution.hints.map((hint, i) => `
+                                    <li><span class="hint-number">${i + 1}</span>${this.escapeHtml(hint)}</li>
+                                `).join('')}
+                            </ul>
+                        ` : `
+                            <p><em>Think about the problem carefully. Consider:</em></p>
+                            <ul class="hint-list">
+                                <li><span class="hint-number">1</span>What is the problem really asking?</li>
+                                <li><span class="hint-number">2</span>Can you break it into smaller parts?</li>
+                                <li><span class="hint-number">3</span>Are there any patterns or symmetries?</li>
+                                <li><span class="hint-number">4</span>Could working backwards help?</li>
+                            </ul>
+                        `}
                     </div>
                 </div>
                 
                 <div class="disclosure-section">
                     <div class="disclosure-header" onclick="olympiadApp.toggleSection('solution')">
                         <div class="disclosure-title">
-                            ✅ Approach
+                            ${solution ? '✅ Solution' : '✅ Approach'}
+                            ${solution && solution.verified ? '<span style="margin-left: 10px; font-size: 0.85em;">✓ Verified</span>' : ''}
                         </div>
                         <div class="disclosure-icon">▼</div>
                     </div>
                     <div class="disclosure-content" id="solutionContent">
-                        <p><strong>Problem-Solving Approach:</strong></p>
-                        <ol style="padding-left: 20px;">
-                            <li style="margin-bottom: 10px;">Read the problem carefully and identify what is given.</li>
-                            <li style="margin-bottom: 10px;">Determine what you need to find.</li>
-                            <li style="margin-bottom: 10px;">Draw a diagram if helpful.</li>
-                            <li style="margin-bottom: 10px;">Try different strategies: look for patterns, work backwards, solve a simpler problem first.</li>
-                            <li style="margin-bottom: 10px;">Check your answer to make sure it makes sense.</li>
-                        </ol>
-                        <p style="margin-top: 20px;"><em>Original problem from: ${this.escapeHtml(question.date)}</em></p>
+                        ${solution ? `
+                            <div style="background: var(--success-bg, rgba(34, 197, 94, 0.1)); padding: 20px; border-radius: 8px; border-left: 4px solid var(--success); margin-bottom: 20px;">
+                                <p style="margin: 0;"><strong>Answer:</strong> ${this.escapeHtml(solution.answer)}</p>
+                                ${solution.method ? `<p style="margin: 5px 0 0 0;"><em>Method: ${this.escapeHtml(solution.method)}</em></p>` : ''}
+                            </div>
+                            
+                            ${solution.steps && solution.steps.length > 0 ? `
+                                <p><strong>Step-by-Step Solution:</strong></p>
+                                <ol style="padding-left: 20px;">
+                                    ${solution.steps.map(step => `
+                                        <li style="margin-bottom: 10px;">${this.escapeHtml(step)}</li>
+                                    `).join('')}
+                                </ol>
+                            ` : ''}
+                            
+                            ${solution.explanation ? `
+                                <p><strong>Explanation:</strong></p>
+                                <p style="line-height: 1.7;">${this.escapeHtml(solution.explanation)}</p>
+                            ` : ''}
+                            
+                            ${solution.sourceUrl ? `
+                                <p style="margin-top: 20px;">
+                                    <strong>Source:</strong> <a href="${this.escapeHtml(solution.sourceUrl)}" target="_blank" rel="noopener noreferrer">${this.escapeHtml(solution.sourceUrl)}</a>
+                                </p>
+                            ` : ''}
+                            
+                            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
+                                <em>Last verified: ${new Date(solution.verificationDate).toLocaleDateString()}</em>
+                            </p>
+                        ` : `
+                            <p><strong>Problem-Solving Approach:</strong></p>
+                            <ol style="padding-left: 20px;">
+                                <li style="margin-bottom: 10px;">Read the problem carefully and identify what is given.</li>
+                                <li style="margin-bottom: 10px;">Determine what you need to find.</li>
+                                <li style="margin-bottom: 10px;">Draw a diagram if helpful.</li>
+                                <li style="margin-bottom: 10px;">Try different strategies: look for patterns, work backwards, solve a simpler problem first.</li>
+                                <li style="margin-bottom: 10px;">Check your answer to make sure it makes sense.</li>
+                            </ol>
+                            <p style="margin-top: 20px;"><em>Original problem from: ${this.escapeHtml(question.date)}</em></p>
+                            <p style="margin-top: 15px; padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
+                                <strong>📝 Solution not yet available</strong><br>
+                                <small>Solutions are being added incrementally. Check back later or contribute via <a href="solution-entry.html">solution entry</a>.</small>
+                            </p>
+                        `}
                     </div>
                 </div>
                 

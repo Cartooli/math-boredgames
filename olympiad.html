@@ -151,7 +151,7 @@
             padding: 15px;
             background: var(--bg-secondary);
             border-radius: 10px;
-            text-align: center;
+            text-align: left;
         }
         
         .difficulty-label {
@@ -163,6 +163,7 @@
         .star-rating {
             display: inline-flex;
             gap: 5px;
+            justify-content: flex-start;
         }
         
         .star {
@@ -194,7 +195,7 @@
             padding: 15px;
             background: var(--bg-secondary);
             border-radius: 10px;
-            text-align: center;
+            text-align: left;
         }
         
         .share-label {
@@ -206,7 +207,7 @@
         .share-buttons {
             display: flex;
             gap: 10px;
-            justify-content: center;
+            justify-content: flex-start;
             flex-wrap: wrap;
         }
         
@@ -250,7 +251,7 @@
         
         /* Question Content */
         .question-content {
-            text-align: center;
+            text-align: left;
             margin-bottom: 30px;
         }
         
@@ -280,6 +281,7 @@
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
+            -webkit-user-select: none;
             user-select: none;
             padding: 20px;
             background: var(--card-bg);
@@ -314,6 +316,7 @@
             line-height: 1.7;
             color: var(--text-secondary);
             display: none;
+            text-align: left;
         }
         
         .disclosure-content.visible {
@@ -618,6 +621,7 @@
     </footer>
 
     <script src="olympiad-data.js"></script>
+    <script src="olympiad-solutions.js"></script>
     <script src="olympiad-app.js"></script>
 </body>
 </html>
