@@ -19885,6 +19885,11 @@ x+2 | x² + 5x + 6
             this.saveStats();
             this.updateStatsDisplay();
             
+            // Dispatch event for widget tracking
+            document.dispatchEvent(new CustomEvent('correctAnswer', {
+                detail: { streak: this.stats.streak }
+            }));
+            
             feedbackDiv.innerHTML = `
                 <div class="feedback correct">
                     ✓ Excellent! That's correct! 🎉

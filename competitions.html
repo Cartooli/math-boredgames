@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover nationwide U.S. math competitions for elementary and middle school students (K-8). Find MATHCOUNTS, AMC 8, MOEMS, and more competitions to challenge your math skills.">
+    <meta name="keywords" content="math competitions, MATHCOUNTS, AMC 8, MOEMS, elementary math competitions, middle school math competitions, math olympiad, national math contests, K-8 math competitions">
+    <meta name="author" content="MathBored Project">
+    <title>U.S. Math Competitions for K-8 Students | MathBored</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://math.boredgames.site/competitions.html">
+    <meta property="og:title" content="U.S. Math Competitions for K-8 Students | MathBored">
+    <meta property="og:description" content="Discover nationwide U.S. math competitions for elementary and middle school students. Find MATHCOUNTS, AMC 8, MOEMS, and more competitions to challenge your math skills.">
+    <meta property="og:image" content="https://math.boredgames.site/og-image.png?v=2">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="U.S. Math Competitions for K-8 Students">
+    <meta property="og:site_name" content="MathBored">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://math.boredgames.site/competitions.html">
+    <meta property="twitter:title" content="U.S. Math Competitions for K-8 Students | MathBored">
+    <meta property="twitter:description" content="Discover nationwide U.S. math competitions for elementary and middle school students. Find MATHCOUNTS, AMC 8, MOEMS, and more competitions to challenge your math skills.">
+    <meta property="twitter:image" content="https://math.boredgames.site/og-image.png?v=2">
+    <meta property="twitter:image:alt" content="U.S. Math Competitions for K-8 Students">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://math.boredgames.site/competitions.html">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="apple-touch-icon" href="icon.svg">
+    <meta name="theme-color" content="#3b82f6">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "U.S. Math Competitions for K-8 Students",
+      "description": "Comprehensive guide to nationwide U.S. math competitions for elementary and middle school students (K-8)",
+      "url": "https://math.boredgames.site/competitions.html",
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "MathBored",
+        "url": "https://math.boredgames.site"
+      },
+      "about": {
+        "@type": "EducationalOrganization",
+        "name": "Math Competitions",
+        "description": "National math competitions for K-8 students in the United States"
+      }
+    }
+    </script>
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .competitions-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .competitions-hero {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 20px;
+            color: white;
+        }
+        
+        .competitions-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .competitions-hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .tier-section {
+            margin-bottom: 60px;
+        }
+        
+        .tier-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .tier-badge {
+            font-size: 2.5rem;
+        }
+        
+        .tier-title {
+            font-size: 2rem;
+            color: var(--text);
+            margin: 0;
+        }
+        
+        .tier-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        .competition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .competition-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .competition-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+            border-color: var(--primary);
+        }
+        
+        .competition-header {
+            margin-bottom: 20px;
+        }
+        
+        .competition-name {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+        
+        .competition-abbr {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        
+        .competition-details {
+            margin-bottom: 20px;
+        }
+        
+        .detail-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        
+        .detail-icon {
+            font-size: 1.2rem;
+            min-width: 25px;
+        }
+        
+        .detail-label {
+            font-weight: 600;
+            color: var(--text);
+            min-width: 90px;
+        }
+        
+        .detail-value {
+            color: var(--text-secondary);
+            flex: 1;
+        }
+        
+        .competition-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .badge-team {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .badge-individual {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .badge-finals {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+        
+        .competition-notes {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            padding: 15px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .info-section {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .info-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .info-section p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .info-section li {
+            padding: 10px 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .info-section li:last-child {
+            border-bottom: none;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            margin-top: 60px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+        
+        .share-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: var(--bg-secondary);
+            border-radius: 15px;
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .share-btn {
+            padding: 12px 24px;
+            border-radius: 25px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .share-btn-copy {
+            background: #3b82f6;
+            color: white;
+        }
+        
+        .share-btn-twitter {
+            background: #1da1f2;
+            color: white;
+        }
+        
+        .share-btn-facebook {
+            background: #4267B2;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .competitions-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .competitions-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .competition-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tier-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>🎯 <a href="/" style="color: inherit; text-decoration: none;">MathBored</a></h1>
+                    <div class="tagline">Never be bored with math again • <a href="/">Back to Practice</a></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="competitions-container">
+        <div class="competitions-hero">
+            <h1>🏆 U.S. Math Competitions</h1>
+            <p>Discover nationwide math competitions for elementary and middle school students (K-8). Challenge yourself, compete with peers, and showcase your mathematical talents!</p>
+        </div>
+
+        <div class="info-section">
+            <h2>Why Compete in Math?</h2>
+            <p>Math competitions provide students with opportunities to:</p>
+            <ul>
+                <li>🎯 Challenge themselves beyond classroom material</li>
+                <li>🤝 Connect with like-minded peers who love mathematics</li>
+                <li>🏅 Gain recognition for mathematical achievement</li>
+                <li>🚀 Develop problem-solving and critical thinking skills</li>
+                <li>📚 Prepare for advanced mathematics courses</li>
+                <li>🎓 Enhance college applications and scholarship opportunities</li>
+            </ul>
+        </div>
+
+        <!-- Tier 1 Competitions -->
+        <section class="tier-section">
+            <div class="tier-header">
+                <span class="tier-badge">🥇</span>
+                <div>
+                    <h2 class="tier-title">Tier 1: Premier National Competitions</h2>
+                    <p class="tier-description">Most prestigious and widely recognized national competitions</p>
+                </div>
+            </div>
+            
+            <div class="competition-grid" id="tier1Grid"></div>
+        </section>
+
+        <!-- Tier 2 Competitions -->
+        <section class="tier-section">
+            <div class="tier-header">
+                <span class="tier-badge">🥈</span>
+                <div>
+                    <h2 class="tier-title">Tier 2: Strong National Competitions</h2>
+                    <p class="tier-description">Strong national competitions with broad participation</p>
+                </div>
+            </div>
+            
+            <div class="competition-grid" id="tier2Grid"></div>
+        </section>
+
+        <!-- Tier 3 Competitions -->
+        <section class="tier-section">
+            <div class="tier-header">
+                <span class="tier-badge">🥉</span>
+                <div>
+                    <h2 class="tier-title">Tier 3: Supplemental National Competitions</h2>
+                    <p class="tier-description">Additional opportunities for national competition</p>
+                </div>
+            </div>
+            
+            <div class="competition-grid" id="tier3Grid"></div>
+        </section>
+
+        <!-- Share Section -->
+        <div class="share-section">
+            <h3>📤 Share This Resource</h3>
+            <p>Help other students discover these amazing math competitions!</p>
+            <div class="share-buttons">
+                <button class="share-btn share-btn-copy" onclick="copyLink()">
+                    📋 Copy Link
+                </button>
+                <button class="share-btn share-btn-twitter" onclick="shareTwitter()">
+                    🐦 Share on Twitter
+                </button>
+                <button class="share-btn share-btn-facebook" onclick="shareFacebook()">
+                    📘 Share on Facebook
+                </button>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Ready to Practice?</h2>
+            <p>Build your skills with our free K-12 math practice platform</p>
+            <a href="/" class="cta-button">Start Practicing Now →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>MathBored @ math.boredgames.site • Free forever • No logins, no limits, just learning</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                Helping students master math, one problem at a time 🚀
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Competition data
+        const competitions = [
+            {
+                name: "Math Olympiads for Elementary Schools",
+                abbreviation: "MOEMS",
+                division: "Division E",
+                grades: [4, 5, 6],
+                format: "Individual, monthly contests",
+                organization: "Math Olympiads, Inc.",
+                nationalFinals: false,
+                teamBased: false,
+                prestigeTier: "Tier 1",
+                notes: "Core U.S. elementary competition; feeder into middle-school contest pipelines"
+            },
+            {
+                name: "Math Olympiads for Middle Schools",
+                abbreviation: "MOEMS",
+                division: "Division M",
+                grades: [6, 7, 8],
+                format: "Individual, monthly contests",
+                organization: "Math Olympiads, Inc.",
+                nationalFinals: false,
+                teamBased: false,
+                prestigeTier: "Tier 1",
+                notes: "Widely used middle-school competition; strong preparation for MATHCOUNTS"
+            },
+            {
+                name: "American Mathematics Competitions 8",
+                abbreviation: "AMC 8",
+                grades: [8],
+                format: "Individual, timed contest",
+                organization: "Mathematical Association of America",
+                nationalFinals: false,
+                teamBased: false,
+                prestigeTier: "Tier 1",
+                notes: "Gold standard U.S. middle-school individual contest"
+            },
+            {
+                name: "MATHCOUNTS Competition Series",
+                abbreviation: "MATHCOUNTS",
+                grades: [6, 7, 8],
+                format: "Individual and team, live competitions",
+                organization: "MATHCOUNTS Foundation",
+                nationalFinals: true,
+                teamBased: true,
+                prestigeTier: "Tier 1",
+                notes: "Flagship U.S. middle-school math competition with national finals"
+            },
+            {
+                name: "Noetic Learning Math Contest",
+                abbreviation: "NLMC",
+                grades: [2, 3, 4, 5, 6, 7, 8],
+                format: "Team-based, biannual",
+                organization: "Noetic Learning",
+                nationalFinals: false,
+                teamBased: true,
+                prestigeTier: "Tier 2",
+                notes: "Popular in public and private schools; emphasizes collaborative problem solving"
+            },
+            {
+                name: "Continental Mathematics League",
+                abbreviation: "CML",
+                grades: [2, 3, 4, 5, 6, 7, 8],
+                format: "In-school league meets",
+                organization: "Continental Mathematics League, Inc.",
+                nationalFinals: false,
+                teamBased: false,
+                prestigeTier: "Tier 2",
+                notes: "Long-running U.S. league with national norms"
+            },
+            {
+                name: "MathCON",
+                abbreviation: "MathCON",
+                grades: [4, 5, 6, 7, 8],
+                format: "Online qualifier + in-person U.S. finals",
+                organization: "MathCON",
+                nationalFinals: true,
+                teamBased: false,
+                prestigeTier: "Tier 2",
+                notes: "U.S.-based competition with national finals event"
+            },
+            {
+                name: "Perennial Math",
+                abbreviation: "Perennial",
+                grades: [3, 4, 5, 6, 7, 8],
+                format: "Online team competition",
+                organization: "Perennial Math",
+                nationalFinals: false,
+                teamBased: true,
+                prestigeTier: "Tier 3",
+                notes: "U.S.-run online competition with national participation"
+            }
+        ];
+
+        // Render competitions by tier
+        function renderCompetitions() {
+            const tier1 = competitions.filter(c => c.prestigeTier === "Tier 1");
+            const tier2 = competitions.filter(c => c.prestigeTier === "Tier 2");
+            const tier3 = competitions.filter(c => c.prestigeTier === "Tier 3");
+
+            document.getElementById('tier1Grid').innerHTML = tier1.map(createCompetitionCard).join('');
+            document.getElementById('tier2Grid').innerHTML = tier2.map(createCompetitionCard).join('');
+            document.getElementById('tier3Grid').innerHTML = tier3.map(createCompetitionCard).join('');
+        }
+
+        function createCompetitionCard(comp) {
+            const gradeRange = comp.grades.length > 1 
+                ? `Grades ${Math.min(...comp.grades)}-${Math.max(...comp.grades)}`
+                : `Grade ${comp.grades[0]}`;
+
+            return `
+                <article class="competition-card" itemscope itemtype="https://schema.org/Event">
+                    <div class="competition-header">
+                        <h3 class="competition-name" itemprop="name">${comp.name}</h3>
+                        <div class="competition-abbr">${comp.abbreviation}${comp.division ? ' - ' + comp.division : ''}</div>
+                    </div>
+                    
+                    <div class="competition-badges">
+                        ${comp.teamBased ? '<span class="badge badge-team">Team-Based</span>' : '<span class="badge badge-individual">Individual</span>'}
+                        ${comp.nationalFinals ? '<span class="badge badge-finals">National Finals</span>' : ''}
+                    </div>
+                    
+                    <div class="competition-details">
+                        <div class="detail-row">
+                            <span class="detail-icon">🎓</span>
+                            <span class="detail-label">Grades:</span>
+                            <span class="detail-value">${gradeRange}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-icon">📋</span>
+                            <span class="detail-label">Format:</span>
+                            <span class="detail-value" itemprop="eventAttendanceMode">${comp.format}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-icon">🏢</span>
+                            <span class="detail-label">Organization:</span>
+                            <span class="detail-value" itemprop="organizer">${comp.organization}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="competition-notes">
+                        <strong>Note:</strong> ${comp.notes}
+                    </div>
+                </article>
+            `;
+        }
+
+        // Share functions
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = event.target.closest('.share-btn-copy');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✅ Copied!';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+
+        function shareTwitter() {
+            const text = "Check out this comprehensive guide to U.S. math competitions for K-8 students! 🏆📐";
+            const url = window.location.href;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareFacebook() {
+            const url = window.location.href;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        // Initialize
+        renderCompetitions();
+    </script>
+</body>
+</html>

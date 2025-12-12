@@ -225,6 +225,8 @@
             <p style="margin-top: 10px; font-size: 0.9rem;">
                 Helping students master math, one problem at a time 🚀
                 <br>
+                <a href="competitions.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">🏆 Explore Math Competitions</a>
+                <br>
                 <span style="font-size: 0.8rem; opacity: 0.8; margin-top: 5px; display: inline-block;">
                     🔒 Your feedback is completely anonymous and private
                 </span>
@@ -259,6 +261,20 @@
                     <div class="menu-desc">Share your ideas on GitHub</div>
                 </div>
             </a>
+        </div>
+    </div>
+
+    <!-- Competitions Widget -->
+    <div class="competitions-widget" id="competitionsWidget">
+        <button class="widget-close" onclick="competitionsWidget.close()" aria-label="Close">×</button>
+        <div class="widget-content">
+            <div class="widget-icon">🏆</div>
+            <h3 class="widget-title">Ready for a Challenge?</h3>
+            <p class="widget-description">Discover nationwide math competitions for K-8 students. Test your skills against peers across the U.S.!</p>
+            <a href="competitions.html" class="widget-cta">Explore Competitions →</a>
+        </div>
+        <div class="widget-footer">
+            MATHCOUNTS • AMC 8 • MOEMS & more
         </div>
     </div>
 
@@ -960,7 +976,160 @@
                 e.stopPropagation();
             });
         }
+        
+        // Initialize competitions widget
+        competitionsWidget.init();
     });
+    </script>
+    
+    <script>
+    // ============================================
+    // COMPETITIONS WIDGET CONTROLLER
+    // ============================================
+    const competitionsWidget = {
+        activityTimer: null,
+        activityStartTime: null,
+        isActive: false,
+        hasShownWidget: false,
+        isTestOrQuizActive: false,
+        ACTIVITY_THRESHOLD: 300000, // 300 seconds = 5 minutes in milliseconds
+        
+        init() {
+            // Check if widget was already dismissed
+            const dismissed = sessionStorage.getItem('competitionsWidgetDismissed');
+            if (dismissed === 'true') {
+                return;
+            }
+            
+            // Start tracking activity
+            this.startActivityTracking();
+            
+            // Listen for practice completion
+            this.listenForCompletion();
+            
+            // Monitor for test/quiz activity
+            this.monitorTestQuizActivity();
+        },
+        
+        startActivityTracking() {
+            this.activityStartTime = Date.now();
+            this.isActive = true;
+            
+            // Check activity every 10 seconds
+            this.activityTimer = setInterval(() => {
+                if (!this.isActive || this.hasShownWidget || this.isTestOrQuizActive) {
+                    return;
+                }
+                
+                const elapsed = Date.now() - this.activityStartTime;
+                
+                // Show widget after 300 seconds of activity on non-test/quiz pages
+                if (elapsed >= this.ACTIVITY_THRESHOLD) {
+                    this.show();
+                    clearInterval(this.activityTimer);
+                }
+            }, 10000); // Check every 10 seconds
+            
+            // Reset timer on user interaction
+            const resetActivity = () => {
+                this.activityStartTime = Date.now();
+            };
+            
+            document.addEventListener('click', resetActivity);
+            document.addEventListener('keypress', resetActivity);
+            document.addEventListener('scroll', resetActivity);
+        },
+        
+        listenForCompletion() {
+            // Listen for custom practice completion events
+            document.addEventListener('practiceCompleted', () => {
+                setTimeout(() => {
+                    if (!this.hasShownWidget && !this.isTestOrQuizActive) {
+                        this.show();
+                    }
+                }, 2000);
+            });
+            
+            // Also listen for correct answers with a streak
+            document.addEventListener('correctAnswer', (e) => {
+                const streak = e.detail?.streak || 0;
+                // Show widget after 3 correct answers in a row
+                if (streak >= 3) {
+                    setTimeout(() => {
+                        if (!this.hasShownWidget && !this.isTestOrQuizActive) {
+                            this.show();
+                        }
+                    }, 2000);
+                }
+            });
+        },
+        
+        monitorTestQuizActivity() {
+            // Monitor for assessment mode or timed activities
+            const checkTestQuizStatus = () => {
+                const assessmentMode = document.getElementById('assessmentMode');
+                const isAssessmentActive = assessmentMode && 
+                    assessmentMode.style.display !== 'none' && 
+                    !assessmentMode.classList.contains('hidden');
+                
+                // Check for any timed test indicators in the content
+                const contentArea = document.getElementById('contentArea');
+                const hasTimedContent = contentArea && (
+                    contentArea.innerHTML.includes('timer') ||
+                    contentArea.innerHTML.includes('test') ||
+                    contentArea.innerHTML.includes('quiz')
+                );
+                
+                this.isTestOrQuizActive = isAssessmentActive || hasTimedContent;
+                
+                // Hide widget if test/quiz becomes active
+                if (this.isTestOrQuizActive) {
+                    this.hide();
+                }
+            };
+            
+            // Check periodically
+            setInterval(checkTestQuizStatus, 2000);
+            
+            // Also check on DOM changes
+            const observer = new MutationObserver(checkTestQuizStatus);
+            const contentArea = document.getElementById('contentArea');
+            if (contentArea) {
+                observer.observe(contentArea, { childList: true, subtree: true });
+            }
+        },
+        
+        show() {
+            if (this.hasShownWidget || this.isTestOrQuizActive) {
+                return;
+            }
+            
+            const widget = document.getElementById('competitionsWidget');
+            if (widget) {
+                widget.classList.add('show');
+                widget.classList.remove('hide');
+                this.hasShownWidget = true;
+            }
+        },
+        
+        hide() {
+            const widget = document.getElementById('competitionsWidget');
+            if (widget) {
+                widget.classList.remove('show');
+                widget.classList.add('hide');
+            }
+        },
+        
+        close() {
+            this.hide();
+            sessionStorage.setItem('competitionsWidgetDismissed', 'true');
+            
+            // Clear activity timer
+            if (this.activityTimer) {
+                clearInterval(this.activityTimer);
+            }
+        }
+    };
     </script>
 </body>
 </html>
