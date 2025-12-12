@@ -1,0 +1,40 @@
+{
+  "name": "math-boredgames",
+  "version": "2.0.0",
+  "description": "Free K-12 math learning platform with comprehensive lessons, practice problems, and worksheets. Never be bored with math again!",
+  "main": "app.js",
+  "scripts": {
+    "generate-seo": "node generate-seo-pages.js",
+    "build": "npm run generate-seo",
+    "precommit": "npm run generate-seo"
+  },
+  "keywords": [
+    "math",
+    "education",
+    "k-12",
+    "learning",
+    "practice",
+    "lessons",
+    "worksheets",
+    "free",
+    "open-source",
+    "mathematics",
+    "algebra",
+    "geometry",
+    "calculus"
+  ],
+  "author": "MathBored Project",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cartooli/math-boredgames.git"
+  },
+  "homepage": "https://math.boredgames.site",
+  "bugs": {
+    "url": "https://github.com/Cartooli/math-boredgames/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
+

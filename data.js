@@ -433,6 +433,14 @@ const mathConcepts = [
         gradeLevel: "5"
     },
     {
+        concept: "Fraction Word Problems",
+        keyFormulas: "Part = Fraction × Whole, Whole = Part ÷ Fraction",
+        keyConcepts: "Solving real-world problems with fractions",
+        relatedOperations: "All operations",
+        relatedTopics: "Fractions, Word problems",
+        gradeLevel: "5"
+    },
+    {
         concept: "Coordinate Graphing",
         keyFormulas: "(x,y)",
         keyConcepts: "Plotting in first quadrant",

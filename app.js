@@ -129,6 +129,9 @@ class MathBoredApp {
             
             console.log('✅ Data functions verified');
             
+            // Parse URL parameters for SEO-friendly routing (backward compatible)
+            this.parseURLParameters();
+            
             this.setupEventListeners();
             console.log('✅ Event listeners set up');
             
@@ -147,6 +150,185 @@ class MathBoredApp {
             this.showError('Failed to initialize MathBored. Please try refreshing the page.<br><small style="opacity: 0.7;">Error: ' + error.message + '</small>');
         }
     }
+    
+    // ============================================
+    // SEO-FRIENDLY URL ROUTING (NEW)
+    // ============================================
+    
+    parseURLParameters() {
+        try {
+            const urlParams = new URLSearchParams(window.location.search);
+            const topic = urlParams.get('topic');
+            const mode = urlParams.get('mode');
+            const grade = urlParams.get('grade');
+            
+            // Apply URL parameters if present (backward compatible - fails silently if invalid)
+            if (grade && ['K', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'].includes(grade)) {
+                this.currentGrade = grade;
+                console.log('📊 Grade from URL:', this.currentGrade);
+            }
+            
+            if (topic) {
+                // We'll set the topic after updateTopics() is called
+                this.urlTopic = decodeURIComponent(topic);
+                console.log('📖 Topic from URL (will be set after load):', this.urlTopic);
+            }
+            
+            if (mode && ['lesson', 'walkthrough', 'practice'].includes(mode)) {
+                this.currentMode = mode;
+                console.log('🎮 Mode from URL:', this.currentMode);
+                // Update UI to reflect mode after a brief delay
+                setTimeout(() => {
+                    document.querySelectorAll('.mode-tab').forEach(tab => {
+                        tab.classList.remove('active');
+                        if (tab.dataset.mode === mode) {
+                            tab.classList.add('active');
+                        }
+                    });
+                    this.updateDifficultyVisibility();
+                }, 100);
+            }
+            
+            // Enable URL syncing for future state changes
+            this.urlSyncEnabled = true;
+        } catch (error) {
+            console.warn('⚠️ Error parsing URL parameters (non-critical):', error);
+            // Fail silently - app still works normally
+        }
+    }
+    
+    updateURL() {
+        try {
+            // Only update URL if sync is enabled and we have a topic
+            if (!this.urlSyncEnabled || !this.currentTopic) return;
+            
+            const params = new URLSearchParams();
+            params.set('topic', encodeURIComponent(this.currentTopic));
+            params.set('mode', this.currentMode);
+            params.set('grade', this.currentGrade);
+            
+            const newURL = `${window.location.pathname}?${params.toString()}`;
+            
+            // Use replaceState to avoid cluttering browser history
+            window.history.replaceState({
+                topic: this.currentTopic,
+                mode: this.currentMode,
+                grade: this.currentGrade
+            }, '', newURL);
+            
+            // Update page metadata for SEO
+            this.updatePageMetadata();
+            this.updateBreadcrumbs();
+        } catch (error) {
+            console.warn('⚠️ Error updating URL (non-critical):', error);
+        }
+    }
+    
+    updatePageMetadata() {
+        try {
+            if (!this.currentTopic) return;
+            
+            const modeLabels = {
+                'lesson': 'Lesson',
+                'walkthrough': 'Walkthrough',
+                'practice': 'Practice'
+            };
+            
+            const gradeLabels = {
+                'K': 'Kindergarten',
+                '1': '1st Grade',
+                '2': '2nd Grade',
+                '3': '3rd Grade',
+                '4': '4th Grade',
+                '5': '5th Grade',
+                '6': '6th Grade',
+                '7': '7th Grade',
+                '8': '8th Grade',
+                '9': '9th Grade (Algebra I)',
+                '10': '10th Grade (Geometry)',
+                '11': '11th Grade (Algebra II)',
+                '12': '12th Grade (Pre-Calculus/Calculus)'
+            };
+            
+            // Update page title
+            const title = `${this.currentTopic} - ${modeLabels[this.currentMode]} | MathBored`;
+            document.title = title;
+            
+            // Update meta description
+            let metaDesc = document.querySelector('meta[name="description"]');
+            if (!metaDesc) {
+                metaDesc = document.createElement('meta');
+                metaDesc.name = 'description';
+                document.head.appendChild(metaDesc);
+            }
+            const gradeLabel = gradeLabels[this.currentGrade] || `Grade ${this.currentGrade}`;
+            metaDesc.content = `Learn ${this.currentTopic} with ${modeLabels[this.currentMode].toLowerCase()}. Free ${gradeLabel} math education. Interactive lessons, practice problems, and worksheets.`;
+            
+            // Update Open Graph tags if they exist
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            if (ogTitle) ogTitle.content = title;
+            
+            const ogDesc = document.querySelector('meta[property="og:description"]');
+            if (ogDesc) ogDesc.content = metaDesc.content;
+            
+            const twitterTitle = document.querySelector('meta[property="twitter:title"]');
+            if (twitterTitle) twitterTitle.content = title;
+            
+            const twitterDesc = document.querySelector('meta[property="twitter:description"]');
+            if (twitterDesc) twitterDesc.content = metaDesc.content;
+        } catch (error) {
+            console.warn('⚠️ Error updating page metadata (non-critical):', error);
+        }
+    }
+    
+    updateBreadcrumbs() {
+        try {
+            const breadcrumbNav = document.getElementById('breadcrumbNav');
+            if (!breadcrumbNav) return;
+            
+            const breadcrumbGrade = document.getElementById('breadcrumbGrade');
+            const breadcrumbTopic = document.getElementById('breadcrumbTopic');
+            const breadcrumbMode = document.getElementById('breadcrumbMode');
+            
+            if (this.currentTopic) {
+                breadcrumbNav.style.display = 'block';
+                
+                const gradeLabels = {
+                    'K': 'Kindergarten',
+                    '1': '1st Grade',
+                    '2': '2nd Grade',
+                    '3': '3rd Grade',
+                    '4': '4th Grade',
+                    '5': '5th Grade',
+                    '6': '6th Grade',
+                    '7': '7th Grade',
+                    '8': '8th Grade',
+                    '9': '9th Grade',
+                    '10': '10th Grade',
+                    '11': '11th Grade',
+                    '12': '12th Grade'
+                };
+                
+                const modeLabels = {
+                    'lesson': 'Lesson',
+                    'walkthrough': 'Walkthrough',
+                    'practice': 'Practice'
+                };
+                
+                if (breadcrumbGrade) breadcrumbGrade.textContent = gradeLabels[this.currentGrade] || `Grade ${this.currentGrade}`;
+                if (breadcrumbTopic) breadcrumbTopic.textContent = this.currentTopic;
+                if (breadcrumbMode) breadcrumbMode.textContent = modeLabels[this.currentMode] || this.currentMode;
+            } else {
+                breadcrumbNav.style.display = 'none';
+            }
+        } catch (error) {
+            console.warn('⚠️ Error updating breadcrumbs (non-critical):', error);
+        }
+    }
+    
+    // ============================================
+    // END SEO-FRIENDLY URL ROUTING
+    // ============================================
     
     setupEventListeners() {
         try {
@@ -295,7 +477,20 @@ class MathBoredApp {
                 });
                 
                 // Set the internal state and explicitly set the dropdown value
-                this.currentTopic = topics[0].concept;
+                // Check if URL specified a topic (for SEO routing)
+                if (this.urlTopic) {
+                    const urlTopicExists = topics.find(t => t.concept === this.urlTopic);
+                    if (urlTopicExists) {
+                        this.currentTopic = this.urlTopic;
+                        console.log('✅ Using topic from URL:', this.currentTopic);
+                    } else {
+                        this.currentTopic = topics[0].concept;
+                        console.log('⚠️ URL topic not found in grade, using first topic');
+                    }
+                    this.urlTopic = null; // Clear so it doesn't persist
+                } else {
+                    this.currentTopic = topics[0].concept;
+                }
                 topicSelect.value = this.currentTopic;
                 console.log('✅ Set current topic to:', this.currentTopic);
                 console.log('✅ Dropdown now has', topicSelect.options.length, 'options');
@@ -310,6 +505,7 @@ class MathBoredApp {
             }
             
             this.render();
+            this.updateURL(); // Update URL for SEO-friendly routing
         } catch (error) {
             console.error('❌ ERROR in updateTopics:', error);
             console.error('❌ Error stack:', error.stack);
@@ -344,6 +540,9 @@ class MathBoredApp {
                 this.renderPractice(contentArea);
                 break;
         }
+        
+        // Update URL for SEO-friendly routing
+        this.updateURL();
     }
     
     renderLesson(container) {

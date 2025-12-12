@@ -193,6 +193,27 @@
             </div>
         </div>
 
+        <!-- Breadcrumb Navigation (SEO-friendly) -->
+        <nav aria-label="Breadcrumb" id="breadcrumbNav" class="breadcrumb-nav" style="display: none;">
+            <ol class="breadcrumb-list">
+                <li class="breadcrumb-item">
+                    <a href="/" class="breadcrumb-link">🏠 Home</a>
+                </li>
+                <li class="breadcrumb-separator" aria-hidden="true">/</li>
+                <li class="breadcrumb-item">
+                    <span id="breadcrumbGrade" class="breadcrumb-text"></span>
+                </li>
+                <li class="breadcrumb-separator" aria-hidden="true">/</li>
+                <li class="breadcrumb-item breadcrumb-current">
+                    <span id="breadcrumbTopic" class="breadcrumb-topic"></span>
+                </li>
+                <li class="breadcrumb-separator" aria-hidden="true">•</li>
+                <li class="breadcrumb-item">
+                    <span id="breadcrumbMode" class="breadcrumb-mode"></span>
+                </li>
+            </ol>
+        </nav>
+
         <div class="content-area" id="contentArea">
             <!-- Content loads here dynamically -->
         </div>

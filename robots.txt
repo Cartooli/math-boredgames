@@ -1,0 +1,11 @@
+# MathBored - Free K-12 Math Education
+# Welcome, search engines! 🎓
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://math.boredgames.site/sitemap.xml
+
+# Crawl delay (be nice to our free hosting)
+Crawl-delay: 1
