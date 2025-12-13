@@ -167,6 +167,153 @@ const olympiadSolutions = {
             return true;
         }
         return false;
+    },
+    
+    // ============================================
+    // VOTING SYSTEM (Phase 1: Personal Voting)
+    // ============================================
+    
+    /**
+     * Get user's vote for a question (from localStorage)
+     */
+    getUserVote(questionId) {
+        try {
+            const vote = localStorage.getItem(`olympiadVote_${questionId}`);
+            return vote; // 'up', 'down', or null
+        } catch (error) {
+            return null;
+        }
+    },
+    
+    /**
+     * Upvote a solution
+     */
+    upvote(questionId) {
+        const currentVote = this.getUserVote(questionId);
+        
+        if (currentVote === 'up') {
+            // Remove upvote
+            localStorage.removeItem(`olympiadVote_${questionId}`);
+            return { action: 'removed', vote: null };
+        } else {
+            // Add upvote (or change from downvote)
+            localStorage.setItem(`olympiadVote_${questionId}`, 'up');
+            return { action: 'voted', vote: 'up' };
+        }
+    },
+    
+    /**
+     * Downvote a solution
+     */
+    downvote(questionId) {
+        const currentVote = this.getUserVote(questionId);
+        
+        if (currentVote === 'down') {
+            // Remove downvote
+            localStorage.removeItem(`olympiadVote_${questionId}`);
+            return { action: 'removed', vote: null };
+        } else {
+            // Add downvote (or change from upvote)
+            localStorage.setItem(`olympiadVote_${questionId}`, 'down');
+            return { action: 'voted', vote: 'down' };
+        }
+    },
+    
+    /**
+     * Check if user has verified this solution
+     */
+    isVerifiedByUser(questionId) {
+        try {
+            const verified = localStorage.getItem(`olympiadVerified_${questionId}`);
+            return verified === 'true';
+        } catch (error) {
+            return false;
+        }
+    },
+    
+    /**
+     * Toggle user verification for a solution
+     */
+    toggleVerification(questionId) {
+        const isVerified = this.isVerifiedByUser(questionId);
+        
+        if (isVerified) {
+            // Remove verification
+            localStorage.removeItem(`olympiadVerified_${questionId}`);
+            return { action: 'removed', verified: false };
+        } else {
+            // Add verification
+            localStorage.setItem(`olympiadVerified_${questionId}`, 'true');
+            return { action: 'verified', verified: true };
+        }
+    },
+    
+    /**
+     * Get voting statistics for display
+     * Returns personal vote status
+     */
+    getVoteStats(questionId) {
+        const userVote = this.getUserVote(questionId);
+        const userVerified = this.isVerifiedByUser(questionId);
+        
+        return {
+            userVote: userVote, // 'up', 'down', or null
+            userVerified: userVerified,
+            hasVoted: userVote !== null
+        };
+    },
+    
+    /**
+     * Export user's votes and verifications
+     * Useful for future aggregation (Phase 2)
+     */
+    exportUserVotes() {
+        const votes = {};
+        const verifications = {};
+        
+        // Scan localStorage for votes and verifications
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            
+            if (key && key.startsWith('olympiadVote_')) {
+                const questionId = key.replace('olympiadVote_', '');
+                votes[questionId] = localStorage.getItem(key);
+            }
+            
+            if (key && key.startsWith('olympiadVerified_')) {
+                const questionId = key.replace('olympiadVerified_', '');
+                if (localStorage.getItem(key) === 'true') {
+                    verifications[questionId] = true;
+                }
+            }
+        }
+        
+        return {
+            votes,
+            verifications,
+            exportDate: new Date().toISOString(),
+            browser: navigator.userAgent
+        };
+    },
+    
+    /**
+     * Clear all user votes and verifications
+     */
+    clearUserVotes() {
+        if (confirm('⚠️ Clear all your votes and verifications? This cannot be undone!')) {
+            const keysToRemove = [];
+            
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && (key.startsWith('olympiadVote_') || key.startsWith('olympiadVerified_'))) {
+                    keysToRemove.push(key);
+                }
+            }
+            
+            keysToRemove.forEach(key => localStorage.removeItem(key));
+            return true;
+        }
+        return false;
     }
 };
 

@@ -176,6 +176,25 @@ const olympiadApp = {
                     </div>
                     <div class="disclosure-content" id="solutionContent">
                         ${solution ? `
+                            ${(() => {
+                                // Get voting stats if olympiadSolutions is available
+                                const voteStats = typeof olympiadSolutions !== 'undefined' ? olympiadSolutions.getVoteStats(questionId) : null;
+                                let voteIndicator = '';
+                                
+                                if (voteStats) {
+                                    const badges = [];
+                                    if (voteStats.userVote === 'up') badges.push('<span style="background: var(--success); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; margin-right: 8px;">👍 You upvoted</span>');
+                                    if (voteStats.userVote === 'down') badges.push('<span style="background: var(--error); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; margin-right: 8px;">👎 You downvoted</span>');
+                                    if (voteStats.userVerified) badges.push('<span style="background: var(--accent); color: white; padding: 4px 10px; border-radius: 6px; font-size: 0.85rem;">✓ You verified</span>');
+                                    
+                                    if (badges.length > 0) {
+                                        voteIndicator = `<div style="margin-bottom: 15px;">${badges.join('')}</div>`;
+                                    }
+                                }
+                                
+                                return voteIndicator;
+                            })()}
+                            
                             <div style="background: var(--success-bg, rgba(34, 197, 94, 0.1)); padding: 20px; border-radius: 8px; border-left: 4px solid var(--success); margin-bottom: 20px;">
                                 <p style="margin: 0;"><strong>Answer:</strong> ${this.escapeHtml(solution.answer)}</p>
                                 ${solution.method ? `<p style="margin: 5px 0 0 0;"><em>Method: ${this.escapeHtml(solution.method)}</em></p>` : ''}
@@ -204,6 +223,11 @@ const olympiadApp = {
                             <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
                                 <em>Last verified: ${new Date(solution.verificationDate).toLocaleDateString()}</em>
                             </p>
+                            
+                            <div style="margin-top: 20px; padding: 15px; background: var(--bg-secondary); border-radius: 8px; border-left: 3px solid var(--accent);">
+                                <strong>💬 Have feedback?</strong><br>
+                                <small>Visit <a href="solution-entry.html" style="color: var(--accent); font-weight: 600;">Solution Entry</a> to upvote, downvote, or verify this solution.</small>
+                            </div>
                         ` : `
                             <p><strong>Problem-Solving Approach:</strong></p>
                             <ol style="padding-left: 20px;">

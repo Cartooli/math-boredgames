@@ -273,6 +273,92 @@
             transform: translateY(0);
         }
         
+        /* Voting UI */
+        .voting-section {
+            background: var(--bg-secondary);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
+        }
+        
+        .voting-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .vote-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--text);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        
+        .vote-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .vote-btn.active {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: white;
+        }
+        
+        .vote-btn.upvote.active {
+            background: var(--success);
+            border-color: var(--success);
+        }
+        
+        .vote-btn.downvote.active {
+            background: var(--error);
+            border-color: var(--error);
+        }
+        
+        .verify-btn {
+            padding: 12px 24px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            background: var(--card-bg);
+            color: var(--text);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .verify-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .verify-btn.active {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+        
+        .vote-status {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            padding: 10px;
+            background: var(--card-bg);
+            border-radius: 6px;
+        }
+        
         @media (max-width: 1024px) {
             .two-column-layout {
                 grid-template-columns: 1fr;
@@ -280,6 +366,10 @@
             
             .question-list {
                 max-height: 400px;
+            }
+            
+            .voting-buttons {
+                flex-wrap: wrap;
             }
         }
     </style>
@@ -333,6 +423,25 @@
                     <!-- Question Preview -->
                     <div class="question-preview" id="questionPreview">
                         Loading...
+                    </div>
+                    
+                    <!-- Voting Section (Personal Voting - Phase 1) -->
+                    <div class="voting-section" id="votingSection" style="display: none;">
+                        <h3 style="margin-top: 0; margin-bottom: 15px;">📊 Your Feedback</h3>
+                        <div class="voting-buttons">
+                            <button type="button" class="vote-btn upvote" id="upvoteBtn" onclick="solutionEntry.handleUpvote()">
+                                👍 Upvote
+                            </button>
+                            <button type="button" class="vote-btn downvote" id="downvoteBtn" onclick="solutionEntry.handleDownvote()">
+                                👎 Downvote
+                            </button>
+                            <button type="button" class="verify-btn" id="verifyBtn" onclick="solutionEntry.handleVerify()">
+                                ✓ I Verified This
+                            </button>
+                        </div>
+                        <div class="vote-status" id="voteStatus">
+                            Your feedback helps improve solution quality!
+                        </div>
                     </div>
                     
                     <!-- Solution Form -->
@@ -506,8 +615,13 @@
                 // Load solution if exists
                 if (solution) {
                     this.loadSolutionIntoForm(solution);
+                    // Show voting section for existing solutions
+                    document.getElementById('votingSection').style.display = 'block';
+                    this.updateVotingUI();
                 } else {
                     this.clearForm();
+                    // Hide voting section for new solutions
+                    document.getElementById('votingSection').style.display = 'none';
                 }
             },
             
@@ -651,6 +765,85 @@
                 const div = document.createElement('div');
                 div.textContent = text;
                 return div.innerHTML;
+            },
+            
+            // ============================================
+            // VOTING METHODS (Phase 1: Personal Voting)
+            // ============================================
+            
+            updateVotingUI() {
+                if (!this.currentQuestionId) return;
+                
+                const voteStats = olympiadSolutions.getVoteStats(this.currentQuestionId);
+                const upvoteBtn = document.getElementById('upvoteBtn');
+                const downvoteBtn = document.getElementById('downvoteBtn');
+                const verifyBtn = document.getElementById('verifyBtn');
+                const voteStatus = document.getElementById('voteStatus');
+                
+                // Update button states
+                upvoteBtn.classList.toggle('active', voteStats.userVote === 'up');
+                downvoteBtn.classList.toggle('active', voteStats.userVote === 'down');
+                verifyBtn.classList.toggle('active', voteStats.userVerified);
+                
+                // Update status message
+                const messages = [];
+                if (voteStats.userVote === 'up') {
+                    messages.push('👍 You upvoted this solution');
+                } else if (voteStats.userVote === 'down') {
+                    messages.push('👎 You downvoted this solution');
+                }
+                
+                if (voteStats.userVerified) {
+                    messages.push('✓ You verified this solution');
+                }
+                
+                if (messages.length === 0) {
+                    voteStatus.textContent = 'Your feedback helps improve solution quality!';
+                } else {
+                    voteStatus.textContent = messages.join(' • ');
+                }
+            },
+            
+            handleUpvote() {
+                if (!this.currentQuestionId) return;
+                
+                const result = olympiadSolutions.upvote(this.currentQuestionId);
+                
+                if (result.action === 'voted') {
+                    this.showToast('👍 Upvoted!');
+                } else {
+                    this.showToast('Upvote removed');
+                }
+                
+                this.updateVotingUI();
+            },
+            
+            handleDownvote() {
+                if (!this.currentQuestionId) return;
+                
+                const result = olympiadSolutions.downvote(this.currentQuestionId);
+                
+                if (result.action === 'voted') {
+                    this.showToast('👎 Downvoted');
+                } else {
+                    this.showToast('Downvote removed');
+                }
+                
+                this.updateVotingUI();
+            },
+            
+            handleVerify() {
+                if (!this.currentQuestionId) return;
+                
+                const result = olympiadSolutions.toggleVerification(this.currentQuestionId);
+                
+                if (result.verified) {
+                    this.showToast('✓ You verified this solution!');
+                } else {
+                    this.showToast('Verification removed');
+                }
+                
+                this.updateVotingUI();
             }
         };
         
