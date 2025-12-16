@@ -28,3 +28,7 @@ npm-debug.log*
 .env.local
 .env.*.local
 
+# Large local source documents (do not commit)
+Copy of Problem of the Week - Master Sheet.docx
+Copy of Problem of the Week - Master Sheet.epub
+
