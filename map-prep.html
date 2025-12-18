@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Endless MAP Math practice questions. Prepare for MAP Growth assessments with unlimited math problems covering ratios, percentages, algebra, geometry, and more.">
+    <meta name="keywords" content="MAP test prep, MAP Growth math, math practice, NWEA MAP, math assessment, unlimited practice">
+    <title>MAP Math Prep - Endless Practice | MathBored</title>
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://math.boredgames.site/map-prep.html">
+    <meta property="og:title" content="MAP Math Prep - Endless Practice | MathBored">
+    <meta property="og:description" content="Endless MAP Math practice questions. Prepare for MAP Growth assessments with unlimited math problems.">
+    <meta property="og:image" content="https://math.boredgames.site/og-image.png?v=2">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="MAP Math Prep - Endless Practice | MathBored">
+    <meta property="twitter:description" content="Endless MAP Math practice questions for MAP Growth assessment prep.">
+    
+    <link rel="canonical" href="https://math.boredgames.site/map-prep.html">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .map-prep-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .map-hero {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 40px 24px;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 50%),
+                linear-gradient(135deg, #059669 0%, #0891b2 100%);
+            border-radius: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        
+        .map-hero > * {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .map-hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            -webkit-text-fill-color: white;
+            background: none;
+        }
+        
+        .map-hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin: 0;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+        
+        .back-link:hover {
+            opacity: 0.8;
+        }
+        
+        /* Stats Panel */
+        .map-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .map-stat {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 12px;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        
+        .map-stat:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .map-stat-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+            line-height: 1.2;
+        }
+        
+        .map-stat-value.streak {
+            color: #f59e0b;
+        }
+        
+        .map-stat-value.accuracy {
+            color: #10b981;
+        }
+        
+        .map-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+        
+        /* Question Card */
+        .map-question-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .question-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .question-number {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        
+        .difficulty-badge {
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .difficulty-easy {
+            background: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .difficulty-medium {
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        
+        .difficulty-hard {
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .question-text {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 28px;
+            white-space: pre-wrap;
+        }
+        
+        .question-text strong {
+            color: var(--accent);
+        }
+        
+        /* Answer Options */
+        .answer-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .answer-option {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 20px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            text-align: left;
+            width: 100%;
+        }
+        
+        .answer-option:hover:not(.disabled) {
+            border-color: var(--accent);
+            transform: translateX(4px);
+            background: rgba(59, 130, 246, 0.05);
+        }
+        
+        .answer-option.selected {
+            border-color: var(--accent);
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .answer-option.correct {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.15);
+            animation: correctPulse 0.5s ease;
+        }
+        
+        .answer-option.incorrect {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.15);
+            animation: shake 0.4s ease;
+        }
+        
+        .answer-option.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
+        .answer-option.show-correct {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+        
+        .option-letter {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+        }
+        
+        .answer-option:hover:not(.disabled) .option-letter {
+            border-color: var(--accent);
+            background: var(--accent);
+            color: white;
+        }
+        
+        .answer-option.correct .option-letter {
+            background: #10b981;
+            border-color: #10b981;
+            color: white;
+        }
+        
+        .answer-option.incorrect .option-letter {
+            background: #ef4444;
+            border-color: #ef4444;
+            color: white;
+        }
+        
+        @keyframes correctPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(8px); }
+            60% { transform: translateX(-4px); }
+            80% { transform: translateX(4px); }
+        }
+        
+        /* Hint Section */
+        .hint-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .hint-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .hint-toggle:hover {
+            border-color: #f59e0b;
+            color: #f59e0b;
+        }
+        
+        .hint-content {
+            display: none;
+            margin-top: 16px;
+            padding: 16px 20px;
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 4px solid #f59e0b;
+            border-radius: 0 10px 10px 0;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .hint-content.visible {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        /* Feedback Message */
+        .feedback-message {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 14px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            animation: slideUp 0.3s ease;
+        }
+        
+        .feedback-message.visible {
+            display: block;
+        }
+        
+        .feedback-message.correct {
+            background: rgba(16, 185, 129, 0.15);
+            border: 2px solid #10b981;
+            color: #10b981;
+        }
+        
+        .feedback-message.incorrect {
+            background: rgba(239, 68, 68, 0.15);
+            border: 2px solid #ef4444;
+            color: #ef4444;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+            justify-content: center;
+        }
+        
+        .btn-next {
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-next:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        }
+        
+        .btn-next:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .btn-skip {
+            padding: 16px 28px;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-skip:hover {
+            border-color: var(--text-secondary);
+            color: var(--text-primary);
+        }
+        
+        /* Streak Animation */
+        .streak-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 24px 48px;
+            border-radius: 20px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(245, 158, 11, 0.4);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .streak-popup.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        
+        /* Progress indicator */
+        .session-progress {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .progress-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+        
+        .progress-bar-container {
+            flex: 1;
+            height: 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #059669);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .progress-count {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .map-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .map-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .map-question-card {
+                padding: 24px 20px;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .answer-option {
+                padding: 14px 16px;
+                font-size: 0.95rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-next, .btn-skip {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .map-prep-container {
+                padding: 12px;
+            }
+            
+            .map-stats {
+                gap: 8px;
+            }
+            
+            .map-stat {
+                padding: 12px 8px;
+            }
+            
+            .map-stat-value {
+                font-size: 1.4rem;
+            }
+            
+            .option-letter {
+                width: 32px;
+                height: 32px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>🎯 MathBored</h1>
+                    <div class="tagline">MAP Math Prep - Endless Practice</div>
+                </div>
+                <div class="theme-selector">
+                    <div class="theme-btn theme-midnight active" data-theme="" title="Midnight"></div>
+                    <div class="theme-btn theme-ocean" data-theme="ocean" title="Ocean"></div>
+                    <div class="theme-btn theme-forest" data-theme="forest" title="Forest"></div>
+                    <div class="theme-btn theme-sunset" data-theme="sunset" title="Sunset"></div>
+                    <div class="theme-btn theme-purple" data-theme="purple" title="Purple"></div>
+                    <div class="theme-btn theme-light" data-theme="light" title="Light"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="map-prep-container">
+        <a href="index.html" class="back-link">← Back to MathBored</a>
+        
+        <div class="map-hero">
+            <h1>📊 MAP Math Prep</h1>
+            <p>Endless practice questions to prepare for MAP Growth assessments</p>
+        </div>
+        
+        <!-- Stats Panel -->
+        <div class="map-stats">
+            <div class="map-stat">
+                <span class="map-stat-value" id="totalAnswered">0</span>
+                <span class="map-stat-label">Answered</span>
+            </div>
+            <div class="map-stat">
+                <span class="map-stat-value streak" id="currentStreak">0</span>
+                <span class="map-stat-label">Streak 🔥</span>
+            </div>
+            <div class="map-stat">
+                <span class="map-stat-value accuracy" id="accuracy">--%</span>
+                <span class="map-stat-label">Accuracy</span>
+            </div>
+            <div class="map-stat">
+                <span class="map-stat-value" id="bestStreak">0</span>
+                <span class="map-stat-label">Best Streak</span>
+            </div>
+        </div>
+        
+        <!-- Session Progress -->
+        <div class="session-progress">
+            <span class="progress-label">Session Progress</span>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
+            </div>
+            <span class="progress-count" id="progressCount">0 / 50</span>
+        </div>
+        
+        <!-- Question Card -->
+        <div class="map-question-card" id="questionCard">
+            <div class="question-meta">
+                <span class="question-number" id="questionNumber">Question 1</span>
+                <span class="difficulty-badge difficulty-medium" id="difficultyBadge">Medium</span>
+            </div>
+            
+            <div class="question-text" id="questionText">Loading question...</div>
+            
+            <div class="answer-options" id="answerOptions">
+                <!-- Answer options will be inserted here -->
+            </div>
+            
+            <div class="hint-section">
+                <button class="hint-toggle" id="hintToggle" onclick="mapPrep.toggleHint()">
+                    💡 Show Hint
+                </button>
+                <div class="hint-content" id="hintContent"></div>
+            </div>
+            
+            <div class="feedback-message" id="feedbackMessage"></div>
+            
+            <div class="action-buttons">
+                <button class="btn-skip" onclick="mapPrep.skipQuestion()">Skip →</button>
+                <button class="btn-next" id="nextBtn" onclick="mapPrep.nextQuestion()" disabled>
+                    Next Question →
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Streak Popup -->
+    <div class="streak-popup" id="streakPopup">🔥 Streak!</div>
+
+    <footer>
+        <div class="container">
+            <p>MathBored @ math.boredgames.site • Free forever • No logins, no limits, just learning</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                <a href="index.html" style="color: var(--accent); text-decoration: none;">🏠 Home</a>
+                •
+                <a href="olympiad.html" style="color: var(--accent); text-decoration: none;">📐 Daily Math Olympiad</a>
+                •
+                <a href="competitions.html" style="color: var(--accent); text-decoration: none;">🏆 Math Competitions</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    // ============================================
+    // MAP MATH QUESTIONS DATA
+    // ============================================
+    const MAP_MATH_QUESTIONS = [
+        {
+            id: 'm1',
+            difficulty: 'easy',
+            question: "A basket contains 6 red apples and 10 green apples. What is the **ratio** of red apples to **total apples**?",
+            answerOptions: [
+                { text: "6:10", isCorrect: false },
+                { text: "10:16", isCorrect: false },
+                { text: "6:16", isCorrect: true },
+                { text: "16:6", isCorrect: false }
+            ],
+            hint: "First, find the total number of apples in the basket."
+        },
+        {
+            id: 'm2',
+            difficulty: 'easy',
+            question: "A car travels 180 miles on 6 gallons of gas. What is the **unit rate** in miles per gallon?",
+            answerOptions: [
+                { text: "30 miles per gallon", isCorrect: true },
+                { text: "6 miles per gallon", isCorrect: false },
+                { text: "180 miles per gallon", isCorrect: false },
+                { text: "0.03 miles per gallon", isCorrect: false }
+            ],
+            hint: "Unit rate means 'how many miles for 1 gallon?' You need to divide."
+        },
+        {
+            id: 'm3',
+            difficulty: 'easy',
+            question: "What is 25% of 60?",
+            answerOptions: [
+                { text: "15", isCorrect: true },
+                { text: "20", isCorrect: false },
+                { text: "25", isCorrect: false },
+                { text: "4", isCorrect: false }
+            ],
+            hint: "25% is the same as the fraction 1/4. What is 1/4 of 60?"
+        },
+        {
+            id: 'm4',
+            difficulty: 'medium',
+            question: "Solve: 3/4 ÷ 1/2 = ?",
+            answerOptions: [
+                { text: "3/8", isCorrect: false },
+                { text: "4/6", isCorrect: false },
+                { text: "2/3", isCorrect: false },
+                { text: "3/2 or 1½", isCorrect: true }
+            ],
+            hint: "To divide fractions, remember to 'keep, change, flip.' Multiply the first fraction by the reciprocal of the second."
+        },
+        {
+            id: 'm5',
+            difficulty: 'medium',
+            question: "A recipe for one batch of cookies requires 1½ cups of flour. How many cups of flour are needed to make 3 batches?",
+            answerOptions: [
+                { text: "2½ cups", isCorrect: false },
+                { text: "3 cups", isCorrect: false },
+                { text: "4½ cups", isCorrect: true },
+                { text: "5 cups", isCorrect: false }
+            ],
+            hint: "You need to multiply the amount for one batch (1½) by 3."
+        },
+        {
+            id: 'm6',
+            difficulty: 'medium',
+            question: "What is the result of 5.2 × 0.4?",
+            answerOptions: [
+                { text: "20.8", isCorrect: false },
+                { text: "2.08", isCorrect: true },
+                { text: "0.208", isCorrect: false },
+                { text: "208", isCorrect: false }
+            ],
+            hint: "Multiply 52 × 4 first. Then, count the total number of decimal places in the original numbers to place the decimal in the answer."
+        },
+        {
+            id: 'm7',
+            difficulty: 'easy',
+            question: "What is the **Greatest Common Factor (GCF)** of 12 and 18?",
+            answerOptions: [
+                { text: "3", isCorrect: false },
+                { text: "6", isCorrect: true },
+                { text: "12", isCorrect: false },
+                { text: "36", isCorrect: false }
+            ],
+            hint: "List the factors of 12 (numbers that divide into it) and the factors of 18. Find the largest number that is in both lists."
+        },
+        {
+            id: 'm8',
+            difficulty: 'easy',
+            question: "Which of the following numbers has the greatest **absolute value**?",
+            answerOptions: [
+                { text: "-10", isCorrect: true },
+                { text: "7", isCorrect: false },
+                { text: "-3", isCorrect: false },
+                { text: "0", isCorrect: false }
+            ],
+            hint: "Absolute value is a number's distance from zero on a number line. It is always a positive value."
+        },
+        {
+            id: 'm9',
+            difficulty: 'medium',
+            question: "A point is located at (-4, 5) on a coordinate plane. In which quadrant is the point located?",
+            answerOptions: [
+                { text: "Quadrant I", isCorrect: false },
+                { text: "Quadrant II", isCorrect: true },
+                { text: "Quadrant III", isCorrect: false },
+                { text: "Quadrant IV", isCorrect: false }
+            ],
+            hint: "The order is (x, y). Quadrant I is (+,+). Quadrant II is (-,+). Quadrant III is (-,-). Quadrant IV is (+,-)."
+        },
+        {
+            id: 'm10',
+            difficulty: 'easy',
+            question: "Evaluate the expression: 4² + (10 - 5)",
+            answerOptions: [
+                { text: "13", isCorrect: false },
+                { text: "21", isCorrect: true },
+                { text: "26", isCorrect: false },
+                { text: "11", isCorrect: false }
+            ],
+            hint: "Follow the order of operations (PEMDAS/BODMAS). Exponents and Parentheses first, then Addition."
+        },
+        {
+            id: 'm11',
+            difficulty: 'medium',
+            question: "Which expression is **equivalent** to 3(x + 5)?",
+            answerOptions: [
+                { text: "3x + 5", isCorrect: false },
+                { text: "x + 15", isCorrect: false },
+                { text: "8x", isCorrect: false },
+                { text: "3x + 15", isCorrect: true }
+            ],
+            hint: "Use the distributive property. Multiply the number outside the parentheses by *each* term inside."
+        },
+        {
+            id: 'm12',
+            difficulty: 'medium',
+            question: "Which of these is a **statistical question**?",
+            answerOptions: [
+                { text: "How tall is the principal of your school?", isCorrect: false },
+                { text: "What is the favorite subject of the students in your class?", isCorrect: true },
+                { text: "How many states are in the United States?", isCorrect: false },
+                { text: "What time does your school start?", isCorrect: false }
+            ],
+            hint: "A statistical question is one that can have many different answers."
+        },
+        {
+            id: 'm13',
+            difficulty: 'easy',
+            question: "What is the **mean** (average) of the following data set: 5, 10, 3, 8, 4",
+            answerOptions: [
+                { text: "5", isCorrect: false },
+                { text: "6", isCorrect: true },
+                { text: "7", isCorrect: false },
+                { text: "30", isCorrect: false }
+            ],
+            hint: "To find the mean, add all the numbers together and then divide by how many numbers are in the set."
+        },
+        {
+            id: 'm14',
+            difficulty: 'medium',
+            question: "What is the **median** of the following data set: 10, 4, 8, 6, 4, 3",
+            answerOptions: [
+                { text: "4", isCorrect: false },
+                { text: "5", isCorrect: true },
+                { text: "6", isCorrect: false },
+                { text: "6.83", isCorrect: false }
+            ],
+            hint: "First, put the numbers in order from least to greatest. Then, find the middle number."
+        },
+        {
+            id: 'm15',
+            difficulty: 'easy',
+            question: "What is the **area** of a triangle with a base of 8 inches and a height of 6 inches?",
+            answerOptions: [
+                { text: "14 in²", isCorrect: false },
+                { text: "24 in²", isCorrect: true },
+                { text: "28 in²", isCorrect: false },
+                { text: "48 in²", isCorrect: false }
+            ],
+            hint: "The formula for the area of a triangle is ½ × base × height."
+        },
+        {
+            id: 'm16',
+            difficulty: 'easy',
+            question: "A box is 5 feet long, 4 feet wide, and 3 feet high. What is its **volume**?",
+            answerOptions: [
+                { text: "12 ft³", isCorrect: false },
+                { text: "20 ft³", isCorrect: false },
+                { text: "60 ft³", isCorrect: true },
+                { text: "94 ft²", isCorrect: false }
+            ],
+            hint: "Volume of a rectangular prism is length × width × height."
+        },
+        {
+            id: 'm17',
+            difficulty: 'medium',
+            question: "Which algebraic expression represents the phrase 'a number, n, decreased by 7'?",
+            answerOptions: [
+                { text: "7 - n", isCorrect: false },
+                { text: "n + 7", isCorrect: false },
+                { text: "n/7", isCorrect: false },
+                { text: "n - 7", isCorrect: true }
+            ],
+            hint: "'Decreased by' means you are subtracting from the number that came first."
+        },
+        {
+            id: 'm18',
+            difficulty: 'easy',
+            question: "Solve the equation for x: x + 9 = 22",
+            answerOptions: [
+                { text: "x = 31", isCorrect: false },
+                { text: "x = 13", isCorrect: true },
+                { text: "x = 2.4", isCorrect: false },
+                { text: "x = 198", isCorrect: false }
+            ],
+            hint: "To get x by itself, you must do the opposite of adding 9 to both sides."
+        },
+        {
+            id: 'm19',
+            difficulty: 'easy',
+            question: "Solve the equation for y: 4y = 36",
+            answerOptions: [
+                { text: "y = 32", isCorrect: false },
+                { text: "y = 40", isCorrect: false },
+                { text: "y = 9", isCorrect: true },
+                { text: "y = 144", isCorrect: false }
+            ],
+            hint: "4y means 4 × y. To get y by itself, do the opposite of multiplying by 4."
+        },
+        {
+            id: 'm20',
+            difficulty: 'medium',
+            question: "Which inequality represents the statement 'You must be at least 12 years old to ride the roller coaster' (where a = age)?",
+            answerOptions: [
+                { text: "a < 12", isCorrect: false },
+                { text: "a > 12", isCorrect: false },
+                { text: "a ≤ 12", isCorrect: false },
+                { text: "a ≥ 12", isCorrect: true }
+            ],
+            hint: "'At least' means that number or higher. The symbol must include 'equal to.'"
+        },
+        {
+            id: 'm21',
+            difficulty: 'medium',
+            question: "What is the **Least Common Multiple (LCM)** of 6 and 8?",
+            answerOptions: [
+                { text: "2", isCorrect: false },
+                { text: "14", isCorrect: false },
+                { text: "24", isCorrect: true },
+                { text: "48", isCorrect: false }
+            ],
+            hint: "List the multiples of 6 (6, 12, 18...) and the multiples of 8 (8, 16, 24...). What is the smallest number in both lists?"
+        },
+        {
+            id: 'm22',
+            difficulty: 'easy',
+            question: "What is the **range** of the following data set: 15, 8, 22, 10, 19",
+            answerOptions: [
+                { text: "14", isCorrect: true },
+                { text: "15", isCorrect: false },
+                { text: "22", isCorrect: false },
+                { text: "14.8", isCorrect: false }
+            ],
+            hint: "Range is the 'distance' between the highest number and the lowest number in the set. (Highest - Lowest)."
+        },
+        {
+            id: 'm23',
+            difficulty: 'easy',
+            question: "A pizza is cut into 8 equal slices. If you eat 2 slices, what **percentage** of the pizza did you eat?",
+            answerOptions: [
+                { text: "20%", isCorrect: false },
+                { text: "25%", isCorrect: true },
+                { text: "40%", isCorrect: false },
+                { text: "50%", isCorrect: false }
+            ],
+            hint: "First, write the amount you ate as a fraction: 2/8. Then, simplify the fraction and convert it to a percentage."
+        },
+        {
+            id: 'm24',
+            difficulty: 'medium',
+            question: "The coordinates of a rectangle are (1, 1), (1, 4), (5, 4), and (5, 1). What is the **length** of the side connecting (1, 1) and (5, 1)?",
+            answerOptions: [
+                { text: "3 units", isCorrect: false },
+                { text: "4 units", isCorrect: true },
+                { text: "5 units", isCorrect: false },
+                { text: "1 unit", isCorrect: false }
+            ],
+            hint: "The points are (1, 1) and (5, 1). Since the y-values are the same, find the distance between the x-values."
+        },
+        {
+            id: 'm25',
+            difficulty: 'medium',
+            question: "What is the **surface area** of a cube with all side lengths of 4 cm?",
+            answerOptions: [
+                { text: "16 cm²", isCorrect: false },
+                { text: "64 cm³", isCorrect: false },
+                { text: "96 cm²", isCorrect: true },
+                { text: "24 cm²", isCorrect: false }
+            ],
+            hint: "Find the area of *one* square face, then multiply that by the total number of faces on a cube."
+        },
+        {
+            id: 'm26',
+            difficulty: 'medium',
+            question: "What is 30% of 80?",
+            answerOptions: [
+                { text: "16", isCorrect: false },
+                { text: "24", isCorrect: true },
+                { text: "30", isCorrect: false },
+                { text: "48", isCorrect: false }
+            ],
+            hint: "30% is the same as 0.30. Multiply 80 by 0.30."
+        },
+        {
+            id: 'm27',
+            difficulty: 'medium',
+            question: "A recipe calls for 2¾ cups of flour. If you want to make ½ of the recipe, how many cups of flour do you need?",
+            answerOptions: [
+                { text: "1⅜ cups", isCorrect: true },
+                { text: "2¼ cups", isCorrect: false },
+                { text: "2 cups", isCorrect: false },
+                { text: "5½ cups", isCorrect: false }
+            ],
+            hint: "You need to multiply 2¾ by ½. First convert 2¾ to an improper fraction (11/4), then multiply by ½."
+        },
+        {
+            id: 'm28',
+            difficulty: 'hard',
+            question: "Solve for x: 3x + 7 = 22",
+            answerOptions: [
+                { text: "x = 3", isCorrect: false },
+                { text: "x = 5", isCorrect: true },
+                { text: "x = 7", isCorrect: false },
+                { text: "x = 15", isCorrect: false }
+            ],
+            hint: "First subtract 7 from both sides, then divide by 3."
+        },
+        {
+            id: 'm29',
+            difficulty: 'easy',
+            question: "What is the perimeter of a rectangle that is 8 cm long and 5 cm wide?",
+            answerOptions: [
+                { text: "13 cm", isCorrect: false },
+                { text: "26 cm", isCorrect: true },
+                { text: "40 cm", isCorrect: false },
+                { text: "20 cm", isCorrect: false }
+            ],
+            hint: "Perimeter = 2(length + width). Add the length and width, then multiply by 2."
+        },
+        {
+            id: 'm30',
+            difficulty: 'medium',
+            question: "Which fraction is **equivalent** to 0.625?",
+            answerOptions: [
+                { text: "3/5", isCorrect: false },
+                { text: "5/8", isCorrect: true },
+                { text: "7/10", isCorrect: false },
+                { text: "6/7", isCorrect: false }
+            ],
+            hint: "Convert each fraction to a decimal and see which one equals 0.625. Or divide 5 by 8."
+        },
+        {
+            id: 'm31',
+            difficulty: 'hard',
+            question: "A triangle has angles measuring 45°, 60°, and 75°. What type of triangle is this?",
+            answerOptions: [
+                { text: "Right triangle", isCorrect: false },
+                { text: "Equilateral triangle", isCorrect: false },
+                { text: "Isosceles triangle", isCorrect: false },
+                { text: "Acute triangle", isCorrect: true }
+            ],
+            hint: "All three angles are less than 90°, so this is an acute triangle."
+        },
+        {
+            id: 'm32',
+            difficulty: 'medium',
+            question: "What is the value of 8² × 2?",
+            answerOptions: [
+                { text: "64", isCorrect: false },
+                { text: "128", isCorrect: true },
+                { text: "16", isCorrect: false },
+                { text: "256", isCorrect: false }
+            ],
+            hint: "First calculate 8² (which is 64), then multiply by 2."
+        },
+        {
+            id: 'm33',
+            difficulty: 'easy',
+            question: "If a bag contains 3 red marbles and 5 blue marbles, what is the probability of drawing a red marble?",
+            answerOptions: [
+                { text: "3/5", isCorrect: false },
+                { text: "3/8", isCorrect: true },
+                { text: "5/8", isCorrect: false },
+                { text: "5/3", isCorrect: false }
+            ],
+            hint: "Probability = favorable outcomes / total outcomes. There are 3 red marbles out of 8 total marbles."
+        },
+        {
+            id: 'm34',
+            difficulty: 'hard',
+            question: "Solve for y: 2y - 5 = 3y + 7",
+            answerOptions: [
+                { text: "y = 2", isCorrect: false },
+                { text: "y = -2", isCorrect: false },
+                { text: "y = -12", isCorrect: true },
+                { text: "y = 12", isCorrect: false }
+            ],
+            hint: "First get all y terms on one side and all constants on the other. Subtract 3y from both sides, then add 5 to both sides."
+        },
+        {
+            id: 'm35',
+            difficulty: 'medium',
+            question: "What is the area of a circle with a radius of 6 inches? (Use π ≈ 3.14)",
+            answerOptions: [
+                { text: "18.84 in²", isCorrect: false },
+                { text: "37.68 in²", isCorrect: false },
+                { text: "113.04 in²", isCorrect: true },
+                { text: "226.08 in²", isCorrect: false }
+            ],
+            hint: "Area of a circle = π × r². Square the radius (36), then multiply by π (3.14)."
+        },
+        {
+            id: 'm36',
+            difficulty: 'medium',
+            question: "What is the mode of this data set: 3, 5, 7, 5, 8, 5, 2?",
+            answerOptions: [
+                { text: "3", isCorrect: false },
+                { text: "5", isCorrect: true },
+                { text: "7", isCorrect: false },
+                { text: "8", isCorrect: false }
+            ],
+            hint: "The mode is the number that appears most frequently in the data set."
+        },
+        {
+            id: 'm37',
+            difficulty: 'easy',
+            question: "What is ¾ of 32?",
+            answerOptions: [
+                { text: "8", isCorrect: false },
+                { text: "24", isCorrect: true },
+                { text: "28", isCorrect: false },
+                { text: "42", isCorrect: false }
+            ],
+            hint: "Multiply 32 by ¾. Or find ¼ of 32 (which is 8), then multiply by 3."
+        },
+        {
+            id: 'm38',
+            difficulty: 'hard',
+            question: "Which expression is equivalent to 5(x + 3) - 2x?",
+            answerOptions: [
+                { text: "3x + 3", isCorrect: false },
+                { text: "3x + 15", isCorrect: true },
+                { text: "7x + 3", isCorrect: false },
+                { text: "7x + 15", isCorrect: false }
+            ],
+            hint: "Distribute the 5: 5(x + 3) = 5x + 15. Then subtract 2x to get 3x + 15."
+        },
+        {
+            id: 'm39',
+            difficulty: 'medium',
+            question: "What is 0.6 expressed as a fraction in simplest form?",
+            answerOptions: [
+                { text: "3/5", isCorrect: true },
+                { text: "6/10", isCorrect: false },
+                { text: "1/6", isCorrect: false },
+                { text: "2/3", isCorrect: false }
+            ],
+            hint: "0.6 = 6/10. Simplify by dividing both numerator and denominator by 2."
+        },
+        {
+            id: 'm40',
+            difficulty: 'medium',
+            question: "A right triangle has legs measuring 6 inches and 8 inches. What is the length of the hypotenuse?",
+            answerOptions: [
+                { text: "10 inches", isCorrect: true },
+                { text: "14 inches", isCorrect: false },
+                { text: "48 inches", isCorrect: false },
+                { text: "100 inches", isCorrect: false }
+            ],
+            hint: "Use the Pythagorean theorem: a² + b² = c². Then take the square root."
+        },
+        {
+            id: 'm41',
+            difficulty: 'easy',
+            question: "What is the next number in the pattern: 2, 5, 8, 11, __?",
+            answerOptions: [
+                { text: "13", isCorrect: false },
+                { text: "14", isCorrect: true },
+                { text: "15", isCorrect: false },
+                { text: "16", isCorrect: false }
+            ],
+            hint: "Look at the difference between consecutive numbers."
+        },
+        {
+            id: 'm42',
+            difficulty: 'hard',
+            question: "What is the Least Common Multiple (LCM) of 4, 6, and 10?",
+            answerOptions: [
+                { text: "12", isCorrect: false },
+                { text: "20", isCorrect: false },
+                { text: "60", isCorrect: true },
+                { text: "120", isCorrect: false }
+            ],
+            hint: "Find multiples of 4, 6, and 10. What's the smallest number that appears in all three lists?"
+        },
+        {
+            id: 'm43',
+            difficulty: 'medium',
+            question: "What is the circumference of a circle with a diameter of 10 inches? (Use π ≈ 3.14)",
+            answerOptions: [
+                { text: "15.7 inches", isCorrect: false },
+                { text: "31.4 inches", isCorrect: true },
+                { text: "78.5 inches", isCorrect: false },
+                { text: "314 inches", isCorrect: false }
+            ],
+            hint: "Circumference = π × diameter. Multiply 10 by π (3.14)."
+        },
+        {
+            id: 'm44',
+            difficulty: 'easy',
+            question: "What is 1.25 × 4?",
+            answerOptions: [
+                { text: "4.25", isCorrect: false },
+                { text: "5", isCorrect: true },
+                { text: "5.25", isCorrect: false },
+                { text: "8", isCorrect: false }
+            ],
+            hint: "Multiply 1.25 by 4, or think of 1.25 as 5/4 (so 5/4 × 4 = 5)."
+        },
+        {
+            id: 'm45',
+            difficulty: 'hard',
+            question: "Solve: (12 - 5) × 2 ÷ 7",
+            answerOptions: [
+                { text: "2", isCorrect: true },
+                { text: "4", isCorrect: false },
+                { text: "6", isCorrect: false },
+                { text: "14", isCorrect: false }
+            ],
+            hint: "Follow order of operations: parentheses first (12 - 5 = 7), then multiply (7 × 2 = 14), then divide (14 ÷ 7 = 2)."
+        },
+        {
+            id: 'm46',
+            difficulty: 'medium',
+            question: "A store offers 20% off all items. If a jacket originally costs $50, what is the sale price?",
+            answerOptions: [
+                { text: "$10", isCorrect: false },
+                { text: "$30", isCorrect: false },
+                { text: "$40", isCorrect: true },
+                { text: "$45", isCorrect: false }
+            ],
+            hint: "Find 20% of $50 (which is $10), then subtract from the original price."
+        },
+        {
+            id: 'm47',
+            difficulty: 'medium',
+            question: "What is the volume of a rectangular prism that is 6 cm long, 4 cm wide, and 3 cm tall?",
+            answerOptions: [
+                { text: "13 cm³", isCorrect: false },
+                { text: "72 cm³", isCorrect: true },
+                { text: "108 cm³", isCorrect: false },
+                { text: "48 cm³", isCorrect: false }
+            ],
+            hint: "Volume = length × width × height. Multiply all three dimensions."
+        },
+        {
+            id: 'm48',
+            difficulty: 'easy',
+            question: "What is 5/6 × 3/10?",
+            answerOptions: [
+                { text: "1/4", isCorrect: true },
+                { text: "8/16", isCorrect: false },
+                { text: "1/2", isCorrect: false },
+                { text: "15/60", isCorrect: false }
+            ],
+            hint: "Multiply the numerators (5 × 3 = 15) and denominators (6 × 10 = 60), then simplify the fraction."
+        },
+        {
+            id: 'm49',
+            difficulty: 'medium',
+            question: "A recipe calls for 2/3 cup of sugar. If you want to make 1½ times the recipe, how much sugar do you need?",
+            answerOptions: [
+                { text: "1 cup", isCorrect: true },
+                { text: "3/4 cup", isCorrect: false },
+                { text: "1⅓ cups", isCorrect: false },
+                { text: "2 cups", isCorrect: false }
+            ],
+            hint: "Multiply 2/3 by 1½ (or 3/2). Remember: 2/3 × 3/2 = 6/6 = 1."
+        },
+        {
+            id: 'm50',
+            difficulty: 'hard',
+            question: "What is the value of x in the equation: 4(2x + 3) = 36?",
+            answerOptions: [
+                { text: "x = 2", isCorrect: false },
+                { text: "x = 3", isCorrect: true },
+                { text: "x = 4", isCorrect: false },
+                { text: "x = 6", isCorrect: false }
+            ],
+            hint: "First distribute the 4: 8x + 12 = 36. Then subtract 12 from both sides, and divide by 8."
+        },
+        {
+            id: 'm51',
+            difficulty: 'medium',
+            question: "What is the **slope** of a line that passes through points (2, 3) and (6, 11)?",
+            answerOptions: [
+                { text: "2", isCorrect: true },
+                { text: "1/2", isCorrect: false },
+                { text: "4", isCorrect: false },
+                { text: "8", isCorrect: false }
+            ],
+            hint: "Slope = (y₂ - y₁) / (x₂ - x₁). Calculate the change in y divided by the change in x."
+        },
+        {
+            id: 'm52',
+            difficulty: 'hard',
+            question: "If a number is increased by 25% and then decreased by 20%, what is the net percentage change?",
+            answerOptions: [
+                { text: "5% increase", isCorrect: false },
+                { text: "0% (no change)", isCorrect: true },
+                { text: "5% decrease", isCorrect: false },
+                { text: "45% increase", isCorrect: false }
+            ],
+            hint: "Try with a specific number like 100. Increase by 25% to get 125, then decrease by 20% of 125."
+        },
+        {
+            id: 'm53',
+            difficulty: 'easy',
+            question: "What is the **prime factorization** of 36?",
+            answerOptions: [
+                { text: "2 × 18", isCorrect: false },
+                { text: "2² × 3²", isCorrect: true },
+                { text: "4 × 9", isCorrect: false },
+                { text: "6 × 6", isCorrect: false }
+            ],
+            hint: "Break down 36 into its prime factors. Start with 2: 36 = 2 × 18, then continue factoring."
+        },
+        {
+            id: 'm54',
+            difficulty: 'medium',
+            question: "A cylinder has a radius of 5 cm and a height of 8 cm. What is its **volume**? (Use π ≈ 3.14)",
+            answerOptions: [
+                { text: "125.6 cm³", isCorrect: false },
+                { text: "628 cm³", isCorrect: true },
+                { text: "251.2 cm³", isCorrect: false },
+                { text: "1,256 cm³", isCorrect: false }
+            ],
+            hint: "Volume of a cylinder = π × r² × h. Square the radius first (5² = 25), then multiply by π and height."
+        },
+        {
+            id: 'm55',
+            difficulty: 'hard',
+            question: "Solve the system of equations:\n\nx + y = 10\n2x - y = 5",
+            answerOptions: [
+                { text: "x = 3, y = 7", isCorrect: false },
+                { text: "x = 5, y = 5", isCorrect: true },
+                { text: "x = 7, y = 3", isCorrect: false },
+                { text: "x = 4, y = 6", isCorrect: false }
+            ],
+            hint: "Add the two equations together to eliminate y. Then solve for x, and substitute back to find y."
+        },
+        {
+            id: 'm56',
+            difficulty: 'medium',
+            question: "What is the **surface area** of a rectangular prism with length 6 cm, width 4 cm, and height 5 cm?",
+            answerOptions: [
+                { text: "120 cm²", isCorrect: false },
+                { text: "148 cm²", isCorrect: true },
+                { text: "60 cm²", isCorrect: false },
+                { text: "74 cm²", isCorrect: false }
+            ],
+            hint: "Surface area = 2(lw + lh + wh). Calculate the area of each pair of opposite faces and add them all together."
+        },
+        {
+            id: 'm57',
+            difficulty: 'easy',
+            question: "Which number is **irrational**?",
+            answerOptions: [
+                { text: "0.5", isCorrect: false },
+                { text: "√9", isCorrect: false },
+                { text: "√2", isCorrect: true },
+                { text: "3/4", isCorrect: false }
+            ],
+            hint: "An irrational number cannot be expressed as a simple fraction. It has a decimal that goes on forever without repeating."
+        },
+        {
+            id: 'm58',
+            difficulty: 'hard',
+            question: "What is the **domain** of the function f(x) = √(x - 3)?",
+            answerOptions: [
+                { text: "x ≥ 0", isCorrect: false },
+                { text: "x ≥ 3", isCorrect: true },
+                { text: "x > 3", isCorrect: false },
+                { text: "All real numbers", isCorrect: false }
+            ],
+            hint: "The expression under the square root must be greater than or equal to zero. Set x - 3 ≥ 0 and solve."
+        },
+        {
+            id: 'm59',
+            difficulty: 'medium',
+            question: "A triangle has side lengths of 7, 9, and 12. What type of triangle is this?",
+            answerOptions: [
+                { text: "Equilateral", isCorrect: false },
+                { text: "Isosceles", isCorrect: false },
+                { text: "Scalene", isCorrect: true },
+                { text: "Right", isCorrect: false }
+            ],
+            hint: "A scalene triangle has all three sides of different lengths. Check if 7² + 9² = 12² for a right triangle."
+        },
+        {
+            id: 'm60',
+            difficulty: 'medium',
+            question: "What is the **interquartile range (IQR)** of the data set: 5, 8, 10, 12, 15, 18, 20?",
+            answerOptions: [
+                { text: "10", isCorrect: true },
+                { text: "15", isCorrect: false },
+                { text: "12", isCorrect: false },
+                { text: "8", isCorrect: false }
+            ],
+            hint: "IQR = Q₃ - Q₁. Find the median (Q₂), then find the median of the lower half (Q₁) and upper half (Q₃)."
+        },
+        {
+            id: 'm61',
+            difficulty: 'easy',
+            question: "What is 2³ × 2²?",
+            answerOptions: [
+                { text: "2⁵", isCorrect: true },
+                { text: "2⁶", isCorrect: false },
+                { text: "4⁵", isCorrect: false },
+                { text: "2¹", isCorrect: false }
+            ],
+            hint: "When multiplying powers with the same base, add the exponents: 2³ × 2² = 2³⁺² = 2⁵."
+        },
+        {
+            id: 'm62',
+            difficulty: 'medium',
+            question: "What is √144?",
+            answerOptions: [
+                { text: "12", isCorrect: true },
+                { text: "72", isCorrect: false },
+                { text: "14", isCorrect: false },
+                { text: "24", isCorrect: false }
+            ],
+            hint: "The square root of a number is what number, when multiplied by itself, equals that number. What times itself equals 144?"
+        },
+        {
+            id: 'm63',
+            difficulty: 'hard',
+            question: "Simplify: (3x²y)(4xy³)",
+            answerOptions: [
+                { text: "12x³y⁴", isCorrect: true },
+                { text: "7x³y⁴", isCorrect: false },
+                { text: "12x²y³", isCorrect: false },
+                { text: "7x²y³", isCorrect: false }
+            ],
+            hint: "Multiply the coefficients (3 × 4 = 12), then add the exponents for like variables: x² × x = x³, y × y³ = y⁴."
+        },
+        {
+            id: 'm64',
+            difficulty: 'easy',
+            question: "What is 15% of 200?",
+            answerOptions: [
+                { text: "15", isCorrect: false },
+                { text: "30", isCorrect: true },
+                { text: "45", isCorrect: false },
+                { text: "60", isCorrect: false }
+            ],
+            hint: "15% means 15 out of 100, or 0.15. Multiply 200 by 0.15, or find 10% (20) and add half of that (10)."
+        },
+        {
+            id: 'm65',
+            difficulty: 'medium',
+            question: "A map has a scale of 1 inch = 50 miles. If two cities are 3.5 inches apart on the map, how far apart are they in real life?",
+            answerOptions: [
+                { text: "150 miles", isCorrect: false },
+                { text: "175 miles", isCorrect: true },
+                { text: "200 miles", isCorrect: false },
+                { text: "350 miles", isCorrect: false }
+            ],
+            hint: "Set up a proportion: 1 inch / 50 miles = 3.5 inches / x miles. Cross multiply and solve."
+        },
+        {
+            id: 'm66',
+            difficulty: 'hard',
+            question: "What is the **y-intercept** of the line with equation y = 3x - 7?",
+            answerOptions: [
+                { text: "3", isCorrect: false },
+                { text: "-7", isCorrect: true },
+                { text: "7", isCorrect: false },
+                { text: "-3", isCorrect: false }
+            ],
+            hint: "In the form y = mx + b, b is the y-intercept. This is the point where the line crosses the y-axis (when x = 0)."
+        },
+        {
+            id: 'm67',
+            difficulty: 'easy',
+            question: "What is the **complement** of a 35° angle?",
+            answerOptions: [
+                { text: "45°", isCorrect: false },
+                { text: "55°", isCorrect: true },
+                { text: "145°", isCorrect: false },
+                { text: "90°", isCorrect: false }
+            ],
+            hint: "Complementary angles add up to 90°. Subtract 35° from 90° to find the complement."
+        },
+        {
+            id: 'm68',
+            difficulty: 'medium',
+            question: "What is the **supplement** of a 120° angle?",
+            answerOptions: [
+                { text: "60°", isCorrect: true },
+                { text: "80°", isCorrect: false },
+                { text: "240°", isCorrect: false },
+                { text: "30°", isCorrect: false }
+            ],
+            hint: "Supplementary angles add up to 180°. Subtract 120° from 180° to find the supplement."
+        },
+        {
+            id: 'm69',
+            difficulty: 'hard',
+            question: "If f(x) = 2x + 5, what is f(3)?",
+            answerOptions: [
+                { text: "11", isCorrect: true },
+                { text: "13", isCorrect: false },
+                { text: "15", isCorrect: false },
+                { text: "21", isCorrect: false }
+            ],
+            hint: "Substitute 3 for x in the function: f(3) = 2(3) + 5 = 6 + 5 = 11."
+        },
+        {
+            id: 'm70',
+            difficulty: 'medium',
+            question: "What is the **area** of a circle with a diameter of 10 inches? (Use π ≈ 3.14)",
+            answerOptions: [
+                { text: "31.4 in²", isCorrect: false },
+                { text: "78.5 in²", isCorrect: true },
+                { text: "314 in²", isCorrect: false },
+                { text: "157 in²", isCorrect: false }
+            ],
+            hint: "If the diameter is 10, the radius is 5. Area = π × r². Square the radius (25), then multiply by π."
+        },
+        {
+            id: 'm71',
+            difficulty: 'easy',
+            question: "What is the next number in the pattern: 3, 6, 12, 24, __?",
+            answerOptions: [
+                { text: "30", isCorrect: false },
+                { text: "36", isCorrect: false },
+                { text: "48", isCorrect: true },
+                { text: "72", isCorrect: false }
+            ],
+            hint: "Each number is multiplied by 2 to get the next number. 24 × 2 = 48."
+        },
+        {
+            id: 'm72',
+            difficulty: 'medium',
+            question: "A bag contains 4 red marbles, 3 blue marbles, and 5 green marbles. What is the probability of drawing a blue marble?",
+            answerOptions: [
+                { text: "1/3", isCorrect: false },
+                { text: "1/4", isCorrect: true },
+                { text: "3/12", isCorrect: false },
+                { text: "1/5", isCorrect: false }
+            ],
+            hint: "Probability = favorable outcomes / total outcomes. There are 3 blue marbles out of 12 total marbles."
+        },
+        {
+            id: 'm73',
+            difficulty: 'hard',
+            question: "Solve for x: 2x + 5 < 15",
+            answerOptions: [
+                { text: "x < 5", isCorrect: true },
+                { text: "x < 10", isCorrect: false },
+                { text: "x > 5", isCorrect: false },
+                { text: "x > 10", isCorrect: false }
+            ],
+            hint: "Subtract 5 from both sides: 2x < 10. Then divide both sides by 2: x < 5."
+        },
+        {
+            id: 'm74',
+            difficulty: 'easy',
+            question: "What is 0.75 expressed as a fraction in simplest form?",
+            answerOptions: [
+                { text: "3/4", isCorrect: true },
+                { text: "75/100", isCorrect: false },
+                { text: "7/10", isCorrect: false },
+                { text: "1/2", isCorrect: false }
+            ],
+            hint: "0.75 = 75/100. Simplify by dividing both numerator and denominator by 25."
+        },
+        {
+            id: 'm75',
+            difficulty: 'medium',
+            question: "What is the **perimeter** of a square with an area of 64 cm²?",
+            answerOptions: [
+                { text: "16 cm", isCorrect: false },
+                { text: "32 cm", isCorrect: true },
+                { text: "64 cm", isCorrect: false },
+                { text: "8 cm", isCorrect: false }
+            ],
+            hint: "If the area is 64 cm², the side length is √64 = 8 cm. Perimeter of a square = 4 × side = 4 × 8 = 32 cm."
+        },
+        {
+            id: 'm76',
+            difficulty: 'hard',
+            question: "What is the **range** of the function f(x) = x² + 3?",
+            answerOptions: [
+                { text: "All real numbers", isCorrect: false },
+                { text: "y ≥ 0", isCorrect: false },
+                { text: "y ≥ 3", isCorrect: true },
+                { text: "y > 3", isCorrect: false }
+            ],
+            hint: "Since x² is always ≥ 0, x² + 3 is always ≥ 3. The range is all y-values greater than or equal to 3."
+        },
+        {
+            id: 'm77',
+            difficulty: 'easy',
+            question: "What is 5/8 + 1/4?",
+            answerOptions: [
+                { text: "6/12", isCorrect: false },
+                { text: "7/8", isCorrect: true },
+                { text: "6/8", isCorrect: false },
+                { text: "3/4", isCorrect: false }
+            ],
+            hint: "Find a common denominator. 1/4 = 2/8. Then add: 5/8 + 2/8 = 7/8."
+        },
+        {
+            id: 'm78',
+            difficulty: 'medium',
+            question: "A triangle has angles measuring 30°, 60°, and 90°. What type of triangle is this?",
+            answerOptions: [
+                { text: "Acute triangle", isCorrect: false },
+                { text: "Right triangle", isCorrect: true },
+                { text: "Obtuse triangle", isCorrect: false },
+                { text: "Equilateral triangle", isCorrect: false }
+            ],
+            hint: "A triangle with a 90° angle is a right triangle. The 30-60-90 triangle is a special right triangle."
+        },
+        {
+            id: 'm79',
+            difficulty: 'hard',
+            question: "What is the **slope-intercept form** of a line with slope 4 and y-intercept -3?",
+            answerOptions: [
+                { text: "y = 4x - 3", isCorrect: true },
+                { text: "y = -3x + 4", isCorrect: false },
+                { text: "y = 4x + 3", isCorrect: false },
+                { text: "y = -4x - 3", isCorrect: false }
+            ],
+            hint: "Slope-intercept form is y = mx + b, where m is the slope and b is the y-intercept."
+        },
+        {
+            id: 'm80',
+            difficulty: 'easy',
+            question: "What is 3.5 × 10² in standard form?",
+            answerOptions: [
+                { text: "350", isCorrect: true },
+                { text: "3,500", isCorrect: false },
+                { text: "35", isCorrect: false },
+                { text: "0.35", isCorrect: false }
+            ],
+            hint: "3.5 × 10² means move the decimal point 2 places to the right: 3.5 → 350."
+        },
+        {
+            id: 'm81',
+            difficulty: 'medium',
+            question: "What is the **volume** of a sphere with a radius of 3 cm? (Use π ≈ 3.14)",
+            answerOptions: [
+                { text: "28.26 cm³", isCorrect: false },
+                { text: "84.78 cm³", isCorrect: false },
+                { text: "113.04 cm³", isCorrect: true },
+                { text: "37.68 cm³", isCorrect: false }
+            ],
+            hint: "Volume of a sphere = (4/3)πr³. Cube the radius (27), multiply by 4/3, then by π."
+        },
+        {
+            id: 'm82',
+            difficulty: 'hard',
+            question: "Factor completely: x² - 9",
+            answerOptions: [
+                { text: "(x - 3)(x + 3)", isCorrect: true },
+                { text: "(x - 9)(x + 1)", isCorrect: false },
+                { text: "(x - 3)²", isCorrect: false },
+                { text: "x(x - 9)", isCorrect: false }
+            ],
+            hint: "This is a difference of squares: a² - b² = (a - b)(a + b). Here, x² - 9 = x² - 3²."
+        },
+        {
+            id: 'm83',
+            difficulty: 'easy',
+            question: "What is the **mode** of the data set: 5, 7, 5, 9, 7, 5, 3?",
+            answerOptions: [
+                { text: "5", isCorrect: true },
+                { text: "7", isCorrect: false },
+                { text: "9", isCorrect: false },
+                { text: "6", isCorrect: false }
+            ],
+            hint: "The mode is the number that appears most frequently. Count how many times each number appears."
+        },
+        {
+            id: 'm84',
+            difficulty: 'medium',
+            question: "What is 2/3 ÷ 4/5?",
+            answerOptions: [
+                { text: "8/15", isCorrect: false },
+                { text: "5/6", isCorrect: true },
+                { text: "6/8", isCorrect: false },
+                { text: "10/12", isCorrect: false }
+            ],
+            hint: "To divide fractions, multiply by the reciprocal: 2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6."
+        },
+        {
+            id: 'm85',
+            difficulty: 'hard',
+            question: "What is the **vertex** of the parabola y = (x - 3)² + 5?",
+            answerOptions: [
+                { text: "(3, 5)", isCorrect: true },
+                { text: "(-3, 5)", isCorrect: false },
+                { text: "(3, -5)", isCorrect: false },
+                { text: "(-3, -5)", isCorrect: false }
+            ],
+            hint: "In the form y = (x - h)² + k, the vertex is at (h, k). Notice the sign: (x - 3) means h = 3."
+        },
+        {
+            id: 'm86',
+            difficulty: 'easy',
+            question: "What is 40% of 250?",
+            answerOptions: [
+                { text: "100", isCorrect: true },
+                { text: "150", isCorrect: false },
+                { text: "200", isCorrect: false },
+                { text: "50", isCorrect: false }
+            ],
+            hint: "40% = 0.40. Multiply 250 by 0.40, or find 10% (25) and multiply by 4."
+        },
+        {
+            id: 'm87',
+            difficulty: 'medium',
+            question: "A rectangle is 8 cm long and has a perimeter of 24 cm. What is its width?",
+            answerOptions: [
+                { text: "4 cm", isCorrect: true },
+                { text: "6 cm", isCorrect: false },
+                { text: "8 cm", isCorrect: false },
+                { text: "16 cm", isCorrect: false }
+            ],
+            hint: "Perimeter = 2(length + width). So 24 = 2(8 + width). Divide both sides by 2, then subtract 8."
+        },
+        {
+            id: 'm88',
+            difficulty: 'hard',
+            question: "What is the **discriminant** of the quadratic equation x² - 5x + 6 = 0?",
+            answerOptions: [
+                { text: "1", isCorrect: true },
+                { text: "-1", isCorrect: false },
+                { text: "25", isCorrect: false },
+                { text: "49", isCorrect: false }
+            ],
+            hint: "Discriminant = b² - 4ac. Here, a = 1, b = -5, c = 6. So (-5)² - 4(1)(6) = 25 - 24 = 1."
+        },
+        {
+            id: 'm89',
+            difficulty: 'easy',
+            question: "What is the **greatest common factor (GCF)** of 24 and 36?",
+            answerOptions: [
+                { text: "6", isCorrect: false },
+                { text: "12", isCorrect: true },
+                { text: "24", isCorrect: false },
+                { text: "72", isCorrect: false }
+            ],
+            hint: "List the factors of 24 (1, 2, 3, 4, 6, 8, 12, 24) and 36 (1, 2, 3, 4, 6, 9, 12, 18, 36). Find the largest common factor."
+        },
+        {
+            id: 'm90',
+            difficulty: 'medium',
+            question: "What is the **area** of a trapezoid with bases of 6 cm and 10 cm, and a height of 5 cm?",
+            answerOptions: [
+                { text: "30 cm²", isCorrect: false },
+                { text: "40 cm²", isCorrect: true },
+                { text: "50 cm²", isCorrect: false },
+                { text: "80 cm²", isCorrect: false }
+            ],
+            hint: "Area of a trapezoid = (1/2) × (base₁ + base₂) × height. Add the bases (16), multiply by height (5), then divide by 2."
+        },
+        {
+            id: 'm91',
+            difficulty: 'hard',
+            question: "What is the **solution** to the equation 2x² - 8 = 0?",
+            answerOptions: [
+                { text: "x = 2 or x = -2", isCorrect: true },
+                { text: "x = 4 or x = -4", isCorrect: false },
+                { text: "x = 8", isCorrect: false },
+                { text: "x = 0", isCorrect: false }
+            ],
+            hint: "Add 8 to both sides: 2x² = 8. Divide by 2: x² = 4. Take the square root: x = ±2."
+        },
+        {
+            id: 'm92',
+            difficulty: 'easy',
+            question: "What is 1/3 + 1/6?",
+            answerOptions: [
+                { text: "2/9", isCorrect: false },
+                { text: "1/2", isCorrect: true },
+                { text: "1/9", isCorrect: false },
+                { text: "2/6", isCorrect: false }
+            ],
+            hint: "Find a common denominator. 1/3 = 2/6. Then add: 2/6 + 1/6 = 3/6 = 1/2."
+        },
+        {
+            id: 'm93',
+            difficulty: 'medium',
+            question: "What is the **circumference** of a circle with a radius of 7 inches? (Use π ≈ 3.14)",
+            answerOptions: [
+                { text: "21.98 inches", isCorrect: false },
+                { text: "43.96 inches", isCorrect: true },
+                { text: "153.86 inches", isCorrect: false },
+                { text: "14 inches", isCorrect: false }
+            ],
+            hint: "Circumference = 2πr. Multiply the radius (7) by 2, then by π: 2 × 7 × 3.14 = 43.96."
+        },
+        {
+            id: 'm94',
+            difficulty: 'hard',
+            question: "What is the **axis of symmetry** of the parabola y = x² - 6x + 8?",
+            answerOptions: [
+                { text: "x = 3", isCorrect: true },
+                { text: "x = -3", isCorrect: false },
+                { text: "x = 6", isCorrect: false },
+                { text: "x = -6", isCorrect: false }
+            ],
+            hint: "For a quadratic in the form ax² + bx + c, the axis of symmetry is x = -b/(2a). Here, x = -(-6)/(2×1) = 3."
+        },
+        {
+            id: 'm95',
+            difficulty: 'easy',
+            question: "What is 7²?",
+            answerOptions: [
+                { text: "14", isCorrect: false },
+                { text: "49", isCorrect: true },
+                { text: "42", isCorrect: false },
+                { text: "56", isCorrect: false }
+            ],
+            hint: "7² means 7 × 7. Multiply 7 by itself to get 49."
+        },
+        {
+            id: 'm96',
+            difficulty: 'medium',
+            question: "What is the **median** of the data set: 12, 8, 15, 10, 6, 9, 11?",
+            answerOptions: [
+                { text: "9", isCorrect: false },
+                { text: "10", isCorrect: true },
+                { text: "11", isCorrect: false },
+                { text: "12", isCorrect: false }
+            ],
+            hint: "First, put the numbers in order from least to greatest. Then find the middle number."
+        },
+        {
+            id: 'm97',
+            difficulty: 'hard',
+            question: "What is the **simplified form** of (x + 3)(x - 2)?",
+            answerOptions: [
+                { text: "x² + x - 6", isCorrect: true },
+                { text: "x² - x - 6", isCorrect: false },
+                { text: "x² + 5x - 6", isCorrect: false },
+                { text: "x² - 5x - 6", isCorrect: false }
+            ],
+            hint: "Use FOIL: First (x × x), Outside (x × -2), Inside (3 × x), Last (3 × -2). Then combine like terms."
+        },
+        {
+            id: 'm98',
+            difficulty: 'easy',
+            question: "What is 0.4 expressed as a fraction in simplest form?",
+            answerOptions: [
+                { text: "2/5", isCorrect: true },
+                { text: "4/10", isCorrect: false },
+                { text: "1/4", isCorrect: false },
+                { text: "4/9", isCorrect: false }
+            ],
+            hint: "0.4 = 4/10. Simplify by dividing both numerator and denominator by 2 to get 2/5."
+        },
+        {
+            id: 'm99',
+            difficulty: 'medium',
+            question: "A triangle has a base of 12 cm and an area of 48 cm². What is its height?",
+            answerOptions: [
+                { text: "4 cm", isCorrect: false },
+                { text: "8 cm", isCorrect: true },
+                { text: "6 cm", isCorrect: false },
+                { text: "10 cm", isCorrect: false }
+            ],
+            hint: "Area of a triangle = (1/2) × base × height. So 48 = (1/2) × 12 × height. Solve for height."
+        },
+        {
+            id: 'm100',
+            difficulty: 'hard',
+            question: "What is the **x-intercept** of the line with equation y = 2x - 6?",
+            answerOptions: [
+                { text: "x = 3", isCorrect: true },
+                { text: "x = -3", isCorrect: false },
+                { text: "x = 6", isCorrect: false },
+                { text: "x = -6", isCorrect: false }
+            ],
+            hint: "The x-intercept is where y = 0. Set 0 = 2x - 6, then solve for x: 2x = 6, so x = 3."
+        }
+    ];
+
+    // ============================================
+    // MAP PREP ENGINE
+    // ============================================
+    const mapPrep = {
+        questions: [],
+        currentIndex: 0,
+        answered: false,
+        stats: {
+            totalAnswered: 0,
+            correct: 0,
+            currentStreak: 0,
+            bestStreak: 0
+        },
+        sessionQuestions: 0,
+        
+        init() {
+            // Load saved stats
+            this.loadStats();
+            
+            // Shuffle questions
+            this.questions = this.shuffleArray([...MAP_MATH_QUESTIONS]);
+            
+            // Display first question
+            this.displayQuestion();
+            
+            // Update stats display
+            this.updateStatsDisplay();
+            
+            // Initialize theme switcher
+            this.initThemeSwitcher();
+        },
+        
+        shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        },
+        
+        displayQuestion() {
+            const question = this.questions[this.currentIndex];
+            this.answered = false;
+            
+            // Update question number
+            document.getElementById('questionNumber').textContent = 
+                `Question ${this.sessionQuestions + 1}`;
+            
+            // Update difficulty badge
+            const badge = document.getElementById('difficultyBadge');
+            badge.textContent = question.difficulty.charAt(0).toUpperCase() + question.difficulty.slice(1);
+            badge.className = `difficulty-badge difficulty-${question.difficulty}`;
+            
+            // Update question text (convert **text** to <strong>text</strong>)
+            const questionText = question.question.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            document.getElementById('questionText').innerHTML = questionText;
+            
+            // Update hint
+            document.getElementById('hintContent').textContent = question.hint;
+            document.getElementById('hintContent').classList.remove('visible');
+            document.getElementById('hintToggle').innerHTML = '💡 Show Hint';
+            
+            // Generate answer options
+            const optionsContainer = document.getElementById('answerOptions');
+            const letters = ['A', 'B', 'C', 'D'];
+            
+            // Shuffle answer options for variety
+            const shuffledOptions = this.shuffleArray(
+                question.answerOptions.map((opt, idx) => ({ ...opt, originalIndex: idx }))
+            );
+            
+            optionsContainer.innerHTML = shuffledOptions.map((option, index) => `
+                <button class="answer-option" data-index="${index}" data-correct="${option.isCorrect}" onclick="mapPrep.selectAnswer(this)">
+                    <span class="option-letter">${letters[index]}</span>
+                    <span class="option-text">${option.text}</span>
+                </button>
+            `).join('');
+            
+            // Reset feedback and next button
+            document.getElementById('feedbackMessage').classList.remove('visible', 'correct', 'incorrect');
+            document.getElementById('nextBtn').disabled = true;
+            
+            // Update progress bar
+            this.updateProgress();
+        },
+        
+        selectAnswer(button) {
+            if (this.answered) return;
+            this.answered = true;
+            
+            const isCorrect = button.dataset.correct === 'true';
+            const allOptions = document.querySelectorAll('.answer-option');
+            
+            // Disable all options
+            allOptions.forEach(opt => opt.classList.add('disabled'));
+            
+            // Mark selected answer
+            if (isCorrect) {
+                button.classList.add('correct');
+                this.stats.correct++;
+                this.stats.currentStreak++;
+                
+                if (this.stats.currentStreak > this.stats.bestStreak) {
+                    this.stats.bestStreak = this.stats.currentStreak;
+                }
+                
+                // Show streak popup for milestones
+                if (this.stats.currentStreak > 0 && this.stats.currentStreak % 5 === 0) {
+                    this.showStreakPopup(this.stats.currentStreak);
+                }
+                
+                this.showFeedback(true, `✓ Correct! Great job!`);
+            } else {
+                button.classList.add('incorrect');
+                this.stats.currentStreak = 0;
+                
+                // Show correct answer
+                allOptions.forEach(opt => {
+                    if (opt.dataset.correct === 'true') {
+                        opt.classList.add('show-correct');
+                    }
+                });
+                
+                this.showFeedback(false, `✗ Not quite. See the correct answer above.`);
+            }
+            
+            this.stats.totalAnswered++;
+            this.sessionQuestions++;
+            
+            // Save stats and update display
+            this.saveStats();
+            this.updateStatsDisplay();
+            
+            // Enable next button
+            document.getElementById('nextBtn').disabled = false;
+        },
+        
+        showFeedback(isCorrect, message) {
+            const feedback = document.getElementById('feedbackMessage');
+            feedback.textContent = message;
+            feedback.className = `feedback-message visible ${isCorrect ? 'correct' : 'incorrect'}`;
+        },
+        
+        showStreakPopup(streak) {
+            const popup = document.getElementById('streakPopup');
+            popup.textContent = `🔥 ${streak} Streak!`;
+            popup.classList.add('show');
+            
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 1500);
+        },
+        
+        nextQuestion() {
+            this.currentIndex++;
+            
+            // Loop back and reshuffle when we run out
+            if (this.currentIndex >= this.questions.length) {
+                this.currentIndex = 0;
+                this.questions = this.shuffleArray([...MAP_MATH_QUESTIONS]);
+            }
+            
+            this.displayQuestion();
+        },
+        
+        skipQuestion() {
+            if (!this.answered) {
+                this.stats.currentStreak = 0;
+                this.sessionQuestions++;
+                this.updateStatsDisplay();
+            }
+            this.nextQuestion();
+        },
+        
+        toggleHint() {
+            const hintContent = document.getElementById('hintContent');
+            const hintToggle = document.getElementById('hintToggle');
+            
+            if (hintContent.classList.contains('visible')) {
+                hintContent.classList.remove('visible');
+                hintToggle.innerHTML = '💡 Show Hint';
+            } else {
+                hintContent.classList.add('visible');
+                hintToggle.innerHTML = '💡 Hide Hint';
+            }
+        },
+        
+        updateProgress() {
+            const progress = (this.sessionQuestions % 50) / 50 * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+            document.getElementById('progressCount').textContent = 
+                `${this.sessionQuestions % 50} / 50`;
+        },
+        
+        updateStatsDisplay() {
+            document.getElementById('totalAnswered').textContent = this.stats.totalAnswered;
+            document.getElementById('currentStreak').textContent = this.stats.currentStreak;
+            document.getElementById('bestStreak').textContent = this.stats.bestStreak;
+            
+            const accuracy = this.stats.totalAnswered > 0 
+                ? Math.round((this.stats.correct / this.stats.totalAnswered) * 100) 
+                : 0;
+            document.getElementById('accuracy').textContent = 
+                this.stats.totalAnswered > 0 ? `${accuracy}%` : '--%';
+        },
+        
+        saveStats() {
+            try {
+                localStorage.setItem('mapPrepStats', JSON.stringify(this.stats));
+            } catch (e) {
+                console.error('Failed to save stats:', e);
+            }
+        },
+        
+        loadStats() {
+            try {
+                const saved = localStorage.getItem('mapPrepStats');
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    this.stats = { ...this.stats, ...parsed };
+                }
+            } catch (e) {
+                console.error('Failed to load stats:', e);
+            }
+        },
+        
+        initThemeSwitcher() {
+            const themeButtons = document.querySelectorAll('.theme-btn');
+            
+            // Load saved theme
+            const savedTheme = localStorage.getItem('mathbored-theme') || '';
+            if (savedTheme) {
+                document.body.className = savedTheme;
+                themeButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.theme === savedTheme.replace('theme-', ''));
+                });
+            }
+            
+            themeButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const theme = btn.dataset.theme;
+                    document.body.className = theme ? `theme-${theme}` : '';
+                    
+                    themeButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    
+                    localStorage.setItem('mathbored-theme', theme ? `theme-${theme}` : '');
+                });
+            });
+        }
+    };
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        mapPrep.init();
+    });
+    </script>
+</body>
+</html>
+
