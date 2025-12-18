@@ -7,12 +7,32 @@
     <title>Feature Roadmap - MathBored</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Enhanced roadmap styles */
         .roadmap-hero {
-            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
-            padding: 60px 20px;
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+            padding: 60px 24px;
             text-align: center;
             margin-bottom: 40px;
-            border-radius: 12px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .roadmap-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2V0h2v22H20z'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        .roadmap-hero > * {
+            position: relative;
+            z-index: 1;
         }
 
         .roadmap-hero h1 {
