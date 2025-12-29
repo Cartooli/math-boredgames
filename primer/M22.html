@@ -208,45 +208,92 @@
 
             
         <div style="margin-top: 30px;">
-            <h2>📖 Lesson Overview</h2>
-            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
-                This 15-minute lesson provides a focused introduction to order of operations. 
-                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
+            <h2>📝 Order of Operations: PEMDAS!</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
+                What's 2 + 3 × 4? Is it 20 or 14? The answer is 14! We follow a specific <strong>order of operations</strong> to get the right answer every time. Remember: <strong>PEMDAS</strong>!
             </p>
 
-            <h3>What You'll Learn</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                PEMDAS, sequence of operations, evaluation
-            </p>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
-                <ul style="line-height: 2;">
-                    <li>Understand the fundamental concepts of order of operations</li>
-                    <li>Apply these concepts to solve basic problems</li>
-                    <li>Connect this topic to other areas of mathematics</li>
-                    <li>Build confidence for more advanced topics</li>
+            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
+                <strong>📝 Today you'll learn:</strong>
+                <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
+                    <li>What PEMDAS means</li>
+                    <li>The correct order to do operations</li>
+                    <li>How to evaluate complex expressions</li>
+                    <li>Common mistakes to avoid</li>
                 </ul>
+            </div>
+
+            <h2>📚 PEMDAS: The Order</h2>
+            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0; line-height: 2; font-size: 1.1rem;">
+                <strong style="font-size: 1.3rem;">P</strong>arentheses  ( )<br>
+                <strong style="font-size: 1.3rem;">E</strong>xponents  x²<br>
+                <strong style="font-size: 1.3rem;">M</strong>ultiplication  ×<br>
+                <strong style="font-size: 1.3rem;">D</strong>ivision  ÷<br>
+                <strong style="font-size: 1.3rem;">A</strong>ddition  +<br>
+                <strong style="font-size: 1.3rem;">S</strong>ubtraction  −
+            </div>
+
+            <div style="background: rgba(16, 185, 129, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #10b981; margin: 20px 0;">
+                <strong>✓ Pro Tip:</strong> Multiplication and Division are equal (left to right). Addition and Subtraction are equal (left to right).
+            </div>
+
+            <h2>💡 Step-by-Step Example</h2>
+            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
+                <p><strong>Evaluate:</strong> 3 + 2 × (8 − 3)²</p>
+                <div style="margin: 15px 0; padding: 15px; background: var(--bg-secondary); border-radius: 8px; line-height: 2;">
+                    Step 1: Parentheses → 3 + 2 × (5)²<br>
+                    Step 2: Exponents → 3 + 2 × 25<br>
+                    Step 3: Multiply → 3 + 50<br>
+                    Step 4: Add → <strong>53</strong>
+                </div>
+            </div>
+
+            <h2>✏️ Practice</h2>
+            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
+                <p><strong>Problem 1:</strong> 10 − 2 × 3</p>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
+                    <strong>Hint:</strong> Multiply first! 2 × 3 = 6, then subtract
+                </div>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                    <strong>Answer:</strong> 4 (NOT 24!)
+                </div>
+            </div>
+
+            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
+                <p><strong>Problem 2:</strong> (6 + 2) × 5</p>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                    <strong>Answer:</strong> 40 (parentheses first: 8 × 5)
+                </div>
+            </div>
+
+            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
+                <p><strong>Problem 3:</strong> 20 ÷ 4 + 3 × 2</p>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                    <strong>Answer:</strong> 11 (20÷4=5, 3×2=6, then 5+6=11)
+                </div>
             </div>
 
             <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
-                <p style="color: var(--text-secondary); font-style: italic;">
-                    Detailed lesson content is currently being developed. This will include:
-                </p>
-                <ul style="color: var(--text-secondary); line-height: 2;">
-                    <li>Clear explanations with visual aids</li>
-                    <li>Step-by-step worked examples</li>
-                    <li>Practice problems with solutions</li>
-                    <li>Real-world applications</li>
-                    <li>Common misconceptions and tips</li>
+                <h3 style="margin-top: 0;">🎯 Key Takeaways</h3>
+                <ul style="line-height: 2; margin: 10px 0 0 20px;">
+                    <li><strong>PEMDAS</strong> tells us the order: Parentheses, Exponents, Multiply/Divide, Add/Subtract</li>
+                    <li>Always do operations from left to right when they're equal priority</li>
+                    <li>Parentheses can change the order!</li>
+                    <li>Following the order guarantees you get the right answer</li>
                 </ul>
             </div>
 
-            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
-                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
-                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
+            <div style="background: var(--bg-secondary); padding: 25px; border-radius: 12px; margin: 30px 0;">
+                <h3 style="margin-top: 0; color: var(--accent);">🚀 What's Next?</h3>
+                <p style="line-height: 1.8;">Next: <strong>Exponents & Powers</strong>—repeated multiplication made easy! 🌟</p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 12px;">
+                <p style="font-size: 1.1rem; font-weight: bold; margin: 0;">⏱️ Great work! 15-minute lesson complete!</p>
             </div>
         </div>
     

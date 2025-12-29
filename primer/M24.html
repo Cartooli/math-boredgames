@@ -208,45 +208,85 @@
 
             
         <div style="margin-top: 30px;">
-            <h2>📖 Lesson Overview</h2>
-            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
-                This 15-minute lesson provides a focused introduction to square roots & radicals. 
-                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
+            <h2>√ Square Roots & Radicals!</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
+                If 5² = 25, then √25 = 5! <strong>Square roots</strong> are the opposite of squaring—they "undo" exponents. The symbol √ is called a radical!
             </p>
 
-            <h3>What You'll Learn</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                Square roots, radical notation, perfect squares intro
-            </p>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
-                <ul style="line-height: 2;">
-                    <li>Understand the fundamental concepts of square roots & radicals</li>
-                    <li>Apply these concepts to solve basic problems</li>
-                    <li>Connect this topic to other areas of mathematics</li>
-                    <li>Build confidence for more advanced topics</li>
+            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
+                <strong>📝 Today you'll learn:</strong>
+                <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
+                    <li>What square roots are</li>
+                    <li>Radical notation (√)</li>
+                    <li>Perfect squares</li>
+                    <li>How to find square roots</li>
                 </ul>
+            </div>
+
+            <h2>📚 Square Roots Explained</h2>
+            <p>A <strong>square root</strong> of a number is a value that, when multiplied by itself, gives the original number.</p>
+            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0; line-height: 2;">
+                <strong>Example:</strong> √16 = 4 because 4 × 4 = 16<br>
+                <strong>Read as:</strong> "The square root of 16 is 4"
+            </div>
+
+            <h2>⬜ Perfect Squares</h2>
+            <p><strong>Perfect squares</strong> are numbers you get by squaring whole numbers:</p>
+            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                1² = 1 → √1 = 1<br>
+                2² = 4 → √4 = 2<br>
+                3² = 9 → √9 = 3<br>
+                4² = 16 → √16 = 4<br>
+                5² = 25 → √25 = 5<br>
+                10² = 100 → √100 = 10
+            </div>
+
+            <h2>✏️ Practice</h2>
+            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
+                <p><strong>Problem 1:</strong> What is √49?</p>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
+                    <strong>Hint:</strong> What number times itself equals 49?
+                </div>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                    <strong>Answer:</strong> 7 (because 7 × 7 = 49)
+                </div>
+            </div>
+
+            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
+                <p><strong>Problem 2:</strong> If 8² = 64, what is √64?</p>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                    <strong>Answer:</strong> 8 (square root undoes squaring)
+                </div>
+            </div>
+
+            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
+                <p><strong>Problem 3:</strong> Is 50 a perfect square?</p>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                    <strong>Answer:</strong> No (7×7=49, 8×8=64, but no whole number squares to 50)
+                </div>
             </div>
 
             <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
-                <p style="color: var(--text-secondary); font-style: italic;">
-                    Detailed lesson content is currently being developed. This will include:
-                </p>
-                <ul style="color: var(--text-secondary); line-height: 2;">
-                    <li>Clear explanations with visual aids</li>
-                    <li>Step-by-step worked examples</li>
-                    <li>Practice problems with solutions</li>
-                    <li>Real-world applications</li>
-                    <li>Common misconceptions and tips</li>
+                <h3 style="margin-top: 0;">🎯 Key Takeaways</h3>
+                <ul style="line-height: 2; margin: 10px 0 0 20px;">
+                    <li><strong>Square root</strong> (√) is the opposite of squaring</li>
+                    <li>√x asks "what squared equals x?"</li>
+                    <li><strong>Perfect squares</strong> are squares of whole numbers</li>
+                    <li>Memorize common ones: √4=2, √9=3, √16=4, √25=5, √36=6, √49=7</li>
                 </ul>
             </div>
 
-            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
-                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
-                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
+            <div style="background: var(--bg-secondary); padding: 25px; border-radius: 12px; margin: 30px 0;">
+                <h3 style="margin-top: 0; color: var(--accent);">🚀 What's Next?</h3>
+                <p style="line-height: 1.8;">Next: <strong>Graphing Ordered Pairs</strong>—plotting points on the coordinate plane! 🌟</p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 12px;">
+                <p style="font-size: 1.1rem; font-weight: bold; margin: 0;">⏱️ Great work! 15-minute lesson complete!</p>
             </div>
         </div>
     

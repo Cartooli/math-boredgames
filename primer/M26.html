@@ -208,45 +208,77 @@
 
             
         <div style="margin-top: 30px;">
-            <h2>📖 Lesson Overview</h2>
-            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
-                This 15-minute lesson provides a focused introduction to introduction to functions. 
-                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
+            <h2>🔧 Introduction to Functions!</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
+                A <strong>function</strong> is like a machine: you put something in (input), it does something to it, and gives you something back (output). Functions are everywhere in math and real life!
             </p>
 
-            <h3>What You'll Learn</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                Function concept, input-output, function notation
-            </p>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
-                <ul style="line-height: 2;">
-                    <li>Understand the fundamental concepts of introduction to functions</li>
-                    <li>Apply these concepts to solve basic problems</li>
-                    <li>Connect this topic to other areas of mathematics</li>
-                    <li>Build confidence for more advanced topics</li>
+            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
+                <strong>📝 Today you'll learn:</strong>
+                <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
+                    <li>What functions are (input → output)</li>
+                    <li>Function notation f(x)</li>
+                    <li>Domain and range</li>
+                    <li>How to evaluate functions</li>
                 </ul>
+            </div>
+
+            <h2>📚 What Is a Function?</h2>
+            <p>A <strong>function</strong> takes an input, applies a rule, and gives an output. Each input has exactly ONE output.</p>
+            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <strong>Example:</strong> f(x) = 2x + 1<br>
+                Input x = 3 → Apply rule: 2(3) + 1 = 7 → Output = 7<br>
+                We write: f(3) = 7
+            </div>
+
+            <h2>🔤 Function Notation</h2>
+            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0; line-height: 2;">
+                <strong>f(x)</strong> reads as "f of x"<br>
+                • <strong>f</strong> = name of the function<br>
+                • <strong>(x)</strong> = the input value<br>
+                • f(x) = the output value
+            </div>
+
+            <h2>📊 Domain & Range</h2>
+            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <strong>Domain:</strong> All possible input values (x-values)<br>
+                <strong>Range:</strong> All possible output values (y-values)
+            </div>
+
+            <h2>✏️ Practice</h2>
+            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
+                <p><strong>Problem 1:</strong> If f(x) = x + 5, what is f(3)?</p>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                    <strong>Answer:</strong> 8 (3 + 5 = 8)
+                </div>
+            </div>
+
+            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
+                <p><strong>Problem 2:</strong> If g(x) = 3x, what is g(4)?</p>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                    <strong>Answer:</strong> 12 (3 × 4 = 12)
+                </div>
             </div>
 
             <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
-                <p style="color: var(--text-secondary); font-style: italic;">
-                    Detailed lesson content is currently being developed. This will include:
-                </p>
-                <ul style="color: var(--text-secondary); line-height: 2;">
-                    <li>Clear explanations with visual aids</li>
-                    <li>Step-by-step worked examples</li>
-                    <li>Practice problems with solutions</li>
-                    <li>Real-world applications</li>
-                    <li>Common misconceptions and tips</li>
+                <h3 style="margin-top: 0;">🎯 Key Takeaways</h3>
+                <ul style="line-height: 2; margin: 10px 0 0 20px;">
+                    <li><strong>Functions</strong> are input-output machines</li>
+                    <li>Each input has exactly one output</li>
+                    <li><strong>f(x)</strong> notation: f(3) means "output when input is 3"</li>
+                    <li><strong>Domain</strong> = inputs, <strong>Range</strong> = outputs</li>
                 </ul>
             </div>
 
-            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
-                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
-                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
+            <div style="background: var(--bg-secondary); padding: 25px; border-radius: 12px; margin: 30px 0;">
+                <h3 style="margin-top: 0; color: var(--accent);">🚀 What's Next?</h3>
+                <p style="line-height: 1.8;">Next: <strong>Linear Relationships</strong>—functions that make straight lines! 🌟</p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 12px;">
+                <p style="font-size: 1.1rem; font-weight: bold; margin: 0;">⏱️ Great work! 15-minute lesson complete!</p>
             </div>
         </div>
     

@@ -208,45 +208,85 @@
 
             
         <div style="margin-top: 30px;">
-            <h2>📖 Lesson Overview</h2>
-            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
-                This 15-minute lesson provides a focused introduction to linear relationships. 
-                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
+            <h2>📈 Linear Relationships!</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
+                A <strong>linear relationship</strong> changes at a constant rate and makes a straight line when graphed. They're predictable and everywhere—from speed to costs to growth!
             </p>
 
-            <h3>What You'll Learn</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                Linear patterns, constant rate, introduction to linear functions
-            </p>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
-                <ul style="line-height: 2;">
-                    <li>Understand the fundamental concepts of linear relationships</li>
-                    <li>Apply these concepts to solve basic problems</li>
-                    <li>Connect this topic to other areas of mathematics</li>
-                    <li>Build confidence for more advanced topics</li>
+            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
+                <strong>📝 Today you'll learn:</strong>
+                <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
+                    <li>What makes a relationship linear</li>
+                    <li>Constant rate of change</li>
+                    <li>Recognizing linear patterns</li>
+                    <li>Real-world linear examples</li>
                 </ul>
+            </div>
+
+            <h2>📚 What Is Linear?</h2>
+            <p>A <strong>linear relationship</strong> has a constant rate of change. For every increase in x, y changes by the same amount!</p>
+            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <strong>Example:</strong> Earning $10 per hour<br>
+                1 hour → $10<br>
+                2 hours → $20<br>
+                3 hours → $30<br>
+                Constant rate: +$10 per hour ✓
+            </div>
+
+            <h2>📊 Linear Functions</h2>
+            <p>Linear functions have the form: <strong>f(x) = mx + b</strong></p>
+            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                • <strong>m</strong> = slope (rate of change)<br>
+                • <strong>b</strong> = y-intercept (starting value)<br>
+                • Graph is always a straight line
+            </div>
+
+            <h2>🎯 Recognizing Linear Patterns</h2>
+            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0;">
+                <strong>Check if it's linear:</strong><br>
+                • Does y change by the same amount each time?<br>
+                • Does it graph as a straight line?<br>
+                • Is there a constant rate?
+            </div>
+
+            <h2>✏️ Practice</h2>
+            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
+                <p><strong>Problem 1:</strong> Is this linear? x: 1,2,3,4 and y: 3,5,7,9</p>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
+                    <strong>Hint:</strong> Check if y increases by the same amount each time
+                </div>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                    <strong>Answer:</strong> YES! y increases by 2 each time (constant rate)
+                </div>
+            </div>
+
+            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
+                <p><strong>Problem 2:</strong> A taxi charges $3 plus $2 per mile. Is this linear?</p>
+                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
+                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                    <strong>Answer:</strong> YES! Constant rate of $2/mile. Function: f(x) = 2x + 3
+                </div>
             </div>
 
             <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
-                <p style="color: var(--text-secondary); font-style: italic;">
-                    Detailed lesson content is currently being developed. This will include:
-                </p>
-                <ul style="color: var(--text-secondary); line-height: 2;">
-                    <li>Clear explanations with visual aids</li>
-                    <li>Step-by-step worked examples</li>
-                    <li>Practice problems with solutions</li>
-                    <li>Real-world applications</li>
-                    <li>Common misconceptions and tips</li>
+                <h3 style="margin-top: 0;">🎯 Key Takeaways</h3>
+                <ul style="line-height: 2; margin: 10px 0 0 20px;">
+                    <li><strong>Linear relationships</strong> have a constant rate of change</li>
+                    <li>Graph as a straight line</li>
+                    <li>Form: f(x) = mx + b</li>
+                    <li>Predictable and common in real life</li>
                 </ul>
             </div>
 
-            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
-                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
-                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
+            <div style="background: var(--bg-secondary); padding: 25px; border-radius: 12px; margin: 30px 0;">
+                <h3 style="margin-top: 0; color: var(--accent);">🚀 What's Next?</h3>
+                <p style="line-height: 1.8;">Congratulations! You've completed <strong>Middle School Bridge</strong>! Next: <strong>High School Essentials</strong>—algebra, geometry, and more! 🌟</p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 12px;">
+                <p style="font-size: 1.1rem; font-weight: bold; margin: 0;">⏱️ Amazing! 15-minute lesson complete!</p>
             </div>
         </div>
     
