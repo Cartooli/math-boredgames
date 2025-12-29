@@ -231,22 +231,57 @@
             </div>
 
             <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
-                <p style="color: var(--text-secondary); font-style: italic;">
-                    Detailed lesson content is currently being developed. This will include:
-                </p>
-                <ul style="color: var(--text-secondary); line-height: 2;">
-                    <li>Clear explanations with visual aids</li>
-                    <li>Step-by-step worked examples</li>
-                    <li>Practice problems with solutions</li>
-                    <li>Real-world applications</li>
-                    <li>Common misconceptions and tips</li>
-                </ul>
+                <h3 style="margin-top: 0;">🔍 Solving Quadratics!</h3>
+                <p style="line-height: 1.8;">Three powerful methods to find the roots of quadratic equations!</p>
+                
+                <h4>Method 1: Factoring</h4>
+                <div style="background: var(--bg-secondary); padding: 20px; border-radius: 10px; margin: 15px 0; line-height: 2;">
+                    <strong>Example:</strong> x² + 5x + 6 = 0<br>
+                    Factor: (x + 2)(x + 3) = 0<br>
+                    Solutions: x = −2 or x = −3<br>
+                    <em>Works when it factors nicely!</em>
+                </div>
+
+                <h4>Method 2: Quadratic Formula</h4>
+                <div style="background: var(--bg-secondary); padding: 15px; border-radius: 8px; margin: 15px 0; text-align: center;">
+                    <strong>x = [−b ± √(b² − 4ac)] / 2a</strong><br><br>
+                    <em>Works for ANY quadratic!</em><br>
+                    Discriminant (b² − 4ac) tells # of solutions:<br>
+                    • Positive: 2 real solutions<br>
+                    • Zero: 1 real solution<br>
+                    • Negative: no real solutions
+                </div>
+
+                <h4>Method 3: Completing the Square</h4>
+                <div style="background: var(--bg-secondary); padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    Rewrite as (x + h)² = k form<br>
+                    <em>Useful for finding vertex!</em>
+                </div>
+
+                <h4>💡 Example: Using Formula</h4>
+                <div style="background: var(--bg-secondary); padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <strong>Solve:</strong> x² − 3x − 4 = 0<br>
+                    a=1, b=−3, c=−4<br>
+                    x = [3 ± √(9+16)] / 2 = [3 ± 5] / 2<br>
+                    <strong>Solutions:</strong> x = 4 or x = −1
+                </div>
+
+                <h4>✏️ Practice</h4>
+                <div style="background: var(--bg-secondary); padding: 15px; border-radius: 10px; margin: 10px 0; border: 2px solid var(--border);">
+                    <p><strong>Q:</strong> Solve by factoring: x² − 9 = 0</p>
+                    <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Answer</button>
+                    <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                        <strong>Answer:</strong> (x+3)(x−3)=0 → x=3 or x=−3
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 20px 0;">
+                    <strong>🎯 Key Points:</strong> Try factoring first. Quadratic formula always works!
+                </div>
             </div>
 
-            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
-                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
-                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
+            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 12px;">
+                <p style="font-size: 1.1rem; font-weight: bold; margin: 0;">⏱️ Lesson complete!</p>
             </div>
         </div>
     

@@ -231,22 +231,52 @@
             </div>
 
             <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
-                <p style="color: var(--text-secondary); font-style: italic;">
-                    Detailed lesson content is currently being developed. This will include:
-                </p>
-                <ul style="color: var(--text-secondary); line-height: 2;">
-                    <li>Clear explanations with visual aids</li>
-                    <li>Step-by-step worked examples</li>
-                    <li>Practice problems with solutions</li>
-                    <li>Real-world applications</li>
-                    <li>Common misconceptions and tips</li>
-                </ul>
+                <h3 style="margin-top: 0;">🔢 Arithmetic Sequences!</h3>
+                <p style="line-height: 1.8;">Sequences that add the same amount each time—predictable patterns!</p>
+                
+                <h4>Definition:</h4>
+                <div style="background: var(--bg-secondary); padding: 20px; border-radius: 10px; margin: 15px 0; line-height: 2;">
+                    <strong>Arithmetic sequence:</strong> constant difference between terms<br><br>
+                    
+                    Example: 3, 7, 11, 15, 19...<br>
+                    Common difference (d) = 4<br><br>
+                    
+                    General term: a_n = a_1 + (n−1)d<br>
+                    • a_n = nth term<br>
+                    • a_1 = first term<br>
+                    • d = common difference<br>
+                    • n = term number
+                </div>
+
+                <h4>Finding the nth Term:</h4>
+                <div style="background: var(--bg-secondary); padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <strong>Example:</strong> Find 20th term of 5, 8, 11, 14...<br>
+                    a_1 = 5, d = 3<br>
+                    a_20 = 5 + (20−1)(3) = 5 + 57 = <strong>62</strong>
+                </div>
+
+                <h4>Sum Formula:</h4>
+                <div style="background: var(--bg-secondary); padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    S_n = n(a_1 + a_n)/2<br>
+                    or S_n = n[2a_1 + (n−1)d]/2
+                </div>
+
+                <h4>✏️ Practice</h4>
+                <div style="background: var(--bg-secondary); padding: 15px; border-radius: 10px; margin: 10px 0; border: 2px solid var(--border);">
+                    <p><strong>Q:</strong> What's the 10th term of 2, 5, 8, 11...?</p>
+                    <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Answer</button>
+                    <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
+                        <strong>Answer:</strong> a_10 = 2 + (10−1)(3) = 2 + 27 = 29
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 20px 0;">
+                    <strong>🎯 Key Points:</strong> Constant difference = arithmetic. Use formula for any term!
+                </div>
             </div>
 
-            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
-                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
-                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
+            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 12px;">
+                <p style="font-size: 1.1rem; font-weight: bold; margin: 0;">⏱️ Lesson complete!</p>
             </div>
         </div>
     
