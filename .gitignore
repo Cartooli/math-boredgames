@@ -38,3 +38,6 @@ debug.html
 test.html
 all_topics.txt
 missing_topics.txt
+
+# Generated files
+olympiad-data-embedded.js
