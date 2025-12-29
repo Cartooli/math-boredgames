@@ -1,0 +1,415 @@
+{
+  "title": "Essential Math Primer",
+  "description": "15-minute standalone lessons covering K-12 math concepts",
+  "total_core_lessons": 48,
+  "total_with_reserves": 75,
+  "lesson_duration_minutes": 15,
+  "grade_bands": [
+    {
+      "band": "Elementary Foundations",
+      "grade_span": "K-5",
+      "lesson_count": 12,
+      "lessons": [
+        {
+          "id": "E01",
+          "sequence": 1,
+          "title": "What Numbers Are",
+          "description": "Counting, place value foundation, number sense",
+          "key_concepts": ["counting", "place value", "number recognition"],
+          "prerequisites": []
+        },
+        {
+          "id": "E02",
+          "sequence": 2,
+          "title": "Addition Basics",
+          "description": "Strategies, mental math, building fluency",
+          "key_concepts": ["addition", "strategies", "mental math"],
+          "prerequisites": ["E01"]
+        },
+        {
+          "id": "E03",
+          "sequence": 3,
+          "title": "Subtraction & Inverse Relationships",
+          "description": "Subtraction as inverse of addition, conceptual understanding",
+          "key_concepts": ["subtraction", "inverse operations", "relationships"],
+          "prerequisites": ["E02"]
+        },
+        {
+          "id": "E04",
+          "sequence": 4,
+          "title": "Multiplication Concept",
+          "description": "Arrays, repeated addition, foundational multiplication",
+          "key_concepts": ["multiplication", "arrays", "repeated addition"],
+          "prerequisites": ["E02"]
+        },
+        {
+          "id": "E05",
+          "sequence": 5,
+          "title": "Division & Fair Sharing",
+          "description": "Division as inverse of multiplication, fair sharing concept",
+          "key_concepts": ["division", "inverse operations", "fair sharing"],
+          "prerequisites": ["E04"]
+        },
+        {
+          "id": "E06",
+          "sequence": 6,
+          "title": "Fractions as Parts",
+          "description": "Halves, thirds, fourths, intuitive fraction understanding",
+          "key_concepts": ["fractions", "parts of whole", "equal parts"],
+          "prerequisites": ["E05"]
+        },
+        {
+          "id": "E07",
+          "sequence": 7,
+          "title": "Comparing & Ordering",
+          "description": "Comparing numbers and fractions, ordering on number line",
+          "key_concepts": ["comparison", "ordering", "number line"],
+          "prerequisites": ["E01", "E06"]
+        },
+        {
+          "id": "E08",
+          "sequence": 8,
+          "title": "Introduction to Measurement",
+          "description": "Length, time, money, standard units",
+          "key_concepts": ["measurement", "units", "estimation"],
+          "prerequisites": ["E01"]
+        },
+        {
+          "id": "E09",
+          "sequence": 9,
+          "title": "Basic Geometry",
+          "description": "Shapes, properties, perimeter, area basics",
+          "key_concepts": ["shapes", "properties", "perimeter", "area"],
+          "prerequisites": ["E08"]
+        },
+        {
+          "id": "E10",
+          "sequence": 10,
+          "title": "Word Problems Strategy",
+          "description": "Translating English to math, problem-solving approach",
+          "key_concepts": ["translation", "strategy", "problem-solving"],
+          "prerequisites": ["E02", "E03", "E04", "E05"]
+        },
+        {
+          "id": "E11",
+          "sequence": 11,
+          "title": "Patterns & Sequences",
+          "description": "Identifying and extending patterns, sequence basics",
+          "key_concepts": ["patterns", "sequences", "rules"],
+          "prerequisites": ["E01"]
+        },
+        {
+          "id": "E12",
+          "sequence": 12,
+          "title": "Data & Basic Graphing",
+          "description": "Collecting data, pictographs, bar graphs, interpretation",
+          "key_concepts": ["data", "graphing", "representation"],
+          "prerequisites": []
+        }
+      ]
+    },
+    {
+      "band": "Middle School Bridge",
+      "grade_span": "6-8",
+      "lesson_count": 15,
+      "lessons": [
+        {
+          "id": "M13",
+          "sequence": 13,
+          "title": "Equivalent Fractions & Simplification",
+          "description": "Equivalent fractions, reducing to lowest terms",
+          "key_concepts": ["equivalent fractions", "simplification", "GCF"],
+          "prerequisites": ["E06"]
+        },
+        {
+          "id": "M14",
+          "sequence": 14,
+          "title": "Adding & Subtracting Fractions",
+          "description": "Common denominators, operations with fractions",
+          "key_concepts": ["addition", "subtraction", "common denominator"],
+          "prerequisites": ["M13"]
+        },
+        {
+          "id": "M15",
+          "sequence": 15,
+          "title": "Multiplying & Dividing Fractions",
+          "description": "Multiplication and division algorithms for fractions",
+          "key_concepts": ["multiplication", "division", "reciprocals"],
+          "prerequisites": ["M13"]
+        },
+        {
+          "id": "M16",
+          "sequence": 16,
+          "title": "Decimals & Place Value",
+          "description": "Decimal notation, operations, relationship to fractions",
+          "key_concepts": ["decimals", "place value", "conversion"],
+          "prerequisites": ["E06", "E07"]
+        },
+        {
+          "id": "M17",
+          "sequence": 17,
+          "title": "Percentages",
+          "description": "Percent concept, conversions, calculations",
+          "key_concepts": ["percent", "conversions", "calculations"],
+          "prerequisites": ["M16"]
+        },
+        {
+          "id": "M18",
+          "sequence": 18,
+          "title": "Ratios & Proportional Reasoning",
+          "description": "Ratios, rates, proportions, direct relationships",
+          "key_concepts": ["ratios", "rates", "proportions"],
+          "prerequisites": ["M14", "M15"]
+        },
+        {
+          "id": "M19",
+          "sequence": 19,
+          "title": "Integers & Operations with Negatives",
+          "description": "Negative numbers, integer operations, number line",
+          "key_concepts": ["integers", "negatives", "operations"],
+          "prerequisites": ["E02", "E03"]
+        },
+        {
+          "id": "M20",
+          "sequence": 20,
+          "title": "Introduction to Variables",
+          "description": "Variables as unknown quantities, basic notation",
+          "key_concepts": ["variables", "expressions", "notation"],
+          "prerequisites": ["E10"]
+        },
+        {
+          "id": "M21",
+          "sequence": 21,
+          "title": "Solving Simple Equations",
+          "description": "Two-step equations, inverse operations, balance method",
+          "key_concepts": ["equations", "inverse operations", "solving"],
+          "prerequisites": ["M20"]
+        },
+        {
+          "id": "M22",
+          "sequence": 22,
+          "title": "Order of Operations",
+          "description": "PEMDAS, sequence of operations, evaluation",
+          "key_concepts": ["PEMDAS", "order", "evaluation"],
+          "prerequisites": ["M20"]
+        },
+        {
+          "id": "M23",
+          "sequence": 23,
+          "title": "Exponents & Powers",
+          "description": "Exponential notation, properties of exponents, powers of 10",
+          "key_concepts": ["exponents", "powers", "notation"],
+          "prerequisites": ["M22"]
+        },
+        {
+          "id": "M24",
+          "sequence": 24,
+          "title": "Square Roots & Radicals",
+          "description": "Square roots, radical notation, perfect squares intro",
+          "key_concepts": ["square roots", "radicals", "perfect squares"],
+          "prerequisites": ["M23"]
+        },
+        {
+          "id": "M25",
+          "sequence": 25,
+          "title": "Graphing Ordered Pairs",
+          "description": "Coordinate plane, ordered pairs, plotting points",
+          "key_concepts": ["coordinate plane", "ordered pairs", "plotting"],
+          "prerequisites": ["E07"]
+        },
+        {
+          "id": "M26",
+          "sequence": 26,
+          "title": "Introduction to Functions",
+          "description": "Function concept, input-output, function notation",
+          "key_concepts": ["functions", "input-output", "domain", "range"],
+          "prerequisites": ["M25"]
+        },
+        {
+          "id": "M27",
+          "sequence": 27,
+          "title": "Linear Relationships",
+          "description": "Linear patterns, constant rate, introduction to linear functions",
+          "key_concepts": ["linear", "rate", "patterns"],
+          "prerequisites": ["M26"]
+        }
+      ]
+    },
+    {
+      "band": "High School Essentials",
+      "grade_span": "9-12",
+      "lesson_count": 21,
+      "lessons": [
+        {
+          "id": "H28",
+          "sequence": 28,
+          "title": "Linear Equations",
+          "description": "Slope-intercept, point-slope, standard form",
+          "key_concepts": ["linear equations", "forms", "conversion"],
+          "prerequisites": ["M27"]
+        },
+        {
+          "id": "H29",
+          "sequence": 29,
+          "title": "Graphing Linear Functions",
+          "description": "Graphing lines, slope interpretation, transformations",
+          "key_concepts": ["graphing", "slope", "intercepts"],
+          "prerequisites": ["H28"]
+        },
+        {
+          "id": "H30",
+          "sequence": 30,
+          "title": "Systems of Linear Equations",
+          "description": "Solving systems, graphical and algebraic methods",
+          "key_concepts": ["systems", "solving", "elimination", "substitution"],
+          "prerequisites": ["H28"]
+        },
+        {
+          "id": "H31",
+          "sequence": 31,
+          "title": "Slope & Rate of Change",
+          "description": "Slope concept, rate of change, secant lines",
+          "key_concepts": ["slope", "rate", "change"],
+          "prerequisites": ["H29"]
+        },
+        {
+          "id": "H32",
+          "sequence": 32,
+          "title": "Polynomials & Terminology",
+          "description": "Polynomial definitions, degree, standard form",
+          "key_concepts": ["polynomials", "degree", "terminology"],
+          "prerequisites": ["M23"]
+        },
+        {
+          "id": "H33",
+          "sequence": 33,
+          "title": "Factoring Techniques",
+          "description": "GCF, trinomials, special products, factoring",
+          "key_concepts": ["factoring", "GCF", "trinomials"],
+          "prerequisites": ["H32"]
+        },
+        {
+          "id": "H34",
+          "sequence": 34,
+          "title": "Quadratic Equations - Conceptual",
+          "description": "Quadratic concept, parabolas, roots, vertex",
+          "key_concepts": ["quadratics", "parabola", "roots", "vertex"],
+          "prerequisites": ["H33"]
+        },
+        {
+          "id": "H35",
+          "sequence": 35,
+          "title": "Solving Quadratics",
+          "description": "Factoring, quadratic formula, completing the square",
+          "key_concepts": ["solving", "quadratic formula", "methods"],
+          "prerequisites": ["H34"]
+        },
+        {
+          "id": "H36",
+          "sequence": 36,
+          "title": "Function Notation & Composition",
+          "description": "Function notation, evaluation, composition of functions",
+          "key_concepts": ["notation", "evaluation", "composition"],
+          "prerequisites": ["M26"]
+        },
+        {
+          "id": "H37",
+          "sequence": 37,
+          "title": "Inverse Functions",
+          "description": "Inverse concept, finding inverses, properties",
+          "key_concepts": ["inverse", "one-to-one", "properties"],
+          "prerequisites": ["H36"]
+        },
+        {
+          "id": "H38",
+          "sequence": 38,
+          "title": "Exponential Functions & Growth",
+          "description": "Exponential models, exponential growth/decay, e",
+          "key_concepts": ["exponential", "growth", "decay"],
+          "prerequisites": ["M23", "M26"]
+        },
+        {
+          "id": "H39",
+          "sequence": 39,
+          "title": "Logarithms",
+          "description": "Logarithms as inverse of exponentials, properties, evaluation",
+          "key_concepts": ["logarithms", "inverse", "properties"],
+          "prerequisites": ["H38"]
+        },
+        {
+          "id": "H40",
+          "sequence": 40,
+          "title": "Rational Expressions & Equations",
+          "description": "Simplifying, operations, solving rational equations",
+          "key_concepts": ["rational", "simplification", "solving"],
+          "prerequisites": ["H32"]
+        },
+        {
+          "id": "H41",
+          "sequence": 41,
+          "title": "Sequences - Arithmetic",
+          "description": "Arithmetic sequences, common difference, formulas",
+          "key_concepts": ["arithmetic", "sequence", "formula"],
+          "prerequisites": ["E11"]
+        },
+        {
+          "id": "H42",
+          "sequence": 42,
+          "title": "Sequences - Geometric",
+          "description": "Geometric sequences, common ratio, formulas",
+          "key_concepts": ["geometric", "sequence", "ratio"],
+          "prerequisites": ["H41"]
+        },
+        {
+          "id": "H43",
+          "sequence": 43,
+          "title": "Right Triangle Trigonometry",
+          "description": "Sine, cosine, tangent, right triangle applications",
+          "key_concepts": ["trig ratios", "right triangle", "SOH-CAH-TOA"],
+          "prerequisites": ["E09"]
+        },
+        {
+          "id": "H44",
+          "sequence": 44,
+          "title": "Unit Circle & Angle Measure",
+          "description": "Unit circle, radians, degrees, angle measurement",
+          "key_concepts": ["unit circle", "radians", "angles"],
+          "prerequisites": ["H43"]
+        },
+        {
+          "id": "H45",
+          "sequence": 45,
+          "title": "Basic Trigonometric Functions",
+          "description": "Sine, cosine, tangent as functions, graphs, properties",
+          "key_concepts": ["trig functions", "graphs", "periodic"],
+          "prerequisites": ["H44"]
+        },
+        {
+          "id": "H46",
+          "sequence": 46,
+          "title": "Probability Fundamentals",
+          "description": "Probability rules, independent/dependent events, counting",
+          "key_concepts": ["probability", "rules", "counting"],
+          "prerequisites": []
+        },
+        {
+          "id": "H47",
+          "sequence": 47,
+          "title": "Statistics & Distributions",
+          "description": "Mean, median, mode, standard deviation, normal distribution",
+          "key_concepts": ["statistics", "distributions", "measures"],
+          "prerequisites": ["E12"]
+        },
+        {
+          "id": "H48",
+          "sequence": 48,
+          "title": "Correlation vs. Causation",
+          "description": "Relationship analysis, correlation coefficient, inference",
+          "key_concepts": ["correlation", "causation", "inference"],
+          "prerequisites": ["H47"]
+        }
+      ]
+    }
+  ]
+}
+

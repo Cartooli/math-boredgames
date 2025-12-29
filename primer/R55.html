@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserve Lesson 55 - Essential Math Primer | MathBored</title>
+    <meta name="description" content="Coming soon - Additional lesson content for curriculum expansion">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <style>
+        .lesson-header {
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+                linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white;
+            padding: 40px 24px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lesson-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .lesson-header > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .lesson-id-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 600;
+        }
+
+        .lesson-content {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .lesson-nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .nav-btn {
+            padding: 16px 24px;
+            border-radius: 10px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .nav-btn.prev {
+            background: var(--bg-tertiary);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .nav-btn.next {
+            background: var(--accent);
+            color: white;
+            border: 2px solid var(--accent);
+        }
+
+        .nav-btn.overview {
+            background: var(--bg-secondary);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .nav-btn:hover:not(.disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .nav-btn.prev:hover:not(.disabled) {
+            border-color: var(--accent);
+        }
+
+        .nav-btn.next:hover:not(.disabled) {
+            background: var(--accent-hover);
+        }
+
+        .nav-btn.disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .key-concepts {
+            background: var(--bg-tertiary);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .key-concepts h3 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+
+        .key-concepts ul {
+            margin: 15px 0 0 0;
+            padding-left: 25px;
+            line-height: 2;
+        }
+
+        .complete-btn {
+            background: var(--success);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            border: none;
+            font-weight: bold;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .complete-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .complete-btn.completed {
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            cursor: default;
+        }
+
+        @media (max-width: 768px) {
+            .lesson-nav {
+                grid-template-columns: 1fr;
+            }
+
+            .lesson-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>🎯 MathBored</h1>
+                    <div class="tagline">Essential Math Primer</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="/primer.html" class="back-link">← Back to Primer Overview</a>
+
+        <div class="lesson-header">
+            <span class="lesson-id-badge">R55 • Lesson 55 of 75</span>
+            <h1 style="margin: 15px 0; font-size: 2.2rem;">Reserve Lesson 55</h1>
+            <p style="opacity: 0.95; font-size: 1.15rem; margin: 10px 0;">Coming soon - Additional lesson content for curriculum expansion</p>
+            <p style="margin-top: 15px; opacity: 0.85; font-size: 0.95rem;">Reserve • TBD</p>
+        </div>
+
+        
+        <div style="background: var(--warning); color: white; padding: 20px; border-radius: 12px; margin-bottom: 30px; text-align: center;">
+            <strong>🔮 Reserve Slot</strong><br>
+            This lesson is part of the curriculum expansion plan and will be developed based on community needs and feedback.
+        </div>
+    
+
+        <div class="lesson-content">
+            
+            
+            <div class="key-concepts">
+                <h3>🎯 Key Concepts</h3>
+                <ul><li><em>To be developed</em></li></ul>
+            </div>
+
+            
+        <div style="text-align: center; padding: 60px 20px;">
+            <div style="font-size: 4rem; margin-bottom: 20px;">🚧</div>
+            <h2>Coming Soon</h2>
+            <p style="color: var(--text-secondary); max-width: 500px; margin: 20px auto;">
+                This reserve lesson slot will be filled with additional content as the curriculum expands. 
+                Topics may include advanced applications, common misconceptions, specialized content, or community-requested lessons.
+            </p>
+        </div>
+    
+
+            
+        </div>
+
+        <div class="lesson-nav">
+            <a href="R54.html" class="nav-btn prev">← Reserve Lesson 54</a>
+            <a href="/primer.html" class="nav-btn overview">📚 Overview</a>
+            <a href="R56.html" class="nav-btn next">Reserve Lesson 56 →</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+        </div>
+    </footer>
+
+    <script>
+        // Load theme
+        const savedTheme = localStorage.getItem('mathbored-theme');
+        if (savedTheme) {
+            document.body.className = savedTheme;
+        }
+
+        // Check if lesson is already completed
+        function checkComplete() {
+            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const btn = document.getElementById('completeBtn');
+            if (btn && completedLessons.includes('R55')) {
+                btn.classList.add('completed');
+                btn.innerHTML = '<span>✓</span> Completed';
+                btn.disabled = true;
+            }
+        }
+
+        // Mark lesson as complete
+        function markComplete() {
+            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!completedLessons.includes('R55')) {
+                completedLessons.push('R55');
+                localStorage.setItem('primer-completed', JSON.stringify(completedLessons));
+                
+                const btn = document.getElementById('completeBtn');
+                btn.classList.add('completed');
+                btn.innerHTML = '<span>✓</span> Completed';
+                btn.disabled = true;
+                
+                // Show success message
+                const successMsg = document.createElement('div');
+                successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; animation: slideIn 0.3s ease;';
+                successMsg.innerHTML = '✓ Lesson completed!';
+                document.body.appendChild(successMsg);
+                
+                setTimeout(() => {
+                    successMsg.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => successMsg.remove(), 300);
+                }, 2000);
+            }
+        }
+
+        // Initialize
+        checkComplete();
+    </script>
+</body>
+</html>

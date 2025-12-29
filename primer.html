@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential Math Primer - MathBored</title>
+    <meta name="description" content="15-minute standalone lessons covering K-12 math concepts. A comprehensive, sequential pathway through essential mathematics.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <style>
+        .primer-hero {
+            background: 
+                radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+                linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white;
+            padding: 60px 24px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .primer-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.4;
+            pointer-events: none;
+        }
+        
+        .primer-hero > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .primer-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .primer-tagline {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 35px;
+            font-weight: 500;
+        }
+        
+        .primer-stats {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background: rgba(255,255,255,0.15);
+            padding: 20px 35px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .progress-section {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+
+        .progress-bar-container {
+            background: var(--bg-tertiary);
+            height: 12px;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-bar-fill {
+            background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+            height: 100%;
+            border-radius: 20px;
+            transition: width 0.5s ease;
+        }
+
+        .grade-band {
+            margin-bottom: 50px;
+        }
+        
+        .band-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .band-title {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .band-meta {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+        
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        
+        .lesson-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lesson-card.completed {
+            border-color: var(--success);
+        }
+
+        .lesson-card.completed::before {
+            content: '✓';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--success);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .lesson-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+        }
+        
+        .lesson-id {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        
+        .lesson-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text);
+            line-height: 1.4;
+        }
+        
+        .lesson-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            line-height: 1.6;
+        }
+        
+        .lesson-concepts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        
+        .concept-tag {
+            background: var(--bg-tertiary);
+            padding: 5px 11px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+        
+        .start-pathway-btn {
+            background: white;
+            color: var(--accent);
+            padding: 18px 36px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+            margin: 30px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .start-pathway-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .reserve-section {
+            background: var(--bg-tertiary);
+            border: 2px dashed var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .reserve-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .primer-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .primer-tagline {
+                font-size: 1.1rem;
+            }
+            
+            .lessons-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-box {
+                padding: 15px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>🎯 MathBored</h1>
+                    <div class="tagline">Essential Math Primer</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Main App</a>
+
+        <div class="primer-hero">
+            <h1>📚 Essential Math Primer</h1>
+            <p class="primer-tagline">15-minute standalone lessons covering K-12 math concepts</p>
+            
+            <div class="primer-stats">
+                <div class="stat-box">
+                    <span class="stat-number">48</span>
+                    <span class="stat-label">Core Lessons</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">15</span>
+                    <span class="stat-label">Minutes Each</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">K-12</span>
+                    <span class="stat-label">Grade Coverage</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">75</span>
+                    <span class="stat-label">Total Slots</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <h2 style="margin: 0 0 10px 0;">Your Progress</h2>
+            <p style="color: var(--text-secondary); margin: 0 0 15px 0;">
+                <span id="completedCount">0</span> of 48 core lessons completed
+                (<span id="progressPercent">0</span>%)
+            </p>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="primer/E01.html" class="start-pathway-btn">
+                🚀 Start with Lesson 1: What Numbers Are
+            </a>
+        </div>
+
+        <div id="curriculumContent">
+            <div style="text-align: center; padding: 60px 20px; color: var(--text-secondary);">
+                <div style="font-size: 3rem; margin-bottom: 20px;">⏳</div>
+                <p>Loading curriculum...</p>
+            </div>
+        </div>
+
+        <div class="reserve-section">
+            <h3>🔮 Reserve Lessons (49-75)</h3>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                27 additional lesson slots reserved for curriculum expansion. These will cover advanced topics, 
+                applications, common misconceptions, and specialized content based on community feedback.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+        </div>
+    </footer>
+
+    <script src="primer-curriculum.js"></script>
+    <script>
+        // Load theme
+        const savedTheme = localStorage.getItem('mathbored-theme');
+        if (savedTheme) {
+            document.body.className = savedTheme;
+        }
+
+        // Update progress display
+        function updateProgress() {
+            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const count = completedLessons.length;
+            const percent = Math.round((count / 48) * 100);
+            
+            document.getElementById('completedCount').textContent = count;
+            document.getElementById('progressPercent').textContent = percent;
+            document.getElementById('progressBar').style.width = percent + '%';
+        }
+
+        // Render curriculum
+        async function renderCurriculum() {
+            await loadPrimerCurriculum();
+            
+            if (!primerCurriculum) {
+                document.getElementById('curriculumContent').innerHTML = `
+                    <div style="text-align: center; padding: 60px 20px;">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">❌</div>
+                        <h2 style="color: var(--error);">Failed to load curriculum</h2>
+                        <p style="color: var(--text-secondary);">Please refresh the page or try again later.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const container = document.getElementById('curriculumContent');
+            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            let html = '';
+
+            primerCurriculum.grade_bands.forEach(band => {
+                html += `
+                    <div class="grade-band">
+                        <div class="band-header">
+                            <div>
+                                <div class="band-title">${band.band}</div>
+                                <div class="band-meta">${band.grade_span} • ${band.lesson_count} lessons</div>
+                            </div>
+                        </div>
+                        <div class="lessons-grid">
+                `;
+
+                band.lessons.forEach(lesson => {
+                    const concepts = lesson.key_concepts.map(c => 
+                        `<span class="concept-tag">${c}</span>`
+                    ).join('');
+                    
+                    const isCompleted = completedLessons.includes(lesson.id);
+                    const completedClass = isCompleted ? 'completed' : '';
+                    
+                    html += `
+                        <div class="lesson-card ${completedClass}" onclick="window.location.href='primer/${lesson.id}.html'">
+                            <span class="lesson-id">${lesson.id} • Lesson ${lesson.sequence}</span>
+                            <div class="lesson-title">${lesson.title}</div>
+                            <div class="lesson-description">${lesson.description}</div>
+                            <div class="lesson-concepts">${concepts}</div>
+                        </div>
+                    `;
+                });
+
+                html += `
+                        </div>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            updateProgress();
+        }
+
+        // Initialize
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', renderCurriculum);
+        } else {
+            renderCurriculum();
+        }
+    </script>
+</body>
+</html>
+
