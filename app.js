@@ -135,6 +135,9 @@ class MathBoredApp {
             this.setupEventListeners();
             console.log('✅ Event listeners set up');
             
+            this.initModeTooltips();
+            console.log('✅ Mode tooltips initialized');
+            
             this.loadTheme();
             console.log('✅ Theme loaded');
             
@@ -143,6 +146,11 @@ class MathBoredApp {
             
             this.updateStatsDisplay();
             console.log('✅ Stats display updated');
+            
+            // Load and display recently viewed
+            const recent = JSON.parse(localStorage.getItem('mathbored-recent') || '[]');
+            this.renderRecentlyViewed(recent);
+            console.log('✅ Recently viewed loaded');
             
             console.log('🎯 MathBored initialized successfully!');
         } catch (error) {
@@ -413,6 +421,51 @@ class MathBoredApp {
         }
     }
     
+    initModeTooltips() {
+        // Check if this is user's first visit
+        const hasSeenTooltips = localStorage.getItem('mathbored-seen-tooltips');
+        
+        if (hasSeenTooltips) return;
+        
+        const modeTooltips = {
+            'lesson': '📝 Read comprehensive explanations and learn new concepts',
+            'walkthrough': '🔍 See problems solved step-by-step with detailed reasoning',
+            'practice': '💪 Test your skills with unlimited practice problems'
+        };
+        
+        const modeTabs = document.querySelectorAll('.mode-tab');
+        
+        // Show tooltips after a brief delay
+        setTimeout(() => {
+            modeTabs.forEach((tab, index) => {
+                const mode = tab.dataset.mode;
+                const tooltip = document.createElement('div');
+                tooltip.className = 'mode-tooltip';
+                tooltip.textContent = modeTooltips[mode];
+                tooltip.style.whiteSpace = 'normal';
+                tooltip.style.maxWidth = '250px';
+                tooltip.style.textAlign = 'center';
+                
+                tab.style.position = 'relative';
+                tab.appendChild(tooltip);
+                
+                // Show with stagger
+                setTimeout(() => {
+                    tooltip.classList.add('show');
+                }, index * 400);
+                
+                // Hide after 4 seconds
+                setTimeout(() => {
+                    tooltip.classList.remove('show');
+                    setTimeout(() => tooltip.remove(), 300);
+                }, 4000 + (index * 400));
+            });
+            
+            // Mark as seen
+            localStorage.setItem('mathbored-seen-tooltips', 'true');
+        }, 1500);
+    }
+    
     setTheme(theme) {
         const themes = ['ocean', 'forest', 'sunset', 'purple', 'light'];
         themes.forEach(t => document.body.classList.remove(`theme-${t}`));
@@ -458,8 +511,17 @@ class MathBoredApp {
                 return;
             }
             
+            // Update label with topic count
+            const topicLabel = document.querySelector('label[for="topicSelect"], .control-group:has(#topicSelect) label');
+            if (topicLabel) {
+                topicLabel.innerHTML = `📖 Topic <span style="opacity: 0.7; font-size: 0.85em; font-weight: 500;">(${topics.length} available)</span>`;
+            }
+            
             console.log('📚 Clearing topic dropdown...');
             topicSelect.innerHTML = '';
+            
+            // Store topics for filtering
+            this.allTopics = topics;
             
             if (topics.length > 0) {
                 console.log('📚 Adding', topics.length, 'options to dropdown...');
@@ -470,6 +532,13 @@ class MathBoredApp {
                     const badge = this.hasComprehensiveLesson(topic.concept) ? '📚 ' : '📝 ';
                     const checkmark = this.isTopicCompleted(topic.concept) ? '✓ ' : '';
                     option.textContent = checkmark + badge + topic.concept;
+                    
+                    // Add description as title attribute for tooltip
+                    const description = this.getTopicDescription(topic.concept, topic.gradeLevel);
+                    if (description) {
+                        option.title = description;
+                    }
+                    
                     topicSelect.appendChild(option);
                     if (index < 3) {
                         console.log(`  Added option ${index + 1}:`, topic.concept);
@@ -506,10 +575,104 @@ class MathBoredApp {
             
             this.render();
             this.updateURL(); // Update URL for SEO-friendly routing
+            this.updateRecentlyViewed(); // Update recently viewed topics
         } catch (error) {
             console.error('❌ ERROR in updateTopics:', error);
             console.error('❌ Error stack:', error.stack);
             this.showError('Error loading topics. Please try refreshing the page.<br><small style="opacity: 0.7;">Error: ' + error.message + '</small>');
+        }
+    }
+    
+    getTopicDescription(topicName, gradeLevel) {
+        // Generate helpful descriptions for topics
+        const descriptions = {
+            'Addition': 'Learn to combine numbers together',
+            'Subtraction': 'Take away one number from another',
+            'Multiplication': 'Repeated addition - faster way to add the same number multiple times',
+            'Division': 'Split numbers into equal groups',
+            'Fractions': 'Parts of a whole number',
+            'Decimals': 'Numbers with decimal points',
+            'Percentages': 'Parts out of 100',
+            'Integers': 'Positive and negative whole numbers',
+            'Pythagorean Theorem': 'Relationship between sides of a right triangle',
+            'Quadratic Equations': 'Equations with x² terms',
+            'Polynomials': 'Expressions with multiple terms',
+            'Trigonometry': 'Study of triangles and angles',
+            'Functions': 'Relationships between inputs and outputs',
+            'Derivatives': 'Rate of change in calculus',
+            'Integrals': 'Area under curves in calculus',
+            'Slope': 'Steepness of a line',
+            'Area and Perimeter': 'Measure space inside and around shapes',
+            'Volume': 'Space inside 3D shapes',
+            'Probability': 'Likelihood of events happening',
+            'Statistics': 'Collecting and analyzing data',
+            'Order of Operations': 'PEMDAS - correct sequence for calculations',
+            'Exponents': 'Numbers raised to powers',
+            'Coordinate Plane': 'Graph with x and y axes',
+            'Ratios and Proportions': 'Comparing quantities',
+            'Prime Numbers': 'Numbers divisible only by 1 and themselves',
+            'Logarithms': 'Inverse of exponential functions',
+            'Matrices': 'Arrays of numbers used in calculations',
+            'Sequences and Series': 'Patterns of numbers',
+            'Complex Numbers': 'Numbers with real and imaginary parts'
+        };
+        
+        return descriptions[topicName] || `Learn ${topicName} concepts for grade ${gradeLevel}`;
+    }
+    
+    filterTopics(searchTerm) {
+        const topicSelect = document.getElementById('topicSelect');
+        if (!topicSelect || !this.allTopics) return;
+        
+        const normalizedSearch = searchTerm.toLowerCase().trim();
+        
+        // Filter topics
+        const filtered = normalizedSearch === '' 
+            ? this.allTopics 
+            : this.allTopics.filter(topic => 
+                topic.concept.toLowerCase().includes(normalizedSearch)
+            );
+        
+        // Update dropdown
+        topicSelect.innerHTML = '';
+        
+        if (filtered.length > 0) {
+            filtered.forEach(topic => {
+                const option = document.createElement('option');
+                option.value = topic.concept;
+                const badge = this.hasComprehensiveLesson(topic.concept) ? '📚 ' : '📝 ';
+                const checkmark = this.isTopicCompleted(topic.concept) ? '✓ ' : '';
+                option.textContent = checkmark + badge + topic.concept;
+                
+                const description = this.getTopicDescription(topic.concept, topic.gradeLevel);
+                if (description) {
+                    option.title = description;
+                }
+                
+                topicSelect.appendChild(option);
+            });
+            
+            // Update count in label
+            const topicLabel = document.querySelector('label[for="topicSelect"], .control-group:has(#topicSelect) label');
+            if (topicLabel) {
+                topicLabel.innerHTML = `📖 Topic <span style="opacity: 0.7; font-size: 0.85em; font-weight: 500;">(${filtered.length} of ${this.allTopics.length})</span>`;
+            }
+            
+            // Select first option
+            if (topicSelect.options.length > 0) {
+                topicSelect.value = topicSelect.options[0].value;
+                this.currentTopic = topicSelect.value;
+            }
+        } else {
+            const option = document.createElement('option');
+            option.value = '';
+            option.textContent = 'No topics found';
+            topicSelect.appendChild(option);
+            
+            const topicLabel = document.querySelector('label[for="topicSelect"], .control-group:has(#topicSelect) label');
+            if (topicLabel) {
+                topicLabel.innerHTML = `📖 Topic <span style="opacity: 0.7; font-size: 0.85em; font-weight: 500;">(0 of ${this.allTopics.length})</span>`;
+            }
         }
     }
     
@@ -20016,6 +20179,81 @@ x+2 | x² + 5x + 6
             localStorage.setItem('mathbored-completed', JSON.stringify(completed));
         } catch (error) {
             console.error('❌ Error saving completed topics:', error);
+        }
+    }
+    
+    // Recently Viewed Topics
+    updateRecentlyViewed() {
+        if (!this.currentTopic) return;
+        
+        try {
+            let recent = JSON.parse(localStorage.getItem('mathbored-recent') || '[]');
+            
+            // Remove if already in list
+            recent = recent.filter(item => item.topic !== this.currentTopic);
+            
+            // Add to front
+            recent.unshift({
+                topic: this.currentTopic,
+                grade: this.currentGrade,
+                timestamp: Date.now()
+            });
+            
+            // Keep only last 5
+            recent = recent.slice(0, 5);
+            
+            localStorage.setItem('mathbored-recent', JSON.stringify(recent));
+            this.renderRecentlyViewed(recent);
+        } catch (error) {
+            console.error('❌ Error updating recently viewed:', error);
+        }
+    }
+    
+    renderRecentlyViewed(recent) {
+        const container = document.getElementById('recentlyViewedContainer');
+        if (!container) return;
+        
+        if (!recent || recent.length === 0) {
+            container.style.display = 'none';
+            return;
+        }
+        
+        container.style.display = 'block';
+        const list = container.querySelector('.recently-viewed-list');
+        if (!list) return;
+        
+        list.innerHTML = recent.map(item => {
+            const badge = this.hasComprehensiveLesson(item.topic) ? '📚' : '📝';
+            const checkmark = this.isTopicCompleted(item.topic) ? '✓ ' : '';
+            return `
+                <button class="recent-topic-btn" onclick="app.loadRecentTopic('${item.topic.replace(/'/g, "\\'")}', '${item.grade}')" title="Grade ${item.grade}">
+                    ${checkmark}${badge} ${item.topic}
+                </button>
+            `;
+        }).join('');
+    }
+    
+    loadRecentTopic(topicName, grade) {
+        const gradeSelect = document.getElementById('gradeSelect');
+        const topicSelect = document.getElementById('topicSelect');
+        
+        if (gradeSelect && grade !== this.currentGrade) {
+            gradeSelect.value = grade;
+            this.currentGrade = grade;
+            this.updateTopics();
+        }
+        
+        if (topicSelect) {
+            topicSelect.value = topicName;
+            this.currentTopic = topicName;
+            this.render();
+            this.updateURL();
+            
+            // Scroll to content
+            const contentArea = document.getElementById('contentArea');
+            if (contentArea) {
+                contentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
     }
     

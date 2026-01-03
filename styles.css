@@ -322,6 +322,143 @@ h1 {
     gap: 10px;
 }
 
+/* Topic Search Input */
+.topic-search-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    margin-bottom: 8px;
+    font-family: inherit;
+}
+
+.topic-search-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.topic-search-input:hover {
+    border-color: var(--accent);
+}
+
+.topic-search-input:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Recently Viewed Topics */
+.recently-viewed-container {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 12px;
+    animation: slideIn 0.3s ease;
+}
+
+.recently-viewed-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.recently-viewed-icon {
+    font-size: 1.1rem;
+}
+
+.recently-viewed-title {
+    flex: 1;
+}
+
+.recently-viewed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.recent-topic-btn {
+    width: 100%;
+    padding: 10px 14px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 40px;
+}
+
+.recent-topic-btn:hover {
+    background: var(--bg-primary);
+    border-color: var(--accent);
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.recent-topic-btn:active {
+    transform: translateX(2px);
+}
+
+/* Mode Tooltips */
+.mode-tooltip {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: var(--bg-primary);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.mode-tooltip.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.mode-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--accent);
+}
+
+.mode-tab-wrapper {
+    position: relative;
+}
+
+.mode-tabs .mode-tab[data-tooltip] {
+    position: relative;
+}
+
 label {
     display: block;
     margin-bottom: 10px;
@@ -871,6 +1008,27 @@ footer {
     
     .controls {
         padding: 20px;
+    }
+    
+    /* Mobile styles for new features */
+    .topic-search-input {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 10px 14px;
+    }
+    
+    .recently-viewed-container {
+        padding: 12px;
+    }
+    
+    .recent-topic-btn {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    .mode-tooltip {
+        max-width: 200px;
+        font-size: 0.8rem;
+        padding: 10px 12px;
     }
 }
 

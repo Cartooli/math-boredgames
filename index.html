@@ -192,8 +192,23 @@
             </div>
 
             <div class="control-group">
-                <label>📖 Topic</label>
+                <label for="topicSelect">📖 Topic</label>
+                <input type="text" 
+                       id="topicSearch" 
+                       placeholder="🔍 Search topics..." 
+                       class="topic-search-input"
+                       oninput="app.filterTopics(this.value)"
+                       aria-label="Search topics">
                 <select id="topicSelect"></select>
+            </div>
+            
+            <!-- Recently Viewed Topics -->
+            <div id="recentlyViewedContainer" class="recently-viewed-container" style="display: none;">
+                <div class="recently-viewed-header">
+                    <span class="recently-viewed-icon">🕒</span>
+                    <span class="recently-viewed-title">Recently Viewed</span>
+                </div>
+                <div class="recently-viewed-list"></div>
             </div>
 
             <div class="control-group">
