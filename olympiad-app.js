@@ -116,7 +116,7 @@ const olympiadApp = {
                             📱 Share
                         </button>
                     ` : ''}
-                    <button class="share-btn twitter" onclick="olympiadApp.shareTwitter()">
+                    <button class="share-btn x" onclick="olympiadApp.shareTwitter()">
                         𝕏 X
                     </button>
                     <button class="share-btn facebook" onclick="olympiadApp.shareFacebook()">
