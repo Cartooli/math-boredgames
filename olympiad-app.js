@@ -117,7 +117,7 @@ const olympiadApp = {
                         </button>
                     ` : ''}
                     <button class="share-btn twitter" onclick="olympiadApp.shareTwitter()">
-                        🐦 Twitter
+                        𝕏 X
                     </button>
                     <button class="share-btn facebook" onclick="olympiadApp.shareFacebook()">
                         👍 Facebook
@@ -416,7 +416,7 @@ const olympiadApp = {
         
         const text = `Check out Math Olympiad Problem #${this.currentQuestion.dayNumber} from ${question.date}!`;
         const url = `${window.location.origin}/olympiad.html?problem=${this.currentQuestion.dayNumber}`;
-        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+        const twitterUrl = `https://x.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
         
         window.open(twitterUrl, '_blank', 'width=550,height=420');
     },
