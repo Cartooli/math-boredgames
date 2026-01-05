@@ -86,9 +86,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Fallback for users without JavaScript -->
+    <noscript>
+        <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #0f172a; color: #f1f5f9; display: flex; align-items: center; justify-content: center; z-index: 99999; padding: 20px;">
+            <div style="max-width: 500px; text-align: center; background: #1e293b; padding: 40px; border-radius: 16px; border: 2px solid #475569;">
+                <div style="font-size: 4rem; margin-bottom: 20px;">⚠️</div>
+                <h2 style="font-size: 2rem; margin-bottom: 20px; color: #3b82f6;">JavaScript Required</h2>
+                <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 20px;">MathBored requires JavaScript to provide an interactive learning experience. Please enable JavaScript in your browser settings to continue.</p>
+                <p style="font-size: 0.9rem; color: #94a3b8;">If you're unsure how to enable JavaScript, search for "enable JavaScript" followed by your browser name (Chrome, Firefox, Safari, etc.).</p>
+            </div>
+        </div>
+    </noscript>
     <!-- Quick Start Modal -->
     <div id="quickStartModal" class="quick-start-modal">
-        <div class="modal-overlay" onclick="quickStartModal.close()" role="button" aria-label="Close modal"></div>
+        <div class="modal-overlay" onclick="quickStartModal.close()" aria-label="Close modal" tabindex="-1"></div>
         <div class="modal-content">
             <button class="modal-close" onclick="quickStartModal.close()" aria-label="Close">&times;</button>
             <div class="modal-hero">
@@ -119,7 +130,7 @@
 
     <!-- Custom Confirmation Modal -->
     <div id="confirmModal" class="confirm-modal">
-        <div class="modal-overlay" onclick="confirmModal.close()"></div>
+        <div class="modal-overlay" onclick="confirmModal.close()" aria-label="Close modal" tabindex="-1"></div>
         <div class="modal-content confirm-modal-content">
             <div class="confirm-icon">⚠️</div>
             <h3 class="confirm-title" id="confirmTitle">Confirm Action</h3>
@@ -173,7 +184,7 @@
     <div class="container">
         <div class="controls">
             <div class="control-group">
-                <label>📚 Grade Level</label>
+                <label for="gradeSelect">📚 Grade Level</label>
                 <select id="gradeSelect">
                     <option value="K">Kindergarten</option>
                     <option value="1">1st Grade</option>
@@ -212,8 +223,8 @@
             </div>
 
             <div class="control-group">
-                <label>🎮 Learning Mode</label>
-                <div class="mode-tabs">
+                <label id="modeLabel">🎮 Learning Mode</label>
+                <div class="mode-tabs" role="group" aria-labelledby="modeLabel">
                     <button class="mode-tab active" data-mode="lesson">📝 Lesson</button>
                     <button class="mode-tab" data-mode="walkthrough">🔍 Walkthrough</button>
                     <button class="mode-tab" data-mode="practice">💪 Practice</button>
@@ -221,8 +232,8 @@
             </div>
 
             <div class="control-group" id="difficultyControl" style="display: none;">
-                <label>⚡ Difficulty Level</label>
-                <div class="mode-tabs">
+                <label id="difficultyLabel">⚡ Difficulty Level</label>
+                <div class="mode-tabs" role="group" aria-labelledby="difficultyLabel">
                     <button class="difficulty-tab" data-difficulty="easy">😊 Easy</button>
                     <button class="difficulty-tab active" data-difficulty="medium">😎 Medium</button>
                     <button class="difficulty-tab" data-difficulty="hard">🔥 Hard</button>
@@ -232,15 +243,15 @@
             <div class="stats-panel">
                 <div class="stat-item">
                     <span class="stat-label">Streak</span>
-                    <span class="stat-value" id="streakCount">0</span>
+                    <span class="stat-value" id="streakCount" aria-live="polite" aria-atomic="true">0</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-label">Score</span>
-                    <span class="stat-value" id="scoreCount">0</span>
+                    <span class="stat-value" id="scoreCount" aria-live="polite" aria-atomic="true">0</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-label">Accuracy</span>
-                    <span class="stat-value" id="accuracyPercent">--%</span>
+                    <span class="stat-value" id="accuracyPercent" aria-live="polite" aria-atomic="true">--%</span>
                 </div>
                 <button class="share-btn" id="shareBtn" onclick="app.shareStats()" title="Share your progress">
                     📤 Share Progress
@@ -272,7 +283,7 @@
             </ol>
         </nav>
 
-        <div class="content-area" id="contentArea">
+        <div class="content-area" id="contentArea" role="main" aria-live="polite">
             <!-- Content loads here dynamically -->
         </div>
     </div>
@@ -355,6 +366,16 @@
                 // Then add show class for transition
                 modal.classList.add('show');
                 document.body.style.overflow = 'hidden';
+                
+                // Focus trap: focus first interactive element
+                setTimeout(() => {
+                    const focusableElements = modal.querySelectorAll(
+                        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                    );
+                    if (focusableElements.length > 0) {
+                        focusableElements[0].focus();
+                    }
+                }, 100);
             }
         },
         
@@ -437,6 +458,14 @@
                 modal.style.zIndex = '10002';
                 modal.classList.add('show');
                 document.body.style.overflow = 'hidden';
+                
+                // Focus trap: focus the confirm button
+                setTimeout(() => {
+                    const confirmBtn = document.getElementById('confirmOk');
+                    if (confirmBtn) {
+                        confirmBtn.focus();
+                    }
+                }, 100);
                 
                 console.log('✅ Confirmation modal shown');
             } else {
@@ -768,12 +797,15 @@
                                    class="assessment-answer-input" 
                                    id="assessmentAnswerInput" 
                                    placeholder="Your answer"
+                                   inputmode="decimal"
+                                   autocomplete="off"
+                                   aria-label="Your answer to the question"
                                    onkeypress="if(event.key==='Enter') assessmentMode.submitAnswer()">
                             <button class="assessment-submit" onclick="assessmentMode.submitAnswer()">
                                 Submit Answer →
                             </button>
                         </div>
-                        <div id="assessmentFeedback"></div>
+                        <div id="assessmentFeedback" role="alert" aria-live="assertive"></div>
                     </div>
                 `;
                 
@@ -1007,11 +1039,11 @@
                     return;
                 }
                 
-                // Exit assessment on Escape (without confirmation for better UX)
+                // Exit assessment on Escape with confirmation (consistent with exit button)
                 const assessment = document.getElementById('assessmentMode');
                 if (assessment && assessment.classList.contains('active')) {
-                    // Exit assessment on Escape - users can retake if needed
-                    assessmentMode.closeAssessment();
+                    // Use exit() method to show confirmation dialog
+                    assessmentMode.exit();
                 }
             }
         });
