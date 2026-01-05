@@ -63,6 +63,10 @@
             margin: 40px 0;
             color: var(--accent);
             font-weight: 700;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .demo-input-group {
@@ -84,6 +88,13 @@
             font-size: 1.5rem;
             text-align: center;
             font-weight: 600;
+            font-size: 16px; /* Prevents zoom on iOS */
+        }
+        
+        .demo-input-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
         
         .demo-input-group button {
@@ -127,6 +138,17 @@
             border: 3px solid var(--error);
             display: block;
             animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         
         .cta-section {
@@ -302,6 +324,8 @@
                     const b = Math.floor(Math.random() * 20) + 1;
                     document.getElementById('demoProblem').textContent = `${a} + ${b} = ?`;
                     input.value = '';
+                    feedback.textContent = '';
+                    feedback.className = 'demo-feedback';
                     feedback.style.display = 'none';
                     input.focus();
                 }, 2000);
@@ -327,4 +351,5 @@
     </script>
 </body>
 </html>
+
 
