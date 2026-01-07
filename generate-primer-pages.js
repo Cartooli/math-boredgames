@@ -146,13 +146,68 @@ function generateLessonPage(lesson, allLessons) {
         </div>
     `;
 
+    const pageUrl = `https://math.boredgames.site/primer/${lesson.id}.html`;
+    const pageTitle = `${lesson.title} - Essential Math Primer | MathBored`;
+    const pageDescription = lesson.description;
+    const imageUrl = "https://math.boredgames.site/og-image.png";
+    
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${lesson.title} - Essential Math Primer | MathBored</title>
-    <meta name="description" content="${lesson.description}">
+    <title>${pageTitle}</title>
+    <meta name="description" content="${pageDescription}">
+    <meta name="keywords" content="math, education, learning, ${lesson.grade_band}, ${lesson.key_concepts.join(', ')}, K-12, free">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="${pageUrl}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="${pageUrl}">
+    <meta property="og:title" content="${pageTitle}">
+    <meta property="og:description" content="${pageDescription}">
+    <meta property="og:image" content="${imageUrl}">
+    <meta property="og:site_name" content="MathBored">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="${pageUrl}">
+    <meta property="twitter:title" content="${pageTitle}">
+    <meta property="twitter:description" content="${pageDescription}">
+    <meta property="twitter:image" content="${imageUrl}">
+    
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "${lesson.title}",
+        "description": "${pageDescription}",
+        "provider": {
+            "@type": "Organization",
+            "name": "MathBored",
+            "url": "https://math.boredgames.site"
+        },
+        "educationalLevel": "${lesson.grade_span}",
+        "learningResourceType": "Lesson",
+        "timeRequired": "PT15M",
+        "inLanguage": "en",
+        "isPartOf": {
+            "@type": "Course",
+            "name": "Essential Math Primer",
+            "url": "https://math.boredgames.site/primer.html"
+        },
+        "hasCourseInstance": {
+            "@type": "CourseInstance",
+            "courseMode": "online",
+            "courseWorkload": "PT15M"
+        }${lesson.key_concepts.length > 0 ? `,
+        "teaches": ${JSON.stringify(lesson.key_concepts)}` : ''}
+    }
+    </script>
+    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>

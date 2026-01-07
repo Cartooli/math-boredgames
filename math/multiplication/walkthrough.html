@@ -180,7 +180,41 @@
             margin-bottom: 0.5rem;
         }
     </style>
-</head>
+
+    <!-- Breadcrumb Schema (JSON-LD) for Rich Snippets -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://math.boredgames.site/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "3rd Grade",
+            "item": "https://math.boredgames.site/grade/3.html"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Multiplication",
+            "item": "https://math.boredgames.site/math/multiplication/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Walkthrough",
+            "item": "https://math.boredgames.site/math/multiplication/walkthrough.html"
+        }
+    ]
+}
+    </script>
+    </head>
 <body>
     <!-- SEO-friendly content (visible to search engines, hidden from users who have JS) -->
     <div class="seo-loading" id="seoContent">

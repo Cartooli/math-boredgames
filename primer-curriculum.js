@@ -95,3 +95,12 @@ window.getProgressPercentage = getProgressPercentage;
 window.markLessonComplete = markLessonComplete;
 window.isLessonComplete = isLessonComplete;
 
+
+
+
+
+
+
+
+
+
