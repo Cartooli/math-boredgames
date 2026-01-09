@@ -20,8 +20,13 @@ class MathBoredApp {
         // Completion tracking
         this.completedTopics = new Set();
         
+        // Timed mode tracking
+        this.timedMode = null;
+        this.timerInterval = null;
+        
         this.loadStats();
         this.loadCompletedTopics();
+        this.initAchievements();
         this.init();
     }
     
@@ -20041,12 +20046,23 @@ x+2 | x² + 5x + 6
         
         this.stats.totalAttempts++;
         
+        // Track timed mode progress
+        if (this.timedMode?.active && !this.timedMode.paused) {
+            this.timedMode.problemsAttempted++;
+            if (isCorrect) {
+                this.timedMode.correctAnswers++;
+            }
+        }
+        
         if (isCorrect) {
             this.stats.correctAnswers++;
             this.stats.streak++;
             this.stats.score += 10;
             this.saveStats();
             this.updateStatsDisplay();
+            
+            // Check achievements after correct answer
+            this.checkAchievements();
             
             // Dispatch event for widget tracking
             document.dispatchEvent(new CustomEvent('correctAnswer', {
@@ -20374,6 +20390,529 @@ math.boredgames.site`;
             shareBtn.style.background = '';
             shareBtn.disabled = false;
         }
+    }
+    
+    // ====================================
+    // FEATURE 1: Export/Import Progress
+    // ====================================
+    exportProgress() {
+        const data = {
+            version: '2.0.0',
+            stats: this.stats,
+            completedTopics: Array.from(this.completedTopics),
+            currentGrade: this.currentGrade,
+            difficulty: this.difficulty,
+            theme: localStorage.getItem('mathbored-theme') || '',
+            achievements: JSON.parse(localStorage.getItem('achievements') || '[]'),
+            exportDate: new Date().toISOString(),
+            exportTimestamp: Date.now()
+        };
+        
+        const json = JSON.stringify(data, null, 2);
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `mathbored-backup-${new Date().toISOString().split('T')[0]}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        this.showToast('📥 Progress exported successfully!', 'success');
+    }
+    
+    importProgress() {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.json';
+        input.style.display = 'none';
+        
+        input.onchange = (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                try {
+                    const data = JSON.parse(event.target.result);
+                    
+                    // Validate data structure
+                    if (!data.stats || !data.version) {
+                        throw new Error('Invalid backup file');
+                    }
+                    
+                    // Import data
+                    this.stats = data.stats;
+                    this.completedTopics = new Set(data.completedTopics || []);
+                    this.currentGrade = data.currentGrade || '5';
+                    this.difficulty = data.difficulty || 'medium';
+                    
+                    // Save to localStorage
+                    this.saveStats();
+                    this.saveCompletedTopics();
+                    
+                    if (data.theme) {
+                        localStorage.setItem('mathbored-theme', data.theme);
+                        document.body.className = data.theme;
+                    }
+                    
+                    if (data.achievements) {
+                        localStorage.setItem('achievements', JSON.stringify(data.achievements));
+                    }
+                    
+                    // Update UI
+                    this.updateStatsDisplay();
+                    document.getElementById('gradeSelect').value = this.currentGrade;
+                    this.updateTopics();
+                    
+                    this.showToast('📤 Progress imported successfully!', 'success');
+                    
+                    // Refresh page to ensure everything is in sync
+                    setTimeout(() => window.location.reload(), 1500);
+                } catch (err) {
+                    console.error('Import error:', err);
+                    this.showToast('❌ Invalid backup file', 'error');
+                }
+            };
+            reader.readAsText(file);
+        };
+        
+        document.body.appendChild(input);
+        input.click();
+        document.body.removeChild(input);
+    }
+    
+    // ====================================
+    // FEATURE 2: Print Worksheet Function
+    // ====================================
+    printWorksheet() {
+        // Set data attributes for print header
+        const contentArea = document.getElementById('contentArea');
+        if (contentArea) {
+            contentArea.setAttribute('data-topic', this.currentTopic || 'Practice');
+            contentArea.setAttribute('data-grade', `Grade ${this.currentGrade}`);
+        }
+        
+        this.showToast('🖨️ Preparing worksheet for printing...', 'info');
+        
+        // Small delay to show toast
+        setTimeout(() => {
+            window.print();
+        }, 500);
+    }
+    
+    // ====================================
+    // FEATURE 3: Timed Challenge Mode
+    // ====================================
+    startTimedChallenge(duration = 300) { // 5 minutes default
+        if (this.currentMode !== 'practice') {
+            this.showToast('⏱️ Timed challenges only work in Practice mode', 'warning');
+            return;
+        }
+        
+        this.timedMode = {
+            active: true,
+            startTime: Date.now(),
+            duration: duration * 1000, // Convert to milliseconds
+            problemsAttempted: 0,
+            correctAnswers: 0,
+            paused: false
+        };
+        
+        // Create timer UI
+        this.createTimerUI();
+        this.updateTimerDisplay();
+        this.timerInterval = setInterval(() => this.updateTimerDisplay(), 100);
+        
+        this.showToast('⏱️ Timed challenge started! Good luck!', 'success');
+    }
+    
+    createTimerUI() {
+        const existing = document.getElementById('timerDisplay');
+        if (existing) return;
+        
+        const timerDiv = document.createElement('div');
+        timerDiv.id = 'timerDisplay';
+        timerDiv.className = 'timer-display';
+        timerDiv.innerHTML = `
+            <div class="timer-content">
+                <div class="timer-icon">⏱️</div>
+                <div class="timer-time" id="timerTime">5:00</div>
+                <div class="timer-stats">
+                    <span id="timerProblems">0 problems</span>
+                    <span id="timerAccuracy">0% accuracy</span>
+                </div>
+                <button onclick="app.pauseTimedChallenge()" class="timer-pause-btn" id="timerPauseBtn">⏸️ Pause</button>
+                <button onclick="app.endTimedChallenge()" class="timer-end-btn">🛑 End</button>
+            </div>
+        `;
+        
+        document.body.appendChild(timerDiv);
+    }
+    
+    updateTimerDisplay() {
+        if (!this.timedMode?.active || this.timedMode.paused) return;
+        
+        const elapsed = Date.now() - this.timedMode.startTime;
+        const remaining = Math.max(0, this.timedMode.duration - elapsed);
+        
+        if (remaining === 0) {
+            this.endTimedChallenge(true);
+            return;
+        }
+        
+        const minutes = Math.floor(remaining / 60000);
+        const seconds = Math.floor((remaining % 60000) / 1000);
+        const timeStr = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        
+        const timeDisplay = document.getElementById('timerTime');
+        const problemsDisplay = document.getElementById('timerProblems');
+        const accuracyDisplay = document.getElementById('timerAccuracy');
+        
+        if (timeDisplay) timeDisplay.textContent = timeStr;
+        if (problemsDisplay) problemsDisplay.textContent = `${this.timedMode.problemsAttempted} problems`;
+        if (accuracyDisplay) {
+            const accuracy = this.timedMode.problemsAttempted > 0 
+                ? Math.round((this.timedMode.correctAnswers / this.timedMode.problemsAttempted) * 100)
+                : 0;
+            accuracyDisplay.textContent = `${accuracy}% accuracy`;
+        }
+        
+        // Change color when time is running out
+        if (remaining < 30000) { // Last 30 seconds
+            if (timeDisplay) {
+                timeDisplay.style.color = '#ef4444';
+                timeDisplay.style.animation = 'pulse 1s ease-in-out infinite';
+            }
+        }
+    }
+    
+    pauseTimedChallenge() {
+        if (!this.timedMode?.active) return;
+        
+        this.timedMode.paused = !this.timedMode.paused;
+        const pauseBtn = document.getElementById('timerPauseBtn');
+        
+        if (this.timedMode.paused) {
+            this.timedMode.pauseTime = Date.now();
+            clearInterval(this.timerInterval);
+            if (pauseBtn) pauseBtn.innerHTML = '▶️ Resume';
+            this.showToast('⏸️ Challenge paused', 'info');
+        } else {
+            const pauseDuration = Date.now() - this.timedMode.pauseTime;
+            this.timedMode.startTime += pauseDuration;
+            this.timerInterval = setInterval(() => this.updateTimerDisplay(), 100);
+            if (pauseBtn) pauseBtn.innerHTML = '⏸️ Pause';
+            this.showToast('▶️ Challenge resumed', 'info');
+        }
+    }
+    
+    endTimedChallenge(completed = false) {
+        if (!this.timedMode?.active) return;
+        
+        clearInterval(this.timerInterval);
+        
+        const results = {
+            duration: Math.round((Date.now() - this.timedMode.startTime) / 1000),
+            attempted: this.timedMode.problemsAttempted,
+            correct: this.timedMode.correctAnswers,
+            accuracy: this.timedMode.problemsAttempted > 0 
+                ? Math.round((this.timedMode.correctAnswers / this.timedMode.problemsAttempted) * 100)
+                : 0
+        };
+        
+        // Remove timer UI
+        const timerDisplay = document.getElementById('timerDisplay');
+        if (timerDisplay) timerDisplay.remove();
+        
+        this.timedMode.active = false;
+        this.timedMode = null;
+        
+        // Show results
+        this.showTimedChallengeResults(results, completed);
+    }
+    
+    showTimedChallengeResults(results, completed) {
+        const message = completed ? '⏰ Time\'s Up!' : '🏁 Challenge Ended';
+        const emoji = results.accuracy >= 90 ? '🏆' : results.accuracy >= 70 ? '⭐' : '💪';
+        
+        const resultHTML = `
+            <div class="timed-results">
+                <div class="result-emoji">${emoji}</div>
+                <h2>${message}</h2>
+                <div class="result-stats">
+                    <div class="result-stat">
+                        <div class="stat-value">${results.attempted}</div>
+                        <div class="stat-label">Problems Attempted</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="stat-value">${results.correct}</div>
+                        <div class="stat-label">Correct Answers</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="stat-value">${results.accuracy}%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                </div>
+                <div class="result-message">
+                    ${results.accuracy >= 90 ? 'Outstanding performance! 🎉' : 
+                      results.accuracy >= 70 ? 'Great job! Keep practicing! 👏' : 
+                      'Good effort! Practice makes perfect! 💪'}
+                </div>
+                <button onclick="app.updateContent()" class="btn-submit" style="margin-top: 30px;">
+                    ← Back to Practice
+                </button>
+            </div>
+        `;
+        
+        const contentArea = document.getElementById('contentArea');
+        if (contentArea) {
+            contentArea.innerHTML = resultHTML;
+        }
+        
+        // Check achievements after timed challenge
+        this.checkAchievements();
+    }
+    
+    // ====================================
+    // FEATURE 4: Achievement System
+    // ====================================
+    initAchievements() {
+        this.achievements = this.getAchievementDefinitions();
+        this.unlockedAchievements = JSON.parse(localStorage.getItem('achievements') || '[]');
+    }
+    
+    getAchievementDefinitions() {
+        return {
+            'first_problem': {
+                id: 'first_problem',
+                name: '🎯 First Step',
+                desc: 'Solved your first problem',
+                icon: '🎯',
+                condition: () => this.stats.totalAttempts >= 1
+            },
+            'streak_5': {
+                id: 'streak_5',
+                name: '🔥 Hot Streak',
+                desc: '5 correct answers in a row',
+                icon: '🔥',
+                condition: () => this.stats.streak >= 5
+            },
+            'streak_10': {
+                id: 'streak_10',
+                name: '⚡ Lightning Strike',
+                desc: '10 correct answers in a row',
+                icon: '⚡',
+                condition: () => this.stats.streak >= 10
+            },
+            'streak_25': {
+                id: 'streak_25',
+                name: '🌟 Unstoppable',
+                desc: '25 correct answers in a row',
+                icon: '🌟',
+                condition: () => this.stats.streak >= 25
+            },
+            'accuracy_90': {
+                id: 'accuracy_90',
+                name: '⭐ Accuracy Master',
+                desc: 'Maintained 90%+ accuracy (min 20 problems)',
+                icon: '⭐',
+                condition: () => this.stats.totalAttempts >= 20 && 
+                                  (this.stats.correctAnswers / this.stats.totalAttempts) >= 0.9
+            },
+            'hundred_problems': {
+                id: 'hundred_problems',
+                name: '💯 Century Club',
+                desc: 'Solved 100 problems',
+                icon: '💯',
+                condition: () => this.stats.totalAttempts >= 100
+            },
+            'five_hundred_problems': {
+                id: 'five_hundred_problems',
+                name: '🎖️ Math Warrior',
+                desc: 'Solved 500 problems',
+                icon: '🎖️',
+                condition: () => this.stats.totalAttempts >= 500
+            },
+            'score_1000': {
+                id: 'score_1000',
+                name: '🏆 Score Champion',
+                desc: 'Reached 1000 points',
+                icon: '🏆',
+                condition: () => this.stats.score >= 1000
+            },
+            'perfect_ten': {
+                id: 'perfect_ten',
+                name: '✨ Perfect Ten',
+                desc: 'Got 10 problems correct in a row',
+                icon: '✨',
+                condition: () => this.stats.streak >= 10
+            },
+            'topic_master': {
+                id: 'topic_master',
+                name: '📚 Topic Master',
+                desc: 'Completed lessons in 5 different topics',
+                icon: '📚',
+                condition: () => this.completedTopics.size >= 5
+            },
+            'dedicated_learner': {
+                id: 'dedicated_learner',
+                name: '🎓 Dedicated Learner',
+                desc: 'Completed lessons in 10 different topics',
+                icon: '🎓',
+                condition: () => this.completedTopics.size >= 10
+            },
+            'early_bird': {
+                id: 'early_bird',
+                name: '🌅 Early Bird',
+                desc: 'Practiced before 8 AM',
+                icon: '🌅',
+                condition: () => new Date().getHours() < 8
+            },
+            'night_owl': {
+                id: 'night_owl',
+                name: '🦉 Night Owl',
+                desc: 'Practiced after 10 PM',
+                icon: '🦉',
+                condition: () => new Date().getHours() >= 22
+            }
+        };
+    }
+    
+    checkAchievements() {
+        if (!this.achievements) this.initAchievements();
+        
+        Object.values(this.achievements).forEach(achievement => {
+            if (achievement.condition() && !this.hasAchievement(achievement.id)) {
+                this.unlockAchievement(achievement);
+            }
+        });
+    }
+    
+    hasAchievement(achievementId) {
+        return this.unlockedAchievements.some(a => a.id === achievementId);
+    }
+    
+    unlockAchievement(achievement) {
+        const unlocked = {
+            ...achievement,
+            unlockedAt: new Date().toISOString(),
+            timestamp: Date.now()
+        };
+        
+        this.unlockedAchievements.push(unlocked);
+        localStorage.setItem('achievements', JSON.stringify(this.unlockedAchievements));
+        
+        // Show achievement toast
+        this.showAchievementToast(achievement);
+        
+        // Trigger confetti effect
+        this.triggerConfetti();
+    }
+    
+    showAchievementToast(achievement) {
+        const toast = document.createElement('div');
+        toast.className = 'achievement-toast';
+        toast.innerHTML = `
+            <div class="achievement-icon">${achievement.icon}</div>
+            <div class="achievement-content">
+                <div class="achievement-title">Achievement Unlocked!</div>
+                <div class="achievement-name">${achievement.name}</div>
+                <div class="achievement-desc">${achievement.desc}</div>
+            </div>
+        `;
+        
+        document.body.appendChild(toast);
+        
+        // Animate in
+        setTimeout(() => toast.classList.add('show'), 100);
+        
+        // Remove after 5 seconds
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 500);
+        }, 5000);
+    }
+    
+    viewAchievements() {
+        if (!this.achievements) this.initAchievements();
+        
+        const allAchievements = Object.values(this.achievements);
+        const unlocked = this.unlockedAchievements;
+        
+        const achievementHTML = `
+            <div class="achievements-container">
+                <h2 style="text-align: center; margin-bottom: 30px;">
+                    🏆 Achievements
+                    <span style="color: var(--text-secondary); font-size: 1rem; display: block; margin-top: 8px;">
+                        ${unlocked.length} of ${allAchievements.length} unlocked
+                    </span>
+                </h2>
+                <div class="achievements-grid">
+                    ${allAchievements.map(achievement => {
+                        const isUnlocked = this.hasAchievement(achievement.id);
+                        const unlockedData = unlocked.find(a => a.id === achievement.id);
+                        return `
+                            <div class="achievement-card ${isUnlocked ? 'unlocked' : 'locked'}">
+                                <div class="achievement-card-icon">${achievement.icon}</div>
+                                <div class="achievement-card-name">${achievement.name}</div>
+                                <div class="achievement-card-desc">${achievement.desc}</div>
+                                ${isUnlocked ? `
+                                    <div class="achievement-unlocked-date">
+                                        Unlocked ${new Date(unlockedData.unlockedAt).toLocaleDateString()}
+                                    </div>
+                                ` : '<div class="achievement-locked-overlay">🔒</div>'}
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+                <button onclick="app.updateContent()" class="btn-submit" style="margin-top: 30px;">
+                    ← Back to Learning
+                </button>
+            </div>
+        `;
+        
+        const contentArea = document.getElementById('contentArea');
+        if (contentArea) {
+            contentArea.innerHTML = achievementHTML;
+        }
+    }
+    
+    triggerConfetti() {
+        // Simple confetti effect using emoji
+        for (let i = 0; i < 20; i++) {
+            setTimeout(() => {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.textContent = ['🎉', '⭐', '✨', '🌟', '💫'][Math.floor(Math.random() * 5)];
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                document.body.appendChild(confetti);
+                
+                setTimeout(() => confetti.remove(), 4000);
+            }, i * 50);
+        }
+    }
+    
+    // ====================================
+    // TOAST NOTIFICATION SYSTEM
+    // ====================================
+    showToast(message, type = 'info') {
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${type}`;
+        toast.textContent = message;
+        
+        document.body.appendChild(toast);
+        
+        // Animate in
+        setTimeout(() => toast.classList.add('show'), 100);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
     }
 }
 
