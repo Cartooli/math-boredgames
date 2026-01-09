@@ -24,6 +24,10 @@ class MathBoredApp {
         this.timedMode = null;
         this.timerInterval = null;
         
+        // Hint system tracking
+        this.currentHintLevel = 0;
+        this.problemHints = [];
+        
         this.loadStats();
         this.loadCompletedTopics();
         this.initAchievements();
@@ -16930,6 +16934,8 @@ x+2 | x² + 5x + 6
     
     renderPractice(container) {
         this.generateProblem();
+        this.currentHintLevel = 0; // Reset hint level for new problem
+        this.problemHints = this.getHintsForCurrentProblem();
         
         container.innerHTML = `
             <div class="lesson-content">
@@ -16939,9 +16945,9 @@ x+2 | x² + 5x + 6
                     <input type="text" id="answerInput" placeholder="Your answer" 
                            onkeypress="if(event.key==='Enter') app.checkAnswer()">
                     <button class="btn-submit" onclick="app.checkAnswer()">Submit</button>
-                    <button class="btn-hint" onclick="app.showHint()" style="margin-left: 10px;">💡 Show Hint</button>
+                    <button class="btn-hint" onclick="app.showNextHint()" id="hintButton">💡 Need a Hint?</button>
                 </div>
-                <div id="hintArea" style="display: none; margin-top: 20px;"></div>
+                <div id="hintArea" class="hint-area"></div>
                 <div id="feedback"></div>
             </div>
         `;
@@ -20893,6 +20899,560 @@ math.boredgames.site`;
                 setTimeout(() => confetti.remove(), 4000);
             }, i * 50);
         }
+    }
+    
+    // ====================================
+    // FEATURE 5: Progressive Hint System
+    // ====================================
+    getHintsForCurrentProblem() {
+        if (!this.currentTopic) return ['Try breaking the problem into smaller steps.'];
+        
+        const hintDatabase = {
+            "Addition": [
+                "💡 Start with the first number",
+                "💡 Count up from that number",
+                "💡 You can use your fingers or draw circles to help visualize"
+            ],
+            "Subtraction": [
+                "💡 Start with the larger number",
+                "💡 Count backwards or take away",
+                "💡 Think of it as finding the difference between two numbers"
+            ],
+            "Multiplication": [
+                "💡 Multiplication is repeated addition",
+                "💡 Think: how many groups of the second number?",
+                "💡 Try using the times table or skip counting"
+            ],
+            "Division": [
+                "💡 Division asks: how many times does one number fit into another?",
+                "💡 Think about equal groups or sharing evenly",
+                "💡 You can use multiplication facts backwards"
+            ],
+            "Fractions": [
+                "💡 The bottom number (denominator) tells you how many parts total",
+                "💡 The top number (numerator) tells you how many parts you have",
+                "💡 Find a common denominator to add or subtract fractions"
+            ],
+            "Decimals": [
+                "💡 Line up the decimal points",
+                "💡 Treat it like whole numbers, but keep track of the decimal",
+                "💡 Count the decimal places in your answer"
+            ],
+            "Percentages": [
+                "💡 Percent means 'out of 100'",
+                "💡 Convert the percentage to a decimal by dividing by 100",
+                "💡 Then multiply by the number you're finding the percentage of"
+            ],
+            "Integers": [
+                "💡 Think of a number line with negatives on the left",
+                "💡 Adding a negative is the same as subtracting",
+                "💡 Two negatives make a positive when multiplying"
+            ],
+            "Order of Operations": [
+                "💡 Remember PEMDAS: Parentheses, Exponents, Multiply/Divide, Add/Subtract",
+                "💡 Do operations inside parentheses first",
+                "💡 Work from left to right for operations of equal priority"
+            ],
+            "Pythagorean Theorem": [
+                "💡 The formula is a² + b² = c²",
+                "💡 c is always the hypotenuse (longest side)",
+                "💡 Square the two shorter sides, add them, then take the square root"
+            ],
+            "Quadratic Equations": [
+                "💡 Standard form is ax² + bx + c = 0",
+                "💡 Try factoring first if possible",
+                "💡 Use the quadratic formula: x = (-b ± √(b²-4ac)) / 2a"
+            ],
+            "Slope": [
+                "💡 Slope = rise over run = change in y / change in x",
+                "💡 Find the difference between y-coordinates",
+                "💡 Then divide by the difference between x-coordinates"
+            ],
+            "Area": [
+                "💡 Area is the space inside a shape",
+                "💡 For rectangles: length × width",
+                "💡 For triangles: ½ × base × height"
+            ],
+            "Volume": [
+                "💡 Volume is the space inside a 3D object",
+                "💡 For rectangular prisms: length × width × height",
+                "💡 For cylinders: π × radius² × height"
+            ],
+            "Exponents": [
+                "💡 An exponent tells you how many times to multiply the base by itself",
+                "💡 2³ means 2 × 2 × 2 = 8",
+                "💡 Any number to the power of 0 equals 1"
+            ],
+            "Logarithms": [
+                "💡 A logarithm asks: 'what power do I need?'",
+                "💡 log₁₀(100) asks: '10 to what power equals 100?'",
+                "💡 Logarithms are the inverse of exponents"
+            ],
+            "Trigonometry": [
+                "💡 Remember SOH-CAH-TOA",
+                "💡 Sin = Opposite / Hypotenuse",
+                "💡 Cos = Adjacent / Hypotenuse",
+                "💡 Tan = Opposite / Adjacent"
+            ],
+            "Derivatives": [
+                "💡 A derivative measures the rate of change",
+                "💡 Power rule: bring down the exponent, reduce exponent by 1",
+                "💡 For x^n, the derivative is n×x^(n-1)"
+            ],
+            "Integrals": [
+                "💡 Integration is the reverse of differentiation",
+                "💡 Add 1 to the exponent, divide by the new exponent",
+                "💡 Don't forget the + C constant of integration"
+            ],
+            "Polynomials": [
+                "💡 Combine like terms (same variable and exponent)",
+                "💡 When multiplying, multiply coefficients and add exponents",
+                "💡 Use FOIL for binomials: First, Outer, Inner, Last"
+            ],
+            "Factoring": [
+                "💡 Look for common factors first",
+                "💡 For trinomials, find two numbers that multiply to c and add to b",
+                "💡 Check if it's a difference of squares: a² - b² = (a+b)(a-b)"
+            ],
+            "Functions": [
+                "💡 A function is a rule that assigns each input exactly one output",
+                "💡 f(x) means 'function of x'",
+                "💡 Substitute the given value for x in the expression"
+            ],
+            "Probability": [
+                "💡 Probability = (favorable outcomes) / (total possible outcomes)",
+                "💡 Probabilities range from 0 (impossible) to 1 (certain)",
+                "💡 For independent events, multiply probabilities"
+            ],
+            "Statistics": [
+                "💡 Mean is the average: add all numbers and divide by count",
+                "💡 Median is the middle value when ordered",
+                "💡 Mode is the most frequent value"
+            ],
+            "Ratios and Proportions": [
+                "💡 A ratio compares two quantities",
+                "💡 Set up a proportion: a/b = c/d",
+                "💡 Cross-multiply to solve: a×d = b×c"
+            ],
+            "Coordinate Plane": [
+                "💡 Points are written as (x, y)",
+                "💡 x is horizontal (left/right), y is vertical (up/down)",
+                "💡 The origin is (0, 0)"
+            ]
+        };
+        
+        // Get hints for current topic, or use generic hints
+        return hintDatabase[this.currentTopic] || [
+            "💡 Break the problem down into smaller steps",
+            "💡 Write down what you know and what you need to find",
+            "💡 Try drawing a picture or diagram to visualize the problem"
+        ];
+    }
+    
+    showNextHint() {
+        if (!this.problemHints || this.problemHints.length === 0) {
+            this.showToast('No hints available for this problem', 'info');
+            return;
+        }
+        
+        const hintArea = document.getElementById('hintArea');
+        const hintButton = document.getElementById('hintButton');
+        
+        if (this.currentHintLevel >= this.problemHints.length) {
+            this.showToast('No more hints available!', 'info');
+            return;
+        }
+        
+        // Show current hint
+        const hint = this.problemHints[this.currentHintLevel];
+        const hintDiv = document.createElement('div');
+        hintDiv.className = 'hint-item';
+        hintDiv.innerHTML = `
+            <div class="hint-number">Hint ${this.currentHintLevel + 1}</div>
+            <div class="hint-text">${hint}</div>
+        `;
+        
+        hintArea.appendChild(hintDiv);
+        hintArea.style.display = 'block';
+        
+        // Animate in
+        setTimeout(() => hintDiv.classList.add('show'), 50);
+        
+        this.currentHintLevel++;
+        
+        // Update button text
+        if (this.currentHintLevel < this.problemHints.length) {
+            hintButton.innerHTML = `💡 Show Next Hint (${this.currentHintLevel}/${this.problemHints.length})`;
+        } else {
+            hintButton.innerHTML = '✓ All Hints Shown';
+            hintButton.disabled = true;
+            hintButton.style.opacity = '0.5';
+        }
+    }
+    
+    // ====================================
+    // FEATURE 6: Enhanced Topic Search
+    // ====================================
+    enhancedFilterTopics(searchTerm) {
+        const topicSelect = document.getElementById('topicSelect');
+        const searchInput = document.getElementById('topicSearch');
+        const clearBtn = document.getElementById('searchClearBtn');
+        
+        if (!topicSelect) return;
+        
+        searchTerm = searchTerm.toLowerCase().trim();
+        
+        // Show/hide clear button
+        if (clearBtn) {
+            clearBtn.classList.toggle('visible', searchTerm.length > 0);
+        }
+        
+        let visibleCount = 0;
+        const allOptions = Array.from(topicSelect.options);
+        
+        allOptions.forEach(option => {
+            const text = option.textContent.toLowerCase();
+            const matches = text.includes(searchTerm);
+            option.style.display = matches ? '' : 'none';
+            if (matches) visibleCount++;
+        });
+        
+        // Update results info
+        const resultsInfo = document.getElementById('searchResultsInfo');
+        if (resultsInfo) {
+            if (searchTerm) {
+                resultsInfo.textContent = `${visibleCount} topic${visibleCount !== 1 ? 's' : ''} found`;
+                resultsInfo.style.display = 'block';
+            } else {
+                resultsInfo.style.display = 'none';
+            }
+        }
+        
+        // Show "no results" message if needed
+        const noResultsMsg = document.getElementById('noResultsMessage');
+        if (visibleCount === 0 && searchTerm) {
+            if (!noResultsMsg) {
+                const msg = document.createElement('div');
+                msg.id = 'noResultsMessage';
+                msg.className = 'no-results-message';
+                msg.textContent = `No topics found for "${searchTerm}". Try a different search term.`;
+                topicSelect.parentNode.appendChild(msg);
+            }
+        } else if (noResultsMsg) {
+            noResultsMsg.remove();
+        }
+    }
+    
+    clearTopicSearch() {
+        const searchInput = document.getElementById('topicSearch');
+        if (searchInput) {
+            searchInput.value = '';
+            this.enhancedFilterTopics('');
+            searchInput.focus();
+        }
+    }
+    
+    // ====================================
+    // FEATURE 7: Visual Number Line
+    // ====================================
+    createNumberLine(min, max, highlight = []) {
+        const container = document.createElement('div');
+        container.className = 'number-line-container';
+        
+        const width = 600;
+        const height = 120;
+        const padding = 40;
+        const lineY = height / 2;
+        
+        const range = max - min;
+        const step = (width - 2 * padding) / range;
+        
+        let svg = `
+            <svg class="number-line-svg" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+                <!-- Main line -->
+                <line class="number-line-line" x1="${padding}" y1="${lineY}" x2="${width - padding}" y2="${lineY}" />
+                
+                <!-- Highlight regions -->
+                ${highlight.map(h => {
+                    const x = padding + (h - min) * step;
+                    return `<rect class="number-line-highlight" x="${x - 8}" y="${lineY - 15}" width="16" height="30" rx="4" />`;
+                }).join('')}
+                
+                <!-- Ticks and labels -->
+                ${Array.from({length: range + 1}, (_, i) => {
+                    const num = min + i;
+                    const x = padding + i * step;
+                    return `
+                        <line class="number-line-tick" x1="${x}" y1="${lineY - 10}" x2="${x}" y2="${lineY + 10}" />
+                        <text class="number-line-label" x="${x}" y="${lineY + 30}">${num}</text>
+                    `;
+                }).join('')}
+                
+                <!-- Markers for highlighted numbers -->
+                ${highlight.map(h => {
+                    const x = padding + (h - min) * step;
+                    return `<circle class="number-line-marker" cx="${x}" cy="${lineY}" r="6" />`;
+                }).join('')}
+            </svg>
+        `;
+        
+        container.innerHTML = `
+            <div class="number-line-title">Number Line: ${min} to ${max}</div>
+            ${svg}
+            <div class="number-line-controls">
+                <button class="number-line-btn" onclick="app.refreshNumberLine()">🔄 New Numbers</button>
+            </div>
+        `;
+        
+        return container;
+    }
+    
+    showNumberLineDemo() {
+        const contentArea = document.getElementById('contentArea');
+        if (!contentArea) return;
+        
+        // Example: Show number line for current problem if applicable
+        const numberLine = this.createNumberLine(0, 20, [5, 15]);
+        
+        contentArea.insertBefore(numberLine, contentArea.firstChild);
+    }
+    
+    // ====================================
+    // FEATURE 8: Basic Graph Plotter
+    // ====================================
+    createGraphPlotter() {
+        const container = document.createElement('div');
+        container.className = 'graph-plotter-container';
+        container.id = 'graphPlotter';
+        
+        container.innerHTML = `
+            <div class="graph-plotter-title">📊 Graph Plotter</div>
+            
+            <div class="graph-canvas-wrapper">
+                <canvas id="graphCanvas" class="graph-canvas" width="600" height="400"></canvas>
+            </div>
+            
+            <div class="graph-controls">
+                <div class="graph-input-group">
+                    <label class="graph-input-label">Function (e.g., x, x^2, 2*x+1)</label>
+                    <input type="text" id="graphFunction" class="graph-input" placeholder="x^2" value="x^2">
+                </div>
+                <div class="graph-input-group">
+                    <label class="graph-input-label">X Range</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="number" id="graphXMin" class="graph-input" placeholder="Min" value="-10" style="width: 80px;">
+                        <input type="number" id="graphXMax" class="graph-input" placeholder="Max" value="10" style="width: 80px;">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="graph-buttons">
+                <button class="graph-btn graph-btn-plot" onclick="app.plotGraph()">📈 Plot Graph</button>
+                <button class="graph-btn graph-btn-clear" onclick="app.clearGraph()">🗑️ Clear</button>
+            </div>
+            
+            <div class="graph-examples">
+                <div class="graph-examples-title">Quick Examples:</div>
+                <div class="graph-example-buttons">
+                    <button class="graph-example-btn" onclick="app.loadGraphExample('x')">y = x</button>
+                    <button class="graph-example-btn" onclick="app.loadGraphExample('x^2')">y = x²</button>
+                    <button class="graph-example-btn" onclick="app.loadGraphExample('x^3')">y = x³</button>
+                    <button class="graph-example-btn" onclick="app.loadGraphExample('Math.sin(x)')">y = sin(x)</button>
+                    <button class="graph-example-btn" onclick="app.loadGraphExample('Math.cos(x)')">y = cos(x)</button>
+                    <button class="graph-example-btn" onclick="app.loadGraphExample('2*x+1')">y = 2x+1</button>
+                </div>
+            </div>
+        `;
+        
+        return container;
+    }
+    
+    plotGraph() {
+        const canvas = document.getElementById('graphCanvas');
+        if (!canvas) return;
+        
+        const ctx = canvas.getContext('2d');
+        const functionInput = document.getElementById('graphFunction');
+        const xMinInput = document.getElementById('graphXMin');
+        const xMaxInput = document.getElementById('graphXMax');
+        
+        if (!functionInput || !xMinInput || !xMaxInput) return;
+        
+        const functionStr = functionInput.value.trim();
+        const xMin = parseFloat(xMinInput.value) || -10;
+        const xMax = parseFloat(xMaxInput.value) || 10;
+        
+        // Clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw grid and axes
+        this.drawGraphAxes(ctx, canvas.width, canvas.height, xMin, xMax);
+        
+        try {
+            // Plot the function
+            this.drawFunction(ctx, canvas.width, canvas.height, xMin, xMax, functionStr);
+            this.showToast('✓ Graph plotted successfully!', 'success');
+        } catch (err) {
+            this.showToast('❌ Invalid function. Try something like: x^2 or Math.sin(x)', 'error');
+            console.error('Graph error:', err);
+        }
+    }
+    
+    drawGraphAxes(ctx, width, height, xMin, xMax) {
+        const yMin = -10;
+        const yMax = 10;
+        const padding = 40;
+        
+        // Background
+        ctx.fillStyle = '#f8f9fa';
+        ctx.fillRect(0, 0, width, height);
+        
+        // Grid
+        ctx.strokeStyle = '#e0e0e0';
+        ctx.lineWidth = 1;
+        
+        // Vertical grid lines
+        for (let x = xMin; x <= xMax; x++) {
+            const canvasX = padding + ((x - xMin) / (xMax - xMin)) * (width - 2 * padding);
+            ctx.beginPath();
+            ctx.moveTo(canvasX, padding);
+            ctx.lineTo(canvasX, height - padding);
+            ctx.stroke();
+        }
+        
+        // Horizontal grid lines
+        for (let y = yMin; y <= yMax; y++) {
+            const canvasY = height - padding - ((y - yMin) / (yMax - yMin)) * (height - 2 * padding);
+            ctx.beginPath();
+            ctx.moveTo(padding, canvasY);
+            ctx.lineTo(width - padding, canvasY);
+            ctx.stroke();
+        }
+        
+        // Axes
+        ctx.strokeStyle = '#333';
+        ctx.lineWidth = 2;
+        
+        // X-axis
+        const yZero = height - padding - ((0 - yMin) / (yMax - yMin)) * (height - 2 * padding);
+        ctx.beginPath();
+        ctx.moveTo(padding, yZero);
+        ctx.lineTo(width - padding, yZero);
+        ctx.stroke();
+        
+        // Y-axis
+        const xZero = padding + ((0 - xMin) / (xMax - xMin)) * (width - 2 * padding);
+        ctx.beginPath();
+        ctx.moveTo(xZero, padding);
+        ctx.lineTo(xZero, height - padding);
+        ctx.stroke();
+        
+        // Labels
+        ctx.fillStyle = '#333';
+        ctx.font = '12px sans-serif';
+        ctx.textAlign = 'center';
+        
+        // X-axis labels
+        for (let x = xMin; x <= xMax; x += 2) {
+            const canvasX = padding + ((x - xMin) / (xMax - xMin)) * (width - 2 * padding);
+            ctx.fillText(x.toString(), canvasX, height - 20);
+        }
+        
+        // Y-axis labels
+        ctx.textAlign = 'right';
+        for (let y = yMin; y <= yMax; y += 2) {
+            if (y === 0) continue;
+            const canvasY = height - padding - ((y - yMin) / (yMax - yMin)) * (height - 2 * padding);
+            ctx.fillText(y.toString(), 30, canvasY + 4);
+        }
+    }
+    
+    drawFunction(ctx, width, height, xMin, xMax, functionStr) {
+        const yMin = -10;
+        const yMax = 10;
+        const padding = 40;
+        
+        // Parse function
+        const func = this.parseMathFunction(functionStr);
+        
+        // Plot function
+        ctx.strokeStyle = '#3b82f6';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        
+        let started = false;
+        const steps = 200;
+        
+        for (let i = 0; i <= steps; i++) {
+            const x = xMin + (i / steps) * (xMax - xMin);
+            const y = func(x);
+            
+            if (!isFinite(y) || y < yMin || y > yMax) {
+                started = false;
+                continue;
+            }
+            
+            const canvasX = padding + ((x - xMin) / (xMax - xMin)) * (width - 2 * padding);
+            const canvasY = height - padding - ((y - yMin) / (yMax - yMin)) * (height - 2 * padding);
+            
+            if (!started) {
+                ctx.moveTo(canvasX, canvasY);
+                started = true;
+            } else {
+                ctx.lineTo(canvasX, canvasY);
+            }
+        }
+        
+        ctx.stroke();
+    }
+    
+    parseMathFunction(functionStr) {
+        // Convert common math notation to JavaScript
+        let jsCode = functionStr
+            .replace(/\^/g, '**')  // x^2 -> x**2
+            .replace(/(\d)([a-z])/gi, '$1*$2')  // 2x -> 2*x
+            .replace(/\)(\d)/g, ')*$1')  // )(2 -> )*(2
+            .replace(/(\d)\(/g, '$1*(');  // 2( -> 2*(
+        
+        // Create function
+        return new Function('x', `return ${jsCode};`);
+    }
+    
+    loadGraphExample(example) {
+        const functionInput = document.getElementById('graphFunction');
+        if (functionInput) {
+            functionInput.value = example;
+            this.plotGraph();
+        }
+    }
+    
+    clearGraph() {
+        const canvas = document.getElementById('graphCanvas');
+        if (!canvas) return;
+        
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        const xMin = parseFloat(document.getElementById('graphXMin').value) || -10;
+        const xMax = parseFloat(document.getElementById('graphXMax').value) || 10;
+        this.drawGraphAxes(ctx, canvas.width, canvas.height, xMin, xMax);
+        
+        this.showToast('Graph cleared', 'info');
+    }
+    
+    showGraphPlotter() {
+        const contentArea = document.getElementById('contentArea');
+        if (!contentArea) return;
+        
+        // Remove existing plotter if present
+        const existing = document.getElementById('graphPlotter');
+        if (existing) existing.remove();
+        
+        const plotter = this.createGraphPlotter();
+        contentArea.appendChild(plotter);
+        
+        // Auto-plot initial function
+        setTimeout(() => this.plotGraph(), 100);
     }
     
     // ====================================

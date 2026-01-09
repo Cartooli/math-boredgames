@@ -204,12 +204,16 @@
 
             <div class="control-group">
                 <label for="topicSelect">📖 Topic</label>
-                <input type="text" 
-                       id="topicSearch" 
-                       placeholder="🔍 Search topics..." 
-                       class="topic-search-input"
-                       oninput="app.filterTopics(this.value)"
-                       aria-label="Search topics">
+                <div class="topic-search-wrapper">
+                    <input type="text" 
+                           id="topicSearch" 
+                           placeholder="🔍 Search topics..." 
+                           class="topic-search-input"
+                           oninput="app.enhancedFilterTopics(this.value)"
+                           aria-label="Search topics">
+                    <button id="searchClearBtn" class="search-clear-btn" onclick="app.clearTopicSearch()" aria-label="Clear search">×</button>
+                </div>
+                <div id="searchResultsInfo" class="search-results-info" style="display: none;"></div>
                 <select id="topicSelect"></select>
             </div>
             
@@ -274,6 +278,19 @@
                 <button class="print-btn" onclick="app.printWorksheet()" title="Print current worksheet">
                     🖨️ Print
                 </button>
+            </div>
+            
+            <!-- Learning Tools -->
+            <div class="learning-tools" style="margin-top: 20px; padding-top: 20px; border-top: 2px solid var(--border);">
+                <h3 style="font-size: 1rem; margin-bottom: 12px; color: var(--text-secondary); text-align: center;">🛠️ Learning Tools</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                    <button class="export-btn" onclick="app.showGraphPlotter()" title="Interactive graph plotter">
+                        📊 Graph Plotter
+                    </button>
+                    <button class="export-btn" onclick="app.showNumberLineDemo()" title="Visual number line">
+                        📏 Number Line
+                    </button>
+                </div>
             </div>
         </div>
 

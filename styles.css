@@ -2940,3 +2940,358 @@ footer a:hover {
     50% { transform: translateY(-20px); }
 }
 
+/* ========================================
+   FEATURE 5: Progressive Hint System
+   ======================================== */
+.hint-area {
+    margin-top: 20px;
+    display: none;
+}
+
+.hint-item {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 146, 60, 0.05));
+    border-left: 4px solid var(--warning);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.hint-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hint-number {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--warning);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.hint-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.btn-hint {
+    background: linear-gradient(135deg, var(--warning), #fb923c);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-hint:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.btn-hint:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* ========================================
+   FEATURE 6: Enhanced Topic Search
+   ======================================== */
+.topic-search-wrapper {
+    position: relative;
+}
+
+.topic-search-input {
+    width: 100%;
+    padding: 12px 40px 12px 16px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-bottom: 12px;
+}
+
+.topic-search-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-clear-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 4px;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+
+.search-clear-btn.visible {
+    opacity: 1;
+}
+
+.search-clear-btn:hover {
+    color: var(--text-primary);
+}
+
+.search-results-info {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    padding-left: 4px;
+}
+
+.no-results-message {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   FEATURE 7: Visual Number Lines
+   ======================================== */
+.number-line-container {
+    margin: 30px 0;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.number-line-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.number-line-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.number-line-line {
+    stroke: var(--accent);
+    stroke-width: 3;
+}
+
+.number-line-tick {
+    stroke: var(--text-secondary);
+    stroke-width: 2;
+}
+
+.number-line-label {
+    fill: var(--text-primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-anchor: middle;
+}
+
+.number-line-highlight {
+    fill: var(--accent);
+    opacity: 0.3;
+}
+
+.number-line-marker {
+    fill: var(--error);
+    stroke: white;
+    stroke-width: 2;
+}
+
+.number-line-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.number-line-btn {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.number-line-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: white;
+}
+
+/* ========================================
+   FEATURE 8: Basic Graph Plotter
+   ======================================== */
+.graph-plotter-container {
+    margin: 30px 0;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.graph-plotter-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.graph-canvas-wrapper {
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 16px;
+}
+
+.graph-canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+.graph-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.graph-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.graph-input-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.graph-input {
+    padding: 8px 12px;
+    border: 2px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.graph-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.graph-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.graph-btn {
+    flex: 1;
+    min-width: 120px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.graph-btn-plot {
+    background: var(--accent);
+    color: white;
+}
+
+.graph-btn-plot:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.graph-btn-clear {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+.graph-btn-clear:hover {
+    border-color: var(--error);
+    color: var(--error);
+}
+
+.graph-examples {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.graph-examples-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.graph-example-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.graph-example-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.graph-example-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .graph-controls {
+        grid-template-columns: 1fr;
+    }
+    
+    .graph-buttons {
+        flex-direction: column;
+    }
+    
+    .graph-btn {
+        width: 100%;
+    }
+}
+
