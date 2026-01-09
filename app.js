@@ -121,6 +121,24 @@ class MathBoredApp {
         return this.comprehensiveTopics.has(topicName);
     }
     
+    // Topics with complete problem generators (not just fallback to Addition)
+    topicsWithGenerators = new Set([
+        // Core topics with generators
+        "Counting and Cardinality", "Number Recognition", "Basic Shapes", "Measurement Comparison",
+        "Patterns", "Ordinal Numbers", "Simple Data Collection",
+        "Place Value", "Two-Digit Addition", "Two-Digit Subtraction", "Comparing Numbers",
+        "Telling Time", "Measurement (Length)", "Basic Shapes and Attributes",
+        "Word Problems (Addition/Subtraction)", "Data Organization", "Number Bonds", "Fact Families",
+        "Addition", "Subtraction", "Multiplication", "Division",
+        "Fractions", "Decimals", "Percentages", "Integers",
+        "Exponents", "Order of Operations", "Pythagorean Theorem",
+        "Quadratic Equations", "Slope"
+    ]);
+    
+    hasGenerator(topicName) {
+        return this.topicsWithGenerators.has(topicName);
+    }
+    
     init() {
         try {
             console.log('🎯 MathBored initializing...');
@@ -537,7 +555,13 @@ class MathBoredApp {
             
             if (topics.length > 0) {
                 console.log('📚 Adding', topics.length, 'options to dropdown...');
-                topics.forEach((topic, index) => {
+                
+                // Separate topics into complete and incomplete
+                const completeTopics = topics.filter(t => this.hasGenerator(t.concept));
+                const incompleteTopics = topics.filter(t => !this.hasGenerator(t.concept));
+                
+                // Add complete topics first
+                completeTopics.forEach((topic, index) => {
                     const option = document.createElement('option');
                     option.value = topic.concept;
                     // Add badge indicator and completion checkmark
@@ -556,6 +580,30 @@ class MathBoredApp {
                         console.log(`  Added option ${index + 1}:`, topic.concept);
                     }
                 });
+                
+                // Add separator if there are incomplete topics
+                if (incompleteTopics.length > 0) {
+                    const separator = document.createElement('option');
+                    separator.disabled = true;
+                    separator.textContent = '━━━━━ 🚧 Coming Soon ━━━━━';
+                    separator.style.background = 'var(--bg-tertiary)';
+                    separator.style.color = 'var(--text-secondary)';
+                    separator.style.fontWeight = 'bold';
+                    separator.style.textAlign = 'center';
+                    topicSelect.appendChild(separator);
+                    
+                    // Add incomplete topics
+                    incompleteTopics.forEach(topic => {
+                        const option = document.createElement('option');
+                        option.value = topic.concept;
+                        option.textContent = `🚧 ${topic.concept} (Practice Coming Soon)`;
+                        option.title = 'Practice problems for this topic are being developed. Lesson content is available.';
+                        option.style.color = 'var(--text-secondary)';
+                        topicSelect.appendChild(option);
+                    });
+                }
+                
+                console.log(`✅ Added ${completeTopics.length} complete topics and ${incompleteTopics.length} coming soon`);
                 
                 // Set the internal state and explicitly set the dropdown value
                 // Check if URL specified a topic (for SEO routing)
@@ -645,11 +693,16 @@ class MathBoredApp {
                 topic.concept.toLowerCase().includes(normalizedSearch)
             );
         
-        // Update dropdown
+        // Update dropdown with complete/incomplete separation
         topicSelect.innerHTML = '';
         
         if (filtered.length > 0) {
-            filtered.forEach(topic => {
+            // Separate into complete and incomplete
+            const completeFiltered = filtered.filter(t => this.hasGenerator(t.concept));
+            const incompleteFiltered = filtered.filter(t => !this.hasGenerator(t.concept));
+            
+            // Add complete topics
+            completeFiltered.forEach(topic => {
                 const option = document.createElement('option');
                 option.value = topic.concept;
                 const badge = this.hasComprehensiveLesson(topic.concept) ? '📚 ' : '📝 ';
@@ -663,6 +716,26 @@ class MathBoredApp {
                 
                 topicSelect.appendChild(option);
             });
+            
+            // Add separator and incomplete topics if any
+            if (incompleteFiltered.length > 0 && normalizedSearch === '') {
+                const separator = document.createElement('option');
+                separator.disabled = true;
+                separator.textContent = '━━━━━ 🚧 Coming Soon ━━━━━';
+                separator.style.background = 'var(--bg-tertiary)';
+                separator.style.color = 'var(--text-secondary)';
+                separator.style.fontWeight = 'bold';
+                topicSelect.appendChild(separator);
+                
+                incompleteFiltered.forEach(topic => {
+                    const option = document.createElement('option');
+                    option.value = topic.concept;
+                    option.textContent = `🚧 ${topic.concept} (Practice Coming Soon)`;
+                    option.title = 'Practice problems for this topic are being developed.';
+                    option.style.color = 'var(--text-secondary)';
+                    topicSelect.appendChild(option);
+                });
+            }
             
             // Update count in label
             const topicLabel = document.querySelector('label[for="topicSelect"], .control-group:has(#topicSelect) label');
@@ -20001,12 +20074,100 @@ x+2 | x² + 5x + 6
             }
         };
         
-        // Fallback to Addition if generator doesn't exist
-        const generator = generators[concept.concept] || generators["Addition"];
+        // Check if generator exists
+        if (!generators[concept.concept]) {
+            // Show friendly message instead of fallback
+            this.showIncompleteTopicMessage(concept.concept);
+            return;
+        }
+        
+        const generator = generators[concept.concept];
         const problem = generator();
         
         this.currentProblem = problem;
         this.currentAnswer = problem.answer;
+    }
+    
+    showIncompleteTopicMessage(topicName) {
+        const contentArea = document.getElementById('contentArea');
+        if (!contentArea) return;
+        
+        // Find similar topics with generators
+        const similarTopics = this.getSimilarTopics(topicName);
+        
+        const html = `
+            <div class="lesson-content" style="text-align: center; padding: 60px 20px;">
+                <div style="font-size: 4rem; margin-bottom: 20px;">🚧</div>
+                <h2 style="color: var(--accent); margin-bottom: 20px;">Practice Problems Coming Soon!</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 30px; color: var(--text-secondary);">
+                    Practice problems for <strong style="color: var(--text-primary);">${topicName}</strong> are being developed.
+                </p>
+                
+                ${this.hasComprehensiveLesson(topicName) ? `
+                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 30px auto; max-width: 500px; border-left: 4px solid var(--success);">
+                        <p style="margin: 0; color: var(--text-primary);">
+                            ✅ <strong>Good news!</strong> The lesson content for this topic is available.
+                            Switch to <strong>Lesson</strong> mode to learn about ${topicName}.
+                        </p>
+                    </div>
+                ` : ''}
+                
+                ${similarTopics.length > 0 ? `
+                    <div style="margin-top: 40px;">
+                        <h3 style="color: var(--text-primary); margin-bottom: 20px;">Try These Similar Topics Instead:</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; max-width: 500px; margin: 0 auto;">
+                            ${similarTopics.map(topic => `
+                                <button class="btn-submit" onclick="app.switchToTopic('${topic}')" style="padding: 15px;">
+                                    📚 ${topic}
+                                </button>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+                
+                <div style="margin-top: 40px; padding: 20px; background: var(--bg-secondary); border-radius: 12px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <p style="color: var(--text-secondary); margin: 0;">
+                        💡 <strong>Want to help?</strong> Vote for this topic on our 
+                        <a href="/roadmap.html" style="color: var(--accent); font-weight: 600;">Feature Roadmap</a>
+                        to prioritize its development!
+                    </p>
+                </div>
+            </div>
+        `;
+        
+        contentArea.innerHTML = html;
+    }
+    
+    getSimilarTopics(topicName) {
+        // Map topics to similar alternatives that have generators
+        const similarityMap = {
+            'Trigonometry': ['Pythagorean Theorem', 'Slope', 'Exponents'],
+            'Logarithms': ['Exponents', 'Order of Operations'],
+            'Calculus': ['Slope', 'Quadratic Equations'],
+            'Derivatives': ['Slope', 'Quadratic Equations'],
+            'Integrals': ['Quadratic Equations', 'Exponents'],
+            'Matrices': ['Multiplication', 'Addition'],
+            'Polynomials': ['Quadratic Equations', 'Exponents', 'Order of Operations'],
+            'Probability': ['Fractions', 'Percentages'],
+            'Statistics': ['Fractions', 'Decimals', 'Percentages'],
+            'Exponential Functions': ['Exponents', 'Quadratic Equations']
+        };
+        
+        // Get mapped similar topics or default suggestions
+        const suggestions = similarityMap[topicName] || ['Addition', 'Subtraction', 'Multiplication'];
+        
+        // Filter to only include topics with generators
+        return suggestions.filter(topic => this.hasGenerator(topic)).slice(0, 3);
+    }
+    
+    switchToTopic(topicName) {
+        const topicSelect = document.getElementById('topicSelect');
+        if (topicSelect) {
+            topicSelect.value = topicName;
+            this.currentTopic = topicName;
+            this.trackTopicSelection(topicName);
+            this.render();
+        }
     }
     
     checkAnswer() {

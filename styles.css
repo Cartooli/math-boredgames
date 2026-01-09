@@ -3550,3 +3550,149 @@ footer a:hover {
     transform: translateY(-2px);
 }
 
+/* ========================================
+   MOBILE OPTIMIZATIONS
+   ======================================== */
+@media (max-width: 768px) {
+    /* Analytics on mobile */
+    .analytics-container {
+        padding: 15px;
+    }
+    
+    .analytics-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .analytics-card-value {
+        font-size: 2rem;
+    }
+    
+    .analytics-section {
+        padding: 15px;
+    }
+    
+    .analytics-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .analytics-actions button {
+        width: 100%;
+    }
+    
+    /* Stats panel on mobile */
+    .stats-panel {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .stats-panel button {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+    
+    /* Incomplete topic message on mobile */
+    .lesson-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .lesson-content .btn-submit {
+        font-size: 0.9rem;
+        padding: 12px;
+    }
+    
+    /* Topic dropdown on mobile */
+    #topicSelect {
+        font-size: 0.9rem;
+    }
+    
+    /* Timer display on mobile */
+    .timer-display {
+        min-width: auto;
+        width: 90%;
+        left: 5%;
+    }
+    
+    /* Achievement toast on mobile */
+    .achievement-toast {
+        min-width: auto;
+        max-width: 90%;
+        left: 5%;
+        transform: translateX(0);
+    }
+    
+    /* Graph plotter on mobile */
+    .graph-plotter-container {
+        padding: 15px;
+    }
+    
+    .graph-canvas {
+        width: 100%;
+        height: 300px;
+    }
+    
+    .graph-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .function-input-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    /* Number line on mobile */
+    .number-line-container {
+        padding: 15px;
+    }
+    
+    .number-line-canvas {
+        width: 100%;
+        height: 150px;
+    }
+    
+    .number-line-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Extra small screens */
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .tagline {
+        font-size: 0.8rem;
+    }
+    
+    .stats-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .stats-panel button {
+        width: 100%;
+    }
+    
+    .analytics-card-title {
+        font-size: 0.8rem;
+    }
+    
+    .analytics-card-value {
+        font-size: 1.8rem;
+    }
+    
+    .popular-topic-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .topic-rank {
+        min-width: auto;
+    }
+}
+
