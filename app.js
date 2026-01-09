@@ -32,6 +32,7 @@ class MathBoredApp {
         this.loadCompletedTopics();
         this.initAchievements();
         this.initAdaptiveDifficulty();
+        this.initAnalytics();
         this.init();
     }
     
@@ -373,6 +374,7 @@ class MathBoredApp {
             topicSelect.addEventListener('change', (e) => {
                 console.log('📖 Topic changed to:', e.target.value);
                 this.currentTopic = e.target.value;
+                this.trackTopicSelection(this.currentTopic);
                 this.render();
             });
             
@@ -723,6 +725,9 @@ class MathBoredApp {
             container.innerHTML = '<div class="loading">Please select a topic to view the lesson.</div>';
             return;
         }
+        
+        // Track topic view
+        this.trackTopicView(this.currentTopic, 'lesson');
         
         const conceptData = getConceptByName(this.currentTopic);
         if (!conceptData) {
@@ -16235,6 +16240,9 @@ x+2 | x² + 5x + 6
     }
     
     renderWalkthrough(container) {
+        // Track topic view
+        this.trackTopicView(this.currentTopic, 'walkthrough');
+        
         this.generateProblem();
         const steps = this.generateWalkthroughSteps();
         
@@ -16934,6 +16942,9 @@ x+2 | x² + 5x + 6
     }
     
     renderPractice(container) {
+        // Track topic view
+        this.trackTopicView(this.currentTopic, 'practice');
+        
         this.generateProblem();
         this.currentHintLevel = 0; // Reset hint level for new problem
         this.problemHints = this.getHintsForCurrentProblem();
@@ -20409,6 +20420,9 @@ math.boredgames.site`;
     // FEATURE 1: Export/Import Progress
     // ====================================
     exportProgress() {
+        // Track feature usage
+        this.trackFeatureUsage('export_progress');
+        
         const data = {
             version: '2.0.0',
             stats: this.stats,
@@ -20436,6 +20450,9 @@ math.boredgames.site`;
     }
     
     importProgress() {
+        // Track feature usage
+        this.trackFeatureUsage('import_progress');
+        
         const input = document.createElement('input');
         input.type = 'file';
         input.accept = '.json';
@@ -20500,6 +20517,9 @@ math.boredgames.site`;
     // FEATURE 2: Print Worksheet Function
     // ====================================
     printWorksheet() {
+        // Track feature usage
+        this.trackFeatureUsage('print_worksheet');
+        
         // Set data attributes for print header
         const contentArea = document.getElementById('contentArea');
         if (contentArea) {
@@ -20523,6 +20543,9 @@ math.boredgames.site`;
             this.showToast('⏱️ Timed challenges only work in Practice mode', 'warning');
             return;
         }
+        
+        // Track feature usage
+        this.trackFeatureUsage('timed_challenge');
         
         this.timedMode = {
             active: true,
@@ -20808,6 +20831,9 @@ math.boredgames.site`;
     }
     
     unlockAchievement(achievement) {
+        // Track feature usage
+        this.trackFeatureUsage('achievement_unlocked');
+        
         const unlocked = {
             ...achievement,
             unlockedAt: new Date().toISOString(),
@@ -21215,6 +21241,9 @@ math.boredgames.site`;
     }
     
     showNumberLineDemo() {
+        // Track feature usage
+        this.trackFeatureUsage('number_line');
+        
         const contentArea = document.getElementById('contentArea');
         if (!contentArea) return;
         
@@ -21448,6 +21477,9 @@ math.boredgames.site`;
     }
     
     showGraphPlotter() {
+        // Track feature usage
+        this.trackFeatureUsage('graph_plotter');
+        
         const contentArea = document.getElementById('contentArea');
         if (!contentArea) return;
         
@@ -21648,6 +21680,251 @@ math.boredgames.site`;
             recentProblems: this.adaptiveDifficulty.recentProblems.length,
             nextAdjustment: this.adaptiveDifficulty.adjustmentThreshold - this.adaptiveDifficulty.recentProblems.length
         };
+    }
+    
+    // ====================================
+    // PRIVACY-FIRST ANALYTICS SYSTEM
+    // ====================================
+    initAnalytics() {
+        // Initialize analytics storage
+        this.analytics = {
+            topicViews: JSON.parse(localStorage.getItem('mb-analytics-views') || '{}'),
+            topicSelections: JSON.parse(localStorage.getItem('mb-analytics-selections') || '{}'),
+            modeUsage: JSON.parse(localStorage.getItem('mb-analytics-modes') || '{}'),
+            featureUsage: JSON.parse(localStorage.getItem('mb-analytics-features') || '{}'),
+            sessionStart: Date.now(),
+            totalSessions: parseInt(localStorage.getItem('mb-total-sessions') || '0') + 1
+        };
+        
+        // Save session count
+        localStorage.setItem('mb-total-sessions', this.analytics.totalSessions.toString());
+        
+        // Track session start
+        this.trackEvent('session_start', {
+            timestamp: Date.now(),
+            userAgent: navigator.userAgent.substring(0, 100), // Truncated for privacy
+            screenSize: `${window.innerWidth}x${window.innerHeight}`
+        });
+    }
+
+    trackTopicView(topic, mode) {
+        if (!topic) return;
+        
+        // Track topic view
+        if (!this.analytics.topicViews[topic]) {
+            this.analytics.topicViews[topic] = 0;
+        }
+        this.analytics.topicViews[topic]++;
+        
+        // Track mode usage
+        if (!this.analytics.modeUsage[mode]) {
+            this.analytics.modeUsage[mode] = 0;
+        }
+        this.analytics.modeUsage[mode]++;
+        
+        // Save to localStorage
+        localStorage.setItem('mb-analytics-views', JSON.stringify(this.analytics.topicViews));
+        localStorage.setItem('mb-analytics-modes', JSON.stringify(this.analytics.modeUsage));
+    }
+
+    trackTopicSelection(topic) {
+        if (!topic) return;
+        
+        if (!this.analytics.topicSelections[topic]) {
+            this.analytics.topicSelections[topic] = 0;
+        }
+        this.analytics.topicSelections[topic]++;
+        
+        localStorage.setItem('mb-analytics-selections', JSON.stringify(this.analytics.topicSelections));
+    }
+
+    trackFeatureUsage(featureName) {
+        if (!this.analytics.featureUsage[featureName]) {
+            this.analytics.featureUsage[featureName] = 0;
+        }
+        this.analytics.featureUsage[featureName]++;
+        
+        localStorage.setItem('mb-analytics-features', JSON.stringify(this.analytics.featureUsage));
+    }
+
+    trackEvent(eventName, data = {}) {
+        // Store event in session (optional, for debugging)
+        const events = JSON.parse(sessionStorage.getItem('mb-session-events') || '[]');
+        events.push({
+            event: eventName,
+            data: data,
+            timestamp: Date.now()
+        });
+        
+        // Keep only last 50 events per session
+        if (events.length > 50) {
+            events.shift();
+        }
+        
+        sessionStorage.setItem('mb-session-events', JSON.stringify(events));
+    }
+
+    // Get popular topics (sorted by views)
+    getPopularTopics(limit = 10) {
+        const topics = Object.entries(this.analytics.topicViews)
+            .map(([topic, views]) => ({ topic, views }))
+            .sort((a, b) => b.views - a.views)
+            .slice(0, limit);
+        
+        return topics;
+    }
+
+    // Export analytics data (user can share if they want)
+    exportAnalytics() {
+        const data = {
+            version: '1.0',
+            exportDate: new Date().toISOString(),
+            analytics: {
+                topicViews: this.analytics.topicViews,
+                topicSelections: this.analytics.topicSelections,
+                modeUsage: this.analytics.modeUsage,
+                featureUsage: this.analytics.featureUsage,
+                totalSessions: this.analytics.totalSessions
+            },
+            popularTopics: this.getPopularTopics(20),
+            note: 'This data is completely anonymous and stored locally on your device.'
+        };
+        
+        const json = JSON.stringify(data, null, 2);
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `mathbored-analytics-${new Date().toISOString().split('T')[0]}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        
+        this.showToast('📊 Analytics data exported!', 'success');
+    }
+
+    // View analytics dashboard
+    viewAnalytics() {
+        const popular = this.getPopularTopics(10);
+        const topModes = Object.entries(this.analytics.modeUsage)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 3);
+        const topFeatures = Object.entries(this.analytics.featureUsage)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 5);
+        
+        const html = `
+            <div class="analytics-container">
+                <h2 style="text-align: center; margin-bottom: 30px;">
+                    📊 Usage Analytics
+                    <span style="display: block; font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px; font-weight: normal;">
+                        All data stored locally • Completely private
+                    </span>
+                </h2>
+                
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <div class="analytics-card-title">📈 Total Sessions</div>
+                        <div class="analytics-card-value">${this.analytics.totalSessions}</div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <div class="analytics-card-title">📚 Topics Viewed</div>
+                        <div class="analytics-card-value">${Object.keys(this.analytics.topicViews).length}</div>
+                    </div>
+                </div>
+                
+                <div class="analytics-section">
+                    <h3>🔥 Most Popular Topics</h3>
+                    <div class="popular-topics-list">
+                        ${popular.length > 0 ? popular.map((item, index) => `
+                            <div class="popular-topic-item">
+                                <span class="topic-rank">#${index + 1}</span>
+                                <span class="topic-name">${item.topic}</span>
+                                <span class="topic-views">${item.views} view${item.views !== 1 ? 's' : ''}</span>
+                            </div>
+                        `).join('') : '<p style="color: var(--text-secondary);">No data yet. Start exploring topics!</p>'}
+                    </div>
+                </div>
+                
+                <div class="analytics-section">
+                    <h3>🎮 Most Used Modes</h3>
+                    <div class="mode-stats">
+                        ${topModes.length > 0 ? topModes.map(([mode, count]) => `
+                            <div class="mode-stat-item">
+                                <span class="mode-icon">${mode === 'lesson' ? '📝' : mode === 'walkthrough' ? '🔍' : '💪'}</span>
+                                <span class="mode-name">${mode.charAt(0).toUpperCase() + mode.slice(1)}</span>
+                                <span class="mode-count">${count} time${count !== 1 ? 's' : ''}</span>
+                            </div>
+                        `).join('') : '<p style="color: var(--text-secondary);">No mode usage tracked yet.</p>'}
+                    </div>
+                </div>
+                
+                <div class="analytics-section">
+                    <h3>✨ Feature Usage</h3>
+                    <div class="feature-stats">
+                        ${topFeatures.length > 0 ? topFeatures.map(([feature, count]) => `
+                            <div class="feature-stat-item">
+                                <span class="feature-name">${feature.replace(/_/g, ' ')}</span>
+                                <span class="feature-count">${count} time${count !== 1 ? 's' : ''}</span>
+                            </div>
+                        `).join('') : '<p style="color: var(--text-secondary);">No feature usage tracked yet.</p>'}
+                    </div>
+                </div>
+                
+                <div class="analytics-actions">
+                    <button class="btn-submit" onclick="app.exportAnalytics()">
+                        📥 Export Analytics Data
+                    </button>
+                    <button class="btn-submit" onclick="app.clearAnalytics()" style="background: var(--error);">
+                        🗑️ Clear All Analytics
+                    </button>
+                    <button class="btn-submit" onclick="app.updateContent()">
+                        ← Back to Learning
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        const contentArea = document.getElementById('contentArea');
+        if (contentArea) {
+            contentArea.innerHTML = html;
+        }
+    }
+
+    clearAnalytics() {
+        if (confirm('Are you sure you want to clear all analytics data? This cannot be undone.')) {
+            localStorage.removeItem('mb-analytics-views');
+            localStorage.removeItem('mb-analytics-selections');
+            localStorage.removeItem('mb-analytics-modes');
+            localStorage.removeItem('mb-analytics-features');
+            localStorage.removeItem('mb-total-sessions');
+            sessionStorage.removeItem('mb-session-events');
+            
+            this.initAnalytics();
+            this.showToast('🗑️ Analytics data cleared', 'info');
+            this.viewAnalytics();
+        }
+    }
+
+    verifyRobotsTxt() {
+        fetch('/robots.txt')
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('robots.txt not found');
+            })
+            .then(text => {
+                console.log('✅ robots.txt verified');
+                console.log('Content:', text);
+                return true;
+            })
+            .catch(err => {
+                console.warn('⚠️ robots.txt verification failed:', err);
+                return false;
+            });
     }
     
     // ====================================
