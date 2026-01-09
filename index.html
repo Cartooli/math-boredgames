@@ -244,6 +244,21 @@
                 </div>
             </div>
 
+            <!-- Adaptive Difficulty Toggle -->
+            <div class="control-group" id="adaptiveControl">
+                <label id="adaptiveLabel">🤖 Adaptive Learning</label>
+                <button 
+                    id="adaptiveToggle" 
+                    class="adaptive-toggle"
+                    onclick="app.toggleAdaptiveDifficulty()"
+                    aria-label="Toggle adaptive difficulty">
+                    ○ Adaptive Mode OFF
+                </button>
+                <div class="adaptive-info">
+                    <small>When enabled, problem difficulty adjusts automatically based on your performance</small>
+                </div>
+            </div>
+
             <div class="stats-panel">
                 <div class="stat-item">
                     <span class="stat-label">Streak</span>

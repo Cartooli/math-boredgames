@@ -31,6 +31,7 @@ class MathBoredApp {
         this.loadStats();
         this.loadCompletedTopics();
         this.initAchievements();
+        this.initAdaptiveDifficulty();
         this.init();
     }
     
@@ -20067,6 +20068,9 @@ x+2 | x² + 5x + 6
             this.saveStats();
             this.updateStatsDisplay();
             
+            // Track for adaptive difficulty
+            this.trackProblemPerformance(true);
+            
             // Check achievements after correct answer
             this.checkAchievements();
             
@@ -20088,6 +20092,9 @@ x+2 | x² + 5x + 6
             this.stats.streak = 0;
             this.saveStats();
             this.updateStatsDisplay();
+            
+            // Track for adaptive difficulty
+            this.trackProblemPerformance(false);
             
             feedbackDiv.innerHTML = `
                 <div class="feedback incorrect">
@@ -21453,6 +21460,194 @@ math.boredgames.site`;
         
         // Auto-plot initial function
         setTimeout(() => this.plotGraph(), 100);
+    }
+    
+    // ====================================
+    // FEATURE 9: ADAPTIVE DIFFICULTY SYSTEM
+    // ====================================
+    initAdaptiveDifficulty() {
+        // Load adaptive difficulty state
+        this.adaptiveDifficulty = {
+            enabled: localStorage.getItem('adaptiveDifficultyEnabled') === 'true',
+            topicPerformance: JSON.parse(localStorage.getItem('topicPerformance') || '{}'),
+            recentProblems: [], // Rolling window of last 10 problems
+            adjustmentThreshold: 10, // Adjust after 10 problems
+            lastAdjustment: null
+        };
+    }
+    
+    toggleAdaptiveDifficulty() {
+        this.adaptiveDifficulty.enabled = !this.adaptiveDifficulty.enabled;
+        localStorage.setItem('adaptiveDifficultyEnabled', this.adaptiveDifficulty.enabled);
+        
+        const toggle = document.getElementById('adaptiveToggle');
+        if (toggle) {
+            toggle.classList.toggle('active', this.adaptiveDifficulty.enabled);
+            toggle.innerHTML = this.adaptiveDifficulty.enabled ? 
+                '✓ Adaptive Mode ON' : '○ Adaptive Mode OFF';
+        }
+        
+        const message = this.adaptiveDifficulty.enabled ?
+            '🤖 Adaptive difficulty enabled! Problems will adjust to your skill level.' :
+            '📌 Adaptive difficulty disabled. Manual difficulty control restored.';
+        
+        this.showToast(message, 'info');
+    }
+    
+    trackProblemPerformance(isCorrect) {
+        if (!this.adaptiveDifficulty.enabled || !this.currentTopic) return;
+        
+        // Add to recent problems
+        this.adaptiveDifficulty.recentProblems.push({
+            topic: this.currentTopic,
+            difficulty: this.difficulty,
+            correct: isCorrect,
+            timestamp: Date.now()
+        });
+        
+        // Keep only last 10 problems for this topic
+        this.adaptiveDifficulty.recentProblems = this.adaptiveDifficulty.recentProblems
+            .filter(p => p.topic === this.currentTopic)
+            .slice(-10);
+        
+        // Update topic performance stats
+        if (!this.adaptiveDifficulty.topicPerformance[this.currentTopic]) {
+            this.adaptiveDifficulty.topicPerformance[this.currentTopic] = {
+                attempts: 0,
+                correct: 0,
+                currentDifficulty: 'medium',
+                lastAdjusted: Date.now()
+            };
+        }
+        
+        const topicStats = this.adaptiveDifficulty.topicPerformance[this.currentTopic];
+        topicStats.attempts++;
+        if (isCorrect) topicStats.correct++;
+        
+        // Save to localStorage
+        localStorage.setItem('topicPerformance', JSON.stringify(this.adaptiveDifficulty.topicPerformance));
+        
+        // Check if we should adjust difficulty
+        if (this.adaptiveDifficulty.recentProblems.length >= this.adaptiveDifficulty.adjustmentThreshold) {
+            this.adjustDifficultyIfNeeded();
+        }
+    }
+    
+    adjustDifficultyIfNeeded() {
+        if (!this.adaptiveDifficulty.enabled || !this.currentTopic) return;
+        
+        const recentProblems = this.adaptiveDifficulty.recentProblems
+            .filter(p => p.topic === this.currentTopic);
+        
+        if (recentProblems.length < this.adaptiveDifficulty.adjustmentThreshold) return;
+        
+        // Calculate recent accuracy
+        const recentCorrect = recentProblems.filter(p => p.correct).length;
+        const accuracy = (recentCorrect / recentProblems.length) * 100;
+        
+        const oldDifficulty = this.difficulty;
+        let newDifficulty = this.difficulty;
+        let reason = '';
+        
+        // Determine if adjustment needed
+        if (accuracy >= 90 && this.difficulty !== 'hard') {
+            // Doing too well - increase challenge
+            newDifficulty = this.difficulty === 'easy' ? 'medium' : 'hard';
+            reason = `You're mastering this! (${Math.round(accuracy)}% accuracy)`;
+        } else if (accuracy < 50 && this.difficulty !== 'easy') {
+            // Struggling - decrease difficulty
+            newDifficulty = this.difficulty === 'hard' ? 'medium' : 'easy';
+            reason = `Let's build confidence with easier problems (${Math.round(accuracy)}% accuracy)`;
+        } else if (accuracy >= 70 && accuracy < 90 && this.difficulty === 'easy') {
+            // Ready to advance from easy
+            newDifficulty = 'medium';
+            reason = `You're ready for more challenge! (${Math.round(accuracy)}% accuracy)`;
+        }
+        
+        // Apply adjustment if needed
+        if (newDifficulty !== oldDifficulty) {
+            this.difficulty = newDifficulty;
+            this.adaptiveDifficulty.lastAdjustment = {
+                topic: this.currentTopic,
+                from: oldDifficulty,
+                to: newDifficulty,
+                accuracy: accuracy,
+                timestamp: Date.now()
+            };
+            
+            // Update topic performance
+            this.adaptiveDifficulty.topicPerformance[this.currentTopic].currentDifficulty = newDifficulty;
+            this.adaptiveDifficulty.topicPerformance[this.currentTopic].lastAdjusted = Date.now();
+            localStorage.setItem('topicPerformance', JSON.stringify(this.adaptiveDifficulty.topicPerformance));
+            
+            // Update UI
+            this.updateDifficultyUI();
+            
+            // Show notification
+            const emoji = newDifficulty === 'hard' ? '🔥' : newDifficulty === 'medium' ? '🎯' : '😊';
+            this.showAdaptiveFeedback(
+                `${emoji} Difficulty adjusted to ${newDifficulty.toUpperCase()}`,
+                reason
+            );
+            
+            // Reset recent problems for this topic
+            this.adaptiveDifficulty.recentProblems = [];
+        }
+    }
+    
+    updateDifficultyUI() {
+        // Update difficulty button states
+        const difficultyTabs = document.querySelectorAll('.difficulty-tab');
+        difficultyTabs.forEach(tab => {
+            const tabDifficulty = tab.dataset.difficulty;
+            if (tabDifficulty === this.difficulty) {
+                tab.classList.add('active');
+            } else {
+                tab.classList.remove('active');
+            }
+        });
+    }
+    
+    showAdaptiveFeedback(title, reason) {
+        const feedback = document.createElement('div');
+        feedback.className = 'adaptive-feedback';
+        feedback.innerHTML = `
+            <div class="adaptive-feedback-content">
+                <div class="adaptive-feedback-icon">🤖</div>
+                <div class="adaptive-feedback-text">
+                    <div class="adaptive-feedback-title">${title}</div>
+                    <div class="adaptive-feedback-reason">${reason}</div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(feedback);
+        
+        // Animate in
+        setTimeout(() => feedback.classList.add('show'), 100);
+        
+        // Remove after 5 seconds
+        setTimeout(() => {
+            feedback.classList.remove('show');
+            setTimeout(() => feedback.remove(), 500);
+        }, 5000);
+    }
+    
+    getAdaptiveStats() {
+        if (!this.currentTopic || !this.adaptiveDifficulty.topicPerformance[this.currentTopic]) {
+            return null;
+        }
+        
+        const stats = this.adaptiveDifficulty.topicPerformance[this.currentTopic];
+        const accuracy = stats.attempts > 0 ? Math.round((stats.correct / stats.attempts) * 100) : 0;
+        
+        return {
+            attempts: stats.attempts,
+            accuracy: accuracy,
+            currentDifficulty: stats.currentDifficulty,
+            recentProblems: this.adaptiveDifficulty.recentProblems.length,
+            nextAdjustment: this.adaptiveDifficulty.adjustmentThreshold - this.adaptiveDifficulty.recentProblems.length
+        };
     }
     
     // ====================================
