@@ -340,24 +340,41 @@ ${JSON.stringify(structuredData, null, 8)}
     <!-- Automatic redirect to main app (executes immediately) -->
     <script>
         (function() {
-            // Redirect to main app with proper URL parameters
-            const params = new URLSearchParams({
-                topic: '${topic.concept.replace(/'/g, "\\'")}',
-                mode: '${mode}',
-                grade: '${grade}'
-            });
+            // Detect search engine crawlers by user agent
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isSearchEngineBot = /googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|ia_archiver|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest\/0\.|developers\.google\.com\/\+\/web\/snippet\/|slackbot|vkShare|W3C_Validator|whatsapp|flipboard|tumblr|bitlybot|skypeuripreview|nuzzel|redditbot|applebot|qwantify|pinterestbot|bitrix link preview|redditbot|slackbot|twitterbot|whatsapp|flubot|facebookexternalhit|facebot|ia_archiver/i.test(userAgent);
             
-            // Hide loading screen before redirect for better UX
-            const seoContent = document.getElementById('seoContent');
-            if (seoContent) {
-                seoContent.style.opacity = '0';
-                seoContent.style.transition = 'opacity 0.3s ease';
+            // Only redirect if NOT a search engine bot
+            // This allows search engines to index the SEO content
+            if (!isSearchEngineBot) {
+                // Redirect to main app with proper URL parameters
+                const params = new URLSearchParams({
+                    topic: '${topic.concept.replace(/'/g, "\\'")}',
+                    mode: '${mode}',
+                    grade: '${grade}'
+                });
+                
+                // Hide loading screen before redirect for better UX
+                const seoContent = document.getElementById('seoContent');
+                if (seoContent) {
+                    seoContent.style.opacity = '0';
+                    seoContent.style.transition = 'opacity 0.3s ease';
+                }
+                
+                // Redirect after brief delay for smooth transition
+                setTimeout(function() {
+                    window.location.replace('/?' + params.toString());
+                }, 200);
+            } else {
+                // For search engines, show the content and stop the spinner
+                const seoContent = document.getElementById('seoContent');
+                if (seoContent) {
+                    const spinner = seoContent.querySelector('.seo-spinner');
+                    if (spinner) {
+                        spinner.style.display = 'none';
+                    }
+                }
             }
-            
-            // Redirect after brief delay for smooth transition
-            setTimeout(function() {
-                window.location.replace('/?' + params.toString());
-            }, 200);
         })();
     </script>
     
@@ -535,6 +552,8 @@ if (require.main === module) {
 }
 
 module.exports = { generateAllPages, toSlug, getGradeLabel };
+
+
 
 
 
