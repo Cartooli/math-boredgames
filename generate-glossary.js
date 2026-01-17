@@ -707,64 +707,232 @@ ${JSON.stringify(itemListSchema, null, 2)}
         
         .glossary-controls {
             background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 16px;
+            padding: 24px;
             margin-bottom: 30px;
             border: 1px solid var(--border);
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .glossary-search-wrapper {
+            margin-bottom: 20px;
+        }
+        
+        .glossary-search-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .glossary-search {
-            flex: 1;
-            min-width: 250px;
+            position: relative;
+            width: 100%;
+        }
+        
+        .glossary-search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            pointer-events: none;
+            z-index: 1;
         }
         
         .glossary-search input {
             width: 100%;
-            padding: 12px 16px;
+            padding: 14px 48px 14px 48px;
             background: var(--bg-primary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
             color: var(--text-primary);
             font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
         
         .glossary-search input:focus {
             outline: none;
             border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: translateY(-1px);
+        }
+        
+        .glossary-search input::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .glossary-search-clear {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-secondary);
+            border: none;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+        
+        .glossary-search-clear.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .glossary-search-clear:hover {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .glossary-filters-wrapper {
+            margin-top: 20px;
+        }
+        
+        .glossary-filters-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
         .glossary-filters {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .glossary-filters-scroll {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .glossary-filters-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+        
+        .glossary-filters-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        .glossary-filters-scroll::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
         }
         
         .glossary-filter-btn {
-            padding: 8px 16px;
+            padding: 10px 18px;
             background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 6px;
+            border: 2px solid var(--border);
+            border-radius: 20px;
             color: var(--text-primary);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 0.9rem;
+            font-weight: 500;
+            white-space: nowrap;
+            position: relative;
+            overflow: hidden;
         }
         
-        .glossary-filter-btn:hover,
+        .glossary-filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .glossary-filter-btn:hover::before {
+            left: 100%;
+        }
+        
+        .glossary-filter-btn:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.15);
+        }
+        
         .glossary-filter-btn.active {
-            background: var(--accent);
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
             border-color: var(--accent);
             color: white;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .glossary-filter-btn.active:hover {
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+            transform: translateY(-3px);
         }
         
         .glossary-stats {
             text-align: center;
             margin-bottom: 30px;
+            padding: 12px 20px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
             color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            border: 1px solid var(--border);
+        }
+        
+        .glossary-stats strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .glossary-controls {
+                padding: 20px 16px;
+            }
+            
+            .glossary-filters {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                padding-bottom: 8px;
+            }
+            
+            .glossary-filter-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .glossary-search input {
+                padding: 12px 14px 12px 44px;
+                font-size: 0.95rem;
+            }
         }
         
         .glossary-grade-section {
@@ -872,29 +1040,38 @@ ${JSON.stringify(itemListSchema, null, 2)}
         </div>
         
         <div class="glossary-controls">
-            <div class="glossary-search">
-                <input type="text" id="glossarySearch" placeholder="🔍 Search terms..." autocomplete="off">
+            <div class="glossary-search-wrapper">
+                <label for="glossarySearch" class="glossary-search-label">Search Terms</label>
+                <div class="glossary-search">
+                    <span class="glossary-search-icon">🔍</span>
+                    <input type="text" id="glossarySearch" placeholder="Type to search math terms..." autocomplete="off">
+                    <button class="glossary-search-clear" id="glossarySearchClear" aria-label="Clear search">×</button>
+                </div>
             </div>
-            <div class="glossary-filters">
-                <button class="glossary-filter-btn active" data-grade="all">All Grades</button>
-                <button class="glossary-filter-btn" data-grade="K">K</button>
-                <button class="glossary-filter-btn" data-grade="1">1</button>
-                <button class="glossary-filter-btn" data-grade="2">2</button>
-                <button class="glossary-filter-btn" data-grade="3">3</button>
-                <button class="glossary-filter-btn" data-grade="4">4</button>
-                <button class="glossary-filter-btn" data-grade="5">5</button>
-                <button class="glossary-filter-btn" data-grade="6">6</button>
-                <button class="glossary-filter-btn" data-grade="7">7</button>
-                <button class="glossary-filter-btn" data-grade="8">8</button>
-                <button class="glossary-filter-btn" data-grade="9">9</button>
-                <button class="glossary-filter-btn" data-grade="10">10</button>
-                <button class="glossary-filter-btn" data-grade="11">11</button>
-                <button class="glossary-filter-btn" data-grade="12">12</button>
+            
+            <div class="glossary-filters-wrapper">
+                <label class="glossary-filters-label">Filter by Grade</label>
+                <div class="glossary-filters-scroll">
+                    <button class="glossary-filter-btn active" data-grade="all">All Grades</button>
+                    <button class="glossary-filter-btn" data-grade="K">Kindergarten</button>
+                    <button class="glossary-filter-btn" data-grade="1">1st Grade</button>
+                    <button class="glossary-filter-btn" data-grade="2">2nd Grade</button>
+                    <button class="glossary-filter-btn" data-grade="3">3rd Grade</button>
+                    <button class="glossary-filter-btn" data-grade="4">4th Grade</button>
+                    <button class="glossary-filter-btn" data-grade="5">5th Grade</button>
+                    <button class="glossary-filter-btn" data-grade="6">6th Grade</button>
+                    <button class="glossary-filter-btn" data-grade="7">7th Grade</button>
+                    <button class="glossary-filter-btn" data-grade="8">8th Grade</button>
+                    <button class="glossary-filter-btn" data-grade="9">9th Grade</button>
+                    <button class="glossary-filter-btn" data-grade="10">10th Grade</button>
+                    <button class="glossary-filter-btn" data-grade="11">11th Grade</button>
+                    <button class="glossary-filter-btn" data-grade="12">12th Grade</button>
+                </div>
             </div>
         </div>
         
         <div class="glossary-stats">
-            <span id="glossaryStats">Showing ${validConcepts.length} terms</span>
+            <span id="glossaryStats"><strong>${validConcepts.length}</strong> terms available</span>
         </div>
         
         <div id="glossaryResults">
@@ -956,7 +1133,7 @@ ${JSON.stringify(itemListSchema, null, 2)}
                 }
             });
             
-            statsEl.textContent = \`Showing \${visibleCount} term\${visibleCount !== 1 ? 's' : ''}\`;
+            statsEl.innerHTML = \`<strong>\${visibleCount}</strong> term\${visibleCount !== 1 ? 's' : ''} \${currentSearch || currentGrade !== 'all' ? 'found' : 'available'}\`;
             
             if (visibleCount === 0) {
                 resultsEl.style.display = 'none';
@@ -968,9 +1145,29 @@ ${JSON.stringify(itemListSchema, null, 2)}
         }
         
         // Search input handler
+        const searchClearBtn = document.getElementById('glossarySearchClear');
+        
+        function updateSearchClear() {
+            if (searchInput.value.trim()) {
+                searchClearBtn.classList.add('visible');
+            } else {
+                searchClearBtn.classList.remove('visible');
+            }
+        }
+        
         searchInput.addEventListener('input', (e) => {
             currentSearch = e.target.value;
+            updateSearchClear();
             updateDisplay();
+        });
+        
+        // Clear search handler
+        searchClearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            currentSearch = '';
+            updateSearchClear();
+            updateDisplay();
+            searchInput.focus();
         });
         
         // Filter button handlers
