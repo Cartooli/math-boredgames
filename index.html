@@ -169,53 +169,58 @@
                     <h1>🎯 MathBored</h1>
                     <div class="tagline">Never be bored with math again • Always free, always helpful • <a href="demo.html">Try Demo</a> • <a href="primer.html">📚 Math Primer</a> • <a href="glossary.html">📖 Glossary</a> • <a href="#" id="quickStartLink">⚡ Quick Start</a></div>
                 </div>
-                <div class="theme-selector">
-                    <div class="theme-btn theme-midnight active" data-theme="" title="Midnight"></div>
-                    <div class="theme-btn theme-ocean" data-theme="ocean" title="Ocean"></div>
-                    <div class="theme-btn theme-forest" data-theme="forest" title="Forest"></div>
-                    <div class="theme-btn theme-sunset" data-theme="sunset" title="Sunset"></div>
-                    <div class="theme-btn theme-purple" data-theme="purple" title="Purple"></div>
-                    <div class="theme-btn theme-light" data-theme="light" title="Light"></div>
+                <div class="header-actions">
+                    <button class="search-trigger-btn" id="searchTriggerBtn" aria-label="Search all topics" title="Search all topics">
+                        <span class="search-trigger-icon">🔍</span>
+                        <span class="search-trigger-text">Search</span>
+                    </button>
+                    <div class="theme-selector">
+                        <div class="theme-btn theme-midnight active" data-theme="" title="Midnight"></div>
+                        <div class="theme-btn theme-ocean" data-theme="ocean" title="Ocean"></div>
+                        <div class="theme-btn theme-forest" data-theme="forest" title="Forest"></div>
+                        <div class="theme-btn theme-sunset" data-theme="sunset" title="Sunset"></div>
+                        <div class="theme-btn theme-purple" data-theme="purple" title="Purple"></div>
+                        <div class="theme-btn theme-light" data-theme="light" title="Light"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Search Section -->
-    <div class="hero-search-section">
-        <div class="hero-search-container">
-            <h2 class="hero-search-title">What do you want to learn?</h2>
-            <p class="hero-search-subtitle">Search 230+ topics, lessons, and practice problems</p>
-            <div class="hero-search-input-wrapper">
-                <span class="hero-search-icon">🔍</span>
-                <input 
-                    type="text" 
-                    id="heroSearchInput" 
-                    class="hero-search-input" 
-                    placeholder="Try 'multiplying fractions' or 'quadratic equations'..."
-                    autocomplete="off"
-                    aria-label="Search math topics"
-                >
-                <button class="hero-search-clear" id="heroSearchClear" aria-label="Clear search">×</button>
+    <!-- Search Modal Overlay -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal-backdrop" id="searchModalBackdrop"></div>
+        <div class="search-modal-content">
+            <div class="search-modal-header">
+                <h2 class="search-modal-title">🔍 Search MathBored</h2>
+                <button class="search-modal-close" id="searchModalClose" aria-label="Close search">×</button>
             </div>
-            <div class="hero-search-suggestions">
-                <span class="suggestion-label">Popular:</span>
-                <button class="suggestion-chip" data-query="fractions">Fractions</button>
-                <button class="suggestion-chip" data-query="multiplication">Multiplication</button>
-                <button class="suggestion-chip" data-query="algebra">Algebra</button>
-                <button class="suggestion-chip" data-query="geometry">Geometry</button>
-                <button class="suggestion-chip" data-query="pythagorean">Pythagorean</button>
-            </div>
-        </div>
-        
-        <!-- Search Results Container -->
-        <div class="hero-search-results" id="heroSearchResults" style="display: none;">
-            <div class="search-results-header">
-                <span class="search-results-count" id="searchResultsCount"></span>
-                <button class="search-results-close" id="searchResultsClose">Close Results</button>
-            </div>
-            <div class="search-results-grid" id="searchResultsGrid">
-                <!-- Results will be rendered here -->
+            <div class="search-modal-body">
+                <div class="search-input-wrapper">
+                    <input 
+                        type="text" 
+                        id="modalSearchInput" 
+                        class="search-modal-input" 
+                        placeholder="Try 'multiplying fractions' or 'quadratic equations'..."
+                        autocomplete="off"
+                        aria-label="Search math topics"
+                    >
+                    <button class="search-input-clear" id="modalSearchClear" aria-label="Clear search">×</button>
+                </div>
+                <div class="search-suggestions">
+                    <span class="suggestion-label">Popular:</span>
+                    <button class="suggestion-chip" data-query="fractions">Fractions</button>
+                    <button class="suggestion-chip" data-query="multiplication">Multiplication</button>
+                    <button class="suggestion-chip" data-query="algebra">Algebra</button>
+                    <button class="suggestion-chip" data-query="geometry">Geometry</button>
+                    <button class="suggestion-chip" data-query="pythagorean">Pythagorean</button>
+                </div>
+                <div class="search-results-container" id="searchResultsContainer">
+                    <div class="search-results-count" id="searchResultsCount"></div>
+                    <div class="search-results-grid" id="searchResultsGrid">
+                        <!-- Results will be rendered here -->
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -446,11 +451,12 @@
     <script src="search-index.js?v=1"></script>
     <script>
     // ============================================
-    // HERO SEARCH CONTROLLER
+    // SEARCH MODAL CONTROLLER
     // ============================================
-    const heroSearch = {
+    const searchModal = {
         fuse: null,
         debounceTimer: null,
+        isOpen: false,
         
         init() {
             // Wait for search index to be ready
@@ -472,28 +478,39 @@
                 minMatchCharLength: 2
             });
             
-            // Bind events
-            const input = document.getElementById('heroSearchInput');
-            const clearBtn = document.getElementById('heroSearchClear');
-            const closeBtn = document.getElementById('searchResultsClose');
-            const suggestions = document.querySelectorAll('.suggestion-chip');
+            // Bind trigger button
+            const triggerBtn = document.getElementById('searchTriggerBtn');
+            if (triggerBtn) {
+                triggerBtn.addEventListener('click', () => this.open());
+            }
+            
+            // Bind modal events
+            const modal = document.getElementById('searchModal');
+            const backdrop = document.getElementById('searchModalBackdrop');
+            const closeBtn = document.getElementById('searchModalClose');
+            const input = document.getElementById('modalSearchInput');
+            const clearBtn = document.getElementById('modalSearchClear');
+            const suggestions = document.querySelectorAll('.search-modal .suggestion-chip');
+            
+            if (backdrop) {
+                backdrop.addEventListener('click', () => this.close());
+            }
+            
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => this.close());
+            }
             
             if (input) {
                 input.addEventListener('input', (e) => this.handleInput(e.target.value));
                 input.addEventListener('keydown', (e) => {
                     if (e.key === 'Escape') {
-                        this.clearSearch();
-                        input.blur();
+                        this.close();
                     }
                 });
             }
             
             if (clearBtn) {
                 clearBtn.addEventListener('click', () => this.clearSearch());
-            }
-            
-            if (closeBtn) {
-                closeBtn.addEventListener('click', () => this.hideResults());
             }
             
             suggestions.forEach(chip => {
@@ -506,12 +523,51 @@
                 });
             });
             
-            console.log('✅ Hero search initialized');
+            // Global keyboard shortcut: Cmd/Ctrl + K to open search
+            document.addEventListener('keydown', (e) => {
+                if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                    e.preventDefault();
+                    if (this.isOpen) {
+                        this.close();
+                    } else {
+                        this.open();
+                    }
+                }
+            });
+            
+            console.log('✅ Search modal initialized (Cmd/Ctrl+K to open)');
+        },
+        
+        open() {
+            const modal = document.getElementById('searchModal');
+            const input = document.getElementById('modalSearchInput');
+            
+            if (modal) {
+                modal.classList.add('open');
+                document.body.style.overflow = 'hidden';
+                this.isOpen = true;
+                
+                // Focus input after animation
+                setTimeout(() => {
+                    if (input) input.focus();
+                }, 100);
+            }
+        },
+        
+        close() {
+            const modal = document.getElementById('searchModal');
+            
+            if (modal) {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+                this.isOpen = false;
+                this.clearSearch();
+            }
         },
         
         handleInput(value) {
             // Show/hide clear button
-            const clearBtn = document.getElementById('heroSearchClear');
+            const clearBtn = document.getElementById('modalSearchClear');
             if (clearBtn) {
                 clearBtn.style.display = value.length > 0 ? 'flex' : 'none';
             }
@@ -530,12 +586,12 @@
         search(query) {
             if (!this.fuse) return;
             
-            const results = this.fuse.search(query, { limit: 12 });
+            const results = this.fuse.search(query, { limit: 15 });
             this.renderResults(results, query);
         },
         
         renderResults(results, query) {
-            const container = document.getElementById('heroSearchResults');
+            const container = document.getElementById('searchResultsContainer');
             const grid = document.getElementById('searchResultsGrid');
             const countEl = document.getElementById('searchResultsCount');
             
@@ -547,20 +603,17 @@
                     <div class="no-results">
                         <div class="no-results-icon">🔍</div>
                         <p>No topics found for "<strong>${this.escapeHtml(query)}</strong>"</p>
-                        <p class="no-results-hint">Try different keywords or browse by grade level below</p>
+                        <p class="no-results-hint">Try different keywords or close to browse by grade level</p>
                     </div>
                 `;
-                container.style.display = 'block';
+                container.classList.add('has-results');
                 return;
             }
             
             countEl.textContent = `${results.length} result${results.length !== 1 ? 's' : ''} for "${query}"`;
             
             grid.innerHTML = results.map(result => this.renderCard(result.item)).join('');
-            container.style.display = 'block';
-            
-            // Scroll results into view smoothly
-            container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            container.classList.add('has-results');
         },
         
         renderCard(item) {
@@ -634,8 +687,8 @@
         },
         
         clearSearch() {
-            const input = document.getElementById('heroSearchInput');
-            const clearBtn = document.getElementById('heroSearchClear');
+            const input = document.getElementById('modalSearchInput');
+            const clearBtn = document.getElementById('modalSearchClear');
             
             if (input) input.value = '';
             if (clearBtn) clearBtn.style.display = 'none';
@@ -644,16 +697,16 @@
         },
         
         hideResults() {
-            const container = document.getElementById('heroSearchResults');
+            const container = document.getElementById('searchResultsContainer');
             if (container) {
-                container.style.display = 'none';
+                container.classList.remove('has-results');
             }
         }
     };
     
-    // Initialize hero search
+    // Initialize search modal
     document.addEventListener('DOMContentLoaded', () => {
-        heroSearch.init();
+        searchModal.init();
     });
     </script>
     <script>
