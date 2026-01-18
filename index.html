@@ -181,6 +181,45 @@
         </div>
     </header>
 
+    <!-- Hero Search Section -->
+    <div class="hero-search-section">
+        <div class="hero-search-container">
+            <h2 class="hero-search-title">What do you want to learn?</h2>
+            <p class="hero-search-subtitle">Search 230+ topics, lessons, and practice problems</p>
+            <div class="hero-search-input-wrapper">
+                <span class="hero-search-icon">🔍</span>
+                <input 
+                    type="text" 
+                    id="heroSearchInput" 
+                    class="hero-search-input" 
+                    placeholder="Try 'multiplying fractions' or 'quadratic equations'..."
+                    autocomplete="off"
+                    aria-label="Search math topics"
+                >
+                <button class="hero-search-clear" id="heroSearchClear" aria-label="Clear search">×</button>
+            </div>
+            <div class="hero-search-suggestions">
+                <span class="suggestion-label">Popular:</span>
+                <button class="suggestion-chip" data-query="fractions">Fractions</button>
+                <button class="suggestion-chip" data-query="multiplication">Multiplication</button>
+                <button class="suggestion-chip" data-query="algebra">Algebra</button>
+                <button class="suggestion-chip" data-query="geometry">Geometry</button>
+                <button class="suggestion-chip" data-query="pythagorean">Pythagorean</button>
+            </div>
+        </div>
+        
+        <!-- Search Results Container -->
+        <div class="hero-search-results" id="heroSearchResults" style="display: none;">
+            <div class="search-results-header">
+                <span class="search-results-count" id="searchResultsCount"></span>
+                <button class="search-results-close" id="searchResultsClose">Close Results</button>
+            </div>
+            <div class="search-results-grid" id="searchResultsGrid">
+                <!-- Results will be rendered here -->
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="controls">
             <div class="control-group">
@@ -401,6 +440,222 @@
 
     <script src="data.js?v=5"></script>
     <script src="app.js?v=5"></script>
+    <!-- Fuse.js for fuzzy search -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+    <!-- Search Index -->
+    <script src="search-index.js?v=1"></script>
+    <script>
+    // ============================================
+    // HERO SEARCH CONTROLLER
+    // ============================================
+    const heroSearch = {
+        fuse: null,
+        debounceTimer: null,
+        
+        init() {
+            // Wait for search index to be ready
+            if (!searchIndex || !searchIndex.data || searchIndex.data.length === 0) {
+                setTimeout(() => this.init(), 100);
+                return;
+            }
+            
+            // Initialize Fuse.js with search index
+            this.fuse = new Fuse(searchIndex.data, {
+                keys: [
+                    { name: 'title', weight: 0.4 },
+                    { name: 'description', weight: 0.3 },
+                    { name: 'keywords', weight: 0.3 }
+                ],
+                threshold: 0.4,
+                ignoreLocation: true,
+                includeScore: true,
+                minMatchCharLength: 2
+            });
+            
+            // Bind events
+            const input = document.getElementById('heroSearchInput');
+            const clearBtn = document.getElementById('heroSearchClear');
+            const closeBtn = document.getElementById('searchResultsClose');
+            const suggestions = document.querySelectorAll('.suggestion-chip');
+            
+            if (input) {
+                input.addEventListener('input', (e) => this.handleInput(e.target.value));
+                input.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        this.clearSearch();
+                        input.blur();
+                    }
+                });
+            }
+            
+            if (clearBtn) {
+                clearBtn.addEventListener('click', () => this.clearSearch());
+            }
+            
+            if (closeBtn) {
+                closeBtn.addEventListener('click', () => this.hideResults());
+            }
+            
+            suggestions.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const query = chip.dataset.query;
+                    if (input) {
+                        input.value = query;
+                        this.search(query);
+                    }
+                });
+            });
+            
+            console.log('✅ Hero search initialized');
+        },
+        
+        handleInput(value) {
+            // Show/hide clear button
+            const clearBtn = document.getElementById('heroSearchClear');
+            if (clearBtn) {
+                clearBtn.style.display = value.length > 0 ? 'flex' : 'none';
+            }
+            
+            // Debounce search
+            clearTimeout(this.debounceTimer);
+            this.debounceTimer = setTimeout(() => {
+                if (value.length >= 2) {
+                    this.search(value);
+                } else {
+                    this.hideResults();
+                }
+            }, 150);
+        },
+        
+        search(query) {
+            if (!this.fuse) return;
+            
+            const results = this.fuse.search(query, { limit: 12 });
+            this.renderResults(results, query);
+        },
+        
+        renderResults(results, query) {
+            const container = document.getElementById('heroSearchResults');
+            const grid = document.getElementById('searchResultsGrid');
+            const countEl = document.getElementById('searchResultsCount');
+            
+            if (!container || !grid) return;
+            
+            if (results.length === 0) {
+                countEl.textContent = `No results for "${query}"`;
+                grid.innerHTML = `
+                    <div class="no-results">
+                        <div class="no-results-icon">🔍</div>
+                        <p>No topics found for "<strong>${this.escapeHtml(query)}</strong>"</p>
+                        <p class="no-results-hint">Try different keywords or browse by grade level below</p>
+                    </div>
+                `;
+                container.style.display = 'block';
+                return;
+            }
+            
+            countEl.textContent = `${results.length} result${results.length !== 1 ? 's' : ''} for "${query}"`;
+            
+            grid.innerHTML = results.map(result => this.renderCard(result.item)).join('');
+            container.style.display = 'block';
+            
+            // Scroll results into view smoothly
+            container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        },
+        
+        renderCard(item) {
+            const typeIcons = {
+                'topic': '📚',
+                'primer': '📖',
+                'olympiad': '🏆',
+                'competitions': '🥇',
+                'reference': '📋'
+            };
+            
+            const typeLabels = {
+                'topic': 'Math Topic',
+                'primer': 'Primer Lesson',
+                'olympiad': 'Challenge',
+                'competitions': 'Competitions',
+                'reference': 'Reference'
+            };
+            
+            const icon = typeIcons[item.type] || '📝';
+            const typeLabel = typeLabels[item.type] || 'Content';
+            
+            // Build links section based on available links
+            let linksHtml = '';
+            if (item.links) {
+                const linkItems = [];
+                if (item.links.lesson) {
+                    linkItems.push(`<a href="${item.links.lesson}" class="result-link result-link-lesson">📝 Lesson</a>`);
+                }
+                if (item.links.practice) {
+                    linkItems.push(`<a href="${item.links.practice}" class="result-link result-link-practice">💪 Practice</a>`);
+                }
+                if (item.links.walkthrough) {
+                    linkItems.push(`<a href="${item.links.walkthrough}" class="result-link result-link-walkthrough">🔍 Walkthrough</a>`);
+                }
+                if (item.links.primer) {
+                    linkItems.push(`<a href="${item.links.primer}" class="result-link result-link-primer">📖 Primer</a>`);
+                }
+                if (item.links.olympiad) {
+                    linkItems.push(`<a href="${item.links.olympiad}" class="result-link result-link-olympiad">🏆 Challenge</a>`);
+                }
+                if (item.links.competitions) {
+                    linkItems.push(`<a href="${item.links.competitions}" class="result-link result-link-competitions">🥇 Explore</a>`);
+                }
+                if (item.links.glossary) {
+                    linkItems.push(`<a href="${item.links.glossary}" class="result-link result-link-glossary">📖 Glossary</a>`);
+                }
+                linksHtml = linkItems.join('');
+            }
+            
+            return `
+                <div class="search-result-card" data-type="${item.type}">
+                    <div class="result-header">
+                        <span class="result-icon">${icon}</span>
+                        <span class="result-type">${typeLabel}</span>
+                        <span class="result-grade">${item.gradeLabel}</span>
+                    </div>
+                    <h3 class="result-title">${this.escapeHtml(item.title)}</h3>
+                    <p class="result-description">${this.escapeHtml(item.description)}</p>
+                    <div class="result-links">
+                        ${linksHtml}
+                    </div>
+                </div>
+            `;
+        },
+        
+        escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        },
+        
+        clearSearch() {
+            const input = document.getElementById('heroSearchInput');
+            const clearBtn = document.getElementById('heroSearchClear');
+            
+            if (input) input.value = '';
+            if (clearBtn) clearBtn.style.display = 'none';
+            
+            this.hideResults();
+        },
+        
+        hideResults() {
+            const container = document.getElementById('heroSearchResults');
+            if (container) {
+                container.style.display = 'none';
+            }
+        }
+    };
+    
+    // Initialize hero search
+    document.addEventListener('DOMContentLoaded', () => {
+        heroSearch.init();
+    });
+    </script>
     <script>
     // ============================================
     // QUICK START MODAL CONTROLLER
