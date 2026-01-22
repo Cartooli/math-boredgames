@@ -33,6 +33,8 @@ class MathBoredApp {
         this.initAchievements();
         this.initAdaptiveDifficulty();
         this.initAnalytics();
+        this.initSpacedRepetition();
+        this.initMasteryTracking();
         this.init();
     }
     
@@ -20246,6 +20248,11 @@ x+2 | x² + 5x + 6
             // Check achievements after correct answer
             this.checkAchievements();
             
+            // Update mastery tracking
+            if (this.currentTopic) {
+                this.updateMastery(this.currentTopic, true);
+            }
+            
             // Dispatch event for widget tracking
             document.dispatchEvent(new CustomEvent('correctAnswer', {
                 detail: { streak: this.stats.streak }
@@ -20267,6 +20274,11 @@ x+2 | x² + 5x + 6
             
             // Track for adaptive difficulty
             this.trackProblemPerformance(false);
+            
+            // Update mastery tracking
+            if (this.currentTopic) {
+                this.updateMastery(this.currentTopic, false);
+            }
             
             feedbackDiv.innerHTML = `
                 <div class="feedback incorrect">
@@ -21975,12 +21987,17 @@ math.boredgames.site`;
             .sort((a, b) => b[1] - a[1])
             .slice(0, 5);
         
+        // Enhanced analytics
+        const weakAreas = this.getWeakAreas();
+        const strongAreas = this.getStrongAreas();
+        const learningVelocity = this.getLearningVelocity();
+        
         const html = `
             <div class="analytics-container">
                 <h2 style="text-align: center; margin-bottom: 30px;">
-                    📊 Usage Analytics
+                    📊 Enhanced Learning Analytics
                     <span style="display: block; font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px; font-weight: normal;">
-                        All data stored locally • Completely private
+                        All data stored locally • Completely private • AI-powered insights
                     </span>
                 </h2>
                 
@@ -21994,7 +22011,55 @@ math.boredgames.site`;
                         <div class="analytics-card-title">📚 Topics Viewed</div>
                         <div class="analytics-card-value">${Object.keys(this.analytics.topicViews).length}</div>
                     </div>
+                    
+                    <div class="analytics-card">
+                        <div class="analytics-card-title">⚡ Learning Velocity</div>
+                        <div class="analytics-card-value">${learningVelocity}</div>
+                        <div class="analytics-card-subtitle">problems/day</div>
+                    </div>
+                    
+                    <div class="analytics-card">
+                        <div class="analytics-card-title">🎯 Overall Accuracy</div>
+                        <div class="analytics-card-value">${this.stats.totalAttempts > 0 ? Math.round((this.stats.correctAnswers / this.stats.totalAttempts) * 100) : 0}%</div>
+                    </div>
                 </div>
+                
+                ${weakAreas.length > 0 ? `
+                    <div class="analytics-section">
+                        <h3>⚠️ Areas Needing Focus</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 15px;">These topics could use more practice</p>
+                        <div class="weak-areas-list">
+                            ${weakAreas.map(item => `
+                                <div class="weak-area-item">
+                                    <span class="weak-area-name">${item.topic}</span>
+                                    <div class="weak-area-stats">
+                                        <span class="weak-accuracy">${item.accuracy}% accuracy</span>
+                                        <span class="weak-attempts">${item.attempts} attempts</span>
+                                    </div>
+                                    <button class="btn-practice-weak" onclick="app.reviewTopic('${item.topic}')">
+                                        Practice Now
+                                    </button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+                
+                ${strongAreas.length > 0 ? `
+                    <div class="analytics-section">
+                        <h3>✨ Your Strengths</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 15px;">You're excelling in these areas!</p>
+                        <div class="strong-areas-list">
+                            ${strongAreas.map(item => `
+                                <div class="strong-area-item">
+                                    <span class="strong-icon">🌟</span>
+                                    <span class="strong-area-name">${item.topic}</span>
+                                    <span class="strong-accuracy">${item.accuracy}% accuracy</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
                 
                 <div class="analytics-section">
                     <h3>🔥 Most Popular Topics</h3>
@@ -22068,6 +22133,51 @@ math.boredgames.site`;
             this.viewAnalytics();
         }
     }
+    
+    // Enhanced analytics helpers
+    getWeakAreas() {
+        if (!this.masteryTracking || !this.masteryTracking.topics) return [];
+        
+        return Object.entries(this.masteryTracking.topics)
+            .map(([topic, data]) => ({
+                topic,
+                accuracy: data.attempts > 0 ? Math.round((data.correct / data.attempts) * 100) : 0,
+                attempts: data.attempts
+            }))
+            .filter(item => item.attempts >= 5 && item.accuracy < 70)
+            .sort((a, b) => a.accuracy - b.accuracy)
+            .slice(0, 5);
+    }
+    
+    getStrongAreas() {
+        if (!this.masteryTracking || !this.masteryTracking.topics) return [];
+        
+        return Object.entries(this.masteryTracking.topics)
+            .map(([topic, data]) => ({
+                topic,
+                accuracy: data.attempts > 0 ? Math.round((data.correct / data.attempts) * 100) : 0,
+                attempts: data.attempts
+            }))
+            .filter(item => item.attempts >= 10 && item.accuracy >= 85)
+            .sort((a, b) => b.accuracy - a.accuracy)
+            .slice(0, 5);
+    }
+    
+    getLearningVelocity() {
+        // Calculate problems solved per day
+        const firstPractice = Math.min(
+            ...Object.values(this.masteryTracking?.topics || {})
+                .map(t => t.lastPracticed)
+                .filter(t => t > 0)
+        );
+        
+        if (!firstPractice || firstPractice === Infinity) return 0;
+        
+        const daysSinceStart = Math.max(1, Math.floor((Date.now() - firstPractice) / (24 * 60 * 60 * 1000)));
+        const totalProblems = this.stats.totalAttempts;
+        
+        return Math.round(totalProblems / daysSinceStart * 10) / 10; // Round to 1 decimal
+    }
 
     verifyRobotsTxt() {
         fetch('/robots.txt')
@@ -22106,6 +22216,489 @@ math.boredgames.site`;
             toast.classList.remove('show');
             setTimeout(() => toast.remove(), 300);
         }, 3000);
+    }
+    
+    // ====================================
+    // MATHJAX RENDERING HELPER
+    // ====================================
+    renderMath() {
+        // Check if MathJax is loaded
+        if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+            MathJax.typesetPromise().then(() => {
+                console.log('✅ Math rendered');
+            }).catch((err) => {
+                console.warn('⚠️ MathJax rendering error:', err);
+            });
+        }
+    }
+    
+    // ====================================
+    // SPACED REPETITION SYSTEM (SM-2 Algorithm)
+    // ====================================
+    initSpacedRepetition() {
+        const stored = localStorage.getItem('spacedRepetition');
+        this.spacedRepetition = stored ? JSON.parse(stored) : {
+            cards: {}, // topicId -> { easiness, interval, repetitions, nextReview }
+            enabled: false
+        };
+    }
+    
+    calculateNextReview(topic, quality) {
+        // quality: 0-5 (0=complete blackout, 5=perfect recall)
+        if (!this.spacedRepetition.cards[topic]) {
+            this.spacedRepetition.cards[topic] = {
+                easiness: 2.5,
+                interval: 0,
+                repetitions: 0,
+                nextReview: Date.now()
+            };
+        }
+        
+        const card = this.spacedRepetition.cards[topic];
+        
+        // SM-2 algorithm
+        if (quality >= 3) {
+            if (card.repetitions === 0) {
+                card.interval = 1;
+            } else if (card.repetitions === 1) {
+                card.interval = 6;
+            } else {
+                card.interval = Math.round(card.interval * card.easiness);
+            }
+            card.repetitions++;
+        } else {
+            card.repetitions = 0;
+            card.interval = 1;
+        }
+        
+        card.easiness = card.easiness + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02));
+        if (card.easiness < 1.3) card.easiness = 1.3;
+        
+        // Convert interval (days) to timestamp
+        card.nextReview = Date.now() + (card.interval * 24 * 60 * 60 * 1000);
+        
+        this.saveSpacedRepetition();
+        return card;
+    }
+    
+    getTopicsDueForReview() {
+        const now = Date.now();
+        const dueTopics = [];
+        
+        for (const [topic, card] of Object.entries(this.spacedRepetition.cards)) {
+            if (card.nextReview <= now) {
+                dueTopics.push({
+                    topic,
+                    ...card,
+                    daysOverdue: Math.floor((now - card.nextReview) / (24 * 60 * 60 * 1000))
+                });
+            }
+        }
+        
+        return dueTopics.sort((a, b) => a.nextReview - b.nextReview);
+    }
+    
+    saveSpacedRepetition() {
+        localStorage.setItem('spacedRepetition', JSON.stringify(this.spacedRepetition));
+    }
+    
+    toggleSpacedRepetition() {
+        this.spacedRepetition.enabled = !this.spacedRepetition.enabled;
+        this.saveSpacedRepetition();
+        
+        const statusMsg = this.spacedRepetition.enabled ? 
+            '✅ Spaced Repetition Enabled' : '❌ Spaced Repetition Disabled';
+        this.showToast(statusMsg, 'info');
+        
+        if (this.spacedRepetition.enabled) {
+            this.showSpacedRepetitionDashboard();
+        }
+    }
+    
+    showSpacedRepetitionDashboard() {
+        const dueTopics = this.getTopicsDueForReview();
+        const totalTopics = Object.keys(this.spacedRepetition.cards).length;
+        
+        const html = `
+            <div class="spaced-repetition-dashboard">
+                <div class="dashboard-header">
+                    <h2>📚 Spaced Repetition Dashboard</h2>
+                    <p>Optimize your learning with scientifically-proven spaced repetition</p>
+                </div>
+                
+                <div class="sr-stats">
+                    <div class="sr-stat-card">
+                        <div class="sr-stat-value">${dueTopics.length}</div>
+                        <div class="sr-stat-label">Topics Due for Review</div>
+                    </div>
+                    <div class="sr-stat-card">
+                        <div class="sr-stat-value">${totalTopics}</div>
+                        <div class="sr-stat-label">Total Topics Tracked</div>
+                    </div>
+                    <div class="sr-stat-card">
+                        <div class="sr-stat-value">${totalTopics - dueTopics.length}</div>
+                        <div class="sr-stat-label">Topics Scheduled</div>
+                    </div>
+                </div>
+                
+                ${dueTopics.length > 0 ? `
+                    <div class="sr-due-topics">
+                        <h3>🔔 Review These Topics Now</h3>
+                        <div class="sr-topic-list">
+                            ${dueTopics.map(item => `
+                                <div class="sr-topic-item">
+                                    <div class="sr-topic-name">${item.topic}</div>
+                                    <div class="sr-topic-meta">
+                                        <span>Interval: ${item.interval} days</span>
+                                        <span>Easiness: ${item.easiness.toFixed(2)}</span>
+                                        ${item.daysOverdue > 0 ? `<span class="overdue">⚠️ ${item.daysOverdue}d overdue</span>` : ''}
+                                    </div>
+                                    <button class="btn-review" onclick="app.reviewTopic('${item.topic}')">
+                                        Review Now →
+                                    </button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : '<div class="sr-empty">✅ All topics reviewed! Check back later.</div>'}
+            </div>
+        `;
+        
+        const contentArea = document.getElementById('contentArea');
+        if (contentArea) {
+            contentArea.innerHTML = html;
+        }
+    }
+    
+    reviewTopic(topic) {
+        // Find the topic in data and load it
+        const allTopics = getTopicsByGrade(this.currentGrade);
+        const topicData = allTopics.find(t => t.concept === topic);
+        
+        if (topicData) {
+            const topicSelect = document.getElementById('topicSelect');
+            if (topicSelect) {
+                const option = Array.from(topicSelect.options).find(opt => opt.value === topic);
+                if (option) {
+                    topicSelect.value = topic;
+                    this.currentTopic = topic;
+                    this.updateContent();
+                }
+            }
+        }
+    }
+    
+    // ====================================
+    // MASTERY TRACKING SYSTEM
+    // ====================================
+    initMasteryTracking() {
+        const stored = localStorage.getItem('masteryTracking');
+        this.masteryTracking = stored ? JSON.parse(stored) : {
+            topics: {} // topicId -> { level, attempts, correct, lastPracticed }
+        };
+    }
+    
+    getMasteryLevel(topic) {
+        if (!this.masteryTracking.topics[topic]) {
+            return { level: 'beginner', progress: 0, attempts: 0, accuracy: 0 };
+        }
+        
+        const data = this.masteryTracking.topics[topic];
+        const accuracy = data.attempts > 0 ? (data.correct / data.attempts) * 100 : 0;
+        
+        // Determine mastery level
+        let level = 'beginner';
+        let progress = 0;
+        
+        if (data.attempts >= 50 && accuracy >= 90) {
+            level = 'mastery';
+            progress = 100;
+        } else if (data.attempts >= 20 && accuracy >= 75) {
+            level = 'proficient';
+            progress = 75;
+        } else if (data.attempts >= 10 && accuracy >= 60) {
+            level = 'intermediate';
+            progress = 50;
+        } else if (data.attempts > 0) {
+            level = 'beginner';
+            progress = Math.min((data.attempts / 10) * 50, 50);
+        }
+        
+        return { level, progress, attempts: data.attempts, accuracy: Math.round(accuracy) };
+    }
+    
+    updateMastery(topic, isCorrect) {
+        if (!this.masteryTracking.topics[topic]) {
+            this.masteryTracking.topics[topic] = {
+                level: 'beginner',
+                attempts: 0,
+                correct: 0,
+                lastPracticed: Date.now()
+            };
+        }
+        
+        const data = this.masteryTracking.topics[topic];
+        data.attempts++;
+        if (isCorrect) data.correct++;
+        data.lastPracticed = Date.now();
+        
+        const oldMastery = this.getMasteryLevel(topic);
+        const newMastery = this.getMasteryLevel(topic);
+        
+        // Check for level up
+        if (oldMastery.level !== newMastery.level) {
+            this.showMasteryLevelUp(topic, newMastery.level);
+        }
+        
+        this.saveMasteryTracking();
+    }
+    
+    saveMasteryTracking() {
+        localStorage.setItem('masteryTracking', JSON.stringify(this.masteryTracking));
+    }
+    
+    showMasteryLevelUp(topic, newLevel) {
+        const levelEmojis = {
+            'beginner': '🌱',
+            'intermediate': '🌿',
+            'proficient': '🌳',
+            'mastery': '👑'
+        };
+        
+        const toast = document.createElement('div');
+        toast.className = 'mastery-levelup-toast';
+        toast.innerHTML = `
+            <div class="mastery-levelup-content">
+                <div class="mastery-levelup-icon">${levelEmojis[newLevel]}</div>
+                <div class="mastery-levelup-text">
+                    <div class="mastery-levelup-title">Level Up!</div>
+                    <div class="mastery-levelup-topic">${topic}</div>
+                    <div class="mastery-levelup-level">${newLevel.charAt(0).toUpperCase() + newLevel.slice(1)}</div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(toast);
+        setTimeout(() => toast.classList.add('show'), 100);
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 500);
+        }, 5000);
+    }
+    
+    viewMasteryDashboard() {
+        const topics = Object.entries(this.masteryTracking.topics)
+            .map(([topic, data]) => ({
+                topic,
+                ...this.getMasteryLevel(topic),
+                lastPracticed: data.lastPracticed
+            }))
+            .sort((a, b) => {
+                const levelOrder = { 'mastery': 4, 'proficient': 3, 'intermediate': 2, 'beginner': 1 };
+                return levelOrder[b.level] - levelOrder[a.level] || b.lastPracticed - a.lastPracticed;
+            });
+        
+        const levelCounts = {
+            mastery: topics.filter(t => t.level === 'mastery').length,
+            proficient: topics.filter(t => t.level === 'proficient').length,
+            intermediate: topics.filter(t => t.level === 'intermediate').length,
+            beginner: topics.filter(t => t.level === 'beginner').length
+        };
+        
+        const html = `
+            <div class="mastery-dashboard">
+                <div class="dashboard-header">
+                    <h2>👑 Mastery Tracking</h2>
+                    <p>Track your progress from beginner to mastery</p>
+                </div>
+                
+                <div class="mastery-overview">
+                    <div class="mastery-stat-card mastery-level">
+                        <div class="mastery-stat-icon">👑</div>
+                        <div class="mastery-stat-value">${levelCounts.mastery}</div>
+                        <div class="mastery-stat-label">Mastery</div>
+                    </div>
+                    <div class="mastery-stat-card proficient-level">
+                        <div class="mastery-stat-icon">🌳</div>
+                        <div class="mastery-stat-value">${levelCounts.proficient}</div>
+                        <div class="mastery-stat-label">Proficient</div>
+                    </div>
+                    <div class="mastery-stat-card intermediate-level">
+                        <div class="mastery-stat-icon">🌿</div>
+                        <div class="mastery-stat-value">${levelCounts.intermediate}</div>
+                        <div class="mastery-stat-label">Intermediate</div>
+                    </div>
+                    <div class="mastery-stat-card beginner-level">
+                        <div class="mastery-stat-icon">🌱</div>
+                        <div class="mastery-stat-value">${levelCounts.beginner}</div>
+                        <div class="mastery-stat-label">Beginner</div>
+                    </div>
+                </div>
+                
+                ${topics.length > 0 ? `
+                    <div class="mastery-topics-list">
+                        <h3>📊 Your Progress</h3>
+                        ${topics.map(topic => `
+                            <div class="mastery-topic-card">
+                                <div class="mastery-topic-header">
+                                    <span class="mastery-topic-name">${topic.topic}</span>
+                                    <span class="mastery-topic-badge ${topic.level}">${topic.level}</span>
+                                </div>
+                                <div class="mastery-progress-bar">
+                                    <div class="mastery-progress-fill" style="width: ${topic.progress}%"></div>
+                                </div>
+                                <div class="mastery-topic-stats">
+                                    <span>${topic.attempts} attempts</span>
+                                    <span>${topic.accuracy}% accuracy</span>
+                                    <span>Last: ${this.formatTimeAgo(topic.lastPracticed)}</span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                ` : '<div class="mastery-empty">Start practicing to track your mastery!</div>'}
+            </div>
+        `;
+        
+        const contentArea = document.getElementById('contentArea');
+        if (contentArea) {
+            contentArea.innerHTML = html;
+        }
+    }
+    
+    formatTimeAgo(timestamp) {
+        const seconds = Math.floor((Date.now() - timestamp) / 1000);
+        
+        if (seconds < 60) return 'just now';
+        if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
+        if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
+        return `${Math.floor(seconds / 86400)}d ago`;
+    }
+    
+    // ====================================
+    // SVG VISUALIZATION HELPERS
+    // ====================================
+    createGeometryVisualization(type, params) {
+        const svgNS = "http://www.w3.org/2000/svg";
+        const svg = document.createElementNS(svgNS, "svg");
+        svg.setAttribute("width", "400");
+        svg.setAttribute("height", "300");
+        svg.setAttribute("viewBox", "0 0 400 300");
+        svg.setAttribute("class", "math-visualization");
+        
+        switch(type) {
+            case 'triangle':
+                return this.drawTriangle(svg, params);
+            case 'circle':
+                return this.drawCircle(svg, params);
+            case 'rectangle':
+                return this.drawRectangle(svg, params);
+            case 'coordinate-plane':
+                return this.drawCoordinatePlane(svg, params);
+            default:
+                return svg;
+        }
+    }
+    
+    drawTriangle(svg, params) {
+        const svgNS = "http://www.w3.org/2000/svg";
+        const { base = 200, height = 150, centerX = 200, centerY = 200 } = params;
+        
+        const points = [
+            [centerX, centerY - height],
+            [centerX - base/2, centerY],
+            [centerX + base/2, centerY]
+        ].map(p => p.join(',')).join(' ');
+        
+        const triangle = document.createElementNS(svgNS, "polygon");
+        triangle.setAttribute("points", points);
+        triangle.setAttribute("fill", "rgba(59, 130, 246, 0.2)");
+        triangle.setAttribute("stroke", "#3b82f6");
+        triangle.setAttribute("stroke-width", "2");
+        
+        svg.appendChild(triangle);
+        return svg;
+    }
+    
+    drawCircle(svg, params) {
+        const svgNS = "http://www.w3.org/2000/svg";
+        const { radius = 80, centerX = 200, centerY = 150 } = params;
+        
+        const circle = document.createElementNS(svgNS, "circle");
+        circle.setAttribute("cx", centerX);
+        circle.setAttribute("cy", centerY);
+        circle.setAttribute("r", radius);
+        circle.setAttribute("fill", "rgba(59, 130, 246, 0.2)");
+        circle.setAttribute("stroke", "#3b82f6");
+        circle.setAttribute("stroke-width", "2");
+        
+        svg.appendChild(circle);
+        return svg;
+    }
+    
+    drawRectangle(svg, params) {
+        const svgNS = "http://www.w3.org/2000/svg";
+        const { width = 200, height = 120, x = 100, y = 90 } = params;
+        
+        const rect = document.createElementNS(svgNS, "rect");
+        rect.setAttribute("x", x);
+        rect.setAttribute("y", y);
+        rect.setAttribute("width", width);
+        rect.setAttribute("height", height);
+        rect.setAttribute("fill", "rgba(59, 130, 246, 0.2)");
+        rect.setAttribute("stroke", "#3b82f6");
+        rect.setAttribute("stroke-width", "2");
+        
+        svg.appendChild(rect);
+        return svg;
+    }
+    
+    drawCoordinatePlane(svg, params) {
+        const svgNS = "http://www.w3.org/2000/svg";
+        const { gridSize = 20, centerX = 200, centerY = 150 } = params;
+        
+        // Draw grid
+        for (let i = 0; i <= 400; i += gridSize) {
+            const vLine = document.createElementNS(svgNS, "line");
+            vLine.setAttribute("x1", i);
+            vLine.setAttribute("y1", "0");
+            vLine.setAttribute("x2", i);
+            vLine.setAttribute("y2", "300");
+            vLine.setAttribute("stroke", "#cbd5e1");
+            vLine.setAttribute("stroke-width", "0.5");
+            svg.appendChild(vLine);
+        }
+        
+        for (let i = 0; i <= 300; i += gridSize) {
+            const hLine = document.createElementNS(svgNS, "line");
+            hLine.setAttribute("x1", "0");
+            hLine.setAttribute("y1", i);
+            hLine.setAttribute("x2", "400");
+            hLine.setAttribute("y2", i);
+            hLine.setAttribute("stroke", "#cbd5e1");
+            hLine.setAttribute("stroke-width", "0.5");
+            svg.appendChild(hLine);
+        }
+        
+        // Draw axes
+        const xAxis = document.createElementNS(svgNS, "line");
+        xAxis.setAttribute("x1", "0");
+        xAxis.setAttribute("y1", centerY);
+        xAxis.setAttribute("x2", "400");
+        xAxis.setAttribute("y2", centerY);
+        xAxis.setAttribute("stroke", "#3b82f6");
+        xAxis.setAttribute("stroke-width", "2");
+        svg.appendChild(xAxis);
+        
+        const yAxis = document.createElementNS(svgNS, "line");
+        yAxis.setAttribute("x1", centerX);
+        yAxis.setAttribute("y1", "0");
+        yAxis.setAttribute("x2", centerX);
+        yAxis.setAttribute("y2", "300");
+        yAxis.setAttribute("stroke", "#3b82f6");
+        yAxis.setAttribute("stroke-width", "2");
+        svg.appendChild(yAxis);
+        
+        return svg;
     }
 }
 

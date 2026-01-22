@@ -101,3 +101,5 @@ console.log('   1. Test the schema at: https://search.google.com/test/rich-resul
 console.log('   2. Submit updated sitemap to Google Search Console');
 console.log('   3. Monitor for FAQ rich snippets in search results\n');
 
+
+

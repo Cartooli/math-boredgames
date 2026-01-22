@@ -26,14 +26,10 @@ npm-debug.log*
 # Environment variables (GitHub tokens, etc.)
 .env
 .env.local
-.env.*.local
-
-# Large local source documents (do not commit)
+.env.*.local# Large local source documents (do not commit)
 Copy of Problem of the Week - Master Sheet.docx
 Copy of Problem of the Week - Master Sheet.epub
-Copy of Problem of the Week - Master Sheet.md
-
-# Development/Debug files (not for public repo)
+Copy of Problem of the Week - Master Sheet.md# Development/Debug files (not for public repo)
 debug.html
 test.html
 all_topics.txt

@@ -1,11 +1,11 @@
 // Service Worker for MathBored PWA
-const CACHE_NAME = 'mathbored-v5'; // UPDATED VERSION - syntax error fix
+const CACHE_NAME = 'mathbored-v6-world-class'; // WORLD-CLASS FEATURES UPDATE
 const urlsToCache = [
   './',
   './index.html',
   './styles.css',
-  './app.js?v=5',
-  './data.js?v=5'
+  './app.js?v=6',
+  './data.js?v=6'
 ];
 
 // Install event - cache resources

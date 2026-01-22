@@ -84,6 +84,31 @@
     <meta name="apple-mobile-web-app-title" content="MathBored">
     
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- MathJax for LaTeX rendering -->
+    <script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+        },
+        startup: {
+            pageReady: () => {
+                return MathJax.startup.defaultPageReady().then(() => {
+                    console.log('✅ MathJax loaded successfully');
+                });
+            }
+        }
+    };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
 </head>
 <body>
     <!-- Fallback for users without JavaScript -->
@@ -340,6 +365,12 @@
                 <button class="analytics-btn" onclick="app.viewAnalytics()" title="View usage analytics">
                     📊 Analytics
                 </button>
+                <button class="export-btn" onclick="app.viewMasteryDashboard()" title="View mastery progress">
+                    👑 Mastery
+                </button>
+                <button class="export-btn" onclick="app.showSpacedRepetitionDashboard()" title="Spaced repetition review">
+                    📚 Review Schedule
+                </button>
             </div>
             
             <!-- Learning Tools -->
@@ -443,8 +474,8 @@
         </div>
     </div>
 
-    <script src="data.js?v=5"></script>
-    <script src="app.js?v=5"></script>
+    <script src="data.js?v=6"></script>
+    <script src="app.js?v=6"></script>
     <!-- Fuse.js for fuzzy search -->
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
     <!-- Search Index -->
