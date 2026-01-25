@@ -125,16 +125,95 @@ class MathBoredApp {
     
     // Topics with complete problem generators (not just fallback to Addition)
     topicsWithGenerators = new Set([
-        // Core topics with generators
+        // ========== KINDERGARTEN ==========
         "Counting and Cardinality", "Number Recognition", "Basic Shapes", "Measurement Comparison",
-        "Patterns", "Ordinal Numbers", "Simple Data Collection",
+        "Patterns", "Ordinal Numbers", "Simple Data Collection", "Number Writing (0-20)",
+        "More/Less/Equal", "Sorting and Classifying", "Position Words", "Simple Addition Stories",
+        
+        // ========== GRADE 1 ==========
         "Place Value", "Two-Digit Addition", "Two-Digit Subtraction", "Comparing Numbers",
         "Telling Time", "Measurement (Length)", "Basic Shapes and Attributes",
         "Word Problems (Addition/Subtraction)", "Data Organization", "Number Bonds", "Fact Families",
-        "Addition", "Subtraction", "Multiplication", "Division",
-        "Fractions", "Decimals", "Percentages", "Integers",
-        "Exponents", "Order of Operations", "Pythagorean Theorem",
-        "Quadratic Equations", "Slope"
+        "Calendar Skills", "Three-Addend Addition", "Missing Addends", "Number Line Operations",
+        "Coin Recognition", "Half Hour Time", "Equal Parts", "Tally Marks",
+        "Greater Than/Less Than Symbols", "Place Value (Hundreds)", "Mental Math Strategies",
+        "Measurement (Inches/Centimeters)", "Repeated Addition", "Equal Groups",
+        "Shapes (2D Properties)", "Line Plots (Simple)", "Counting Money",
+        
+        // ========== GRADE 2 ==========
+        "Even and Odd Numbers", "Skip Counting", "Three-Digit Numbers", "Regrouping",
+        "Money", "Time to 5 Minutes", "Bar Graphs and Picture Graphs", "Measurement Units",
+        "Arrays (Introduction)", "Estimating Quantities",
+        
+        // ========== GRADE 3 ==========
+        "Addition", "Subtraction", "Multiplication", "Division", "Area and Perimeter",
+        "Telling Time to the Minute", "Measurement Conversions", "Rounding",
+        "Properties of Multiplication", "Factors and Multiples (Basic)", "Data Interpretation",
+        "Quarter Hours", "Number Patterns (100s chart)", "Multiplication Tables (Focus)",
+        "Division with Remainders", "Fraction Comparison", "Unit Fractions",
+        
+        // ========== GRADE 4 ==========
+        "Equivalent Fractions", "Mixed Numbers", "Rounding and Estimation", "Angle Measurement",
+        "Line Plots", "Factors and Divisibility", "Multiples and Least Common Multiple",
+        "Greatest Common Factor", "Two-Dimensional Figures", "Liquid Measurement",
+        "Weight Measurement", "Perimeter of Polygons", "Scaled Picture Graphs",
+        "Scaled Bar Graphs", "Frequency Tables", "Elapsed Time", "Temperature",
+        
+        // ========== GRADE 5 ==========
+        "Fractions", "Decimals", "Prime Numbers", "Order of Operations",
+        "Fraction Addition and Subtraction", "Fraction Multiplication and Division",
+        "Coordinate Graphing", "Volume of Rectangular Prisms", "Measurement Conversion",
+        "Decimal Operations", "Exponents (Introduction)", "Expressions", "Data and Graphs",
+        "Multi-Digit Multiplication", "Long Division", "Fraction Ordering", "Fraction Models",
+        "Decimal Place Value", "Decimal Comparison", "Protractor Use", "Symmetry",
+        "Classifying Triangles", "Coordinate Grids (First Quadrant)", "Division of Decimals",
+        "Powers of 10", "Fraction to Decimal Conversion", "Percentage Basics",
+        "Three-Dimensional Figures", "Cubic Units", "Order of Operations (PEMDAS)",
+        "Numerical Patterns", "Mean (Average)", "Line Graphs",
+        
+        // ========== GRADE 6 ==========
+        "Integers", "Ratios and Proportions", "Percentages", "Coordinate Plane",
+        "Absolute Value", "Statistical Questions", "Rate and Unit Rate",
+        "Expressions and Variables", "One-Step Equations", "Area of Triangles and Polygons",
+        "Surface Area", "Dividing Fractions", "Negative Numbers", "Operations with Integers",
+        "GCF Applications", "LCM Applications", "Ratio Tables", "Double Number Lines",
+        "Percent of a Number", "Box Plots", "Histograms", "Median and Mode",
+        "Interquartile Range (IQR)",
+        
+        // ========== GRADE 7 ==========
+        "Expressions and Equations", "Inequalities", "Area", "Angles and Triangles",
+        "Circles", "Scale Drawings", "Probability Basics", "Proportional Relationships",
+        "Percent Applications", "Two-Step Equations", "Multi-Step Equations",
+        "Combining Like Terms", "Distributive Property", "Simple Interest", "Percent Change",
+        "Complementary and Supplementary Angles", "Volume of Cylinders", "Sample Space",
+        
+        // ========== GRADE 8 ==========
+        "Volume", "Pythagorean Theorem", "Slope", "Exponents", "Systems of Equations",
+        "Scientific Notation", "Transformations", "Functions (Introduction)", "Scatter Plots",
+        "Simultaneous Equations (Graphing)", "Distance Formula", "Volume of Cones and Spheres",
+        "Bivariate Data", "Linear vs Non-Linear Functions",
+        
+        // ========== GRADE 9-10 ==========
+        "Polynomials", "Quadratic Equations", "Functions", "Factoring",
+        "Radical Expressions", "Rational Expressions", "Linear Systems (Methods)",
+        "Absolute Value Equations", "Square Root Functions", "Exponential Growth and Decay",
+        "Trigonometry", "Probability", "Statistics", "Circles (Advanced)",
+        "Combinations and Permutations", "Systems of Inequalities", "Normal Distribution",
+        "Conditional Probability", "Expected Value", "Circle Geometry",
+        "Roots and Radicals", "Rational vs Irrational Numbers", "Frequency Tables (Two-Way)",
+        "Completing the Square", "Quadratic Formula", "Parent Functions",
+        "Function Transformations", "Regression Lines", "Standard Form to Slope-Intercept",
+        "Unit Circle", "Trig Identities", "Arc Length and Sector Area", "Asymptotes",
+        "Continuity", "Chain Rule",
+        
+        // ========== GRADE 11-12 (Advanced) ==========
+        "Law of Sines", "Law of Cosines", "Logarithms", "Exponential Functions",
+        "Complex Numbers", "Conic Sections", "Sequences (Arithmetic/Geometric)",
+        "Series and Summation", "Inverse Functions", "Rational Exponents",
+        "Polynomial Division", "Derivatives", "Integrals", "Sequences and Series",
+        "Matrices", "Standard Deviation", "Limits", "Vectors", "Rational Functions",
+        "Parametric Equations", "Polar Coordinates", "L'Hôpital's Rule",
+        "Law of Sines and Cosines"
     ]);
     
     hasGenerator(topicName) {
@@ -801,29 +880,46 @@ class MathBoredApp {
             return;
         }
         
+        // Show loading spinner immediately
+        container.innerHTML = `
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">Loading lesson...</div>
+                <div class="loading-subtext">${this.currentTopic}</div>
+            </div>
+        `;
+        
         // Track topic view
         this.trackTopicView(this.currentTopic, 'lesson');
         
-        const conceptData = getConceptByName(this.currentTopic);
-        if (!conceptData) {
-            container.innerHTML = '<div class="loading">Topic data not found. Please select another topic.</div>';
-            return;
-        }
-        
-        const lessonHTML = this.generateLessonContent(conceptData);
-        const recommendationsHTML = this.generateRecommendationsHTML();
-        const progressHTML = this.generateProgressIndicator();
-        const isCompleted = this.isTopicCompleted(this.currentTopic);
-        const completeButtonHTML = isCompleted 
-            ? `<div style="text-align: center; margin-top: 30px; padding: 15px; background: var(--success-bg); border-radius: 8px; color: var(--success);">
-                   ✓ You've completed this topic!
-               </div>`
-            : `<div style="text-align: center; margin-top: 30px;">
-                   <button class="btn-submit" onclick="app.markTopicComplete('${this.currentTopic.replace(/'/g, "\\'")}')">
-                       ✓ Mark as Complete
-                   </button>
-               </div>`;
-        container.innerHTML = `<div class="lesson-content">${lessonHTML}${completeButtonHTML}${progressHTML}${recommendationsHTML}</div>`;
+        // Use setTimeout to allow UI to update before heavy rendering
+        setTimeout(() => {
+            const conceptData = getConceptByName(this.currentTopic);
+            if (!conceptData) {
+                container.innerHTML = '<div class="loading">Topic data not found. Please select another topic.</div>';
+                return;
+            }
+            
+            const lessonHTML = this.generateLessonContent(conceptData);
+            const recommendationsHTML = this.generateRecommendationsHTML();
+            const progressHTML = this.generateProgressIndicator();
+            const isCompleted = this.isTopicCompleted(this.currentTopic);
+            const completeButtonHTML = isCompleted 
+                ? `<div style="text-align: center; margin-top: 30px; padding: 15px; background: var(--success-bg); border-radius: 8px; color: var(--success);">
+                       ✓ You've completed this topic!
+                   </div>`
+                : `<div style="text-align: center; margin-top: 30px;">
+                       <button class="btn-submit" onclick="app.markTopicComplete('${this.currentTopic.replace(/'/g, "\\'")}')">
+                           ✓ Mark as Complete
+                       </button>
+                   </div>`;
+            container.innerHTML = `<div class="lesson-content">${lessonHTML}${completeButtonHTML}${progressHTML}${recommendationsHTML}</div>`;
+            
+            // Trigger MathJax rendering if available
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise([container]).catch((err) => console.warn('MathJax render error:', err));
+            }
+        }, 10);
     }
     
     generateLessonContent(concept) {
@@ -21244,6 +21340,174 @@ math.boredgames.site`;
                 "💡 Points are written as (x, y)",
                 "💡 x is horizontal (left/right), y is vertical (up/down)",
                 "💡 The origin is (0, 0)"
+            ],
+            "Law of Sines": [
+                "💡 The Law of Sines relates sides and angles: a/sin(A) = b/sin(B) = c/sin(C)",
+                "💡 Use it when you know two angles and one side, or two sides and a non-included angle",
+                "💡 Make sure your calculator is in the correct mode (degrees or radians)",
+                "💡 Set up a proportion with the known values and solve for the unknown"
+            ],
+            "Law of Cosines": [
+                "💡 The Law of Cosines: c² = a² + b² - 2ab·cos(C)",
+                "💡 Use it when you know three sides or two sides and the included angle",
+                "💡 It's like the Pythagorean theorem with an extra correction term",
+                "💡 To find an angle, rearrange: cos(C) = (a² + b² - c²) / (2ab)"
+            ],
+            "Complex Numbers": [
+                "💡 A complex number has the form a + bi, where i² = -1",
+                "💡 Add/subtract by combining real parts and imaginary parts separately",
+                "💡 To multiply: use FOIL and remember i² = -1",
+                "💡 The conjugate of a + bi is a - bi (flip the sign of the imaginary part)"
+            ],
+            "Matrices": [
+                "💡 Add matrices by adding corresponding elements",
+                "💡 To multiply: take the dot product of rows and columns",
+                "💡 Matrix multiplication is NOT commutative (AB ≠ BA)",
+                "💡 A 2×3 matrix times a 3×2 matrix gives a 2×2 matrix"
+            ],
+            "Vectors": [
+                "💡 A vector has both magnitude (length) and direction",
+                "💡 Add vectors by adding corresponding components: <a,b> + <c,d> = <a+c, b+d>",
+                "💡 Magnitude = √(x² + y²) for a 2D vector",
+                "💡 The dot product: <a,b> · <c,d> = ac + bd"
+            ],
+            "Limits": [
+                "💡 A limit describes what a function approaches as x gets close to a value",
+                "💡 Try direct substitution first",
+                "💡 If you get 0/0, try factoring or rationalizing",
+                "💡 L'Hôpital's Rule can help with indeterminate forms"
+            ],
+            "Parametric Equations": [
+                "💡 Parametric equations express x and y in terms of a third variable (usually t)",
+                "💡 To eliminate the parameter, solve one equation for t and substitute",
+                "💡 The derivative dy/dx = (dy/dt) / (dx/dt)",
+                "💡 Plot points by choosing values of t and calculating x and y"
+            ],
+            "Polar Coordinates": [
+                "💡 Polar coordinates use (r, θ) where r is distance and θ is angle",
+                "💡 Convert to rectangular: x = r·cos(θ), y = r·sin(θ)",
+                "💡 Convert to polar: r = √(x² + y²), θ = arctan(y/x)",
+                "💡 Remember to check which quadrant your angle is in"
+            ],
+            "Sequences (Arithmetic/Geometric)": [
+                "💡 Arithmetic: each term differs by a constant (add d each time)",
+                "💡 Geometric: each term is multiplied by a constant (multiply by r each time)",
+                "💡 Arithmetic formula: aₙ = a₁ + (n-1)d",
+                "💡 Geometric formula: aₙ = a₁ · rⁿ⁻¹"
+            ],
+            "Series and Summation": [
+                "💡 A series is the sum of terms in a sequence",
+                "💡 Arithmetic series sum: S = n(a₁ + aₙ)/2",
+                "💡 Geometric series sum: S = a₁(1 - rⁿ)/(1 - r)",
+                "💡 An infinite geometric series converges if |r| < 1"
+            ],
+            "Conic Sections": [
+                "💡 Circles: (x-h)² + (y-k)² = r²",
+                "💡 Ellipses: wider oval, sum of distances to foci is constant",
+                "💡 Parabolas: y = a(x-h)² + k or x = a(y-k)² + h",
+                "💡 Hyperbolas: difference of distances to foci is constant"
+            ],
+            "Rational Functions": [
+                "💡 A rational function is a ratio of two polynomials: f(x) = P(x)/Q(x)",
+                "💡 Vertical asymptotes occur where the denominator equals zero",
+                "💡 Horizontal asymptotes depend on the degrees of numerator and denominator",
+                "💡 Find holes by factoring and canceling common factors"
+            ],
+            "Exponential Functions": [
+                "💡 Exponential form: y = a·bˣ where b > 0",
+                "💡 If b > 1, the function grows; if 0 < b < 1, it decays",
+                "💡 The y-intercept is always (0, a)",
+                "💡 e ≈ 2.71828 is a special base used in natural exponential functions"
+            ],
+            "Inverse Functions": [
+                "💡 An inverse function 'undoes' the original function",
+                "💡 To find the inverse: swap x and y, then solve for y",
+                "💡 A function has an inverse if it's one-to-one (passes horizontal line test)",
+                "💡 The graphs of f and f⁻¹ are reflections over the line y = x"
+            ],
+            "Standard Deviation": [
+                "💡 Standard deviation measures how spread out data is from the mean",
+                "💡 First, find the mean (average) of all values",
+                "💡 Then find the squared difference from mean for each value",
+                "💡 σ = √(Σ(x - μ)² / n)"
+            ],
+            "L'Hôpital's Rule": [
+                "💡 Use L'Hôpital's Rule for indeterminate forms like 0/0 or ∞/∞",
+                "💡 Take the derivative of the numerator and denominator separately",
+                "💡 Then evaluate the limit of the new fraction",
+                "💡 You can apply the rule multiple times if needed"
+            ],
+            "Chain Rule": [
+                "💡 The chain rule is for composite functions: d/dx[f(g(x))] = f'(g(x)) · g'(x)",
+                "💡 Think: derivative of the outer function times derivative of the inner",
+                "💡 Example: d/dx[sin(x²)] = cos(x²) · 2x",
+                "💡 Work from outside to inside, multiplying derivatives as you go"
+            ],
+            "Two-Step Equations": [
+                "💡 Two-step equations require two operations to solve",
+                "💡 Use inverse operations: undo addition/subtraction first",
+                "💡 Then undo multiplication/division",
+                "💡 Example: 2x + 3 = 7 → subtract 3, then divide by 2"
+            ],
+            "Systems of Inequalities": [
+                "💡 Graph each inequality on the same coordinate plane",
+                "💡 Shade the region that satisfies each inequality",
+                "💡 The solution is where all shaded regions overlap",
+                "💡 Use a dashed line for < or >, solid line for ≤ or ≥"
+            ],
+            "Absolute Value": [
+                "💡 Absolute value is the distance from zero (always positive)",
+                "💡 |x| = x if x ≥ 0, and |x| = -x if x < 0",
+                "💡 For |x| = a, the solutions are x = a or x = -a",
+                "💡 For |ax + b| = c, solve both ax + b = c and ax + b = -c"
+            ],
+            "Scientific Notation": [
+                "💡 Scientific notation: a × 10ⁿ where 1 ≤ a < 10",
+                "💡 Positive exponent means move decimal right (large numbers)",
+                "💡 Negative exponent means move decimal left (small numbers)",
+                "💡 To multiply: multiply the coefficients and add the exponents"
+            ],
+            "Distance Formula": [
+                "💡 Distance formula: d = √[(x₂-x₁)² + (y₂-y₁)²]",
+                "💡 It's based on the Pythagorean theorem",
+                "💡 Find the difference in x-coordinates and y-coordinates",
+                "💡 Square both differences, add them, then take the square root"
+            ],
+            "Completing the Square": [
+                "💡 Goal: rewrite x² + bx as a perfect square trinomial",
+                "💡 Take half of the b coefficient, then square it: (b/2)²",
+                "💡 Add and subtract this value to maintain equality",
+                "💡 Factor: x² + bx + (b/2)² = (x + b/2)²"
+            ],
+            "Quadratic Formula": [
+                "💡 For ax² + bx + c = 0, use x = [-b ± √(b² - 4ac)] / 2a",
+                "💡 The discriminant b² - 4ac tells you the number of solutions",
+                "💡 If b² - 4ac > 0: two real solutions",
+                "💡 If b² - 4ac = 0: one solution; if < 0: no real solutions"
+            ],
+            "Unit Circle": [
+                "💡 The unit circle has radius 1 centered at the origin",
+                "💡 Any point on the circle is (cos θ, sin θ)",
+                "💡 Remember key angles: 0°, 30°, 45°, 60°, 90°",
+                "💡 Use symmetry: sin and cos values repeat in different quadrants with ± signs"
+            ],
+            "Trig Identities": [
+                "💡 Pythagorean identity: sin²θ + cos²θ = 1",
+                "💡 Reciprocal identities: csc = 1/sin, sec = 1/cos, cot = 1/tan",
+                "💡 Quotient identity: tan θ = sin θ / cos θ",
+                "💡 Double angle: sin(2θ) = 2sin θ cos θ, cos(2θ) = cos²θ - sin²θ"
+            ],
+            "Normal Distribution": [
+                "💡 Normal distribution is the bell curve (symmetric around the mean)",
+                "💡 About 68% of data falls within 1 standard deviation of the mean",
+                "💡 About 95% falls within 2 standard deviations",
+                "💡 Use z-scores: z = (x - μ) / σ to standardize values"
+            ],
+            "Combinations and Permutations": [
+                "💡 Permutations: order matters. Formula: nPr = n! / (n-r)!",
+                "💡 Combinations: order doesn't matter. Formula: nCr = n! / [r!(n-r)!]",
+                "💡 Ask: does the order of selection matter?",
+                "💡 Example: ABC vs ACB are different permutations but the same combination"
             ]
         };
         

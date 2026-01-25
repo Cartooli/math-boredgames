@@ -1,11 +1,11 @@
 // Service Worker for MathBored PWA
-const CACHE_NAME = 'mathbored-v6-world-class'; // WORLD-CLASS FEATURES UPDATE
+const CACHE_NAME = 'mathbored-v8-generators-fixed'; // BUG FIX: All generators now registered
 const urlsToCache = [
   './',
   './index.html',
   './styles.css',
-  './app.js?v=6',
-  './data.js?v=6'
+  './app.js?v=7',
+  './data.js?v=7'
 ];
 
 // Install event - cache resources
