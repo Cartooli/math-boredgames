@@ -103,7 +103,8 @@ class MathBoredApp {
         "Complex Numbers", "Conic Sections", "Sequences (Arithmetic/Geometric)", "Series and Summation",
         "Inverse Functions", "Rational Exponents", "Polynomial Division", "Integrals",
         "Sequences and Series", "Standard Deviation", "Limits", "Vectors", "Rational Functions",
-        "Parametric Equations", "Polar Coordinates", "L'Hôpital's Rule", "Law of Sines", "Law of Cosines"
+        "Parametric Equations", "Polar Coordinates", "L'Hôpital's Rule", "Law of Sines", "Law of Cosines",
+        "Fraction Word Problems"
     ]);
     
     hasComprehensiveLesson(topicName) {
@@ -2524,6 +2525,94 @@ class MathBoredApp {
                     <li><strong>Recipes:</strong> Making 1/2 of a recipe that calls for 2/3 cup: 1/2 × 2/3 = 1/3 cup</li>
                     <li><strong>Sharing:</strong> Dividing 3/4 pizza among 3 friends: (3/4) ÷ 3</li>
                     <li><strong>Measurement:</strong> How many 1/4 inch pieces in a 3 inch board?</li>
+                </ul>
+            `,
+
+            "Fraction Word Problems": `
+                <h2>Fraction Word Problems</h2>
+                <p>Fraction word problems help you apply fraction skills to real-life situations! The key is understanding what the problem is asking and translating words into math.</p>
+                
+                ${concept.keyFormulas ? `<div class="formula-box">${concept.keyFormulas}</div>` : ''}
+                
+                <h3>Problem-Solving Strategy</h3>
+                <ol>
+                    <li><strong>Read carefully:</strong> Understand what's happening in the story</li>
+                    <li><strong>Identify the question:</strong> What are you trying to find?</li>
+                    <li><strong>Find the fraction:</strong> What part of the whole is mentioned?</li>
+                    <li><strong>Set up the problem:</strong> Write the fraction or equation</li>
+                    <li><strong>Solve:</strong> Calculate the answer</li>
+                    <li><strong>Check:</strong> Does your answer make sense?</li>
+                </ol>
+                
+                <h3>Type 1: Finding a Fraction of a Whole</h3>
+                <p>When you need to find what fraction one part is of the whole:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Pizza Slices</div>
+                    <p><strong>Problem:</strong> A pizza was cut into 8 slices. You ate 3 slices. What fraction of the pizza did you eat?</p>
+                    <p><strong>Step 1:</strong> Identify the part: 3 slices</p>
+                    <p><strong>Step 2:</strong> Identify the whole: 8 slices</p>
+                    <p><strong>Step 3:</strong> Write as fraction: 3/8</p>
+                    <p><strong>Answer:</strong> You ate <strong>3/8</strong> of the pizza</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Cookies</div>
+                    <p><strong>Problem:</strong> Sarah had 12 cookies. She gave away 5 cookies. What fraction did she give away?</p>
+                    <p><strong>Solution:</strong> 5 out of 12 = <strong>5/12</strong></p>
+                    <p><strong>Tip:</strong> Always simplify if possible: 5/12 is already in simplest form!</p>
+                </div>
+                
+                <h3>Type 2: Finding a Part When You Know the Fraction</h3>
+                <p>When you know the fraction and need to find how many that represents:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Students</div>
+                    <p><strong>Problem:</strong> In a class of 24 students, 1/3 are girls. How many girls are in the class?</p>
+                    <p><strong>Step 1:</strong> Understand: 1/3 of 24 students are girls</p>
+                    <p><strong>Step 2:</strong> Calculate: (1/3) × 24 = 24/3 = <strong>8 girls</strong></p>
+                    <p><strong>Check:</strong> 8 out of 24 = 8/24 = 1/3 ✓</p>
+                </div>
+                
+                <div class="example">
+                    <div class="example-title">Example: Books</div>
+                    <p><strong>Problem:</strong> A library has 30 books. If 2/5 are fiction books, how many fiction books are there?</p>
+                    <p><strong>Solution:</strong> (2/5) × 30 = 60/5 = <strong>12 fiction books</strong></p>
+                </div>
+                
+                <h3>Type 3: Finding the Whole When You Know the Part</h3>
+                <p>When you know a part and its fraction, find the total:</p>
+                
+                <div class="example">
+                    <div class="example-title">Example: Money</div>
+                    <p><strong>Problem:</strong> You spent $15, which is 3/4 of your money. How much money did you have?</p>
+                    <p><strong>Step 1:</strong> If $15 is 3/4, then 1/4 = $15 ÷ 3 = $5</p>
+                    <p><strong>Step 2:</strong> The whole (4/4) = $5 × 4 = <strong>$20</strong></p>
+                    <p><strong>Check:</strong> 3/4 of $20 = $15 ✓</p>
+                </div>
+                
+                <h3>Common Keywords</h3>
+                <ul>
+                    <li><strong>"of"</strong> usually means multiply: 1/2 of 20 = (1/2) × 20</li>
+                    <li><strong>"out of"</strong> means a fraction: 3 out of 5 = 3/5</li>
+                    <li><strong>"how many"</strong> asks for a number (often multiplication)</li>
+                    <li><strong>"what fraction"</strong> asks for a fraction (part/whole)</li>
+                </ul>
+                
+                <h3>Practice Tips</h3>
+                <ul>
+                    <li>Draw pictures or diagrams to visualize the problem</li>
+                    <li>Always simplify fractions in your final answer</li>
+                    <li>Check your answer by working backwards</li>
+                    <li>Make sure your answer makes sense in the context</li>
+                </ul>
+                
+                <h3>Real-World Applications</h3>
+                <ul>
+                    <li><strong>Recipes:</strong> "Use 1/4 cup of sugar" - finding amounts</li>
+                    <li><strong>Time:</strong> "Spent 1/3 of the day studying" - calculating hours</li>
+                    <li><strong>Money:</strong> "Saved 2/5 of your allowance" - finding amounts</li>
+                    <li><strong>Groups:</strong> "3/4 of the class passed" - finding numbers</li>
                 </ul>
             `,
 
@@ -17400,6 +17489,46 @@ x+2 | x² + 5x + 6
                     display: `${a}/${b} × ${c}/${d} = ?<br><small>(Answer as decimal, rounded to 2 places)</small>`,
                     answer: parseFloat(result.toFixed(2))
                 };
+            },
+            
+            "Fraction Word Problems": () => {
+                const problems = [
+                    () => {
+                        const total = this.randomFrom([12, 16, 20, 24]);
+                        const eaten = this.randomInt(1, total - 1);
+                        const fraction = `${eaten}/${total}`;
+                        const gcd = this.gcd(eaten, total);
+                        const simplified = `${eaten/gcd}/${total/gcd}`;
+                        return {
+                            display: `Sarah had ${total} cookies. She ate ${eaten} of them. What fraction of the cookies did she eat?<br><small>(Answer as fraction like "1/2")</small>`,
+                            answer: simplified,
+                            acceptedAnswers: [fraction, simplified]
+                        };
+                    },
+                    () => {
+                        const whole = this.randomFrom([8, 10, 12, 15]);
+                        const part = this.randomInt(1, whole - 1);
+                        const fraction = `${part}/${whole}`;
+                        const gcd = this.gcd(part, whole);
+                        const simplified = `${part/gcd}/${whole/gcd}`;
+                        return {
+                            display: `A pizza was cut into ${whole} slices. ${part} slices were eaten. What fraction of the pizza was eaten?<br><small>(Answer as fraction like "1/2")</small>`,
+                            answer: simplified,
+                            acceptedAnswers: [fraction, simplified]
+                        };
+                    },
+                    () => {
+                        const num = this.randomInt(1, 4);
+                        const den = this.randomInt(2, 8);
+                        const total = this.randomFrom([20, 24, 30, 36]);
+                        const result = Math.round((num / den) * total);
+                        return {
+                            display: `If ${num}/${den} of ${total} students are girls, how many girls are there?`,
+                            answer: result
+                        };
+                    }
+                ];
+                return this.randomFrom(problems)();
             },
             
             "Coordinate Graphing": () => {

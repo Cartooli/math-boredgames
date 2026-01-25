@@ -1,11 +1,11 @@
 // Service Worker for MathBored PWA
-const CACHE_NAME = 'mathbored-v5'; // UPDATED VERSION - syntax error fix
+const CACHE_NAME = 'mathbored-v9-minified'; // MINIFIED VERSION - 82.5% compression
 const urlsToCache = [
   './',
   './index.html',
   './styles.css',
-  './app.js?v=5',
-  './data.js?v=5'
+  './app.min.js?v=8',
+  './data.js?v=8'
 ];
 
 // Install event - cache resources

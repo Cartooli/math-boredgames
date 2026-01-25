@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "generate-seo": "node generate-seo-pages.js",
-    "build": "npm run generate-seo",
-    "precommit": "npm run generate-seo"
+    "minify": "terser app.js -o app.min.js -c -m --comments false",
+    "build": "npm run minify && npm run generate-seo",
+    "precommit": "npm run build"
   },
   "keywords": [
     "math",
@@ -35,24 +36,8 @@
   },
   "engines": {
     "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "terser": "^5.46.0"
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
