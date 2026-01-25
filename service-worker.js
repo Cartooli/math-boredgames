@@ -1,11 +1,11 @@
 // Service Worker for MathBored PWA
-const CACHE_NAME = 'mathbored-v8-generators-fixed'; // BUG FIX: All generators now registered
+const CACHE_NAME = 'mathbored-v5'; // UPDATED VERSION - syntax error fix
 const urlsToCache = [
   './',
   './index.html',
   './styles.css',
-  './app.js?v=7',
-  './data.js?v=7'
+  './app.js?v=5',
+  './data.js?v=5'
 ];
 
 // Install event - cache resources
