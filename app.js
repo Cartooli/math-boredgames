@@ -16657,6 +16657,9 @@ x+2 | x² + 5x + 6
             <div class="lesson-content">
                 <h2>Practice Problem</h2>
                 <div class="problem-display">${this.currentProblem.display}</div>
+                <button class="copy-problem-btn" onclick="app.copyProblemToClipboard()" title="Copy problem to clipboard">
+                    📋 Copy Problem
+                </button>
                 <div class="answer-input">
                     <input type="text" id="answerInput" placeholder="Your answer" 
                            onkeypress="if(event.key==='Enter') app.checkAnswer()">
@@ -16667,6 +16670,48 @@ x+2 | x² + 5x + 6
                 <div id="feedback"></div>
             </div>
         `;
+        
+        // Focus on answer input
+        setTimeout(() => {
+            const input = document.getElementById('answerInput');
+            if (input) input.focus();
+        }, 100);
+    }
+    
+    copyProblemToClipboard() {
+        if (!this.currentProblem) {
+            this.showToast('No problem to copy', 'error');
+            return;
+        }
+        
+        // Strip HTML tags for plain text copy
+        const problemText = this.currentProblem.display
+            .replace(/<br\s*\/?>/gi, '\n')
+            .replace(/<[^>]+>/g, '')
+            .replace(/&nbsp;/g, ' ')
+            .trim();
+        
+        const shareText = `Math Problem from MathBored:\n\n${problemText}\n\n---\nPractice more at math.boredgames.site`;
+        
+        navigator.clipboard.writeText(shareText)
+            .then(() => {
+                this.showToast('Problem copied to clipboard!', 'success');
+                // Add visual feedback to button
+                const btn = document.querySelector('.copy-problem-btn');
+                if (btn) {
+                    btn.classList.add('copied');
+                    btn.textContent = '✓ Copied!';
+                    setTimeout(() => {
+                        btn.classList.remove('copied');
+                        btn.textContent = '📋 Copy Problem';
+                    }, 2000);
+                }
+            })
+            .catch(err => {
+                console.error('Failed to copy:', err);
+                this.showToast('Failed to copy problem', 'error');
+            });
+    }
         
         setTimeout(() => document.getElementById('answerInput')?.focus(), 100);
     }
@@ -19838,7 +19883,7 @@ x+2 | x² + 5x + 6
                     <p style="font-size: 1.3rem; margin: 15px 0;">The correct answer is <strong>${this.formatAnswer(this.currentAnswer)}</strong></p>
                     <p>${this.getSolutionExplanation()}</p>
                 </div>
-                <button class="btn-new" onclick="app.renderPractice(document.getElementById('contentArea'))">
+                <button class="btn-new" onclick="app.renderPractice(document.getElementById('contentArea')); this.classList.add('btn-feedback-animation');">
                     Try Another Problem
                 </button>
             `;
@@ -19961,40 +20006,38 @@ x+2 | x² + 5x + 6
     }
     
     resetStats() {
-        // Confirm before resetting
-        if (confirm('Are you sure you want to reset all your statistics? This cannot be undone.')) {
-            // Reset stats to defaults
-            this.stats = {
-                streak: 0,
-                score: 0,
-                totalAttempts: 0,
-                correctAnswers: 0
-            };
-            
-            // Save and update display
-            this.saveStats();
-            this.updateStatsDisplay();
-            
-            // Show confirmation
-            const resetBtn = document.getElementById('resetBtn');
-            const originalText = resetBtn.textContent;
-            resetBtn.textContent = '✓ Stats Reset!';
-            resetBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-            
-            setTimeout(() => {
-                resetBtn.textContent = originalText;
-                resetBtn.style.background = '';
-            }, 2000);
-            
-            console.log('✅ Stats reset successfully');
-        }
+        // Use custom modal instead of native confirm
+        confirmModal.show({
+            title: 'Reset Statistics?',
+            message: 'Are you sure you want to reset all your statistics? This cannot be undone.',
+            onConfirm: () => {
+                // Reset stats to defaults
+                this.stats = {
+                    streak: 0,
+                    score: 0,
+                    totalAttempts: 0,
+                    correctAnswers: 0
+                };
+                
+                // Save and update display
+                this.saveStats();
+                this.updateStatsDisplay();
+                
+                // Show toast notification
+                this.showToast('Statistics reset successfully!', 'success');
+                
+                console.log('✅ Stats reset successfully');
+            }
+        });
     }
     
     async shareStats() {
         const shareBtn = document.getElementById('shareBtn');
         
-        // Disable button during share
+        // Disable button during share and show loading
         shareBtn.disabled = true;
+        const originalText = shareBtn.textContent;
+        shareBtn.textContent = '⏳ Sharing...';
         
         // Calculate accuracy
         const accuracy = this.stats.totalAttempts > 0 
@@ -20032,35 +20075,67 @@ math.boredgames.site`;
                     text: shareText
                 });
                 
-                // Show success feedback
-                shareBtn.textContent = '✓ Shared!';
-                shareBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                // Show success toast
+                this.showToast('Progress shared successfully!', 'success');
                 
             } else {
                 // Fallback to clipboard (desktop)
                 await navigator.clipboard.writeText(shareText);
                 
-                // Show success feedback
-                shareBtn.textContent = '✓ Copied to Clipboard!';
-                shareBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                // Show success toast
+                this.showToast('Progress copied to clipboard!', 'success');
             }
-            
-            // Reset button after 2 seconds
-            setTimeout(() => {
-                shareBtn.textContent = '📤 Share Progress';
-                shareBtn.style.background = '';
-                shareBtn.disabled = false;
-            }, 2000);
             
         } catch (err) {
             // User cancelled or error occurred
             console.log('Share cancelled or failed:', err);
             
-            // Reset button immediately on error
-            shareBtn.textContent = '📤 Share Progress';
-            shareBtn.style.background = '';
+            if (err.name !== 'AbortError') {
+                this.showToast('Failed to share progress', 'error');
+            }
+        } finally {
+            // Reset button
+            shareBtn.textContent = originalText;
             shareBtn.disabled = false;
         }
+    }
+    
+    showToast(message, type = 'info') {
+        // Remove any existing toasts
+        const existingToast = document.querySelector('.toast');
+        if (existingToast) {
+            existingToast.remove();
+        }
+        
+        // Create toast element
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${type}`;
+        
+        // Icon based on type
+        const icons = {
+            success: '✅',
+            error: '❌',
+            warning: '⚠️',
+            info: 'ℹ️'
+        };
+        
+        toast.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 1.5rem;">${icons[type] || icons.info}</span>
+                <span style="flex: 1;">${message}</span>
+            </div>
+        `;
+        
+        document.body.appendChild(toast);
+        
+        // Show toast with animation
+        setTimeout(() => toast.classList.add('show'), 10);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
     }
 }
 
@@ -20099,10 +20174,28 @@ function initializeApp() {
                     newWorker.addEventListener('statechange', () => {
                         if (newWorker.state === 'activated') {
                             console.log('✅ New service worker activated!');
-                            // Optionally reload the page to use new version
-                            if (confirm('A new version is available! Reload to update?')) {
-                                window.location.reload();
-                            }
+                            // Show toast notification instead of confirm dialog
+                            const toast = document.createElement('div');
+                            toast.className = 'toast toast-info';
+                            toast.innerHTML = `
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <span style="font-size: 1.5rem;">🔄</span>
+                                        <span style="flex: 1;">A new version is available!</span>
+                                    </div>
+                                    <button onclick="window.location.reload()" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: 600;">
+                                        Update Now
+                                    </button>
+                                </div>
+                            `;
+                            document.body.appendChild(toast);
+                            setTimeout(() => toast.classList.add('show'), 10);
+                            
+                            // Keep toast visible longer (10 seconds)
+                            setTimeout(() => {
+                                toast.classList.remove('show');
+                                setTimeout(() => toast.remove(), 300);
+                            }, 10000);
                         }
                     });
                 });
@@ -20121,3 +20214,6 @@ if (document.readyState === 'loading') {
     initializeApp();
 }
 
+initialize immediately
+    initializeApp();
+}

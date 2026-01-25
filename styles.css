@@ -2572,6 +2572,225 @@ footer a:hover {
 /* ========================================
    FEATURE 2: Print-Friendly Worksheets
    ======================================== */
+   
+/* Skip to Content Link */
+.skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 0 0 4px 0;
+    z-index: 100000;
+    font-weight: 600;
+}
+
+.skip-to-content:focus {
+    top: 0;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.back-to-top:active {
+    transform: translateY(-1px) scale(1);
+}
+
+/* Keyboard Help Button */
+.keyboard-help-btn {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border);
+    color: var(--text-primary);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.keyboard-help-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.keyboard-help-icon {
+    font-size: 1.3rem;
+}
+
+/* Keyboard Help Modal */
+.keyboard-help-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10001;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.keyboard-help-modal.show {
+    opacity: 1;
+}
+
+.keyboard-shortcuts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+}
+
+.shortcut-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: var(--bg-tertiary);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.shortcut-item kbd {
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-family: monospace;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.shortcut-item span {
+    flex: 1;
+    color: var(--text-secondary);
+}
+
+/* Mobile Stats Panel Toggle */
+.stats-panel-mobile-toggle {
+    display: none;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border);
+    color: var(--text-primary);
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+    margin-bottom: 10px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .stats-panel-mobile-toggle {
+        display: flex;
+    }
+    
+    .stats-panel-content.collapsed {
+        display: none;
+    }
+}
+
+.stats-panel-mobile-toggle:hover {
+    border-color: var(--accent);
+}
+
+.toggle-icon {
+    font-size: 1.2rem;
+}
+
+/* Copy Problem Button */
+.copy-problem-btn {
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border);
+    color: var(--text-primary);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.copy-problem-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.copy-problem-btn:active {
+    transform: translateY(0);
+}
+
+.copy-problem-btn.copied {
+    background: var(--success);
+    border-color: var(--success);
+    animation: successPulse 0.6s ease-out;
+}
+
+@keyframes successPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Button animation for feedback */
+.btn-feedback-animation {
+    animation: buttonClick 0.3s ease-out;
+}
+
+@keyframes buttonClick {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}
+
 @media print {
     /* Hide UI elements */
     header,

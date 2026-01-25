@@ -107,6 +107,17 @@
             }
         }
     };
+    
+    // MathJax error handling - fallback after 10 seconds
+    setTimeout(() => {
+        if (typeof MathJax === 'undefined' || !MathJax.version) {
+            console.warn('⚠️ MathJax failed to load, using plain text fallback');
+            // Add a visual indicator that formulas are in plain text
+            const style = document.createElement('style');
+            style.textContent = '.tex2jax_process { font-family: "Courier New", monospace; background: rgba(255, 193, 7, 0.1); padding: 2px 4px; border-radius: 3px; }';
+            document.head.appendChild(style);
+        }
+    }, 10000);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
 </head>
@@ -195,9 +206,12 @@
                     <div class="tagline">Never be bored with math again • Always free, always helpful • <a href="demo.html">Try Demo</a> • <a href="primer.html">📚 Math Primer</a> • <a href="glossary.html">📖 Glossary</a> • <a href="#" id="quickStartLink">⚡ Quick Start</a></div>
                 </div>
                 <div class="header-actions">
-                    <button class="search-trigger-btn" id="searchTriggerBtn" aria-label="Search all topics" title="Search all topics">
+                    <button class="search-trigger-btn" id="searchTriggerBtn" aria-label="Search all topics" title="Search all topics (Ctrl/Cmd+K)">
                         <span class="search-trigger-icon">🔍</span>
                         <span class="search-trigger-text">Search</span>
+                    </button>
+                    <button class="keyboard-help-btn" id="keyboardHelpBtn" aria-label="Keyboard shortcuts" title="View keyboard shortcuts">
+                        <span class="keyboard-help-icon">⌨️</span>
                     </button>
                     <div class="theme-selector">
                         <div class="theme-btn theme-midnight active" data-theme="" title="Midnight"></div>
@@ -226,7 +240,7 @@
                         type="text" 
                         id="modalSearchInput" 
                         class="search-modal-input" 
-                        placeholder="Try 'multiplying fractions' or 'quadratic equations'..."
+                        placeholder="Try 'multiplying fractions' or 'quadratic equations'... (Press Ctrl/Cmd+K)"
                         autocomplete="off"
                         aria-label="Search math topics"
                     >
@@ -385,6 +399,7 @@
                     </button>
                 </div>
             </div>
+            </div>
         </div>
 
         <!-- Breadcrumb Navigation (SEO-friendly) -->
@@ -429,6 +444,49 @@
             </p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTopBtn" aria-label="Back to top" title="Back to top">
+        ↑
+    </button>
+
+    <!-- Keyboard Shortcuts Help Modal -->
+    <div id="keyboardHelpModal" class="keyboard-help-modal">
+        <div class="modal-overlay" onclick="keyboardHelpModal.close()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="keyboardHelpModal.close()" aria-label="Close">&times;</button>
+            <div class="modal-hero">
+                <div class="hero-icon">⌨️</div>
+                <h2>Keyboard Shortcuts</h2>
+                <p>Master MathBored with these helpful shortcuts</p>
+            </div>
+            <div class="keyboard-shortcuts-list">
+                <div class="shortcut-item">
+                    <kbd>Ctrl/Cmd</kbd> + <kbd>K</kbd>
+                    <span>Open search</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Esc</kbd>
+                    <span>Close modals/exit assessment</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Enter</kbd>
+                    <span>Submit answer in practice/assessment</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Tab</kbd>
+                    <span>Navigate between elements</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Shift</kbd> + <kbd>Tab</kbd>
+                    <span>Navigate backwards</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="keyboardHelpModal.close()">Got it!</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Floating Feedback Menu -->
     <div class="feedback-container">
@@ -738,6 +796,96 @@
     // Initialize search modal
     document.addEventListener('DOMContentLoaded', () => {
         searchModal.init();
+    });
+    </script>
+    <script>
+    // ============================================
+    // BACK TO TOP BUTTON
+    // ============================================
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+    
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+    <script>
+    // ============================================
+    // KEYBOARD HELP MODAL
+    // ============================================
+    const keyboardHelpModal = {
+        show() {
+            const modal = document.getElementById('keyboardHelpModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            }
+        },
+        
+        close() {
+            const modal = document.getElementById('keyboardHelpModal');
+            if (modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+                setTimeout(() => {
+                    if (!modal.classList.contains('show')) {
+                        modal.style.display = 'none';
+                    }
+                }, 300);
+            }
+        }
+    };
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const keyboardHelpBtn = document.getElementById('keyboardHelpBtn');
+        if (keyboardHelpBtn) {
+            keyboardHelpBtn.addEventListener('click', () => keyboardHelpModal.show());
+        }
+    });
+    </script>
+    <script>
+    // ============================================
+    // MOBILE STATS PANEL TOGGLE
+    // ============================================
+    document.addEventListener('DOMContentLoaded', () => {
+        const toggleBtn = document.getElementById('statsPanelToggle');
+        const panelContent = document.getElementById('statsPanelContent');
+        
+        if (toggleBtn && panelContent) {
+            // Check if we're on mobile
+            const isMobile = window.innerWidth < 768;
+            
+            if (isMobile) {
+                // Start collapsed on mobile
+                panelContent.classList.add('collapsed');
+                toggleBtn.setAttribute('aria-expanded', 'false');
+            }
+            
+            toggleBtn.addEventListener('click', () => {
+                const isCollapsed = panelContent.classList.toggle('collapsed');
+                toggleBtn.setAttribute('aria-expanded', !isCollapsed);
+            });
+            
+            // Update on resize
+            window.addEventListener('resize', () => {
+                const nowMobile = window.innerWidth < 768;
+                if (!nowMobile) {
+                    panelContent.classList.remove('collapsed');
+                    toggleBtn.setAttribute('aria-expanded', 'true');
+                }
+            });
+        }
     });
     </script>
     <script>
