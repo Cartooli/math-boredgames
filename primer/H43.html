@@ -54,7 +54,7 @@
         "teaches": ["trig ratios","right triangle","SOH-CAH-TOA"]
     }
     </script>
-
+    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
@@ -88,20 +88,69 @@
         .lesson-id-badge {
             display: inline-block;
             background: rgba(255,255,255,0.2);
-            padding: 8px 18px;
+            padding: 9px 20px;
             border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            margin-bottom: 18px;
             border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.02em;
         }
 
         .lesson-content {
             background: var(--bg-secondary);
             border: 2px solid var(--border);
             border-radius: 12px;
-            padding: 35px;
+            padding: 40px;
             margin-bottom: 30px;
+            line-height: 1.75;
+            font-size: 1.05rem;
+        }
+        
+        .lesson-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        
+        .lesson-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-top: 28px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        
+        .lesson-content h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .lesson-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            color: var(--text);
+        }
+        
+        .lesson-content ul, .lesson-content ol {
+            line-height: 1.9;
+            margin-bottom: 20px;
+            padding-left: 28px;
+        }
+        
+        .lesson-content li {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
             line-height: 1.8;
         }
 
@@ -173,28 +222,40 @@
         .key-concepts h3 {
             margin-top: 0;
             color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 16px;
         }
 
         .key-concepts ul {
             margin: 15px 0 0 0;
-            padding-left: 25px;
-            line-height: 2;
+            padding-left: 28px;
+            line-height: 1.9;
+        }
+        
+        .key-concepts li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 8px;
         }
 
         .complete-btn {
             background: var(--success);
             color: white;
-            padding: 15px 30px;
+            padding: 16px 32px;
             border-radius: 10px;
             border: none;
-            font-weight: bold;
-            font-size: 1.05rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
             margin: 30px 0;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
         }
 
         .complete-btn:hover {
@@ -214,7 +275,24 @@
             }
 
             .lesson-content {
-                padding: 25px;
+                padding: 28px;
+                font-size: 1rem;
+            }
+            
+            .lesson-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .lesson-content h3 {
+                font-size: 1.25rem;
+            }
+            
+            .lesson-content h4 {
+                font-size: 1.1rem;
+            }
+            
+            .lesson-content p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -236,9 +314,9 @@
 
         <div class="lesson-header">
             <span class="lesson-id-badge">H43 • Lesson 43 of 75</span>
-            <h1 style="margin: 15px 0; font-size: 2.2rem;">Right Triangle Trigonometry</h1>
-            <p style="opacity: 0.95; font-size: 1.15rem; margin: 10px 0;">Sine, cosine, tangent, right triangle applications</p>
-            <p style="margin-top: 15px; opacity: 0.85; font-size: 0.95rem;">High School Essentials • 9-12</p>
+            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Right Triangle Trigonometry</h1>
+            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Sine, cosine, tangent, right triangle applications</p>
+            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">High School Essentials • 9-12</p>
         </div>
 
         
@@ -258,259 +336,45 @@
 
             
         <div style="margin-top: 30px;">
-            <!-- Hook & Context -->
-            <h2>📐 Right Triangle Trigonometry: Math Meets the Real World</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
-                How do engineers calculate the height of a building without climbing it? How do pilots navigate? How do smartphones 
-                know their tilt angle? The answer is <strong>trigonometry</strong>—the mathematics of triangles and angles. It's one 
-                of the most practical tools in all of mathematics, used daily in engineering, physics, architecture, and technology.
+            <h2>📖 Lesson Overview</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
+                This 15-minute lesson provides a focused introduction to right triangle trigonometry. 
+                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
             </p>
 
-            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <strong>📝 In this lesson, you'll master:</strong>
-                <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
-                    <li>The three fundamental trig ratios: sine, cosine, and tangent</li>
-                    <li>The SOH-CAH-TOA memory trick</li>
-                    <li>How to find missing sides and angles in right triangles</li>
-                    <li>Real-world applications of trigonometry</li>
+            <h3>What You'll Learn</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Sine, cosine, tangent, right triangle applications
+            </p>
+
+            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
+                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
+                <ul style="line-height: 2;">
+                    <li>Understand the fundamental concepts of right triangle trigonometry</li>
+                    <li>Apply these concepts to solve basic problems</li>
+                    <li>Connect this topic to other areas of mathematics</li>
+                    <li>Build confidence for more advanced topics</li>
                 </ul>
             </div>
 
-            <!-- Core Concept -->
-            <h2>📚 The Foundation: Right Triangles</h2>
-            
-            <p style="line-height: 1.8; margin-bottom: 20px;">
-                Trigonometry literally means "triangle measurement." For now, we focus on <strong>right triangles</strong>—triangles 
-                with one 90° angle. Every right triangle has three sides with special names relative to a particular angle:
-            </p>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
-                <h4 style="margin-top: 0; color: var(--accent);">📊 Right Triangle Anatomy</h4>
-                <pre style="font-family: monospace; line-height: 1.6; font-size: 0.95rem; overflow-x: auto;">
-                |\
-                | \  ← Hypotenuse (longest side, opposite the right angle)
-                |  \
-                |   \
-                |____\
-            Opposite   Adjacent
-            (to angle)  (to angle)
-                </pre>
-                <p style="margin: 15px 0 0 0; color: var(--text-secondary);">
-                    <strong>Hypotenuse:</strong> Always the longest side, opposite the 90° angle<br>
-                    <strong>Opposite:</strong> The side across from the angle you're focusing on<br>
-                    <strong>Adjacent:</strong> The side next to the angle (not the hypotenuse)
-                </p>
-            </div>
-
-            <h2>🎯 The Three Trig Ratios</h2>
-            
-            <p style="line-height: 1.8; margin-bottom: 20px;">
-                Here's the key insight: <strong>In similar right triangles, the ratios of side lengths stay constant!</strong> 
-                These ratios have names: sine, cosine, and tangent.
-            </p>
-
-            <div style="background: var(--bg-secondary); padding: 25px; border-radius: 12px; margin: 25px 0; border: 3px solid var(--accent);">
-                <h3 style="margin-top: 0; text-align: center; color: var(--accent);">SOH-CAH-TOA</h3>
-                <div style="line-height: 2.2; font-size: 1.05rem;">
-                    <strong style="color: var(--accent);">S</strong>ine = <strong style="color: var(--accent);">O</strong>pposite / <strong style="color: var(--accent);">H</strong>ypotenuse<br>
-                    <code style="background: var(--bg-tertiary); padding: 4px 12px; border-radius: 4px; margin-left: 40px;">sin(θ) = Opposite / Hypotenuse</code>
-                    <br><br>
-                    <strong style="color: var(--accent);">C</strong>osine = <strong style="color: var(--accent);">A</strong>djacent / <strong style="color: var(--accent);">H</strong>ypotenuse<br>
-                    <code style="background: var(--bg-tertiary); padding: 4px 12px; border-radius: 4px; margin-left: 40px;">cos(θ) = Adjacent / Hypotenuse</code>
-                    <br><br>
-                    <strong style="color: var(--accent);">T</strong>angent = <strong style="color: var(--accent);">O</strong>pposite / <strong style="color: var(--accent);">A</strong>djacent<br>
-                    <code style="background: var(--bg-tertiary); padding: 4px 12px; border-radius: 4px; margin-left: 40px;">tan(θ) = Opposite / Adjacent</code>
-                </div>
-                <p style="margin: 20px 0 0 0; color: var(--text-secondary); text-align: center; font-style: italic;">
-                    θ (theta) represents the angle we're measuring from
-                </p>
-            </div>
-
-            <div style="background: rgba(16, 185, 129, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #10b981; margin: 20px 0;">
-                <strong>✓ Memory Tip:</strong> Think of SOH-CAH-TOA as a made-up name: "So-kuh-toe-uh." 
-                Say it a few times and you'll never forget the trig ratios!
-            </div>
-
-            <h3>When to Use Each Ratio</h3>
-            <p style="line-height: 1.8; margin-bottom: 15px;">Choose your ratio based on what information you have:</p>
-
-            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <strong>Use SINE</strong> when you have (or want) opposite and hypotenuse<br>
-                <strong>Use COSINE</strong> when you have (or want) adjacent and hypotenuse<br>
-                <strong>Use TANGENT</strong> when you have (or want) opposite and adjacent
-            </div>
-
-            <!-- Worked Examples -->
-            <h2>💡 Let's Solve Real Problems!</h2>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
-                <h4 style="margin-top: 0; color: var(--accent);">Example 1: Finding a Side Length</h4>
-                <p><strong>Problem:</strong> A ladder leans against a wall making a 60° angle with the ground. If the ladder is 10 feet long, 
-                how high up the wall does it reach?</p>
-                
-                <div style="margin: 15px 0; padding: 15px; background: var(--bg-secondary); border-radius: 8px; line-height: 1.8;">
-                    <strong>Step 1:</strong> Draw and label<br>
-                    <span style="margin-left: 20px;">• Hypotenuse = 10 ft (the ladder)</span><br>
-                    <span style="margin-left: 20px;">• Angle = 60°</span><br>
-                    <span style="margin-left: 20px;">• Want: opposite side (height)</span><br>
-                    <br>
-                    <strong>Step 2:</strong> Choose the ratio → We have hypotenuse, want opposite → Use SINE<br>
-                    <span style="margin-left: 20px;"><code>sin(60°) = opposite / 10</code></span><br>
-                    <br>
-                    <strong>Step 3:</strong> Solve for opposite<br>
-                    <span style="margin-left: 20px;"><code>opposite = 10 × sin(60°)</code></span><br>
-                    <span style="margin-left: 20px;"><code>opposite = 10 × 0.866...</code></span><br>
-                    <span style="margin-left: 20px;"><code>opposite ≈ 8.66 ft</code></span>
-                </div>
-                <p><strong>Answer:</strong> The ladder reaches approximately <strong>8.66 feet</strong> up the wall</p>
-                <p style="color: var(--text-secondary); margin-top: 10px;">
-                    💡 <em>Key Insight:</em> SINE connects the angle to the height because height is opposite the angle!
-                </p>
-            </div>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
-                <h4 style="margin-top: 0; color: var(--accent);">Example 2: Finding an Angle</h4>
-                <p><strong>Problem:</strong> A ramp is 15 feet long and rises 3 feet. What angle does the ramp make with the ground?</p>
-                
-                <div style="margin: 15px 0; padding: 15px; background: var(--bg-secondary); border-radius: 8px; line-height: 1.8;">
-                    <strong>Step 1:</strong> Identify what we have<br>
-                    <span style="margin-left: 20px;">• Hypotenuse = 15 ft (ramp length)</span><br>
-                    <span style="margin-left: 20px;">• Opposite = 3 ft (rise)</span><br>
-                    <span style="margin-left: 20px;">• Want: the angle</span><br>
-                    <br>
-                    <strong>Step 2:</strong> Choose ratio → Have opposite and hypotenuse → Use SINE<br>
-                    <span style="margin-left: 20px;"><code>sin(θ) = 3 / 15 = 0.2</code></span><br>
-                    <br>
-                    <strong>Step 3:</strong> Use inverse sine (sin⁻¹ or arcsin) to find the angle<br>
-                    <span style="margin-left: 20px;"><code>θ = sin⁻¹(0.2)</code></span><br>
-                    <span style="margin-left: 20px;"><code>θ ≈ 11.5°</code></span>
-                </div>
-                <p><strong>Answer:</strong> The ramp makes an angle of approximately <strong>11.5°</strong> with the ground</p>
-                <p style="color: var(--text-secondary); margin-top: 10px;">
-                    💡 <em>Key Insight:</em> Use inverse trig functions (sin⁻¹, cos⁻¹, tan⁻¹) when solving for an angle!
-                </p>
-            </div>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
-                <h4 style="margin-top: 0; color: var(--accent);">Example 3: Real-World Navigation</h4>
-                <p><strong>Problem:</strong> A plane takes off and climbs at a 15° angle. After traveling 2000 meters along its flight path, 
-                what is its altitude?</p>
-                
-                <div style="margin: 15px 0; padding: 15px; background: var(--bg-secondary); border-radius: 8px; line-height: 1.8;">
-                    <strong>Step 1:</strong> Visualize<br>
-                    <span style="margin-left: 20px;">• Hypotenuse = 2000 m (flight path)</span><br>
-                    <span style="margin-left: 20px;">• Angle = 15°</span><br>
-                    <span style="margin-left: 20px;">• Want: opposite (altitude)</span><br>
-                    <br>
-                    <strong>Step 2:</strong> Apply SOH<br>
-                    <span style="margin-left: 20px;"><code>sin(15°) = altitude / 2000</code></span><br>
-                    <br>
-                    <strong>Step 3:</strong> Solve<br>
-                    <span style="margin-left: 20px;"><code>altitude = 2000 × sin(15°)</code></span><br>
-                    <span style="margin-left: 20px;"><code>altitude = 2000 × 0.259...</code></span><br>
-                    <span style="margin-left: 20px;"><code>altitude ≈ 518 m</code></span>
-                </div>
-                <p><strong>Answer:</strong> The plane's altitude is approximately <strong>518 meters</strong></p>
-                <p style="color: var(--text-secondary); margin-top: 10px;">
-                    💡 <em>Key Insight:</em> Pilots use these exact calculations for takeoff, landing, and navigation!
-                </p>
-            </div>
-
-            <!-- Practice Problems -->
-            <h2>✏️ Apply Your Trig Skills!</h2>
-            <p style="margin-bottom: 20px;">Try these problems. Remember SOH-CAH-TOA!</p>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 1:</strong> In a right triangle, if one angle is 30° and the hypotenuse is 20 cm, what is the length 
-                of the side opposite the 30° angle?</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> You have hypotenuse and want opposite. Use SOH: sin(30°) = opposite / 20
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> 10 cm (Because sin(30°) = 0.5, so opposite = 20 × 0.5 = 10)
-                </div>
-            </div>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 2:</strong> If cos(θ) = 0.8 in a right triangle with hypotenuse 25 inches, what is the adjacent side?</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> CAH: cos(θ) = adjacent / hypotenuse, so 0.8 = adjacent / 25
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> 20 inches (Because adjacent = 25 × 0.8 = 20)
-                </div>
-            </div>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 3:</strong> A 6-foot person casts a 4-foot shadow. What angle does the sun make with the ground?</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> Opposite = 6, Adjacent = 4. Use TOA: tan(θ) = 6/4. Then use tan⁻¹ to find the angle.
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> Approximately 56.3° (Because θ = tan⁻¹(6/4) = tan⁻¹(1.5) ≈ 56.3°)
-                </div>
-            </div>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 4:</strong> Which trig ratio would you use if you know the opposite side and adjacent side and want to find the angle?</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> Opposite and adjacent together... that's TOA!
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> Tangent (TOA). Use θ = tan⁻¹(opposite / adjacent)
-                </div>
-            </div>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 5:</strong> True or False: In any right triangle, sin(θ) can never be greater than 1.</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> sin(θ) = opposite / hypotenuse. The hypotenuse is always the longest side...
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> TRUE. Since the hypotenuse is always the longest side, opposite/hypotenuse can never be > 1
-                </div>
-            </div>
-
-            <!-- Key Takeaways -->
             <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Key Takeaways</h3>
-                <ul style="line-height: 2; margin: 10px 0 0 20px;">
-                    <li><strong>SOH-CAH-TOA</strong> is your key to all right triangle problems</li>
-                    <li><strong>Sine, cosine, and tangent</strong> are ratios of sides in right triangles</li>
-                    <li>Use trig ratios to find <strong>sides</strong> when you know an angle</li>
-                    <li>Use <strong>inverse trig</strong> (sin⁻¹, cos⁻¹, tan⁻¹) to find angles when you know sides</li>
-                    <li>Trigonometry has countless <strong>real-world applications</strong> in science and engineering</li>
+                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
+                <p style="color: var(--text-secondary); font-style: italic;">
+                    Detailed lesson content is currently being developed. This will include:
+                </p>
+                <ul style="color: var(--text-secondary); line-height: 2;">
+                    <li>Clear explanations with visual aids</li>
+                    <li>Step-by-step worked examples</li>
+                    <li>Practice problems with solutions</li>
+                    <li>Real-world applications</li>
+                    <li>Common misconceptions and tips</li>
                 </ul>
             </div>
 
-            <!-- Looking Ahead -->
-            <div style="background: var(--bg-secondary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0; color: var(--accent);">🚀 What's Next?</h3>
-                <p style="line-height: 1.8; margin-bottom: 15px;">
-                    Congratulations! You've mastered the fundamentals of right triangle trigonometry. This is a powerful tool you'll 
-                    use throughout high school and beyond.
-                </p>
-                <p style="line-height: 1.8; margin: 0;">
-                    In the <strong>next lesson</strong>, you'll explore the <strong>unit circle</strong> and learn how trigonometry 
-                    extends beyond right triangles. You'll also discover radians, a different way to measure angles. Keep up the 
-                    excellent work! 🌟
-                </p>
-            </div>
-
-            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 12px;">
-                <p style="font-size: 1.1rem; font-weight: bold; margin: 0;">
-                    ⏱️ Outstanding! You've mastered this 15-minute lesson!
-                </p>
+            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
+                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
+                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
             </div>
         </div>
     

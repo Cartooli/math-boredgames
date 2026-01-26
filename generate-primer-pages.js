@@ -26,7 +26,7 @@ if (!fs.existsSync(curriculumPath)) {
 const curriculum = JSON.parse(fs.readFileSync(curriculumPath, 'utf8'));
 console.log(`✅ Loaded curriculum: ${curriculum.title}\n`);
 
-// Flatten all lessons
+// Flatten all lessons from curriculum
 const allLessons = [];
 curriculum.grade_bands.forEach(band => {
     band.lessons.forEach(lesson => {
@@ -34,25 +34,11 @@ curriculum.grade_bands.forEach(band => {
             ...lesson,
             grade_band: band.band,
             grade_span: band.grade_span,
-            is_reserve: false
+            // Mark lessons in "Reserve & Extensions" band as reserve slots
+            is_reserve: band.band === "Reserve & Extensions"
         });
     });
 });
-
-// Add reserve slots
-for (let i = 49; i <= 75; i++) {
-    allLessons.push({
-        id: `R${i.toString().padStart(2, '0')}`,
-        sequence: i,
-        title: `Reserve Lesson ${i}`,
-        description: "Coming soon - Additional lesson content for curriculum expansion",
-        key_concepts: [],
-        prerequisites: [],
-        grade_band: "Reserve",
-        grade_span: "TBD",
-        is_reserve: true
-    });
-}
 
 console.log(`📚 Total lessons to generate: ${allLessons.length}`);
 

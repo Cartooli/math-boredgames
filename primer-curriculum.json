@@ -409,6 +409,229 @@
           "prerequisites": ["H47"]
         }
       ]
+    },
+    {
+      "band": "Reserve & Extensions",
+      "grade_span": "K-12",
+      "lesson_count": 27,
+      "lessons": [
+        {
+          "id": "R49",
+          "sequence": 49,
+          "title": "Scientific Notation",
+          "description": "Writing very large and small numbers efficiently using powers of 10",
+          "key_concepts": ["scientific notation", "powers of 10", "standard form", "order of magnitude"],
+          "prerequisites": ["M23", "M16"]
+        },
+        {
+          "id": "R50",
+          "sequence": 50,
+          "title": "Introduction to Inequalities",
+          "description": "Understanding inequality symbols, solving one-step inequalities, number line representation",
+          "key_concepts": ["inequalities", "greater than", "less than", "number line", "inequality notation"],
+          "prerequisites": ["M21", "M19"]
+        },
+        {
+          "id": "R51",
+          "sequence": 51,
+          "title": "Percent Applications",
+          "description": "Tax, tip, discount, and markup calculations in real-world contexts",
+          "key_concepts": ["percent", "tax", "tip", "discount", "markup", "applications"],
+          "prerequisites": ["M17"]
+        },
+        {
+          "id": "R52",
+          "sequence": 52,
+          "title": "Why Division by Zero is Undefined",
+          "description": "Understanding why dividing by zero breaks mathematics and what 'undefined' means",
+          "key_concepts": ["division by zero", "undefined", "mathematical reasoning", "limits"],
+          "prerequisites": ["E05", "M21"]
+        },
+        {
+          "id": "R53",
+          "sequence": 53,
+          "title": "Why We 'Flip and Multiply' for Fraction Division",
+          "description": "The conceptual reason behind the reciprocal rule for dividing fractions",
+          "key_concepts": ["fraction division", "reciprocal", "multiplicative inverse", "conceptual understanding"],
+          "prerequisites": ["M15"]
+        },
+        {
+          "id": "R54",
+          "sequence": 54,
+          "title": "Distance Formula",
+          "description": "Finding distance between two points using coordinates and the Pythagorean theorem",
+          "key_concepts": ["distance formula", "coordinate plane", "Pythagorean theorem", "applications"],
+          "prerequisites": ["M25", "H29", "M24"]
+        },
+        {
+          "id": "R55",
+          "sequence": 55,
+          "title": "Combining Like Terms & Distributive Property",
+          "description": "Simplifying expressions by combining terms and distributing multiplication",
+          "key_concepts": ["like terms", "distributive property", "simplification", "algebraic manipulation"],
+          "prerequisites": ["M20", "M22"]
+        },
+        {
+          "id": "R56",
+          "sequence": 56,
+          "title": "Simple Interest",
+          "description": "Calculating interest using I = PRT formula for loans and savings",
+          "key_concepts": ["simple interest", "principal", "rate", "time", "financial literacy"],
+          "prerequisites": ["M17", "M20"]
+        },
+        {
+          "id": "R57",
+          "sequence": 57,
+          "title": "Compound Interest",
+          "description": "Understanding compound interest and exponential growth in finance",
+          "key_concepts": ["compound interest", "exponential growth", "compounding periods", "financial applications"],
+          "prerequisites": ["H38", "M17"]
+        },
+        {
+          "id": "R58",
+          "sequence": 58,
+          "title": "PEMDAS Pitfalls",
+          "description": "Common mistakes with order of operations and left-to-right evaluation",
+          "key_concepts": ["order of operations", "PEMDAS", "common errors", "implicit grouping"],
+          "prerequisites": ["M22"]
+        },
+        {
+          "id": "R59",
+          "sequence": 59,
+          "title": "Absolute Value Equations",
+          "description": "Solving equations with absolute value and understanding distance interpretation",
+          "key_concepts": ["absolute value", "equations", "distance", "two solutions"],
+          "prerequisites": ["M19", "M21"]
+        },
+        {
+          "id": "R60",
+          "sequence": 60,
+          "title": "Line of Best Fit & Linear Regression",
+          "description": "Finding trend lines for scatter plot data and making predictions",
+          "key_concepts": ["linear regression", "line of best fit", "scatter plots", "prediction", "correlation"],
+          "prerequisites": ["H29", "H47", "H48"]
+        },
+        {
+          "id": "R61",
+          "sequence": 61,
+          "title": "Combinations & Permutations",
+          "description": "Counting principles for ordered and unordered arrangements",
+          "key_concepts": ["combinations", "permutations", "counting", "nCr", "nPr", "factorial"],
+          "prerequisites": ["H46", "E11"]
+        },
+        {
+          "id": "R62",
+          "sequence": 62,
+          "title": "Conditional Probability",
+          "description": "Probability of events given that another event has occurred",
+          "key_concepts": ["conditional probability", "dependent events", "P(A|B)", "probability rules"],
+          "prerequisites": ["H46"]
+        },
+        {
+          "id": "R63",
+          "sequence": 63,
+          "title": "Mean vs Median: When to Use Which",
+          "description": "Choosing appropriate measures of center based on data distribution",
+          "key_concepts": ["mean", "median", "outliers", "skewed data", "data interpretation"],
+          "prerequisites": ["H47", "E12"]
+        },
+        {
+          "id": "R64",
+          "sequence": 64,
+          "title": "Function Transformations",
+          "description": "Shifts, stretches, reflections, and compressions of function graphs",
+          "key_concepts": ["transformations", "shifts", "stretches", "reflections", "function families"],
+          "prerequisites": ["H29", "H34", "H45"]
+        },
+        {
+          "id": "R65",
+          "sequence": 65,
+          "title": "Rational Functions & Asymptotes",
+          "description": "Understanding functions with polynomial ratios and their asymptotic behavior",
+          "key_concepts": ["rational functions", "asymptotes", "vertical asymptote", "horizontal asymptote", "domain"],
+          "prerequisites": ["H40", "H35"]
+        },
+        {
+          "id": "R66",
+          "sequence": 66,
+          "title": "Rational Exponents",
+          "description": "Connecting fractional exponents to radicals and root operations",
+          "key_concepts": ["rational exponents", "radicals", "nth roots", "exponent rules"],
+          "prerequisites": ["M23", "M24"]
+        },
+        {
+          "id": "R67",
+          "sequence": 67,
+          "title": "Introduction to Complex Numbers",
+          "description": "The imaginary unit i, complex number operations, and why they exist",
+          "key_concepts": ["complex numbers", "imaginary unit", "i", "real and imaginary parts"],
+          "prerequisites": ["H35"]
+        },
+        {
+          "id": "R68",
+          "sequence": 68,
+          "title": "Law of Sines",
+          "description": "Solving non-right triangles using sine ratios and side-angle relationships",
+          "key_concepts": ["Law of Sines", "non-right triangles", "ambiguous case", "triangle solving"],
+          "prerequisites": ["H43", "H44"]
+        },
+        {
+          "id": "R69",
+          "sequence": 69,
+          "title": "Law of Cosines",
+          "description": "Using the generalized Pythagorean theorem for any triangle",
+          "key_concepts": ["Law of Cosines", "non-right triangles", "SAS", "SSS", "triangle solving"],
+          "prerequisites": ["H43", "R68"]
+        },
+        {
+          "id": "R70",
+          "sequence": 70,
+          "title": "Arc Length & Sector Area",
+          "description": "Calculating arc lengths and areas of circle sectors using radians",
+          "key_concepts": ["arc length", "sector area", "radians", "circle geometry"],
+          "prerequisites": ["H44", "E09"]
+        },
+        {
+          "id": "R71",
+          "sequence": 71,
+          "title": "Sigma Notation & Finite Series",
+          "description": "Summation notation and finding sums of arithmetic and geometric series",
+          "key_concepts": ["sigma notation", "summation", "series", "arithmetic series", "geometric series"],
+          "prerequisites": ["H41", "H42"]
+        },
+        {
+          "id": "R72",
+          "sequence": 72,
+          "title": "Estimation & Reasonableness",
+          "description": "Developing number sense to check if answers make sense in context",
+          "key_concepts": ["estimation", "reasonableness", "number sense", "mental math", "approximation"],
+          "prerequisites": ["E08", "M16", "M17"]
+        },
+        {
+          "id": "R73",
+          "sequence": 73,
+          "title": "Box Plots & Interquartile Range",
+          "description": "Five-number summary, box-and-whisker plots, and measuring spread with IQR",
+          "key_concepts": ["box plots", "IQR", "quartiles", "five-number summary", "outliers"],
+          "prerequisites": ["H47"]
+        },
+        {
+          "id": "R74",
+          "sequence": 74,
+          "title": "Area vs Perimeter Confusion",
+          "description": "Common mistakes mixing up area and perimeter and when to use each",
+          "key_concepts": ["area", "perimeter", "common errors", "units", "dimensional analysis"],
+          "prerequisites": ["E09"]
+        },
+        {
+          "id": "R75",
+          "sequence": 75,
+          "title": "Community Choice Topic",
+          "description": "Reserved for highest-requested topic from community feedback",
+          "key_concepts": ["to be determined"],
+          "prerequisites": []
+        }
+      ]
     }
   ]
 }

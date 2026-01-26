@@ -26,21 +26,16 @@ if (!fs.existsSync(curriculumPath)) {
     process.exit(1);
 }
 
-// Read curriculum to get all lesson IDs
+// Read curriculum to get all lesson IDs (includes Reserve & Extensions band)
 const curriculum = JSON.parse(fs.readFileSync(curriculumPath, 'utf8'));
 const allLessonIds = [];
 
-// Collect all core lesson IDs
+// Collect all lesson IDs from all grade bands
 curriculum.grade_bands.forEach(band => {
     band.lessons.forEach(lesson => {
         allLessonIds.push(lesson.id);
     });
 });
-
-// Add reserve slots
-for (let i = 49; i <= 75; i++) {
-    allLessonIds.push(`R${i.toString().padStart(2, '0')}`);
-}
 
 console.log(`📚 Found ${allLessonIds.length} lesson pages to add`);
 

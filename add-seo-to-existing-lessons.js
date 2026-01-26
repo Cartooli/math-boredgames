@@ -27,7 +27,7 @@ if (!fs.existsSync(curriculumPath)) {
 
 const curriculum = JSON.parse(fs.readFileSync(curriculumPath, 'utf8'));
 
-// Flatten all lessons
+// Flatten all lessons from curriculum (includes Reserve & Extensions band)
 const allLessons = [];
 curriculum.grade_bands.forEach(band => {
     band.lessons.forEach(lesson => {
@@ -38,19 +38,6 @@ curriculum.grade_bands.forEach(band => {
         });
     });
 });
-
-// Add reserve slots
-for (let i = 49; i <= 75; i++) {
-    allLessons.push({
-        id: `R${i.toString().padStart(2, '0')}`,
-        sequence: i,
-        title: `Reserve Lesson ${i}`,
-        description: "Coming soon - Additional lesson content for curriculum expansion",
-        key_concepts: [],
-        grade_band: "Reserve",
-        grade_span: "TBD"
-    });
-}
 
 function addSEOTags(lesson) {
     const filePath = path.join(primerDir, `${lesson.id}.html`);

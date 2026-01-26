@@ -54,7 +54,7 @@
         "teaches": ["integers","negatives","operations"]
     }
     </script>
-
+    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
@@ -88,20 +88,69 @@
         .lesson-id-badge {
             display: inline-block;
             background: rgba(255,255,255,0.2);
-            padding: 8px 18px;
+            padding: 9px 20px;
             border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            margin-bottom: 18px;
             border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.02em;
         }
 
         .lesson-content {
             background: var(--bg-secondary);
             border: 2px solid var(--border);
             border-radius: 12px;
-            padding: 35px;
+            padding: 40px;
             margin-bottom: 30px;
+            line-height: 1.75;
+            font-size: 1.05rem;
+        }
+        
+        .lesson-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        
+        .lesson-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-top: 28px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        
+        .lesson-content h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .lesson-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            color: var(--text);
+        }
+        
+        .lesson-content ul, .lesson-content ol {
+            line-height: 1.9;
+            margin-bottom: 20px;
+            padding-left: 28px;
+        }
+        
+        .lesson-content li {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
             line-height: 1.8;
         }
 
@@ -173,28 +222,40 @@
         .key-concepts h3 {
             margin-top: 0;
             color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 16px;
         }
 
         .key-concepts ul {
             margin: 15px 0 0 0;
-            padding-left: 25px;
-            line-height: 2;
+            padding-left: 28px;
+            line-height: 1.9;
+        }
+        
+        .key-concepts li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 8px;
         }
 
         .complete-btn {
             background: var(--success);
             color: white;
-            padding: 15px 30px;
+            padding: 16px 32px;
             border-radius: 10px;
             border: none;
-            font-weight: bold;
-            font-size: 1.05rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
             margin: 30px 0;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
         }
 
         .complete-btn:hover {
@@ -214,7 +275,24 @@
             }
 
             .lesson-content {
-                padding: 25px;
+                padding: 28px;
+                font-size: 1rem;
+            }
+            
+            .lesson-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .lesson-content h3 {
+                font-size: 1.25rem;
+            }
+            
+            .lesson-content h4 {
+                font-size: 1.1rem;
+            }
+            
+            .lesson-content p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -236,9 +314,9 @@
 
         <div class="lesson-header">
             <span class="lesson-id-badge">M19 • Lesson 19 of 75</span>
-            <h1 style="margin: 15px 0; font-size: 2.2rem;">Integers & Operations with Negatives</h1>
-            <p style="opacity: 0.95; font-size: 1.15rem; margin: 10px 0;">Negative numbers, integer operations, number line</p>
-            <p style="margin-top: 15px; opacity: 0.85; font-size: 0.95rem;">Middle School Bridge • 6-8</p>
+            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Integers & Operations with Negatives</h1>
+            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Negative numbers, integer operations, number line</p>
+            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">Middle School Bridge • 6-8</p>
         </div>
 
         
@@ -258,115 +336,45 @@
 
             
         <div style="margin-top: 30px;">
-            <h2>➖ Integers & Negative Numbers!</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
-                Temperature is −5°F. You owe $20 (−20). <strong>Negative numbers</strong> represent values below zero. <strong>Integers</strong> include all whole numbers: positive, negative, and zero!
+            <h2>📖 Lesson Overview</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
+                This 15-minute lesson provides a focused introduction to integers & operations with negatives. 
+                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
             </p>
 
-            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <strong>📝 Today you'll learn:</strong>
-                <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
-                    <li>What integers and negative numbers are</li>
-                    <li>Using the number line with negatives</li>
-                    <li>Adding and subtracting integers</li>
-                    <li>Multiplying and dividing integers</li>
+            <h3>What You'll Learn</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Negative numbers, integer operations, number line
+            </p>
+
+            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
+                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
+                <ul style="line-height: 2;">
+                    <li>Understand the fundamental concepts of integers & operations with negatives</li>
+                    <li>Apply these concepts to solve basic problems</li>
+                    <li>Connect this topic to other areas of mathematics</li>
+                    <li>Build confidence for more advanced topics</li>
                 </ul>
             </div>
 
-            <h2>📚 What Are Integers?</h2>
-            <p><strong>Integers</strong> are whole numbers and their opposites: ..., −3, −2, −1, 0, 1, 2, 3, ...</p>
-            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0; font-family: monospace;">
-                ←─────────────────────────→<br>
-                -3  -2  -1   0   1   2   3<br>
-                Negative | Zero | Positive
-            </div>
-
-            <h2>➕ Adding & Subtracting Integers</h2>
-            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0; line-height: 2;">
-                <strong>Same Signs:</strong> Add and keep the sign<br>
-                5 + 3 = 8<br>
-                (−5) + (−3) = −8<br><br>
-                
-                <strong>Different Signs:</strong> Subtract and use sign of larger<br>
-                5 + (−3) = 2<br>
-                (−5) + 3 = −2
-            </div>
-
-            <div style="background: rgba(16, 185, 129, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #10b981; margin: 20px 0;">
-                <strong>✓ Pro Tip:</strong> Subtracting is like adding the opposite!<br>
-                7 − 3 = 7 + (−3) = 4<br>
-                7 − (−3) = 7 + 3 = 10
-            </div>
-
-            <h2>✖️ Multiplying & Dividing Integers</h2>
-            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0; line-height: 2;">
-                <strong>Sign Rules:</strong><br>
-                Positive × Positive = Positive (3 × 4 = 12)<br>
-                Negative × Negative = Positive (−3 × −4 = 12)<br>
-                Positive × Negative = Negative (3 × −4 = −12)<br>
-                Negative × Positive = Negative (−3 × 4 = −12)<br><br>
-                <strong>Same rule for division!</strong>
-            </div>
-
-            <h2>💡 Examples</h2>
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
-                <h4 style="margin-top: 0; color: var(--accent);">Example 1: Addition</h4>
-                <p><strong>Problem:</strong> −8 + 5</p>
-                <p><strong>Solution:</strong> Different signs → subtract: 8−5=3, use sign of larger (8) → <strong>−3</strong></p>
-            </div>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
-                <h4 style="margin-top: 0; color: var(--accent);">Example 2: Multiplication</h4>
-                <p><strong>Problem:</strong> −6 × −2</p>
-                <p><strong>Solution:</strong> Both negative → answer is positive → <strong>12</strong></p>
-            </div>
-
-            <h2>✏️ Practice</h2>
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 1:</strong> −4 + (−6)</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> −10 (same signs, add and keep negative)
-                </div>
-            </div>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 2:</strong> 9 − (−3)</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> Subtracting negative = adding positive
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> 12 (9 + 3)
-                </div>
-            </div>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 3:</strong> −5 × 4</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> −20 (different signs = negative)
-                </div>
-            </div>
-
             <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Key Takeaways</h3>
-                <ul style="line-height: 2; margin: 10px 0 0 20px;">
-                    <li><strong>Integers</strong> include positive, negative, and zero</li>
-                    <li>Adding same signs: add and keep the sign</li>
-                    <li>Adding different signs: subtract, use sign of larger</li>
-                    <li>Multiplying/dividing: same signs = positive, different signs = negative</li>
+                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
+                <p style="color: var(--text-secondary); font-style: italic;">
+                    Detailed lesson content is currently being developed. This will include:
+                </p>
+                <ul style="color: var(--text-secondary); line-height: 2;">
+                    <li>Clear explanations with visual aids</li>
+                    <li>Step-by-step worked examples</li>
+                    <li>Practice problems with solutions</li>
+                    <li>Real-world applications</li>
+                    <li>Common misconceptions and tips</li>
                 </ul>
             </div>
 
-            <div style="background: var(--bg-secondary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0; color: var(--accent);">🚀 What's Next?</h3>
-                <p style="line-height: 1.8;">Next: <strong>Introduction to Variables</strong> (M20, already complete)—representing unknowns with letters! 🌟</p>
-            </div>
-
-            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 12px;">
-                <p style="font-size: 1.1rem; font-weight: bold; margin: 0;">⏱️ Well done! 15-minute lesson complete!</p>
+            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
+                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
+                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
             </div>
         </div>
     

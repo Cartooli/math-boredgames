@@ -54,7 +54,7 @@
         "teaches": ["solving","quadratic formula","methods"]
     }
     </script>
-
+    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
@@ -88,20 +88,69 @@
         .lesson-id-badge {
             display: inline-block;
             background: rgba(255,255,255,0.2);
-            padding: 8px 18px;
+            padding: 9px 20px;
             border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            margin-bottom: 18px;
             border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.02em;
         }
 
         .lesson-content {
             background: var(--bg-secondary);
             border: 2px solid var(--border);
             border-radius: 12px;
-            padding: 35px;
+            padding: 40px;
             margin-bottom: 30px;
+            line-height: 1.75;
+            font-size: 1.05rem;
+        }
+        
+        .lesson-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        
+        .lesson-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-top: 28px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        
+        .lesson-content h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .lesson-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            color: var(--text);
+        }
+        
+        .lesson-content ul, .lesson-content ol {
+            line-height: 1.9;
+            margin-bottom: 20px;
+            padding-left: 28px;
+        }
+        
+        .lesson-content li {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
             line-height: 1.8;
         }
 
@@ -173,28 +222,40 @@
         .key-concepts h3 {
             margin-top: 0;
             color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 16px;
         }
 
         .key-concepts ul {
             margin: 15px 0 0 0;
-            padding-left: 25px;
-            line-height: 2;
+            padding-left: 28px;
+            line-height: 1.9;
+        }
+        
+        .key-concepts li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 8px;
         }
 
         .complete-btn {
             background: var(--success);
             color: white;
-            padding: 15px 30px;
+            padding: 16px 32px;
             border-radius: 10px;
             border: none;
-            font-weight: bold;
-            font-size: 1.05rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
             margin: 30px 0;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
         }
 
         .complete-btn:hover {
@@ -214,7 +275,24 @@
             }
 
             .lesson-content {
-                padding: 25px;
+                padding: 28px;
+                font-size: 1rem;
+            }
+            
+            .lesson-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .lesson-content h3 {
+                font-size: 1.25rem;
+            }
+            
+            .lesson-content h4 {
+                font-size: 1.1rem;
+            }
+            
+            .lesson-content p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -236,9 +314,9 @@
 
         <div class="lesson-header">
             <span class="lesson-id-badge">H35 • Lesson 35 of 75</span>
-            <h1 style="margin: 15px 0; font-size: 2.2rem;">Solving Quadratics</h1>
-            <p style="opacity: 0.95; font-size: 1.15rem; margin: 10px 0;">Factoring, quadratic formula, completing the square</p>
-            <p style="margin-top: 15px; opacity: 0.85; font-size: 0.95rem;">High School Essentials • 9-12</p>
+            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Solving Quadratics</h1>
+            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Factoring, quadratic formula, completing the square</p>
+            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">High School Essentials • 9-12</p>
         </div>
 
         
@@ -281,57 +359,22 @@
             </div>
 
             <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">🔍 Solving Quadratics!</h3>
-                <p style="line-height: 1.8;">Three powerful methods to find the roots of quadratic equations!</p>
-                
-                <h4>Method 1: Factoring</h4>
-                <div style="background: var(--bg-secondary); padding: 20px; border-radius: 10px; margin: 15px 0; line-height: 2;">
-                    <strong>Example:</strong> x² + 5x + 6 = 0<br>
-                    Factor: (x + 2)(x + 3) = 0<br>
-                    Solutions: x = −2 or x = −3<br>
-                    <em>Works when it factors nicely!</em>
-                </div>
-
-                <h4>Method 2: Quadratic Formula</h4>
-                <div style="background: var(--bg-secondary); padding: 15px; border-radius: 8px; margin: 15px 0; text-align: center;">
-                    <strong>x = [−b ± √(b² − 4ac)] / 2a</strong><br><br>
-                    <em>Works for ANY quadratic!</em><br>
-                    Discriminant (b² − 4ac) tells # of solutions:<br>
-                    • Positive: 2 real solutions<br>
-                    • Zero: 1 real solution<br>
-                    • Negative: no real solutions
-                </div>
-
-                <h4>Method 3: Completing the Square</h4>
-                <div style="background: var(--bg-secondary); padding: 15px; border-radius: 8px; margin: 15px 0;">
-                    Rewrite as (x + h)² = k form<br>
-                    <em>Useful for finding vertex!</em>
-                </div>
-
-                <h4>💡 Example: Using Formula</h4>
-                <div style="background: var(--bg-secondary); padding: 15px; border-radius: 8px; margin: 15px 0;">
-                    <strong>Solve:</strong> x² − 3x − 4 = 0<br>
-                    a=1, b=−3, c=−4<br>
-                    x = [3 ± √(9+16)] / 2 = [3 ± 5] / 2<br>
-                    <strong>Solutions:</strong> x = 4 or x = −1
-                </div>
-
-                <h4>✏️ Practice</h4>
-                <div style="background: var(--bg-secondary); padding: 15px; border-radius: 10px; margin: 10px 0; border: 2px solid var(--border);">
-                    <p><strong>Q:</strong> Solve by factoring: x² − 9 = 0</p>
-                    <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Answer</button>
-                    <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                        <strong>Answer:</strong> (x+3)(x−3)=0 → x=3 or x=−3
-                    </div>
-                </div>
-
-                <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 20px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 20px 0;">
-                    <strong>🎯 Key Points:</strong> Try factoring first. Quadratic formula always works!
-                </div>
+                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
+                <p style="color: var(--text-secondary); font-style: italic;">
+                    Detailed lesson content is currently being developed. This will include:
+                </p>
+                <ul style="color: var(--text-secondary); line-height: 2;">
+                    <li>Clear explanations with visual aids</li>
+                    <li>Step-by-step worked examples</li>
+                    <li>Practice problems with solutions</li>
+                    <li>Real-world applications</li>
+                    <li>Common misconceptions and tips</li>
+                </ul>
             </div>
 
-            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 12px;">
-                <p style="font-size: 1.1rem; font-weight: bold; margin: 0;">⏱️ Lesson complete!</p>
+            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
+                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
+                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
             </div>
         </div>
     

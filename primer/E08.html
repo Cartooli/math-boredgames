@@ -54,7 +54,7 @@
         "teaches": ["measurement","units","estimation"]
     }
     </script>
-
+    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
@@ -88,20 +88,69 @@
         .lesson-id-badge {
             display: inline-block;
             background: rgba(255,255,255,0.2);
-            padding: 8px 18px;
+            padding: 9px 20px;
             border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            margin-bottom: 18px;
             border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.02em;
         }
 
         .lesson-content {
             background: var(--bg-secondary);
             border: 2px solid var(--border);
             border-radius: 12px;
-            padding: 35px;
+            padding: 40px;
             margin-bottom: 30px;
+            line-height: 1.75;
+            font-size: 1.05rem;
+        }
+        
+        .lesson-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        
+        .lesson-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-top: 28px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        
+        .lesson-content h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .lesson-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            color: var(--text);
+        }
+        
+        .lesson-content ul, .lesson-content ol {
+            line-height: 1.9;
+            margin-bottom: 20px;
+            padding-left: 28px;
+        }
+        
+        .lesson-content li {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
             line-height: 1.8;
         }
 
@@ -173,28 +222,40 @@
         .key-concepts h3 {
             margin-top: 0;
             color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 16px;
         }
 
         .key-concepts ul {
             margin: 15px 0 0 0;
-            padding-left: 25px;
-            line-height: 2;
+            padding-left: 28px;
+            line-height: 1.9;
+        }
+        
+        .key-concepts li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 8px;
         }
 
         .complete-btn {
             background: var(--success);
             color: white;
-            padding: 15px 30px;
+            padding: 16px 32px;
             border-radius: 10px;
             border: none;
-            font-weight: bold;
-            font-size: 1.05rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
             margin: 30px 0;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
         }
 
         .complete-btn:hover {
@@ -214,7 +275,24 @@
             }
 
             .lesson-content {
-                padding: 25px;
+                padding: 28px;
+                font-size: 1rem;
+            }
+            
+            .lesson-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .lesson-content h3 {
+                font-size: 1.25rem;
+            }
+            
+            .lesson-content h4 {
+                font-size: 1.1rem;
+            }
+            
+            .lesson-content p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -236,9 +314,9 @@
 
         <div class="lesson-header">
             <span class="lesson-id-badge">E08 • Lesson 8 of 75</span>
-            <h1 style="margin: 15px 0; font-size: 2.2rem;">Introduction to Measurement</h1>
-            <p style="opacity: 0.95; font-size: 1.15rem; margin: 10px 0;">Length, time, money, standard units</p>
-            <p style="margin-top: 15px; opacity: 0.85; font-size: 0.95rem;">Elementary Foundations • K-5</p>
+            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Introduction to Measurement</h1>
+            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Length, time, money, standard units</p>
+            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">Elementary Foundations • K-5</p>
         </div>
 
         
@@ -258,116 +336,45 @@
 
             
         <div style="margin-top: 30px;">
-            <h2>📏 Introduction to Measurement!</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
-                How long is your pencil? What time does school start? How much does candy cost? <strong>Measurement</strong> helps us answer these questions! We measure length, time, and money every day.
+            <h2>📖 Lesson Overview</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
+                This 15-minute lesson provides a focused introduction to introduction to measurement. 
+                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
             </p>
 
-            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <strong>📝 Today you'll learn:</strong>
-                <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
-                    <li>Units of length (inches, feet, centimeters)</li>
-                    <li>How to tell time on a clock</li>
-                    <li>Counting money (coins and dollars)</li>
-                    <li>Estimating measurements</li>
+            <h3>What You'll Learn</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Length, time, money, standard units
+            </p>
+
+            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
+                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
+                <ul style="line-height: 2;">
+                    <li>Understand the fundamental concepts of introduction to measurement</li>
+                    <li>Apply these concepts to solve basic problems</li>
+                    <li>Connect this topic to other areas of mathematics</li>
+                    <li>Build confidence for more advanced topics</li>
                 </ul>
             </div>
 
-            <h2>📚 Measuring Length</h2>
-            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0; line-height: 2;">
-                <strong>Common Units:</strong><br>
-                • <strong>Inch</strong> (in) - about the width of your thumb<br>
-                • <strong>Foot</strong> (ft) - 12 inches, about the length of your foot<br>
-                • <strong>Centimeter</strong> (cm) - smaller than an inch<br>
-                • <strong>Meter</strong> (m) - about 3 feet, a big step
-            </div>
-
-            <h2>🕐 Telling Time</h2>
-            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0; line-height: 2;">
-                <strong>On a Clock:</strong><br>
-                • <strong>Hour hand</strong> (short) - points to the hour<br>
-                • <strong>Minute hand</strong> (long) - points to the minutes<br>
-                • 60 minutes = 1 hour<br>
-                • Example: 3:30 means 3 hours and 30 minutes
-            </div>
-
-            <h2>💰 Counting Money</h2>
-            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0; line-height: 2;">
-                <strong>U.S. Coins:</strong><br>
-                • Penny = 1¢<br>
-                • Nickel = 5¢<br>
-                • Dime = 10¢<br>
-                • Quarter = 25¢<br>
-                • Dollar = 100¢
-            </div>
-
-            <h2>💡 Examples</h2>
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
-                <h4 style="margin-top: 0; color: var(--accent);">Example 1: Measuring Length</h4>
-                <p><strong>Problem:</strong> Your book is 10 inches long. How many inches is 2 books laid end-to-end?</p>
-                <p><strong>Solution:</strong> 10 + 10 = 20 inches</p>
-            </div>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
-                <h4 style="margin-top: 0; color: var(--accent);">Example 2: Counting Money</h4>
-                <p><strong>Problem:</strong> You have 2 quarters and 1 dime. How much money is that?</p>
-                <p><strong>Solution:</strong> 25¢ + 25¢ + 10¢ = 60¢</p>
-            </div>
-
-            <h2>✏️ Practice Problems</h2>
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 1:</strong> How many inches are in 2 feet?</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> 1 foot = 12 inches
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> 24 inches (12 + 12)
-                </div>
-            </div>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 2:</strong> You have 3 dimes. How much money is that?</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> Each dime = 10¢
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> 30¢ (10 + 10 + 10)
-                </div>
-            </div>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 3:</strong> School starts at 8:00 and lunch is 4 hours later. What time is lunch?</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> Count 4 hours forward: 9, 10, 11, 12
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> 12:00 (noon)
-                </div>
-            </div>
-
             <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Key Takeaways</h3>
-                <ul style="line-height: 2; margin: 10px 0 0 20px;">
-                    <li>We use <strong>units</strong> to measure (inches, feet, centimeters)</li>
-                    <li><strong>1 foot = 12 inches</strong></li>
-                    <li>Tell time using <strong>hour and minute hands</strong></li>
-                    <li>Count money: penny (1¢), nickel (5¢), dime (10¢), quarter (25¢)</li>
+                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
+                <p style="color: var(--text-secondary); font-style: italic;">
+                    Detailed lesson content is currently being developed. This will include:
+                </p>
+                <ul style="color: var(--text-secondary); line-height: 2;">
+                    <li>Clear explanations with visual aids</li>
+                    <li>Step-by-step worked examples</li>
+                    <li>Practice problems with solutions</li>
+                    <li>Real-world applications</li>
+                    <li>Common misconceptions and tips</li>
                 </ul>
             </div>
 
-            <div style="background: var(--bg-secondary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0; color: var(--accent);">🚀 What's Next?</h3>
-                <p style="line-height: 1.8;">In the next lesson, you'll explore <strong>Basic Geometry</strong>—shapes, perimeter, and area! 🌟</p>
-            </div>
-
-            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 12px;">
-                <p style="font-size: 1.1rem; font-weight: bold; margin: 0;">⏱️ Great work! 15-minute lesson complete!</p>
+            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
+                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
+                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
             </div>
         </div>
     

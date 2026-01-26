@@ -54,7 +54,7 @@
         "teaches": ["multiplication","arrays","repeated addition"]
     }
     </script>
-
+    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
@@ -88,20 +88,69 @@
         .lesson-id-badge {
             display: inline-block;
             background: rgba(255,255,255,0.2);
-            padding: 8px 18px;
+            padding: 9px 20px;
             border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            margin-bottom: 18px;
             border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: 0.02em;
         }
 
         .lesson-content {
             background: var(--bg-secondary);
             border: 2px solid var(--border);
             border-radius: 12px;
-            padding: 35px;
+            padding: 40px;
             margin-bottom: 30px;
+            line-height: 1.75;
+            font-size: 1.05rem;
+        }
+        
+        .lesson-content h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        
+        .lesson-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-top: 28px;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        
+        .lesson-content h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .lesson-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 18px;
+            color: var(--text);
+        }
+        
+        .lesson-content ul, .lesson-content ol {
+            line-height: 1.9;
+            margin-bottom: 20px;
+            padding-left: 28px;
+        }
+        
+        .lesson-content li {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
             line-height: 1.8;
         }
 
@@ -173,28 +222,40 @@
         .key-concepts h3 {
             margin-top: 0;
             color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 16px;
         }
 
         .key-concepts ul {
             margin: 15px 0 0 0;
-            padding-left: 25px;
-            line-height: 2;
+            padding-left: 28px;
+            line-height: 1.9;
+        }
+        
+        .key-concepts li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 8px;
         }
 
         .complete-btn {
             background: var(--success);
             color: white;
-            padding: 15px 30px;
+            padding: 16px 32px;
             border-radius: 10px;
             border: none;
-            font-weight: bold;
-            font-size: 1.05rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
             gap: 10px;
             margin: 30px 0;
+            line-height: 1.5;
+            letter-spacing: -0.01em;
         }
 
         .complete-btn:hover {
@@ -214,7 +275,24 @@
             }
 
             .lesson-content {
-                padding: 25px;
+                padding: 28px;
+                font-size: 1rem;
+            }
+            
+            .lesson-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .lesson-content h3 {
+                font-size: 1.25rem;
+            }
+            
+            .lesson-content h4 {
+                font-size: 1.1rem;
+            }
+            
+            .lesson-content p {
+                font-size: 1rem;
             }
         }
     </style>
@@ -236,9 +314,9 @@
 
         <div class="lesson-header">
             <span class="lesson-id-badge">E04 • Lesson 4 of 75</span>
-            <h1 style="margin: 15px 0; font-size: 2.2rem;">Multiplication Concept</h1>
-            <p style="opacity: 0.95; font-size: 1.15rem; margin: 10px 0;">Arrays, repeated addition, foundational multiplication</p>
-            <p style="margin-top: 15px; opacity: 0.85; font-size: 0.95rem;">Elementary Foundations • K-5</p>
+            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Multiplication Concept</h1>
+            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Arrays, repeated addition, foundational multiplication</p>
+            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">Elementary Foundations • K-5</p>
         </div>
 
         
@@ -258,207 +336,45 @@
 
             
         <div style="margin-top: 30px;">
-            <!-- Hook & Context -->
-            <h2>✖️ Multiplication: Super-Speed Addition!</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
-                Imagine you have 3 bags, and each bag has 4 candies. Instead of adding 4 + 4 + 4, there's a faster way! <strong>Multiplication</strong> is like a shortcut for adding the same number over and over. It's one of the most powerful tools in math!
+            <h2>📖 Lesson Overview</h2>
+            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
+                This 15-minute lesson provides a focused introduction to multiplication concept. 
+                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
             </p>
 
-            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <strong>📝 Today you'll learn:</strong>
-                <ul style="margin: 10px 0 0 20px; line-height: 1.8;">
-                    <li>What multiplication means (repeated addition)</li>
-                    <li>How to read and write multiplication</li>
-                    <li>What arrays are and how they help</li>
-                    <li>How to start learning your times tables</li>
+            <h3>What You'll Learn</h3>
+            <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                Arrays, repeated addition, foundational multiplication
+            </p>
+
+            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
+                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
+                <ul style="line-height: 2;">
+                    <li>Understand the fundamental concepts of multiplication concept</li>
+                    <li>Apply these concepts to solve basic problems</li>
+                    <li>Connect this topic to other areas of mathematics</li>
+                    <li>Build confidence for more advanced topics</li>
                 </ul>
             </div>
 
-            <!-- Core Concept -->
-            <h2>📚 What Is Multiplication?</h2>
-            
-            <p style="line-height: 1.8; margin-bottom: 20px;">
-                <strong>Multiplication</strong> is repeated addition. Instead of adding the same number many times, we multiply! We use the <strong>multiplication sign (×)</strong> or sometimes a dot (•).
-            </p>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
-                <h4 style="margin-top: 0; color: var(--accent);">📊 Multiplication vs. Addition</h4>
-                <div style="font-family: monospace; line-height: 2.2; font-size: 1.1rem;">
-                    <strong>The Long Way (Addition):</strong><br>
-                    🍪🍪🍪 + 🍪🍪🍪 + 🍪🍪🍪 + 🍪🍪🍪<br>
-                    3 + 3 + 3 + 3 = 12<br><br>
-                    
-                    <strong>The Fast Way (Multiplication):</strong><br>
-                    4 groups of 3 cookies<br>
-                    4 × 3 = 12
-                </div>
-                <p style="margin: 15px 0 0 0; color: var(--text-secondary);">
-                    We read this as: "Four times three equals twelve" or "Four groups of three is twelve"
-                </p>
-            </div>
-
-            <h3>Understanding Arrays</h3>
-            <p style="line-height: 1.8; margin-bottom: 20px;">
-                An <strong>array</strong> is an organized arrangement in rows and columns. Arrays help us see multiplication!
-            </p>
-
-            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <strong>Example: 3 × 4 Array</strong><br><br>
-                <div style="font-family: monospace; font-size: 1.2rem; line-height: 1.8;">
-                    ⭐ ⭐ ⭐ ⭐<br>
-                    ⭐ ⭐ ⭐ ⭐<br>
-                    ⭐ ⭐ ⭐ ⭐
-                </div>
-                <p style="margin: 15px 0 0 0; color: var(--text-secondary);">
-                    <strong>3 rows</strong> × <strong>4 columns</strong> = <strong>12 stars</strong>
-                </p>
-            </div>
-
-            <div style="background: rgba(16, 185, 129, 0.1); padding: 20px; border-radius: 12px; border-left: 4px solid #10b981; margin: 20px 0;">
-                <strong>✓ Cool Fact:</strong> You can flip multiplication around! 3 × 4 = 4 × 3 = 12. This is called the "Commutative Property"—multiplication works both ways!
-            </div>
-
-            <h3>Parts of a Multiplication Problem</h3>
-            <div style="background: var(--bg-tertiary); padding: 20px; border-radius: 10px; margin: 20px 0;">
-                <code style="font-size: 1.3rem;">5 × 3 = 15</code><br><br>
-                <strong>5</strong> = First factor (how many groups)<br>
-                <strong>×</strong> = Times sign (multiply)<br>
-                <strong>3</strong> = Second factor (how many in each group)<br>
-                <strong>15</strong> = Product (the answer)
-            </div>
-
-            <!-- Worked Examples -->
-            <h2>💡 Let's Practice Multiplying!</h2>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
-                <h4 style="margin-top: 0; color: var(--accent);">Example 1: Using Repeated Addition</h4>
-                <p><strong>Problem:</strong> You have 5 boxes with 2 crayons in each. How many crayons total?</p>
-                <div style="margin: 15px 0; padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
-                    <strong>Step 1:</strong> Write as multiplication → 5 × 2 = ?<br>
-                    <strong>Step 2:</strong> Think of it as addition → 2 + 2 + 2 + 2 + 2<br>
-                    <strong>Step 3:</strong> Add them up → 10
-                </div>
-                <p><strong>Answer:</strong> You have <strong>10 crayons</strong></p>
-            </div>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
-                <h4 style="margin-top: 0; color: var(--accent);">Example 2: Using an Array</h4>
-                <p><strong>Problem:</strong> What is 4 × 3?</p>
-                <div style="margin: 15px 0; padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
-                    <strong>Step 1:</strong> Draw or imagine 4 rows of 3<br>
-                    <div style="font-family: monospace; margin: 10px 0;">
-                        ● ● ●<br>
-                        ● ● ●<br>
-                        ● ● ●<br>
-                        ● ● ●
-                    </div>
-                    <strong>Step 2:</strong> Count all the dots<br>
-                    <strong>Step 3:</strong> There are 12 total
-                </div>
-                <p><strong>Answer:</strong> 4 × 3 = <strong>12</strong></p>
-            </div>
-
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 25px 0;">
-                <h4 style="margin-top: 0; color: var(--accent);">Example 3: Real-World Multiplication</h4>
-                <p><strong>Problem:</strong> A tricycle has 3 wheels. If there are 6 tricycles, how many wheels total?</p>
-                <div style="margin: 15px 0; padding: 15px; background: var(--bg-secondary); border-radius: 8px;">
-                    <strong>Step 1:</strong> 6 tricycles × 3 wheels each<br>
-                    <strong>Step 2:</strong> Write it → 6 × 3 = ?<br>
-                    <strong>Step 3:</strong> Count by 3s six times: 3, 6, 9, 12, 15, 18
-                </div>
-                <p><strong>Answer:</strong> There are <strong>18 wheels</strong> total</p>
-            </div>
-
-            <!-- Practice Problems -->
-            <h2>✏️ Your Turn to Multiply!</h2>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 1:</strong> 3 × 2 = ?</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> 3 groups of 2, or 2 + 2 + 2
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> 6
-                </div>
-            </div>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 2:</strong> Draw an array for 2 × 5. What's the product?</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> Make 2 rows with 5 items in each row
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> 10 (2 rows × 5 columns = 10)
-                </div>
-            </div>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 3:</strong> You have 4 friends. You give each friend 5 stickers. How many stickers did you give away?</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> 4 × 5 = ?
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> 20 stickers
-                </div>
-            </div>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 4:</strong> If 3 × 4 = 12, what is 4 × 3?</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> Remember, order doesn't matter in multiplication!
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> 12 (same answer!)
-                </div>
-            </div>
-
-            <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; margin: 15px 0; border: 2px solid var(--border);">
-                <p><strong>Problem 5:</strong> 5 × 1 = ?</p>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--accent); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">💡 Show Hint</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(59, 130, 246, 0.1); border-radius: 6px;">
-                    <strong>Hint:</strong> 5 groups of 1, or 1 + 1 + 1 + 1 + 1
-                </div>
-                <button onclick="this.nextElementSibling.style.display='block'; this.style.display='none';" style="background: var(--success); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; margin-top: 10px;">✓ Show Answer</button>
-                <div style="display: none; margin-top: 10px; padding: 10px; background: rgba(16, 185, 129, 0.1); border-radius: 6px;">
-                    <strong>Answer:</strong> 5 (Any number times 1 equals itself!)
-                </div>
-            </div>
-
-            <!-- Key Takeaways -->
             <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Key Takeaways</h3>
-                <ul style="line-height: 2; margin: 10px 0 0 20px;">
-                    <li><strong>Multiplication</strong> is repeated addition—a faster way to add!</li>
-                    <li>Use the <strong>× sign</strong> to show multiplication</li>
-                    <li><strong>Arrays</strong> help us visualize multiplication</li>
-                    <li>Order doesn't matter: 3 × 4 = 4 × 3</li>
-                    <li>Any number times 1 equals itself, and any number times 0 equals 0</li>
+                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
+                <p style="color: var(--text-secondary); font-style: italic;">
+                    Detailed lesson content is currently being developed. This will include:
+                </p>
+                <ul style="color: var(--text-secondary); line-height: 2;">
+                    <li>Clear explanations with visual aids</li>
+                    <li>Step-by-step worked examples</li>
+                    <li>Practice problems with solutions</li>
+                    <li>Real-world applications</li>
+                    <li>Common misconceptions and tips</li>
                 </ul>
             </div>
 
-            <!-- Looking Ahead -->
-            <div style="background: var(--bg-secondary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0; color: var(--accent);">🚀 What's Next?</h3>
-                <p style="line-height: 1.8; margin-bottom: 15px;">
-                    You're doing amazing! You've learned what multiplication is and how it makes math faster and easier. Practice skip counting (2, 4, 6... or 5, 10, 15...) to get even better!
-                </p>
-                <p style="line-height: 1.8; margin: 0;">
-                    In the <strong>next lesson</strong>, you'll explore <strong>Division</strong>—the opposite of multiplication! You'll learn about fair sharing and breaking groups apart. Let's keep going! 🌟
-                </p>
-            </div>
-
-            <div style="text-align: center; margin: 30px 0; padding: 20px; background: rgba(16, 185, 129, 0.1); border-radius: 12px;">
-                <p style="font-size: 1.1rem; font-weight: bold; margin: 0;">
-                    ⏱️ Great work! You've mastered this 15-minute lesson!
-                </p>
+            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
+                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
+                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
             </div>
         </div>
     
