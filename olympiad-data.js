@@ -17,12 +17,23 @@
     // Optional: set to a URL to fetch data from (e.g. private host or local file in dev)
     const OLYMPIAD_DATA_URL = null; // e.g. 'https://example.com/potw-data.md' or './potw.md'
 
+    // Placeholder image for default archive (no Master Sheet data yet). Simple SVG so problem area displays.
+    var PLACEHOLDER_IMAGE_SVG = 'data:image/svg+xml,' + encodeURIComponent(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">' +
+        '<rect width="400" height="200" fill="%231e293b" stroke="%23334155" stroke-width="2" rx="8"/>' +
+        '<text x="200" y="95" text-anchor="middle" fill="%2394a3b8" font-family="system-ui,sans-serif" font-size="18">Daily problem</text>' +
+        '<text x="200" y="120" text-anchor="middle" fill="%23647b8b" font-family="system-ui,sans-serif" font-size="14">Add your Master Sheet data for real problem images</text>' +
+        '<text x="200" y="155" text-anchor="middle" fill="%233b82f6" font-family="system-ui,sans-serif" font-size="12">See OLYMPIAD_DATA_SETUP.md</text>' +
+        '</svg>'
+    );
+
     // Built-in default archive: ~90 days of placeholder problems so the app works out of the box.
     // Replace with EMBEDDED_OLYMPIAD_DATA from convert-olympiad-data.js for your real Master Sheet.
     function getDefaultArchive() {
         const questions = [];
         const start = new Date(2024, 0, 1); // Jan 1, 2024
         const n = 90;
+        const imageData = {};
         for (let i = 0; i < n; i++) {
             const d = new Date(start);
             d.setDate(d.getDate() + i);
@@ -33,8 +44,9 @@
                 imageRef: 'image' + (i + 1),
                 title: 'Problem from ' + dateStr
             });
+            imageData['image' + (i + 1)] = PLACEHOLDER_IMAGE_SVG;
         }
-        return { questions, imageData: {} };
+        return { questions, imageData };
     }
 
     const olympiadData = {
