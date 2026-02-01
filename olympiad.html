@@ -497,6 +497,30 @@
             color: var(--text-secondary);
         }
         
+        .reset-rotation-btn {
+            padding: 8px 14px;
+            font-size: 0.9rem;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        
+        .reset-rotation-btn:hover {
+            opacity: 0.9;
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .rotation-reset {
+            margin-top: 12px;
+        }
+        
+        .rotation-reset.hidden {
+            display: none;
+        }
+        
         /* Navigation Buttons */
         .navigation-buttons {
             display: flex;
@@ -724,6 +748,9 @@
         <div class="daily-info" id="dailyInfo">
             <h3>📅 Today's Problem</h3>
             <p id="dailyInfoText">Loading today's problem...</p>
+            <p class="rotation-reset hidden" id="rotationResetWrap">
+                <button type="button" class="reset-rotation-btn" onclick="olympiadApp.resetRotation()">🔄 Reset rotation (start from today)</button>
+            </p>
         </div>
         
         <div class="question-card" id="questionCard">

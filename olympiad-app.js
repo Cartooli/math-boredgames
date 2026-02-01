@@ -57,7 +57,14 @@ const olympiadApp = {
         const questionData = olympiadData.getQuestionForDay(dayOffset);
         
         if (!questionData || !questionData.question) {
-            this.showError('Failed to load question. Please refresh the page.');
+            const total = olympiadData.getTotalCount ? olympiadData.getTotalCount() : 0;
+            const infoText = document.getElementById('dailyInfoText');
+            if (infoText) infoText.textContent = total === 0 ? 'No problems are available yet.' : 'Could not load this problem.';
+            if (total === 0) {
+                this.showError('No problems are available yet. Check back later — or if you run this site, see OLYMPIAD_DATA_SETUP.md to add data.');
+            } else {
+                this.showError('Failed to load question. Please refresh the page.');
+            }
             return;
         }
         
@@ -559,14 +566,30 @@ const olympiadApp = {
     
     updateDailyInfo(dayOffset) {
         const infoText = document.getElementById('dailyInfoText');
+        const resetWrap = document.getElementById('rotationResetWrap');
         
-        if (dayOffset === 0) {
-            infoText.textContent = `This is today's problem. Come back tomorrow for a new challenge!`;
-        } else if (dayOffset < 0) {
-            const days = Math.abs(dayOffset);
-            infoText.textContent = `Viewing a previous problem (${days} day${days > 1 ? 's' : ''} ago).`;
+        if (infoText) {
+            if (dayOffset === 0) {
+                infoText.textContent = `This is today's problem. Come back tomorrow for a new challenge!`;
+            } else if (dayOffset < 0) {
+                const days = Math.abs(dayOffset);
+                infoText.textContent = `Viewing a previous problem (${days} day${days > 1 ? 's' : ''} ago).`;
+            } else {
+                infoText.textContent = `Previewing a future problem (${dayOffset} day${dayOffset > 1 ? 's' : ''} ahead).`;
+            }
+        }
+        if (resetWrap) resetWrap.classList.toggle('hidden', olympiadData.getTotalCount() === 0);
+    },
+    
+    /** Reset daily rotation so today becomes problem #1 again. */
+    resetRotation() {
+        if (!olympiadData.resetRotation) return;
+        if (olympiadData.resetRotation()) {
+            this.showTodaysQuestion(0);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            this.showToast('Rotation reset — today is problem #1 again.');
         } else {
-            infoText.textContent = `Previewing a future problem (${dayOffset} day${dayOffset > 1 ? 's' : ''} ahead).`;
+            this.showToast('Could not save reset (e.g. private browsing).');
         }
     },
     
