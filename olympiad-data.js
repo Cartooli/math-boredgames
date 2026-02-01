@@ -17,13 +17,13 @@
     // Optional: set to a URL to fetch data from (e.g. private host or local file in dev)
     const OLYMPIAD_DATA_URL = null; // e.g. 'https://example.com/potw-data.md' or './potw.md'
 
-    // Placeholder image for default archive (no Master Sheet data yet). Simple SVG so problem area displays.
-    var PLACEHOLDER_IMAGE_SVG = 'data:image/svg+xml,' + encodeURIComponent(
-        '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">' +
-        '<rect width="400" height="200" fill="%231e293b" stroke="%23334155" stroke-width="2" rx="8"/>' +
-        '<text x="200" y="95" text-anchor="middle" fill="%2394a3b8" font-family="system-ui,sans-serif" font-size="18">Daily problem</text>' +
-        '<text x="200" y="120" text-anchor="middle" fill="%23647b8b" font-family="system-ui,sans-serif" font-size="14">Add your Master Sheet data for real problem images</text>' +
-        '<text x="200" y="155" text-anchor="middle" fill="%233b82f6" font-family="system-ui,sans-serif" font-size="12">See OLYMPIAD_DATA_SETUP.md</text>' +
+    // Placeholder image for default archive (no Master Sheet data yet). Simple base64 PNG so problem area displays.
+    var PLACEHOLDER_IMAGE_SVG = 'data:image/svg+xml;base64,' + btoa(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300">' +
+        '<rect width="600" height="300" fill="#1e293b" stroke="#475569" stroke-width="3" rx="12"/>' +
+        '<text x="300" y="120" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="24" font-weight="600">📐 Daily Math Problem</text>' +
+        '<text x="300" y="165" text-anchor="middle" fill="#64748b" font-family="system-ui,sans-serif" font-size="16">Placeholder — Add your Master Sheet data for real problems</text>' +
+        '<text x="300" y="220" text-anchor="middle" fill="#3b82f6" font-family="system-ui,sans-serif" font-size="14" font-weight="500">See OLYMPIAD_DATA_SETUP.md</text>' +
         '</svg>'
     );
 
