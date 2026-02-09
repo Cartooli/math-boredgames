@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Daily Math Challenge on MathBored. A new problem every day — solve it and share your results Wordle-style!">
+    <meta name="keywords" content="daily math challenge, math puzzle, daily problem, math practice, free math">
+    <title>Daily Math Challenge | MathBored</title>
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://math.boredgames.site/daily.html">
+    <meta property="og:title" content="Daily Math Challenge | MathBored">
+    <meta property="og:description" content="A new math problem every day. Solve it, share your results Wordle-style!">
+    <meta property="og:image" content="https://math.boredgames.site/og-image.png?v=2">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Daily Math Challenge | MathBored">
+    <meta property="twitter:description" content="A new math problem every day. Solve it, share your results!">
+
+    <link rel="canonical" href="https://math.boredgames.site/daily.html">
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="growth-engine.css">
+    <style>
+        .daily-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .daily-hero {
+            text-align: center;
+            padding: 40px 24px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border-radius: 20px;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .daily-hero h1 {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            -webkit-text-fill-color: white;
+            background: none;
+        }
+
+        .daily-hero .day-num {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+
+        .daily-meta {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .daily-meta-item {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 20px;
+            text-align: center;
+        }
+
+        .daily-meta-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .daily-meta-value {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .daily-question-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .daily-question-text {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .daily-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .daily-option {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 20px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+        }
+
+        .daily-option:hover:not(.disabled) {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .daily-option.correct {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.15);
+        }
+
+        .daily-option.incorrect {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.15);
+        }
+
+        .daily-option.disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+
+        .daily-option-letter {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .daily-result {
+            text-align: center;
+            padding: 24px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 20px;
+            margin-bottom: 24px;
+            display: none;
+        }
+
+        .daily-result.show {
+            display: block;
+            animation: slideUp 0.4s ease;
+        }
+
+        .daily-result h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .daily-attempts {
+            font-size: 2rem;
+            letter-spacing: 4px;
+            margin: 16px 0;
+        }
+
+        .daily-timer {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .daily-streak-info {
+            font-size: 1.1rem;
+            color: #f59e0b;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .daily-share-box {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            white-space: pre-line;
+            text-align: left;
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        .daily-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .daily-completed {
+            text-align: center;
+            padding: 40px;
+        }
+
+        .daily-completed h2 {
+            font-size: 1.8rem;
+            color: #10b981;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            .daily-container { padding: 12px; }
+            .daily-hero h1 { font-size: 1.6rem; }
+            .daily-question-text { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="daily-container">
+        <a href="index.html" class="back-link">&larr; Back to MathBored</a>
+
+        <div class="daily-hero">
+            <h1>Daily Math Challenge</h1>
+            <div class="day-num" id="dayLabel">Day #---</div>
+        </div>
+
+        <div class="daily-meta">
+            <div class="daily-meta-item">
+                <div class="daily-meta-label">Topic</div>
+                <div class="daily-meta-value" id="dailyTopic">--</div>
+            </div>
+            <div class="daily-meta-item">
+                <div class="daily-meta-label">Difficulty</div>
+                <div class="daily-meta-value" id="dailyDiff">--</div>
+            </div>
+            <div class="daily-meta-item">
+                <div class="daily-meta-label">Streak</div>
+                <div class="daily-meta-value" id="dailyStreak">0</div>
+            </div>
+        </div>
+
+        <div id="dailyQuestionArea">
+            <!-- Question injected here -->
+        </div>
+
+        <div class="daily-result" id="dailyResult">
+            <h2 id="resultTitle"></h2>
+            <div class="daily-attempts" id="resultAttempts"></div>
+            <div class="daily-timer" id="resultTimer"></div>
+            <div class="daily-streak-info" id="resultStreak"></div>
+            <div class="daily-share-box" id="resultShareText"></div>
+            <div class="daily-actions">
+                <button class="growth-btn growth-btn-primary" id="shareResultBtn">
+                    Share Results
+                </button>
+                <a href="index.html" class="growth-btn growth-btn-secondary">Practice More</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="feature-flags.js"></script>
+    <script src="growth-engine.js"></script>
+    <script>
+    (function() {
+        // Daily challenge problem generator (seeded by day)
+        const EPOCH = new Date('2024-01-01').getTime();
+        const dayNum = Math.floor((Date.now() - EPOCH) / 86400000);
+
+        function seededRandom(seed) {
+            let s = seed;
+            return function() {
+                s = (s * 16807 + 0) % 2147483647;
+                return (s - 1) / 2147483646;
+            };
+        }
+
+        const rng = seededRandom(dayNum * 7919);
+
+        const topics = [
+            'Fractions', 'Percentages', 'Ratios', 'Algebra', 'Geometry',
+            'Decimals', 'Order of Operations', 'Exponents', 'Integers', 'Measurement',
+            'Area & Perimeter', 'Place Value', 'Division', 'Multiplication', 'Probability'
+        ];
+        const difficulties = ['Easy', 'Medium', 'Hard'];
+        const todayTopic = topics[Math.floor(rng() * topics.length)];
+        const todayDiff = difficulties[Math.floor(rng() * difficulties.length)];
+
+        // Generate a deterministic problem for today
+        function generateProblem() {
+            const templates = [
+                { q: 'What is {a} + {b}?', gen: function() { var a = Math.floor(rng()*100)+1, b = Math.floor(rng()*100)+1; return {a:a, b:b, answer: a+b}; }},
+                { q: 'What is {a} x {b}?', gen: function() { var a = Math.floor(rng()*12)+2, b = Math.floor(rng()*12)+2; return {a:a, b:b, answer: a*b}; }},
+                { q: 'What is {a} - {b}?', gen: function() { var a = Math.floor(rng()*100)+50, b = Math.floor(rng()*50)+1; return {a:a, b:b, answer: a-b}; }},
+                { q: 'What is {a}% of {b}?', gen: function() { var pcts = [10,20,25,50,75]; var a = pcts[Math.floor(rng()*pcts.length)]; var b = Math.floor(rng()*20+1)*10; return {a:a, b:b, answer: a*b/100}; }},
+                { q: 'What is {a}/{b} as a decimal?', gen: function() { var pairs = [[1,2],[1,4],[3,4],[1,5],[2,5],[1,8],[3,8]]; var p = pairs[Math.floor(rng()*pairs.length)]; return {a:p[0], b:p[1], answer: p[0]/p[1]}; }},
+                { q: 'If x + {a} = {b}, what is x?', gen: function() { var a = Math.floor(rng()*20)+1, x = Math.floor(rng()*30)+1; return {a:a, b:a+x, answer: x}; }},
+                { q: 'What is {a}^2?', gen: function() { var a = Math.floor(rng()*15)+2; return {a:a, answer: a*a}; }},
+                { q: 'What is the area of a rectangle {a} x {b}?', gen: function() { var a = Math.floor(rng()*12)+2, b = Math.floor(rng()*12)+2; return {a:a, b:b, answer: a*b}; }},
+            ];
+
+            var tpl = templates[Math.floor(rng() * templates.length)];
+            var data = tpl.gen();
+            var question = tpl.q.replace(/{(\w+)}/g, function(m, key) { return data[key]; });
+
+            // Generate wrong answers
+            var correct = data.answer;
+            var options = [correct];
+            while (options.length < 4) {
+                var offset = Math.floor(rng() * 10) - 5;
+                if (offset === 0) offset = Math.floor(rng() * 3) + 1;
+                var wrong;
+                if (correct % 1 !== 0) {
+                    wrong = Math.round((correct + offset * 0.1) * 100) / 100;
+                } else {
+                    wrong = correct + offset;
+                }
+                if (wrong !== correct && options.indexOf(wrong) === -1 && wrong >= 0) {
+                    options.push(wrong);
+                }
+            }
+
+            // Shuffle options
+            for (var i = options.length - 1; i > 0; i--) {
+                var j = Math.floor(rng() * (i + 1));
+                var tmp = options[i]; options[i] = options[j]; options[j] = tmp;
+            }
+
+            return { question: question, options: options, correct: correct, correctIndex: options.indexOf(correct) };
+        }
+
+        // Check if already completed
+        var storageKey = 'mb_daily_' + dayNum;
+        var existing = localStorage.getItem(storageKey);
+        var startTime = Date.now();
+        var attempts = [];
+        var solved = false;
+
+        if (existing) {
+            try {
+                var saved = JSON.parse(existing);
+                if (saved.solved) {
+                    solved = true;
+                    attempts = saved.attempts || [];
+                }
+            } catch(e) {}
+        }
+
+        // UI
+        document.getElementById('dayLabel').textContent = 'Day #' + dayNum;
+        document.getElementById('dailyTopic').textContent = todayTopic;
+        document.getElementById('dailyDiff').textContent = todayDiff;
+        updateStreak();
+
+        var problem = generateProblem();
+
+        if (solved) {
+            showResult();
+        } else {
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            var area = document.getElementById('dailyQuestionArea');
+            var letters = ['A', 'B', 'C', 'D'];
+            var html = '<div class="daily-question-card"><div class="daily-question-text">' +
+                problem.question + '</div><div class="daily-options">';
+
+            problem.options.forEach(function(opt, i) {
+                html += '<button class="daily-option" data-idx="' + i + '">' +
+                    '<span class="daily-option-letter">' + letters[i] + '</span>' +
+                    '<span>' + opt + '</span></button>';
+            });
+
+            html += '</div></div>';
+            area.innerHTML = html;
+
+            // Attach click handlers
+            area.querySelectorAll('.daily-option').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    handleAnswer(parseInt(this.dataset.idx));
+                });
+            });
+        }
+
+        function handleAnswer(idx) {
+            var isCorrect = (idx === problem.correctIndex);
+            attempts.push(isCorrect);
+
+            // Disable all options
+            document.querySelectorAll('.daily-option').forEach(function(btn, i) {
+                btn.classList.add('disabled');
+                if (i === problem.correctIndex) btn.classList.add('correct');
+                if (i === idx && !isCorrect) btn.classList.add('incorrect');
+            });
+
+            if (isCorrect) {
+                solved = true;
+                localStorage.setItem(storageKey, JSON.stringify({
+                    solved: true, attempts: attempts,
+                    startTime: startTime, endTime: Date.now()
+                }));
+                // Sync with MBDaily if available
+                if (window.MBDaily) {
+                    window.MBDaily.startTime = startTime;
+                    window.MBDaily.endTime = Date.now();
+                    window.MBDaily.attempts = attempts;
+                    window.MBDaily.solved = true;
+                }
+                setTimeout(showResult, 800);
+            } else {
+                // Allow retry after brief pause
+                setTimeout(function() {
+                    document.querySelectorAll('.daily-option').forEach(function(btn) {
+                        if (!btn.classList.contains('correct')) {
+                            btn.classList.remove('disabled', 'incorrect');
+                        }
+                    });
+                }, 1200);
+            }
+
+            localStorage.setItem(storageKey, JSON.stringify({
+                solved: solved, attempts: attempts,
+                startTime: startTime, endTime: solved ? Date.now() : null
+            }));
+        }
+
+        function showResult() {
+            document.getElementById('dailyQuestionArea').style.display = 'none';
+            var result = document.getElementById('dailyResult');
+            result.classList.add('show');
+
+            document.getElementById('resultTitle').textContent = 'Challenge Complete!';
+            document.getElementById('resultAttempts').textContent =
+                attempts.map(function(c) { return c ? '\ud83d\udfe9' : '\u2b1b'; }).join(' ');
+
+            var saved = JSON.parse(localStorage.getItem(storageKey) || '{}');
+            var elapsed = saved.endTime && saved.startTime
+                ? Math.round((saved.endTime - saved.startTime) / 1000) : '?';
+            document.getElementById('resultTimer').textContent = 'Solved in ' + elapsed + 's';
+
+            var streak = getStreak();
+            if (streak > 1) {
+                document.getElementById('resultStreak').textContent = '\ud83d\udd25 ' + streak + ' day streak!';
+            }
+            updateStreak();
+
+            var shareText = 'MathBored Daily #' + dayNum + '\n' +
+                'Topic: ' + todayTopic + ' | ' + todayDiff + '\n' +
+                attempts.map(function(c) { return c ? '\ud83d\udfe9' : '\u2b1b'; }).join('') +
+                ' Solved in ' + elapsed + 's\n' +
+                (streak > 1 ? '\ud83d\udd25 Streak: ' + streak + ' days\n' : '') +
+                'https://math.boredgames.site/daily.html';
+
+            document.getElementById('resultShareText').textContent = shareText;
+
+            document.getElementById('shareResultBtn').addEventListener('click', function() {
+                if (navigator.share) {
+                    navigator.share({ title: 'MathBored Daily #' + dayNum, text: shareText }).catch(function(){});
+                } else {
+                    navigator.clipboard.writeText(shareText).then(function() {
+                        var btn = document.getElementById('shareResultBtn');
+                        btn.textContent = 'Copied!';
+                        setTimeout(function() { btn.textContent = 'Share Results'; }, 2000);
+                    }).catch(function(){});
+                }
+            });
+        }
+
+        function getStreak() {
+            var streak = 0;
+            for (var d = dayNum; d >= 0; d--) {
+                var data = localStorage.getItem('mb_daily_' + d);
+                if (data) {
+                    try {
+                        if (JSON.parse(data).solved) { streak++; continue; }
+                    } catch(e) {}
+                }
+                break;
+            }
+            return streak;
+        }
+
+        function updateStreak() {
+            document.getElementById('dailyStreak').textContent = getStreak();
+        }
+    })();
+    </script>
+</body>
+</html>

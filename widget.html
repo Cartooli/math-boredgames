@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathBored Practice Widget</title>
+    <link rel="icon" type="image/svg+xml" href="icon.svg">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --success: #10b981;
+            --error: #ef4444;
+            --border: #475569;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .widget-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .widget-header h2 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+        }
+
+        .widget-header .widget-topic {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .widget-progress {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .widget-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .widget-dot.correct { background: var(--success); border-color: var(--success); }
+        .widget-dot.incorrect { background: var(--error); border-color: var(--error); }
+        .widget-dot.current { border-color: var(--accent); transform: scale(1.2); }
+
+        .widget-question {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        .widget-question-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .widget-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .widget-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: var(--bg-tertiary);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .widget-option:hover:not(.disabled) {
+            border-color: var(--accent);
+            transform: translateX(4px);
+        }
+
+        .widget-option.correct { border-color: var(--success); background: rgba(16,185,129,0.15); }
+        .widget-option.incorrect { border-color: var(--error); background: rgba(239,68,68,0.15); }
+        .widget-option.disabled { cursor: not-allowed; opacity: 0.7; }
+
+        .widget-option-letter {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .widget-cta {
+            text-align: center;
+            padding: 16px;
+            border-top: 1px solid var(--border);
+            margin-top: 16px;
+        }
+
+        .widget-cta a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .widget-cta a:hover { text-decoration: underline; }
+
+        .widget-result {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+
+        .widget-result.show { display: block; }
+
+        .widget-result h3 { font-size: 1.4rem; margin-bottom: 12px; }
+
+        .widget-score {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="widget-header">
+        <h2>Quick Math Quiz</h2>
+        <div class="widget-topic" id="widgetTopic">Math Practice</div>
+    </div>
+
+    <div class="widget-progress" id="widgetProgress"></div>
+
+    <div id="widgetQuestionArea"></div>
+
+    <div class="widget-result" id="widgetResult">
+        <h3 id="widgetResultTitle">Nice Work!</h3>
+        <div class="widget-score" id="widgetScore">0/3</div>
+        <div class="widget-cta">
+            <a href="https://math.boredgames.site" target="_blank" rel="noopener">
+                Get unlimited practice at MathBored &rarr;
+            </a>
+        </div>
+    </div>
+
+    <div class="widget-cta" id="widgetCta">
+        <a href="https://math.boredgames.site" target="_blank" rel="noopener">
+            Powered by MathBored &mdash; Free math practice
+        </a>
+    </div>
+
+    <script>
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        var topic = params.get('topic') || 'Math';
+        var totalQ = 3;
+        var currentQ = 0;
+        var score = 0;
+
+        document.getElementById('widgetTopic').textContent = topic + ' Practice';
+
+        // Build progress dots
+        var progressHtml = '';
+        for (var i = 0; i < totalQ; i++) {
+            progressHtml += '<div class="widget-dot' + (i === 0 ? ' current' : '') + '" id="dot' + i + '"></div>';
+        }
+        document.getElementById('widgetProgress').innerHTML = progressHtml;
+
+        // Simple seeded problem generator
+        function seededRandom(seed) {
+            var s = seed;
+            return function() {
+                s = (s * 16807 + 0) % 2147483647;
+                return (s - 1) / 2147483646;
+            };
+        }
+
+        var seed = 0;
+        for (var c = 0; c < topic.length; c++) seed += topic.charCodeAt(c);
+        seed = seed * 1000 + new Date().getDate();
+        var rng = seededRandom(seed);
+
+        function generateProblem(idx) {
+            var a, b, answer, question;
+            var type = Math.floor(rng() * 4);
+
+            if (type === 0) {
+                a = Math.floor(rng() * 50) + 10;
+                b = Math.floor(rng() * 50) + 10;
+                answer = a + b;
+                question = 'What is ' + a + ' + ' + b + '?';
+            } else if (type === 1) {
+                a = Math.floor(rng() * 12) + 2;
+                b = Math.floor(rng() * 12) + 2;
+                answer = a * b;
+                question = 'What is ' + a + ' \u00d7 ' + b + '?';
+            } else if (type === 2) {
+                a = Math.floor(rng() * 80) + 20;
+                b = Math.floor(rng() * 20) + 1;
+                answer = a - b;
+                question = 'What is ' + a + ' - ' + b + '?';
+            } else {
+                var pcts = [10, 20, 25, 50];
+                a = pcts[Math.floor(rng() * pcts.length)];
+                b = (Math.floor(rng() * 10) + 1) * 20;
+                answer = a * b / 100;
+                question = 'What is ' + a + '% of ' + b + '?';
+            }
+
+            var options = [answer];
+            while (options.length < 4) {
+                var offset = Math.floor(rng() * 10) - 5;
+                if (offset === 0) offset = Math.floor(rng() * 3) + 1;
+                var wrong = answer + offset;
+                if (wrong !== answer && options.indexOf(wrong) === -1 && wrong >= 0) {
+                    options.push(wrong);
+                }
+            }
+            for (var i = options.length - 1; i > 0; i--) {
+                var j = Math.floor(rng() * (i + 1));
+                var tmp = options[i]; options[i] = options[j]; options[j] = tmp;
+            }
+
+            return { question: question, options: options, correctIndex: options.indexOf(answer) };
+        }
+
+        function renderQuestion() {
+            if (currentQ >= totalQ) {
+                showResult();
+                return;
+            }
+
+            var p = generateProblem(currentQ);
+            var letters = ['A', 'B', 'C', 'D'];
+            var html = '<div class="widget-question"><div class="widget-question-text">' +
+                p.question + '</div><div class="widget-options">';
+
+            p.options.forEach(function(opt, i) {
+                html += '<button class="widget-option" data-idx="' + i + '">' +
+                    '<span class="widget-option-letter">' + letters[i] + '</span>' +
+                    '<span>' + opt + '</span></button>';
+            });
+
+            html += '</div></div>';
+            document.getElementById('widgetQuestionArea').innerHTML = html;
+
+            // Update progress
+            for (var d = 0; d < totalQ; d++) {
+                var dot = document.getElementById('dot' + d);
+                if (d === currentQ) dot.classList.add('current');
+                else dot.classList.remove('current');
+            }
+
+            // Attach handlers
+            document.querySelectorAll('.widget-option').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var idx = parseInt(this.dataset.idx);
+                    var isCorrect = (idx === p.correctIndex);
+
+                    document.querySelectorAll('.widget-option').forEach(function(b, i) {
+                        b.classList.add('disabled');
+                        if (i === p.correctIndex) b.classList.add('correct');
+                        if (i === idx && !isCorrect) b.classList.add('incorrect');
+                    });
+
+                    var dot = document.getElementById('dot' + currentQ);
+                    dot.classList.remove('current');
+                    dot.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+                    if (isCorrect) score++;
+                    currentQ++;
+
+                    setTimeout(renderQuestion, 1000);
+                });
+            });
+        }
+
+        function showResult() {
+            document.getElementById('widgetQuestionArea').style.display = 'none';
+            var result = document.getElementById('widgetResult');
+            result.classList.add('show');
+
+            var pct = Math.round(score / totalQ * 100);
+            document.getElementById('widgetScore').textContent = score + '/' + totalQ;
+            document.getElementById('widgetResultTitle').textContent =
+                pct >= 100 ? 'Perfect!' : pct >= 67 ? 'Nice Work!' : 'Keep Practicing!';
+        }
+
+        renderQuestion();
+    })();
+    </script>
+</body>
+</html>

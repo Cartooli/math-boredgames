@@ -84,6 +84,7 @@
     <meta name="apple-mobile-web-app-title" content="MathBored">
     
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="growth-engine.css">
     
     <!-- MathJax for LaTeX rendering -->
     <script>
@@ -532,8 +533,10 @@
         </div>
     </div>
 
+    <script src="feature-flags.js"></script>
     <script src="data.js?v=6"></script>
     <script src="app.min.js?v=8"></script>
+    <script src="growth-engine.js" defer></script>
     <!-- Fuse.js for fuzzy search - deferred for better initial load performance -->
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" defer></script>
     <!-- Search Index - deferred for better initial load performance -->

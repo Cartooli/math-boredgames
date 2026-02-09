@@ -1,0 +1,415 @@
+/* ============================================================
+   MathBored Growth Engine Styles
+   All UI for growth features. Only visible when flags are on.
+   ============================================================ */
+
+/* ── Shared Buttons ────────────────────────────────────────── */
+
+.growth-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.growth-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.growth-btn-primary {
+    background: linear-gradient(135deg, var(--accent, #3b82f6), var(--accent-hover, #2563eb));
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.growth-btn-secondary {
+    background: var(--bg-tertiary, #334155);
+    color: var(--text-primary, #f1f5f9);
+    border: 2px solid var(--border, #475569);
+}
+
+.growth-btn-ghost {
+    background: transparent;
+    color: var(--text-secondary, #94a3b8);
+    padding: 10px 16px;
+}
+
+.growth-btn-ghost:hover {
+    color: var(--text-primary, #f1f5f9);
+}
+
+/* ── #1 Daily Challenge Banner ─────────────────────────────── */
+
+.growth-daily-banner {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(16, 185, 129, 0.12));
+    border: 2px solid rgba(59, 130, 246, 0.25);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    animation: growthFadeIn 0.4s ease;
+}
+
+.growth-daily-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.growth-daily-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.growth-daily-icon {
+    font-size: 2rem;
+}
+
+.growth-daily-topic {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary, #94a3b8);
+    margin-top: 2px;
+}
+
+/* ── #2 Challenge Banner ───────────────────────────────────── */
+
+.growth-challenge-banner {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    padding: 16px 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    animation: growthSlideDown 0.4s ease;
+}
+
+.growth-challenge-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.growth-challenge-icon {
+    font-size: 2rem;
+}
+
+.growth-challenge-text {
+    flex: 1;
+}
+
+.growth-challenge-text strong {
+    display: block;
+    font-size: 1.1rem;
+}
+
+.growth-challenge-text span {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.growth-challenge-banner .growth-btn-primary {
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ── #6 Practice Heatmap ───────────────────────────────────── */
+
+.growth-heatmap {
+    background: var(--bg-secondary, #1e293b);
+    border: 2px solid var(--border, #475569);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.growth-heatmap-title {
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary, #f1f5f9);
+}
+
+.growth-heatmap-grid {
+    display: flex;
+    gap: 3px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+}
+
+.growth-heatmap-week {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.growth-heatmap-cell {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    transition: transform 0.1s ease;
+}
+
+.growth-heatmap-cell:hover {
+    transform: scale(1.4);
+}
+
+.growth-heatmap-cell.level-0 { background: var(--bg-tertiary, #334155); }
+.growth-heatmap-cell.level-1 { background: #064e3b; }
+.growth-heatmap-cell.level-2 { background: #059669; }
+.growth-heatmap-cell.level-3 { background: #10b981; }
+.growth-heatmap-cell.level-4 { background: #34d399; }
+
+.growth-heatmap-legend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: var(--text-secondary, #94a3b8);
+    justify-content: flex-end;
+}
+
+.growth-heatmap-legend .growth-heatmap-cell {
+    width: 12px;
+    height: 12px;
+}
+
+/* ── #8 Brag Card Overlay ──────────────────────────────────── */
+
+.growth-brag-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    animation: growthFadeIn 0.3s ease;
+    padding: 20px;
+}
+
+.growth-brag-card {
+    background: var(--bg-secondary, #1e293b);
+    border: 2px solid var(--border, #475569);
+    border-radius: 20px;
+    padding: 24px;
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+}
+
+.growth-brag-card img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.growth-brag-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+}
+
+/* ── #11 Embed Modal ───────────────────────────────────────── */
+
+.growth-embed-modal {
+    background: var(--bg-secondary, #1e293b);
+    border: 2px solid var(--border, #475569);
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 600px;
+    width: 100%;
+    color: var(--text-primary, #f1f5f9);
+}
+
+.growth-embed-modal h3 {
+    margin: 0 0 12px;
+    font-size: 1.4rem;
+}
+
+.growth-embed-modal p {
+    color: var(--text-secondary, #94a3b8);
+    margin-bottom: 16px;
+}
+
+.growth-embed-code {
+    width: 100%;
+    min-height: 80px;
+    background: var(--bg-primary, #0f172a);
+    color: var(--accent, #3b82f6);
+    border: 2px solid var(--border, #475569);
+    border-radius: 10px;
+    padding: 16px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    resize: vertical;
+}
+
+/* ── #20 Seasonal Banner ───────────────────────────────────── */
+
+.growth-seasonal-banner {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(239, 68, 68, 0.1));
+    border: 2px solid rgba(245, 158, 11, 0.3);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    animation: growthFadeIn 0.4s ease;
+}
+
+.growth-seasonal-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ── #24 Social Proof Banner ───────────────────────────────── */
+
+.growth-social-proof {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(59, 130, 246, 0.08));
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 12px;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary, #94a3b8);
+    margin-bottom: 16px;
+    animation: growthFadeIn 0.5s ease;
+}
+
+.growth-social-proof strong {
+    color: var(--accent, #3b82f6);
+    font-size: 1rem;
+}
+
+/* ── #25 Install Banner ────────────────────────────────────── */
+
+.growth-install-banner {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    right: 0;
+    z-index: 9998;
+    transition: bottom 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.growth-install-banner.show {
+    bottom: 0;
+}
+
+.growth-install-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    background: var(--bg-secondary, #1e293b);
+    border-top: 2px solid var(--accent, #3b82f6);
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.3);
+    flex-wrap: wrap;
+}
+
+.growth-install-text {
+    flex: 1;
+}
+
+.growth-install-text strong {
+    display: block;
+    color: var(--text-primary, #f1f5f9);
+}
+
+.growth-install-text span {
+    font-size: 0.85rem;
+    color: var(--text-secondary, #94a3b8);
+}
+
+.growth-install-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* ── Animations ────────────────────────────────────────────── */
+
+@keyframes growthFadeIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes growthSlideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+@media (max-width: 640px) {
+    .growth-daily-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .growth-daily-left {
+        justify-content: center;
+    }
+
+    .growth-challenge-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .growth-install-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .growth-install-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .growth-brag-actions {
+        flex-direction: column;
+    }
+
+    .growth-brag-actions .growth-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ── Print styles ──────────────────────────────────────────── */
+
+@media print {
+    .growth-daily-banner,
+    .growth-challenge-banner,
+    .growth-seasonal-banner,
+    .growth-social-proof,
+    .growth-install-banner,
+    .growth-brag-overlay {
+        display: none !important;
+    }
+}
