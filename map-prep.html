@@ -548,6 +548,260 @@
                 font-size: 0.85rem;
             }
         }
+
+        /* ── Daily Goal Bar ─────────────────────────────────────── */
+        .daily-goal-bar {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .daily-goal-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .daily-goal-count {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 700;
+            white-space: nowrap;
+            min-width: 52px;
+        }
+
+        .day-streak-badge {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #f59e0b;
+            white-space: nowrap;
+            margin-left: auto;
+        }
+
+        .day-streak-badge.active {
+            color: #10b981;
+        }
+
+        .progress-bar-fill.goal-fill {
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+        }
+
+        .progress-bar-fill.goal-complete {
+            background: linear-gradient(90deg, #10b981, #059669);
+        }
+
+        .daily-goal-count.goal-complete {
+            color: #10b981;
+        }
+
+        /* ── Weak Areas Panel ───────────────────────────────────── */
+        .weak-areas-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .weak-areas-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            user-select: none;
+            transition: background 0.2s;
+        }
+
+        .weak-areas-header:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .weak-toggle-icon {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            transition: transform 0.2s;
+        }
+
+        .weak-toggle-icon.open {
+            transform: rotate(180deg);
+        }
+
+        .weak-areas-body {
+            padding: 0 20px 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .topic-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        .topic-row:last-child { border-bottom: none; }
+
+        .topic-name {
+            flex: 1;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .topic-stats {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .topic-mini-bar {
+            width: 80px;
+            height: 6px;
+            background: var(--bg-tertiary);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .topic-mini-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.4s ease;
+        }
+
+        .topic-mini-fill.good { background: #10b981; }
+        .topic-mini-fill.ok   { background: #f59e0b; }
+        .topic-mini-fill.bad  { background: #ef4444; }
+
+        .weak-area-actions {
+            display: flex;
+            gap: 10px;
+            margin: 16px 0 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-weak-mode {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-weak-mode:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
+        }
+
+        .btn-clear-history {
+            padding: 10px 20px;
+            background: var(--bg-tertiary);
+            color: var(--text-secondary);
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-clear-history:hover {
+            border-color: #ef4444;
+            color: #ef4444;
+        }
+
+        .missed-list {
+            margin-top: 4px;
+        }
+
+        .missed-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px 12px;
+            background: rgba(239, 68, 68, 0.07);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .missed-item-topic {
+            font-size: 0.72rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .missed-item-text {
+            flex: 1;
+            line-height: 1.4;
+        }
+
+        /* ── Weak Mode Banner ───────────────────────────────────── */
+        .weak-mode-banner {
+            background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(220,38,38,0.12));
+            border: 2px solid rgba(239,68,68,0.35);
+            border-radius: 12px;
+            padding: 14px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: #ef4444;
+        }
+
+        .weak-mode-banner button {
+            padding: 6px 16px;
+            background: rgba(239,68,68,0.12);
+            border: 2px solid rgba(239,68,68,0.35);
+            border-radius: 8px;
+            color: #ef4444;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .weak-mode-banner button:hover {
+            background: rgba(239,68,68,0.22);
+        }
+
+        .no-history-msg {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .daily-goal-bar {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .day-streak-badge { margin-left: 0; }
+            .topic-mini-bar { width: 60px; }
+        }
     </style>
 </head>
 <body>
@@ -606,7 +860,39 @@
             </div>
             <span class="progress-count" id="progressCount">0 / 50</span>
         </div>
-        
+
+        <!-- Daily Goal & Day Streak -->
+        <div class="daily-goal-bar">
+            <span class="daily-goal-label">🎯 Today's Goal</span>
+            <div class="progress-bar-container" style="flex:1;min-width:80px;">
+                <div class="progress-bar-fill goal-fill" id="dailyProgressBar" style="width: 0%"></div>
+            </div>
+            <span class="daily-goal-count" id="dailyGoalCount">0 / 10</span>
+            <span class="day-streak-badge" id="dayStreakBadge">🗓️ 0 day streak</span>
+        </div>
+
+        <!-- Weak Mode Banner (hidden until weak area mode active) -->
+        <div class="weak-mode-banner" id="weakModeBanner" style="display:none">
+            <span>🎯 Weak Area Mode — practicing your missed questions</span>
+            <button onclick="mapPrep.stopWeakAreaMode()">✕ Exit</button>
+        </div>
+
+        <!-- Weak Areas Panel -->
+        <div class="weak-areas-panel" id="weakAreasPanel">
+            <div class="weak-areas-header" onclick="mapPrep.toggleWeakAreas()">
+                <span>📉 Weak Areas <span id="weakAreasSummary" style="font-weight:400;color:var(--text-secondary);font-size:0.85rem;margin-left:6px;"></span></span>
+                <span class="weak-toggle-icon" id="weakToggleIcon">▼</span>
+            </div>
+            <div class="weak-areas-body" id="weakAreasBody" style="display:none">
+                <div id="topicBreakdown"></div>
+                <div class="weak-area-actions">
+                    <button class="btn-weak-mode" onclick="mapPrep.startWeakAreaMode()">🎯 Practice Weak Areas</button>
+                    <button class="btn-clear-history" onclick="mapPrep.clearHistory()">🗑️ Reset History</button>
+                </div>
+                <div class="missed-list" id="missedList"></div>
+            </div>
+        </div>
+
         <!-- Question Card -->
         <div class="map-question-card" id="questionCard">
             <div class="question-meta">
@@ -2464,6 +2750,66 @@
     ];
 
     // ============================================
+    // TOPIC LOOKUP (additive — does not modify question objects)
+    // ============================================
+    const QUESTION_TOPICS = {
+        'm1':'ratios','m2':'ratios','m3':'percentages','m4':'fractions','m5':'fractions',
+        'm6':'decimals','m7':'number-theory','m8':'integers','m9':'coordinate-geometry',
+        'm10':'order-of-operations','m11':'algebra','m12':'statistics','m13':'statistics',
+        'm14':'statistics','m15':'geometry','m16':'geometry','m17':'algebra','m18':'algebra',
+        'm19':'algebra','m20':'algebra','m21':'number-theory','m22':'statistics',
+        'm23':'percentages','m24':'coordinate-geometry','m25':'geometry','m26':'percentages',
+        'm27':'fractions','m28':'algebra','m29':'geometry','m30':'fractions',
+        'm31':'geometry','m32':'order-of-operations','m33':'probability','m34':'algebra',
+        'm35':'geometry','m36':'statistics','m37':'fractions','m38':'algebra',
+        'm39':'fractions','m40':'geometry','m41':'patterns','m42':'number-theory',
+        'm43':'geometry','m44':'decimals','m45':'order-of-operations','m46':'percentages',
+        'm47':'geometry','m48':'fractions','m49':'fractions','m50':'algebra',
+        'm51':'coordinate-geometry','m52':'percentages','m53':'number-theory','m54':'geometry',
+        'm55':'algebra','m56':'geometry','m57':'number-sense','m58':'algebra',
+        'm59':'geometry','m60':'statistics','m61':'order-of-operations','m62':'number-sense',
+        'm63':'algebra','m64':'percentages','m65':'ratios','m66':'algebra',
+        'm67':'geometry','m68':'geometry','m69':'algebra','m70':'geometry',
+        'm71':'patterns','m72':'probability','m73':'algebra','m74':'fractions',
+        'm75':'geometry','m76':'algebra','m77':'fractions','m78':'geometry',
+        'm79':'algebra','m80':'number-sense','m81':'geometry','m82':'algebra',
+        'm83':'statistics','m84':'fractions','m85':'algebra','m86':'percentages',
+        'm87':'geometry','m88':'algebra','m89':'number-theory','m90':'geometry',
+        'm91':'algebra','m92':'fractions','m93':'geometry','m94':'algebra',
+        'm95':'number-sense','m96':'statistics','m97':'algebra','m98':'fractions',
+        'm99':'geometry','m100':'algebra','m101':'number-sense','m102':'number-theory',
+        'm103':'number-sense','m104':'geometry','m105':'algebra','m106':'fractions',
+        'm107':'fractions','m108':'geometry','m109':'algebra','m110':'percentages',
+        'm111':'integers','m112':'geometry','m113':'algebra','m114':'number-sense',
+        'm115':'percentages','m116':'number-sense','m117':'algebra','m118':'geometry',
+        'm119':'fractions','m120':'statistics','m121':'algebra','m122':'number-sense',
+        'm123':'decimals','m124':'number-sense','m125':'algebra','m126':'geometry',
+        'm127':'number-sense','m128':'fractions','m129':'algebra','m130':'number-sense',
+        'm131':'percentages','m132':'algebra','m133':'number-sense','m134':'geometry',
+        'm135':'algebra','m136':'number-sense','m137':'geometry','m138':'algebra',
+        'm139':'fractions','m140':'percentages','m141':'algebra','m142':'number-sense',
+        'm143':'geometry','m144':'algebra','m145':'number-sense','m146':'decimals',
+        'm147':'algebra','m148':'number-sense','m149':'geometry','m150':'statistics'
+    };
+
+    const TOPIC_LABELS = {
+        'ratios':               'Ratios & Rates',
+        'percentages':          'Percentages',
+        'fractions':            'Fractions',
+        'decimals':             'Decimals',
+        'number-theory':        'Number Theory',
+        'integers':             'Integers',
+        'coordinate-geometry':  'Coordinate Geometry',
+        'order-of-operations':  'Order of Operations',
+        'algebra':              'Algebra',
+        'statistics':           'Statistics & Data',
+        'geometry':             'Geometry',
+        'probability':          'Probability',
+        'patterns':             'Patterns',
+        'number-sense':         'Number Sense',
+    };
+
+    // ============================================
     // MAP PREP ENGINE
     // ============================================
     const mapPrep = {
@@ -2477,20 +2823,43 @@
             bestStreak: 0
         },
         sessionQuestions: 0,
+
+        // ── new: history, daily goal, weak-area mode ────────────
+        history: [],          // {id, topic, difficulty, correct, ts}
+        dailyCount: 0,        // questions answered today
+        dayStreak: 0,         // consecutive days with ≥1 answer
+        _newDay: true,        // flag: first answer of a new day needs streak bump
+        weakAreaMode: false,
+        weakAreaQueue: [],
+        weakAreaIndex: 0,
         
         init() {
+            // Augment each question with its topic (non-destructive additive)
+            MAP_MATH_QUESTIONS.forEach(q => {
+                q.topic = QUESTION_TOPICS[q.id] || 'general';
+            });
+
             // Load saved stats
             this.loadStats();
-            
+
+            // Load history + daily goal data
+            this.loadHistory();
+
             // Shuffle questions
             this.questions = this.shuffleArray([...MAP_MATH_QUESTIONS]);
-            
+
             // Display first question
             this.displayQuestion();
-            
+
             // Update stats display
             this.updateStatsDisplay();
-            
+
+            // Update daily goal bar
+            this.updateDailyGoal();
+
+            // Update weak areas panel
+            this.updateWeakAreasPanel();
+
             // Initialize theme switcher
             this.initThemeSwitcher();
         },
@@ -2504,7 +2873,9 @@
         },
         
         displayQuestion() {
-            const question = this.questions[this.currentIndex];
+            const question = this.weakAreaMode
+                ? this.weakAreaQueue[this.weakAreaIndex]
+                : this.questions[this.currentIndex];
             this.answered = false;
             
             // Update question number
@@ -2552,50 +2923,64 @@
         selectAnswer(button) {
             if (this.answered) return;
             this.answered = true;
-            
+
             const isCorrect = button.dataset.correct === 'true';
             const allOptions = document.querySelectorAll('.answer-option');
-            
+            const question = this.weakAreaMode
+                ? this.weakAreaQueue[this.weakAreaIndex]
+                : this.questions[this.currentIndex];
+
             // Disable all options
             allOptions.forEach(opt => opt.classList.add('disabled'));
-            
+
             // Mark selected answer
             if (isCorrect) {
                 button.classList.add('correct');
                 this.stats.correct++;
                 this.stats.currentStreak++;
-                
+
                 if (this.stats.currentStreak > this.stats.bestStreak) {
                     this.stats.bestStreak = this.stats.currentStreak;
                 }
-                
+
                 // Show streak popup for milestones
                 if (this.stats.currentStreak > 0 && this.stats.currentStreak % 5 === 0) {
                     this.showStreakPopup(this.stats.currentStreak);
                 }
-                
+
                 this.showFeedback(true, `✓ Correct! Great job!`);
             } else {
                 button.classList.add('incorrect');
                 this.stats.currentStreak = 0;
-                
+
                 // Show correct answer
                 allOptions.forEach(opt => {
                     if (opt.dataset.correct === 'true') {
                         opt.classList.add('show-correct');
                     }
                 });
-                
+
                 this.showFeedback(false, `✗ Not quite. See the correct answer above.`);
+
+                // Auto-reveal hint on wrong answer
+                const hintContent = document.getElementById('hintContent');
+                const hintToggle = document.getElementById('hintToggle');
+                if (!hintContent.classList.contains('visible')) {
+                    hintContent.classList.add('visible');
+                    hintToggle.innerHTML = '💡 Hide Hint';
+                }
             }
-            
+
             this.stats.totalAnswered++;
             this.sessionQuestions++;
-            
+
+            // Record to history + update daily goal
+            this.recordAnswer(question, isCorrect);
+
             // Save stats and update display
             this.saveStats();
             this.updateStatsDisplay();
-            
+
             // Enable next button
             document.getElementById('nextBtn').disabled = false;
         },
@@ -2617,14 +3002,22 @@
         },
         
         nextQuestion() {
-            this.currentIndex++;
-            
-            // Loop back and reshuffle when we run out
-            if (this.currentIndex >= this.questions.length) {
-                this.currentIndex = 0;
-                this.questions = this.shuffleArray([...MAP_MATH_QUESTIONS]);
+            if (this.weakAreaMode) {
+                this.weakAreaIndex++;
+                if (this.weakAreaIndex >= this.weakAreaQueue.length) {
+                    // Refresh queue with current misses (user may have fixed some)
+                    this.weakAreaQueue = this.shuffleArray([...this.buildWeakAreaQueue()]);
+                    this.weakAreaIndex = 0;
+                }
+            } else {
+                this.currentIndex++;
+                // Loop back and reshuffle when we run out
+                if (this.currentIndex >= this.questions.length) {
+                    this.currentIndex = 0;
+                    this.questions = this.shuffleArray([...MAP_MATH_QUESTIONS]);
+                }
             }
-            
+
             this.displayQuestion();
         },
         
@@ -2689,6 +3082,261 @@
             }
         },
         
+        // ── History persistence ─────────────────────────────────
+        loadHistory() {
+            try {
+                const saved = localStorage.getItem('mapPrepHistory');
+                this.history = saved ? JSON.parse(saved) : [];
+            } catch(e) { this.history = []; }
+
+            try {
+                const saved = localStorage.getItem('mapPrepDailyGoal');
+                if (saved) {
+                    const d = JSON.parse(saved);
+                    const today = this.getDateStr();
+                    const yesterday = this.getDateStr(-1);
+                    if (d.date === today) {
+                        this.dailyCount = d.count;
+                        this.dayStreak  = d.dayStreak;
+                        this._newDay    = false;
+                    } else if (d.date === yesterday) {
+                        // New day, consecutive — streak persists, bumps on first answer
+                        this.dailyCount = 0;
+                        this.dayStreak  = d.dayStreak;
+                        this._newDay    = true;
+                    } else {
+                        // Missed at least one day — reset streak
+                        this.dailyCount = 0;
+                        this.dayStreak  = 0;
+                        this._newDay    = true;
+                    }
+                }
+            } catch(e) {}
+        },
+
+        saveHistory() {
+            try {
+                // Keep last 500 entries to avoid localStorage bloat
+                const trimmed = this.history.length > 500
+                    ? this.history.slice(-500)
+                    : this.history;
+                localStorage.setItem('mapPrepHistory', JSON.stringify(trimmed));
+            } catch(e) {}
+        },
+
+        saveDailyGoal() {
+            try {
+                localStorage.setItem('mapPrepDailyGoal', JSON.stringify({
+                    date:      this.getDateStr(),
+                    count:     this.dailyCount,
+                    dayStreak: this.dayStreak,
+                }));
+            } catch(e) {}
+        },
+
+        getDateStr(offsetDays = 0) {
+            const d = new Date();
+            d.setDate(d.getDate() + offsetDays);
+            return d.toISOString().split('T')[0];
+        },
+
+        // ── Record each answered question ───────────────────────
+        recordAnswer(question, isCorrect) {
+            if (!question) return;
+            this.history.push({
+                id:         question.id,
+                topic:      question.topic || 'general',
+                difficulty: question.difficulty,
+                correct:    isCorrect,
+                ts:         Date.now(),
+            });
+            this.saveHistory();
+
+            // Daily goal tracking
+            this.dailyCount++;
+            if (this.dailyCount === 1 && this._newDay) {
+                this.dayStreak++;
+                this._newDay = false;
+            }
+            this.saveDailyGoal();
+            this.updateDailyGoal();
+            this.updateWeakAreasPanel();
+        },
+
+        // ── Daily Goal bar ──────────────────────────────────────
+        updateDailyGoal() {
+            const GOAL = 10;
+            const count = this.dailyCount;
+            const pct   = Math.min(100, Math.round(count / GOAL * 100));
+            const done  = count >= GOAL;
+
+            const bar   = document.getElementById('dailyProgressBar');
+            const label = document.getElementById('dailyGoalCount');
+            const badge = document.getElementById('dayStreakBadge');
+
+            if (bar) {
+                bar.style.width = pct + '%';
+                bar.className = 'progress-bar-fill ' + (done ? 'goal-complete' : 'goal-fill');
+            }
+            if (label) {
+                label.textContent = count + ' / ' + GOAL + (done ? ' ✓' : '');
+                label.className   = 'daily-goal-count' + (done ? ' goal-complete' : '');
+            }
+            if (badge) {
+                const s = this.dayStreak;
+                badge.textContent = s > 0
+                    ? `🔥 ${s} day streak`
+                    : `🗓️ 0 day streak`;
+                badge.className = 'day-streak-badge' + (s > 0 ? ' active' : '');
+            }
+        },
+
+        // ── Topic stats aggregation ─────────────────────────────
+        getTopicStats() {
+            const stats = {};
+            for (const h of this.history) {
+                const t = h.topic || 'general';
+                if (!stats[t]) stats[t] = { total: 0, wrong: 0 };
+                stats[t].total++;
+                if (!h.correct) stats[t].wrong++;
+            }
+            return stats;
+        },
+
+        // ── Weak Areas panel ────────────────────────────────────
+        toggleWeakAreas() {
+            const body = document.getElementById('weakAreasBody');
+            const icon = document.getElementById('weakToggleIcon');
+            if (!body) return;
+            const open = body.style.display !== 'none';
+            body.style.display = open ? 'none' : 'block';
+            if (icon) icon.classList.toggle('open', !open);
+        },
+
+        updateWeakAreasPanel() {
+            const topicStats   = this.getTopicStats();
+            const breakdown    = document.getElementById('topicBreakdown');
+            const missedList   = document.getElementById('missedList');
+            const summary      = document.getElementById('weakAreasSummary');
+
+            if (!breakdown) return;
+
+            const topics = Object.keys(topicStats);
+            if (topics.length === 0) {
+                breakdown.innerHTML = '<p class="no-history-msg">Answer some questions to see your weak areas.</p>';
+                if (summary) summary.textContent = '';
+                if (missedList) missedList.innerHTML = '';
+                return;
+            }
+
+            // Sort by accuracy ascending (worst first)
+            topics.sort((a, b) => {
+                const accA = (topicStats[a].total - topicStats[a].wrong) / topicStats[a].total;
+                const accB = (topicStats[b].total - topicStats[b].wrong) / topicStats[b].total;
+                return accA - accB;
+            });
+
+            // Summary badge
+            const totalWrong = topics.reduce((s, t) => s + topicStats[t].wrong, 0);
+            if (summary) {
+                summary.textContent = totalWrong > 0
+                    ? `(${totalWrong} miss${totalWrong > 1 ? 'es' : ''} to review)`
+                    : '(looking good!)';
+            }
+
+            // Topic rows
+            breakdown.innerHTML = topics.map(t => {
+                const { total, wrong } = topicStats[t];
+                const acc = Math.round((total - wrong) / total * 100);
+                const fillClass = acc >= 80 ? 'good' : acc >= 50 ? 'ok' : 'bad';
+                const label = TOPIC_LABELS[t] || t;
+                return `
+                <div class="topic-row">
+                    <span class="topic-name">${label}</span>
+                    <div class="topic-mini-bar">
+                        <div class="topic-mini-fill ${fillClass}" style="width:${acc}%"></div>
+                    </div>
+                    <span class="topic-stats">${acc}% (${total - wrong}/${total})</span>
+                </div>`;
+            }).join('');
+
+            // Missed questions list — last 8 unique wrong answers
+            if (missedList) {
+                const seen = new Set();
+                const recent = [];
+                for (let i = this.history.length - 1; i >= 0 && recent.length < 8; i--) {
+                    const h = this.history[i];
+                    if (!h.correct && !seen.has(h.id)) {
+                        seen.add(h.id);
+                        const q = MAP_MATH_QUESTIONS.find(q => q.id === h.id);
+                        if (q) recent.push({ q, h });
+                    }
+                }
+
+                if (recent.length === 0) {
+                    missedList.innerHTML = '';
+                } else {
+                    const items = recent.map(({ q, h }) => {
+                        const label = TOPIC_LABELS[h.topic] || h.topic;
+                        // Strip markdown bold for display
+                        const text = q.question.replace(/\*\*(.*?)\*\*/g, '$1');
+                        const snippet = text.length > 80 ? text.slice(0, 80) + '…' : text;
+                        return `
+                        <div class="missed-item">
+                            <span class="missed-item-topic">${label}</span>
+                            <span class="missed-item-text">${snippet}</span>
+                        </div>`;
+                    }).join('');
+                    missedList.innerHTML = '<p style="font-size:0.8rem;color:var(--text-secondary);margin:0 0 8px;">Last missed questions:</p>' + items;
+                }
+            }
+        },
+
+        // ── Weak Area Mode ──────────────────────────────────────
+        buildWeakAreaQueue() {
+            const wrongCounts = {};
+            for (const h of this.history) {
+                if (!h.correct) {
+                    wrongCounts[h.id] = (wrongCounts[h.id] || 0) + 1;
+                }
+            }
+            const sortedIds = Object.keys(wrongCounts)
+                .sort((a, b) => wrongCounts[b] - wrongCounts[a]);
+            return sortedIds
+                .map(id => MAP_MATH_QUESTIONS.find(q => q.id === id))
+                .filter(Boolean);
+        },
+
+        startWeakAreaMode() {
+            const queue = this.buildWeakAreaQueue();
+            if (queue.length === 0) {
+                alert('No missed questions yet — answer some questions first!');
+                return;
+            }
+            this.weakAreaMode  = true;
+            this.weakAreaQueue = this.shuffleArray([...queue]);
+            this.weakAreaIndex = 0;
+            const banner = document.getElementById('weakModeBanner');
+            if (banner) banner.style.display = 'flex';
+            this.displayQuestion();
+        },
+
+        stopWeakAreaMode() {
+            this.weakAreaMode  = false;
+            this.weakAreaQueue = [];
+            this.weakAreaIndex = 0;
+            const banner = document.getElementById('weakModeBanner');
+            if (banner) banner.style.display = 'none';
+            this.displayQuestion();
+        },
+
+        clearHistory() {
+            if (!confirm('Reset all weak-area history? Your score stats will be kept.')) return;
+            this.history = [];
+            this.saveHistory();
+            this.updateWeakAreasPanel();
+        },
+
         initThemeSwitcher() {
             const themeButtons = document.querySelectorAll('.theme-btn');
             
