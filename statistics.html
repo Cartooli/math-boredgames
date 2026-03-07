@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statistics — Complete Curriculum | MathBored</title>
+<meta name="description" content="Complete Statistics course: 13 units from descriptive statistics through probability, inference, regression, and nonparametric methods. Free interactive lessons, practice, and quizzes.">
+<meta name="keywords" content="Statistics, probability, hypothesis testing, regression, ANOVA, confidence intervals, math, free, high school, college">
+<link rel="canonical" href="https://math.boredgames.site/statistics.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://math.boredgames.site/statistics.html">
+<meta property="og:title" content="Statistics — Complete Curriculum | MathBored">
+<meta property="og:description" content="Complete Statistics course: 13 units from descriptive stats through inference, regression, and ANOVA.">
+<meta property="og:image" content="https://math.boredgames.site/og-image.png">
+<meta property="og:site_name" content="MathBored">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Course","name":"Statistics — Complete Curriculum","description":"Complete Statistics course: 13 units from descriptive statistics through probability, inference, regression, and nonparametric methods.","provider":{"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},"educationalLevel":"High School, College","learningResourceType":"Course","inLanguage":"en","isAccessibleForFree":true}
+</script>
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Statistics — local styles (blue theme) */
+.st-app { max-width: 960px; margin: 0 auto; padding: 20px; }
+.st-back-link { display: inline-block; margin-bottom: 20px; color: #3d8ef0; text-decoration: none; font-weight: 600; }
+.st-back-link:hover { opacity: 0.9; }
+.st-hero { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border); border-radius: 20px; padding: 48px 28px 40px; text-align: center; margin-bottom: 32px; }
+.st-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; color: #2b6fc4; margin-bottom: 8px; }
+.st-hero .sub { font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+.st-stats { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.st-stat { background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 12px; padding: 14px 24px; }
+.st-stat-num { font-size: 1.8rem; font-weight: 800; display: block; color: var(--text-primary); }
+.st-stat-lbl { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; }
+.st-progress { background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 28px; }
+.st-progress-bar { background: var(--bg-tertiary); border-radius: 20px; height: 10px; overflow: hidden; margin: 10px 0 6px; }
+.st-progress-fill { height: 100%; background: linear-gradient(90deg, #2b6fc4, #3d8ef0); border-radius: 20px; transition: width 0.5s ease; }
+.st-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; padding: 14px; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border); }
+.st-nav button { font-family: inherit; font-size: 0.75rem; font-weight: 700; padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+.st-nav button:hover { border-color: #3d8ef0; color: var(--text-primary); }
+.st-nav button.on { background: #3d8ef0; color: #fff; border-color: #3d8ef0; }
+.st-nav button.ok { border-color: var(--success); color: var(--success); }
+.st-uhdr { margin-bottom: 22px; }
+.st-unum { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #3d8ef0; font-weight: 700; }
+.st-utitle { font-size: clamp(1.4rem, 3.5vw, 2.2rem); font-weight: 800; margin: 4px 0 8px; }
+.st-uobj { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.75; }
+.st-deeper { background: var(--bg-secondary); border: 1px solid var(--border); border-left: 3px solid #3d8ef0; border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; font-size: 0.86rem; }
+.st-deeper .lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #3d8ef0; font-weight: 700; margin-bottom: 8px; }
+.st-deeper a { display: inline-block; margin: 2px 6px 2px 0; padding: 4px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--text-secondary); text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.2s; }
+.st-deeper a:hover { border-color: #3d8ef0; color: #3d8ef0; background: rgba(61,142,240,0.1); }
+.st-tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
+.st-tb { font-family: inherit; font-size: 0.86rem; font-weight: 700; padding: 10px 20px; border: none; background: transparent; color: var(--text-secondary); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.st-tb:hover { color: var(--text-primary); }
+.st-tb.on { color: #3d8ef0; border-bottom-color: #3d8ef0; }
+.st-lcard { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px 26px; margin-bottom: 14px; }
+.st-lcard h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: #3d8ef0; }
+.st-lcard p { font-size: 0.9rem; margin-bottom: 8px; line-height: 1.7; }
+.st-fm { background: var(--bg-tertiary); border-left: 3px solid #3d8ef0; border-radius: 6px; padding: 10px 14px; margin: 10px 0; font-family: var(--font-mono); font-size: 0.84rem; color: #5a9cf5; overflow-x: auto; }
+.st-wex { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+.st-wex .wl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--warning); font-weight: 700; margin-bottom: 6px; }
+.st-wex .wp { font-weight: 600; margin-bottom: 4px; font-size: 0.88rem; }
+.st-wex .ws { color: var(--text-secondary); font-size: 0.82rem; margin-bottom: 2px; }
+.st-prbox { background: rgba(74,94,122,0.08); border: 1px solid rgba(74,94,122,0.2); border-left: 3px solid #4a5e7a; border-radius: 8px; padding: 12px 16px; margin: 12px 0; font-size: 0.84rem; }
+.st-prbox .prt { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: #4a5e7a; font-weight: 700; margin-bottom: 6px; }
+.st-prbox p { color: var(--text-secondary); margin-bottom: 4px; }
+.st-dtag { display: inline-block; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; }
+.st-de { background: rgba(16,185,129,0.12); color: var(--success); border: 1px solid rgba(16,185,129,0.25); }
+.st-dm { background: rgba(245,158,11,0.12); color: var(--warning); border: 1px solid rgba(245,158,11,0.25); }
+.st-dh { background: rgba(239,68,68,0.12); color: var(--error); border: 1px solid rgba(239,68,68,0.25); }
+.st-qc { background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; transition: border-color 0.3s; }
+.st-qc.gc { border-color: var(--success); }
+.st-qc.bc { border-color: var(--error); }
+.st-qt { font-size: 0.9rem; margin-bottom: 12px; font-weight: 600; line-height: 1.6; }
+.st-os { display: flex; flex-direction: column; gap: 6px; }
+.st-ob { font-family: inherit; font-size: 0.86rem; text-align: left; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-tertiary); color: var(--text-primary); cursor: pointer; transition: all 0.2s; }
+.st-ob:hover:not(.lk) { border-color: #3d8ef0; background: rgba(61,142,240,0.08); }
+.st-ob.sc { border-color: var(--success); background: rgba(16,185,129,0.12); color: var(--success); font-weight: 600; }
+.st-ob.sw { border-color: var(--error); background: rgba(239,68,68,0.12); color: var(--error); }
+.st-ob.rv { border-color: var(--success); background: rgba(16,185,129,0.08); }
+.st-ob.lk { cursor: default; opacity: 0.75; }
+.st-ob.qs { border-color: #3d8ef0; background: rgba(61,142,240,0.1); font-weight: 600; }
+.st-ex { margin-top: 10px; padding: 10px 14px; background: var(--bg-tertiary); border-radius: 6px; font-size: 0.82rem; color: var(--text-secondary); border-left: 3px solid #3d8ef0; animation: stFade 0.3s ease; }
+@keyframes stFade { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: none; } }
+.st-qhd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.st-qct { font-family: var(--font-mono); font-size: 0.84rem; color: #3d8ef0; font-weight: 700; }
+.st-qres { text-align: center; padding: 36px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; margin-top: 18px; }
+.st-sbig { font-size: 3rem; font-weight: 800; color: #3d8ef0; line-height: 1; margin-bottom: 4px; }
+.st-ssub { color: var(--text-secondary); font-size: 0.88rem; }
+.st-btn { font-family: inherit; font-size: 0.84rem; font-weight: 700; padding: 10px 22px; border: 1px solid #3d8ef0; border-radius: 8px; background: transparent; color: #3d8ef0; cursor: pointer; margin-top: 14px; transition: all 0.2s; }
+.st-btn:hover { background: #3d8ef0; color: #fff; }
+.st-bf { background: #3d8ef0; color: #fff; }
+.st-bf:hover { background: #2b6fc4; }
+.st-fns { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--border); }
+.st-fns h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: #4a5e7a; margin-bottom: 10px; font-weight: 700; }
+.st-fni { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px; padding-left: 14px; }
+.st-fnm { color: #4a5e7a; font-weight: 700; }
+@media (max-width: 640px) { .st-app { padding: 12px; } .st-lcard, .st-qc { padding: 16px; } .st-nav button { font-size: 0.68rem; padding: 4px 8px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1>🎯 MathBored</h1>
+        <div class="tagline">Statistics — Complete Curriculum</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="st-app">
+  <a href="index.html" class="st-back-link">← Back to Main App</a>
+
+  <div class="st-hero">
+    <h1>📊 Statistics</h1>
+    <p class="sub">Complete Curriculum · 13 Units · Practice &amp; Quizzes</p>
+    <div class="st-stats">
+      <div class="st-stat"><span class="st-stat-num">13</span><span class="st-stat-lbl">Units</span></div>
+      <div class="st-stat"><span class="st-stat-num">26</span><span class="st-stat-lbl">Lessons</span></div>
+      <div class="st-stat"><span class="st-stat-num">81</span><span class="st-stat-lbl">Practice Qs</span></div>
+      <div class="st-stat"><span class="st-stat-num">65</span><span class="st-stat-lbl">Quiz Qs</span></div>
+    </div>
+  </div>
+
+  <div class="st-progress">
+    <h2 style="margin:0 0 6px;font-size:1.1rem;font-weight:700;">Your Progress</h2>
+    <p style="color:var(--text-secondary);font-size:0.88rem;margin:0;">
+      <span id="stCompletedUnits">0</span> of 13 units completed · <span id="stProgressPct">0</span>% done
+    </p>
+    <div class="st-progress-bar">
+      <div class="st-progress-fill" id="stProgressBar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div id="stApp"></div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+  </div>
+</footer>
+
+<script>
+const STATISTICS_CURRICULUM = [
+// ═══════════ UNIT 1 ═══════════
+{id:1,title:"Exploring Data: Descriptive Statistics",
+obj:"Classify data types. Compute and interpret mean, median, mode, range, IQR, variance, and standard deviation. Identify outliers.",
+prs:[{id:1,text:"Arithmetic with fractions/decimals: computing averages, sums, squares. (Pre-Algebra)"},{id:2,text:"Square roots: standard deviation involves √(variance). (Algebra I, Unit 10)"}],
+ls:[
+{t:"Data Types & Measures of Center",
+c:`Data can be <b>categorical</b> (labels/groups) or <b>quantitative</b> (numbers).<sup class="fn">¹</sup> Quantitative data is either <b>discrete</b> (countable) or <b>continuous</b> (measurable). Measures of center: <b>Mean</b> (x̄ = Σxᵢ/n), <b>Median</b> (middle value), <b>Mode</b> (most frequent). Mean is sensitive to outliers; median is robust.`,
+f:["Mean: x̄ = (Σxᵢ)/n","Median: middle of sorted data","Mode: most frequent value"],
+ex:{p:"Data: {3, 5, 7, 7, 10, 15}. Find mean, median, mode.",s:["Mean = (3+5+7+7+10+15)/6 = 47/6 ≈ 7.83","Median = (7+7)/2 = 7 (average of 3rd & 4th)","Mode = 7 (appears twice)"]}},
+{t:"Measures of Spread & Outliers",
+c:`<b>Range</b> = max − min. <b>IQR</b> = Q₃ − Q₁ (interquartile range). <b>Variance</b>: s² = Σ(xᵢ−x̄)²/(n−1). <b>Standard deviation</b>: s = √(s²).<sup class="fn">²</sup> <b>Outlier rule</b>: a value is an outlier if it's below Q₁−1.5·IQR or above Q₃+1.5·IQR.`,
+f:["s² = Σ(xᵢ − x̄)² / (n−1)","s = √(s²)","Outlier if < Q₁−1.5·IQR or > Q₃+1.5·IQR"],
+ex:{p:"Data: {2, 4, 5, 7, 8, 10, 30}. Q₁=4, Q₃=10. Is 30 an outlier?",s:["IQR = 10−4 = 6","Upper fence = Q₃+1.5(6) = 10+9 = 19","30 > 19 → YES, 30 is an outlier"]}}
+],
+pr:[
+{d:"easy",q:"Mean of {10, 20, 30}?",o:["20","30","10","60"],c:0,x:"(10+20+30)/3 = 60/3 = 20."},
+{d:"easy",q:"Median of {1, 3, 5, 7, 9}?",o:["5","3","7","4"],c:0,x:"Middle (3rd of 5) = 5."},
+{d:"easy",q:"Which is NOT a measure of center?",o:["Range","Mean","Median","Mode"],c:0,x:"Range measures spread, not center."},
+{d:"medium",q:"Data: {4,6,8,10,12}. Standard deviation is based on:",o:["Deviations from the mean","Deviations from the median","The range only","The mode"],c:0,x:"SD measures average distance from the mean."},
+{d:"medium",q:"Q₁=25, Q₃=45. A value of 78 is:",o:["An outlier (>75)","Not an outlier","Exactly at the fence","Cannot determine"],c:0,x:"IQR=20. Upper fence=45+30=75. 78>75→outlier."},
+{d:"hard",q:"Which measure is most resistant to outliers?",o:["Median","Mean","Standard deviation","Range"],c:0,x:"Median ignores extreme values; mean gets pulled toward them."},
+{d:"hard",q:"Sample variance uses n−1 (not n) because:",o:["Bessel's correction — reduces bias in estimating population variance","It's a convention with no reason","n−1 gives a larger number","It avoids dividing by zero"],c:0,x:"n−1 corrects the downward bias of using sample mean instead of population mean."}
+],
+qz:[
+{q:"Categorical data examples:",o:["Eye color, zip code, brand","Height, weight, temperature","IQ scores, test scores","Time, distance"],c:0,x:"Categories/labels, not quantities."},
+{q:"If all data values are equal, SD = ?",o:["0","1","Undefined","Mean"],c:0,x:"No spread → SD = 0."},
+{q:"Adding 10 to every data point changes the:",o:["Mean (increases by 10), not SD","Mean and SD both by 10","SD only","Neither"],c:0,x:"Shift changes center, not spread."},
+{q:"Multiplying every data point by 3 changes:",o:["Mean ×3 and SD ×3","Mean ×3 only","SD ×3 only","Neither"],c:0,x:"Both scale proportionally."},
+{q:"The five-number summary is:",o:["Min, Q₁, Median, Q₃, Max","Mean, Median, Mode, Range, SD","Q₁, Q₂, Q₃, Q₄, Q₅","Min, Mean, Median, Max, Mode"],c:0,x:"Used for boxplots."}
+],
+  deeperLinks: [{"label":"Mean, Median, Mode","url":"math/mean-average/walkthrough.html"},{"label":"Standard Deviation","url":"math/standard-deviation/walkthrough.html"}],
+},
+// ═══════════ UNIT 2 ═══════════
+{id:2,title:"Data Visualization",
+obj:"Create and interpret histograms, boxplots, scatterplots, stem-and-leaf plots, and bar charts. Describe shape, center, and spread.",
+prs:[{id:3,text:"Descriptive statistics (Unit 1): visual displays represent these numerically."},{id:4,text:"Coordinate plane: scatterplots require plotting (x,y) pairs. (Algebra I)"}],
+ls:[
+{t:"Displaying Distributions",
+c:`<b>Histogram</b>: bars show frequency of value ranges (quantitative).<sup class="fn">³</sup> <b>Boxplot</b>: displays five-number summary with whiskers and outliers. <b>Stem-and-leaf</b>: shows individual values while displaying shape. Describe a distribution by its <b>shape</b> (symmetric, skewed left/right, bimodal), <b>center</b>, <b>spread</b>, and <b>outliers</b>.`,
+f:["Shape: symmetric, left-skewed, right-skewed, bimodal","Skewed right: tail extends right, mean > median","Skewed left: tail extends left, mean < median"],
+ex:{p:"Income data is typically right-skewed. Which is larger: mean or median?",s:["Right-skewed: the tail pulls the mean higher","Mean > Median","Median is a better measure of 'typical' income"]}},
+{t:"Scatterplots & Association",
+c:`<b>Scatterplots</b> display two quantitative variables.<sup class="fn">⁴</sup> Look for: <b>direction</b> (positive/negative), <b>form</b> (linear/nonlinear), <b>strength</b> (how tightly points cluster). Outliers and influential points can distort patterns.`,
+f:["Positive association: as x↑, y↑","Negative association: as x↑, y↓","No association: no pattern"],
+ex:{p:"Hours studied vs. test score: positive or negative association?",s:["More study → higher scores (generally)","Positive association","Form: likely linear"]}}
+],
+pr:[
+{d:"easy",q:"A histogram shows the distribution of:",o:["A single quantitative variable","Two variables","Categorical data only","Correlation"],c:0,x:"Histogram = distribution of one quantitative variable."},
+{d:"easy",q:"In a boxplot, the box spans from:",o:["Q₁ to Q₃","Min to Max","Mean − SD to Mean + SD","0 to Max"],c:0,x:"Box = IQR, from Q₁ to Q₃."},
+{d:"medium",q:"Data: {1,1,2,2,2,3,50}. Shape?",o:["Right-skewed","Left-skewed","Symmetric","Uniform"],c:0,x:"Most values clustered low, with 50 as a high outlier → right-skewed."},
+{d:"medium",q:"Scatterplot: points form a downward cloud. Association?",o:["Negative linear","Positive linear","No association","Quadratic"],c:0,x:"Downward = negative association."},
+{d:"hard",q:"Mean=60, Median=72. Likely shape?",o:["Left-skewed","Right-skewed","Symmetric","Bimodal"],c:0,x:"Mean < Median → left-skewed (tail pulls mean down)."},
+{d:"hard",q:"An influential point in a scatterplot:",o:["Greatly affects the regression line","Is always an outlier in y","Has no effect on correlation","Must be removed"],c:0,x:"Influential points change the slope/intercept substantially."}
+],
+qz:[
+{q:"Bar chart vs histogram: key difference?",o:["Bar chart = categorical, histogram = quantitative","They're identical","Bar chart has no gaps","Histogram uses colors"],c:0,x:"Bar = categories (gaps between bars); histogram = quantitative (no gaps)."},
+{q:"Symmetric distribution: mean ≈ ?",o:["Median","0","Standard deviation","Q₁"],c:0,x:"In symmetric data, mean ≈ median."},
+{q:"A bimodal histogram has:",o:["Two peaks","One peak","No peaks","Three peaks"],c:0,x:"Two modes = two peaks."},
+{q:"Boxplot whiskers extend to:",o:["Farthest non-outlier values (within 1.5·IQR)","Always min and max","Mean ± SD","Fixed length"],c:0,x:"Whiskers stop at the last non-outlier value."},
+{q:"Time series data is best shown with:",o:["Line graph","Pie chart","Bar chart","Boxplot"],c:0,x:"Line graphs show trends over time."}
+],
+  deeperLinks: [{"label":"Histograms","url":"math/histograms/walkthrough.html"},{"label":"Box Plots","url":"math/box-plots/walkthrough.html"},{"label":"Scatter Plots","url":"math/scatter-plots/walkthrough.html"}],
+},
+// ═══════════ UNIT 3 ═══════════
+{id:3,title:"Probability Foundations",
+obj:"Define sample spaces, events, and probability axioms. Calculate probabilities using addition and multiplication rules. Understand conditional probability and independence.",
+prs:[{id:5,text:"Basic counting and fractions: P = favorable/total. (Pre-Algebra)"},{id:6,text:"Set notation: union (∪), intersection (∩), complement (Aᶜ). Helpful but introduced here."}],
+ls:[
+{t:"Sample Spaces, Events & Axioms",
+c:`A <b>sample space</b> S is the set of all possible outcomes.<sup class="fn">⁵</sup> An <b>event</b> is a subset of S. <b>Probability axioms</b>: (1) P(A) ≥ 0, (2) P(S) = 1, (3) For mutually exclusive events: P(A∪B) = P(A)+P(B). Complement rule: P(Aᶜ) = 1−P(A).`,
+f:["P(A∪B) = P(A)+P(B)−P(A∩B)","P(Aᶜ) = 1 − P(A)","Mutually exclusive: P(A∩B)=0"],
+ex:{p:"P(A)=0.4, P(B)=0.3, P(A∩B)=0.1. Find P(A∪B).",s:["P(A∪B) = 0.4+0.3−0.1 = 0.6"]}},
+{t:"Conditional Probability & Independence",
+c:`<b>Conditional probability</b>: P(A|B) = P(A∩B)/P(B).<sup class="fn">⁶</sup> Events are <b>independent</b> if P(A∩B)=P(A)·P(B), equivalently P(A|B)=P(A). <b>Multiplication rule</b>: P(A∩B)=P(A)·P(B|A).`,
+f:["P(A|B) = P(A∩B)/P(B)","Independent: P(A∩B) = P(A)·P(B)","Bayes: P(A|B) = P(B|A)·P(A)/P(B)"],
+ex:{p:"A bag: 4 red, 6 blue. Draw 2 without replacement. P(both red)?",s:["P(1st red) = 4/10","P(2nd red | 1st red) = 3/9","P(both) = (4/10)(3/9) = 12/90 = 2/15"]}}
+],
+pr:[
+{d:"easy",q:"A die is rolled. P(even)?",o:["1/2","1/3","1/6","2/3"],c:0,x:"Even: {2,4,6} = 3/6 = 1/2."},
+{d:"easy",q:"P(Aᶜ) if P(A) = 0.7?",o:["0.3","0.7","1","0"],c:0,x:"1 − 0.7 = 0.3."},
+{d:"medium",q:"P(A)=0.5, P(B)=0.4, events are independent. P(A∩B)?",o:["0.2","0.9","0.1","0.45"],c:0,x:"Independent: 0.5×0.4 = 0.2."},
+{d:"medium",q:"P(A|B)=0.6, P(B)=0.5. Find P(A∩B).",o:["0.3","0.6","0.5","1.1"],c:0,x:"P(A∩B)=P(A|B)·P(B)=0.6·0.5=0.3."},
+{d:"hard",q:"Bayes' Theorem: disease prevalence 1%, test sensitivity 95%, specificity 90%. If positive, P(disease)?",o:["≈ 8.7%","95%","90%","1%"],c:0,x:"P(D|+)=P(+|D)P(D)/P(+)=(.95)(.01)/(.95·.01+.10·.99)=.0095/.1085≈8.7%."},
+{d:"hard",q:"A and B independent. Are Aᶜ and B independent?",o:["Yes","No","Only if P(A)=0.5","Cannot determine"],c:0,x:"Independence is preserved under complements."}
+],
+qz:[
+{q:"P(impossible event) = ?",o:["0","1","−1","Undefined"],c:0,x:"Impossible events have probability 0."},
+{q:"P(A∪B) for mutually exclusive events:",o:["P(A)+P(B)","P(A)·P(B)","P(A)−P(B)","P(A|B)"],c:0,x:"Mutually exclusive: no overlap, so just add."},
+{q:"If P(A|B) = P(A), then A and B are:",o:["Independent","Mutually exclusive","Dependent","Complementary"],c:0,x:"Knowing B doesn't change P(A) → independent."},
+{q:"P(S) = ?",o:["1","0","∞","Depends on S"],c:0,x:"Probability of entire sample space is 1."},
+{q:"P(A) can be at most:",o:["1","∞","100","S"],c:0,x:"Probabilities range from 0 to 1."}
+],
+  deeperLinks: [{"label":"Probability Basics","url":"math/probability-basics/walkthrough.html"},{"label":"Conditional Probability","url":"math/conditional-probability/walkthrough.html"}],
+},
+// ═══════════ UNIT 4 ═══════════
+{id:4,title:"Random Variables & Probability Distributions",
+obj:"Define discrete and continuous random variables. Compute expected value and variance. Understand PMFs and PDFs.",
+prs:[{id:7,text:"Probability foundations (Unit 3): random variables assign numbers to outcomes."},{id:8,text:"Summation and integration concepts: E(X) = Σx·P(x) or ∫x·f(x)dx. (Algebra II / Precalculus)"}],
+ls:[
+{t:"Discrete Random Variables",
+c:`A <b>random variable</b> X assigns a number to each outcome.<sup class="fn">⁷</sup> <b>PMF</b> (probability mass function): P(X=x) for each value. Requirements: all P ≥ 0 and ΣP = 1. <b>Expected value</b>: E(X) = Σ x·P(X=x). <b>Variance</b>: Var(X) = E(X²)−[E(X)]².`,
+f:["E(X) = Σ xᵢ P(xᵢ)","Var(X) = E(X²) − [E(X)]²","SD(X) = √Var(X)"],
+ex:{p:"X = number on a die. Find E(X).",s:["E(X) = (1+2+3+4+5+6)/6 = 21/6 = 3.5"]}},
+{t:"Continuous Random Variables",
+c:`A continuous RV has a <b>PDF</b> (probability density function) f(x) where P(a≤X≤b) = ∫ₐᵇ f(x)dx.<sup class="fn">⁸</sup> The total area under f(x) = 1. P(X = exact value) = 0 for continuous RVs. E(X) = ∫x·f(x)dx.`,
+f:["P(a ≤ X ≤ b) = ∫ₐᵇ f(x)dx","∫f(x)dx = 1 (total area)","P(X = c) = 0 for continuous X"],
+ex:{p:"Uniform distribution on [0, 10]. P(3 ≤ X ≤ 7)?",s:["f(x) = 1/10 for x in [0,10]","P(3≤X≤7) = (7−3)/10 = 0.4"]}}
+],
+pr:[
+{d:"easy",q:"E(X) for a fair coin (1=heads, 0=tails)?",o:["0.5","1","0","0.25"],c:0,x:"E=1(0.5)+0(0.5)=0.5."},
+{d:"easy",q:"If P(X=1)=0.3, P(X=2)=0.7. E(X)?",o:["1.7","1.5","1.3","2"],c:0,x:"1(0.3)+2(0.7)=0.3+1.4=1.7."},
+{d:"medium",q:"For continuous X, P(X=5) = ?",o:["0","0.5","Depends on f","1"],c:0,x:"Point probability is 0 for continuous distributions."},
+{d:"medium",q:"Var(X)=16. SD(X)=?",o:["4","16","256","2"],c:0,x:"SD = √16 = 4."},
+{d:"hard",q:"E(3X+2) if E(X)=5?",o:["17","15","13","7"],c:0,x:"E(aX+b)=aE(X)+b=3(5)+2=17."},
+{d:"hard",q:"Var(2X) if Var(X)=9?",o:["36","18","9","81"],c:0,x:"Var(aX)=a²Var(X)=4(9)=36."}
+],
+qz:[
+{q:"Sum of all probabilities in a PMF = ?",o:["1","0","∞","n"],c:0,x:"Must sum to 1."},
+{q:"E(X) is also called the:",o:["Mean (μ)","Variance","Median","Mode"],c:0,x:"Expected value = population mean μ."},
+{q:"For discrete X, P(X=x) is called:",o:["PMF","PDF","CDF","MGF"],c:0,x:"Probability Mass Function."},
+{q:"Var(X+c) = ?",o:["Var(X)","Var(X)+c","Var(X)+c²","c·Var(X)"],c:0,x:"Adding constant doesn't change variance."},
+{q:"A PDF must satisfy f(x) ≥ 0 and:",o:["Total area = 1","f(x) ≤ 1","f(x) = P(X=x)","Sum = 1"],c:0,x:"∫f(x)dx = 1."}
+],
+  deeperLinks: [{"label":"Expected Value","url":"math/expected-value/walkthrough.html"}],
+},
+// ═══════════ UNIT 5 ═══════════
+{id:5,title:"Common Distributions: Binomial, Normal & Others",
+obj:"Apply the binomial, geometric, Poisson, uniform, and normal distributions. Use z-scores and the standard normal table.",
+prs:[{id:9,text:"Random variables and expected value (Unit 4): these are specific distribution families."},{id:10,text:"Combinations C(n,k) (Algebra II, Unit 10): binomial uses 'n choose k'."}],
+ls:[
+{t:"Binomial & Other Discrete Distributions",
+c:`<b>Binomial(n,p)</b>: n independent trials, each with success probability p.<sup class="fn">¹⁰</sup> P(X=k) = C(n,k)·pᵏ(1−p)ⁿ⁻ᵏ. E(X)=np, Var=np(1−p). <b>Geometric(p)</b>: trials until first success. P(X=k)=(1−p)ᵏ⁻¹p. <b>Poisson(λ)</b>: count of rare events. P(X=k)=e⁻λλᵏ/k!.`,
+f:["Binomial: P(X=k) = C(n,k)pᵏ(1−p)ⁿ⁻ᵏ","E(X) = np, Var(X) = np(1−p)","Geometric: P(X=k) = (1−p)ᵏ⁻¹p, E(X)=1/p"],
+ex:{p:"10 coin flips (p=0.5). P(exactly 3 heads)?",s:["P(X=3) = C(10,3)(0.5)³(0.5)⁷","= 120 · (1/1024)","= 120/1024 ≈ 0.1172"]}},
+{t:"The Normal Distribution & Z-Scores",
+c:`The <b>normal distribution</b> N(μ, σ²) is the bell curve.<sup class="fn">⁹</sup> <b>68-95-99.7 rule</b>: 68% within ±1σ, 95% within ±2σ, 99.7% within ±3σ. <b>Z-score</b>: z = (x−μ)/σ standardizes any normal to N(0,1). Use z-tables or technology for probabilities.`,
+f:["z = (x − μ)/σ","68-95-99.7 rule","Standard normal: N(0,1)"],
+ex:{p:"Scores ~ N(70, 10²). P(score > 85)?",s:["z = (85−70)/10 = 1.5","P(Z > 1.5) ≈ 1 − 0.9332 = 0.0668","About 6.7% score above 85"]}}
+],
+pr:[
+{d:"easy",q:"Binomial: n=5, p=0.5. E(X)?",o:["2.5","5","0.5","1"],c:0,x:"np = 5(0.5) = 2.5."},
+{d:"easy",q:"Z-score of a value equal to the mean?",o:["0","1","−1","μ"],c:0,x:"z = (μ−μ)/σ = 0."},
+{d:"easy",q:"About 95% of normal data falls within:",o:["±2 SDs of mean","±1 SD","±3 SDs","±0.5 SDs"],c:0,x:"68-95-99.7 rule."},
+{d:"medium",q:"Binomial: n=8, p=0.3. Var(X)?",o:["1.68","2.4","0.56","8"],c:0,x:"np(1−p) = 8(0.3)(0.7) = 1.68."},
+{d:"medium",q:"z = −2.0. What percentile approximately?",o:["About 2.5th","About 50th","About 97.5th","About 16th"],c:0,x:"z=−2 → about 2.5% below (from 95% rule)."},
+{d:"hard",q:"Poisson(λ=3). P(X=0)?",o:["e⁻³ ≈ 0.050","0","3","1/3"],c:0,x:"P(X=0)=e⁻³·3⁰/0!=e⁻³≈0.050."},
+{d:"hard",q:"Sum of two independent normals N(10,4) and N(20,9) is:",o:["N(30, 13)","N(30, 36)","N(30, 5)","N(15, 6.5)"],c:0,x:"Means add: 10+20=30. Variances add: 4+9=13."}
+],
+qz:[
+{q:"Binomial requires:",o:["Fixed n, constant p, independent trials","Variable p","Continuous outcomes","Normal distribution"],c:0,x:"Fixed n, independent, same p each trial."},
+{q:"Standard normal has μ=___ and σ=___.",o:["0 and 1","1 and 0","0 and 0","1 and 1"],c:0,x:"N(0,1)."},
+{q:"Geometric distribution models:",o:["Trials until first success","Number of successes in n trials","Mean of a sample","Continuous measurements"],c:0,x:"How many trials until the first success."},
+{q:"Normal distribution is symmetric about:",o:["The mean","The mode only","Q₁","Zero always"],c:0,x:"Symmetric about μ (where mean=median=mode)."},
+{q:"If X ~ N(100, 15²), P(X < 100) = ?",o:["0.5","0.68","0.95","1"],c:0,x:"Below the mean of a symmetric distribution = 50%."}
+],
+  deeperLinks: [{"label":"Normal Distribution","url":"math/normal-distribution/walkthrough.html"},{"label":"Binomial","url":"math/combinations-and-permutations/walkthrough.html"}],
+},
+// ═══════════ UNIT 6 ═══════════
+{id:6,title:"Sampling Distributions & the Central Limit Theorem",
+obj:"Understand sampling variability. Define the sampling distribution of x̄. State and apply the Central Limit Theorem.",
+prs:[{id:11,text:"Normal distribution (Unit 5): the CLT produces normal sampling distributions."},{id:12,text:"Mean and standard deviation (Unit 1): x̄ and s are sample statistics."}],
+ls:[
+{t:"Sampling Distributions",
+c:`A <b>statistic</b> (like x̄) varies from sample to sample — it has its own distribution called the <b>sampling distribution</b>.<sup class="fn">¹²</sup> Key facts for x̄: E(x̄) = μ (unbiased), SD(x̄) = σ/√n (standard error). Larger n → less variability.`,
+f:["E(x̄) = μ","SE(x̄) = σ/√n","Larger n → smaller SE → more precise"],
+ex:{p:"σ=20, n=100. SE of x̄?",s:["SE = 20/√100 = 20/10 = 2"]}},
+{t:"Central Limit Theorem",
+c:`<b>CLT</b>: Regardless of the population shape, the sampling distribution of x̄ is approximately normal when n is sufficiently large (typically n ≥ 30).<sup class="fn">¹¹</sup> Formally: x̄ ~ N(μ, σ²/n) approximately for large n.`,
+f:["CLT: x̄ ≈ N(μ, σ²/n) for large n","Rule of thumb: n ≥ 30","If population is normal, x̄ is exactly normal for any n"],
+ex:{p:"Population: μ=50, σ=12, n=36. Describe the sampling distribution of x̄.",s:["By CLT: x̄ ~ N(50, 12²/36) = N(50, 4)","Mean = 50, SE = 12/√36 = 2","x̄ is approximately N(50, 2²)"]}}
+],
+pr:[
+{d:"easy",q:"SE of x̄ if σ=10 and n=25?",o:["2","0.4","10","5"],c:0,x:"10/√25 = 10/5 = 2."},
+{d:"easy",q:"E(x̄) = ?",o:["μ","σ","n","x̄"],c:0,x:"Sample mean is unbiased: E(x̄)=μ."},
+{d:"medium",q:"To halve the SE, you must ___ n by:",o:["Multiply by 4","Multiply by 2","Add 30","Square it"],c:0,x:"SE=σ/√n. To halve: need √n to double → n×4."},
+{d:"medium",q:"CLT is needed when the population is:",o:["Non-normal","Already normal","Binomial","Uniform"],c:0,x:"If population is normal, x̄ is exact normal. CLT is for non-normal populations."},
+{d:"hard",q:"n=16, population is heavily skewed. Is CLT appropriate?",o:["Probably not (n too small for heavy skew)","Yes always","Only if σ known","Never"],c:0,x:"n=16 may not be enough for heavily skewed data. n≥30 is a rule of thumb; more skew needs larger n."},
+{d:"hard",q:"CLT also applies to sample proportions: p̂ ~ N(p, p(1−p)/n) when:",o:["np ≥ 10 and n(1−p) ≥ 10","Always","n > 5","p = 0.5"],c:0,x:"Success/failure condition for proportions."}
+],
+qz:[
+{q:"As n increases, SE:",o:["Decreases","Increases","Stays the same","Becomes negative"],c:0,x:"σ/√n → smaller as n grows."},
+{q:"CLT says x̄ is approximately:",o:["Normal","Uniform","Binomial","Poisson"],c:0,x:"Normal for large n."},
+{q:"If population is N(μ,σ²), x̄ is exactly normal for:",o:["Any sample size n","Only n ≥ 30","Only n ≥ 100","Only if σ known"],c:0,x:"Normal population → x̄ exactly normal regardless of n."},
+{q:"SE stands for:",o:["Standard Error","Sample Estimate","Standard Expectation","Symmetric Error"],c:0,x:"Standard Error of the statistic."},
+{q:"Sampling distribution of x̄ is centered at:",o:["μ (population mean)","x̄","0","σ"],c:0,x:"Unbiased: center = population parameter."}
+],
+  deeperLinks: [{"label":"Central Limit Theorem","url":"math/mean-average/walkthrough.html"}],
+},
+// ═══════════ UNIT 7 ═══════════
+{id:7,title:"Confidence Intervals",
+obj:"Construct and interpret confidence intervals for means and proportions. Understand margin of error and confidence level. Determine sample size.",
+prs:[{id:13,text:"Sampling distributions and SE (Unit 6): CIs are built from the sampling distribution of the statistic."},{id:14,text:"Normal and t-distributions (Units 5–6): z* and t* are critical values."}],
+ls:[
+{t:"Confidence Intervals for Means",
+c:`A <b>confidence interval</b> estimates a parameter with a range: statistic ± margin of error.<sup class="fn">¹³</sup> For μ when σ known: x̄ ± z*(σ/√n). When σ unknown: x̄ ± t*(s/√n) with df=n−1. Common z*: 90%→1.645, 95%→1.96, 99%→2.576.`,
+f:["CI: x̄ ± z*(σ/√n) or x̄ ± t*(s/√n)","Margin of error: E = z*·(σ/√n)","Required n: n = (z*σ/E)²"],
+ex:{p:"x̄=82, s=10, n=36, 95% CI.",s:["t* ≈ 2.03 (df=35) or use z*=1.96 for large n","ME = 1.96(10/6) ≈ 3.27","CI: (78.73, 85.27)"]}},
+{t:"Confidence Intervals for Proportions",
+c:`For population proportion p: p̂ ± z*√(p̂(1−p̂)/n).<sup class="fn">¹⁴</sup> Conditions: np̂ ≥ 10, n(1−p̂) ≥ 10. Interpretation: "We are C% confident that the true parameter lies within this interval."`,
+f:["CI for p: p̂ ± z*√(p̂(1−p̂)/n)","Required n for proportion: n = (z*/E)²·p̂(1−p̂)"],
+ex:{p:"p̂=0.6, n=200, 95% CI.",s:["SE = √(0.6·0.4/200) = √(0.0012) ≈ 0.0346","ME = 1.96·0.0346 ≈ 0.068","CI: (0.532, 0.668)"]}}
+],
+pr:[
+{d:"easy",q:"Increasing confidence level makes the interval:",o:["Wider","Narrower","Same width","Zero width"],c:0,x:"Higher confidence → larger z* → wider interval."},
+{d:"easy",q:"95% CI means:",o:["95% of such intervals contain the true parameter","The parameter is in this interval 95% of the time","P(μ in CI) = 0.95 for this specific CI","95% of data is in the interval"],c:0,x:"Frequentist: 95% of intervals from repeated sampling contain μ."},
+{d:"medium",q:"To cut margin of error in half, multiply n by:",o:["4","2","½","√2"],c:0,x:"E ∝ 1/√n. Half E → 4× n."},
+{d:"medium",q:"When is the t-distribution used instead of z?",o:["When σ is unknown (use s)","When n > 100","When data is skewed","Always"],c:0,x:"σ unknown → estimate with s → use t with df=n−1."},
+{d:"hard",q:"t-distribution vs normal: t has:",o:["Heavier tails (more spread)","Lighter tails","Same shape always","No center"],c:0,x:"t has heavier tails, especially for small df. Approaches z as df→∞."},
+{d:"hard",q:"99% CI is always ___ than a 95% CI (same data).",o:["Wider","Narrower","Same","Shorter on one side"],c:0,x:"More confidence → wider interval."}
+],
+qz:[
+{q:"z* for 95% confidence ≈",o:["1.96","2.576","1.645","1.28"],c:0,x:"95% → z*=1.96."},
+{q:"The t-distribution has ___ parameter(s).",o:["One (degrees of freedom)","Two (μ and σ)","None","Three"],c:0,x:"Characterized by df."},
+{q:"A CI does NOT tell you:",o:["The probability that THIS interval contains μ","An estimated range for μ","The margin of error","The confidence level"],c:0,x:"Once computed, it either contains μ or doesn't. The 95% refers to the method, not this interval."},
+{q:"SE for p̂ uses:",o:["√(p̂(1−p̂)/n)","s/√n","σ/√n","p̂/n"],c:0,x:"Standard error of a proportion."},
+{q:"Larger n makes CI:",o:["Narrower","Wider","No change","Less confident"],c:0,x:"More data → smaller SE → narrower interval."}
+],
+  deeperLinks: [{"label":"Confidence Intervals","url":"math/mean-average/walkthrough.html"}],
+},
+// ═══════════ UNIT 8 ═══════════
+{id:8,title:"Hypothesis Testing: Concepts & One-Sample Tests",
+obj:"Formulate null and alternative hypotheses. Understand test statistics, p-values, significance levels, and Type I/II errors. Conduct z-tests and t-tests.",
+prs:[{id:15,text:"Sampling distributions and CLT (Unit 6): test statistics follow known distributions under H₀."},{id:16,text:"Confidence intervals (Unit 7): CIs and hypothesis tests are two sides of the same coin."}],
+ls:[
+{t:"Framework: H₀, Hₐ, p-values & Errors",
+c:`<b>Null hypothesis H₀</b>: status quo (e.g., μ=μ₀). <b>Alternative Hₐ</b>: what we suspect (μ≠μ₀, μ>μ₀, or μ<μ₀).<sup class="fn">¹⁵</sup> <b>Test statistic</b>: measures how far the sample is from H₀. <b>p-value</b>: probability of data as extreme as observed, assuming H₀ is true. If p ≤ α, reject H₀. <b>Type I error</b>: reject H₀ when true (α). <b>Type II error</b>: fail to reject H₀ when false (β).`,
+f:["p-value ≤ α → reject H₀","Type I: false positive (prob = α)","Type II: false negative (prob = β)","Power = 1 − β"],
+ex:{p:"H₀: μ=100, Hₐ: μ>100. x̄=105, SE=2. Test statistic?",s:["z = (105−100)/2 = 2.5","p-value = P(Z>2.5) ≈ 0.0062","If α=0.05: p<α → reject H₀"]}},
+{t:"One-Sample z-test & t-test",
+c:`<b>z-test</b>: when σ is known. z = (x̄−μ₀)/(σ/√n). <b>t-test</b>: when σ is unknown.<sup class="fn">¹⁶</sup> t = (x̄−μ₀)/(s/√n), df = n−1. Conditions: random sample, approximately normal (or n≥30).`,
+f:["z = (x̄ − μ₀)/(σ/√n)","t = (x̄ − μ₀)/(s/√n), df = n−1"],
+ex:{p:"H₀: μ=50, Hₐ: μ≠50. x̄=53, s=8, n=25, α=0.05.",s:["t = (53−50)/(8/5) = 3/1.6 = 1.875","df=24. Two-tailed p ≈ 0.073","p > 0.05 → fail to reject H₀"]}}
+],
+pr:[
+{d:"easy",q:"H₀ always contains:",o:["An equality (=)","An inequality (<)","The sample statistic","The p-value"],c:0,x:"H₀: parameter = hypothesized value."},
+{d:"easy",q:"α = 0.05 means we accept a ___% chance of Type I error.",o:["5%","95%","50%","0.5%"],c:0,x:"α is the significance level = P(Type I error)."},
+{d:"medium",q:"p-value = 0.03, α = 0.05. Decision?",o:["Reject H₀","Fail to reject H₀","Accept H₀","Redo the test"],c:0,x:"0.03 < 0.05 → reject."},
+{d:"medium",q:"Type II error: failing to reject H₀ when it is:",o:["False","True","Unknown","Irrelevant"],c:0,x:"Missing a real effect = Type II."},
+{d:"hard",q:"Increasing α from 0.01 to 0.05:",o:["Increases power, increases Type I error rate","Decreases both","No effect","Only changes Type II"],c:0,x:"Wider rejection region → easier to reject → more power but more false positives."},
+{d:"hard",q:"p-value is NOT:",o:["P(H₀ is true)","P(data as extreme | H₀ true)","Evidence against H₀","A measure of surprise"],c:0,x:"Common misconception: p-value ≠ P(H₀ true). It's P(data|H₀)."}
+],
+qz:[
+{q:"'Statistically significant' means:",o:["p ≤ α (we reject H₀)","The effect is large","H₀ is proven false","100% certain"],c:0,x:"Significance = reject H₀ at level α."},
+{q:"Power of a test is:",o:["P(correctly reject H₀ when false)","P(Type I error)","1 − α","P(H₀ true)"],c:0,x:"Power = 1 − β = P(reject H₀ | H₀ false)."},
+{q:"Two-tailed test has Hₐ of form:",o:["μ ≠ μ₀","μ > μ₀","μ < μ₀","μ = μ₀"],c:0,x:"Two-tailed: not equal."},
+{q:"We never say 'accept H₀' because:",o:["Failing to reject ≠ proof H₀ is true","It sounds wrong","H₀ is always true","Statistics can't prove anything"],c:0,x:"Absence of evidence ≠ evidence of absence."},
+{q:"Increasing sample size generally:",o:["Increases power","Decreases power","Has no effect","Increases α"],c:0,x:"Larger n → smaller SE → easier to detect real effects."}
+],
+  deeperLinks: [{"label":"Hypothesis Testing","url":"math/statistical-questions/walkthrough.html"}],
+},
+// ═══════════ UNIT 9 ═══════════
+{id:9,title:"Two-Sample Tests & Paired Tests",
+obj:"Compare two population means (independent and paired). Compare two proportions. Understand pooled vs unpooled approaches.",
+prs:[{id:17,text:"One-sample hypothesis testing (Unit 8): two-sample extends the same framework."},{id:18,text:"Confidence intervals (Unit 7): two-sample CIs for μ₁−μ₂ and p₁−p₂."}],
+ls:[
+{t:"Two-Sample t-Tests",
+c:`Compare μ₁ vs μ₂ using independent samples.<sup class="fn">¹⁷</sup> Test statistic: t = (x̄₁−x̄₂−0)/SE where SE = √(s₁²/n₁+s₂²/n₂). Pooled version (equal variances assumed): sp² = [(n₁−1)s₁²+(n₂−1)s₂²]/(n₁+n₂−2).`,
+f:["t = (x̄₁ − x̄₂) / √(s₁²/n₁ + s₂²/n₂)","Pooled: sp² = [(n₁−1)s₁²+(n₂−1)s₂²]/(n₁+n₂−2)"],
+ex:{p:"Group A: x̄=78, s=10, n=30. Group B: x̄=72, s=12, n=35. Test if μ_A > μ_B.",s:["SE = √(100/30+144/35) = √(3.33+4.11) = √7.44 ≈ 2.73","t = (78−72)/2.73 ≈ 2.20","Large df, p ≈ 0.015 → reject at α=0.05"]}},
+{t:"Paired t-Test & Two-Proportion z-Test",
+c:`<b>Paired</b>: same subjects measured twice. Use differences dᵢ = x₁ᵢ − x₂ᵢ, then one-sample t-test on d̄.<sup class="fn">¹⁸</sup> <b>Two-proportion</b>: z = (p̂₁−p̂₂)/SE, SE = √(p̂(1−p̂)(1/n₁+1/n₂)), pooled p̂ = (x₁+x₂)/(n₁+n₂).`,
+f:["Paired: t = d̄/(s_d/√n), df = n−1","Two-prop: z = (p̂₁−p̂₂)/√(p̂(1−p̂)(1/n₁+1/n₂))"],
+ex:{p:"Before/after scores for 10 students. d̄=3.5, s_d=4.2. Is improvement significant (α=0.05)?",s:["t = 3.5/(4.2/√10) = 3.5/1.328 ≈ 2.64","df=9. p ≈ 0.027 (two-tailed)","p < 0.05 → significant improvement"]}}
+],
+pr:[
+{d:"easy",q:"Independent vs paired: taking the same students' scores before and after is:",o:["Paired","Independent","Neither","Both"],c:0,x:"Same subjects measured twice → paired."},
+{d:"easy",q:"H₀ for two-sample test (means):",o:["μ₁ = μ₂ (or μ₁−μ₂=0)","μ₁ > μ₂","x̄₁ = x̄₂","σ₁ = σ₂"],c:0,x:"No difference in population means."},
+{d:"medium",q:"Paired test advantage over two-sample:",o:["Controls for individual variability","Requires fewer assumptions","Always more powerful","Doesn't need normality"],c:0,x:"Pairing removes between-subject variation."},
+{d:"medium",q:"Two-proportion pooled p̂ is used under:",o:["H₀: p₁ = p₂","Always","Hₐ only","When samples are equal"],c:0,x:"Under H₀ of equal proportions, we pool."},
+{d:"hard",q:"Welch's t-test (unpooled) is preferred when:",o:["Variances may be unequal","Samples are paired","Both n₁ and n₂ > 1000","Data is categorical"],c:0,x:"Welch's doesn't assume equal variances — generally safer."},
+{d:"hard",q:"Effect size (Cohen's d) for two means:",o:["d = (x̄₁−x̄₂)/s_pooled","d = p-value","d = t/n","d = SE/x̄"],c:0,x:"Standardized difference: effect size independent of n."}
+],
+qz:[
+{q:"Paired t-test df = ?",o:["n − 1 (number of pairs − 1)","n₁+n₂−2","n","n₁−1"],c:0,x:"Based on the n differences."},
+{q:"Two-sample t-test assumes:",o:["Independent random samples","Paired data","Equal sample sizes","Known σ"],c:0,x:"Samples must be independent."},
+{q:"If 95% CI for μ₁−μ₂ contains 0:",o:["Don't reject H₀: μ₁=μ₂","Reject H₀","μ₁ = μ₂ exactly","Error in data"],c:0,x:"0 in the CI → plausible that no difference exists."},
+{q:"For a paired design, what do we analyze?",o:["The differences dᵢ","The original two columns separately","The pooled data","The variances"],c:0,x:"Compute differences, then one-sample t."},
+{q:"Two-proportion test uses which distribution?",o:["z (standard normal)","t","χ²","F"],c:0,x:"Proportions → z-test (large sample)."}
+],
+  deeperLinks: [{"label":"Two-Sample t-Tests","url":"math/statistics/walkthrough.html"}],
+},
+// ═══════════ UNIT 10 ═══════════
+{id:10,title:"Chi-Square Tests",
+obj:"Apply chi-square goodness-of-fit, test of independence, and test of homogeneity. Interpret results from contingency tables.",
+prs:[{id:19,text:"Categorical data and contingency tables (Unit 2): chi-square tests are for categorical variables."},{id:20,text:"Hypothesis testing framework (Unit 8): H₀, p-value, α, decision."}],
+ls:[
+{t:"Chi-Square Goodness-of-Fit",
+c:`Tests if observed frequencies match expected frequencies for a single categorical variable.<sup class="fn">¹⁹</sup> χ² = Σ(O−E)²/E. df = k−1 (k = number of categories). Large χ² → reject H₀.`,
+f:["χ² = Σ (Oᵢ − Eᵢ)² / Eᵢ","df = k − 1","H₀: distribution matches expected"],
+ex:{p:"Die rolled 60 times. Expected: 10 per face. Observed: 8,12,10,11,9,10. Test at α=0.05.",s:["χ² = (8−10)²/10+(12−10)²/10+...+(10−10)²/10","= 0.4+0.4+0+0.1+0.1+0 = 1.0","df=5. Critical χ²=11.07. 1.0 < 11.07 → don't reject (die is fair)"]}},
+{t:"Chi-Square Tests of Independence & Homogeneity",
+c:`<b>Independence</b>: are two categorical variables associated? Uses a two-way (contingency) table.<sup class="fn">²⁰</sup> E = (row total × column total)/grand total. <b>Homogeneity</b>: same method, different question — are distributions the same across populations? Both use χ² = Σ(O−E)²/E with df = (r−1)(c−1).`,
+f:["Expected: E = (row total)(col total)/n","df = (rows−1)(columns−1)","H₀ (independence): variables are not associated"],
+ex:{p:"2×2 table. df = ?",s:["(2−1)(2−1) = 1"]}}
+],
+pr:[
+{d:"easy",q:"χ² test statistic is always:",o:["≥ 0","Negative","Between −1 and 1","Equal to df"],c:0,x:"Sum of squared terms divided by positives → always non-negative."},
+{d:"easy",q:"GoF test df for 4 categories?",o:["3","4","2","1"],c:0,x:"df = k−1 = 4−1 = 3."},
+{d:"medium",q:"Expected count formula for independence test:",o:["(row total × col total)/n","Observed/2","n/k","(O−E)²/E"],c:0,x:"E = (row total)(col total)/grand total."},
+{d:"medium",q:"Condition: all expected counts should be at least:",o:["5","1","10","30"],c:0,x:"Rule of thumb: all Eᵢ ≥ 5."},
+{d:"hard",q:"3×4 contingency table. df = ?",o:["6","12","3","7"],c:0,x:"(3−1)(4−1) = 2·3 = 6."},
+{d:"hard",q:"χ² test is always:",o:["Right-tailed","Left-tailed","Two-tailed","Depends on Hₐ"],c:0,x:"Large χ² values indicate departure from H₀ → always right-tailed."}
+],
+qz:[
+{q:"GoF tests compare observed to:",o:["Expected frequencies under H₀","Other samples","The median","Previous studies"],c:0,x:"Observed vs expected under the null model."},
+{q:"Independence test H₀:",o:["Variables are not associated","Variables are associated","Means are equal","Distributions differ"],c:0,x:"H₀: no association between the two variables."},
+{q:"χ² distribution shape:",o:["Right-skewed, shifts right as df increases","Symmetric like normal","Always symmetric","Left-skewed"],c:0,x:"Right-skewed, approaches normal for large df."},
+{q:"Homogeneity test asks:",o:["Are distributions the same across groups?","Is the data normal?","Are means equal?","Is variance constant?"],c:0,x:"Same distribution across different populations."},
+{q:"What type of data does chi-square analyze?",o:["Categorical (counts)","Quantitative means","Continuous densities","Time series"],c:0,x:"Chi-square is for categorical frequency data."}
+],
+  deeperLinks: [{"label":"Chi-Square Tests","url":"math/statistics/walkthrough.html"}],
+},
+// ═══════════ UNIT 11 ═══════════
+{id:11,title:"ANOVA: Analysis of Variance",
+obj:"Compare means across 3+ groups using one-way ANOVA. Understand F-test, SSB, SSW, and post-hoc tests.",
+prs:[{id:21,text:"Two-sample t-test (Unit 9): ANOVA generalizes to 3+ groups."},{id:22,text:"Variance (Unit 1): ANOVA partitions total variance into between-group and within-group."}],
+ls:[
+{t:"One-Way ANOVA",
+c:`<b>ANOVA</b> tests H₀: μ₁=μ₂=…=μₖ vs Hₐ: at least one differs.<sup class="fn">²¹</sup> Logic: compare <b>between-group variability</b> (SSB) to <b>within-group variability</b> (SSW). F = MSB/MSW where MSB=SSB/(k−1), MSW=SSW/(N−k). Large F → reject H₀.`,
+f:["F = MSB/MSW","MSB = SSB/(k−1), MSW = SSW/(N−k)","df₁ = k−1, df₂ = N−k"],
+ex:{p:"3 groups (n=10 each). SSB=200, SSW=600. Test at α=0.05.",s:["MSB = 200/2 = 100, MSW = 600/27 ≈ 22.22","F = 100/22.22 ≈ 4.50","df₁=2, df₂=27. F critical ≈ 3.35","4.50 > 3.35 → reject H₀"]}},
+{t:"Assumptions & Post-Hoc Tests",
+c:`ANOVA assumes: independence, normality within groups, equal variances (homoscedasticity).<sup class="fn">²²</sup> If H₀ is rejected, <b>post-hoc tests</b> (Tukey's HSD, Bonferroni) identify which pairs differ.`,
+f:["Assumptions: independent, normal, equal variances","Tukey HSD: pairwise comparisons after significant F","Bonferroni: adjust α for multiple comparisons"],
+ex:{p:"ANOVA rejects H₀ for 4 groups. How many pairwise comparisons?",s:["C(4,2) = 6 pairwise comparisons","Tukey's HSD tests all 6 simultaneously"]}}
+],
+pr:[
+{d:"easy",q:"ANOVA H₀:",o:["All group means are equal","At least one mean differs","Variances are equal","Groups are independent"],c:0,x:"H₀: μ₁=μ₂=…=μₖ."},
+{d:"easy",q:"ANOVA uses which distribution?",o:["F","t","z","χ²"],c:0,x:"F-distribution for the test statistic."},
+{d:"medium",q:"5 groups, total N=50. df for MSW?",o:["45","4","49","5"],c:0,x:"N−k = 50−5 = 45."},
+{d:"medium",q:"Large F-statistic means:",o:["Between-group variation >> within-group","All means are equal","Data is normally distributed","Sample is too small"],c:0,x:"Large F → groups differ more than expected by chance."},
+{d:"hard",q:"Why not just do multiple t-tests instead of ANOVA?",o:["Inflated Type I error rate","t-tests are less powerful","ANOVA is simpler","No difference"],c:0,x:"Multiple comparisons without correction inflates the overall α."},
+{d:"hard",q:"Equal variance assumption can be checked with:",o:["Levene's test or rule: largest s / smallest s < 2","Only visual inspection","The F-test itself","ANOVA doesn't need this"],c:0,x:"Levene's test or ratio of standard deviations."}
+],
+qz:[
+{q:"ANOVA stands for:",o:["Analysis of Variance","Analysis of Values","Advanced Numerical Outcomes","Average Normalized Output"],c:0,x:"Analysis of Variance."},
+{q:"If F < 1, this suggests:",o:["Within-group variation exceeds between-group","Groups are very different","Data is invalid","Always reject"],c:0,x:"F<1 → more variation within than between → no evidence of group differences."},
+{q:"Post-hoc tests are done:",o:["Only after ANOVA rejects H₀","Before ANOVA","Instead of ANOVA","Always"],c:0,x:"Post-hoc = after a significant F result."},
+{q:"Number of pairwise comparisons for k groups:",o:["C(k,2) = k(k−1)/2","k","k−1","k²"],c:0,x:"Choose 2 from k groups."},
+{q:"Two-way ANOVA adds:",o:["A second factor and interaction effects","More subjects","A third test statistic","Nothing new"],c:0,x:"Two factors + their interaction."}
+],
+  deeperLinks: [{"label":"ANOVA","url":"math/statistics/walkthrough.html"}],
+},
+// ═══════════ UNIT 12 ═══════════
+{id:12,title:"Linear Regression & Correlation",
+obj:"Compute and interpret correlation (r). Fit and interpret the least squares regression line. Check conditions and use residuals.",
+prs:[{id:23,text:"Scatterplots (Unit 2): regression fits a line to a scatterplot."},{id:24,text:"Slope and linear equations y=mx+b (Algebra I, Unit 5): regression line has the same form."}],
+ls:[
+{t:"Correlation Coefficient r",
+c:`<b>Pearson's r</b> measures linear association strength and direction.<sup class="fn">²³</sup> r ∈ [−1, 1]. r=1: perfect positive linear. r=−1: perfect negative. r=0: no linear relationship. r² = proportion of variation in y explained by x.`,
+f:["r = Σ((xᵢ−x̄)/sₓ)((yᵢ−ȳ)/sᵧ)/(n−1)","−1 ≤ r ≤ 1","r² = coefficient of determination"],
+ex:{p:"r = 0.85. Interpret.",s:["Strong positive linear association","r² = 0.7225 → about 72% of variation in y is explained by x"]}},
+{t:"Least Squares Regression Line",
+c:`ŷ = b₀ + b₁x minimizes the sum of squared residuals.<sup class="fn">²⁴</sup> b₁ = r(sᵧ/sₓ), b₀ = ȳ − b₁x̄. <b>Residual</b> = y − ŷ. Residual plots should show no pattern. Check: linearity, equal spread, normality of residuals, independence.`,
+f:["ŷ = b₀ + b₁x","b₁ = r(sᵧ/sₓ)","b₀ = ȳ − b₁x̄","Residual = y − ŷ"],
+ex:{p:"x̄=50, ȳ=80, sₓ=10, sᵧ=15, r=0.6. Find regression equation.",s:["b₁ = 0.6(15/10) = 0.9","b₀ = 80 − 0.9(50) = 35","ŷ = 35 + 0.9x"]}}
+],
+pr:[
+{d:"easy",q:"r = −0.92 indicates:",o:["Strong negative linear association","Weak association","No association","Positive association"],c:0,x:"Close to −1 → strong negative."},
+{d:"easy",q:"r = 0 means:",o:["No linear relationship","No relationship at all","Perfect correlation","Variables are equal"],c:0,x:"No LINEAR relationship (could be nonlinear)."},
+{d:"medium",q:"r² = 0.64. Interpretation:",o:["64% of y's variation is explained by x","r = 0.64","Slope = 0.64","64% of points are on the line"],c:0,x:"Coefficient of determination."},
+{d:"medium",q:"Residual plot shows a U-shape. This means:",o:["Linear model is inadequate (nonlinear pattern)","Model fits perfectly","Outliers present","Data is random"],c:0,x:"Pattern in residuals → model doesn't capture the relationship."},
+{d:"hard",q:"Extrapolation is risky because:",o:["The linear pattern may not hold outside observed range","It's always accurate","More data makes it worse","Regression lines extend infinitely"],c:0,x:"No guarantee the trend continues beyond the data."},
+{d:"hard",q:"Correlation does not imply causation because:",o:["Lurking variables, reverse causation, coincidence","r is always 0","Regression is wrong","Statistics can't measure anything"],c:0,x:"Association ≠ causation. Need controlled experiments."}
+],
+qz:[
+{q:"The regression line always passes through:",o:["(x̄, ȳ)","(0, 0)","(b₀, b₁)","The origin"],c:0,x:"Mean of x and mean of y are always on the line."},
+{q:"Slope b₁ = 2.5 means:",o:["y increases 2.5 for each 1-unit increase in x","x increases 2.5 for each y","r = 2.5","Intercept is 2.5"],c:0,x:"Slope = rate of change of ŷ per unit x."},
+{q:"r is affected by:",o:["Outliers (can inflate or deflate r)","Nothing","Only sample size","The units of x and y"],c:0,x:"r is sensitive to outliers. It's unitless."},
+{q:"A good residual plot looks:",o:["Random scatter with no pattern","Like a funnel","Like a curve","Like a line"],c:0,x:"No pattern = assumptions met."},
+{q:"Swapping x and y changes:",o:["The regression line (slope changes)","Nothing","Only r","Only r²"],c:0,x:"ŷ on x ≠ x̂ on y. Slope changes, but r and r² don't."}
+],
+  deeperLinks: [{"label":"Regression & Correlation","url":"math/regression-lines/walkthrough.html"},{"label":"Scatter Plots","url":"math/scatter-plots/walkthrough.html"}],
+},
+// ═══════════ UNIT 13 ═══════════
+{id:13,title:"Nonparametric Methods & Additional Topics",
+obj:"Apply nonparametric alternatives when assumptions fail. Understand sign test, Wilcoxon, Mann-Whitney, Kruskal-Wallis. Introduction to multiple regression.",
+prs:[{id:25,text:"Hypothesis testing (Units 8–9): nonparametric tests replace t-tests when normality fails."},{id:26,text:"Linear regression (Unit 12): multiple regression adds more predictors."}],
+ls:[
+{t:"Nonparametric Tests",
+c:`When normality or other assumptions fail, use <b>nonparametric</b> (distribution-free) tests.<sup class="fn">²⁵</sup> <b>Sign test</b>: based on signs of differences (replaces paired t). <b>Wilcoxon signed-rank</b>: uses ranks and signs. <b>Mann-Whitney U</b>: compares two independent groups by ranks (replaces two-sample t). <b>Kruskal-Wallis</b>: ANOVA alternative using ranks.`,
+f:["Sign test: count +/− signs, use binomial","Mann-Whitney: rank all data combined, compare rank sums","Kruskal-Wallis: rank-based one-way ANOVA"],
+ex:{p:"Two groups of 8. Use Mann-Whitney when normality is suspect.",s:["Rank all 16 observations together","Sum ranks for each group: R₁, R₂","U = n₁n₂ + n₁(n₁+1)/2 − R₁","Compare U to critical value or p-value"]}},
+{t:"Introduction to Multiple Regression",
+c:`<b>Multiple regression</b>: ŷ = b₀ + b₁x₁ + b₂x₂ + … + bₖxₖ.<sup class="fn">²⁶</sup> Each bᵢ represents the change in y per unit change in xᵢ, <b>holding all other variables constant</b>. Adjusted R² penalizes for extra predictors. Check multicollinearity.`,
+f:["ŷ = b₀ + b₁x₁ + b₂x₂ + … + bₖxₖ","Adjusted R² accounts for number of predictors","VIF: variance inflation factor (multicollinearity check)"],
+ex:{p:"ŷ = 10 + 3x₁ − 2x₂. Interpret b₁.",s:["Holding x₂ constant, each unit increase in x₁ increases ŷ by 3."]}}
+],
+pr:[
+{d:"easy",q:"Nonparametric tests are used when:",o:["Assumptions of parametric tests are violated","Data is normal","Sample size is huge","Always"],c:0,x:"When normality or other assumptions fail."},
+{d:"easy",q:"Mann-Whitney is the nonparametric version of:",o:["Two-sample t-test","Paired t-test","ANOVA","Chi-square"],c:0,x:"Compares two independent groups without normality assumption."},
+{d:"medium",q:"Kruskal-Wallis replaces:",o:["One-way ANOVA","Two-sample t","Paired t","Regression"],c:0,x:"Rank-based comparison of 3+ groups."},
+{d:"medium",q:"In multiple regression, 'holding other variables constant' means:",o:["Isolating the effect of one predictor","Removing other variables","All predictors are zero","Variables are independent"],c:0,x:"Ceteris paribus: change one, hold the rest fixed."},
+{d:"hard",q:"Advantage of nonparametric tests:",o:["Fewer assumptions, works with ordinal data","Always more powerful","Requires larger samples","Only for large n"],c:0,x:"Trade-off: fewer assumptions but generally lower power than parametric."},
+{d:"hard",q:"Multicollinearity in multiple regression means:",o:["Predictors are highly correlated with each other","The outcome is not linear","Residuals are correlated","R² = 0"],c:0,x:"High correlation among predictors → unstable coefficient estimates."}
+],
+qz:[
+{q:"Sign test uses which distribution?",o:["Binomial","Normal","t","F"],c:0,x:"Count of positive signs follows binomial under H₀."},
+{q:"Wilcoxon signed-rank test is for:",o:["Paired data (nonparametric)","Independent groups","ANOVA replacement","Proportions"],c:0,x:"Paired nonparametric alternative to paired t."},
+{q:"Adjusted R² vs R²:",o:["Adjusted penalizes for adding useless predictors","They're identical","Adjusted is always higher","R² is never used"],c:0,x:"Adjusted R² can decrease if a predictor doesn't help."},
+{q:"Nonparametric tests rank the data because:",o:["Ranks don't depend on the distribution shape","Ranks are easier to compute","It removes outliers","Convention"],c:0,x:"Rank-based methods are distribution-free."},
+{q:"Multiple regression with k predictors has ___ coefficients.",o:["k + 1 (including intercept)","k","k − 1","2k"],c:0,x:"b₀, b₁, …, bₖ → k+1 total."}
+],
+  deeperLinks: [{"label":"Nonparametric Tests","url":"math/statistics/walkthrough.html"},{"label":"Multiple Regression","url":"math/regression-lines/walkthrough.html"}]
+}
+];;
+
+const STATE = { currentUnit: 0, currentTab: 'lesson', answers: {}, quizSubmitted: {}, completedUnits: new Set() };
+
+function loadProgress() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('statistics-progress') || '{}');
+    if (saved.answers) STATE.answers = saved.answers;
+    if (saved.quizSubmitted) STATE.quizSubmitted = saved.quizSubmitted;
+    if (saved.completedUnits) STATE.completedUnits = new Set(saved.completedUnits);
+  } catch (e) {}
+}
+
+function saveProgress() {
+  try {
+    localStorage.setItem('statistics-progress', JSON.stringify({
+      answers: STATE.answers,
+      quizSubmitted: STATE.quizSubmitted,
+      completedUnits: Array.from(STATE.completedUnits)
+    }));
+  } catch (e) {}
+}
+
+function updateOverallProgress() {
+  const count = STATE.completedUnits.size;
+  const pct = Math.round((count / STATISTICS_CURRICULUM.length) * 100);
+  document.getElementById('stCompletedUnits').textContent = count;
+  document.getElementById('stProgressPct').textContent = pct;
+  document.getElementById('stProgressBar').style.width = pct + '%';
+}
+
+function render() {
+  const D = STATISTICS_CURRICULUM;
+  const u = D[STATE.currentUnit];
+  const app = document.getElementById('stApp');
+
+  const navBtns = D.map((c, i) => {
+    const on = i === STATE.currentUnit ? ' on' : '';
+    const ok = STATE.completedUnits.has(i) ? ' ok' : '';
+    return `<button class="${on}${ok}" onclick="selectUnit(${i})">${STATE.completedUnits.has(i) ? '✓ ' : ''}U${c.id}</button>`;
+  }).join('');
+
+  const deeperHtml = (u.deeperLinks && u.deeperLinks.length) ? `
+    <div class="st-deeper">
+      <div class="lbl">Go Deeper →</div>
+      ${u.deeperLinks.map(l => `<a href="${l.url}">${l.label}</a>`).join('')}
+    </div>` : '';
+
+  app.innerHTML = `
+    <div class="st-nav">${navBtns}</div>
+    <div class="st-uhdr">
+      <div class="st-unum">Unit ${u.id} of 13</div>
+      <div class="st-utitle">${u.title}</div>
+      <div class="st-uobj">${u.obj}</div>
+    </div>
+    ${deeperHtml}
+    <div class="st-tabs">
+      <button class="st-tb ${STATE.currentTab === 'lesson' ? 'on' : ''}" onclick="setTab('lesson')">Lessons</button>
+      <button class="st-tb ${STATE.currentTab === 'practice' ? 'on' : ''}" onclick="setTab('practice')">Practice</button>
+      <button class="st-tb ${STATE.currentTab === 'quiz' ? 'on' : ''}" onclick="setTab('quiz')">Unit Quiz</button>
+    </div>
+    ${STATE.currentTab === 'lesson' ? renderLessons(u) : ''}
+    ${STATE.currentTab === 'practice' ? renderPractice(u) : ''}
+    ${STATE.currentTab === 'quiz' ? renderQuiz(u) : ''}
+    ${renderFootnotes(u)}
+  `;
+  updateOverallProgress();
+}
+
+function renderLessons(u) {
+  return u.ls.map(l => `
+    <div class="st-lcard">
+      <h3>${l.t}</h3>
+      <p>${l.c}</p>
+      ${l.f.map(f => `<div class="st-fm">${f}</div>`).join('')}
+      ${l.ex ? `<div class="st-wex"><div class="wl">Worked Example</div><div class="wp">${l.ex.p}</div>${l.ex.s.map(s => `<div class="ws">→ ${s}</div>`).join('')}</div>` : ''}
+    </div>`).join('') + `
+    <div class="st-prbox"><div class="prt">Prerequisite Knowledge</div>${u.prs.map(p => `<p><b>[${p.id}]</b> ${p.text}</p>`).join('')}</div>`;
+}
+
+function renderPractice(u) {
+  return ['easy','medium','hard'].map(d => {
+    const qs = u.pr.filter(q => q.d === d);
+    if (!qs.length) return '';
+    const cls = d === 'easy' ? 'st-de' : d === 'medium' ? 'st-dm' : 'st-dh';
+    return `<div style="margin-bottom:8px"><span class="st-dtag ${cls}">${d}</span></div>
+      ${qs.map(q => renderQ(q, `${STATE.currentUnit}-p-${u.pr.indexOf(q)}`, false)).join('')}`;
+  }).join('');
+}
+
+function renderQuiz(u) {
+  const key = `${STATE.currentUnit}-qz`;
+  const sub = STATE.quizSubmitted[key];
+  let sc = 0;
+  if (sub) u.qz.forEach((q, i) => { if (STATE.answers[`${STATE.currentUnit}-q-${i}`] === q.c) sc++; });
+  return `
+    <div class="st-qhd">
+      <h3 style="font-size:1.15rem;font-weight:700;">Unit ${u.id} Quiz</h3>
+      <div class="st-qct">${sub ? sc + '/' + u.qz.length : u.qz.length + ' questions'}</div>
+    </div>
+    ${u.qz.map((q, i) => renderQ(q, `${STATE.currentUnit}-q-${i}`, sub)).join('')}
+    ${!sub ? `<button class="st-btn st-bf" onclick="submitQuiz()">Submit Quiz</button>` : ''}
+    ${sub ? `<div class="st-qres"><div class="st-sbig">${Math.round(sc/u.qz.length*100)}%</div><div class="st-ssub">${sc} of ${u.qz.length} correct</div><button class="st-btn" onclick="retakeQuiz()">Retake</button></div>` : ''}`;
+}
+
+function renderQ(q, key, forceShow) {
+  const sel = STATE.answers[key];
+  const isQuiz = key.includes('-q-');
+  const unsub = isQuiz && !STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  const show = (sel !== undefined && !unsub) || forceShow;
+  const cor = sel === q.c;
+  const text = q.q || q.question;
+  const opts = q.o || q.options || [];
+  const correct = q.c;
+  const expl = q.x || q.explanation;
+  const optsHtml = opts.map((o, i) => {
+    let c = 'st-ob';
+    if (show) { c += ' lk'; if (i === sel && cor) c += ' sc'; else if (i === sel && !cor) c += ' sw'; if (i === correct && !cor) c += ' rv'; }
+    else if (unsub && i === sel) c += ' qs'; else if (sel !== undefined && !unsub) c += ' lk';
+    return `<button class="${c}" onclick="answerQ('${key}',${i})" ${(show || (sel !== undefined && !unsub)) ? 'disabled' : ''}>${o}</button>`;
+  }).join('');
+  return `<div class="st-qc ${show ? (cor ? 'gc' : 'bc') : ''}"><div class="st-qt">${text}</div><div class="st-os">${optsHtml}</div>${show && expl ? `<div class="st-ex">${expl}</div>` : ''}</div>`;
+}
+
+function renderFootnotes(u) {
+  if (!u.prs || !u.prs.length) return '';
+  return `<div class="st-fns"><h4>Prerequisite Footnotes</h4>${u.prs.map(p => `<div class="st-fni"><span class="st-fnm">[${p.id}]</span> ${p.text}</div>`).join('')}</div>`;
+}
+
+function selectUnit(i) { STATE.currentUnit = i; STATE.currentTab = 'lesson'; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function setTab(t) { STATE.currentTab = t; render(); }
+
+function answerQ(key, opt) {
+  const unsub = key.includes('-q-') && !STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  if (!unsub && STATE.answers[key] !== undefined) return;
+  STATE.answers[key] = opt;
+  saveProgress();
+  render();
+}
+
+function submitQuiz() {
+  const u = STATISTICS_CURRICULUM[STATE.currentUnit];
+  const all = u.qz.every((_, i) => STATE.answers[`${STATE.currentUnit}-q-${i}`] !== undefined);
+  if (!all) { alert('Answer all questions first.'); return; }
+  STATE.quizSubmitted[`${STATE.currentUnit}-qz`] = true;
+  let sc = 0;
+  u.qz.forEach((q, i) => { if (STATE.answers[`${STATE.currentUnit}-q-${i}`] === q.c) sc++; });
+  if (sc / u.qz.length >= 0.6) STATE.completedUnits.add(STATE.currentUnit);
+  saveProgress();
+  render();
+}
+
+function retakeQuiz() {
+  const u = STATISTICS_CURRICULUM[STATE.currentUnit];
+  u.qz.forEach((_, i) => delete STATE.answers[`${STATE.currentUnit}-q-${i}`]);
+  delete STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  STATE.completedUnits.delete(STATE.currentUnit);
+  saveProgress();
+  render();
+}
+
+const savedTheme = localStorage.getItem('mathbored-theme');
+if (savedTheme) document.body.className = savedTheme;
+loadProgress();
+render();
+</script>
+</body>
+</html>

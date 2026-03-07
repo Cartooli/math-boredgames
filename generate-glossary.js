@@ -31,6 +31,17 @@ try {
     process.exit(1);
 }
 
+// Curriculum terms (Number Theory, etc.) — no lesson page required
+let curriculumTerms = [];
+try {
+    curriculumTerms = require('./glossary-curriculum-terms.js');
+    if (Array.isArray(curriculumTerms)) {
+        console.log(`✅ Loaded ${curriculumTerms.length} curriculum glossary terms\n`);
+    }
+} catch (e) {
+    // Optional file
+}
+
 /**
  * Convert topic name to URL-friendly slug
  */
@@ -58,7 +69,8 @@ function getGradeLabel(grade) {
         '9': '9th Grade (Algebra I)',
         '10': '10th Grade (Geometry)',
         '11': '11th Grade (Algebra II)',
-        '12': '12th Grade (Pre-Calculus/Calculus)'
+        '12': '12th Grade (Pre-Calculus/Calculus)',
+        'C': 'College'
     };
     return labels[grade] || `Grade ${grade}`;
 }
@@ -240,7 +252,8 @@ function generateTermPage(concept, allConcepts) {
     const definition = generateDefinition(concept);
     const preview = generatePreview(concept);
     const relatedTerms = getRelatedTerms(concept, allConcepts);
-    const lessonUrl = `/math/${slug}/lesson.html`;
+    const lessonUrl = concept.curriculumLink ? `/${concept.curriculumLink.url}` : `/math/${slug}/lesson.html`;
+    const lessonLabel = concept.curriculumLink ? `📚 View in ${concept.curriculumLink.label}` : '📚 View Full Lesson';
     
     const definedTermSchema = generateDefinedTermSchema(concept, slug);
     
@@ -550,7 +563,7 @@ ${JSON.stringify(breadcrumbSchema, null, 2)}
         ${formulaHTML}
         
         <div class="glossary-actions">
-            <a href="${lessonUrl}" class="glossary-btn">📚 View Full Lesson</a>
+            <a href="${lessonUrl}" class="glossary-btn">${lessonLabel}</a>
             <a href="/glossary.html" class="glossary-btn glossary-btn-secondary">← Back to Glossary</a>
         </div>
         
@@ -588,10 +601,14 @@ function generateGlossaryIndex(validConcepts) {
     });
     
     // Generate grade sections
+    const gradeOrder = ['K', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', 'C'];
     const gradeSections = Object.keys(byGrade).sort((a, b) => {
-        if (a === 'K') return -1;
-        if (b === 'K') return 1;
-        return parseInt(a) - parseInt(b);
+        const i = gradeOrder.indexOf(a);
+        const j = gradeOrder.indexOf(b);
+        if (i !== -1 && j !== -1) return i - j;
+        if (i !== -1) return -1;
+        if (j !== -1) return 1;
+        return String(a).localeCompare(String(b));
     }).map(grade => {
         const concepts = byGrade[grade];
         const gradeLabel = getGradeLabel(grade);
@@ -1070,6 +1087,7 @@ ${JSON.stringify(itemListSchema, null, 2)}
                     <button class="glossary-filter-btn" data-grade="10">10th Grade</button>
                     <button class="glossary-filter-btn" data-grade="11">11th Grade</button>
                     <button class="glossary-filter-btn" data-grade="12">12th Grade</button>
+                    <button class="glossary-filter-btn" data-grade="C">College</button>
                 </div>
             </div>
         </div>
@@ -1206,13 +1224,15 @@ function generateGlossary() {
         if (lessonPageExists(slug)) {
             validConcepts.push(concept);
         }
-        
         if ((index + 1) % 50 === 0 || index === mathConcepts.length - 1) {
             console.log(`   ✓ Checked ${index + 1}/${mathConcepts.length} concepts (${validConcepts.length} valid)`);
         }
     });
-    
-    console.log(`\n✅ Found ${validConcepts.length} terms with lesson pages\n`);
+    if (Array.isArray(curriculumTerms) && curriculumTerms.length > 0) {
+        validConcepts.push(...curriculumTerms);
+        console.log(`   ✓ Added ${curriculumTerms.length} curriculum terms (no lesson page required)`);
+    }
+    console.log(`\n✅ Total: ${validConcepts.length} terms\n`);
     
     if (validConcepts.length === 0) {
         console.error('❌ ERROR: No valid terms found. Make sure lesson pages exist.');

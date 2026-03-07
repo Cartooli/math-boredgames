@@ -26,6 +26,12 @@ try {
     process.exit(1);
 }
 
+let curriculumTerms = [];
+try {
+    curriculumTerms = require('./glossary-curriculum-terms.js');
+    if (!Array.isArray(curriculumTerms)) curriculumTerms = [];
+} catch (e) {}
+
 /**
  * Convert topic name to URL-friendly slug
  */
@@ -90,11 +96,13 @@ function updateSitemap() {
         return;
     }
     
-    // Filter valid concepts (have lesson pages and glossary pages)
-    const validConcepts = mathConcepts.filter(concept => {
+    // Filter valid concepts (have lesson pages and glossary pages) + curriculum terms (only need glossary page)
+    const fromMath = mathConcepts.filter(concept => {
         const slug = toSlug(concept.concept);
         return lessonPageExists(slug) && glossaryPageExists(slug);
     });
+    const fromCurriculum = (curriculumTerms || []).filter(concept => glossaryPageExists(toSlug(concept.concept)));
+    const validConcepts = fromMath.concat(fromCurriculum);
     
     console.log(`✅ Found ${validConcepts.length} glossary pages to add\n`);
     
