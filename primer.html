@@ -41,7 +41,7 @@
         "learningResourceType": "Course",
         "timeRequired": "PT12H",
         "inLanguage": "en",
-        "numberOfCredits": 48,
+        "numberOfCredits": 78,
         "hasCourseInstance": {
             "@type": "CourseInstance",
             "courseMode": "online",
@@ -227,6 +227,8 @@
             cursor: pointer;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .lesson-card.completed {
@@ -283,13 +285,18 @@
             margin-bottom: 16px;
             line-height: 1.7;
             font-weight: 400;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
         
         .lesson-concepts {
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-top: 12px;
+            margin-top: auto;
+            padding-top: 12px;
         }
         
         .concept-tag {
@@ -402,7 +409,7 @@
             
             <div class="primer-stats">
                 <div class="stat-box">
-                    <span class="stat-number">48</span>
+                    <span class="stat-number">78</span>
                     <span class="stat-label">Core Lessons</span>
                 </div>
                 <div class="stat-box">
@@ -414,7 +421,7 @@
                     <span class="stat-label">Grade Coverage</span>
                 </div>
                 <div class="stat-box">
-                    <span class="stat-number">75</span>
+                    <span class="stat-number">105</span>
                     <span class="stat-label">Total Slots</span>
                 </div>
             </div>
@@ -423,7 +430,7 @@
         <div class="progress-section">
             <h2 style="margin: 0 0 10px 0;">Your Progress</h2>
             <p style="color: var(--text-secondary); margin: 0 0 15px 0;">
-                <span id="completedCount">0</span> of 48 core lessons completed
+                <span id="completedCount">0</span> of 78 core lessons completed
                 (<span id="progressPercent">0</span>%)
             </p>
             <div class="progress-bar-container">
@@ -448,7 +455,7 @@
         <noscript>
             <div style="background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 16px; padding: 30px; margin-bottom: 30px;">
                 <h2 style="margin-top: 0;">📚 Course Lessons</h2>
-                <p style="color: var(--text-secondary); margin-bottom: 25px;">Browse our comprehensive K-12 math curriculum with 48 core lessons.</p>
+                <p style="color: var(--text-secondary); margin-bottom: 25px;">Browse our comprehensive K-12 math curriculum with 78 core lessons.</p>
                 
                 <h3 style="color: var(--accent); margin-top: 30px;">Elementary Foundations (K-5)</h3>
                 <ul style="line-height: 2;">
@@ -566,7 +573,7 @@
         function updateProgress() {
             const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
             const count = completedLessons.length;
-            const percent = Math.round((count / 48) * 100);
+            const percent = Math.round((count / 78) * 100);
             
             document.getElementById('completedCount').textContent = count;
             document.getElementById('progressPercent').textContent = percent;
