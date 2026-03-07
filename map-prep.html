@@ -84,13 +84,82 @@
         .back-link:hover {
             opacity: 0.8;
         }
+
+        /* MAP Info collapsible */
+        .map-info-details {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .map-info-summary {
+            padding: 14px 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            -webkit-user-select: none;
+            user-select: none;
+            transition: color 0.2s;
+        }
+
+        .map-info-summary::-webkit-details-marker { display: none; }
+
+        .map-info-summary::before {
+            content: '▶';
+            font-size: 0.65rem;
+            transition: transform 0.2s;
+            display: inline-block;
+        }
+
+        .map-info-details[open] .map-info-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .map-info-summary:hover {
+            color: var(--accent);
+        }
+
+        .map-info-body {
+            padding: 0 20px 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
         
         /* Stats Panel */
         .map-stats {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
-            margin-bottom: 24px;
+            margin-bottom: 8px;
+        }
+
+        .map-stats-secondary {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 16px;
+        }
+
+        .map-stat-secondary {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            padding: 4px 0;
+        }
+
+        .map-stat-secondary-value {
+            font-weight: 700;
+            color: var(--text-primary);
         }
         
         .map-stat {
@@ -496,7 +565,7 @@
         /* Responsive */
         @media (max-width: 768px) {
             .map-stats {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
             
             .map-hero h1 {
@@ -532,6 +601,7 @@
             
             .map-stats {
                 gap: 8px;
+                grid-template-columns: repeat(3, 1fr);
             }
             
             .map-stat {
@@ -831,7 +901,17 @@
             <h1>📊 MAP Math Prep</h1>
             <p>Endless practice questions to prepare for MAP Growth assessments</p>
         </div>
-        
+
+        <!-- What is MAP? -->
+        <details class="map-info-details">
+            <summary class="map-info-summary">What is MAP Growth?</summary>
+            <div class="map-info-body">
+                <p><strong>MAP Growth</strong> (Measures of Academic Progress) is a computer-adaptive assessment by <strong>NWEA</strong> used in thousands of schools across the U.S. from grades 2–12. It adapts in real time — questions get harder or easier based on your answers — and reports a RIT score that measures your current level and growth over time.</p>
+                <p style="margin-top: 10px;"><strong>What it tests:</strong> Number sense, operations, algebra, geometry, measurement, data &amp; statistics — typically 40–53 questions per session.</p>
+                <p style="margin-top: 10px;"><strong>How to use this page:</strong> Practice as many questions as you like. The 150 questions here cover the same skills and difficulty range as the actual exam, including Easy, Medium, and Hard levels. If you get a question wrong, a hint will automatically appear to help you learn from it.</p>
+            </div>
+        </details>
+
         <!-- Stats Panel -->
         <div class="map-stats">
             <div class="map-stat">
@@ -846,24 +926,27 @@
                 <span class="map-stat-value accuracy" id="accuracy">--%</span>
                 <span class="map-stat-label">Accuracy</span>
             </div>
-            <div class="map-stat">
-                <span class="map-stat-value" id="bestStreak">0</span>
-                <span class="map-stat-label">Best Streak</span>
+        </div>
+        <div class="map-stats-secondary">
+            <div class="map-stat-secondary">
+                <span>Best streak:</span>
+                <span class="map-stat-secondary-value" id="bestStreak">0</span>
             </div>
         </div>
         
         <!-- Session Progress -->
         <div class="session-progress">
-            <span class="progress-label">Session Progress</span>
+            <span class="progress-label">Round Progress</span>
             <div class="progress-bar-container">
                 <div class="progress-bar-fill" id="progressBar" style="width: 0%"></div>
             </div>
             <span class="progress-count" id="progressCount">0 / 50</span>
         </div>
+        <div style="font-size:0.75rem;color:var(--text-secondary);text-align:right;margin-top:-14px;margin-bottom:8px;opacity:0.7;">resets every 50 questions</div>
 
         <!-- Daily Goal & Day Streak -->
         <div class="daily-goal-bar">
-            <span class="daily-goal-label">🎯 Today's Goal</span>
+            <span class="daily-goal-label">Today's Goal</span>
             <div class="progress-bar-container" style="flex:1;min-width:80px;">
                 <div class="progress-bar-fill goal-fill" id="dailyProgressBar" style="width: 0%"></div>
             </div>
@@ -873,21 +956,21 @@
 
         <!-- Weak Mode Banner (hidden until weak area mode active) -->
         <div class="weak-mode-banner" id="weakModeBanner" style="display:none">
-            <span>🎯 Weak Area Mode — practicing your missed questions</span>
+            <span>Weak Area Mode — practicing your missed questions</span>
             <button onclick="mapPrep.stopWeakAreaMode()">✕ Exit</button>
         </div>
 
         <!-- Weak Areas Panel -->
         <div class="weak-areas-panel" id="weakAreasPanel">
             <div class="weak-areas-header" onclick="mapPrep.toggleWeakAreas()">
-                <span>📉 Weak Areas <span id="weakAreasSummary" style="font-weight:400;color:var(--text-secondary);font-size:0.85rem;margin-left:6px;"></span></span>
+                <span>Weak Areas <span id="weakAreasSummary" style="font-weight:400;color:var(--text-secondary);font-size:0.85rem;margin-left:6px;"></span></span>
                 <span class="weak-toggle-icon" id="weakToggleIcon">▼</span>
             </div>
             <div class="weak-areas-body" id="weakAreasBody" style="display:none">
                 <div id="topicBreakdown"></div>
                 <div class="weak-area-actions">
-                    <button class="btn-weak-mode" onclick="mapPrep.startWeakAreaMode()">🎯 Practice Weak Areas</button>
-                    <button class="btn-clear-history" onclick="mapPrep.clearHistory()">🗑️ Reset History</button>
+                    <button class="btn-weak-mode" onclick="mapPrep.startWeakAreaMode()">Practice Weak Areas</button>
+                    <button class="btn-clear-history" onclick="mapPrep.clearHistory()">Reset History</button>
                 </div>
                 <div class="missed-list" id="missedList"></div>
             </div>
@@ -908,7 +991,7 @@
             
             <div class="hint-section">
                 <button class="hint-toggle" id="hintToggle" onclick="mapPrep.toggleHint()">
-                    💡 Show Hint
+                    Show Hint
                 </button>
                 <div class="hint-content" id="hintContent"></div>
             </div>
@@ -916,7 +999,7 @@
             <div class="feedback-message" id="feedbackMessage"></div>
             
             <div class="action-buttons">
-                <button class="btn-skip" onclick="mapPrep.skipQuestion()">Skip →</button>
+                <button class="btn-skip" onclick="mapPrep.skipQuestion()" title="Skip this question — resets your current streak">Skip →</button>
                 <button class="btn-next" id="nextBtn" onclick="mapPrep.nextQuestion()" disabled>
                     Next Question →
                 </button>
@@ -931,11 +1014,11 @@
         <div class="container">
             <p>MathBored @ math.boredgames.site • Free forever • No logins, no limits, just learning</p>
             <p style="margin-top: 10px; font-size: 0.9rem;">
-                <a href="index.html" style="color: var(--accent); text-decoration: none;">🏠 Home</a>
+                <a href="index.html" style="color: var(--accent); text-decoration: none;">Home</a>
                 •
-                <a href="olympiad.html" style="color: var(--accent); text-decoration: none;">📐 Daily Math Olympiad</a>
+                <a href="olympiad.html" style="color: var(--accent); text-decoration: none;">Daily Math Olympiad</a>
                 •
-                <a href="competitions.html" style="color: var(--accent); text-decoration: none;">🏆 Math Competitions</a>
+                <a href="competitions.html" style="color: var(--accent); text-decoration: none;">Math Competitions</a>
             </p>
         </div>
     </footer>
@@ -2894,7 +2977,7 @@
             // Update hint
             document.getElementById('hintContent').textContent = question.hint;
             document.getElementById('hintContent').classList.remove('visible');
-            document.getElementById('hintToggle').innerHTML = '💡 Show Hint';
+            document.getElementById('hintToggle').innerHTML = 'Show Hint';
             
             // Generate answer options
             const optionsContainer = document.getElementById('answerOptions');
@@ -2967,7 +3050,7 @@
                 const hintToggle = document.getElementById('hintToggle');
                 if (!hintContent.classList.contains('visible')) {
                     hintContent.classList.add('visible');
-                    hintToggle.innerHTML = '💡 Hide Hint';
+                    hintToggle.innerHTML = 'Hide Hint';
                 }
             }
 
@@ -3036,10 +3119,10 @@
             
             if (hintContent.classList.contains('visible')) {
                 hintContent.classList.remove('visible');
-                hintToggle.innerHTML = '💡 Show Hint';
+                hintToggle.innerHTML = 'Show Hint';
             } else {
                 hintContent.classList.add('visible');
-                hintToggle.innerHTML = '💡 Hide Hint';
+                hintToggle.innerHTML = 'Hide Hint';
             }
         },
         

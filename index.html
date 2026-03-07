@@ -204,7 +204,7 @@
             <div class="header-content">
                 <div>
                     <h1>🎯 MathBored</h1>
-                    <div class="tagline">Never be bored with math again • Always free, always helpful • <a href="demo.html">Try Demo</a> • <a href="primer.html">📚 Math Primer</a> • <a href="algebra-i.html">𝑥 Algebra I</a> · <a href="algebra-ii.html">𝑥² Algebra II</a> · <a href="geometry.html">△ Geometry</a> · <a href="trigonometry.html">∿ Trigonometry</a> · <a href="linear-algebra.html">◫ Linear Algebra</a> · <a href="number-theory.html">∞ Number Theory</a> · <a href="statistics.html">📊 Statistics</a> • <a href="glossary.html">📖 Glossary</a> • <a href="#" id="quickStartLink">⚡ Quick Start</a></div>
+                    <div class="tagline">Never be bored with math again • Always free, always helpful • <a href="demo.html">Try Demo</a> • <a href="primer.html">Math Primer</a> • <a href="algebra-i.html">𝑥 Algebra I</a> · <a href="algebra-ii.html">𝑥² Algebra II</a> · <a href="geometry.html">△ Geometry</a> · <a href="trigonometry.html">∿ Trigonometry</a> · <a href="linear-algebra.html">◫ Linear Algebra</a> · <a href="number-theory.html">∞ Number Theory</a> · <a href="statistics.html">Statistics</a> • <a href="glossary.html">Glossary</a> • <a href="#" id="quickStartLink">Quick Start</a></div>
                 </div>
                 <div class="header-actions">
                     <button class="search-trigger-btn" id="searchTriggerBtn" aria-label="Search all topics" title="Search all topics (Ctrl/Cmd+K)">
@@ -232,7 +232,7 @@
         <div class="search-modal-backdrop" id="searchModalBackdrop"></div>
         <div class="search-modal-content">
             <div class="search-modal-header">
-                <h2 class="search-modal-title">🔍 Search MathBored</h2>
+                <h2 class="search-modal-title">Search MathBored</h2>
                 <button class="search-modal-close" id="searchModalClose" aria-label="Close search">×</button>
             </div>
             <div class="search-modal-body">
@@ -268,7 +268,7 @@
     <div class="container">
         <div class="controls">
             <div class="control-group">
-                <label for="gradeSelect">📚 Grade Level</label>
+                <label for="gradeSelect">Grade Level</label>
                 <select id="gradeSelect">
                     <option value="K">Kindergarten</option>
                     <option value="1">1st Grade</option>
@@ -287,11 +287,11 @@
             </div>
 
             <div class="control-group">
-                <label for="topicSelect">📖 Topic</label>
+                <label for="topicSelect">Topic</label>
                 <div class="topic-search-wrapper">
                     <input type="text" 
                            id="topicSearch" 
-                           placeholder="🔍 Search topics..." 
+                           placeholder="Search topics..." 
                            class="topic-search-input"
                            oninput="app.enhancedFilterTopics(this.value)"
                            aria-label="Search topics">
@@ -311,26 +311,26 @@
             </div>
 
             <div class="control-group">
-                <label id="modeLabel">🎮 Learning Mode</label>
+                <label id="modeLabel">Learning Mode</label>
                 <div class="mode-tabs" role="group" aria-labelledby="modeLabel">
-                    <button class="mode-tab active" data-mode="lesson">📝 Lesson</button>
-                    <button class="mode-tab" data-mode="walkthrough">🔍 Walkthrough</button>
-                    <button class="mode-tab" data-mode="practice">💪 Practice</button>
+                    <button class="mode-tab active" data-mode="lesson">Lesson</button>
+                    <button class="mode-tab" data-mode="walkthrough">Walkthrough</button>
+                    <button class="mode-tab" data-mode="practice">Practice</button>
                 </div>
             </div>
 
             <div class="control-group" id="difficultyControl" style="display: none;">
-                <label id="difficultyLabel">⚡ Difficulty Level</label>
+                <label id="difficultyLabel">Difficulty Level</label>
                 <div class="mode-tabs" role="group" aria-labelledby="difficultyLabel">
-                    <button class="difficulty-tab" data-difficulty="easy">😊 Easy</button>
-                    <button class="difficulty-tab active" data-difficulty="medium">😎 Medium</button>
-                    <button class="difficulty-tab" data-difficulty="hard">🔥 Hard</button>
+                    <button class="difficulty-tab" data-difficulty="easy">Easy</button>
+                    <button class="difficulty-tab active" data-difficulty="medium">Medium</button>
+                    <button class="difficulty-tab" data-difficulty="hard">Hard</button>
                 </div>
             </div>
 
             <!-- Adaptive Difficulty Toggle -->
             <div class="control-group" id="adaptiveControl">
-                <label id="adaptiveLabel">🤖 Adaptive Learning</label>
+                <label id="adaptiveLabel">Adaptive Learning</label>
                 <button 
                     id="adaptiveToggle" 
                     class="adaptive-toggle"
@@ -356,47 +356,47 @@
                     <span class="stat-label">Accuracy</span>
                     <span class="stat-value" id="accuracyPercent" aria-live="polite" aria-atomic="true">--%</span>
                 </div>
-                <button class="share-btn" id="shareBtn" onclick="app.shareStats()" title="Share your progress">
-                    📤 Share Progress
+                <button class="share-btn" id="shareBtn" onclick="app.shareStats()" title="Copy a shareable link to your progress summary">
+                    Share Progress
                 </button>
                 <button class="reset-btn" id="resetBtn" onclick="app.resetStats()" title="Reset all statistics">
-                    🔄 Reset Stats
+                    Reset Stats
                 </button>
-                <button class="export-btn" onclick="app.exportProgress()" title="Download your progress">
-                    💾 Export Progress
+                <button class="export-btn" onclick="app.exportProgress()" title="Download your progress as a backup file">
+                    Export Progress
                 </button>
-                <button class="import-btn" onclick="app.importProgress()" title="Restore from backup">
-                    📂 Import Progress
+                <button class="import-btn" onclick="app.importProgress()" title="Restore progress from a backup file">
+                    Import Progress
                 </button>
                 <button class="achievements-btn" onclick="app.viewAchievements()" title="View your achievements">
-                    🏆 Achievements
+                    Achievements
                 </button>
                 <button class="timed-btn" onclick="app.startTimedChallenge(300)" title="Start 5-minute timed challenge">
-                    ⏱️ Timed Challenge
+                    Timed Challenge
                 </button>
                 <button class="print-btn" onclick="app.printWorksheet()" title="Print current worksheet">
-                    🖨️ Print
+                    Print
                 </button>
                 <button class="analytics-btn" onclick="app.viewAnalytics()" title="View usage analytics">
-                    📊 Analytics
+                    Analytics
                 </button>
                 <button class="export-btn" onclick="app.viewMasteryDashboard()" title="View mastery progress">
-                    👑 Mastery
+                    Mastery
                 </button>
-                <button class="export-btn" onclick="app.showSpacedRepetitionDashboard()" title="Spaced repetition review">
-                    📚 Review Schedule
+                <button class="export-btn" onclick="app.showSpacedRepetitionDashboard()" title="Spaced repetition review schedule">
+                    Review Schedule
                 </button>
             </div>
             
             <!-- Learning Tools -->
             <div class="learning-tools" style="margin-top: 20px; padding-top: 20px; border-top: 2px solid var(--border);">
-                <h3 style="font-size: 1rem; margin-bottom: 12px; color: var(--text-secondary); text-align: center;">🛠️ Learning Tools</h3>
+                <h3 style="font-size: 1rem; margin-bottom: 12px; color: var(--text-secondary); text-align: center;">Learning Tools</h3>
                 <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
                     <button class="export-btn" onclick="app.showGraphPlotter()" title="Interactive graph plotter">
-                        📊 Graph Plotter
+                        Graph Plotter
                     </button>
                     <button class="export-btn" onclick="app.showNumberLineDemo()" title="Visual number line">
-                        📏 Number Line
+                        Number Line
                     </button>
                 </div>
             </div>
@@ -407,7 +407,7 @@
         <nav aria-label="Breadcrumb" id="breadcrumbNav" class="breadcrumb-nav" style="display: none;">
             <ol class="breadcrumb-list">
                 <li class="breadcrumb-item">
-                    <a href="/" class="breadcrumb-link">🏠 Home</a>
+                    <a href="/" class="breadcrumb-link">Home</a>
                 </li>
                 <li class="breadcrumb-separator" aria-hidden="true">/</li>
                 <li class="breadcrumb-item">
@@ -433,14 +433,14 @@
         <div class="container">
             <p>MathBored @ math.boredgames.site • Free forever • No logins, no limits, just learning</p>
             <p style="margin-top: 10px; font-size: 0.9rem;">
-                Helping students master math, one problem at a time 🚀
+                Helping students master math, one problem at a time
                 <br>
-                <a href="competitions.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">🏆 Explore Math Competitions</a>
+                <a href="competitions.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Explore Math Competitions</a>
                 •
-                <a href="olympiad.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">📐 Daily Math Olympiad</a>
+                <a href="olympiad.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">Daily Math Olympiad</a>
                 <br>
                 <span style="font-size: 0.8rem; opacity: 0.8; margin-top: 5px; display: inline-block;">
-                    🔒 Your feedback is completely anonymous and private
+                    Your feedback is completely anonymous and private
                 </span>
             </p>
         </div>
@@ -733,25 +733,25 @@
             if (item.links) {
                 const linkItems = [];
                 if (item.links.lesson) {
-                    linkItems.push(`<a href="${item.links.lesson}" class="result-link result-link-lesson">📝 Lesson</a>`);
+                    linkItems.push(`<a href="${item.links.lesson}" class="result-link result-link-lesson">Lesson</a>`);
                 }
                 if (item.links.practice) {
-                    linkItems.push(`<a href="${item.links.practice}" class="result-link result-link-practice">💪 Practice</a>`);
+                    linkItems.push(`<a href="${item.links.practice}" class="result-link result-link-practice">Practice</a>`);
                 }
                 if (item.links.walkthrough) {
-                    linkItems.push(`<a href="${item.links.walkthrough}" class="result-link result-link-walkthrough">🔍 Walkthrough</a>`);
+                    linkItems.push(`<a href="${item.links.walkthrough}" class="result-link result-link-walkthrough">Walkthrough</a>`);
                 }
                 if (item.links.primer) {
-                    linkItems.push(`<a href="${item.links.primer}" class="result-link result-link-primer">📖 Primer</a>`);
+                    linkItems.push(`<a href="${item.links.primer}" class="result-link result-link-primer">Primer</a>`);
                 }
                 if (item.links.olympiad) {
-                    linkItems.push(`<a href="${item.links.olympiad}" class="result-link result-link-olympiad">🏆 Challenge</a>`);
+                    linkItems.push(`<a href="${item.links.olympiad}" class="result-link result-link-olympiad">Challenge</a>`);
                 }
                 if (item.links.competitions) {
-                    linkItems.push(`<a href="${item.links.competitions}" class="result-link result-link-competitions">🥇 Explore</a>`);
+                    linkItems.push(`<a href="${item.links.competitions}" class="result-link result-link-competitions">Explore</a>`);
                 }
                 if (item.links.glossary) {
-                    linkItems.push(`<a href="${item.links.glossary}" class="result-link result-link-glossary">📖 Glossary</a>`);
+                    linkItems.push(`<a href="${item.links.glossary}" class="result-link result-link-glossary">Glossary</a>`);
                 }
                 linksHtml = linkItems.join('');
             }
@@ -959,9 +959,12 @@
         },
         
         init() {
-            // Show modal on first visit (unless user opted out)
+            // Show modal on first visit (unless user opted out or is a returning user with existing stats)
             const hideQuickStart = localStorage.getItem('hideQuickStart');
-            if (!hideQuickStart) {
+            const isReturningUser = localStorage.getItem('mathbored-stats') ||
+                                    localStorage.getItem('lastAssessmentDate') ||
+                                    localStorage.getItem('mathbored-completed');
+            if (!hideQuickStart && !isReturningUser) {
                 // Show after a brief delay for better UX
                 setTimeout(() => this.show(), 500);
             }
