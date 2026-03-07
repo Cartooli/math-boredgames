@@ -1,8 +1,8 @@
 {
   "title": "Essential Math Primer",
   "description": "15-minute standalone lessons covering K-12 math concepts",
-  "total_core_lessons": 48,
-  "total_with_reserves": 75,
+  "total_core_lessons": 78,
+  "total_with_reserves": 105,
   "lesson_duration_minutes": 15,
   "grade_bands": [
     {
@@ -105,6 +105,132 @@
           "description": "Collecting data, pictographs, bar graphs, interpretation",
           "key_concepts": ["data", "graphing", "representation"],
           "prerequisites": []
+        }
+      ]
+    },
+    {
+      "band": "K-2 Foundations",
+      "grade_span": "K-2",
+      "lesson_count": 6,
+      "lessons": [
+        {
+          "id": "K01",
+          "sequence": 76,
+          "title": "Place Value: Tens and Ones",
+          "description": "Students explore how two-digit numbers are built from groups of ten and leftover ones using base-10 blocks and place value charts. They learn to decompose numbers like 47 into 4 tens and 7 ones, read and write two-digit numbers in expanded form, and understand that the position of a digit determines its value.",
+          "key_concepts": ["tens and ones places", "grouping by ten", "expanded form of two-digit numbers", "base-10 block representations"],
+          "prerequisites": ["E01"]
+        },
+        {
+          "id": "K02",
+          "sequence": 77,
+          "title": "Hundreds and Regrouping: Building Bigger Numbers",
+          "description": "Students extend place value understanding to three-digit numbers by discovering the hundreds place. Using base-10 blocks, they see that 10 tens make 1 hundred, compose and decompose numbers like 365 into 3 hundreds, 6 tens, and 5 ones, and practice regrouping — trading 10 ones for 1 ten or 10 tens for 1 hundred.",
+          "key_concepts": ["hundreds place", "regrouping ones as tens", "regrouping tens as hundreds", "composing and decomposing three-digit numbers"],
+          "prerequisites": ["E01", "K01"]
+        },
+        {
+          "id": "K03",
+          "sequence": 78,
+          "title": "Comparing and Ordering Numbers",
+          "description": "Students learn to compare two- and three-digit numbers using place value reasoning. Starting with base-10 block comparisons, they progress to using greater than, less than, and equal to symbols. They practice ordering sets of numbers from least to greatest and greatest to least, and locate numbers on a number line to build number sense.",
+          "key_concepts": ["greater than, less than, equal to symbols", "comparing by place value from left to right", "ordering numbers on a number line", "reasoning about magnitude using hundreds, tens, and ones"],
+          "prerequisites": ["E01", "K01", "K02"]
+        },
+        {
+          "id": "K04",
+          "sequence": 79,
+          "title": "Multi-Digit Addition with Regrouping",
+          "description": "Students learn to add two- and three-digit numbers using the standard algorithm, with a focus on regrouping (carrying). They begin with base-10 block models to see why 10 ones become 1 ten, then transition to the written vertical method. Problems progress from two-digit plus two-digit with one regrouping to three-digit problems with multiple regroupings.",
+          "key_concepts": ["vertical addition algorithm", "regrouping ones into tens when adding", "regrouping tens into hundreds when adding", "estimating sums to check reasonableness"],
+          "prerequisites": ["E02", "K01", "K02"]
+        },
+        {
+          "id": "K05",
+          "sequence": 80,
+          "title": "Multi-Digit Subtraction with Regrouping",
+          "description": "Students learn to subtract two- and three-digit numbers using the standard algorithm, with a focus on regrouping (borrowing). Using base-10 blocks, they see why 1 ten can be broken into 10 ones when there aren't enough ones to subtract. They practice the written vertical method and use addition to check their answers, reinforcing the inverse relationship.",
+          "key_concepts": ["vertical subtraction algorithm", "regrouping a ten into ones when subtracting", "regrouping a hundred into tens when subtracting", "using addition to verify subtraction"],
+          "prerequisites": ["E03", "K01", "K02", "K04"]
+        },
+        {
+          "id": "K06",
+          "sequence": 81,
+          "title": "Time and Money in Everyday Life",
+          "description": "Students learn to tell time on analog and digital clocks to the hour and half hour, then to five-minute intervals. They explore calendar concepts including days of the week, months, and reading a date. For money, they identify coins and bills, learn their values, and count collections of mixed coins using skip counting. Real-world scenarios connect both skills to daily routines.",
+          "key_concepts": ["reading analog and digital clocks to five-minute intervals", "days, weeks, months, and reading calendar dates", "identifying coin and bill values", "counting mixed collections of coins using skip counting"],
+          "prerequisites": ["E01", "E08", "K01"]
+        }
+      ]
+    },
+    {
+      "band": "Upper Elementary",
+      "grade_span": "3-5",
+      "lesson_count": 8,
+      "lessons": [
+        {
+          "id": "U01",
+          "sequence": 82,
+          "title": "Place Value to Millions & Billions",
+          "description": "Extends place value understanding from hundreds to millions and billions. Students explore how each place is ten times the value of the place to its right, read and write large numbers in standard, expanded, and word form, and compare and order numbers up to the billions place.",
+          "key_concepts": ["place value patterns (x10 relationship)", "reading and writing numbers to billions", "expanded form with large numbers", "comparing and ordering large numbers"],
+          "prerequisites": ["K02"]
+        },
+        {
+          "id": "U02",
+          "sequence": 83,
+          "title": "Multi-Digit Multiplication Strategies",
+          "description": "Builds on the multiplication concept to multiply multi-digit numbers using area models, partial products, and the standard algorithm. Students decompose factors by place value, compute partial products, and combine results, progressing from 2-digit x 1-digit to 2-digit x 2-digit multiplication.",
+          "key_concepts": ["area model for multiplication", "partial products strategy", "standard multiplication algorithm", "estimating products for reasonableness"],
+          "prerequisites": ["E04", "U01"]
+        },
+        {
+          "id": "U03",
+          "sequence": 84,
+          "title": "Long Division Algorithm",
+          "description": "Develops the long division algorithm step by step, connecting division to repeated subtraction and the inverse of multiplication. Students learn the divide-multiply-subtract-bring down cycle, progressing from 2-digit / 1-digit to 4-digit / 1-digit, and interpret remainders in context.",
+          "key_concepts": ["divide-multiply-subtract-bring down cycle", "estimating quotients using compatible numbers", "interpreting remainders in context", "checking division with multiplication"],
+          "prerequisites": ["E05", "U02"]
+        },
+        {
+          "id": "U04",
+          "sequence": 85,
+          "title": "Mixed Numbers & Improper Fractions",
+          "description": "Introduces the relationship between mixed numbers and improper fractions. Students use visual models (fraction strips, number lines) to convert between the two forms, compare mixed numbers, and place them on a number line, building the foundation for fraction computation with values greater than one.",
+          "key_concepts": ["converting improper fractions to mixed numbers", "converting mixed numbers to improper fractions", "comparing and ordering mixed numbers", "placing mixed numbers on a number line"],
+          "prerequisites": ["E06", "M13"]
+        },
+        {
+          "id": "U05",
+          "sequence": 86,
+          "title": "Fraction Operations with Mixed Numbers",
+          "description": "Extends addition, subtraction, multiplication, and division of fractions to include mixed numbers. Students learn to add and subtract mixed numbers with regrouping, multiply a whole number by a mixed number, and solve real-world problems involving fractional quantities greater than one.",
+          "key_concepts": ["adding mixed numbers with regrouping", "subtracting mixed numbers with borrowing", "multiplying whole numbers by mixed numbers", "solving word problems with mixed number operations"],
+          "prerequisites": ["U04", "M14", "M15"]
+        },
+        {
+          "id": "U06",
+          "sequence": 87,
+          "title": "Decimal Operations: Addition & Subtraction",
+          "description": "Teaches addition and subtraction of decimal numbers by emphasizing place value alignment. Students use base-ten blocks and hundredths grids to model decimal sums and differences, learn to align decimal points before computing, and estimate to check reasonableness of results.",
+          "key_concepts": ["aligning decimal points for addition and subtraction", "modeling decimal operations with base-ten blocks", "estimating decimal sums and differences", "adding and subtracting decimals through hundredths"],
+          "prerequisites": ["M16", "U01"]
+        },
+        {
+          "id": "U07",
+          "sequence": 88,
+          "title": "Decimal Operations: Multiplication & Division",
+          "description": "Extends multiplication and division to decimal numbers. Students explore why multiplying by decimals less than one produces a smaller product, use area models and place value reasoning to multiply decimals, and divide decimals by whole numbers, connecting quotient placement to place value understanding.",
+          "key_concepts": ["multiplying decimals using place value and area models", "placing the decimal point in products", "dividing decimals by whole numbers", "estimating to check decimal computation results"],
+          "prerequisites": ["U02", "U06"]
+        },
+        {
+          "id": "U08",
+          "sequence": 89,
+          "title": "Area, Perimeter & Volume Applications",
+          "description": "Applies area and perimeter to composite figures by decomposing them into rectangles, and introduces volume as the space inside a three-dimensional solid. Students calculate area of L-shapes and composite rectangles, solve real-world perimeter problems, and find volume of rectangular prisms by counting unit cubes and using the length x width x height formula.",
+          "key_concepts": ["area of composite figures by decomposition", "real-world perimeter problem solving", "volume as counting unit cubes in a rectangular prism", "volume formula: length x width x height"],
+          "prerequisites": ["E09", "U02"]
         }
       ]
     },
@@ -232,6 +358,77 @@
           "description": "Linear patterns, constant rate, introduction to linear functions",
           "key_concepts": ["linear", "rate", "patterns"],
           "prerequisites": ["M26"]
+        }
+      ]
+    },
+    {
+      "band": "Middle School Geometry & Data",
+      "grade_span": "6-8",
+      "lesson_count": 8,
+      "lessons": [
+        {
+          "id": "G01",
+          "sequence": 90,
+          "title": "Angles & Angle Relationships",
+          "description": "Introduces angle measurement in degrees, classifies angles as acute, right, obtuse, and straight, and explores key angle relationships including complementary, supplementary, vertical, and adjacent angles. Students learn to use these relationships to find unknown angle measures.",
+          "key_concepts": ["classifying angles (acute, right, obtuse, straight)", "complementary angles (sum to 90 degrees)", "supplementary angles (sum to 180 degrees)", "vertical angles are congruent"],
+          "prerequisites": ["E09"]
+        },
+        {
+          "id": "G02",
+          "sequence": 91,
+          "title": "Parallel Lines & Transversals",
+          "description": "Explores what happens when a transversal crosses parallel lines, identifying corresponding, alternate interior, alternate exterior, and co-interior (same-side interior) angle pairs. Students apply angle relationships to determine unknown measures and reason about why lines must be parallel.",
+          "key_concepts": ["parallel lines and transversals", "corresponding angles are congruent", "alternate interior and alternate exterior angles", "co-interior angles are supplementary (sum to 180 degrees)"],
+          "prerequisites": ["G01"]
+        },
+        {
+          "id": "G03",
+          "sequence": 92,
+          "title": "Triangles: Classification, Angle Sum & Congruence",
+          "description": "Classifies triangles by side length (scalene, isosceles, equilateral) and by angle measure (acute, right, obtuse). Establishes the triangle angle-sum property (interior angles sum to 180 degrees) and introduces triangle congruence criteria (SSS, SAS, ASA) through hands-on reasoning.",
+          "key_concepts": ["classifying triangles by sides and angles", "triangle angle-sum property (180 degrees)", "exterior angle theorem", "triangle congruence criteria (SSS, SAS, ASA)"],
+          "prerequisites": ["G01"]
+        },
+        {
+          "id": "G04",
+          "sequence": 93,
+          "title": "Geometric Transformations",
+          "description": "Introduces rigid transformations (translations, reflections, rotations) and non-rigid transformations (dilations) on the coordinate plane. Students describe transformations using precise language and coordinates, verify that rigid transformations preserve size and shape, and explore how dilations change size while preserving shape.",
+          "key_concepts": ["translations (slides) by coordinate rules", "reflections across axes and lines", "rotations about the origin (90, 180, 270 degrees)", "dilations with scale factor from a center point"],
+          "prerequisites": ["E09", "M25"]
+        },
+        {
+          "id": "G05",
+          "sequence": 94,
+          "title": "Circles: Circumference, Area & Pi",
+          "description": "Explores the relationship between a circle's diameter and circumference to discover pi. Develops and applies the formulas for circumference (C = pi*d = 2*pi*r) and area (A = pi*r^2). Students solve real-world problems involving circular measurements.",
+          "key_concepts": ["radius, diameter, and circumference definitions", "pi as the ratio of circumference to diameter", "circumference formulas (C = pi*d and C = 2*pi*r)", "area of a circle (A = pi*r^2)"],
+          "prerequisites": ["E09"]
+        },
+        {
+          "id": "G06",
+          "sequence": 95,
+          "title": "Volume & Surface Area of 3D Solids",
+          "description": "Extends 2D area concepts to three dimensions. Students learn to calculate the volume and surface area of prisms, cylinders, pyramids, cones, and spheres. Emphasizes understanding formulas through net diagrams and cross-sectional reasoning rather than pure memorization.",
+          "key_concepts": ["volume of prisms and cylinders (V = Bh)", "volume of pyramids, cones (V = 1/3 Bh), and spheres (V = 4/3 pi r^3)", "surface area using nets and formulas", "choosing appropriate units (square vs cubic)"],
+          "prerequisites": ["E09", "G05"]
+        },
+        {
+          "id": "G07",
+          "sequence": 96,
+          "title": "Data Displays & Measures of Center and Spread",
+          "description": "Builds on basic graphing to introduce histograms, dot plots, and box plots for displaying distributions of numerical data. Students calculate and interpret mean, median, mode, range, interquartile range (IQR), and mean absolute deviation (MAD), choosing appropriate measures for symmetric versus skewed distributions.",
+          "key_concepts": ["histograms and dot plots for numerical data", "mean, median, and mode as measures of center", "range, IQR, and mean absolute deviation as measures of spread", "effect of outliers and skewness on center and spread"],
+          "prerequisites": ["E12"]
+        },
+        {
+          "id": "G08",
+          "sequence": 97,
+          "title": "Probability: Sample Spaces & Experimental vs Theoretical",
+          "description": "Introduces probability as a measure from 0 to 1 representing likelihood. Students list sample spaces for simple and compound events, calculate theoretical probability using equally likely outcomes, conduct experiments to find experimental (relative frequency) probability, and compare the two as trial counts increase (law of large numbers intuition).",
+          "key_concepts": ["probability scale from 0 (impossible) to 1 (certain)", "sample spaces for simple and compound events", "theoretical probability as favorable outcomes over total outcomes", "experimental probability and the law of large numbers"],
+          "prerequisites": ["E12"]
         }
       ]
     },
@@ -407,6 +604,77 @@
           "description": "Relationship analysis, correlation coefficient, inference",
           "key_concepts": ["correlation", "causation", "inference"],
           "prerequisites": ["H47"]
+        }
+      ]
+    },
+    {
+      "band": "High School Advanced",
+      "grade_span": "9-12",
+      "lesson_count": 8,
+      "lessons": [
+        {
+          "id": "A01",
+          "sequence": 98,
+          "title": "Geometric Proof Foundations",
+          "description": "Introduction to formal geometric reasoning: axioms, postulates, and proof structures. Covers direct proof, proof by contradiction, and two-column proof format using properties of equality, congruence, and basic angle relationships (vertical angles, supplementary angles, corresponding angles).",
+          "key_concepts": ["axioms and postulates vs theorems", "two-column and paragraph proof formats", "properties of equality and congruence", "vertical angles, linear pairs, and parallel line angle theorems"],
+          "prerequisites": ["E09"]
+        },
+        {
+          "id": "A02",
+          "sequence": 99,
+          "title": "Coordinate Geometry Proofs",
+          "description": "Using the coordinate plane to prove geometric properties algebraically. Covers midpoint formula, slope criteria for parallel and perpendicular lines, and distance formula applications to prove that figures are parallelograms, rectangles, rhombi, or other specific quadrilaterals by verifying side lengths, slopes, and diagonal properties.",
+          "key_concepts": ["midpoint formula and segment bisector proofs", "slope criteria for parallel and perpendicular lines", "proving quadrilateral classifications on the coordinate plane", "distance formula in geometric arguments"],
+          "prerequisites": ["H28", "R54", "A01"]
+        },
+        {
+          "id": "A03",
+          "sequence": 100,
+          "title": "Similarity and Proportionality",
+          "description": "Establishing triangle similarity through AA, SAS, and SSS similarity criteria. Covers ratio and proportion in similar figures, the Triangle Proportionality Theorem (a line parallel to one side of a triangle divides the other two sides proportionally), geometric mean, and applications to indirect measurement.",
+          "key_concepts": ["AA, SAS, and SSS similarity criteria", "Triangle Proportionality Theorem", "scale factor and proportional reasoning in similar figures", "geometric mean in right triangles"],
+          "prerequisites": ["E09", "A01"]
+        },
+        {
+          "id": "A04",
+          "sequence": 101,
+          "title": "Circle Theorems",
+          "description": "Key theorems relating arcs, chords, inscribed angles, and tangent lines in circles. Covers the Inscribed Angle Theorem (an inscribed angle is half its intercepted arc), Thales' theorem (inscribed angle in a semicircle is 90 degrees), tangent-radius perpendicularity, and the two-tangent theorem.",
+          "key_concepts": ["Inscribed Angle Theorem and its corollaries", "Thales' theorem for semicircle angles", "tangent-radius perpendicularity and two-tangent theorem", "arc, chord, and central angle relationships"],
+          "prerequisites": ["E09", "A01", "A03"]
+        },
+        {
+          "id": "A05",
+          "sequence": 102,
+          "title": "Polynomial Functions Beyond Quadratics",
+          "description": "Analyzing cubic, quartic, and higher-degree polynomial functions. Covers end behavior determined by leading term, finding zeros using the Rational Root Theorem and synthetic division, multiplicity of roots and their effect on graph behavior (crossing vs tangent at x-axis), and the Fundamental Theorem of Algebra.",
+          "key_concepts": ["end behavior and leading coefficient test", "Rational Root Theorem and synthetic division", "root multiplicity and graph behavior at zeros", "Fundamental Theorem of Algebra"],
+          "prerequisites": ["H32", "H33", "H36"]
+        },
+        {
+          "id": "A06",
+          "sequence": 103,
+          "title": "Piecewise and Absolute Value Functions",
+          "description": "Defining and graphing functions with different rules over different intervals. Covers piecewise function notation, evaluating and graphing piecewise-defined functions, continuity at boundary points, and absolute value functions as a special case of piecewise. Includes transformations of absolute value functions and solving absolute value equations and inequalities.",
+          "key_concepts": ["piecewise function definition and evaluation", "graphing piecewise functions and checking continuity at boundaries", "absolute value as a piecewise function", "transformations of absolute value functions"],
+          "prerequisites": ["H28", "H36", "R64"]
+        },
+        {
+          "id": "A07",
+          "sequence": 104,
+          "title": "Introduction to Limits",
+          "description": "Building intuitive understanding of limits as the foundation of calculus. Covers the informal definition of a limit (the value a function approaches as x approaches a given value), evaluating limits from tables and graphs, one-sided limits, limits at infinity and horizontal asymptotes, and cases where limits do not exist.",
+          "key_concepts": ["informal definition of limit and limit notation", "evaluating limits numerically and graphically", "one-sided limits and conditions for limit existence", "limits at infinity and connection to horizontal asymptotes"],
+          "prerequisites": ["H36", "R65", "A05"]
+        },
+        {
+          "id": "A08",
+          "sequence": 105,
+          "title": "Parametric Equations and Polar Coordinates Introduction",
+          "description": "Representing curves and points using alternative coordinate systems. Covers parametric equations: defining x(t) and y(t) to trace curves (lines, circles, projectile paths), eliminating the parameter to find Cartesian equations. Introduces polar coordinates (r, theta), converting between polar and Cartesian forms, and graphing basic polar curves.",
+          "key_concepts": ["parametric equations for lines, circles, and projectile motion", "eliminating the parameter to convert to Cartesian form", "polar coordinate system and polar-Cartesian conversion", "graphing basic polar curves"],
+          "prerequisites": ["H43", "H44", "R54", "H36"]
         }
       ]
     },
@@ -635,15 +903,3 @@
     }
   ]
 }
-
-
-
-
-
-
-
-
-
-
-
-
