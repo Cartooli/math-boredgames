@@ -52,6 +52,8 @@ body.theme-ocean {
     --bg-primary: #0c4a6e;
     --bg-secondary: #075985;
     --bg-tertiary: #0369a1;
+    --text-secondary: #bae6fd;
+    --text-muted: #7dd3fc;
     --accent: #06b6d4;
     --accent-hover: #0891b2;
 }
@@ -60,6 +62,8 @@ body.theme-forest {
     --bg-primary: #14532d;
     --bg-secondary: #166534;
     --bg-tertiary: #15803d;
+    --text-secondary: #bbf7d0;
+    --text-muted: #86efac;
     --accent: #22c55e;
     --accent-hover: #16a34a;
 }
@@ -68,6 +72,8 @@ body.theme-sunset {
     --bg-primary: #7c2d12;
     --bg-secondary: #9a3412;
     --bg-tertiary: #c2410c;
+    --text-secondary: #fed7aa;
+    --text-muted: #fdba74;
     --accent: #f97316;
     --accent-hover: #ea580c;
 }
@@ -76,6 +82,8 @@ body.theme-purple {
     --bg-primary: #4c1d95;
     --bg-secondary: #5b21b6;
     --bg-tertiary: #6d28d9;
+    --text-secondary: #e9d5ff;
+    --text-muted: #d8b4fe;
     --accent: #a855f7;
     --accent-hover: #9333ea;
 }
@@ -564,11 +572,12 @@ input:focus {
 
 .stats-panel {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 15px;
     margin-top: 20px;
     padding-top: 20px;
     border-top: 1px solid var(--border);
+    justify-items: center;
 }
 
 .stat-item {
@@ -4846,8 +4855,8 @@ mjx-container[display="true"] {
 
 .enhanced-features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
 }
 
 .enhanced-feature-btn {
