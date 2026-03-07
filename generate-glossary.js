@@ -643,7 +643,7 @@ function generateGlossaryIndex(validConcepts) {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "MathBored Math Glossary",
-        "description": "Comprehensive glossary of K-12 math terms and definitions",
+        "description": "Comprehensive glossary of K–12 & College math terms and definitions",
         "numberOfItems": validConcepts.length,
         "itemListElement": validConcepts.map((concept, index) => {
             const slug = toSlug(concept.concept);
@@ -661,9 +661,9 @@ function generateGlossaryIndex(validConcepts) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Glossary - 200+ K-12 Math Terms & Definitions | MathBored</title>
-    <meta name="description" content="Comprehensive math glossary with ${validConcepts.length}+ K-12 math terms, definitions, and examples. Perfect for students, parents, and teachers. Free forever.">
-    <meta name="keywords" content="math glossary, math dictionary, math terms, math definitions, K-12 math, algebra glossary, geometry glossary">
+    <title>Math Glossary - 250+ K–12 & College Math Terms | MathBored</title>
+    <meta name="description" content="Comprehensive math glossary: ${validConcepts.length}+ K–12 & College terms, definitions, and examples. Perfect for students, parents, and teachers. Free forever.">
+    <meta name="keywords" content="math glossary, math dictionary, math terms, math definitions, K-12 math, college math, algebra glossary, geometry glossary">
     <meta name="robots" content="index, follow">
     
     <!-- Canonical URL -->
@@ -672,16 +672,16 @@ function generateGlossaryIndex(validConcepts) {
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://math.boredgames.site/glossary.html">
-    <meta property="og:title" content="Math Glossary - 200+ K-12 Math Terms & Definitions">
-    <meta property="og:description" content="Comprehensive math glossary with ${validConcepts.length}+ K-12 math terms, definitions, and examples. Perfect for students, parents, and teachers.">
+    <meta property="og:title" content="Math Glossary - 250+ K–12 & College Math Terms | MathBored">
+    <meta property="og:description" content="Comprehensive math glossary: ${validConcepts.length}+ K–12 & College terms, definitions, and examples. Perfect for students, parents, and teachers.">
     <meta property="og:image" content="https://math.boredgames.site/og-image.png">
     <meta property="og:site_name" content="MathBored">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://math.boredgames.site/glossary.html">
-    <meta property="twitter:title" content="Math Glossary - 200+ K-12 Math Terms & Definitions">
-    <meta property="twitter:description" content="Comprehensive math glossary with ${validConcepts.length}+ K-12 math terms, definitions, and examples.">
+    <meta property="twitter:title" content="Math Glossary - 250+ K–12 & College Math Terms | MathBored">
+    <meta property="twitter:description" content="Comprehensive math glossary: ${validConcepts.length}+ K–12 & College terms, definitions, and examples.">
     <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
     
     <!-- Structured Data -->
@@ -1057,7 +1057,7 @@ ${JSON.stringify(itemListSchema, null, 2)}
     <div class="glossary-page">
         <div class="glossary-header">
             <h1>📖 Math Glossary</h1>
-            <p>Comprehensive definitions for ${validConcepts.length}+ K-12 math terms. Perfect for students, parents, and teachers.</p>
+            <p>Comprehensive definitions for ${validConcepts.length}+ K–12 & College math terms. Perfect for students, parents, and teachers.</p>
         </div>
         
         <div class="glossary-controls">

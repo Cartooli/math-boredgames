@@ -2479,6 +2479,37 @@ footer a:hover {
     text-underline-offset: 3px;
 }
 
+/* Cross-curriculum footer nav */
+.footer-curriculum-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    justify-content: center;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.footer-curriculum-links a {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 4px 10px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.footer-curriculum-links a:hover {
+    color: var(--text-primary);
+    border-color: var(--border);
+    background: var(--bg-tertiary);
+    opacity: 1;
+    text-decoration: none;
+}
+
 /* Standalone curriculum / primer back link — visible on all themes */
 .back-link {
     display: inline-block;
