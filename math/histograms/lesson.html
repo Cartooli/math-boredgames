@@ -215,7 +215,7 @@
         (function() {
             // Detect search engine crawlers by user agent
             const userAgent = navigator.userAgent.toLowerCase();
-            const isSearchEngineBot = /googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|ia_archiver|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest/0.|developers.google.com/+/web/snippet/|slackbot|vkShare|W3C_Validator|whatsapp|flipboard|tumblr|bitlybot|skypeuripreview|nuzzel|redditbot|applebot|qwantify|pinterestbot|bitrix link preview|redditbot|slackbot|twitterbot|whatsapp|flubot|facebookexternalhit|facebot|ia_archiver/i.test(userAgent);
+            const isSearchEngineBot = /googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou|exabot|facebot|ia_archiver|facebookexternalhit|twitterbot|rogerbot|linkedinbot|embedly|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator|whatsapp|flipboard|tumblr|bitlybot|skypeuripreview|nuzzel|redditbot|applebot|qwantify|pinterestbot|flubot/i.test(userAgent);
             
             // Only redirect if NOT a search engine bot
             // This allows search engines to index the SEO content
