@@ -2479,6 +2479,20 @@ footer a:hover {
     text-underline-offset: 3px;
 }
 
+/* Standalone curriculum / primer back link — visible on all themes */
+.back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+.back-link:hover {
+    opacity: 0.9;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
 /* Add subtle texture to primary backgrounds */
 .controls::before,
 .content-area::before {

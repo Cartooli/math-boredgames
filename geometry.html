@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geometry — Complete Curriculum | MathBored</title>
+<meta name="description" content="Complete Geometry course: 13 units from foundations through circles and coordinate proofs. Free interactive lessons, practice, and quizzes.">
+<meta name="keywords" content="Geometry, high school geometry, triangles, circles, proofs, area, volume, math, free, K-12">
+<link rel="canonical" href="https://math.boredgames.site/geometry.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://math.boredgames.site/geometry.html">
+<meta property="og:title" content="Geometry — Complete Curriculum | MathBored">
+<meta property="og:description" content="Complete Geometry course: 13 units from foundations through circles and coordinate proofs.">
+<meta property="og:image" content="https://math.boredgames.site/og-image.png">
+<meta property="og:site_name" content="MathBored">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Course","name":"Geometry — Complete Curriculum","description":"Complete Geometry course: 13 units from foundations through circles and coordinate proofs.","provider":{"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},"educationalLevel":"10th Grade","learningResourceType":"Course","inLanguage":"en","isAccessibleForFree":true}
+</script>
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Geometry — local styles (teal theme) */
+.geo-app { max-width: 960px; margin: 0 auto; padding: 20px; }
+.back-link { display: inline-block; margin-bottom: 20px; color: #14b8a6; text-decoration: none; font-weight: 600; }
+.back-link:hover { opacity: 0.9; }
+.geo-hero { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border); border-radius: 20px; padding: 48px 28px 40px; text-align: center; margin-bottom: 32px; }
+.geo-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; color: #0d9488; margin-bottom: 8px; }
+.geo-hero .sub { font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+.geo-stats { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.geo-stat { background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 12px; padding: 14px 24px; }
+.geo-stat-num { font-size: 1.8rem; font-weight: 800; display: block; color: var(--text-primary); }
+.geo-stat-lbl { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; }
+.geo-progress { background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 28px; }
+.geo-progress-bar { background: var(--bg-tertiary); border-radius: 20px; height: 10px; overflow: hidden; margin: 10px 0 6px; }
+.geo-progress-fill { height: 100%; background: linear-gradient(90deg, #0d9488, #14b8a6); border-radius: 20px; transition: width 0.5s ease; }
+.geo-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; padding: 14px; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border); }
+.geo-nav button { font-family: inherit; font-size: 0.75rem; font-weight: 700; padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+.geo-nav button:hover { border-color: #0d9488; color: var(--text-primary); }
+.geo-nav button.on { background: #0d9488; color: #fff; border-color: #0d9488; }
+.geo-nav button.ok { border-color: var(--success); color: var(--success); }
+.geo-uhdr { margin-bottom: 22px; }
+.geo-unum { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #0d9488; font-weight: 700; }
+.geo-utitle { font-size: clamp(1.4rem, 3.5vw, 2.2rem); font-weight: 800; margin: 4px 0 8px; }
+.geo-uobj { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.75; }
+.geo-deeper { background: var(--bg-secondary); border: 1px solid var(--border); border-left: 3px solid #0d9488; border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; font-size: 0.86rem; }
+.geo-deeper .lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #0d9488; font-weight: 700; margin-bottom: 8px; }
+.geo-deeper a { display: inline-block; margin: 2px 6px 2px 0; padding: 4px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--text-secondary); text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.2s; }
+.geo-deeper a:hover { border-color: #0d9488; color: #0d9488; background: rgba(13,148,136,0.1); }
+.geo-tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
+.geo-tb { font-family: inherit; font-size: 0.86rem; font-weight: 700; padding: 10px 20px; border: none; background: transparent; color: var(--text-secondary); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.geo-tb:hover { color: var(--text-primary); }
+.geo-tb.on { color: #0d9488; border-bottom-color: #0d9488; }
+.geo-lcard { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px 26px; margin-bottom: 14px; }
+.geo-lcard h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: #0d9488; }
+.geo-lcard p { font-size: 0.9rem; margin-bottom: 8px; line-height: 1.7; }
+.geo-fm { background: var(--bg-tertiary); border-left: 3px solid #0d9488; border-radius: 6px; padding: 10px 14px; margin: 10px 0; font-family: var(--font-mono); font-size: 0.84rem; color: #14b8a6; overflow-x: auto; }
+.geo-wex { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+.geo-wex .wl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--warning); font-weight: 700; margin-bottom: 6px; }
+.geo-wex .wp { font-weight: 600; margin-bottom: 4px; font-size: 0.88rem; }
+.geo-wex .ws { color: var(--text-secondary); font-size: 0.82rem; margin-bottom: 2px; }
+.geo-prbox { background: rgba(122,91,160,0.08); border: 1px solid rgba(122,91,160,0.2); border-left: 3px solid #7a5ba0; border-radius: 8px; padding: 12px 16px; margin: 12px 0; font-size: 0.84rem; }
+.geo-prbox .prt { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: #7a5ba0; font-weight: 700; margin-bottom: 6px; }
+.geo-prbox p { color: var(--text-secondary); margin-bottom: 4px; }
+.geo-dtag { display: inline-block; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; }
+.geo-de { background: rgba(16,185,129,0.12); color: var(--success); border: 1px solid rgba(16,185,129,0.25); }
+.geo-dm { background: rgba(245,158,11,0.12); color: var(--warning); border: 1px solid rgba(245,158,11,0.25); }
+.geo-dh { background: rgba(239,68,68,0.12); color: var(--error); border: 1px solid rgba(239,68,68,0.25); }
+.geo-qc { background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; transition: border-color 0.3s; }
+.geo-qc.gc { border-color: var(--success); }
+.geo-qc.bc { border-color: var(--error); }
+.geo-qt { font-size: 0.9rem; margin-bottom: 12px; font-weight: 600; line-height: 1.6; }
+.geo-os { display: flex; flex-direction: column; gap: 6px; }
+.geo-ob { font-family: inherit; font-size: 0.86rem; text-align: left; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-tertiary); color: var(--text-primary); cursor: pointer; transition: all 0.2s; }
+.geo-ob:hover:not(.lk) { border-color: #0d9488; background: rgba(13,148,136,0.08); }
+.geo-ob.sc { border-color: var(--success); background: rgba(16,185,129,0.12); color: var(--success); font-weight: 600; }
+.geo-ob.sw { border-color: var(--error); background: rgba(239,68,68,0.12); color: var(--error); }
+.geo-ob.rv { border-color: var(--success); background: rgba(16,185,129,0.08); }
+.geo-ob.lk { cursor: default; opacity: 0.75; }
+.geo-ob.qs { border-color: #0d9488; background: rgba(13,148,136,0.1); font-weight: 600; }
+.geo-ex { margin-top: 10px; padding: 10px 14px; background: var(--bg-tertiary); border-radius: 6px; font-size: 0.82rem; color: var(--text-secondary); border-left: 3px solid #0d9488; animation: geoFade 0.3s ease; }
+@keyframes geoFade { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: none; } }
+.geo-qhd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.geo-qct { font-family: var(--font-mono); font-size: 0.84rem; color: #0d9488; font-weight: 700; }
+.geo-qres { text-align: center; padding: 36px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; margin-top: 18px; }
+.geo-sbig { font-size: 3rem; font-weight: 800; color: #0d9488; line-height: 1; margin-bottom: 4px; }
+.geo-ssub { color: var(--text-secondary); font-size: 0.88rem; }
+.geo-btn { font-family: inherit; font-size: 0.84rem; font-weight: 700; padding: 10px 22px; border: 1px solid #0d9488; border-radius: 8px; background: transparent; color: #0d9488; cursor: pointer; margin-top: 14px; transition: all 0.2s; }
+.geo-btn:hover { background: #0d9488; color: #fff; }
+.geo-bf { background: #0d9488; color: #fff; }
+.geo-bf:hover { background: #0f766e; }
+.geo-fns { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--border); }
+.geo-fns h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: #7a5ba0; margin-bottom: 10px; font-weight: 700; }
+.geo-fni { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px; padding-left: 14px; }
+.geo-fnm { color: #7a5ba0; font-weight: 700; }
+@media (max-width: 640px) { .geo-app { padding: 12px; } .geo-lcard, .geo-qc { padding: 16px; } .geo-nav button { font-size: 0.68rem; padding: 4px 8px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1>🎯 MathBored</h1>
+        <div class="tagline">Geometry — Complete Curriculum</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="geo-app">
+  <a href="index.html" class="back-link">← Back to Main App</a>
+
+  <div class="geo-hero">
+    <h1>△ Geometry</h1>
+    <p class="sub">Complete Curriculum · 13 Units · Practice &amp; Quizzes</p>
+    <div class="geo-stats">
+      <div class="geo-stat"><span class="geo-stat-num">13</span><span class="geo-stat-lbl">Units</span></div>
+      <div class="geo-stat"><span class="geo-stat-num">26</span><span class="geo-stat-lbl">Lessons</span></div>
+      <div class="geo-stat"><span class="geo-stat-num">91</span><span class="geo-stat-lbl">Practice Qs</span></div>
+      <div class="geo-stat"><span class="geo-stat-num">65</span><span class="geo-stat-lbl">Quiz Qs</span></div>
+    </div>
+  </div>
+
+  <div class="geo-progress">
+    <h2 style="margin:0 0 6px;font-size:1.1rem;font-weight:700;">Your Progress</h2>
+    <p style="color:var(--text-secondary);font-size:0.88rem;margin:0;">
+      <span id="geoCompletedUnits">0</span> of 13 units completed · <span id="geoProgressPct">0</span>% done
+    </p>
+    <div class="geo-progress-bar">
+      <div class="geo-progress-fill" id="geoProgressBar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div id="geoApp"></div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+  </div>
+</footer>
+
+<script>
+const GEOMETRY_CURRICULUM = [
+// ══════════════════════════════════════
+// UNIT 1: Foundations of Geometry
+// ══════════════════════════════════════
+{
+id:1,title:"Foundations of Geometry",
+obj:"Define and classify points, lines, planes, segments, and rays. Understand postulates vs. theorems. Use the Segment Addition Postulate and distance/midpoint formulas.",
+prs:[
+  {id:1,text:"Number line & coordinate plane: plotting points on a line and on an (x,y) grid. (Grade 6 and Algebra I, Unit 4)"},
+  {id:2,text:"Arithmetic with square roots: simplifying expressions like √((5−1)²+(3−0)²). (Algebra I, Unit 10)"}
+],
+ls:[
+  {t:"Points, Lines, Planes & Basic Definitions",
+   c:`A <b>point</b> has no dimension (just location). A <b>line</b> extends infinitely in both directions. A <b>plane</b> is a flat surface extending infinitely. A <b>segment</b> has two endpoints; a <b>ray</b> has one endpoint and extends infinitely. <b>Collinear</b> points lie on the same line; <b>coplanar</b> points lie in the same plane.`,
+   f:["Point: A    Line: ←AB→    Segment: A̅B̅    Ray: A→B"],
+   ex:{p:"Name 3 collinear points in a diagram where A, B, C lie on line m and D is off the line.",s:["A, B, C are collinear (all on line m)","D is NOT collinear with A, B, C","A, B, D are coplanar if they share a plane"]}},
+  {t:"Segment Addition, Distance & Midpoint",
+   c:`<b>Segment Addition Postulate</b>: If B is between A and C, then AB + BC = AC.<sup class="fn" title="See footnote 1">¹</sup> <b>Distance formula</b>: d = √((x₂−x₁)²+(y₂−y₁)²). <b>Midpoint formula</b>: M = ((x₁+x₂)/2, (y₁+y₂)/2).<sup class="fn" title="See footnote 2">²</sup>`,
+   f:["d = √((x₂−x₁)² + (y₂−y₁)²)","M = ((x₁+x₂)/2, (y₁+y₂)/2)"],
+   ex:{p:"Find the distance and midpoint between A(1,2) and B(7,10).",s:["d = √((7−1)²+(10−2)²) = √(36+64) = √100 = 10","M = ((1+7)/2, (2+10)/2) = (4, 6)"]}}
+],
+pr:[
+  {d:"easy",q:"If B is between A and C, AB = 5, BC = 8. Find AC.",o:["13","3","40","16"],c:0,x:"Segment Addition: 5 + 8 = 13."},
+  {d:"easy",q:"Distance between (0,0) and (3,4)?",o:["5","7","12","25"],c:0,x:"√(9+16) = √25 = 5."},
+  {d:"easy",q:"Midpoint of (2,6) and (8,10)?",o:["(5, 8)","(10, 16)","(3, 2)","(6, 4)"],c:0,x:"((2+8)/2, (6+10)/2) = (5,8)."},
+  {d:"medium",q:"M is the midpoint of AB. A = (−1, 3), M = (2, 7). Find B.",o:["(5, 11)","(0.5, 5)","(3, 10)","(−4, −1)"],c:0,x:"(−1+x)/2=2→x=5. (3+y)/2=7→y=11. B=(5,11)."},
+  {d:"medium",q:"Points X, Y, Z are collinear. XY = 3x+1, YZ = 2x−4, XZ = 22. Find x.",o:["5","3","7","4"],c:0,x:"3x+1+2x−4=22→5x−3=22→x=5."},
+  {d:"hard",q:"Distance from (−3, 5) to (4, −2)?",o:["7√2","√98","9.9","7"],c:1,x:"√(49+49)=√98=7√2≈9.90."},
+  {d:"hard",q:"A(1,1), B(5,4), C(9,7). Are they collinear?",o:["Yes — same slope throughout","No — slopes differ","Yes — equidistant","Cannot determine"],c:0,x:"Slope AB=(4−1)/(5−1)=3/4. Slope BC=(7−4)/(9−5)=3/4. Same → collinear."}
+],
+qz:[
+  {q:"Segment Addition: If PQ = 12 and QR = 5, find PR (Q between P and R).",o:["17","7","60","8.5"],c:0,x:"12+5=17."},
+  {q:"Midpoint of (−4, 0) and (6, 8)?",o:["(1, 4)","(2, 8)","(−2, 4)","(5, 4)"],c:0,x:"((−4+6)/2,(0+8)/2)=(1,4)."},
+  {q:"Which is a postulate (not a theorem)?",o:["Through any 2 points there is exactly 1 line","Vertical angles are congruent","Base angles of isosceles Δ are equal","Exterior angle = sum of remote interior"],c:0,x:"The two-point postulate is accepted without proof."},
+  {q:"Distance from origin to (−5, 12)?",o:["13","17","7","169"],c:0,x:"√(25+144)=√169=13."},
+  {q:"True or false: A ray has two endpoints.",o:["False — one endpoint","True","Depends on direction","False — no endpoints"],c:0,x:"A ray has exactly one endpoint."}
+],
+  deeperLinks: [{"label":"Distance Formula","url":"math/distance-formula/walkthrough.html"},{"label":"Coordinate Plane","url":"math/coordinate-plane/walkthrough.html"},{"label":"Basic Shapes","url":"math/basic-shapes/walkthrough.html"}],
+},
+// ══════════════════════════════════════
+// UNIT 2: Angles & Angle Relationships
+// ══════════════════════════════════════
+{
+id:2,title:"Angles & Angle Relationships",
+obj:"Classify angles. Understand complementary, supplementary, vertical, and linear pair relationships. Use the Angle Addition Postulate.",
+prs:[
+  {id:3,text:"Measuring with a protractor and understanding degree measure (0°–360°). Typically covered in Grade 4–5."},
+  {id:4,text:"Solving linear equations: angle relationships produce equations like 2x+10=90. (Algebra I, Unit 2)"}
+],
+ls:[
+  {t:"Classifying & Measuring Angles",
+   c:`An <b>angle</b> is formed by two rays sharing a common endpoint (vertex).<sup class="fn" title="See footnote 3">³</sup> Classification: <b>Acute</b> (0°–90°), <b>Right</b> (90°), <b>Obtuse</b> (90°–180°), <b>Straight</b> (180°). <b>Angle Addition Postulate</b>: If D is in the interior of ∠ABC, then m∠ABD + m∠DBC = m∠ABC.`,
+   f:["Acute: 0° < θ < 90°","Right: θ = 90°","Obtuse: 90° < θ < 180°"],
+   ex:{p:"m∠ABD = 35°, m∠DBC = 55°. Find m∠ABC.",s:["Angle Addition: 35° + 55° = 90°","∠ABC is a right angle"]}},
+  {t:"Angle Pair Relationships",
+   c:`<b>Complementary</b>: sum = 90°. <b>Supplementary</b>: sum = 180°. <b>Vertical angles</b> are formed by intersecting lines and are <b>congruent</b>. A <b>linear pair</b> is supplementary (they form a straight line).<sup class="fn" title="See footnote 4">⁴</sup>`,
+   f:["Complementary: ∠A + ∠B = 90°","Supplementary: ∠A + ∠B = 180°","Vertical angles: ∠1 ≅ ∠3, ∠2 ≅ ∠4"],
+   ex:{p:"Two angles are supplementary. One is 3x + 10, the other is 2x + 20. Find both.",s:["(3x+10)+(2x+20)=180","5x+30=180 → 5x=150 → x=30","Angles: 100° and 80°"]}}
+],
+pr:[
+  {d:"easy",q:"An angle measures 47°. Is it acute, right, or obtuse?",o:["Acute","Right","Obtuse","Straight"],c:0,x:"47° < 90° → acute."},
+  {d:"easy",q:"Complement of 35°?",o:["55°","145°","35°","90°"],c:0,x:"90 − 35 = 55°."},
+  {d:"easy",q:"Supplement of 110°?",o:["70°","250°","20°","180°"],c:0,x:"180 − 110 = 70°."},
+  {d:"medium",q:"Vertical angles: one is 4x+5, the other is 6x−15. Find x.",o:["10","5","20","−10"],c:0,x:"Vertical angles are equal: 4x+5=6x−15→20=2x→x=10."},
+  {d:"medium",q:"Linear pair: one angle is 3x, the other is x+40. Find both.",o:["105° and 75°","120° and 60°","100° and 80°","90° and 90°"],c:0,x:"3x+x+40=180→4x=140→x=35. Angles: 105° and 75°."},
+  {d:"hard",q:"∠A and ∠B are complementary. ∠A is 14° more than 3 times ∠B. Find ∠A.",o:["71°","19°","52°","38°"],c:0,x:"A+B=90, A=3B+14. 3B+14+B=90→4B=76→B=19°, A=71°."},
+  {d:"hard",q:"Two angles are supplementary and in ratio 5:4. Find the larger.",o:["100°","80°","120°","90°"],c:0,x:"5x+4x=180→9x=180→x=20. Larger: 5(20)=100°."}
+],
+qz:[
+  {q:"Vertical angles are always:",o:["Congruent","Supplementary","Complementary","Adjacent"],c:0,x:"Vertical angles are equal (congruent)."},
+  {q:"An angle's supplement is 40° more than the angle. Find it.",o:["70°","110°","80°","100°"],c:0,x:"x+(x+40)=180→2x=140→x=70°."},
+  {q:"m∠1 = 90°. What type of angle?",o:["Right","Acute","Obtuse","Straight"],c:0,x:"Exactly 90° = right angle."},
+  {q:"If ∠A ≅ ∠B and they are a linear pair, find m∠A.",o:["90°","180°","45°","60°"],c:0,x:"A+B=180, A=B→2A=180→A=90°."},
+  {q:"Angle Addition: m∠XYW = 40°, m∠WYZ = 60°. m∠XYZ = ?",o:["100°","20°","50°","120°"],c:0,x:"40+60=100°."}
+],
+  deeperLinks: [{"label":"Angle Measurement","url":"math/angle-measurement/walkthrough.html"},{"label":"Protractor Use","url":"math/protractor-use/walkthrough.html"}],
+},
+// ══════════════════════════════════════
+// UNIT 3: Parallel & Perpendicular Lines
+// ══════════════════════════════════════
+{
+id:3,title:"Parallel & Perpendicular Lines",
+obj:"Identify angle pairs formed by a transversal. Prove lines parallel using angle relationships. Write equations of parallel and perpendicular lines.",
+prs:[
+  {id:5,text:"Slope of a line and slope-intercept form y = mx + b. (Algebra I, Unit 5)"},
+  {id:6,text:"Angle pair vocabulary from Unit 2: supplementary, congruent, vertical angles."}
+],
+ls:[
+  {t:"Transversals & Angle Pairs",
+   c:`When a <b>transversal</b> crosses two lines, it creates 8 angles.<sup class="fn" title="See footnote 6">⁶</sup> Key pairs: <b>Corresponding</b> (same position), <b>Alternate Interior</b> (opposite sides, between lines), <b>Alternate Exterior</b> (opposite sides, outside), <b>Co-Interior / Same-Side Interior</b> (same side, between). If lines are <b>parallel</b>: corresponding ≅, alternate interior ≅, alternate exterior ≅, co-interior are supplementary.`,
+   f:["Corresponding: ∠1 ≅ ∠5","Alt Interior: ∠3 ≅ ∠6","Co-Interior: ∠3 + ∠5 = 180°"],
+   ex:{p:"Lines ℓ ∥ m cut by transversal t. ∠3 = 115°. Find ∠6 (alternate interior).",s:["Alternate interior angles are congruent when ℓ ∥ m","∠6 = 115°"]}},
+  {t:"Parallel & Perpendicular Slopes",
+   c:`Parallel lines have <b>equal slopes</b>: m₁ = m₂.<sup class="fn" title="See footnote 5">⁵</sup> Perpendicular lines have <b>negative reciprocal slopes</b>: m₁ · m₂ = −1. Use point-slope form to write the equation.`,
+   f:["Parallel: m₁ = m₂","Perpendicular: m₁ = −1/m₂","Point-slope: y − y₁ = m(x − x₁)"],
+   ex:{p:"Write the equation parallel to y = 2x + 3 through (1, 5).",s:["Parallel → same slope m = 2","y − 5 = 2(x − 1)","y = 2x + 3 (coincidence — same line!)"]}}
+],
+pr:[
+  {d:"easy",q:"If ∠1 and ∠5 are corresponding and ℓ ∥ m, and ∠1 = 72°, find ∠5.",o:["72°","108°","18°","144°"],c:0,x:"Corresponding angles are congruent: 72°."},
+  {d:"easy",q:"Lines with slopes 3 and 3 are:",o:["Parallel","Perpendicular","Neither","Same line"],c:0,x:"Equal slopes → parallel."},
+  {d:"easy",q:"Slopes 2 and −1/2 are:",o:["Perpendicular","Parallel","Neither","Undefined"],c:0,x:"2 × (−1/2) = −1 → perpendicular."},
+  {d:"medium",q:"∠3 and ∠5 are co-interior, ℓ ∥ m. ∠3 = 4x+10, ∠5 = 6x−10. Find x.",o:["18","20","9","36"],c:0,x:"Co-interior sum to 180: 4x+10+6x−10=180→10x=180→x=18."},
+  {d:"medium",q:"Write equation ⊥ to y = −3x+1 through (6,2).",o:["y = (1/3)x","y = (1/3)x + 0","y = 3x − 16","y = (1/3)x + 0"],c:0,x:"Perp slope = 1/3. y−2=(1/3)(x−6)→y=(1/3)x."},
+  {d:"hard",q:"Transversal crosses two lines. ∠1 = 5x+15, ∠8 = 3x+45 (alt exterior). For lines to be ∥, find x.",o:["15","10","30","20"],c:0,x:"Alt exterior ≅: 5x+15=3x+45→2x=30→x=15."},
+  {d:"hard",q:"Are these parallel, perpendicular, or neither? 2x+5y=10 and 5x−2y=8",o:["Perpendicular","Parallel","Neither","Same line"],c:0,x:"Slopes: −2/5 and 5/2. Product: −1 → perpendicular."}
+],
+qz:[
+  {q:"Alternate interior angles with parallel lines are:",o:["Congruent","Supplementary","Complementary","Vertical"],c:0,x:"Alt interior ≅ when lines parallel."},
+  {q:"∠4 = 65° (co-interior with ∠5, ℓ∥m). Find ∠5.",o:["115°","65°","25°","180°"],c:0,x:"Co-interior are supplementary: 180−65=115°."},
+  {q:"Slope of line ⊥ to y = (4/3)x − 7?",o:["−3/4","3/4","4/3","−4/3"],c:0,x:"Negative reciprocal of 4/3 is −3/4."},
+  {q:"If two lines have slopes 7 and 7, and different y-intercepts, they are:",o:["Parallel","Perpendicular","The same line","Intersecting at one point"],c:0,x:"Same slope, different intercept → parallel."},
+  {q:"How many angle pairs does a transversal create with two lines?",o:["8 angles, 4 angle pairs","6 angles","4 angles","12 angles"],c:0,x:"8 angles total, forming corresponding, alt interior, alt exterior, and co-interior pairs."}
+],
+  deeperLinks: [{"label":"Slope","url":"math/slope/walkthrough.html"},{"label":"Standard Form to Slope-Intercept","url":"math/standard-form-to-slope-intercept/walkthrough.html"}],
+},
+// ══════════════════════════════════════
+// UNIT 4: Congruent Triangles
+// ══════════════════════════════════════
+{
+id:4,title:"Congruent Triangles",
+obj:"Classify triangles. Prove congruence using SSS, SAS, ASA, AAS, and HL. Apply CPCTC (Corresponding Parts of Congruent Triangles are Congruent).",
+prs:[
+  {id:7,text:"Angle sum property: the three angles of any triangle sum to 180°. Often proved in this course but used intuitively from Grade 7."},
+  {id:8,text:"Two-column and paragraph proof structure: making logical arguments with given information and reasons. Introduced in this course."}
+],
+ls:[
+  {t:"Classifying Triangles & Angle Sum",
+   c:`By sides: <b>Scalene</b> (no equal sides), <b>Isosceles</b> (2 equal), <b>Equilateral</b> (3 equal). By angles: <b>Acute</b> (all < 90°), <b>Right</b> (one = 90°), <b>Obtuse</b> (one > 90°).<sup class="fn" title="See footnote 7">⁷</sup> <b>Triangle Angle Sum Theorem</b>: m∠A + m∠B + m∠C = 180°.`,
+   f:["∠A + ∠B + ∠C = 180°","Exterior angle = sum of 2 remote interior angles"],
+   ex:{p:"∠A = 50°, ∠B = 60°. Find ∠C and classify.",s:["∠C = 180 − 50 − 60 = 70°","All angles < 90° → acute triangle","All sides would need to be checked for scalene/isosceles"]}},
+  {t:"Triangle Congruence Postulates & CPCTC",
+   c:`Two triangles are <b>congruent</b> if all corresponding sides and angles match. Shortcut postulates:<sup class="fn" title="See footnote 8">⁸</sup> <b>SSS</b> (3 sides), <b>SAS</b> (2 sides + included angle), <b>ASA</b> (2 angles + included side), <b>AAS</b> (2 angles + non-included side), <b>HL</b> (hypotenuse-leg for right triangles). After proving Δ ≅ Δ, use <b>CPCTC</b> to show other parts are congruent.`,
+   f:["SSS: 3 sides ≅ → triangles ≅","SAS: 2 sides + included ∠ ≅ → ≅","CPCTC: once ≅ proven, all corresponding parts ≅"],
+   ex:{p:"Given: AB ≅ DE, BC ≅ EF, ∠B ≅ ∠E. Which postulate?",s:["Two sides and the included angle are congruent","This is SAS","△ABC ≅ △DEF by SAS"]}}
+],
+pr:[
+  {d:"easy",q:"Angles of a triangle: 40°, 60°, ___°",o:["80°","100°","90°","60°"],c:0,x:"180−40−60=80°."},
+  {d:"easy",q:"A triangle with sides 5, 5, 8 is:",o:["Isosceles","Equilateral","Scalene","Right"],c:0,x:"Two equal sides → isosceles."},
+  {d:"easy",q:"Which is NOT a valid congruence shortcut?",o:["SSA","SSS","SAS","ASA"],c:0,x:"SSA (side-side-angle) does not guarantee congruence."},
+  {d:"medium",q:"Exterior angle = 130°. One remote interior = 55°. Other remote interior = ?",o:["75°","125°","55°","50°"],c:0,x:"Exterior = sum of remote interiors: 130−55=75°."},
+  {d:"medium",q:"Given: ∠A≅∠D, ∠B≅∠E, AB≅DE. Postulate?",o:["AAS","ASA","SAS","SSS"],c:0,x:"Two angles and a non-included side → AAS."},
+  {d:"hard",q:"In △PQR, ∠P = (2x+10)°, ∠Q = (3x−5)°, ∠R = (x+25)°. Find all angles.",o:["60°, 70°, 50°","50°, 80°, 50°","70°, 65°, 45°","55°, 70°, 55°"],c:0,x:"2x+10+3x−5+x+25=180→6x+30=180→x=25. Angles: 60°, 70°, 50°."},
+  {d:"hard",q:"CPCTC: If △ABC ≅ △XYZ by SAS (AB=XY, ∠A=∠X, AC=XZ), then what else is true?",o:["BC ≅ YZ, ∠B ≅ ∠Y, ∠C ≅ ∠Z","Only BC ≅ YZ","Nothing else","∠B ≅ ∠Z only"],c:0,x:"CPCTC: ALL corresponding parts are congruent."}
+],
+qz:[
+  {q:"Triangle angle sum: 90° + 45° + ___ = 180°",o:["45°","90°","55°","35°"],c:0,x:"180−90−45=45°."},
+  {q:"Which postulate for right triangles using hypotenuse and one leg?",o:["HL","SAS","SSA","AA"],c:0,x:"Hypotenuse-Leg (HL)."},
+  {q:"An equilateral triangle has angle measures of:",o:["60°, 60°, 60°","90°, 45°, 45°","180° total only","70°, 70°, 40°"],c:0,x:"All sides equal → all angles = 180/3 = 60°."},
+  {q:"Exterior angle theorem: ext ∠ = ?",o:["Sum of 2 remote interior angles","180° minus interior","Sum of all 3 angles","Adjacent interior angle"],c:0,x:"Exterior angle equals the sum of the two non-adjacent interior angles."},
+  {q:"△JKL ≅ △MNO. If JK = 7 and ∠K = 80°, then:",o:["MN = 7 and ∠N = 80°","MN = 7 only","∠N = 80° only","Cannot determine"],c:0,x:"CPCTC: corresponding parts are congruent."}
+],
+  deeperLinks: [{"label":"Area of Triangles and Polygons","url":"math/area-of-triangles-and-polygons/walkthrough.html"},{"label":"Basic Shapes and Attributes","url":"math/basic-shapes-and-attributes/walkthrough.html"}],
+},
+// ══════════════════════════════════════
+// UNIT 5: Triangle Relationships
+// ══════════════════════════════════════
+{
+id:5,title:"Relationships in Triangles",
+obj:"Understand midsegments, perpendicular bisectors, angle bisectors, medians, altitudes, centroids, incenters, circumcenters, and triangle inequalities.",
+prs:[
+  {id:9,text:"Congruent triangles (Unit 4): proofs involving triangle centers often rely on congruent triangles."},
+  {id:10,text:"Perpendicular and bisector concepts: a perpendicular bisector is ⊥ to a segment at its midpoint. (Unit 1 & Unit 3)"}
+],
+ls:[
+  {t:"Midsegments & Triangle Inequality",
+   c:`A <b>midsegment</b> connects the midpoints of two sides. It is parallel to the third side and half its length.<sup class="fn" title="See footnote 10">¹⁰</sup> <b>Triangle Inequality Theorem</b>: the sum of any two sides must be greater than the third side.`,
+   f:["Midsegment ∥ third side, length = ½ × third side","a + b > c, a + c > b, b + c > a"],
+   ex:{p:"Can a triangle have sides 3, 5, 9?",s:["Check: 3+5=8, but 8 < 9","Fails Triangle Inequality","NOT a valid triangle"]}},
+  {t:"Points of Concurrency",
+   c:`<b>Centroid</b>: intersection of medians (⅔ from vertex to midpoint).<sup class="fn" title="See footnote 9">⁹</sup> <b>Incenter</b>: intersection of angle bisectors (equidistant from sides). <b>Circumcenter</b>: intersection of perpendicular bisectors (equidistant from vertices). <b>Orthocenter</b>: intersection of altitudes.`,
+   f:["Centroid divides median in 2:1 ratio","Incenter is center of inscribed circle","Circumcenter is center of circumscribed circle"],
+   ex:{p:"Centroid G divides median AD. AG = 12. Find GD and AD.",s:["Centroid cuts median 2:1 from vertex","AG:GD = 2:1 → GD = 6","AD = AG + GD = 18"]}}
+],
+pr:[
+  {d:"easy",q:"Can sides 4, 7, 10 form a triangle?",o:["Yes","No","Cannot tell","Only right triangle"],c:0,x:"4+7=11>10, 4+10=14>7, 7+10=17>4. All pass → yes."},
+  {d:"easy",q:"Midsegment is parallel to the third side and its length is:",o:["Half the third side","Equal to the third side","Twice the third side","Unrelated"],c:0,x:"Midsegment = ½ × third side."},
+  {d:"medium",q:"Centroid divides a median in what ratio from vertex?",o:["2:1","1:1","1:2","3:1"],c:0,x:"2:1 (centroid is ⅔ of the way from vertex)."},
+  {d:"medium",q:"Which point is equidistant from the 3 vertices?",o:["Circumcenter","Incenter","Centroid","Orthocenter"],c:0,x:"Circumcenter (perpendicular bisectors)."},
+  {d:"medium",q:"Third side of a triangle must be between ___ if two sides are 5 and 12.",o:["7 < x < 17","5 < x < 12","0 < x < 17","7 ≤ x ≤ 17"],c:0,x:"|12−5| < x < 12+5 → 7 < x < 17."},
+  {d:"hard",q:"Incenter is equidistant from the three:",o:["Sides","Vertices","Midpoints","Altitudes"],c:0,x:"Incenter = angle bisectors intersection → equidistant from sides."},
+  {d:"hard",q:"In △ABC, median from A to midpoint M of BC. If AM = 15, centroid G is at distance ___ from A.",o:["10","5","15","7.5"],c:0,x:"AG = ⅔ × 15 = 10."}
+],
+qz:[
+  {q:"Can sides 1, 2, 3 form a triangle?",o:["No (1+2 = 3, not >)","Yes","Only degenerate","Depends on angles"],c:0,x:"1+2=3, not strictly greater → fails inequality."},
+  {q:"Which point of concurrency is always inside the triangle?",o:["Centroid","Circumcenter","Orthocenter","All of them"],c:0,x:"The centroid is always inside. Others can be outside for obtuse triangles."},
+  {q:"Midsegment of △ with third side = 20. Midsegment length?",o:["10","20","40","5"],c:0,x:"½ × 20 = 10."},
+  {q:"The incenter is the center of the:",o:["Inscribed circle","Circumscribed circle","Median","Altitude"],c:0,x:"Incenter → inscribed circle (tangent to all three sides)."},
+  {q:"Longest side of a triangle is opposite the:",o:["Largest angle","Smallest angle","Right angle only","Median"],c:0,x:"Longer side ↔ larger opposite angle."}
+],
+  deeperLinks: [{"label":"Area of Triangles and Polygons","url":"math/area-of-triangles-and-polygons/walkthrough.html"},{"label":"Pythagorean Theorem","url":"math/pythagorean-theorem/walkthrough.html"}],
+},
+// ══════════════════════════════════════
+// UNIT 6: Similarity
+// ══════════════════════════════════════
+{
+id:6,title:"Similarity",
+obj:"Understand ratio, proportion, and scale factor. Prove triangle similarity using AA, SSS~, SAS~. Apply similarity to solve for unknown lengths.",
+prs:[
+  {id:11,text:"Proportions: cross-multiplying a/b = c/d → ad = bc. (Grade 7 and Algebra I)"},
+  {id:12,text:"Triangle angle sum (Unit 4): knowing two angles determines the third, which is key for AA similarity."}
+],
+ls:[
+  {t:"Ratios, Proportions & Scale Factor",
+   c:`A <b>ratio</b> compares two quantities. A <b>proportion</b> sets two ratios equal: a/b = c/d.<sup class="fn" title="See footnote 11">¹¹</sup> The <b>scale factor</b> k of similar figures is the constant ratio of corresponding sides.`,
+   f:["a/b = c/d → ad = bc (cross multiply)","Scale factor k: each side of one figure = k × corresponding side of the other"],
+   ex:{p:"A map uses scale 1 cm : 5 km. Two cities are 3.4 cm apart on the map. Real distance?",s:["3.4 × 5 = 17 km"]}},
+  {t:"Triangle Similarity (AA, SSS~, SAS~)",
+   c:`<b>AA</b>: Two pairs of congruent angles → similar.<sup class="fn" title="See footnote 12">¹²</sup> <b>SSS~</b>: All three pairs of sides proportional → similar. <b>SAS~</b>: Two pairs of sides proportional with included angle congruent → similar. Similar triangles have proportional sides and congruent corresponding angles.`,
+   f:["AA: ∠A≅∠D, ∠B≅∠E → △ABC ~ △DEF","Side ratios: AB/DE = BC/EF = AC/DF = k"],
+   ex:{p:"△ABC ~ △DEF. AB = 6, DE = 9, BC = 8. Find EF.",s:["Scale: 6/9 = 2/3","BC/EF = 2/3 → 8/EF = 2/3","EF = 12"]}}
+],
+pr:[
+  {d:"easy",q:"Solve: 3/x = 9/15",o:["5","9","3","45"],c:0,x:"Cross: 3×15=9x→45=9x→x=5."},
+  {d:"easy",q:"Two triangles have ∠A=∠D=50° and ∠B=∠E=70°. Similar?",o:["Yes (AA)","No","Only if sides match","Cannot tell"],c:0,x:"Two angle pairs congruent → AA → similar."},
+  {d:"medium",q:"△ABC ~ △XYZ, scale factor 3:5. If AB = 12, find XY.",o:["20","7.2","36","15"],c:0,x:"12/XY = 3/5 → XY = 20."},
+  {d:"medium",q:"Sides of △1: 4,6,8. Sides of △2: 6,9,12. Similar?",o:["Yes (SSS~, ratio 2:3)","No","Yes (SAS~)","Cannot determine"],c:0,x:"4/6=6/9=8/12=2/3. All proportional → SSS~."},
+  {d:"hard",q:"A 6-ft person casts a 4-ft shadow. A tree casts a 20-ft shadow. Tree height?",o:["30 ft","15 ft","24 ft","12 ft"],c:0,x:"Similar triangles: 6/4 = h/20 → h = 30 ft."},
+  {d:"hard",q:"In △ABC, DE ∥ BC with D on AB, E on AC. AD = 3, DB = 5, AE = 4. Find EC.",o:["20/3","6","8","5"],c:0,x:"AD/AB=AE/AC → 3/8=4/AC → AC=32/3. EC=32/3−4=20/3."}
+],
+qz:[
+  {q:"Similar figures have the same:",o:["Shape but not necessarily size","Size and shape","Perimeter","Area"],c:0,x:"Similar = same shape, proportional sides."},
+  {q:"If scale factor is 1:1, the figures are:",o:["Congruent","Similar only","Different","Cannot tell"],c:0,x:"1:1 ratio means identical sizes → congruent."},
+  {q:"△PQR ~ △STU. PQ=10, ST=4. Area ratio?",o:["25:4","10:4","5:2","100:16"],c:0,x:"Area ratio = (scale factor)² = (10/4)² = 25/4. Same as 25:4."},
+  {q:"Which does NOT prove similarity?",o:["SSA~","AA","SSS~","SAS~"],c:0,x:"SSA~ is not a valid similarity criterion."},
+  {q:"Solve: 5/8 = x/24",o:["15","12","40","3"],c:0,x:"5×24=8x→120=8x→x=15."}
+],
+  deeperLinks: [{"label":"Proportional Relationships","url":"math/proportional-relationships/walkthrough.html"},{"label":"Scale Drawings","url":"math/scale-drawings/walkthrough.html"}],
+},
+// ══════════════════════════════════════
+// UNIT 7: Right Triangles & Trigonometry
+// ══════════════════════════════════════
+{
+id:7,title:"Right Triangles & Trigonometry",
+obj:"Apply the Pythagorean Theorem and its converse. Use special right triangles (45-45-90, 30-60-90). Introduce sine, cosine, tangent for solving right triangles.",
+prs:[
+  {id:13,text:"Square roots and radical simplification: √50 = 5√2, etc. (Algebra I, Unit 10)"},
+  {id:14,text:"Solving proportions: trig ratios produce equations like sin 40° = x/12. (Algebra I and Unit 6 of this course)"}
+],
+ls:[
+  {t:"Pythagorean Theorem & Converse",
+   c:`In a right triangle with legs a, b and hypotenuse c: a² + b² = c².<sup class="fn" title="See footnote 13">¹³</sup> <b>Converse</b>: if a²+b²=c², the triangle is right. If a²+b²>c², it's acute. If a²+b²<c², it's obtuse.`,
+   f:["a² + b² = c²","Common triples: 3-4-5, 5-12-13, 8-15-17, 7-24-25"],
+   ex:{p:"Legs 6 and 8. Find hypotenuse.",s:["c² = 36 + 64 = 100","c = 10"]}},
+  {t:"Special Right Triangles",
+   c:`<b>45-45-90</b>: legs are equal, hypotenuse = leg × √2. <b>30-60-90</b>: short leg = x, long leg = x√3, hypotenuse = 2x.`,
+   f:["45-45-90: x, x, x√2","30-60-90: x, x√3, 2x"],
+   ex:{p:"In a 30-60-90, the short leg is 7. Find the other sides.",s:["Long leg = 7√3","Hypotenuse = 14"]}},
+  {t:"Trigonometric Ratios (SOH-CAH-TOA)",
+   c:`sin θ = opposite/hypotenuse. cos θ = adjacent/hypotenuse. tan θ = opposite/adjacent.<sup class="fn" title="See footnote 14">¹⁴</sup> Use these to find unknown sides or angles in right triangles.`,
+   f:["sin θ = opp/hyp","cos θ = adj/hyp","tan θ = opp/adj"],
+   ex:{p:"In a right triangle, θ = 35°, hypotenuse = 20. Find the opposite side.",s:["sin 35° = x/20","x = 20 · sin 35°","x = 20 · 0.574 ≈ 11.47"]}}
+],
+pr:[
+  {d:"easy",q:"Legs 5 and 12. Hypotenuse?",o:["13","17","7","60"],c:0,x:"25+144=169. √169=13."},
+  {d:"easy",q:"In a 45-45-90, leg = 6. Hypotenuse?",o:["6√2","12","6√3","3√2"],c:0,x:"Hyp = leg×√2 = 6√2."},
+  {d:"easy",q:"sin 30° = ?",o:["1/2","√3/2","√2/2","1"],c:0,x:"30-60-90: opp=x, hyp=2x→sin=1/2."},
+  {d:"medium",q:"Is a triangle with sides 7, 10, 12 right, acute, or obtuse?",o:["Acute","Right","Obtuse","Cannot tell"],c:0,x:"7²+10²=49+100=149. 12²=144. 149>144→acute."},
+  {d:"medium",q:"30-60-90 triangle, hypotenuse = 18. Short leg?",o:["9","9√3","18√3","6"],c:0,x:"Short leg = hyp/2 = 9."},
+  {d:"medium",q:"tan θ = 3/4, hyp = 10. Find opposite side.",o:["6","8","7.5","5"],c:0,x:"opp/adj=3/4. With 3-4-5 scaled by 2: opp=6, adj=8."},
+  {d:"hard",q:"A ladder 15 ft leans against a wall at 70°. How high does it reach?",o:["≈ 14.1 ft","≈ 5.1 ft","15 ft","≈ 10.6 ft"],c:0,x:"sin 70°=h/15→h=15(0.9397)≈14.1 ft."},
+  {d:"hard",q:"Find θ if opposite = 8, adjacent = 15.",o:["θ ≈ 28.1°","θ ≈ 61.9°","θ = 45°","θ ≈ 32.0°"],c:0,x:"tan θ=8/15→θ=arctan(8/15)≈28.1°."}
+],
+qz:[
+  {q:"Pythagorean triple: 3, 4, ___",o:["5","6","7","9"],c:0,x:"3²+4²=25→√25=5."},
+  {q:"45-45-90: hyp = 10. Each leg?",o:["5√2","5","10√2","10/√2"],c:0,x:"leg = hyp/√2 = 10/√2 = 5√2."},
+  {q:"cos 60° = ?",o:["1/2","√3/2","√2/2","0"],c:0,x:"30-60-90: adj=x, hyp=2x→cos 60°=x/2x=1/2."},
+  {q:"A 20-ft flagpole casts a 15-ft shadow. Angle of elevation?",o:["≈ 53.1°","≈ 36.9°","45°","≈ 41.2°"],c:0,x:"tan θ=20/15=4/3→θ≈53.1°."},
+  {q:"Sides 9, 40, 41. Right triangle?",o:["Yes","No","Acute","Obtuse"],c:0,x:"81+1600=1681=41². Yes!"}
+],
+  deeperLinks: [{"label":"Pythagorean Theorem","url":"math/pythagorean-theorem/walkthrough.html"},{"label":"Law of Sines","url":"math/law-of-sines/walkthrough.html"},{"label":"Law of Cosines","url":"math/law-of-cosines/walkthrough.html"}],
+},
+// ══════════════════════════════════════
+// UNIT 8: Quadrilaterals & Polygons
+// ══════════════════════════════════════
+{
+id:8,title:"Quadrilaterals & Polygons",
+obj:"Classify quadrilaterals (parallelogram, rectangle, rhombus, square, trapezoid, kite). Understand their properties. Find interior and exterior angle sums of polygons.",
+prs:[
+  {id:15,text:"Parallel lines properties (Unit 3): parallelograms rely on parallel side pairs."},
+  {id:16,text:"Triangle angle sum (Unit 4): polygon angle sums are derived by dividing into triangles."}
+],
+ls:[
+  {t:"Polygon Angle Sums",
+   c:`The sum of interior angles of an n-gon is (n−2)×180°.<sup class="fn" title="See footnote 16">¹⁶</sup> Each interior angle of a regular n-gon = (n−2)×180°/n. The sum of exterior angles of ANY convex polygon is always 360°.`,
+   f:["Interior sum = (n−2)·180°","Each angle (regular) = (n−2)·180°/n","Exterior sum = 360° (always)"],
+   ex:{p:"Sum of interior angles of a hexagon (n = 6)?",s:["(6−2)·180° = 4·180° = 720°","Each angle if regular: 720°/6 = 120°"]}},
+  {t:"Properties of Quadrilaterals",
+   c:`<b>Parallelogram</b>: opposite sides ∥ and ≅, opposite ∠s ≅, diagonals bisect each other.<sup class="fn" title="See footnote 15">¹⁵</sup> <b>Rectangle</b>: parallelogram + all right angles + diagonals ≅. <b>Rhombus</b>: parallelogram + all sides ≅ + diagonals ⊥. <b>Square</b>: rectangle + rhombus. <b>Trapezoid</b>: exactly one pair of ∥ sides. <b>Kite</b>: two pairs of consecutive ≅ sides.`,
+   f:["□ ABCD: AB∥CD, AD∥BC, AB≅CD, AD≅BC","Rectangle diagonals: AC ≅ BD","Rhombus diagonals: AC ⊥ BD"],
+   ex:{p:"ABCD is a parallelogram. ∠A = 70°. Find all other angles.",s:["Opposite angles ≅: ∠C = 70°","Consecutive angles supplementary: ∠B = 110°, ∠D = 110°"]}}
+],
+pr:[
+  {d:"easy",q:"Interior angle sum of a pentagon (5 sides)?",o:["540°","720°","360°","900°"],c:0,x:"(5−2)×180 = 540°."},
+  {d:"easy",q:"A square is a special case of:",o:["Both rectangle and rhombus","Rectangle only","Rhombus only","Trapezoid"],c:0,x:"A square has all properties of both."},
+  {d:"easy",q:"Exterior angle sum of a decagon?",o:["360°","1440°","180°","3600°"],c:0,x:"Exterior angle sum is always 360° for any convex polygon."},
+  {d:"medium",q:"Each interior angle of a regular octagon?",o:["135°","120°","144°","150°"],c:0,x:"(8−2)×180/8 = 1080/8 = 135°."},
+  {d:"medium",q:"Parallelogram: one angle is 5x+15, consecutive angle is 3x+5. Find x.",o:["20","10","25","15"],c:0,x:"Consecutive ∠s supplementary: 5x+15+3x+5=180→8x=160→x=20."},
+  {d:"hard",q:"How many sides does a regular polygon have if each interior angle is 156°?",o:["15","12","18","20"],c:0,x:"(n−2)·180/n=156→180n−360=156n→24n=360→n=15."},
+  {d:"hard",q:"ABCD is a rhombus. Diagonals AC = 24, BD = 10. Find each side.",o:["13","12","26","17"],c:0,x:"Diagonals bisect each other ⊥: half-diags 12 and 5. Side = √(144+25) = √169 = 13."}
+],
+qz:[
+  {q:"Which quadrilateral has perpendicular diagonals?",o:["Rhombus","Rectangle","Parallelogram","Trapezoid"],c:0,x:"Rhombus diagonals are perpendicular."},
+  {q:"Interior angle sum of a 12-gon?",o:["1800°","2160°","1440°","1080°"],c:0,x:"(12−2)·180=1800°."},
+  {q:"A trapezoid has how many pairs of parallel sides?",o:["Exactly one","Two","Zero","At least one"],c:0,x:"A trapezoid has exactly one pair of parallel sides."},
+  {q:"Parallelogram diagonals:",o:["Bisect each other","Are congruent","Are perpendicular","All of the above"],c:0,x:"Parallelogram diagonals bisect each other (not necessarily ≅ or ⊥)."},
+  {q:"Each exterior angle of a regular hexagon?",o:["60°","120°","72°","45°"],c:0,x:"360/6 = 60°."}
+],
+  deeperLinks: [{"label":"Shapes 2D Properties","url":"math/shapes-2d-properties/walkthrough.html"},{"label":"Area","url":"math/area/walkthrough.html"}],
+},
+// ══════════════════════════════════════
+// UNIT 9: Transformations
+// ══════════════════════════════════════
+{
+id:9,title:"Transformations",
+obj:"Perform and describe translations, reflections, rotations, and dilations on the coordinate plane. Identify rigid vs. non-rigid transformations. Compose transformations.",
+prs:[
+  {id:17,text:"Coordinate plane plotting: you need fluency with (x, y) points. (Algebra I, Unit 4)"},
+  {id:18,text:"Congruence & similarity: rigid motions preserve congruence (Unit 4); dilations relate to similarity (Unit 6)."}
+],
+ls:[
+  {t:"Rigid Motions: Translation, Reflection, Rotation",
+   c:`<b>Rigid motions</b> (isometries) preserve size and shape → congruence.<sup class="fn" title="See footnote 18">¹⁸</sup> <b>Translation</b>: slide by (a,b) → (x+a, y+b). <b>Reflection</b>: flip over a line (x-axis: (x,y)→(x,−y); y-axis: (x,y)→(−x,y); y=x: (x,y)→(y,x)). <b>Rotation about origin</b>: 90° CCW: (x,y)→(−y,x). 180°: (x,y)→(−x,−y). 270° CCW: (x,y)→(y,−x).`,
+   f:["Translation (a,b): (x,y) → (x+a, y+b)","Reflect x-axis: (x,y) → (x,−y)","Rotate 90° CCW: (x,y) → (−y,x)"],
+   ex:{p:"Reflect (3, −2) over the y-axis.",s:["y-axis reflection: negate x","(3, −2) → (−3, −2)"]}},
+  {t:"Dilations & Compositions",
+   c:`A <b>dilation</b> with center O and scale factor k maps each point P to P' where OP' = k·OP.<sup class="fn" title="See footnote 17">¹⁷</sup> If k > 1, enlargement. If 0 < k < 1, reduction. Dilations are NOT rigid motions — they change size. <b>Compositions</b>: apply one transformation, then another. A glide reflection = translation + reflection.`,
+   f:["Dilation from origin, factor k: (x,y) → (kx, ky)","k > 1 → enlargement, 0 < k < 1 → reduction"],
+   ex:{p:"Dilate (4, 6) from the origin by factor 1/2.",s:["(4×½, 6×½) = (2, 3)"]}}
+],
+pr:[
+  {d:"easy",q:"Translate (2, 5) by (−3, 4).",o:["(−1, 9)","(5, 1)","(−1, 1)","(5, 9)"],c:0,x:"(2+(−3), 5+4) = (−1, 9)."},
+  {d:"easy",q:"Reflect (4, −1) over the x-axis.",o:["(4, 1)","(−4, −1)","(−4, 1)","(4, −1)"],c:0,x:"x-axis reflection: negate y → (4, 1)."},
+  {d:"easy",q:"Which transformation changes size?",o:["Dilation","Reflection","Rotation","Translation"],c:0,x:"Only dilation changes size (non-rigid)."},
+  {d:"medium",q:"Rotate (3, 1) 90° CCW about the origin.",o:["(−1, 3)","(1, −3)","(−3, −1)","(3, −1)"],c:0,x:"90° CCW: (x,y)→(−y,x) = (−1, 3)."},
+  {d:"medium",q:"Dilate (6, −4) from origin, factor 3.",o:["(18, −12)","(2, −4/3)","(9, −7)","(6, −12)"],c:0,x:"(6×3, −4×3) = (18, −12)."},
+  {d:"hard",q:"Reflect (2, 5) over y = x.",o:["(5, 2)","(−2, −5)","(−5, −2)","(2, −5)"],c:0,x:"Reflect over y=x: swap coordinates → (5, 2)."},
+  {d:"hard",q:"Rotate (−2, 3) 180° about origin.",o:["(2, −3)","(−2, −3)","(3, −2)","(2, 3)"],c:0,x:"180°: negate both → (2, −3)."}
+],
+qz:[
+  {q:"Which preserves both size and shape?",o:["Rotation","Dilation","Stretching","Shearing"],c:0,x:"Rotation is a rigid motion → preserves congruence."},
+  {q:"Reflect (−3, 7) over the y-axis.",o:["(3, 7)","(−3, −7)","(3, −7)","(7, −3)"],c:0,x:"Negate x: (3, 7)."},
+  {q:"Dilation factor 2, point (1, −4). Image?",o:["(2, −8)","(0.5, −2)","(3, −2)","(1, −8)"],c:0,x:"(1×2, −4×2) = (2, −8)."},
+  {q:"Composition: translate (0,0) by (3,2), then reflect over x-axis. Final?",o:["(3, −2)","(−3, 2)","(3, 2)","(−3, −2)"],c:0,x:"(0,0)→(3,2)→reflect x-axis→(3,−2)."},
+  {q:"270° CCW rotation is equivalent to:",o:["90° clockwise","180°","270° clockwise","No rotation"],c:0,x:"270° CCW = 90° CW."}
+],
+  deeperLinks: [{"label":"Coordinate Plane","url":"math/coordinate-plane/walkthrough.html"},{"label":"Function Transformations","url":"math/function-transformations/walkthrough.html"}],
+},
+// ══════════════════════════════════════
+// UNIT 10: Area & Perimeter
+// ══════════════════════════════════════
+{
+id:10,title:"Area & Perimeter",
+obj:"Calculate area and perimeter of triangles, quadrilaterals, regular polygons, and composite figures. Use the coordinate plane for area.",
+prs:[
+  {id:19,text:"Basic area formulas from earlier grades: rectangle A=lw, triangle A=½bh. (Grade 5–6)"},
+  {id:20,text:"Properties of quadrilaterals (Unit 8): needed for identifying base and height in parallelograms, trapezoids, etc."}
+],
+ls:[
+  {t:"Areas of Triangles & Quadrilaterals",
+   c:`<b>Triangle</b>: A = ½bh. <b>Parallelogram</b>: A = bh. <b>Trapezoid</b>: A = ½(b₁+b₂)h. <b>Rhombus/Kite</b>: A = ½d₁d₂.<sup class="fn" title="See footnote 19">¹⁹</sup> Height is always perpendicular to the base.`,
+   f:["Triangle: A = ½bh","Parallelogram: A = bh","Trapezoid: A = ½(b₁+b₂)h","Rhombus: A = ½d₁d₂"],
+   ex:{p:"Trapezoid with bases 8 and 14, height 6. Find area.",s:["A = ½(8+14)(6)","= ½(22)(6)","= 66 sq units"]}},
+  {t:"Regular Polygons & Composite Figures",
+   c:`Area of a regular polygon: A = ½ × apothem × perimeter.<sup class="fn" title="See footnote 20">²⁰</sup> For composite figures, break into simpler shapes, find each area, then add (or subtract for cutouts).`,
+   f:["A = ½aP (a = apothem, P = perimeter)"],
+   ex:{p:"Regular hexagon with side 10 and apothem 8.66. Find area.",s:["P = 6 × 10 = 60","A = ½(8.66)(60)","A = 259.8 sq units"]}}
+],
+pr:[
+  {d:"easy",q:"Area of triangle: base 10, height 7?",o:["35","70","17","140"],c:0,x:"½(10)(7) = 35."},
+  {d:"easy",q:"Perimeter of rectangle 8 × 5?",o:["26","40","13","80"],c:0,x:"2(8+5) = 26."},
+  {d:"easy",q:"Area of parallelogram: base 12, height 9?",o:["108","54","21","216"],c:0,x:"12 × 9 = 108."},
+  {d:"medium",q:"Trapezoid: bases 6 and 10, height 5. Area?",o:["40","50","80","30"],c:0,x:"½(6+10)(5) = ½(16)(5) = 40."},
+  {d:"medium",q:"Rhombus with diagonals 16 and 12. Area?",o:["96","192","48","28"],c:0,x:"½(16)(12) = 96."},
+  {d:"hard",q:"Regular pentagon: side 8, apothem 5.5. Area?",o:["110","220","40","55"],c:0,x:"P=5×8=40. A=½(5.5)(40)=110."},
+  {d:"hard",q:"Composite: rectangle 10×6 with a triangle (base 10, height 4) on top. Total area?",o:["80","100","60","120"],c:0,x:"Rect: 60. Tri: ½(10)(4)=20. Total: 80."}
+],
+qz:[
+  {q:"Area of triangle with vertices (0,0), (6,0), (0,8)?",o:["24","48","14","12"],c:0,x:"½ × base × height = ½(6)(8) = 24."},
+  {q:"A regular polygon formula: A = ½aP. What is 'a'?",o:["Apothem","Area","Angle","Altitude"],c:0,x:"Apothem: distance from center to midpoint of a side."},
+  {q:"Kite with diagonals 10 and 16. Area?",o:["80","160","26","40"],c:0,x:"½(10)(16) = 80."},
+  {q:"Perimeter of equilateral triangle with side 13?",o:["39","169","26","52"],c:0,x:"3 × 13 = 39."},
+  {q:"Area of square with diagonal 10?",o:["50","100","25","10√2"],c:0,x:"Side = 10/√2. Area = (10/√2)² = 50. Or ½d² = ½(100) = 50."}
+],
+  deeperLinks: [{"label":"Area and Perimeter","url":"math/area-and-perimeter/walkthrough.html"},{"label":"Area","url":"math/area/walkthrough.html"},{"label":"Perimeter of Polygons","url":"math/perimeter-of-polygons/walkthrough.html"}],
+},
+// ══════════════════════════════════════
+// UNIT 11: Surface Area & Volume
+// ══════════════════════════════════════
+{
+id:11,title:"Surface Area & Volume",
+obj:"Calculate surface area and volume of prisms, cylinders, pyramids, cones, and spheres. Apply Cavalieri's Principle.",
+prs:[
+  {id:21,text:"Area formulas (Unit 10): surface area is the sum of areas of all faces."},
+  {id:22,text:"π and circle formulas: C = 2πr, A = πr². (Grade 7 or this course Unit 12)"}
+],
+ls:[
+  {t:"Prisms & Cylinders",
+   c:`<b>Prism</b>: V = Bh (B = base area, h = height). SA = 2B + Ph (P = base perimeter).<sup class="fn" title="See footnote 21">²¹</sup> <b>Cylinder</b>: V = πr²h. SA = 2πr² + 2πrh.`,
+   f:["Prism: V = Bh, SA = 2B + Ph","Cylinder: V = πr²h, SA = 2πr² + 2πrh"],
+   ex:{p:"Cylinder: r = 5, h = 10. Find V and SA.",s:["V = π(25)(10) = 250π ≈ 785.4","SA = 2π(25) + 2π(5)(10) = 50π + 100π = 150π ≈ 471.2"]}},
+  {t:"Pyramids, Cones & Spheres",
+   c:`<b>Pyramid</b>: V = ⅓Bh. <b>Cone</b>: V = ⅓πr²h, SA = πr² + πrℓ (ℓ = slant height).<sup class="fn" title="See footnote 22">²²</sup> <b>Sphere</b>: V = (4/3)πr³, SA = 4πr².`,
+   f:["Pyramid: V = ⅓Bh","Cone: V = ⅓πr²h, Lateral = πrℓ","Sphere: V = (4/3)πr³, SA = 4πr²"],
+   ex:{p:"Sphere with r = 6. Find V and SA.",s:["V = (4/3)π(216) = 288π ≈ 904.8","SA = 4π(36) = 144π ≈ 452.4"]}}
+],
+pr:[
+  {d:"easy",q:"Volume of rectangular prism 4 × 5 × 6?",o:["120","60","15","240"],c:0,x:"4×5×6 = 120."},
+  {d:"easy",q:"Volume of cylinder: r = 3, h = 10?",o:["90π","30π","60π","9π"],c:0,x:"π(9)(10) = 90π."},
+  {d:"easy",q:"Volume of sphere: r = 3?",o:["36π","108π","(4/3)π(27) = 36π","27π"],c:0,x:"(4/3)π(27) = 36π."},
+  {d:"medium",q:"Cone: r = 4, h = 9. Volume?",o:["48π","144π","36π","16π"],c:0,x:"⅓π(16)(9) = 48π."},
+  {d:"medium",q:"SA of a cube with edge 5?",o:["150","125","75","250"],c:0,x:"6 faces × 25 = 150."},
+  {d:"hard",q:"Pyramid: square base side 10, height 12. Volume?",o:["400","1200","300","600"],c:0,x:"B=100, V=⅓(100)(12)=400."},
+  {d:"hard",q:"Cone: r = 5, slant height ℓ = 13. Find h, then V.",o:["100π","V=100π (h=12)","65π","325/3 π"],c:0,x:"h=√(13²−5²)=√(144)=12. V=⅓π(25)(12)=100π."}
+],
+qz:[
+  {q:"Doubling the radius of a sphere multiplies the volume by:",o:["8","2","4","6"],c:0,x:"V ∝ r³. (2r)³ = 8r³ → 8 times."},
+  {q:"SA of sphere r = 7?",o:["196π","(4/3)(343)π","49π","28π"],c:0,x:"4π(49) = 196π."},
+  {q:"Volume of triangular prism: base triangle area 20, height 15?",o:["300","150","600","100"],c:0,x:"V = Bh = 20×15 = 300."},
+  {q:"A cone and cylinder have same r and h. Volume ratio?",o:["1:3","1:2","3:1","2:1"],c:0,x:"Cone = ⅓ × Cylinder → 1:3."},
+  {q:"Hemisphere volume (r = 6)?",o:["144π","288π","72π","36π"],c:0,x:"½ × (4/3)π(216) = ½(288π) = 144π."}
+],
+  deeperLinks: [{"label":"Surface Area","url":"math/surface-area/walkthrough.html"}],
+},
+// ══════════════════════════════════════
+// UNIT 12: Circles
+// ══════════════════════════════════════
+{
+id:12,title:"Circles",
+obj:"Understand chords, arcs, central angles, inscribed angles, tangent lines, secants, and arc length/sector area.",
+prs:[
+  {id:23,text:"Circle basics: C = 2πr, A = πr². Understanding radius, diameter, chord. (Grade 7)"},
+  {id:24,text:"Angle relationships (Unit 2) and equation-solving: arc and angle problems produce algebra. (Algebra I)"}
+],
+ls:[
+  {t:"Central Angles, Arcs & Inscribed Angles",
+   c:`A <b>central angle</b> equals its intercepted arc.<sup class="fn" title="See footnote 23">²³</sup> An <b>inscribed angle</b> = ½ its intercepted arc. <b>Arcs</b>: minor arc < 180°, semicircle = 180°, major arc > 180°.`,
+   f:["Central angle = arc","Inscribed angle = ½ arc","Arc AB + Arc BA (major) = 360°"],
+   ex:{p:"Central angle = 80°. Find the minor arc and major arc.",s:["Minor arc = 80°","Major arc = 360° − 80° = 280°"]}},
+  {t:"Tangents, Secants & Arc Length / Sector Area",
+   c:`A <b>tangent</b> touches the circle at exactly one point and is ⊥ to the radius at that point.<sup class="fn" title="See footnote 24">²⁴</sup> <b>Arc length</b> = (θ/360°) × 2πr. <b>Sector area</b> = (θ/360°) × πr².`,
+   f:["Arc length = (θ/360)·2πr","Sector area = (θ/360)·πr²","Tangent ⊥ radius at point of tangency"],
+   ex:{p:"r = 10, central angle = 72°. Find arc length and sector area.",s:["Arc = (72/360)(2π·10) = (1/5)(20π) = 4π ≈ 12.57","Sector = (72/360)(π·100) = 20π ≈ 62.83"]}}
+],
+pr:[
+  {d:"easy",q:"Central angle = 120°. Inscribed angle intercepting same arc?",o:["60°","120°","240°","30°"],c:0,x:"Inscribed = ½ central = 60°."},
+  {d:"easy",q:"Arc length: r = 7, θ = 90°?",o:["3.5π","7π","14π","1.75π"],c:0,x:"(90/360)(2π·7) = ¼(14π) = 3.5π."},
+  {d:"easy",q:"A tangent line to a circle is ___ to the radius at the point of tangency.",o:["Perpendicular","Parallel","Equal","Bisecting"],c:0,x:"Tangent ⊥ radius."},
+  {d:"medium",q:"Inscribed angle = 35°. Its intercepted arc?",o:["70°","35°","17.5°","140°"],c:0,x:"Arc = 2 × inscribed = 70°."},
+  {d:"medium",q:"Sector area: r = 8, θ = 45°?",o:["8π","64π","4π","16π"],c:0,x:"(45/360)·π(64) = (1/8)(64π) = 8π."},
+  {d:"hard",q:"Two tangent segments from external point to a circle are:",o:["Congruent","Perpendicular","Parallel","Supplementary"],c:0,x:"Tangent segments from the same external point are always equal in length."},
+  {d:"hard",q:"Inscribed angle in a semicircle (intercepting 180° arc) measures:",o:["90°","180°","45°","60°"],c:0,x:"½(180°) = 90°. (Thales' Theorem)"}
+],
+qz:[
+  {q:"Central angle = 150°. Minor arc = ?",o:["150°","210°","75°","300°"],c:0,x:"Central angle = its intercepted arc = 150°."},
+  {q:"Arc length of full circle r = 5?",o:["10π","5π","25π","20π"],c:0,x:"Full circle: 2π(5) = 10π."},
+  {q:"Inscribed angle intercepting a 100° arc?",o:["50°","100°","200°","25°"],c:0,x:"½(100°) = 50°."},
+  {q:"An angle inscribed in a semicircle is always:",o:["90°","180°","45°","60°"],c:0,x:"Thales: inscribed angle in semicircle = 90°."},
+  {q:"Sector area of full circle r = 4?",o:["16π","8π","4π","64π"],c:0,x:"Full sector = full circle area = π(16) = 16π."}
+],
+  deeperLinks: [{"label":"Circles","url":"math/circles/walkthrough.html"}],
+},
+// ══════════════════════════════════════
+// UNIT 13: Coordinate Geometry & Proofs
+// ══════════════════════════════════════
+{
+id:13,title:"Coordinate Geometry & Proofs",
+obj:"Use coordinates to prove geometric properties: midpoint, distance, slope for parallel/perpendicular. Write coordinate proofs for quadrilateral and triangle properties.",
+prs:[
+  {id:25,text:"Distance & midpoint formulas (Unit 1): the backbone of coordinate proofs."},
+  {id:26,text:"Slope relationships (Unit 3): parallel (equal slopes) and perpendicular (negative reciprocal slopes)."}
+],
+ls:[
+  {t:"Coordinate Proof Techniques",
+   c:`In a <b>coordinate proof</b>, place a figure on the coordinate plane and use algebra to prove geometric properties.<sup class="fn" title="See footnote 25">²⁵</sup> Key tools: <b>Distance formula</b> (show sides ≅), <b>Midpoint formula</b> (show bisection), <b>Slope</b> (show ∥ or ⊥).<sup class="fn" title="See footnote 26">²⁶</sup>`,
+   f:["Distance: d = √((x₂−x₁)²+(y₂−y₁)²)","Midpoint: M = ((x₁+x₂)/2, (y₁+y₂)/2)","Slope: m = (y₂−y₁)/(x₂−x₁)"],
+   ex:{p:"Prove that A(0,0), B(4,0), C(4,3), D(0,3) is a rectangle.",s:["AB: slope 0, CD: slope 0 → AB∥CD","AD: slope undefined, BC: slope undefined → AD∥BC","It's a parallelogram. AB ⊥ AD (slope 0 × undefined) → right angle","Parallelogram with a right angle → rectangle ✓"]}},
+  {t:"Proving Triangle & Quadrilateral Properties",
+   c:`Strategic placement helps: put one vertex at the origin and a side along an axis. Use variables (a, b) for generality. Common proofs: midsegment theorem, diagonals bisect each other (parallelogram), triangle is isosceles.`,
+   f:["Parallelogram: show both pairs of opposite sides have equal slope (∥) and equal length","Isosceles: show two sides have equal distance"],
+   ex:{p:"Show that the diagonals of rectangle with vertices (0,0), (a,0), (a,b), (0,b) are equal.",s:["Diagonal 1: (0,0) to (a,b): length = √(a²+b²)","Diagonal 2: (a,0) to (0,b): length = √(a²+b²)","Equal lengths → diagonals are congruent ✓"]}}
+],
+pr:[
+  {d:"easy",q:"A(1,2), B(5,2). Length of AB?",o:["4","6","3","8"],c:0,x:"Same y → |5−1| = 4."},
+  {d:"easy",q:"Midpoint of (0,0) and (6,8)?",o:["(3, 4)","(6, 8)","(3, 8)","(0, 4)"],c:0,x:"(3, 4)."},
+  {d:"medium",q:"Show A(0,0), B(3,4), C(6,0) is isosceles. Which sides are equal?",o:["AB = BC = 5","AB = AC = 5","AC = BC = 5","All equal"],c:0,x:"AB=√(9+16)=5. BC=√(9+16)=5. AB=BC → isosceles."},
+  {d:"medium",q:"A(1,1), B(4,1), C(4,5), D(1,5). Is ABCD a rectangle?",o:["Yes","No — it's a parallelogram only","No — it's a rhombus","Cannot determine"],c:0,x:"Opposite sides ∥ (horizontal/vertical), all angles 90° → rectangle."},
+  {d:"hard",q:"Prove A(−1,−1), B(3,2), C(6,−2) is a right triangle. Which angle is 90°?",o:["∠B (slopes of BA and BC multiply to −1)","∠A","∠C","Not a right triangle"],c:0,x:"Slope AB=(2−(−1))/(3−(−1))=3/4. Slope BC=(−2−2)/(6−3)=−4/3. Product: (3/4)(−4/3)=−1 → ⊥ at B."},
+  {d:"hard",q:"Quadrilateral with vertices (0,0),(a,0),(a+b,c),(b,c). Show it's a parallelogram using slopes.",o:["Bottom slope = 0, top slope = 0 → ∥. Left slope = c/b, right slope = c/b → ∥.","Only one pair parallel","Slopes don't match","Need more info"],c:0,x:"Bottom: 0/a=0. Top: (c−c)/((a+b)−b)=0. Left: c/b. Right: c/((a+b)−a)=c/b. Both pairs ∥ → parallelogram."}
+],
+qz:[
+  {q:"To prove sides are congruent in a coordinate proof, use:",o:["Distance formula","Slope formula","Midpoint formula","Area formula"],c:0,x:"Distance formula shows equal lengths."},
+  {q:"To prove sides are parallel, use:",o:["Slope (equal slopes)","Distance","Midpoint","Angle measurement"],c:0,x:"Equal slopes → parallel."},
+  {q:"Diagonals of (0,0),(4,0),(4,3),(0,3). Are they equal?",o:["Yes, both = 5","No","Yes, both = 7","Cannot tell"],c:0,x:"Both = √(16+9) = 5. Equal → rectangle confirmed."},
+  {q:"To prove a quadrilateral is a rhombus, show:",o:["All four sides equal (distance formula)","Opposite sides parallel","Diagonals equal","All angles 90°"],c:0,x:"All four sides equal length → rhombus."},
+  {q:"Best placement for proving an isosceles triangle?",o:["Base on x-axis, vertex on y-axis","All vertices on y-axis","Origin at centroid","Random placement"],c:0,x:"Base on x-axis, vertex on y-axis exploits symmetry."}
+],
+  deeperLinks: [{"label":"Distance Formula","url":"math/distance-formula/walkthrough.html"},{"label":"Coordinate Plane","url":"math/coordinate-plane/walkthrough.html"},{"label":"Slope","url":"math/slope/walkthrough.html"}]
+}];;
+
+const STATE = { currentUnit: 0, currentTab: 'lesson', answers: {}, quizSubmitted: {}, completedUnits: new Set() };
+
+function loadProgress() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('geometry-progress') || '{}');
+    if (saved.answers) STATE.answers = saved.answers;
+    if (saved.quizSubmitted) STATE.quizSubmitted = saved.quizSubmitted;
+    if (saved.completedUnits) STATE.completedUnits = new Set(saved.completedUnits);
+  } catch (e) {}
+}
+
+function saveProgress() {
+  try {
+    localStorage.setItem('geometry-progress', JSON.stringify({
+      answers: STATE.answers,
+      quizSubmitted: STATE.quizSubmitted,
+      completedUnits: Array.from(STATE.completedUnits)
+    }));
+  } catch (e) {}
+}
+
+function updateOverallProgress() {
+  const count = STATE.completedUnits.size;
+  const pct = Math.round((count / GEOMETRY_CURRICULUM.length) * 100);
+  document.getElementById('geoCompletedUnits').textContent = count;
+  document.getElementById('geoProgressPct').textContent = pct;
+  document.getElementById('geoProgressBar').style.width = pct + '%';
+}
+
+function render() {
+  const D = GEOMETRY_CURRICULUM;
+  const u = D[STATE.currentUnit];
+  const app = document.getElementById('geoApp');
+
+  const navBtns = D.map((c, i) => {
+    const on = i === STATE.currentUnit ? ' on' : '';
+    const ok = STATE.completedUnits.has(i) ? ' ok' : '';
+    return `<button class="${on}${ok}" onclick="selectUnit(${i})">${STATE.completedUnits.has(i) ? '✓ ' : ''}U${c.id}</button>`;
+  }).join('');
+
+  const deeperHtml = (u.deeperLinks && u.deeperLinks.length) ? `
+    <div class="geo-deeper">
+      <div class="lbl">Go Deeper →</div>
+      ${u.deeperLinks.map(l => `<a href="${l.url}">${l.label}</a>`).join('')}
+    </div>` : '';
+
+  app.innerHTML = `
+    <div class="geo-nav">${navBtns}</div>
+    <div class="geo-uhdr">
+      <div class="geo-unum">Unit ${u.id} of 13</div>
+      <div class="geo-utitle">${u.title}</div>
+      <div class="geo-uobj">${u.obj}</div>
+    </div>
+    ${deeperHtml}
+    <div class="geo-tabs">
+      <button class="geo-tb ${STATE.currentTab === 'lesson' ? 'on' : ''}" onclick="setTab('lesson')">Lessons</button>
+      <button class="geo-tb ${STATE.currentTab === 'practice' ? 'on' : ''}" onclick="setTab('practice')">Practice</button>
+      <button class="geo-tb ${STATE.currentTab === 'quiz' ? 'on' : ''}" onclick="setTab('quiz')">Unit Quiz</button>
+    </div>
+    ${STATE.currentTab === 'lesson' ? renderLessons(u) : ''}
+    ${STATE.currentTab === 'practice' ? renderPractice(u) : ''}
+    ${STATE.currentTab === 'quiz' ? renderQuiz(u) : ''}
+    ${renderFootnotes(u)}
+  `;
+  updateOverallProgress();
+}
+
+function renderLessons(u) {
+  return u.ls.map(l => `
+    <div class="geo-lcard">
+      <h3>${l.t}</h3>
+      <p>${l.c}</p>
+      ${l.f.map(f => `<div class="geo-fm">${f}</div>`).join('')}
+      ${l.ex ? `<div class="geo-wex"><div class="wl">Worked Example</div><div class="wp">${l.ex.p}</div>${l.ex.s.map(s => `<div class="ws">→ ${s}</div>`).join('')}</div>` : ''}
+    </div>`).join('') + `
+    <div class="geo-prbox"><div class="prt">Prerequisite Knowledge</div>${u.prs.map(p => `<p><b>[${p.id}]</b> ${p.text}</p>`).join('')}</div>`;
+}
+
+function renderPractice(u) {
+  return ['easy','medium','hard'].map(d => {
+    const qs = u.pr.filter(q => q.d === d);
+    if (!qs.length) return '';
+    const cls = d === 'easy' ? 'geo-de' : d === 'medium' ? 'geo-dm' : 'geo-dh';
+    return `<div style="margin-bottom:8px"><span class="geo-dtag ${cls}">${d}</span></div>
+      ${qs.map(q => renderQ(q, `${STATE.currentUnit}-p-${u.pr.indexOf(q)}`, false)).join('')}`;
+  }).join('');
+}
+
+function renderQuiz(u) {
+  const key = `${STATE.currentUnit}-qz`;
+  const sub = STATE.quizSubmitted[key];
+  let sc = 0;
+  if (sub) u.qz.forEach((q, i) => { if (STATE.answers[`${STATE.currentUnit}-q-${i}`] === q.c) sc++; });
+  return `
+    <div class="geo-qhd">
+      <h3 style="font-size:1.15rem;font-weight:700;">Unit ${u.id} Quiz</h3>
+      <div class="geo-qct">${sub ? sc + '/' + u.qz.length : u.qz.length + ' questions'}</div>
+    </div>
+    ${u.qz.map((q, i) => renderQ(q, `${STATE.currentUnit}-q-${i}`, sub)).join('')}
+    ${!sub ? `<button class="geo-btn geo-bf" onclick="submitQuiz()">Submit Quiz</button>` : ''}
+    ${sub ? `<div class="geo-qres"><div class="geo-sbig">${Math.round(sc/u.qz.length*100)}%</div><div class="geo-ssub">${sc} of ${u.qz.length} correct</div><button class="geo-btn" onclick="retakeQuiz()">Retake</button></div>` : ''}`;
+}
+
+function renderQ(q, key, forceShow) {
+  const sel = STATE.answers[key];
+  const isQuiz = key.includes('-q-');
+  const unsub = isQuiz && !STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  const show = (sel !== undefined && !unsub) || forceShow;
+  const cor = sel === q.c;
+  const text = q.q || q.question;
+  const opts = q.o || q.options || [];
+  const correct = q.c;
+  const expl = q.x || q.explanation;
+  const optsHtml = opts.map((o, i) => {
+    let c = 'geo-ob';
+    if (show) { c += ' lk'; if (i === sel && cor) c += ' sc'; else if (i === sel && !cor) c += ' sw'; if (i === correct && !cor) c += ' rv'; }
+    else if (unsub && i === sel) c += ' qs'; else if (sel !== undefined && !unsub) c += ' lk';
+    return `<button class="${c}" onclick="answerQ('${key}',${i})" ${(show || (sel !== undefined && !unsub)) ? 'disabled' : ''}>${o}</button>`;
+  }).join('');
+  return `<div class="geo-qc ${show ? (cor ? 'gc' : 'bc') : ''}"><div class="geo-qt">${text}</div><div class="geo-os">${optsHtml}</div>${show && expl ? `<div class="geo-ex">${expl}</div>` : ''}</div>`;
+}
+
+function renderFootnotes(u) {
+  if (!u.prs || !u.prs.length) return '';
+  return `<div class="geo-fns"><h4>Prerequisite Footnotes</h4>${u.prs.map(p => `<div class="geo-fni"><span class="geo-fnm">[${p.id}]</span> ${p.text}</div>`).join('')}</div>`;
+}
+
+function selectUnit(i) { STATE.currentUnit = i; STATE.currentTab = 'lesson'; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function setTab(t) { STATE.currentTab = t; render(); }
+
+function answerQ(key, opt) {
+  const unsub = key.includes('-q-') && !STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  if (!unsub && STATE.answers[key] !== undefined) return;
+  STATE.answers[key] = opt;
+  saveProgress();
+  render();
+}
+
+function submitQuiz() {
+  const u = GEOMETRY_CURRICULUM[STATE.currentUnit];
+  const all = u.qz.every((_, i) => STATE.answers[`${STATE.currentUnit}-q-${i}`] !== undefined);
+  if (!all) { alert('Answer all questions first.'); return; }
+  STATE.quizSubmitted[`${STATE.currentUnit}-qz`] = true;
+  let sc = 0;
+  u.qz.forEach((q, i) => { if (STATE.answers[`${STATE.currentUnit}-q-${i}`] === q.c) sc++; });
+  if (sc / u.qz.length >= 0.6) STATE.completedUnits.add(STATE.currentUnit);
+  saveProgress();
+  render();
+}
+
+function retakeQuiz() {
+  const u = GEOMETRY_CURRICULUM[STATE.currentUnit];
+  u.qz.forEach((_, i) => delete STATE.answers[`${STATE.currentUnit}-q-${i}`]);
+  delete STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  STATE.completedUnits.delete(STATE.currentUnit);
+  saveProgress();
+  render();
+}
+
+const savedTheme = localStorage.getItem('mathbored-theme');
+if (savedTheme) document.body.className = savedTheme;
+loadProgress();
+render();
+</script>
+</body>
+</html>

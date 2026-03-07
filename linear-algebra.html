@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linear Algebra — Complete Curriculum | MathBored</title>
+<meta name="description" content="Complete Linear Algebra course: 12 units from systems and vectors through eigenvalues, diagonalization, and SVD. Free interactive lessons, practice, and quizzes.">
+<meta name="keywords" content="Linear algebra, matrices, vectors, determinants, eigenvalues, diagonalization, SVD, math, free, college">
+<link rel="canonical" href="https://math.boredgames.site/linear-algebra.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://math.boredgames.site/linear-algebra.html">
+<meta property="og:title" content="Linear Algebra — Complete Curriculum | MathBored">
+<meta property="og:description" content="Complete Linear Algebra course: 12 units from systems and vectors through eigenvalues and SVD.">
+<meta property="og:image" content="https://math.boredgames.site/og-image.png">
+<meta property="og:site_name" content="MathBored">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Course","name":"Linear Algebra — Complete Curriculum","description":"Complete Linear Algebra course: 12 units from systems and vectors through eigenvalues, diagonalization, and SVD.","provider":{"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},"educationalLevel":"College","learningResourceType":"Course","inLanguage":"en","isAccessibleForFree":true}
+</script>
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Linear Algebra — local styles (sage/green theme) */
+.la-app { max-width: 960px; margin: 0 auto; padding: 20px; }
+.back-link { display: inline-block; margin-bottom: 20px; color: #4a7c59; text-decoration: none; font-weight: 600; }
+.back-link:hover { opacity: 0.9; }
+.la-hero { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border); border-radius: 20px; padding: 48px 28px 40px; text-align: center; margin-bottom: 32px; }
+.la-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; color: #3a6347; margin-bottom: 8px; }
+.la-hero .sub { font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+.la-stats { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.la-stat { background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 12px; padding: 14px 24px; }
+.la-stat-num { font-size: 1.8rem; font-weight: 800; display: block; color: var(--text-primary); }
+.la-stat-lbl { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; }
+.la-progress { background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 28px; }
+.la-progress-bar { background: var(--bg-tertiary); border-radius: 20px; height: 10px; overflow: hidden; margin: 10px 0 6px; }
+.la-progress-fill { height: 100%; background: linear-gradient(90deg, #3a6347, #4a7c59); border-radius: 20px; transition: width 0.5s ease; }
+.la-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; padding: 14px; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border); }
+.la-nav button { font-family: inherit; font-size: 0.75rem; font-weight: 700; padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+.la-nav button:hover { border-color: #4a7c59; color: var(--text-primary); }
+.la-nav button.on { background: #4a7c59; color: #fff; border-color: #4a7c59; }
+.la-nav button.ok { border-color: var(--success); color: var(--success); }
+.la-uhdr { margin-bottom: 22px; }
+.la-unum { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #4a7c59; font-weight: 700; }
+.la-utitle { font-size: clamp(1.4rem, 3.5vw, 2.2rem); font-weight: 800; margin: 4px 0 8px; }
+.la-uobj { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.75; }
+.la-deeper { background: var(--bg-secondary); border: 1px solid var(--border); border-left: 3px solid #4a7c59; border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; font-size: 0.86rem; }
+.la-deeper .lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #4a7c59; font-weight: 700; margin-bottom: 8px; }
+.la-deeper a { display: inline-block; margin: 2px 6px 2px 0; padding: 4px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--text-secondary); text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.2s; }
+.la-deeper a:hover { border-color: #4a7c59; color: #4a7c59; background: rgba(74,124,89,0.1); }
+.la-tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
+.la-tb { font-family: inherit; font-size: 0.86rem; font-weight: 700; padding: 10px 20px; border: none; background: transparent; color: var(--text-secondary); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.la-tb:hover { color: var(--text-primary); }
+.la-tb.on { color: #4a7c59; border-bottom-color: #4a7c59; }
+.la-lcard { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px 26px; margin-bottom: 14px; }
+.la-lcard h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: #4a7c59; }
+.la-lcard p { font-size: 0.9rem; margin-bottom: 8px; line-height: 1.7; }
+.la-fm { background: var(--bg-tertiary); border-left: 3px solid #4a7c59; border-radius: 6px; padding: 10px 14px; margin: 10px 0; font-family: var(--font-mono); font-size: 0.84rem; color: #6a9e79; overflow-x: auto; }
+.la-wex { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+.la-wex .wl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--warning); font-weight: 700; margin-bottom: 6px; }
+.la-wex .wp { font-weight: 600; margin-bottom: 4px; font-size: 0.88rem; }
+.la-wex .ws { color: var(--text-secondary); font-size: 0.82rem; margin-bottom: 2px; }
+.la-prbox { background: rgba(106,94,138,0.08); border: 1px solid rgba(106,94,138,0.2); border-left: 3px solid #6a5e8a; border-radius: 8px; padding: 12px 16px; margin: 12px 0; font-size: 0.84rem; }
+.la-prbox .prt { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: #6a5e8a; font-weight: 700; margin-bottom: 6px; }
+.la-prbox p { color: var(--text-secondary); margin-bottom: 4px; }
+.la-dtag { display: inline-block; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; }
+.la-de { background: rgba(16,185,129,0.12); color: var(--success); border: 1px solid rgba(16,185,129,0.25); }
+.la-dm { background: rgba(245,158,11,0.12); color: var(--warning); border: 1px solid rgba(245,158,11,0.25); }
+.la-dh { background: rgba(239,68,68,0.12); color: var(--error); border: 1px solid rgba(239,68,68,0.25); }
+.la-qc { background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; transition: border-color 0.3s; }
+.la-qc.gc { border-color: var(--success); }
+.la-qc.bc { border-color: var(--error); }
+.la-qt { font-size: 0.9rem; margin-bottom: 12px; font-weight: 600; line-height: 1.6; }
+.la-os { display: flex; flex-direction: column; gap: 6px; }
+.la-ob { font-family: inherit; font-size: 0.86rem; text-align: left; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-tertiary); color: var(--text-primary); cursor: pointer; transition: all 0.2s; }
+.la-ob:hover:not(.lk) { border-color: #4a7c59; background: rgba(74,124,89,0.08); }
+.la-ob.sc { border-color: var(--success); background: rgba(16,185,129,0.12); color: var(--success); font-weight: 600; }
+.la-ob.sw { border-color: var(--error); background: rgba(239,68,68,0.12); color: var(--error); }
+.la-ob.rv { border-color: var(--success); background: rgba(16,185,129,0.08); }
+.la-ob.lk { cursor: default; opacity: 0.75; }
+.la-ob.qs { border-color: #4a7c59; background: rgba(74,124,89,0.1); font-weight: 600; }
+.la-ex { margin-top: 10px; padding: 10px 14px; background: var(--bg-tertiary); border-radius: 6px; font-size: 0.82rem; color: var(--text-secondary); border-left: 3px solid #4a7c59; animation: laFade 0.3s ease; }
+@keyframes laFade { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: none; } }
+.la-qhd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.la-qct { font-family: var(--font-mono); font-size: 0.84rem; color: #4a7c59; font-weight: 700; }
+.la-qres { text-align: center; padding: 36px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; margin-top: 18px; }
+.la-sbig { font-size: 3rem; font-weight: 800; color: #4a7c59; line-height: 1; margin-bottom: 4px; }
+.la-ssub { color: var(--text-secondary); font-size: 0.88rem; }
+.la-btn { font-family: inherit; font-size: 0.84rem; font-weight: 700; padding: 10px 22px; border: 1px solid #4a7c59; border-radius: 8px; background: transparent; color: #4a7c59; cursor: pointer; margin-top: 14px; transition: all 0.2s; }
+.la-btn:hover { background: #4a7c59; color: #fff; }
+.la-bf { background: #4a7c59; color: #fff; }
+.la-bf:hover { background: #3a6347; }
+.la-fns { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--border); }
+.la-fns h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: #6a5e8a; margin-bottom: 10px; font-weight: 700; }
+.la-fni { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px; padding-left: 14px; }
+.la-fnm { color: #6a5e8a; font-weight: 700; }
+@media (max-width: 640px) { .la-app { padding: 12px; } .la-lcard, .la-qc { padding: 16px; } .la-nav button { font-size: 0.68rem; padding: 4px 8px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1>🎯 MathBored</h1>
+        <div class="tagline">Linear Algebra — Complete Curriculum</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="la-app">
+  <a href="index.html" class="back-link">← Back to Main App</a>
+
+  <div class="la-hero">
+    <h1>◫ Linear Algebra</h1>
+    <p class="sub">Complete Curriculum · 12 Units · Practice &amp; Quizzes</p>
+    <div class="la-stats">
+      <div class="la-stat"><span class="la-stat-num">12</span><span class="la-stat-lbl">Units</span></div>
+      <div class="la-stat"><span class="la-stat-num">24</span><span class="la-stat-lbl">Lessons</span></div>
+      <div class="la-stat"><span class="la-stat-num">77</span><span class="la-stat-lbl">Practice Qs</span></div>
+      <div class="la-stat"><span class="la-stat-num">60</span><span class="la-stat-lbl">Quiz Qs</span></div>
+    </div>
+  </div>
+
+  <div class="la-progress">
+    <h2 style="margin:0 0 6px;font-size:1.1rem;font-weight:700;">Your Progress</h2>
+    <p style="color:var(--text-secondary);font-size:0.88rem;margin:0;">
+      <span id="laCompletedUnits">0</span> of 12 units completed · <span id="laProgressPct">0</span>% done
+    </p>
+    <div class="la-progress-bar">
+      <div class="la-progress-fill" id="laProgressBar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div id="laApp"></div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+  </div>
+</footer>
+
+<script>
+const LINEAR_ALGEBRA_CURRICULUM = [
+// ══════════════ UNIT 1 ══════════════
+{id:1,title:"Systems of Linear Equations",
+obj:"Solve systems using elimination and back-substitution. Understand row echelon and reduced row echelon form. Classify systems as consistent/inconsistent, independent/dependent.",
+prs:[{id:1,text:"Solving 2×2 and 3×3 systems: substitution, elimination, special cases. (Algebra I Unit 6, Algebra II Unit 2)"},{id:2,text:"Matrix notation basics: rows, columns, entries aᵢⱼ. (Algebra II Unit 11)"}],
+ls:[
+{t:"Gaussian Elimination & Row Operations",
+c:`A system of m equations in n unknowns can be represented as an <b>augmented matrix</b> [A|b].<sup class="fn">²</sup> Three <b>elementary row operations</b>: (1) swap two rows, (2) multiply a row by a nonzero scalar, (3) add a multiple of one row to another. <b>Gaussian elimination</b> transforms the matrix to <b>row echelon form</b> (REF)—staircase of leading 1s with zeros below each pivot.`,
+f:["Row operations: Rᵢ ↔ Rⱼ, cRᵢ → Rᵢ, Rᵢ + cRⱼ → Rᵢ","REF → back-substitution to solve"],
+ex:{p:"Solve: x+y+z=6, 2x+3y+z=14, x−y+2z=2",s:["Augmented: [1 1 1|6; 2 3 1|14; 1 −1 2|2]","R₂−2R₁→R₂: [0 1 −1|2], R₃−R₁→R₃: [0 −2 1|−4]","R₃+2R₂→R₃: [0 0 −1|0] → z=0","Back-sub: y=2, x=4. Solution: (4,2,0)"]}},
+{t:"Gauss-Jordan & Reduced Row Echelon Form",
+c:`<b>Gauss-Jordan elimination</b> continues past REF to produce <b>RREF</b>—each pivot column has zeros both above and below the leading 1.<sup class="fn">¹</sup> RREF gives the solution directly without back-substitution. A system has a <b>unique solution</b> (pivot in every variable column), <b>infinitely many</b> (free variables), or <b>no solution</b> (inconsistent row like [0 0|1]).`,
+f:["RREF: leading 1s with all other entries in pivot columns = 0","Free variables → parametric solution"],
+ex:{p:"RREF of [1 0 2|5; 0 1 −1|3]. Interpret.",s:["x₁ + 2x₃ = 5, x₂ − x₃ = 3","x₃ is free: let x₃ = t","x₁ = 5−2t, x₂ = 3+t, x₃ = t"]}}
+],
+pr:[
+{d:"easy",q:"How many solutions if RREF has a row [0 0 0|1]?",o:["None (inconsistent)","Infinitely many","Exactly one","Two"],c:0,x:"0=1 is a contradiction → no solution."},
+{d:"easy",q:"Which is NOT an elementary row operation?",o:["Multiply two rows together","Swap rows","Scale a row","Add a multiple of one row to another"],c:0,x:"You can't multiply rows together as an elementary operation."},
+{d:"easy",q:"What does the augmented matrix [A|b] represent?",o:["The system Ax = b","The inverse A⁻¹","The determinant","A product AB"],c:0,x:"Columns of A plus the constant vector b."},
+{d:"medium",q:"RREF: [1 0 3|7; 0 1 −2|4]. How many free variables?",o:["One (x₃)","Zero","Two","Three"],c:0,x:"3 variables, 2 pivots → 1 free variable."},
+{d:"medium",q:"Solve: 2x+4y=10, x+2y=5. How many solutions?",o:["Infinitely many","None","Exactly one","Two"],c:0,x:"Second equation is ½ × first → dependent → ∞ solutions."},
+{d:"hard",q:"System with 3 equations, 5 unknowns, and rank 3. How many free variables?",o:["2","3","0","5"],c:0,x:"Free variables = unknowns − rank = 5−3 = 2."},
+{d:"hard",q:"After elimination: [1 2 0|3; 0 0 1|−1; 0 0 0|0]. Solution?",o:["x₁=3−2t, x₂=t, x₃=−1","Unique: (3,0,−1)","No solution","x₁=3, x₂=0, x₃=−1"],c:0,x:"x₂ is free (no pivot). x₁=3−2t, x₂=t, x₃=−1."}
+],
+qz:[
+{q:"REF requires zeros ___ each pivot.",o:["Below","Above","Both above and below","Neither"],c:0,x:"REF: zeros below. RREF: zeros above AND below."},
+{q:"How many pivots can an m×n matrix have at most?",o:["min(m,n)","m+n","m×n","max(m,n)"],c:0,x:"At most one pivot per row and per column → min(m,n)."},
+{q:"A consistent system with free variables has:",o:["Infinitely many solutions","Exactly one solution","No solution","Exactly two solutions"],c:0,x:"Free variables → parameter → infinite solutions."},
+{q:"Rank of a matrix is:",o:["Number of pivots in REF","Number of rows","Number of zeros","Determinant value"],c:0,x:"Rank = number of pivot positions."},
+{q:"RREF of [2 4; 1 2] is:",o:["[1 2; 0 0]","[1 0; 0 1]","[2 4; 0 0]","[1 2; 1 2]"],c:0,x:"R₁/2→[1 2; 1 2]. R₂−R₁→[1 2; 0 0]."}
+],
+  deeperLinks: [{"label":"Systems of Equations","url":"math/systems-of-equations/walkthrough.html"},{"label":"Matrices","url":"math/matrices/walkthrough.html"}],
+},
+// ══════════════ UNIT 2 ══════════════
+{id:2,title:"Vectors in ℝⁿ",
+obj:"Define vectors in ℝⁿ. Perform addition, scalar multiplication. Understand linear combinations, span, and geometric interpretation.",
+prs:[{id:3,text:"Vectors in ℝ²: component form, magnitude, direction. (Trigonometry Unit 10, Algebra II)"},{id:4,text:"Parametric equations: representing lines and planes parametrically. (Trigonometry Unit 11)"}],
+ls:[
+{t:"Vector Operations in ℝⁿ",
+c:`A <b>vector</b> in ℝⁿ is an ordered n-tuple v = (v₁, v₂, …, vₙ).<sup class="fn">³</sup> Addition: u+v = (u₁+v₁, …, uₙ+vₙ). Scalar multiplication: cv = (cv₁, …, cvₙ). The <b>zero vector</b> 0 is the additive identity.`,
+f:["u + v = (u₁+v₁, u₂+v₂, …, uₙ+vₙ)","cv = (cv₁, cv₂, …, cvₙ)","||v|| = √(v₁² + v₂² + … + vₙ²)"],
+ex:{p:"u = (1,−2,3), v = (4,0,−1). Find 2u + v.",s:["2u = (2,−4,6)","2u + v = (2+4, −4+0, 6+(−1)) = (6, −4, 5)"]}},
+{t:"Linear Combinations & Span",
+c:`A <b>linear combination</b> of vectors v₁,…,vₖ is c₁v₁ + c₂v₂ + … + cₖvₖ.<sup class="fn">⁴</sup> The <b>span</b> of a set of vectors is the set of ALL possible linear combinations. Geometrically: span of one vector = line, span of two independent vectors = plane.`,
+f:["Span{v₁,…,vₖ} = {c₁v₁+…+cₖvₖ : cᵢ ∈ ℝ}"],
+ex:{p:"Is (3, 5) in Span{(1,2), (1,1)}?",s:["Need c₁(1,2)+c₂(1,1)=(3,5)","c₁+c₂=3 and 2c₁+c₂=5","Subtract: c₁=2, c₂=1","Yes: 2(1,2)+1(1,1)=(3,5) ✓"]}}
+],
+pr:[
+{d:"easy",q:"(1,2,3) + (4,5,6) = ?",o:["(5,7,9)","(4,10,18)","(5,7,3)","(3,3,3)"],c:0,x:"Component-wise: (1+4, 2+5, 3+6)."},
+{d:"easy",q:"3·(2, −1) = ?",o:["(6, −3)","(5, 2)","(6, −1)","(2, −3)"],c:0,x:"(3·2, 3·(−1)) = (6, −3)."},
+{d:"easy",q:"||（3, 4)|| = ?",o:["5","7","25","1"],c:0,x:"√(9+16)=5."},
+{d:"medium",q:"Is (2, 3) a linear combination of (1, 0) and (0, 1)?",o:["Yes: 2(1,0)+3(0,1)","No","Only if we include (1,1)","Cannot determine"],c:0,x:"(1,0) and (0,1) span all of ℝ²."},
+{d:"medium",q:"Span{(1, 2)} geometrically is a:",o:["Line through origin","Plane","Single point","All of ℝ²"],c:0,x:"Scalar multiples of one vector → line through origin."},
+{d:"hard",q:"Do (1,0,1), (0,1,1), (1,1,0) span ℝ³?",o:["Yes (det ≠ 0)","No","Only a plane","Cannot determine"],c:0,x:"Matrix [1 0 1; 0 1 1; 1 1 0]. det=1(0−1)−0+1(0−1)=−2≠0 → linearly independent → span ℝ³."},
+{d:"hard",q:"The zero vector 0 is in Span{v₁,…,vₖ} for any vectors. True or false?",o:["True (all coefficients = 0)","False","Only if vectors are independent","Depends on dimension"],c:0,x:"0 = 0·v₁+…+0·vₖ. Always in the span."}
+],
+qz:[
+{q:"The span of the empty set is:",o:["{0}","ℝⁿ","Empty set","Undefined"],c:0,x:"By convention, span of empty set = {0}."},
+{q:"u − v is the same as:",o:["u + (−1)v","u + v","v − u","−u − v"],c:0,x:"Subtraction = adding the negative."},
+{q:"Span{(1,0),(0,1)} in ℝ² is:",o:["All of ℝ²","A line","A point","A plane in ℝ³"],c:0,x:"Two independent vectors span the entire plane ℝ²."},
+{q:"How many vectors in (1, 2, 3, 4)?",o:["It IS one vector in ℝ⁴","4 vectors","3 vectors","Not a vector"],c:0,x:"One vector with 4 components → element of ℝ⁴."},
+{q:"||c·v|| = ?",o:["|c| · ||v||","c · ||v||","c² · ||v||","||c|| · ||v||"],c:0,x:"Magnitude scales by the absolute value of the scalar."}
+],
+  deeperLinks: [{"label":"Vectors","url":"math/vectors/walkthrough.html"},{"label":"Linear Combinations","url":"math/linear-combinations/walkthrough.html"}],
+},
+// ══════════════ UNIT 3 ══════════════
+{id:3,title:"Matrices & Matrix Operations",
+obj:"Define matrices. Perform addition, scalar multiplication, matrix multiplication. Understand transpose, symmetric matrices, and matrix powers.",
+prs:[{id:5,text:"Matrix basics: dimensions (m×n), entries aᵢⱼ, augmented matrices. (Algebra II Unit 11, this course Unit 1)"},{id:6,text:"Dot product of vectors: row × column multiplication is a dot product. (Trigonometry Unit 10)"}],
+ls:[
+{t:"Matrix Arithmetic",
+c:`An m×n matrix A has m rows and n columns.<sup class="fn">⁵</sup> Add/subtract matrices of the same dimensions entry-wise. Scalar multiplication scales every entry. <b>Matrix multiplication</b>: A(m×n) · B(n×p) = C(m×p). Entry cᵢⱼ = dot product of row i of A with column j of B. Order matters: AB ≠ BA in general.`,
+f:["(AB)ᵢⱼ = Σₖ aᵢₖ bₖⱼ","A(m×n)·B(n×p) = C(m×p)","AB ≠ BA in general"],
+ex:{p:"A = [1 2; 3 4], B = [5 6; 7 8]. Find AB.",s:["(AB)₁₁ = 1·5+2·7 = 19","(AB)₁₂ = 1·6+2·8 = 22","(AB)₂₁ = 3·5+4·7 = 43","(AB)₂₂ = 3·6+4·8 = 50","AB = [19 22; 43 50]"]}},
+{t:"Transpose & Special Matrices",
+c:`The <b>transpose</b> Aᵀ swaps rows and columns: (Aᵀ)ᵢⱼ = aⱼᵢ.<sup class="fn">⁶</sup> A <b>symmetric matrix</b> satisfies A = Aᵀ. The <b>identity matrix</b> I has 1s on the diagonal and 0s elsewhere: AI = IA = A.`,
+f:["(Aᵀ)ᵢⱼ = aⱼᵢ","(AB)ᵀ = BᵀAᵀ (reverse order!)","Symmetric: A = Aᵀ"],
+ex:{p:"A = [1 2 3; 4 5 6]. Find Aᵀ.",s:["Aᵀ = [1 4; 2 5; 3 6]","2×3 becomes 3×2"]}}
+],
+pr:[
+{d:"easy",q:"Can you multiply a 2×3 matrix by a 3×4 matrix?",o:["Yes, result is 2×4","No","Yes, result is 3×3","Yes, result is 3×4"],c:0,x:"Inner dimensions match (3=3). Result: 2×4."},
+{d:"easy",q:"AI = ? (I is the identity)",o:["A","I","A²","0"],c:0,x:"Identity matrix is the multiplicative identity."},
+{d:"easy",q:"Transpose of a 3×5 matrix has dimensions:",o:["5×3","3×5","5×5","3×3"],c:0,x:"Rows become columns: 5×3."},
+{d:"medium",q:"A = [1 0; 0 −1]. Find A².",o:["I = [1 0; 0 1]","A","[1 0; 0 1]","−A"],c:0,x:"A² = [1·1+0·0, ...; ...0·0+(−1)(−1)] = [1 0; 0 1] = I."},
+{d:"medium",q:"Is AB = BA always true?",o:["No — matrix mult. is not commutative","Yes always","Only for square matrices","Only for symmetric matrices"],c:0,x:"AB ≠ BA in general. Counterexamples abound."},
+{d:"hard",q:"(AB)ᵀ = ?",o:["BᵀAᵀ","AᵀBᵀ","(AB)","Aᵀ+Bᵀ"],c:0,x:"Transpose reverses the product order: BᵀAᵀ."},
+{d:"hard",q:"A is 2×3, B is 3×2. Is BA defined? Dimensions?",o:["Yes, 3×3","No","Yes, 2×2","Yes, 3×2"],c:0,x:"B(3×2)·A(2×3) = 3×3. Note this is BA, not AB."}
+],
+qz:[
+{q:"[1 2]·[3; 4] = ?",o:["[11]","[3 8]","[7]","Cannot multiply"],c:0,x:"1·3+2·4 = 11. Result: 1×1 matrix [11]."},
+{q:"Which is always true: (A+B)ᵀ = ?",o:["Aᵀ + Bᵀ","AᵀBᵀ","A + B","BᵀAᵀ"],c:0,x:"Transpose distributes over addition."},
+{q:"The zero matrix satisfies A + 0 = ?",o:["A","0","I","−A"],c:0,x:"0 is the additive identity."},
+{q:"A is symmetric iff:",o:["A = Aᵀ","A = A⁻¹","A² = I","det(A) = 1"],c:0,x:"Symmetric: equals its own transpose."},
+{q:"A(BC) = (AB)C illustrates which property?",o:["Associativity","Commutativity","Distributivity","Idempotency"],c:0,x:"Matrix multiplication is associative."}
+],
+  deeperLinks: [{"label":"Matrix Multiplication","url":"math/matrix-multiplication/walkthrough.html"},{"label":"Matrix Transpose","url":"math/matrix-transpose/walkthrough.html"}],
+},
+// ══════════════ UNIT 4 ══════════════
+{id:4,title:"Determinants",
+obj:"Compute determinants of 2×2 and 3×3 matrices. Use cofactor expansion. Understand properties of determinants and their geometric interpretation.",
+prs:[{id:7,text:"Matrix operations (Unit 3): determinants require multiplying and subtracting matrix entries."},{id:8,text:"2×2 determinant: ad−bc. (Algebra II Unit 11)"}],
+ls:[
+{t:"Computing Determinants",
+c:`For 2×2: det[a b; c d] = ad−bc.<sup class="fn">⁸</sup> For 3×3 and larger: <b>cofactor expansion</b> along any row or column. The cofactor Cᵢⱼ = (−1)^(i+j) · Mᵢⱼ where Mᵢⱼ is the minor (determinant of submatrix with row i and col j deleted).`,
+f:["2×2: det = ad − bc","Cofactor expansion: det(A) = Σⱼ aᵢⱼ Cᵢⱼ (along row i)"],
+ex:{p:"det[1 2 3; 0 4 5; 1 0 6]. Expand along row 1.",s:["= 1·det[4 5; 0 6] − 2·det[0 5; 1 6] + 3·det[0 4; 1 0]","= 1(24−0) − 2(0−5) + 3(0−4)","= 24 + 10 − 12 = 22"]}},
+{t:"Properties of Determinants",
+c:`<sup class="fn">⁷</sup> Key properties: det(AB)=det(A)det(B). det(Aᵀ)=det(A). Swapping rows negates det. Scaling a row by c multiplies det by c. If a row is all zeros, det=0. det(A)≠0 iff A is <b>invertible</b>. Geometrically, |det(A)| = volume scaling factor of the linear transformation.`,
+f:["det(AB) = det(A)·det(B)","det(cA) = cⁿ·det(A) for n×n","det(A) ≠ 0 ↔ A is invertible"],
+ex:{p:"If det(A)=3 and det(B)=−2, find det(AB) and det(A²).",s:["det(AB)=3·(−2)=−6","det(A²)=det(A)²=9"]}}
+],
+pr:[
+{d:"easy",q:"det[3 1; 2 4] = ?",o:["10","14","−10","11"],c:0,x:"3·4−1·2=12−2=10."},
+{d:"easy",q:"If det(A)=0, then A is:",o:["Singular (not invertible)","Invertible","The identity","Symmetric"],c:0,x:"det=0 → no inverse → singular."},
+{d:"medium",q:"det(A)=5. det(3A) for 2×2 A?",o:["45","15","125","5"],c:0,x:"det(cA)=c²·det(A) for 2×2: 9·5=45."},
+{d:"medium",q:"Swap two rows of A. New determinant?",o:["−det(A)","det(A)","0","2·det(A)"],c:0,x:"Row swap negates the determinant."},
+{d:"hard",q:"det[2 0 0; 0 3 0; 0 0 5] = ?",o:["30","10","0","15"],c:0,x:"Diagonal matrix: product of diagonal entries = 2·3·5=30."},
+{d:"hard",q:"det(A⁻¹) = ?",o:["1/det(A)","det(A)","−det(A)","det(A)²"],c:0,x:"AA⁻¹=I→det(A)det(A⁻¹)=1→det(A⁻¹)=1/det(A)."},
+{d:"hard",q:"A is 4×4 with det(A)=2. det(−A)?",o:["2 (since (−1)⁴=1)","−2","16","−16"],c:0,x:"det(−A)=(−1)⁴·det(A)=1·2=2."}
+],
+qz:[
+{q:"det[1 0; 0 1] = ?",o:["1","0","2","−1"],c:0,x:"Identity matrix: det=1."},
+{q:"If two rows of A are identical, det(A)=?",o:["0","1","−1","Undefined"],c:0,x:"Identical rows → det=0."},
+{q:"det(Aᵀ) = ?",o:["det(A)","−det(A)","1/det(A)","0"],c:0,x:"Transpose doesn't change the determinant."},
+{q:"Geometric meaning of |det(A)| for 2×2?",o:["Area scaling factor","Perimeter","Trace","Rank"],c:0,x:"|det| gives the factor by which areas are scaled."},
+{q:"det(AB) = ?",o:["det(A)·det(B)","det(A)+det(B)","det(A+B)","det(A)/det(B)"],c:0,x:"Determinant of a product = product of determinants."}
+],
+  deeperLinks: [{"label":"Determinants","url":"math/determinants/walkthrough.html"}],
+},
+// ══════════════ UNIT 5 ══════════════
+{id:5,title:"Matrix Inverses",
+obj:"Compute inverses using row reduction and the adjugate formula. Solve Ax=b via A⁻¹. Understand invertibility conditions and elementary matrices.",
+prs:[{id:9,text:"Row reduction to RREF (Unit 1): the primary method for computing inverses."},{id:10,text:"Determinants (Unit 4): A is invertible iff det(A)≠0."}],
+ls:[
+{t:"Finding the Inverse via Row Reduction",
+c:`To find A⁻¹, augment [A|I] and row-reduce.<sup class="fn">⁹</sup> If A reduces to I, the right side becomes A⁻¹: [A|I] → [I|A⁻¹]. If A doesn't reduce to I, A is not invertible. For 2×2: A⁻¹ = (1/det)[d −b; −c a].`,
+f:["[A|I] → row reduce → [I|A⁻¹]","2×2: A⁻¹ = (1/(ad−bc))[d −b; −c a]"],
+ex:{p:"Find inverse of A = [2 1; 5 3].",s:["det = 6−5 = 1","A⁻¹ = [3 −1; −5 2]","Check: AA⁻¹ = [6−5, −2+2; 15−15, −5+6] = I ✓"]}},
+{t:"Invertibility & Solving Systems",
+c:`A is invertible iff:<sup class="fn">¹⁰</sup> det(A)≠0, RREF is I, columns are linearly independent, Ax=0 has only the trivial solution. If A is invertible, the unique solution to Ax=b is x=A⁻¹b.`,
+f:["Ax = b → x = A⁻¹b","(AB)⁻¹ = B⁻¹A⁻¹ (reverse order!)","(Aᵀ)⁻¹ = (A⁻¹)ᵀ"],
+ex:{p:"Solve [2 1; 5 3]x = [4; 11] using the inverse above.",s:["x = A⁻¹b = [3 −1; −5 2][4; 11]","x₁ = 12−11 = 1","x₂ = −20+22 = 2","Solution: x = (1, 2)"]}}
+],
+pr:[
+{d:"easy",q:"Inverse of I (identity)?",o:["I","0","Does not exist","−I"],c:0,x:"I⁻¹ = I."},
+{d:"easy",q:"A⁻¹ for A=[1 2; 3 4]. det = ?",o:["−2","2","−1","10"],c:0,x:"det = 4−6 = −2."},
+{d:"medium",q:"(AB)⁻¹ = ?",o:["B⁻¹A⁻¹","A⁻¹B⁻¹","(AB)","BA"],c:0,x:"Inverse reverses order: B⁻¹A⁻¹."},
+{d:"medium",q:"If det(A) = 0, then A⁻¹:",o:["Does not exist","Equals 0","Equals A","Equals I"],c:0,x:"Singular matrix → no inverse."},
+{d:"hard",q:"A=[1 0 1; 0 1 0; 1 0 0]. Find A⁻¹ (or note it's singular).",o:["[0 0 1; 0 1 0; 1 0 −1]","Singular","I","[1 0 −1; 0 1 0; −1 0 1]"],c:0,x:"det=1(0)−0+1(0−1)=−1≠0→invertible. Row reduce [A|I] to get [0 0 1; 0 1 0; 1 0 −1]."},
+{d:"hard",q:"True: if A² = I, then A⁻¹ = A.",o:["True","False","Only if det=1","Only for 2×2"],c:0,x:"A²=I → A·A=I → A is its own inverse."}
+],
+qz:[
+{q:"2×2 inverse formula: A⁻¹ = (1/det) × ?",o:["[d −b; −c a]","[a b; c d]","[−d b; c −a]","[a −c; −b d]"],c:0,x:"Swap diagonal, negate off-diagonal."},
+{q:"If Ax=b and A is invertible, x = ?",o:["A⁻¹b","bA⁻¹","Ab","b/A"],c:0,x:"Multiply both sides by A⁻¹ on the left."},
+{q:"(A⁻¹)⁻¹ = ?",o:["A","I","A²","A⁻²"],c:0,x:"Inverting twice returns the original."},
+{q:"Which does NOT guarantee invertibility?",o:["A is square","det(A) ≠ 0","RREF = I","Columns are independent"],c:0,x:"Being square is necessary but not sufficient."},
+{q:"det(A⁻¹) for det(A)=5?",o:["1/5","5","−5","25"],c:0,x:"det(A⁻¹) = 1/det(A) = 1/5."}
+],
+  deeperLinks: [{"label":"Matrix Inverses","url":"math/matrix-inverses/walkthrough.html"}],
+},
+// ══════════════ UNIT 6 ══════════════
+{id:6,title:"Vector Spaces & Subspaces",
+obj:"Define vector spaces and subspaces axiomatically. Identify subspaces (column space, null space, row space). Understand closure properties.",
+prs:[{id:11,text:"Vectors in ℝⁿ and linear combinations (Unit 2): the concrete examples that vector space axioms generalize."},{id:12,text:"Systems and RREF (Unit 1): null space is the solution set of Ax=0."}],
+ls:[
+{t:"Vector Space Axioms",
+c:`A <b>vector space</b> V over ℝ is a set with addition and scalar multiplication satisfying 10 axioms:<sup class="fn">¹¹</sup> closure under addition and scalar multiplication, associativity, commutativity of addition, existence of 0, existence of negatives, distributive laws, and 1·v=v. Examples: ℝⁿ, matrices, polynomials, functions.`,
+f:["Closure: u+v ∈ V, cv ∈ V","Zero vector: 0 ∈ V","Examples: ℝⁿ, Pₙ (polynomials of degree ≤ n), M₂ₓ₂"],
+ex:{p:"Is the set of 2×2 matrices a vector space?",s:["Check closure: sum of 2×2 matrices is 2×2 ✓","Scalar multiple of 2×2 is 2×2 ✓","Zero matrix exists ✓","All 10 axioms satisfied → YES"]}},
+{t:"Subspaces, Null Space & Column Space",
+c:`A <b>subspace</b> W of V must: (1) contain 0, (2) be closed under addition, (3) be closed under scalar multiplication.<sup class="fn">¹²</sup> <b>Null space</b>: N(A) = {x : Ax=0}. <b>Column space</b>: C(A) = span of columns of A. <b>Row space</b>: R(A) = span of rows.`,
+f:["N(A) = {x ∈ ℝⁿ : Ax = 0}","C(A) = {Ax : x ∈ ℝⁿ} = span of columns","Subspace test: contains 0, closed under + and scalar ·"],
+ex:{p:"Is W = {(x,y): x+y=0} a subspace of ℝ²?",s:["Contains 0: 0+0=0 ✓","(a,−a)+(b,−b)=(a+b,−(a+b)) → sum in W ✓","c(a,−a)=(ca,−ca) → in W ✓","Yes, W is a subspace (a line through origin)"]}}
+],
+pr:[
+{d:"easy",q:"Is {(x,y): x+y=1} a subspace of ℝ²?",o:["No (doesn't contain 0)","Yes","Only if x=y","Cannot determine"],c:0,x:"(0,0): 0+0=0≠1. Fails zero vector test."},
+{d:"easy",q:"Null space of A is the solution set of:",o:["Ax = 0","Ax = b","A = 0","x = 0"],c:0,x:"N(A) = {x : Ax = 0}."},
+{d:"medium",q:"Column space of a 3×2 matrix is a subspace of:",o:["ℝ³","ℝ²","ℝ⁵","ℝ⁶"],c:0,x:"Columns are in ℝ³ (3 entries each)."},
+{d:"medium",q:"Is the set of polynomials of degree exactly 2 a subspace of P₂?",o:["No (not closed under addition)","Yes","No (no zero vector)","Both A and C"],c:0,x:"(x²) + (−x²+x) = x (degree 1, not 2). Not closed. Also, 0 has degree 0. Fails both."},
+{d:"hard",q:"Null space of I (identity) is:",o:["{0}","ℝⁿ","All of ℝⁿ","Undefined"],c:0,x:"Ix=0→x=0. Only the zero vector."},
+{d:"hard",q:"dim(N(A)) + dim(C(A)) = ?",o:["n (number of columns)","m (rows)","det(A)","rank"],c:0,x:"Rank-Nullity Theorem: rank + nullity = n."}
+],
+qz:[
+{q:"Every vector space must contain:",o:["A zero vector","The vector (1,1,…,1)","Infinitely many vectors","An identity matrix"],c:0,x:"Axiom: zero vector must exist."},
+{q:"The intersection of two subspaces is:",o:["Always a subspace","Never a subspace","A subspace only if they're equal","Not defined"],c:0,x:"Intersection of subspaces is always a subspace."},
+{q:"N(A) = {0} means A has:",o:["Only the trivial solution to Ax=0","Infinite solutions","No solution","det = 0"],c:0,x:"Trivial null space → independent columns."},
+{q:"Which is NOT a vector space?",o:["Set of positive reals (under usual +)","ℝ²","P₃ (polynomials deg ≤ 3)","M₂ₓ₂ (2×2 matrices)"],c:0,x:"Positive reals aren't closed under usual addition (no zero, no negatives)."},
+{q:"Column space of A is the same as:",o:["Range/image of the map x↦Ax","Null space","Row space","Kernel"],c:0,x:"C(A) = {Ax : x ∈ ℝⁿ} = range."}
+],
+  deeperLinks: [{"label":"Vector Spaces","url":"math/vector-spaces/walkthrough.html"},{"label":"Null Space and Column Space","url":"math/null-space-column-space/walkthrough.html"}],
+},
+// ══════════════ UNIT 7 ══════════════
+{id:7,title:"Linear Independence, Basis & Dimension",
+obj:"Determine linear independence. Find bases for column space, null space, row space. Understand dimension, rank, and the Rank-Nullity Theorem.",
+prs:[{id:13,text:"Span (Unit 2): a basis is a linearly independent spanning set."},{id:14,text:"RREF and pivot columns (Unit 1): pivots identify independent columns and basis vectors."}],
+ls:[
+{t:"Linear Independence",
+c:`Vectors v₁,…,vₖ are <b>linearly independent</b> if c₁v₁+…+cₖvₖ = 0 implies all cᵢ = 0.<sup class="fn">¹³</sup> Otherwise they're <b>dependent</b>. Test: put vectors as columns, row reduce. If every column has a pivot → independent.`,
+f:["Independent: Ax=0 has only x=0","Dependent: some vector is a combination of others"],
+ex:{p:"Are (1,2), (3,6) independent?",s:["(3,6) = 3·(1,2)","Dependent — one is a scalar multiple of the other"]}},
+{t:"Basis, Dimension & Rank-Nullity",
+c:`A <b>basis</b> for V is a linearly independent set that spans V.<sup class="fn">¹⁴</sup> <b>Dimension</b> = number of vectors in any basis. <b>Rank</b>(A) = dim(C(A)) = number of pivots. <b>Nullity</b>(A) = dim(N(A)) = number of free variables. <b>Rank-Nullity Theorem</b>: rank + nullity = n (# columns).`,
+f:["dim(V) = |basis|","rank(A) + nullity(A) = n","rank = # pivots, nullity = # free variables"],
+ex:{p:"A is 3×5 with rank 2. Find nullity.",s:["Rank-Nullity: 2 + nullity = 5","nullity = 3","Null space is 3-dimensional"]}}
+],
+pr:[
+{d:"easy",q:"Are (1,0) and (0,1) independent?",o:["Yes","No","Depends","Only in ℝ³"],c:0,x:"Neither is a multiple of the other. Standard basis → independent."},
+{d:"easy",q:"Dimension of ℝ⁴?",o:["4","3","8","1"],c:0,x:"Standard basis has 4 vectors."},
+{d:"medium",q:"A is 4×6, rank 3. Nullity?",o:["3","1","4","6"],c:0,x:"3 + nullity = 6 → nullity = 3."},
+{d:"medium",q:"3 vectors in ℝ². Can they be independent?",o:["No — dim(ℝ²)=2","Yes always","Maybe","Only if orthogonal"],c:0,x:"Can't have more independent vectors than dimension."},
+{d:"hard",q:"Basis for N(A) where RREF = [1 2 0; 0 0 1; 0 0 0]. Variables x₁,x₂,x₃.",o:["{ (−2, 1, 0) }","{ (2, 1, 0) }","{ (1, 0, 0) }","Empty — nullity 0"],c:0,x:"x₂ free. x₁+2x₂=0→x₁=−2t. x₃=0. Basis: {(−2,1,0)}."},
+{d:"hard",q:"Can a 5×3 matrix have rank 4?",o:["No — rank ≤ min(5,3) = 3","Yes","Only if square","Depends on entries"],c:0,x:"Rank ≤ min(rows, cols) = 3."}
+],
+qz:[
+{q:"rank + nullity = ?",o:["Number of columns","Number of rows","det(A)","dim(C(A))"],c:0,x:"Rank-Nullity: rank + nullity = n."},
+{q:"A basis must be:",o:["Independent AND spanning","Only independent","Only spanning","Orthogonal"],c:0,x:"Both conditions required."},
+{q:"Standard basis for ℝ³?",o:["{e₁,e₂,e₃}","{(1,1,1)}","{(1,0),(0,1)}","Any 3 vectors"],c:0,x:"{(1,0,0),(0,1,0),(0,0,1)}."},
+{q:"If rank(A)=n for A(m×n), columns are:",o:["Linearly independent","Dependent","Spanning ℝᵐ","Orthogonal"],c:0,x:"Pivot in every column → independent."},
+{q:"Dimension of the null space is called:",o:["Nullity","Rank","Trace","Degree"],c:0,x:"Nullity = dim(N(A))."}
+],
+  deeperLinks: [{"label":"Linear Independence","url":"math/linear-independence/walkthrough.html"},{"label":"Basis and Dimension","url":"math/basis-and-dimension/walkthrough.html"}],
+},
+// ══════════════ UNIT 8 ══════════════
+{id:8,title:"Linear Transformations",
+obj:"Define linear transformations. Find standard matrices. Understand kernel (null space) and range (column space) of a transformation. Compose transformations.",
+prs:[{id:15,text:"Matrix-vector multiplication Ax (Unit 3): every matrix defines a linear transformation."},{id:16,text:"Functions and composition (Algebra II): linear transformations are special functions between vector spaces."}],
+ls:[
+{t:"Definition & Standard Matrix",
+c:`A function T: ℝⁿ → ℝᵐ is <b>linear</b> if T(u+v)=T(u)+T(v) and T(cv)=cT(v).<sup class="fn">¹⁶</sup> Every linear transformation from ℝⁿ to ℝᵐ can be represented by a matrix: T(x)=Ax where A=[T(e₁)|T(e₂)|…|T(eₙ)] (images of standard basis vectors as columns).`,
+f:["T(u+v) = T(u) + T(v)","T(cv) = cT(v)","Standard matrix: A = [T(e₁) | T(e₂) | … | T(eₙ)]"],
+ex:{p:"T(x,y) = (2x+y, x−y). Find the standard matrix.",s:["T(e₁) = T(1,0) = (2, 1)","T(e₂) = T(0,1) = (1, −1)","A = [2 1; 1 −1]"]}},
+{t:"Kernel, Range & Properties",
+c:`<b>Kernel</b> = ker(T) = {v : T(v)=0} = null space of A.<sup class="fn">¹⁵</sup> <b>Range</b> = {T(v) : v ∈ ℝⁿ} = column space of A. T is <b>one-to-one</b> iff ker(T)={0}. T is <b>onto</b> iff range = ℝᵐ.`,
+f:["ker(T) = N(A)","range(T) = C(A)","One-to-one ↔ ker = {0} ↔ independent columns","Onto ↔ range = codomain ↔ pivot in every row"],
+ex:{p:"T(x,y)=(x+y, x+y). Is T one-to-one?",s:["A = [1 1; 1 1]. Null space: x+y=0 → (t,−t)","ker ≠ {0} → NOT one-to-one"]}}
+],
+pr:[
+{d:"easy",q:"Is T(x)=x+1 a linear transformation?",o:["No (T(0)=1≠0)","Yes","Only on ℝ","Depends on domain"],c:0,x:"Linear maps must send 0 to 0. T(0)=1≠0."},
+{d:"easy",q:"T(x,y)=(3x, 2y). Standard matrix?",o:["[3 0; 0 2]","[3 2; 0 0]","[0 3; 2 0]","[3 2]"],c:0,x:"T(e₁)=(3,0), T(e₂)=(0,2). A=[3 0; 0 2]."},
+{d:"medium",q:"T one-to-one iff kernel = ?",o:["{0}","ℝⁿ","Range","Codomain"],c:0,x:"Trivial kernel → injective (one-to-one)."},
+{d:"medium",q:"Standard matrix for 90° CCW rotation in ℝ²?",o:["[0 −1; 1 0]","[1 0; 0 −1]","[0 1; −1 0]","[cos90 sin90; −sin90 cos90]"],c:0,x:"T(e₁)=(0,1), T(e₂)=(−1,0). A=[0 −1; 1 0]."},
+{d:"hard",q:"Composition T₂∘T₁ has standard matrix:",o:["A₂A₁","A₁A₂","A₁+A₂","A₂+A₁"],c:0,x:"T₂(T₁(x))=A₂(A₁x)=(A₂A₁)x."},
+{d:"hard",q:"T: ℝ³→ℝ². Can T be one-to-one?",o:["No (nullity ≥ 1)","Yes","Always","Only if rank 3"],c:0,x:"rank ≤ 2, nullity ≥ 3−2=1 → kernel nontrivial → not 1-1."}
+],
+qz:[
+{q:"Linear transformation must satisfy T(0) = ?",o:["0","1","v","Undefined"],c:0,x:"T(0)=T(0·v)=0·T(v)=0."},
+{q:"Standard matrix columns are:",o:["Images of standard basis vectors","Eigenvalues","Determinants","Null space basis"],c:0,x:"A = [T(e₁)|T(e₂)|…]."},
+{q:"T onto means range = ?",o:["Entire codomain","{0}","Kernel","Domain"],c:0,x:"Surjective: hits every vector in codomain."},
+{q:"Projection onto x-axis: T(x,y)=(x,0). Matrix?",o:["[1 0; 0 0]","[0 0; 0 1]","[1 1; 0 0]","[0 1; 1 0]"],c:0,x:"T(e₁)=(1,0), T(e₂)=(0,0)."},
+{q:"If A is n×n and invertible, T(x)=Ax is:",o:["Both one-to-one and onto","One-to-one only","Onto only","Neither"],c:0,x:"Invertible → bijective → both."}
+],
+  deeperLinks: [{"label":"Linear Transformations","url":"math/linear-transformations/walkthrough.html"}],
+},
+// ══════════════ UNIT 9 ══════════════
+{id:9,title:"Eigenvalues & Eigenvectors",
+obj:"Find eigenvalues via the characteristic equation. Find eigenvectors. Understand eigenspaces, algebraic vs. geometric multiplicity.",
+prs:[{id:17,text:"Determinants (Unit 4): eigenvalues are roots of det(A−λI)=0."},{id:18,text:"Null space (Unit 6): eigenvectors are nonzero vectors in N(A−λI)."}],
+ls:[
+{t:"Eigenvalues & the Characteristic Equation",
+c:`λ is an <b>eigenvalue</b> of A if Av = λv for some nonzero v.<sup class="fn">¹⁷</sup> Rearrange: (A−λI)v = 0. For nonzero solutions, need det(A−λI) = 0. This polynomial in λ is the <b>characteristic polynomial</b>.`,
+f:["Av = λv","det(A − λI) = 0 (characteristic equation)","For 2×2: λ² − tr(A)λ + det(A) = 0"],
+ex:{p:"Find eigenvalues of A = [4 1; 2 3].",s:["det(A−λI) = (4−λ)(3−λ)−2 = λ²−7λ+10","= (λ−5)(λ−2) = 0","λ = 5 or λ = 2"]}},
+{t:"Finding Eigenvectors & Eigenspaces",
+c:`For each eigenvalue λ, solve (A−λI)x = 0.<sup class="fn">¹⁸</sup> The solution set (null space of A−λI) is the <b>eigenspace</b> E_λ. Every nonzero vector in E_λ is an eigenvector.`,
+f:["Eigenspace E_λ = N(A − λI)","dim(E_λ) = geometric multiplicity"],
+ex:{p:"A = [4 1; 2 3], λ=5. Find eigenvectors.",s:["A−5I = [−1 1; 2 −2]","RREF: [1 −1; 0 0]","x₁ = x₂ → v = t(1, 1)","Eigenvectors: nonzero multiples of (1, 1)"]}}
+],
+pr:[
+{d:"easy",q:"If Av = 3v, then 3 is a(n):",o:["Eigenvalue","Eigenvector","Determinant","Rank"],c:0,x:"λ=3 satisfies Av=λv."},
+{d:"easy",q:"The characteristic equation comes from:",o:["det(A−λI) = 0","det(A) = 0","A−λI = 0","trace(A) = λ"],c:0,x:"Set determinant of (A−λI) to zero."},
+{d:"medium",q:"A = [2 0; 0 5]. Eigenvalues?",o:["2 and 5","7 and 10","2 and 0","5 and 0"],c:0,x:"Diagonal matrix: eigenvalues are the diagonal entries."},
+{d:"medium",q:"For λ=2 with A=[2 0; 0 5], eigenvectors?",o:["Multiples of (1, 0)","Multiples of (0, 1)","(1, 1)","All vectors"],c:0,x:"A−2I=[0 0; 0 3]. Null space: x₂=0 → (t, 0)."},
+{d:"hard",q:"Characteristic polynomial of [3 1; 0 3]?",o:["(λ−3)²","λ²−6λ+8","λ²−9","(λ−3)(λ+3)"],c:0,x:"(3−λ)(3−λ)−0 = (λ−3)². Eigenvalue 3 with algebraic multiplicity 2."},
+{d:"hard",q:"A is 3×3 with eigenvalues 1, 2, 3. det(A) = ?",o:["6","1+2+3=6","0","Undefined"],c:0,x:"det = product of eigenvalues = 1·2·3 = 6."},
+{d:"hard",q:"trace(A) equals:",o:["Sum of eigenvalues","Product of eigenvalues","det(A)","rank(A)"],c:0,x:"trace = sum of diagonal entries = sum of eigenvalues."}
+],
+qz:[
+{q:"Eigenvalues of I (n×n)?",o:["All equal 1","All equal 0","1 and −1","n"],c:0,x:"Iv=1·v for all v → λ=1."},
+{q:"Can 0 be an eigenvalue?",o:["Yes (iff A is singular)","No","Only for 0 matrix","Only for identity"],c:0,x:"Av=0v=0 → Ax=0 has nontrivial solution → det=0 → singular."},
+{q:"The eigenvector must be:",o:["Nonzero","Zero","Unit length","Orthogonal to all others"],c:0,x:"By definition, eigenvectors are nonzero."},
+{q:"Eigenvalues of A² if A has eigenvalue λ?",o:["λ²","2λ","λ+2","√λ"],c:0,x:"Av=λv → A²v=A(λv)=λ(Av)=λ²v."},
+{q:"Sum of eigenvalues of [1 2; 3 4]?",o:["5","−2","7","4"],c:0,x:"trace = 1+4 = 5 = sum of eigenvalues."}
+],
+  deeperLinks: [{"label":"Eigenvalues and Eigenvectors","url":"math/eigenvalues-eigenvectors/walkthrough.html"}],
+},
+// ══════════════ UNIT 10 ══════════════
+{id:10,title:"Diagonalization",
+obj:"Determine if a matrix is diagonalizable. Construct P and D such that A = PDP⁻¹. Apply to computing matrix powers.",
+prs:[{id:19,text:"Eigenvalues and eigenvectors (Unit 9): P is built from eigenvectors, D from eigenvalues."},{id:20,text:"Matrix inverses (Unit 5): computing P⁻¹ to verify A=PDP⁻¹."}],
+ls:[
+{t:"Diagonalization: A = PDP⁻¹",
+c:`A is <b>diagonalizable</b> if there exists an invertible P and diagonal D such that A = PDP⁻¹ (equivalently D = P⁻¹AP).<sup class="fn">¹⁹</sup> P = [v₁|v₂|…|vₙ] (eigenvectors as columns), D = diag(λ₁,…,λₙ). A is diagonalizable iff it has n linearly independent eigenvectors.`,
+f:["A = PDP⁻¹, D = P⁻¹AP","P = matrix of eigenvectors","D = diagonal matrix of eigenvalues","Aᵏ = PDᵏP⁻¹"],
+ex:{p:"Diagonalize A = [4 1; 2 3]. (From Unit 9: λ=5, v=(1,1); λ=2, v=(1,−2).)",s:["P = [1 1; 1 −2], D = [5 0; 0 2]","Check: A = PDP⁻¹","To compute A¹⁰⁰: A¹⁰⁰ = P[5¹⁰⁰ 0; 0 2¹⁰⁰]P⁻¹"]}},
+{t:"When Diagonalization Fails",
+c:`Not all matrices are diagonalizable.<sup class="fn">²⁰</sup> A fails to diagonalize when geometric multiplicity < algebraic multiplicity for some eigenvalue. Example: [3 1; 0 3] has eigenvalue 3 (algebraic mult 2) but only a 1-dimensional eigenspace.`,
+f:["Diagonalizable iff for every λ: geometric mult = algebraic mult","n distinct eigenvalues → always diagonalizable"],
+ex:{p:"Is [3 1; 0 3] diagonalizable?",s:["Eigenvalue 3, algebraic mult 2","A−3I = [0 1; 0 0], null space dim = 1","Geometric mult (1) < algebraic mult (2)","NOT diagonalizable"]}}
+],
+pr:[
+{d:"easy",q:"If A has eigenvalues 2, 3, 5, D = ?",o:["diag(2,3,5)","[2 3 5; 0 0 0; 0 0 0]","I","A"],c:0,x:"D has eigenvalues on the diagonal."},
+{d:"easy",q:"Aᵏ = PDᵏP⁻¹. Dᵏ for diagonal D is:",o:["Diagonal entries raised to kth power","D multiplied by k","D + k","kD"],c:0,x:"diag(λ₁ᵏ, λ₂ᵏ, …, λₙᵏ)."},
+{d:"medium",q:"A 3×3 matrix with 3 distinct eigenvalues is:",o:["Always diagonalizable","Never diagonalizable","Diagonalizable only if symmetric","Cannot determine"],c:0,x:"n distinct eigenvalues → n independent eigenvectors → diagonalizable."},
+{d:"medium",q:"Columns of P are:",o:["Eigenvectors of A","Eigenvalues","Rows of A","Columns of D"],c:0,x:"P = [v₁ | v₂ | … | vₙ]."},
+{d:"hard",q:"A²⁰ where A = PDP⁻¹ and D = diag(1, −1)?",o:["PIP⁻¹ = I","PD²⁰P⁻¹ = P·diag(1,1)·P⁻¹ = I","A²⁰ = A","Cannot compute"],c:0,x:"D²⁰ = diag(1²⁰, (−1)²⁰) = diag(1,1) = I. So A²⁰ = PIP⁻¹ = I."},
+{d:"hard",q:"Real symmetric matrices are always:",o:["Diagonalizable (by orthogonal matrix)","Not diagonalizable","Singular","Non-symmetric"],c:0,x:"Spectral Theorem: real symmetric → orthogonally diagonalizable."}
+],
+qz:[
+{q:"A = PDP⁻¹. Then A⁻¹ = ?",o:["PD⁻¹P⁻¹","P⁻¹DP","P⁻¹D⁻¹P","DP⁻¹P"],c:0,x:"A⁻¹ = (PDP⁻¹)⁻¹ = PD⁻¹P⁻¹."},
+{q:"How many independent eigenvectors does an n×n diagonalizable matrix have?",o:["n","n−1","1","rank(A)"],c:0,x:"Exactly n → they form a basis."},
+{q:"D⁰ = ?",o:["I","D","0","Undefined"],c:0,x:"Any invertible matrix to the 0th power is I."},
+{q:"Eigenvalue 0 with geometric mult = algebraic mult. Still diagonalizable?",o:["Yes","No","Only if other eigenvalues nonzero","Depends on dimension"],c:0,x:"Multiplicity match for ALL eigenvalues → diagonalizable."},
+{q:"trace(A) = trace(PDP⁻¹) = ?",o:["trace(D) = sum of eigenvalues","det(D)","trace(P)","0"],c:0,x:"Similar matrices have the same trace."}
+],
+  deeperLinks: [{"label":"Diagonalization","url":"math/diagonalization/walkthrough.html"}],
+},
+// ══════════════ UNIT 11 ══════════════
+{id:11,title:"Orthogonality & Least Squares",
+obj:"Define dot product, orthogonality, orthogonal projections. Apply Gram-Schmidt. Solve least squares problems Ax ≈ b.",
+prs:[{id:21,text:"Dot product in ℝⁿ (Unit 2, Trig Unit 10): u·v = Σuᵢvᵢ."},{id:22,text:"Column space and null space (Units 6–7): least squares projects b onto C(A)."}],
+ls:[
+{t:"Inner Products, Orthogonality & Gram-Schmidt",
+c:`<b>Dot product</b>: u·v = u₁v₁+…+uₙvₙ.<sup class="fn">²¹</sup> <b>Orthogonal</b>: u·v=0. <b>Orthonormal</b>: orthogonal + unit length. <b>Gram-Schmidt</b> turns any basis into an orthogonal (or orthonormal) basis.`,
+f:["u·v = Σ uᵢvᵢ","||u|| = √(u·u)","proj_v(u) = (u·v/v·v)·v","Gram-Schmidt: v₁=u₁, v₂=u₂−proj_{v₁}(u₂), …"],
+ex:{p:"Gram-Schmidt on u₁=(1,1,0), u₂=(1,0,1).",s:["v₁ = (1,1,0)","proj = (u₂·v₁/v₁·v₁)v₁ = (1/2)(1,1,0) = (1/2, 1/2, 0)","v₂ = u₂ − proj = (1/2, −1/2, 1)"]}},
+{t:"Least Squares: AᵀAx̂ = Aᵀb",
+c:`When Ax=b has no solution (overdetermined system), the <b>least squares solution</b> x̂ minimizes ||Ax−b||².<sup class="fn">²²</sup> Solve the <b>normal equations</b>: AᵀAx̂ = Aᵀb. Geometrically: Ax̂ is the projection of b onto C(A).`,
+f:["AᵀAx̂ = Aᵀb","x̂ = (AᵀA)⁻¹Aᵀb (if AᵀA invertible)"],
+ex:{p:"Fit y = c₁ + c₂x to data (0,1),(1,2),(2,4).",s:["A = [1 0; 1 1; 1 2], b = [1;2;4]","AᵀA = [3 3; 3 5], Aᵀb = [7; 10]","Solve: 3c₁+3c₂=7, 3c₁+5c₂=10 → c₂=3/2, c₁=1/3","Best-fit line: y = 1/3 + (3/2)x"]}}
+],
+pr:[
+{d:"easy",q:"(1,2)·(3,4) = ?",o:["11","7","(3,8)","14"],c:0,x:"1·3+2·4 = 11."},
+{d:"easy",q:"(1,0)·(0,1) = ?",o:["0","1","−1","2"],c:0,x:"0 → orthogonal."},
+{d:"medium",q:"proj_v(u) where u=(4,2), v=(1,0)?",o:["(4, 0)","(0, 2)","(4, 2)","(2, 0)"],c:0,x:"(u·v/v·v)v = (4/1)(1,0) = (4,0)."},
+{d:"medium",q:"In least squares, x̂ satisfies:",o:["AᵀAx̂ = Aᵀb","Ax̂ = b","x̂ = Ab","AᵀA = b"],c:0,x:"The normal equations."},
+{d:"hard",q:"Orthonormal set: {(1/√2, 1/√2), (1/√2, −1/√2)}. QᵀQ = ?",o:["I","Q","0","Q²"],c:0,x:"Orthonormal columns → QᵀQ = I."},
+{d:"hard",q:"Why does least squares minimize ||Ax−b||²?",o:["Ax̂ is the projection of b onto C(A)","A is invertible","b is in C(A)","det(A)=1"],c:0,x:"Projection onto column space minimizes the distance."}
+],
+qz:[
+{q:"Two vectors are orthogonal iff their dot product is:",o:["0","1","−1","Equal to their norms"],c:0,x:"Orthogonal ↔ dot product = 0."},
+{q:"Gram-Schmidt produces:",o:["Orthogonal (or orthonormal) basis","Eigenvalues","Determinants","Inverse matrices"],c:0,x:"Converts any basis to orthogonal basis."},
+{q:"In the normal equations, Aᵀ appears because:",o:["Projection onto C(A) requires AᵀA","Aᵀ is easier to compute","A is square","A is symmetric"],c:0,x:"The normal equations come from minimizing ||Ax−b||²."},
+{q:"For an orthogonal matrix Q, Q⁻¹ = ?",o:["Qᵀ","Q","Q²","−Q"],c:0,x:"Orthogonal: QᵀQ = I → Q⁻¹ = Qᵀ."},
+{q:"Least squares gives exact solution when:",o:["b is already in C(A)","A is singular","b = 0","Always approximate"],c:0,x:"If b ∈ C(A), the system is consistent and LS gives the exact answer."}
+],
+  deeperLinks: [{"label":"Orthogonality","url":"math/orthogonality/walkthrough.html"},{"label":"Least Squares","url":"math/least-squares/walkthrough.html"}],
+},
+// ══════════════ UNIT 12 ══════════════
+{id:12,title:"Singular Value Decomposition & Applications",
+obj:"Understand the SVD (A = UΣVᵀ). Interpret singular values geometrically. Applications: data compression, pseudoinverse, PCA introduction.",
+prs:[{id:23,text:"Eigenvalues and diagonalization (Units 9–10): SVD generalizes eigendecomposition to non-square matrices."},{id:24,text:"Orthogonality and Gram-Schmidt (Unit 11): U and V in SVD are orthogonal matrices."}],
+ls:[
+{t:"The Singular Value Decomposition",
+c:`Every m×n matrix A can be factored as A = UΣVᵀ where:<sup class="fn">²³</sup> U (m×m) is orthogonal (left singular vectors), Σ (m×n) is diagonal with <b>singular values</b> σ₁ ≥ σ₂ ≥ … ≥ 0, and V (n×n) is orthogonal (right singular vectors). Singular values are √(eigenvalues of AᵀA).`,
+f:["A = UΣVᵀ","σᵢ = √(λᵢ(AᵀA))","rank(A) = number of nonzero singular values"],
+ex:{p:"Interpret A = UΣVᵀ geometrically.",s:["Vᵀ rotates the input","Σ stretches along axes (by σᵢ)","U rotates the output","Any linear map = rotation × stretch × rotation"]}},
+{t:"Applications: Low-Rank Approximation & Pseudoinverse",
+c:`The best rank-k approximation of A (minimizing ||A−Aₖ||) is obtained by keeping only the k largest singular values.<sup class="fn">²⁴</sup> This is used in image compression, noise reduction, and PCA. The <b>pseudoinverse</b> A⁺ = VΣ⁺Uᵀ (invert nonzero σᵢ in Σ) generalizes the inverse to non-square/singular matrices.`,
+f:["Rank-k approx: Aₖ = Σᵢ₌₁ᵏ σᵢuᵢvᵢᵀ","Pseudoinverse: A⁺ = VΣ⁺Uᵀ","Least squares via SVD: x̂ = A⁺b"],
+ex:{p:"A has singular values 10, 3, 0.1. Best rank-2 approximation?",s:["Keep σ₁=10 and σ₂=3, set σ₃=0","A₂ = 10·u₁v₁ᵀ + 3·u₂v₂ᵀ","Captures most of the 'energy' of A"]}}
+],
+pr:[
+{d:"easy",q:"In A = UΣVᵀ, Σ is:",o:["Diagonal with singular values","Square and invertible","Upper triangular","The identity"],c:0,x:"Σ is diagonal (possibly rectangular) with σᵢ ≥ 0."},
+{d:"easy",q:"Singular values are always:",o:["Non-negative","Negative","Complex","Integer"],c:0,x:"σᵢ ≥ 0 by definition."},
+{d:"medium",q:"rank(A) via SVD is:",o:["Number of nonzero singular values","Largest singular value","trace(Σ)","det(Σ)"],c:0,x:"Nonzero σᵢ correspond to independent directions."},
+{d:"medium",q:"σ₁ is the ___ singular value.",o:["Largest","Smallest","Median","Average"],c:0,x:"Singular values are ordered σ₁ ≥ σ₂ ≥ … ≥ 0."},
+{d:"hard",q:"Best rank-1 approximation of A = UΣVᵀ is:",o:["σ₁u₁v₁ᵀ","UΣVᵀ","σ₁I","u₁+v₁"],c:0,x:"Keep only the largest singular value and its vectors."},
+{d:"hard",q:"The pseudoinverse A⁺ reduces to A⁻¹ when:",o:["A is square and invertible","A is rectangular","A is singular","Always"],c:0,x:"For invertible square A: A⁺ = A⁻¹."},
+{d:"hard",q:"||A||₂ (matrix 2-norm) equals:",o:["σ₁ (largest singular value)","det(A)","trace(A)","rank(A)"],c:0,x:"The spectral norm is the largest singular value."}
+],
+qz:[
+{q:"SVD exists for:",o:["Every matrix (any size)","Only square matrices","Only invertible matrices","Only symmetric matrices"],c:0,x:"SVD is universal — works for any m×n matrix."},
+{q:"U and V in SVD are:",o:["Orthogonal matrices","Diagonal","Upper triangular","Singular"],c:0,x:"U and V have orthonormal columns."},
+{q:"Keeping fewer singular values does what?",o:["Compresses/approximates the matrix","Makes it invertible","Increases rank","Changes eigenvalues"],c:0,x:"Truncated SVD → low-rank approximation (compression)."},
+{q:"condition number of A ≈ ?",o:["σ₁/σₙ","σ₁+σₙ","σ₁·σₙ","σ₁−σₙ"],c:0,x:"Ratio of largest to smallest singular value."},
+{q:"PCA is closely related to SVD because:",o:["Principal components are singular vectors of centered data","PCA uses determinants","PCA requires invertibility","No relation"],c:0,x:"PCA decomposes the covariance matrix; SVD of the data matrix gives the same directions."}
+],
+  deeperLinks: [{"label":"Singular Value Decomposition","url":"math/singular-value-decomposition/walkthrough.html"}]
+}
+];;
+
+const STATE = { currentUnit: 0, currentTab: 'lesson', answers: {}, quizSubmitted: {}, completedUnits: new Set() };
+
+function loadProgress() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('linear-algebra-progress') || '{}');
+    if (saved.answers) STATE.answers = saved.answers;
+    if (saved.quizSubmitted) STATE.quizSubmitted = saved.quizSubmitted;
+    if (saved.completedUnits) STATE.completedUnits = new Set(saved.completedUnits);
+  } catch (e) {}
+}
+
+function saveProgress() {
+  try {
+    localStorage.setItem('linear-algebra-progress', JSON.stringify({
+      answers: STATE.answers,
+      quizSubmitted: STATE.quizSubmitted,
+      completedUnits: Array.from(STATE.completedUnits)
+    }));
+  } catch (e) {}
+}
+
+function updateOverallProgress() {
+  const count = STATE.completedUnits.size;
+  const pct = Math.round((count / LINEAR_ALGEBRA_CURRICULUM.length) * 100);
+  document.getElementById('laCompletedUnits').textContent = count;
+  document.getElementById('laProgressPct').textContent = pct;
+  document.getElementById('laProgressBar').style.width = pct + '%';
+}
+
+function render() {
+  const D = LINEAR_ALGEBRA_CURRICULUM;
+  const u = D[STATE.currentUnit];
+  const app = document.getElementById('laApp');
+
+  const navBtns = D.map((c, i) => {
+    const on = i === STATE.currentUnit ? ' on' : '';
+    const ok = STATE.completedUnits.has(i) ? ' ok' : '';
+    return `<button class="${on}${ok}" onclick="selectUnit(${i})">${STATE.completedUnits.has(i) ? '✓ ' : ''}U${c.id}</button>`;
+  }).join('');
+
+  const deeperHtml = (u.deeperLinks && u.deeperLinks.length) ? `
+    <div class="la-deeper">
+      <div class="lbl">Go Deeper →</div>
+      ${u.deeperLinks.map(l => `<a href="${l.url}">${l.label}</a>`).join('')}
+    </div>` : '';
+
+  app.innerHTML = `
+    <div class="la-nav">${navBtns}</div>
+    <div class="la-uhdr">
+      <div class="la-unum">Unit ${u.id} of 12</div>
+      <div class="la-utitle">${u.title}</div>
+      <div class="la-uobj">${u.obj}</div>
+    </div>
+    ${deeperHtml}
+    <div class="la-tabs">
+      <button class="la-tb ${STATE.currentTab === 'lesson' ? 'on' : ''}" onclick="setTab('lesson')">Lessons</button>
+      <button class="la-tb ${STATE.currentTab === 'practice' ? 'on' : ''}" onclick="setTab('practice')">Practice</button>
+      <button class="la-tb ${STATE.currentTab === 'quiz' ? 'on' : ''}" onclick="setTab('quiz')">Unit Quiz</button>
+    </div>
+    ${STATE.currentTab === 'lesson' ? renderLessons(u) : ''}
+    ${STATE.currentTab === 'practice' ? renderPractice(u) : ''}
+    ${STATE.currentTab === 'quiz' ? renderQuiz(u) : ''}
+    ${renderFootnotes(u)}
+  `;
+  updateOverallProgress();
+}
+
+function renderLessons(u) {
+  return u.ls.map(l => `
+    <div class="la-lcard">
+      <h3>${l.t}</h3>
+      <p>${l.c}</p>
+      ${l.f.map(f => `<div class="la-fm">${f}</div>`).join('')}
+      ${l.ex ? `<div class="la-wex"><div class="wl">Worked Example</div><div class="wp">${l.ex.p}</div>${l.ex.s.map(s => `<div class="ws">→ ${s}</div>`).join('')}</div>` : ''}
+    </div>`).join('') + `
+    <div class="la-prbox"><div class="prt">Prerequisite Knowledge</div>${u.prs.map(p => `<p><b>[${p.id}]</b> ${p.text}</p>`).join('')}</div>`;
+}
+
+function renderPractice(u) {
+  return ['easy','medium','hard'].map(d => {
+    const qs = u.pr.filter(q => q.d === d);
+    if (!qs.length) return '';
+    const cls = d === 'easy' ? 'la-de' : d === 'medium' ? 'la-dm' : 'la-dh';
+    return `<div style="margin-bottom:8px"><span class="la-dtag ${cls}">${d}</span></div>
+      ${qs.map(q => renderQ(q, `${STATE.currentUnit}-p-${u.pr.indexOf(q)}`, false)).join('')}`;
+  }).join('');
+}
+
+function renderQuiz(u) {
+  const key = `${STATE.currentUnit}-qz`;
+  const sub = STATE.quizSubmitted[key];
+  let sc = 0;
+  if (sub) u.qz.forEach((q, i) => { if (STATE.answers[`${STATE.currentUnit}-q-${i}`] === q.c) sc++; });
+  return `
+    <div class="la-qhd">
+      <h3 style="font-size:1.15rem;font-weight:700;">Unit ${u.id} Quiz</h3>
+      <div class="la-qct">${sub ? sc + '/' + u.qz.length : u.qz.length + ' questions'}</div>
+    </div>
+    ${u.qz.map((q, i) => renderQ(q, `${STATE.currentUnit}-q-${i}`, sub)).join('')}
+    ${!sub ? `<button class="la-btn la-bf" onclick="submitQuiz()">Submit Quiz</button>` : ''}
+    ${sub ? `<div class="la-qres"><div class="la-sbig">${Math.round(sc/u.qz.length*100)}%</div><div class="la-ssub">${sc} of ${u.qz.length} correct</div><button class="la-btn" onclick="retakeQuiz()">Retake</button></div>` : ''}`;
+}
+
+function renderQ(q, key, forceShow) {
+  const sel = STATE.answers[key];
+  const isQuiz = key.includes('-q-');
+  const unsub = isQuiz && !STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  const show = (sel !== undefined && !unsub) || forceShow;
+  const cor = sel === q.c;
+  const text = q.q || q.question;
+  const opts = q.o || q.options || [];
+  const correct = q.c;
+  const expl = q.x || q.explanation;
+  const optsHtml = opts.map((o, i) => {
+    let c = 'la-ob';
+    if (show) { c += ' lk'; if (i === sel && cor) c += ' sc'; else if (i === sel && !cor) c += ' sw'; if (i === correct && !cor) c += ' rv'; }
+    else if (unsub && i === sel) c += ' qs'; else if (sel !== undefined && !unsub) c += ' lk';
+    return `<button class="${c}" onclick="answerQ('${key}',${i})" ${(show || (sel !== undefined && !unsub)) ? 'disabled' : ''}>${o}</button>`;
+  }).join('');
+  return `<div class="la-qc ${show ? (cor ? 'gc' : 'bc') : ''}"><div class="la-qt">${text}</div><div class="la-os">${optsHtml}</div>${show && expl ? `<div class="la-ex">${expl}</div>` : ''}</div>`;
+}
+
+function renderFootnotes(u) {
+  if (!u.prs || !u.prs.length) return '';
+  return `<div class="la-fns"><h4>Prerequisite Footnotes</h4>${u.prs.map(p => `<div class="la-fni"><span class="la-fnm">[${p.id}]</span> ${p.text}</div>`).join('')}</div>`;
+}
+
+function selectUnit(i) { STATE.currentUnit = i; STATE.currentTab = 'lesson'; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function setTab(t) { STATE.currentTab = t; render(); }
+
+function answerQ(key, opt) {
+  const unsub = key.includes('-q-') && !STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  if (!unsub && STATE.answers[key] !== undefined) return;
+  STATE.answers[key] = opt;
+  saveProgress();
+  render();
+}
+
+function submitQuiz() {
+  const u = LINEAR_ALGEBRA_CURRICULUM[STATE.currentUnit];
+  const all = u.qz.every((_, i) => STATE.answers[`${STATE.currentUnit}-q-${i}`] !== undefined);
+  if (!all) { alert('Answer all questions first.'); return; }
+  STATE.quizSubmitted[`${STATE.currentUnit}-qz`] = true;
+  let sc = 0;
+  u.qz.forEach((q, i) => { if (STATE.answers[`${STATE.currentUnit}-q-${i}`] === q.c) sc++; });
+  if (sc / u.qz.length >= 0.6) STATE.completedUnits.add(STATE.currentUnit);
+  saveProgress();
+  render();
+}
+
+function retakeQuiz() {
+  const u = LINEAR_ALGEBRA_CURRICULUM[STATE.currentUnit];
+  u.qz.forEach((_, i) => delete STATE.answers[`${STATE.currentUnit}-q-${i}`]);
+  delete STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  STATE.completedUnits.delete(STATE.currentUnit);
+  saveProgress();
+  render();
+}
+
+const savedTheme = localStorage.getItem('mathbored-theme');
+if (savedTheme) document.body.className = savedTheme;
+loadProgress();
+render();
+</script>
+</body>
+</html>

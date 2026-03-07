@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trigonometry — Complete Curriculum | MathBored</title>
+<meta name="description" content="Complete Trigonometry course: 12 units from right triangles through applications. Free interactive lessons, practice, and quizzes.">
+<meta name="keywords" content="Trigonometry, unit circle, trig identities, law of sines, law of cosines, polar coordinates, vectors, math, free, K-12">
+<link rel="canonical" href="https://math.boredgames.site/trigonometry.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://math.boredgames.site/trigonometry.html">
+<meta property="og:title" content="Trigonometry — Complete Curriculum | MathBored">
+<meta property="og:description" content="Complete Trigonometry course: 12 units from right triangles through applications and modeling.">
+<meta property="og:image" content="https://math.boredgames.site/og-image.png">
+<meta property="og:site_name" content="MathBored">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Course","name":"Trigonometry — Complete Curriculum","description":"Complete Trigonometry course: 12 units from right triangles through applications and modeling.","provider":{"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},"educationalLevel":"11th Grade","learningResourceType":"Course","inLanguage":"en","isAccessibleForFree":true}
+</script>
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Trigonometry — local styles (copper/amber theme) */
+.trig-app { max-width: 960px; margin: 0 auto; padding: 20px; }
+.back-link { display: inline-block; margin-bottom: 20px; color: #d97706; text-decoration: none; font-weight: 600; }
+.back-link:hover { opacity: 0.9; }
+.trig-hero { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border); border-radius: 20px; padding: 48px 28px 40px; text-align: center; margin-bottom: 32px; }
+.trig-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; color: #b45309; margin-bottom: 8px; }
+.trig-hero .sub { font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+.trig-stats { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.trig-stat { background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 12px; padding: 14px 24px; }
+.trig-stat-num { font-size: 1.8rem; font-weight: 800; display: block; color: var(--text-primary); }
+.trig-stat-lbl { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; }
+.trig-progress { background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 28px; }
+.trig-progress-bar { background: var(--bg-tertiary); border-radius: 20px; height: 10px; overflow: hidden; margin: 10px 0 6px; }
+.trig-progress-fill { height: 100%; background: linear-gradient(90deg, #b45309, #d97706); border-radius: 20px; transition: width 0.5s ease; }
+.trig-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; padding: 14px; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border); }
+.trig-nav button { font-family: inherit; font-size: 0.75rem; font-weight: 700; padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+.trig-nav button:hover { border-color: #d97706; color: var(--text-primary); }
+.trig-nav button.on { background: #d97706; color: #fff; border-color: #d97706; }
+.trig-nav button.ok { border-color: var(--success); color: var(--success); }
+.trig-uhdr { margin-bottom: 22px; }
+.trig-unum { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #d97706; font-weight: 700; }
+.trig-utitle { font-size: clamp(1.4rem, 3.5vw, 2.2rem); font-weight: 800; margin: 4px 0 8px; }
+.trig-uobj { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.75; }
+.trig-deeper { background: var(--bg-secondary); border: 1px solid var(--border); border-left: 3px solid #d97706; border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; font-size: 0.86rem; }
+.trig-deeper .lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #d97706; font-weight: 700; margin-bottom: 8px; }
+.trig-deeper a { display: inline-block; margin: 2px 6px 2px 0; padding: 4px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--text-secondary); text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.2s; }
+.trig-deeper a:hover { border-color: #d97706; color: #d97706; background: rgba(217,119,6,0.1); }
+.trig-tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
+.trig-tb { font-family: inherit; font-size: 0.86rem; font-weight: 700; padding: 10px 20px; border: none; background: transparent; color: var(--text-secondary); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.trig-tb:hover { color: var(--text-primary); }
+.trig-tb.on { color: #d97706; border-bottom-color: #d97706; }
+.trig-lcard { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px 26px; margin-bottom: 14px; }
+.trig-lcard h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: #d97706; }
+.trig-lcard p { font-size: 0.9rem; margin-bottom: 8px; line-height: 1.7; }
+.trig-fm { background: var(--bg-tertiary); border-left: 3px solid #d97706; border-radius: 6px; padding: 10px 14px; margin: 10px 0; font-family: var(--font-mono); font-size: 0.84rem; color: #f59e0b; overflow-x: auto; }
+.trig-wex { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+.trig-wex .wl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--warning); font-weight: 700; margin-bottom: 6px; }
+.trig-wex .wp { font-weight: 600; margin-bottom: 4px; font-size: 0.88rem; }
+.trig-wex .ws { color: var(--text-secondary); font-size: 0.82rem; margin-bottom: 2px; }
+.trig-prbox { background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.2); border-left: 3px solid #7a5ba0; border-radius: 8px; padding: 12px 16px; margin: 12px 0; font-size: 0.84rem; }
+.trig-prbox .prt { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: #7a5ba0; font-weight: 700; margin-bottom: 6px; }
+.trig-prbox p { color: var(--text-secondary); margin-bottom: 4px; }
+.trig-dtag { display: inline-block; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; }
+.trig-de { background: rgba(16,185,129,0.12); color: var(--success); border: 1px solid rgba(16,185,129,0.25); }
+.trig-dm { background: rgba(245,158,11,0.12); color: var(--warning); border: 1px solid rgba(245,158,11,0.25); }
+.trig-dh { background: rgba(239,68,68,0.12); color: var(--error); border: 1px solid rgba(239,68,68,0.25); }
+.trig-qc { background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; transition: border-color 0.3s; }
+.trig-qc.gc { border-color: var(--success); }
+.trig-qc.bc { border-color: var(--error); }
+.trig-qt { font-size: 0.9rem; margin-bottom: 12px; font-weight: 600; line-height: 1.6; }
+.trig-os { display: flex; flex-direction: column; gap: 6px; }
+.trig-ob { font-family: inherit; font-size: 0.86rem; text-align: left; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-tertiary); color: var(--text-primary); cursor: pointer; transition: all 0.2s; }
+.trig-ob:hover:not(.lk) { border-color: #d97706; background: rgba(217,119,6,0.08); }
+.trig-ob.sc { border-color: var(--success); background: rgba(16,185,129,0.12); color: var(--success); font-weight: 600; }
+.trig-ob.sw { border-color: var(--error); background: rgba(239,68,68,0.12); color: var(--error); }
+.trig-ob.rv { border-color: var(--success); background: rgba(16,185,129,0.08); }
+.trig-ob.lk { cursor: default; opacity: 0.75; }
+.trig-ob.qs { border-color: #d97706; background: rgba(217,119,6,0.1); font-weight: 600; }
+.trig-ex { margin-top: 10px; padding: 10px 14px; background: var(--bg-tertiary); border-radius: 6px; font-size: 0.82rem; color: var(--text-secondary); border-left: 3px solid #d97706; animation: trigFade 0.3s ease; }
+@keyframes trigFade { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: none; } }
+.trig-qhd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.trig-qct { font-family: var(--font-mono); font-size: 0.84rem; color: #d97706; font-weight: 700; }
+.trig-qres { text-align: center; padding: 36px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; margin-top: 18px; }
+.trig-sbig { font-size: 3rem; font-weight: 800; color: #d97706; line-height: 1; margin-bottom: 4px; }
+.trig-ssub { color: var(--text-secondary); font-size: 0.88rem; }
+.trig-btn { font-family: inherit; font-size: 0.84rem; font-weight: 700; padding: 10px 22px; border: 1px solid #d97706; border-radius: 8px; background: transparent; color: #d97706; cursor: pointer; margin-top: 14px; transition: all 0.2s; }
+.trig-btn:hover { background: #d97706; color: #fff; }
+.trig-bf { background: #d97706; color: #fff; }
+.trig-bf:hover { background: #b45309; }
+.trig-fns { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--border); }
+.trig-fns h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: #7a5ba0; margin-bottom: 10px; font-weight: 700; }
+.trig-fni { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px; padding-left: 14px; }
+.trig-fnm { color: #7a5ba0; font-weight: 700; }
+@media (max-width: 640px) { .trig-app { padding: 12px; } .trig-lcard, .trig-qc { padding: 16px; } .trig-nav button { font-size: 0.68rem; padding: 4px 8px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1>🎯 MathBored</h1>
+        <div class="tagline">Trigonometry — Complete Curriculum</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="trig-app">
+  <a href="index.html" class="back-link">← Back to Main App</a>
+
+  <div class="trig-hero">
+    <h1>∿ Trigonometry</h1>
+    <p class="sub">Complete Curriculum · 12 Units · Practice &amp; Quizzes</p>
+    <div class="trig-stats">
+      <div class="trig-stat"><span class="trig-stat-num">12</span><span class="trig-stat-lbl">Units</span></div>
+      <div class="trig-stat"><span class="trig-stat-num">26</span><span class="trig-stat-lbl">Lessons</span></div>
+      <div class="trig-stat"><span class="trig-stat-num">91</span><span class="trig-stat-lbl">Practice Qs</span></div>
+      <div class="trig-stat"><span class="trig-stat-num">60</span><span class="trig-stat-lbl">Quiz Qs</span></div>
+    </div>
+  </div>
+
+  <div class="trig-progress">
+    <h2 style="margin:0 0 6px;font-size:1.1rem;font-weight:700;">Your Progress</h2>
+    <p style="color:var(--text-secondary);font-size:0.88rem;margin:0;">
+      <span id="trigCompletedUnits">0</span> of 12 units completed · <span id="trigProgressPct">0</span>% done
+    </p>
+    <div class="trig-progress-bar">
+      <div class="trig-progress-fill" id="trigProgressBar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div id="trigApp"></div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+  </div>
+</footer>
+
+<script>
+const TRIGONOMETRY_CURRICULUM = [
+// ══════════════ UNIT 1 ══════════════
+{
+id:1,title:"Right Triangle Trigonometry",
+obj:"Define sine, cosine, and tangent using right triangles. Solve right triangles for unknown sides and angles. Apply trig to real-world problems (angle of elevation/depression).",
+prs:[
+  {id:1,text:"Pythagorean Theorem: a²+b²=c² for right triangles. Identifying legs and hypotenuse. (Geometry, Unit 7)"},
+  {id:2,text:"Solving proportions and basic algebra: trig ratios produce equations like sin 40°=x/15. (Algebra I, Unit 2)"},
+  {id:3,text:"Square root simplification: e.g. √50=5√2. Needed when computing exact side lengths. (Algebra I, Unit 10)"}
+],
+ls:[
+  {t:"Defining the Six Trigonometric Ratios",
+   c:`In a right triangle with acute angle θ:<sup class="fn">¹</sup> <b>sin θ</b>=opposite/hypotenuse, <b>cos θ</b>=adjacent/hypotenuse, <b>tan θ</b>=opposite/adjacent. The reciprocal functions: <b>csc θ</b>=1/sin θ, <b>sec θ</b>=1/cos θ, <b>cot θ</b>=1/tan θ.`,
+   f:["SOH-CAH-TOA","csc θ = hyp/opp, sec θ = hyp/adj, cot θ = adj/opp"],
+   ex:{p:"Right triangle: opp=5, adj=12, hyp=13. Find all six ratios for θ.",s:["sin θ=5/13, cos θ=12/13, tan θ=5/12","csc θ=13/5, sec θ=13/12, cot θ=12/5"]}},
+  {t:"Solving Right Triangles",
+   c:`"Solving" means finding all unknown sides and angles. Use trig ratios when you know one side + one acute angle, or two sides.<sup class="fn">²</sup> Use inverse trig (sin⁻¹, cos⁻¹, tan⁻¹) to find angles.`,
+   f:["θ = sin⁻¹(opp/hyp)","θ = tan⁻¹(opp/adj)"],
+   ex:{p:"Angle A=35°, hypotenuse=20. Find the opposite side.",s:["sin 35° = x/20","x = 20·sin 35° ≈ 20(0.5736) ≈ 11.47"]}},
+  {t:"Angles of Elevation & Depression",
+   c:`<b>Angle of elevation</b>: angle up from horizontal to a line of sight. <b>Angle of depression</b>: angle down from horizontal. These are alternate interior angles and thus equal when formed with a horizontal.`,
+   f:["tan(angle) = opposite (height) / adjacent (distance)"],
+   ex:{p:"From 50 m away, the angle of elevation to a building's top is 62°. Find the height.",s:["tan 62° = h/50","h = 50·tan 62° ≈ 50(1.8807) ≈ 94.0 m"]}}
+],
+pr:[
+  {d:"easy",q:"sin θ = 3/5. Find cos θ (right triangle).",o:["4/5","3/4","5/3","5/4"],c:0,x:"opp=3, hyp=5 → adj=4 (Pythagorean triple). cos=4/5."},
+  {d:"easy",q:"tan 45° = ?",o:["1","0","√2","undefined"],c:0,x:"In a 45-45-90, opp=adj → tan=1."},
+  {d:"easy",q:"What is csc θ if sin θ = 1/2?",o:["2","1/2","√3","√2"],c:0,x:"csc = 1/sin = 1/(1/2) = 2."},
+  {d:"medium",q:"Right triangle: angle=40°, adjacent=15. Find opposite.",o:["≈12.59","≈11.49","≈19.58","≈8.03"],c:0,x:"tan 40°=x/15→x=15·tan 40°≈15(0.8391)≈12.59."},
+  {d:"medium",q:"Two sides: opp=7, hyp=10. Find the angle θ.",o:["≈44.4°","≈45.6°","≈34.9°","≈55.1°"],c:0,x:"sin θ=7/10=0.7→θ=sin⁻¹(0.7)≈44.4°."},
+  {d:"medium",q:"From ground, angle of elevation to kite = 55°, string = 80 m. Height?",o:["≈65.5 m","≈45.9 m","≈80 m","≈97.7 m"],c:0,x:"sin 55°=h/80→h=80·sin 55°≈80(0.8192)≈65.5 m."},
+  {d:"hard",q:"sec θ = 5/3. Find all other 5 trig values.",o:["cos=3/5, sin=4/5, tan=4/3, csc=5/4, cot=3/4","cos=3/5, sin=5/4, tan=3/4, csc=4/5, cot=4/3","Cannot determine without more info","cos=5/3, sin=4/3, tan=4/5, csc=3/4, cot=5/4"],c:0,x:"sec=hyp/adj=5/3→adj=3,hyp=5,opp=4. sin=4/5,cos=3/5,tan=4/3,csc=5/4,cot=3/4."},
+  {d:"hard",q:"Ladder 20 ft leans at 72° to the ground. How far up the wall?",o:["≈19.0 ft","≈6.2 ft","≈20 ft","≈14.3 ft"],c:0,x:"sin 72°=h/20→h=20(0.9511)≈19.0 ft."},
+  {d:"hard",q:"From a 100m cliff, angle of depression to a boat is 28°. Distance from cliff base?",o:["≈188.1 m","≈53.2 m","≈113.1 m","≈100 m"],c:0,x:"tan 28°=100/d→d=100/tan28°≈100/0.5317≈188.1 m."}
+],
+qz:[
+  {q:"cos 60° = ?",o:["1/2","√3/2","√2/2","0"],c:0,x:"30-60-90: adj=x, hyp=2x→cos 60°=1/2."},
+  {q:"In a right triangle, if tan θ = 1, what is θ?",o:["45°","30°","60°","90°"],c:0,x:"tan=1 when opp=adj → 45°."},
+  {q:"sin²θ + cos²θ = ?",o:["1","0","sin 2θ","2"],c:0,x:"The Pythagorean identity: always 1."},
+  {q:"Angle of elevation = 50°, distance = 30 m. Height?",o:["≈35.7 m","≈19.3 m","≈23.0 m","≈46.6 m"],c:0,x:"tan 50°=h/30→h=30(1.1918)≈35.7."},
+  {q:"cot θ is the reciprocal of:",o:["tan θ","sin θ","cos θ","sec θ"],c:0,x:"cot = 1/tan = adj/opp."}
+],
+  deeperLinks: [{"label":"Pythagorean Theorem","url":"math/pythagorean-theorem/walkthrough.html"},{"label":"Right Triangle Trigonometry","url":"math/right-triangle-trigonometry/walkthrough.html"}],
+},
+// ══════════════ UNIT 2 ══════════════
+{
+id:2,title:"The Unit Circle",
+obj:"Define trig functions using the unit circle. Memorize key angle values. Determine signs by quadrant. Find reference angles.",
+prs:[
+  {id:4,text:"Radian-degree conversion: 180°=π radians. (Algebra II, Unit 12)"},
+  {id:5,text:"Coordinate plane: the unit circle is x²+y²=1 centered at origin. (Geometry, Unit 12 / Algebra II, Unit 9)"}
+],
+ls:[
+  {t:"The Unit Circle: Coordinates as Trig Values",
+   c:`The <b>unit circle</b> has radius 1 centered at the origin.<sup class="fn">⁵</sup> A point at angle θ has coordinates (cos θ, sin θ). This extends trig beyond acute angles to all real numbers.`,
+   f:["(cos θ, sin θ) = coordinates on unit circle","cos²θ + sin²θ = 1 (equation of circle)"],
+   ex:{p:"Find sin and cos of 150°.",s:["150° is in QII, reference angle = 30°","cos 150° = −cos 30° = −√3/2","sin 150° = sin 30° = 1/2"]}},
+  {t:"Reference Angles & Quadrant Signs",
+   c:`The <b>reference angle</b> is the acute angle between the terminal side and the x-axis.<sup class="fn">⁴</sup> Quadrant signs (ASTC / "All Students Take Calculus"): QI: all positive, QII: sin+, QIII: tan+, QIV: cos+.`,
+   f:["QI: ref = θ, QII: ref = 180°−θ","QIII: ref = θ−180°, QIV: ref = 360°−θ","ASTC: All, Sin, Tan, Cos positive"],
+   ex:{p:"Find the reference angle for 225° and evaluate sin 225°.",s:["225° is in QIII. Ref = 225−180 = 45°","sin is negative in QIII","sin 225° = −sin 45° = −√2/2"]}},
+  {t:"Key Angles to Memorize",
+   c:`Memorize these unit circle values: 0°(1,0), 30°(√3/2,1/2), 45°(√2/2,√2/2), 60°(1/2,√3/2), 90°(0,1). Extend to all quadrants using reference angles and sign rules.`,
+   f:["sin 0°=0, sin 30°=1/2, sin 45°=√2/2, sin 60°=√3/2, sin 90°=1","cos 0°=1, cos 30°=√3/2, cos 45°=√2/2, cos 60°=1/2, cos 90°=0"],
+   ex:{p:"Evaluate all six trig functions at θ = π/3 (60°).",s:["sin(π/3) = √3/2, cos(π/3) = 1/2","tan(π/3) = √3, cot(π/3) = 1/√3 = √3/3","sec(π/3) = 2, csc(π/3) = 2√3/3"]}}
+],
+pr:[
+  {d:"easy",q:"cos 0° = ?",o:["1","0","−1","1/2"],c:0,x:"Point at 0° is (1,0). cos=x-coordinate=1."},
+  {d:"easy",q:"sin 90° = ?",o:["1","0","−1","undefined"],c:0,x:"Point at 90° is (0,1). sin=y-coordinate=1."},
+  {d:"easy",q:"In which quadrant is sin negative and cos positive?",o:["QIV","QI","QII","QIII"],c:0,x:"ASTC: only cos+ in QIV."},
+  {d:"medium",q:"Reference angle for 315°?",o:["45°","135°","315°","60°"],c:0,x:"360−315=45°."},
+  {d:"medium",q:"cos(5π/6) = ?",o:["−√3/2","√3/2","−1/2","1/2"],c:0,x:"5π/6 is in QII, ref=π/6. cos neg in QII: −√3/2."},
+  {d:"medium",q:"tan(3π/4) = ?",o:["−1","1","−√3","√3"],c:0,x:"3π/4 is QII, ref=π/4. tan neg in QII: −tan(π/4)=−1."},
+  {d:"hard",q:"sin(−π/6) = ?",o:["−1/2","1/2","−√3/2","√3/2"],c:0,x:"Negative angle goes clockwise. −π/6 is in QIV. sin neg: −sin(π/6)=−1/2."},
+  {d:"hard",q:"Find all angles θ in [0,2π) where cos θ = −1/2.",o:["2π/3 and 4π/3","π/3 and 5π/3","2π/3 only","π/3 and 2π/3"],c:0,x:"cos=−1/2: ref=π/3. Negative in QII and QIII: 2π/3 and 4π/3."},
+  {d:"hard",q:"Evaluate: sin(7π/4)·cos(π/3) + tan(π).",o:["−√2/4","√2/4","−√2/4 + 0 = −√2/4","1"],c:0,x:"sin(7π/4)=−√2/2. cos(π/3)=1/2. tan(π)=0. Result=(−√2/2)(1/2)+0=−√2/4."}
+],
+qz:[
+  {q:"sin(π) = ?",o:["0","1","−1","undefined"],c:0,x:"Point at π is (−1,0). sin=0."},
+  {q:"cos(3π/2) = ?",o:["0","−1","1","undefined"],c:0,x:"Point at 3π/2 is (0,−1). cos=0."},
+  {q:"Reference angle for 210°?",o:["30°","150°","60°","210°"],c:0,x:"210−180=30°."},
+  {q:"ASTC: in QIII, which trig function is positive?",o:["tan (and cot)","sin","cos","All"],c:0,x:"QIII: only tan and cot positive."},
+  {q:"sin(11π/6) = ?",o:["−1/2","1/2","−√3/2","√3/2"],c:0,x:"11π/6 in QIV, ref=π/6. sin neg: −1/2."}
+],
+  deeperLinks: [{"label":"Unit Circle","url":"math/unit-circle/walkthrough.html"},{"label":"Radian Measure","url":"math/radian-measure/walkthrough.html"}],
+},
+// ══════════════ UNIT 3 ══════════════
+{
+id:3,title:"Graphing Trigonometric Functions",
+obj:"Graph y = A sin(Bx−C)+D and y = A cos(Bx−C)+D. Identify amplitude, period, phase shift, vertical shift. Graph tan, cot, sec, csc and identify asymptotes.",
+prs:[
+  {id:6,text:"Unit circle values (Unit 2): these generate the key points for graphing sine and cosine."},
+  {id:7,text:"Function transformations: shifts, stretches, reflections. (Algebra II, Units 2–3)"}
+],
+ls:[
+  {t:"Sine & Cosine Graphs",
+   c:`y = A sin(Bx−C)+D:<sup class="fn">⁷</sup> <b>Amplitude</b>=|A|, <b>Period</b>=2π/|B|, <b>Phase shift</b>=C/B (right if positive), <b>Vertical shift</b>=D. Cosine is a horizontal shift of sine: cos x = sin(x + π/2).`,
+   f:["Amplitude = |A|","Period = 2π/|B|","Phase shift = C/B","Midline: y = D"],
+   ex:{p:"Graph y = 3sin(2x − π) + 1. Identify all transformations.",s:["Amplitude = 3","Period = 2π/2 = π","Phase shift = π/2 (right)","Vertical shift = 1 (up)","Midline: y = 1"]}},
+  {t:"Tangent, Cotangent, Secant & Cosecant Graphs",
+   c:`<b>tan x</b> has period π and vertical asymptotes at x = π/2 + nπ.<sup class="fn">⁶</sup> <b>cot x</b> has period π and VA at x = nπ. <b>sec x</b> and <b>csc x</b> are U-shaped curves with VA where cos or sin = 0.`,
+   f:["tan x: period π, VA at x = π/2 + nπ","cot x: period π, VA at x = nπ","sec x: VA where cos x = 0","csc x: VA where sin x = 0"],
+   ex:{p:"Find the period and asymptotes of y = tan(x/2).",s:["Period = π/|B| = π/(1/2) = 2π","Asymptotes: x/2 = π/2+nπ → x = π+2nπ","So VA at x = …, −π, π, 3π, …"]}}
+],
+pr:[
+  {d:"easy",q:"Amplitude of y = −4cos(x)?",o:["4","−4","1","8"],c:0,x:"|−4| = 4."},
+  {d:"easy",q:"Period of y = sin(3x)?",o:["2π/3","6π","3","π/3"],c:0,x:"2π/|3| = 2π/3."},
+  {d:"easy",q:"Midline of y = sin(x) + 5?",o:["y = 5","y = 0","y = 1","y = −5"],c:0,x:"Vertical shift D = 5."},
+  {d:"medium",q:"Phase shift of y = cos(x − π/4)?",o:["π/4 right","π/4 left","π right","No shift"],c:0,x:"C/B = (π/4)/1 = π/4 right."},
+  {d:"medium",q:"Period of y = tan(2x)?",o:["π/2","2π","π","4π"],c:0,x:"Tangent period = π/|B| = π/2."},
+  {d:"medium",q:"y = 2sin(x) + 3. Maximum value?",o:["5","3","2","1"],c:0,x:"Max = D + |A| = 3 + 2 = 5."},
+  {d:"hard",q:"y = −2cos(πx/3 − π/6) + 4. Find amplitude, period, phase shift.",o:["Amp=2, Period=6, Shift=1/2 right","Amp=2, Period=3, Shift=π/6","Amp=−2, Period=6, Shift=1/2","Amp=2, Period=2π/3, Shift=π/6"],c:0,x:"A=−2→|A|=2. B=π/3→Period=2π/(π/3)=6. Phase=C/B=(π/6)/(π/3)=1/2 right."},
+  {d:"hard",q:"Where are the asymptotes of y = csc(x)?",o:["x = nπ (n integer)","x = π/2 + nπ","x = nπ/2","x = 2nπ"],c:0,x:"csc = 1/sin. VA where sin=0: x=nπ."},
+  {d:"hard",q:"Range of y = 3sin(x) − 2?",o:["[−5, 1]","[−3, 3]","[−2, 4]","[−1, 5]"],c:0,x:"sin ranges [−1,1]. 3sin: [−3,3]. Shift −2: [−5,1]."}
+],
+qz:[
+  {q:"y = sin(x) has period:",o:["2π","π","π/2","4π"],c:0,x:"Standard sine period = 2π."},
+  {q:"Amplitude of y = (1/2)cos(4x)?",o:["1/2","4","2","1/8"],c:0,x:"|1/2| = 1/2."},
+  {q:"y = tan(x) passes through the origin. True or false?",o:["True (tan 0 = 0)","False","Only sometimes","Undefined at 0"],c:0,x:"tan 0 = 0, so (0,0) is on the graph."},
+  {q:"Minimum value of y = 5cos(x)?",o:["−5","0","−1","5"],c:0,x:"cos min = −1 → 5(−1) = −5."},
+  {q:"Sec(x) is undefined when:",o:["cos x = 0","sin x = 0","tan x = 0","Always defined"],c:0,x:"sec = 1/cos → undefined when cos=0."}
+],
+  deeperLinks: [{"label":"Function Transformations","url":"math/function-transformations/walkthrough.html"},{"label":"Parent Functions","url":"math/parent-functions/walkthrough.html"}],
+},
+// ══════════════ UNIT 4 ══════════════
+{
+id:4,title:"Trigonometric Identities",
+obj:"Verify and apply fundamental identities: Pythagorean, reciprocal, quotient, co-function, and even-odd identities. Simplify trig expressions.",
+prs:[
+  {id:8,text:"Six trig functions and their definitions (Unit 1): all identities relate these functions."},
+  {id:9,text:"Algebraic manipulation: factoring, common denominators, distributing. (Algebra I & II)"}
+],
+ls:[
+  {t:"Fundamental Identities",
+   c:`<b>Pythagorean</b>: sin²θ+cos²θ=1, 1+tan²θ=sec²θ, 1+cot²θ=csc²θ.<sup class="fn">⁸</sup> <b>Reciprocal</b>: cscθ=1/sinθ, secθ=1/cosθ, cotθ=1/tanθ. <b>Quotient</b>: tanθ=sinθ/cosθ, cotθ=cosθ/sinθ. <b>Even-Odd</b>: cos(−θ)=cosθ, sin(−θ)=−sinθ, tan(−θ)=−tanθ.`,
+   f:["sin²θ + cos²θ = 1","1 + tan²θ = sec²θ","tan θ = sin θ / cos θ"],
+   ex:{p:"Simplify: sin²θ + sin²θ·tan²θ",s:["Factor: sin²θ(1 + tan²θ)","= sin²θ · sec²θ","= sin²θ / cos²θ = tan²θ"]}},
+  {t:"Verifying Identities",
+   c:`To verify an identity, work on ONE side and transform it into the other.<sup class="fn">⁹</sup> Strategies: convert everything to sin/cos, factor, find common denominators, multiply by conjugates.`,
+   f:["Strategy: start with the more complex side","Convert to sin and cos","Factor or combine fractions"],
+   ex:{p:"Verify: sec θ − cos θ = sin θ · tan θ",s:["LHS: 1/cos θ − cos θ","= (1 − cos²θ)/cos θ","= sin²θ/cos θ","= sin θ · (sin θ/cos θ) = sin θ · tan θ = RHS ✓"]}}
+],
+pr:[
+  {d:"easy",q:"If sin θ = 3/5, find cos²θ.",o:["16/25","9/25","4/5","7/25"],c:0,x:"cos²θ=1−sin²θ=1−9/25=16/25."},
+  {d:"easy",q:"tan θ in terms of sin and cos?",o:["sin θ/cos θ","cos θ/sin θ","1/sin θ","sin θ·cos θ"],c:0,x:"Quotient identity: tan=sin/cos."},
+  {d:"easy",q:"cos(−θ) = ?",o:["cos θ","−cos θ","sin θ","−sin θ"],c:0,x:"Cosine is even: cos(−θ)=cos θ."},
+  {d:"medium",q:"Simplify: (1−cos²θ)/sin θ",o:["sin θ","cos θ","tan θ","csc θ"],c:0,x:"1−cos²θ=sin²θ. sin²θ/sinθ=sinθ."},
+  {d:"medium",q:"Simplify: sec²θ − 1",o:["tan²θ","sin²θ","csc²θ","1"],c:0,x:"From 1+tan²θ=sec²θ: sec²θ−1=tan²θ."},
+  {d:"medium",q:"cos θ = −5/13. Find sin θ (θ in QII).",o:["12/13","−12/13","5/13","−5/12"],c:0,x:"sin²θ=1−25/169=144/169→sinθ=12/13 (positive in QII)."},
+  {d:"hard",q:"Verify: (sin θ + cos θ)² = 1 + 2sin θ cos θ",o:["sin²+2sincos+cos²=1+2sincos ✓","Cannot be verified","Only true for θ=0","Needs double angle"],c:0,x:"Expand: sin²θ+2sinθcosθ+cos²θ = (sin²θ+cos²θ)+2sinθcosθ = 1+2sinθcosθ. ✓"},
+  {d:"hard",q:"Simplify: csc θ − sin θ",o:["cos θ·cot θ","cos²θ/sin θ","Both A and B","sin θ·tan θ"],c:2,x:"1/sinθ−sinθ=(1−sin²θ)/sinθ=cos²θ/sinθ=cosθ·(cosθ/sinθ)=cosθ·cotθ. Both forms are correct."},
+  {d:"hard",q:"If tan θ = −3/4 and θ is in QIV, find sin θ and cos θ.",o:["sin=−3/5, cos=4/5","sin=3/5, cos=−4/5","sin=−3/5, cos=−4/5","sin=4/5, cos=−3/5"],c:0,x:"QIV: sin neg, cos pos. |opp|=3,|adj|=4,hyp=5. sin=−3/5, cos=4/5."}
+],
+qz:[
+  {q:"1 + cot²θ = ?",o:["csc²θ","sec²θ","tan²θ","sin²θ"],c:0,x:"Third Pythagorean identity: 1+cot²θ=csc²θ."},
+  {q:"sin(−θ) = ?",o:["−sin θ","sin θ","cos θ","−cos θ"],c:0,x:"Sine is odd: sin(−θ)=−sinθ."},
+  {q:"Simplify: cos θ · tan θ",o:["sin θ","cos²θ","1","tan θ"],c:0,x:"cosθ·(sinθ/cosθ)=sinθ."},
+  {q:"sin²θ = 1 − ?",o:["cos²θ","sin²θ","tan²θ","sec²θ"],c:0,x:"From sin²+cos²=1."},
+  {q:"sec θ = 1/?",o:["cos θ","sin θ","tan θ","csc θ"],c:0,x:"Reciprocal: sec=1/cos."}
+],
+  deeperLinks: [{"label":"Trigonometric Identities","url":"math/trigonometric-identities/walkthrough.html"}],
+},
+// ══════════════ UNIT 5 ══════════════
+{
+id:5,title:"Sum, Difference & Double-Angle Formulas",
+obj:"Apply sum and difference identities for sine, cosine, tangent. Derive and use double-angle and half-angle formulas.",
+prs:[
+  {id:10,text:"Fundamental identities (Unit 4): these formulas extend the Pythagorean and quotient identities."},
+  {id:11,text:"Exact unit circle values (Unit 2): needed to evaluate formulas at standard angles."}
+],
+ls:[
+  {t:"Sum & Difference Identities",
+   c:`<sup class="fn">¹¹</sup> sin(A±B) = sinA cosB ± cosA sinB. cos(A±B) = cosA cosB ∓ sinA sinB. tan(A±B) = (tanA ± tanB)/(1 ∓ tanA tanB).`,
+   f:["sin(A+B) = sinA cosB + cosA sinB","cos(A−B) = cosA cosB + sinA sinB","tan(A+B) = (tanA+tanB)/(1−tanAtanB)"],
+   ex:{p:"Find the exact value of sin 75°.",s:["sin 75° = sin(45°+30°)","= sin45·cos30 + cos45·sin30","= (√2/2)(√3/2) + (√2/2)(1/2)","= (√6+√2)/4"]}},
+  {t:"Double-Angle & Half-Angle Formulas",
+   c:`<sup class="fn">¹⁰</sup> <b>Double</b>: sin 2θ = 2sinθ cosθ. cos 2θ = cos²θ−sin²θ = 2cos²θ−1 = 1−2sin²θ. tan 2θ = 2tanθ/(1−tan²θ). <b>Half-angle</b>: sin(θ/2) = ±√((1−cosθ)/2). cos(θ/2) = ±√((1+cosθ)/2).`,
+   f:["sin 2θ = 2 sin θ cos θ","cos 2θ = cos²θ − sin²θ","sin(θ/2) = ±√((1−cosθ)/2)"],
+   ex:{p:"If sin θ = 3/5 (QI), find sin 2θ and cos 2θ.",s:["cos θ = 4/5 (QI)","sin 2θ = 2(3/5)(4/5) = 24/25","cos 2θ = (4/5)²−(3/5)² = 16/25−9/25 = 7/25"]}}
+],
+pr:[
+  {d:"easy",q:"sin(A+B) uses which formula?",o:["sinAcosB + cosAsinB","sinAsinB + cosAcosB","cosAcosB − sinAsinB","2sinAcosA"],c:0,x:"Sum formula for sine."},
+  {d:"easy",q:"sin 2θ = ?",o:["2sinθcosθ","sin²θ+cos²θ","2sin²θ","cos²θ−sin²θ"],c:0,x:"Double-angle sine formula."},
+  {d:"medium",q:"Find exact value: cos 15° = cos(45°−30°).",o:["(√6+√2)/4","(√6−√2)/4","(√3+1)/4","√3/2"],c:0,x:"cos45cos30+sin45sin30=(√2/2)(√3/2)+(√2/2)(1/2)=(√6+√2)/4."},
+  {d:"medium",q:"cos 2θ if cos θ = 3/5?",o:["−7/25","7/25","24/25","−24/25"],c:0,x:"cos2θ=2cos²θ−1=2(9/25)−1=18/25−1=−7/25."},
+  {d:"medium",q:"tan(A−B) if tanA=3, tanB=1?",o:["1/2","2","4","−1/2"],c:0,x:"(3−1)/(1+3·1)=2/4=1/2."},
+  {d:"hard",q:"sin(θ/2) if cos θ = −7/25 and θ is in QII. (So θ/2 is QI.)",o:["4/5","3/5","4√2/5","16/25"],c:0,x:"sin(θ/2)=√((1−(−7/25))/2)=√((32/25)/2)=√(16/25)=4/5."},
+  {d:"hard",q:"Simplify: cos²x − sin²x using a double angle formula.",o:["cos 2x","sin 2x","1","2cos²x"],c:0,x:"cos²x−sin²x = cos 2x by definition."},
+  {d:"hard",q:"Verify: sin 3θ = 3sinθ − 4sin³θ",o:["Use sin(2θ+θ) expansion","Cannot be verified","Only for θ=0","Requires calculus"],c:0,x:"sin3θ=sin(2θ+θ)=sin2θcosθ+cos2θsinθ=2sinθcos²θ+(1−2sin²θ)sinθ=2sinθ(1−sin²θ)+sinθ−2sin³θ=2sinθ−2sin³θ+sinθ−2sin³θ=3sinθ−4sin³θ."}
+],
+qz:[
+  {q:"cos(A+B) = ?",o:["cosAcosB − sinAsinB","cosAcosB + sinAsinB","sinAcosB + cosAsinB","2cosAcosB"],c:0,x:"Sum formula for cosine: minus sign."},
+  {q:"sin 2(30°) = sin 60° = ?",o:["√3/2","1/2","√2/2","1"],c:0,x:"sin60°=√3/2. Verify: 2sin30cos30=2(1/2)(√3/2)=√3/2 ✓."},
+  {q:"cos 2θ = 1 − 2sin²θ. Rearrange: sin²θ = ?",o:["(1−cos2θ)/2","(1+cos2θ)/2","cos2θ−1","2sin²θ"],c:0,x:"sin²θ=(1−cos2θ)/2. (Power-reducing formula.)"},
+  {q:"Exact value of tan 75°?",o:["2+√3","2−√3","√3+1","√3−1"],c:0,x:"tan(45+30)=(1+1/√3)/(1−1/√3)=(√3+1)/(√3−1)=2+√3."},
+  {q:"Half-angle: cos(θ/2) = ±√(?)",o:["(1+cosθ)/2","(1−cosθ)/2","(cosθ)/2","(1+sinθ)/2"],c:0,x:"cos(θ/2) = ±√((1+cosθ)/2)."}
+],
+  deeperLinks: [{"label":"Sum and Difference Formulas","url":"math/sum-and-difference-formulas/walkthrough.html"},{"label":"Double-Angle Formulas","url":"math/double-angle-formulas/walkthrough.html"}],
+},
+// ══════════════ UNIT 6 ══════════════
+{
+id:6,title:"Inverse Trigonometric Functions",
+obj:"Define and evaluate arcsin, arccos, arctan. Understand restricted domains. Compose trig and inverse trig functions.",
+prs:[
+  {id:12,text:"Inverse functions: f and f⁻¹ undo each other; domain/range swap. (Algebra II, Unit 7)"},
+  {id:13,text:"Unit circle mastery (Unit 2): inverse trig finds the angle when given a ratio."}
+],
+ls:[
+  {t:"Defining Inverse Trig Functions",
+   c:`Because trig functions are not one-to-one, we restrict domains.<sup class="fn">¹²</sup> <b>arcsin (sin⁻¹)</b>: domain [−1,1], range [−π/2, π/2]. <b>arccos (cos⁻¹)</b>: domain [−1,1], range [0, π]. <b>arctan (tan⁻¹)</b>: domain (−∞,∞), range (−π/2, π/2).`,
+   f:["sin⁻¹(x): range [−π/2, π/2]","cos⁻¹(x): range [0, π]","tan⁻¹(x): range (−π/2, π/2)"],
+   ex:{p:"Evaluate: arcsin(1/2)",s:["What angle in [−π/2, π/2] has sin = 1/2?","sin(π/6) = 1/2","arcsin(1/2) = π/6 = 30°"]}},
+  {t:"Compositions & Evaluating Expressions",
+   c:`sin(sin⁻¹(x)) = x for x in [−1,1].<sup class="fn">¹³</sup> But sin⁻¹(sin(x)) = x only if x is in [−π/2, π/2]. For compositions like cos(arctan(3/4)), draw a reference triangle.`,
+   f:["sin(arcsin x) = x","arcsin(sin x) = x only if x ∈ [−π/2, π/2]"],
+   ex:{p:"Find cos(arctan(3/4)).",s:["Let θ = arctan(3/4). Then tanθ = 3/4.","Right triangle: opp=3, adj=4, hyp=5","cosθ = 4/5"]}}
+],
+pr:[
+  {d:"easy",q:"arccos(0) = ?",o:["π/2","0","π","undefined"],c:0,x:"cos(π/2)=0, so arccos(0)=π/2."},
+  {d:"easy",q:"arctan(1) = ?",o:["π/4","π/2","π","0"],c:0,x:"tan(π/4)=1."},
+  {d:"easy",q:"Range of arcsin?",o:["[−π/2, π/2]","[0, π]","(−π/2, π/2)","[0, 2π)"],c:0,x:"arcsin outputs angles in [−π/2, π/2]."},
+  {d:"medium",q:"sin⁻¹(−√3/2) = ?",o:["−π/3","−2π/3","π/3","5π/3"],c:0,x:"sin(−π/3)=−√3/2. In range [−π/2,π/2]: −π/3."},
+  {d:"medium",q:"cos(arcsin(5/13)) = ?",o:["12/13","5/13","5/12","13/12"],c:0,x:"opp=5, hyp=13, adj=12. cos=12/13."},
+  {d:"hard",q:"tan(arccos(−3/5)). θ in [0,π].",o:["−4/3","4/3","−3/4","3/4"],c:0,x:"cosθ=−3/5 (QII). adj=−3, hyp=5, opp=4. tanθ=4/(−3)=−4/3."},
+  {d:"hard",q:"arcsin(sin(7π/6)) = ?",o:["−π/6","7π/6","π/6","−7π/6"],c:0,x:"sin(7π/6)=−1/2. arcsin(−1/2)=−π/6 (in restricted range)."}
+],
+qz:[
+  {q:"arccos(1) = ?",o:["0","π","π/2","1"],c:0,x:"cos(0)=1 → arccos(1)=0."},
+  {q:"arctan(−1) = ?",o:["−π/4","3π/4","−π","7π/4"],c:0,x:"tan(−π/4)=−1. In (−π/2,π/2): −π/4."},
+  {q:"sin(arccos(0.6)) = ?",o:["0.8","0.6","0.75","0.36"],c:0,x:"cos=0.6=3/5→sin=4/5=0.8."},
+  {q:"True or false: arcsin(sin(π)) = π",o:["False (= 0)","True","Undefined","Depends"],c:0,x:"sin(π)=0. arcsin(0)=0, not π. False."},
+  {q:"Domain of arccos?",o:["[−1, 1]","All reals","[0, π]","(−∞, ∞)"],c:0,x:"arccos accepts inputs from −1 to 1."}
+],
+  deeperLinks: [{"label":"Inverse Functions","url":"math/inverse-functions/walkthrough.html"}],
+},
+// ══════════════ UNIT 7 ══════════════
+{
+id:7,title:"Solving Trigonometric Equations",
+obj:"Solve trig equations algebraically. Find all solutions in a given interval. Use identities to reduce equations. Handle multiple-angle equations.",
+prs:[
+  {id:14,text:"Identities (Unit 4–5): often needed to rewrite equations into solvable form."},
+  {id:15,text:"Inverse trig functions (Unit 6): used to find reference angles from trig values."},
+  {id:16,text:"Factoring and quadratic formula (Algebra I–II): many trig equations are quadratic in sin or cos."}
+],
+ls:[
+  {t:"Basic Trig Equations",
+   c:`To solve sin θ = k: find the reference angle using sin⁻¹|k|, then use quadrant analysis to find all solutions in [0, 2π).<sup class="fn">¹⁵</sup> Add 2nπ for the general solution (or nπ for tangent).`,
+   f:["sin θ = k → θ = sin⁻¹(k) and π − sin⁻¹(k) (+ 2nπ)","cos θ = k → θ = ±cos⁻¹(k) (+ 2nπ)","tan θ = k → θ = tan⁻¹(k) (+ nπ)"],
+   ex:{p:"Solve: sin θ = 1/2 in [0, 2π).",s:["Reference: sin⁻¹(1/2)=π/6","sin positive in QI and QII","θ = π/6 or θ = 5π/6"]}},
+  {t:"Equations Requiring Identities & Factoring",
+   c:`Many equations need algebraic manipulation first.<sup class="fn">¹⁴</sup><sup class="fn">¹⁶</sup> Common patterns: quadratic in sinθ or cosθ, double-angle substitution, Pythagorean identity substitution.`,
+   f:["2sin²θ − sinθ − 1 = 0 → factor as (2sinθ+1)(sinθ−1)=0","cos 2θ + cosθ = 0 → use cos2θ = 2cos²θ−1"],
+   ex:{p:"Solve: 2cos²θ − cosθ − 1 = 0 in [0,2π).",s:["Factor: (2cosθ+1)(cosθ−1)=0","cosθ=−1/2 or cosθ=1","cosθ=−1/2: θ=2π/3 or 4π/3","cosθ=1: θ=0","Solutions: {0, 2π/3, 4π/3}"]}}
+],
+pr:[
+  {d:"easy",q:"Solve: cos θ = 0 in [0, 2π).",o:["π/2 and 3π/2","0 and π","π only","0 only"],c:0,x:"cos=0 at π/2 and 3π/2."},
+  {d:"easy",q:"Solve: tan θ = 1 in [0, 2π).",o:["π/4 and 5π/4","π/4 only","3π/4 and 7π/4","0 and π"],c:0,x:"tan=1 in QI(π/4) and QIII(5π/4)."},
+  {d:"medium",q:"Solve: 2sin θ − 1 = 0 in [0, 2π).",o:["π/6 and 5π/6","π/3 and 2π/3","7π/6 and 11π/6","π/6 only"],c:0,x:"sinθ=1/2. QI: π/6, QII: 5π/6."},
+  {d:"medium",q:"Solve: sin²θ = 1/4 in [0, 2π).",o:["π/6, 5π/6, 7π/6, 11π/6","π/6 and 5π/6 only","π/3, 2π/3, 4π/3, 5π/3","None"],c:0,x:"sinθ=±1/2. Four solutions: π/6, 5π/6, 7π/6, 11π/6."},
+  {d:"hard",q:"Solve: 2sin²θ + sinθ − 1 = 0 in [0, 2π).",o:["π/6, 5π/6, 3π/2","π/6, 5π/6","π/2 and 3π/2","7π/6, 11π/6, π/2"],c:0,x:"(2sinθ−1)(sinθ+1)=0→sinθ=1/2 or sinθ=−1. θ=π/6, 5π/6, 3π/2."},
+  {d:"hard",q:"Solve: cos 2θ = 0 in [0, 2π).",o:["π/4, 3π/4, 5π/4, 7π/4","π/2 and 3π/2","0 and π","π/4 and 5π/4"],c:0,x:"2θ=π/2,3π/2,5π/2,7π/2→θ=π/4,3π/4,5π/4,7π/4."},
+  {d:"hard",q:"General solution of sin θ = −√2/2.",o:["θ = 5π/4+2nπ or 7π/4+2nπ","θ = π/4+nπ","θ = 5π/4+nπ","θ = 3π/4+2nπ"],c:0,x:"Ref=π/4. sin neg in QIII(5π/4) and QIV(7π/4). Add 2nπ to each."}
+],
+qz:[
+  {q:"How many solutions does sin θ = 0 have in [0, 2π)?",o:["2 (θ = 0, π)","1","3","Infinite"],c:0,x:"sin=0 at θ=0 and θ=π."},
+  {q:"Solve: 2cos θ + 1 = 0 in [0, 2π).",o:["2π/3 and 4π/3","π/3 and 5π/3","2π/3 only","π and 2π"],c:0,x:"cosθ=−1/2: 2π/3 and 4π/3."},
+  {q:"To solve sin²θ−sinθ=0, first:",o:["Factor: sinθ(sinθ−1)=0","Use double angle","Take square root","Divide by sinθ"],c:0,x:"Factor to find sinθ=0 or sinθ=1."},
+  {q:"General solution of cos θ = 1?",o:["θ = 2nπ","θ = nπ","θ = 0 only","θ = π/2+nπ"],c:0,x:"cos=1 only at 0, repeating every 2π."},
+  {q:"How many solutions does tan θ = 0 have in [0, 2π)?",o:["2 (0 and π)","1","3","4"],c:0,x:"tan=0 when sin=0: θ=0,π."}
+],
+  deeperLinks: [{"label":"Solving Trigonometric Equations","url":"math/solving-trigonometric-equations/walkthrough.html"}],
+},
+// ══════════════ UNIT 8 ══════════════
+{
+id:8,title:"Law of Sines & Law of Cosines",
+obj:"Solve oblique (non-right) triangles. Apply the Law of Sines including the ambiguous case (SSA). Apply the Law of Cosines. Find triangle area using trig.",
+prs:[
+  {id:17,text:"Triangle properties: angle sum = 180°, classification. (Geometry, Unit 4)"},
+  {id:18,text:"Solving equations and inverse trig (Units 1, 6): needed to find angles from sine/cosine values."}
+],
+ls:[
+  {t:"Law of Sines",
+   c:`For any triangle with sides a, b, c opposite angles A, B, C:<sup class="fn">¹⁷</sup> a/sinA = b/sinB = c/sinC. Use when you know: AAS, ASA, or SSA (ambiguous case). The <b>ambiguous case</b> (SSA) can give 0, 1, or 2 triangles.`,
+   f:["a/sinA = b/sinB = c/sinC"],
+   ex:{p:"∠A=40°, ∠B=70°, a=10. Find b.",s:["∠C=180−40−70=70°","a/sinA=b/sinB → 10/sin40°=b/sin70°","b=10·sin70°/sin40° ≈ 10(0.9397)/0.6428 ≈ 14.62"]}},
+  {t:"Law of Cosines & Triangle Area",
+   c:`c² = a²+b²−2ab·cosC.<sup class="fn">¹⁸</sup> Use when you know SAS or SSS. <b>Area formula</b>: Area = ½ab·sinC (using two sides and the included angle).`,
+   f:["c² = a² + b² − 2ab·cos C","Area = ½ab·sin C"],
+   ex:{p:"a=7, b=10, C=60°. Find c and the area.",s:["c²=49+100−2(7)(10)cos60°=149−70=79","c=√79≈8.89","Area=½(7)(10)sin60°=35(√3/2)≈30.31"]}}
+],
+pr:[
+  {d:"easy",q:"Law of Sines relates sides to:",o:["Sines of opposite angles","Cosines of angles","Adjacent sides","Tangent values"],c:0,x:"a/sinA = b/sinB = c/sinC."},
+  {d:"easy",q:"When do you use Law of Cosines?",o:["SAS or SSS","AAS or ASA","SSA only","Right triangles only"],c:0,x:"Law of Cosines works for SAS and SSS cases."},
+  {d:"medium",q:"∠A=50°, a=12, b=15. Is this the ambiguous case?",o:["Yes (SSA)","No (SAS)","No (ASA)","Yes (AAA)"],c:0,x:"Given side-side-angle → SSA → ambiguous case."},
+  {d:"medium",q:"a=8, b=6, C=90°. Find c using Law of Cosines.",o:["10","14","√100=10","√28"],c:0,x:"c²=64+36−2(8)(6)cos90°=100−0=100→c=10. (Reduces to Pythagorean!)"},
+  {d:"medium",q:"Area of triangle: a=5, b=8, C=30°.",o:["10","20","40","5√3"],c:0,x:"½(5)(8)sin30°=20(1/2)=10."},
+  {d:"hard",q:"SSS: a=5, b=7, c=10. Find angle C.",o:["≈111.8°","≈68.2°","≈120°","≈98.5°"],c:0,x:"cosC=(25+49−100)/(2·5·7)=−26/70≈−0.371. C=cos⁻¹(−0.371)≈111.8°."},
+  {d:"hard",q:"Ambiguous case: A=30°, a=6, b=10. How many triangles?",o:["Two","One","None","Cannot determine"],c:0,x:"sinB=bsinA/a=10(0.5)/6≈0.833. B≈56.4° or B≈123.6°. Both give valid A+B<180. Two triangles."},
+  {d:"hard",q:"Area of triangle with all three sides known (a=13,b=14,c=15). Use Heron's formula.",o:["84","91","105","78"],c:0,x:"s=(13+14+15)/2=21. A=√(21·8·7·6)=√7056=84."}
+],
+qz:[
+  {q:"Law of Sines: a/sinA = ?/sinB",o:["b","c","a","B"],c:0,x:"a/sinA = b/sinB."},
+  {q:"Law of Cosines with C=90° reduces to:",o:["Pythagorean Theorem","Law of Sines","Nothing useful","a²+b²+c²=0"],c:0,x:"cos90°=0→c²=a²+b²."},
+  {q:"Area = ½ab·sin C. If C = 90°, this equals:",o:["½ab","ab","½a²","0"],c:0,x:"sin90°=1→Area=½ab."},
+  {q:"SSA ambiguous case can yield at most ___ triangle(s).",o:["2","1","3","0"],c:0,x:"Ambiguous case: 0, 1, or 2 triangles."},
+  {q:"Heron's formula requires knowing:",o:["All three sides","Two sides and an angle","All three angles","One side and two angles"],c:0,x:"Heron's uses s=(a+b+c)/2 and all three side lengths."}
+],
+  deeperLinks: [{"label":"Law of Sines","url":"math/law-of-sines/walkthrough.html"},{"label":"Law of Cosines","url":"math/law-of-cosines/walkthrough.html"}],
+},
+// ══════════════ UNIT 9 ══════════════
+{
+id:9,title:"Polar Coordinates & Complex Numbers",
+obj:"Convert between rectangular and polar coordinates. Plot polar equations. Represent complex numbers in trigonometric (polar) form. Multiply/divide using trig form.",
+prs:[
+  {id:19,text:"Complex numbers: a+bi, arithmetic, the complex plane. (Algebra II, Unit 3)"},
+  {id:20,text:"Distance formula and coordinate plane: r=√(x²+y²). (Geometry, Unit 1)"}
+],
+ls:[
+  {t:"Polar Coordinates",
+   c:`A point is represented as (r, θ) where r is the distance from the origin and θ is the angle from the positive x-axis.<sup class="fn">²⁰</sup> Conversions: x = r·cosθ, y = r·sinθ, r = √(x²+y²), tanθ = y/x.`,
+   f:["x = r cos θ, y = r sin θ","r = √(x²+y²), θ = arctan(y/x)"],
+   ex:{p:"Convert (3, 3) to polar.",s:["r = √(9+9) = 3√2","θ = arctan(3/3) = arctan(1) = π/4","Polar: (3√2, π/4)"]}},
+  {t:"Complex Numbers in Polar Form & De Moivre's Theorem",
+   c:`z = a+bi can be written as z = r(cosθ+i·sinθ) = r·cis θ, where r = |z| = √(a²+b²).<sup class="fn">¹⁹</sup> <b>De Moivre's Theorem</b>: [r·cis θ]ⁿ = rⁿ·cis(nθ). Multiplication: multiply moduli, add angles. Division: divide moduli, subtract angles.`,
+   f:["z = r(cos θ + i sin θ)","z₁·z₂ = r₁r₂ · cis(θ₁+θ₂)","zⁿ = rⁿ · cis(nθ)"],
+   ex:{p:"Multiply: z₁ = 2·cis(π/3), z₂ = 3·cis(π/6).",s:["r = 2·3 = 6","θ = π/3 + π/6 = π/2","z₁z₂ = 6·cis(π/2) = 6(cos π/2 + i sin π/2) = 6i"]}}
+],
+pr:[
+  {d:"easy",q:"Convert polar (4, π/2) to rectangular.",o:["(0, 4)","(4, 0)","(−4, 0)","(0, −4)"],c:0,x:"x=4cos(π/2)=0, y=4sin(π/2)=4."},
+  {d:"easy",q:"Convert (1, 1) to polar. r = ?",o:["√2","2","1","√3"],c:0,x:"r=√(1+1)=√2."},
+  {d:"medium",q:"Convert polar (6, 5π/6) to rectangular.",o:["(−3√3, 3)","(3√3, 3)","(−3, 3√3)","(3, −3√3)"],c:0,x:"x=6cos(5π/6)=6(−√3/2)=−3√3. y=6sin(5π/6)=6(1/2)=3."},
+  {d:"medium",q:"Write z = 1+i in polar form.",o:["√2·cis(π/4)","2·cis(π/4)","√2·cis(π/2)","cis(π/4)"],c:0,x:"r=√2. θ=π/4. z=√2·cis(π/4)."},
+  {d:"hard",q:"Use De Moivre's: (1+i)⁶.",o:["−8i","8i","−8","8"],c:0,x:"1+i=√2·cis(π/4). (√2)⁶·cis(6π/4)=8·cis(3π/2)=8(0+i(−1))=−8i."},
+  {d:"hard",q:"Find all cube roots of 8 (in polar form).",o:["2·cis(0), 2·cis(2π/3), 2·cis(4π/3)","2·cis(0) only","8·cis(0), 8·cis(π)","2·cis(π/3), 2·cis(π)"],c:0,x:"8=8·cis(0). Cube root: r=2. Angles: 0/3,2π/3,4π/3."}
+],
+qz:[
+  {q:"In polar, the point (0, −5) is:",o:["(5, 3π/2)","(5, π/2)","(−5, π/2)","(5, π)"],c:0,x:"r=5. Angle points down: 3π/2."},
+  {q:"Multiply 2·cis(π/4) and 3·cis(3π/4).",o:["6·cis(π) = −6","6·cis(π/2)","5·cis(π)","6·cis(0)"],c:0,x:"r=6, θ=π/4+3π/4=π. 6·cis(π)=−6."},
+  {q:"r·cis θ is shorthand for:",o:["r(cos θ + i sin θ)","r·cos θ + r·sin θ","r·i·sin θ","r/cos θ"],c:0,x:"cis θ = cos θ + i sin θ."},
+  {q:"|3 − 4i| = ?",o:["5","7","1","25"],c:0,x:"√(9+16) = 5."},
+  {q:"De Moivre's Theorem: [r·cis θ]² = ?",o:["r²·cis(2θ)","2r·cis(2θ)","r²·cis(θ/2)","r·cis(θ²)"],c:0,x:"Square modulus, double angle."}
+],
+  deeperLinks: [{"label":"Complex Numbers","url":"math/complex-numbers/walkthrough.html"},{"label":"Coordinate Plane","url":"math/coordinate-plane/walkthrough.html"}],
+},
+// ══════════════ UNIT 10 ══════════════
+{
+id:10,title:"Vectors",
+obj:"Define vectors. Perform vector addition, subtraction, scalar multiplication. Find magnitude, direction, dot product, and angle between vectors.",
+prs:[
+  {id:21,text:"Component form and coordinate plane: vectors are represented as (a, b) or ⟨a, b⟩. (Algebra I, Unit 4)"},
+  {id:22,text:"Pythagorean Theorem and trig ratios (Unit 1): used for magnitude and direction."}
+],
+ls:[
+  {t:"Vector Basics & Operations",
+   c:`A <b>vector</b> has magnitude (length) and direction.<sup class="fn">²¹</sup> Component form: v⃗ = ⟨a, b⟩. <b>Magnitude</b>: |v⃗| = √(a²+b²). <b>Direction angle</b>: θ = arctan(b/a). Operations: ⟨a,b⟩ + ⟨c,d⟩ = ⟨a+c, b+d⟩. Scalar: k⟨a,b⟩ = ⟨ka, kb⟩.`,
+   f:["|v⃗| = √(a²+b²)","v⃗ + w⃗ = ⟨v₁+w₁, v₂+w₂⟩","kv⃗ = ⟨kv₁, kv₂⟩"],
+   ex:{p:"v⃗ = ⟨3, 4⟩. Find magnitude and direction.",s:["|v⃗| = √(9+16) = 5","θ = arctan(4/3) ≈ 53.1°"]}},
+  {t:"Dot Product & Angle Between Vectors",
+   c:`<b>Dot product</b>: v⃗·w⃗ = v₁w₁ + v₂w₂ = |v⃗||w⃗|cosθ.<sup class="fn">²²</sup> If v⃗·w⃗ = 0, the vectors are <b>perpendicular</b> (orthogonal).`,
+   f:["v⃗·w⃗ = v₁w₁ + v₂w₂","cos θ = (v⃗·w⃗)/(|v⃗||w⃗|)"],
+   ex:{p:"v⃗ = ⟨2, 3⟩, w⃗ = ⟨−3, 2⟩. Find dot product. Perpendicular?",s:["v⃗·w⃗ = 2(−3)+3(2) = −6+6 = 0","Dot product = 0 → perpendicular!"]}}
+],
+pr:[
+  {d:"easy",q:"⟨2, 5⟩ + ⟨3, −1⟩ = ?",o:["⟨5, 4⟩","⟨6, −5⟩","⟨5, −4⟩","⟨−1, 6⟩"],c:0,x:"(2+3, 5+(−1)) = ⟨5,4⟩."},
+  {d:"easy",q:"|⟨3, 4⟩| = ?",o:["5","7","25","√7"],c:0,x:"√(9+16) = 5."},
+  {d:"easy",q:"3·⟨1, −2⟩ = ?",o:["⟨3, −6⟩","⟨3, −2⟩","⟨1, −6⟩","⟨4, 1⟩"],c:0,x:"(3·1, 3·(−2)) = ⟨3,−6⟩."},
+  {d:"medium",q:"Dot product: ⟨4, −1⟩ · ⟨2, 3⟩ = ?",o:["5","11","−5","8"],c:0,x:"4(2)+(−1)(3) = 8−3 = 5."},
+  {d:"medium",q:"Are ⟨1, 2⟩ and ⟨4, −2⟩ perpendicular?",o:["Yes (dot product = 0)","No","Parallel","Cannot tell"],c:0,x:"1(4)+2(−2)=4−4=0 → perpendicular."},
+  {d:"hard",q:"Find the angle between ⟨1, 0⟩ and ⟨1, 1⟩.",o:["45°","90°","60°","30°"],c:0,x:"cosθ=(1·1+0·1)/(1·√2)=1/√2→θ=45°."},
+  {d:"hard",q:"Unit vector in the direction of ⟨−3, 4⟩?",o:["⟨−3/5, 4/5⟩","⟨−3, 4⟩","⟨3/5, −4/5⟩","⟨−1, 1⟩"],c:0,x:"|v|=5. Unit = ⟨−3/5, 4/5⟩."}
+],
+qz:[
+  {q:"Dot product = 0 means vectors are:",o:["Perpendicular","Parallel","Equal","Zero vectors"],c:0,x:"Orthogonal (perpendicular)."},
+  {q:"|⟨−5, 12⟩| = ?",o:["13","17","7","169"],c:0,x:"√(25+144) = 13."},
+  {q:"⟨2, 7⟩ − ⟨5, 3⟩ = ?",o:["⟨−3, 4⟩","⟨7, 10⟩","⟨3, −4⟩","⟨−3, −4⟩"],c:0,x:"(2−5, 7−3) = ⟨−3, 4⟩."},
+  {q:"Direction angle of ⟨0, 6⟩?",o:["90°","0°","180°","270°"],c:0,x:"Pure vertical → 90°."},
+  {q:"⟨a,b⟩ · ⟨a,b⟩ = ?",o:["a²+b² (= |v|²)","2a+2b","0","⟨a²,b²⟩"],c:0,x:"v·v = a²+b² = |v|²."}
+],
+  deeperLinks: [{"label":"Vectors","url":"math/vectors/walkthrough.html"}],
+},
+// ══════════════ UNIT 11 ══════════════
+{
+id:11,title:"Parametric Equations & Polar Graphs",
+obj:"Graph and convert parametric equations. Eliminate the parameter. Graph polar equations (roses, limaçons, cardioids, circles, lemniscates).",
+prs:[
+  {id:23,text:"Polar coordinates (Unit 9): plotting (r, θ) points."},
+  {id:24,text:"Algebraic substitution and trig identities (Units 4–5): needed for eliminating parameters and converting."}
+],
+ls:[
+  {t:"Parametric Equations",
+   c:`A <b>parametric equation</b> defines x and y each as functions of a parameter t:<sup class="fn">²⁴</sup> x = f(t), y = g(t). To <b>eliminate the parameter</b>, solve one equation for t and substitute into the other (or use trig identities if x = cos t, y = sin t).`,
+   f:["x = t + 1, y = t² → eliminate: t = x−1, y = (x−1)²","x = 3cos t, y = 3sin t → x²+y² = 9 (circle)"],
+   ex:{p:"Eliminate parameter: x = 2cos t, y = 2sin t.",s:["cos t = x/2, sin t = y/2","cos²t + sin²t = 1","(x/2)² + (y/2)² = 1 → x²+y² = 4 (circle r=2)"]}},
+  {t:"Polar Graphs: Roses, Limaçons & More",
+   c:`Common polar curves:<sup class="fn">²³</sup> <b>Circle</b>: r = a. <b>Cardioid</b>: r = a ± a·cosθ (or sinθ). <b>Limaçon</b>: r = a ± b·cosθ. <b>Rose</b>: r = a·cos(nθ) — n petals if odd, 2n if even. <b>Lemniscate</b>: r² = a²·cos(2θ).`,
+   f:["Rose r = a cos(nθ): n odd → n petals, n even → 2n petals","Cardioid: r = a(1+cosθ)","Lemniscate: r² = a² cos 2θ"],
+   ex:{p:"How many petals does r = 3cos(5θ) have?",s:["n = 5 (odd)","Odd n → exactly n petals","5 petals"]}}
+],
+pr:[
+  {d:"easy",q:"Parametric: x=t, y=t+2. Rectangular form?",o:["y = x + 2","y = x²+2","x = y + 2","xy = 2"],c:0,x:"Since t=x: y = x + 2."},
+  {d:"easy",q:"r = 5 is what polar curve?",o:["Circle radius 5","Line","Spiral","Point"],c:0,x:"Constant r → circle."},
+  {d:"medium",q:"Eliminate parameter: x=3t, y=9t².",o:["y = x²","y = 3x²","y = x²/9","y = 9x"],c:0,x:"t=x/3. y=9(x/3)²=9(x²/9)=x²."},
+  {d:"medium",q:"How many petals: r = 2sin(4θ)?",o:["8","4","2","16"],c:0,x:"n=4 (even) → 2n = 8 petals."},
+  {d:"hard",q:"Convert to rectangular: r = 4cosθ.",o:["x²+y²=4x (circle)","y=4x","x²+y²=16","r²=4"],c:0,x:"r=4cosθ→r²=4rcosθ→x²+y²=4x."},
+  {d:"hard",q:"Parametric: x=sec t, y=tan t. Eliminate parameter.",o:["x²−y²=1 (hyperbola)","x²+y²=1","y=x−1","x²−y²=0"],c:0,x:"sec²t−tan²t=1→x²−y²=1."}
+],
+qz:[
+  {q:"x=5cos t, y=5sin t traces a:",o:["Circle r=5","Ellipse","Parabola","Line"],c:0,x:"x²+y²=25. Circle."},
+  {q:"r = 2+2cos θ is a:",o:["Cardioid","Rose","Lemniscate","Line"],c:0,x:"r=a+a·cosθ→cardioid."},
+  {q:"Rose r=cos(3θ) has how many petals?",o:["3","6","9","1"],c:0,x:"n=3 (odd)→3 petals."},
+  {q:"To eliminate parameter from x=sin t, y=cos t, use:",o:["sin²t+cos²t=1 → x²+y²=1","t=sin⁻¹x","Division","Cannot eliminate"],c:0,x:"Pythagorean identity: x²+y²=1."},
+  {q:"r²=9cos 2θ is a:",o:["Lemniscate","Circle","Rose","Cardioid"],c:0,x:"r²=a²cos2θ → lemniscate."}
+],
+  deeperLinks: [{"label":"Parametric Equations","url":"math/parametric-equations/walkthrough.html"},{"label":"Polar Coordinates","url":"math/polar-coordinates/walkthrough.html"}],
+},
+// ══════════════ UNIT 12 ══════════════
+{
+id:12,title:"Applications & Modeling",
+obj:"Apply trigonometry to real-world problems: harmonic motion, navigation/bearing, surveying, projectile paths, and modeling periodic phenomena.",
+prs:[
+  {id:25,text:"Sine/cosine graphing (Unit 3): modeling periodic behavior requires understanding amplitude, period, and phase shift."},
+  {id:26,text:"Law of Sines/Cosines (Unit 8): applied to surveying and navigation problems."}
+],
+ls:[
+  {t:"Simple Harmonic Motion",
+   c:`Objects on springs or pendulums exhibit <b>simple harmonic motion</b>:<sup class="fn">²⁵</sup> d(t) = A·cos(ωt) or d(t) = A·sin(ωt), where A = amplitude (max displacement), ω = angular frequency, period = 2π/ω, frequency = ω/(2π).`,
+   f:["d(t) = A cos(ωt) or A sin(ωt)","Period T = 2π/ω","Frequency f = 1/T = ω/(2π)"],
+   ex:{p:"A spring oscillates with amplitude 8 cm and period 0.5 seconds. Write the model.",s:["A = 8","ω = 2π/T = 2π/0.5 = 4π","d(t) = 8cos(4πt)"]}},
+  {t:"Bearings, Navigation & Surveying",
+   c:`<b>Bearings</b> are measured clockwise from north: N 30° E means 30° east of due north.<sup class="fn">²⁶</sup> Navigation and surveying problems combine trig ratios, Law of Sines/Cosines, and angle relationships.`,
+   f:["Bearing N θ° E: angle θ clockwise from north toward east","Convert bearing to standard angle: 90° − bearing"],
+   ex:{p:"A ship sails N 40° E for 100 km. How far north and east has it traveled?",s:["North = 100·cos 40° ≈ 76.6 km","East = 100·sin 40° ≈ 64.3 km"]}}
+],
+pr:[
+  {d:"easy",q:"Amplitude of d(t)=6sin(3t)?",o:["6","3","18","2"],c:0,x:"Coefficient of sin: A=6."},
+  {d:"easy",q:"Period of d(t)=cos(2πt)?",o:["1","2π","π","1/2"],c:0,x:"T=2π/ω=2π/(2π)=1."},
+  {d:"medium",q:"Spring: period 2 sec, amplitude 10. Write model (starting at max).",o:["d(t)=10cos(πt)","d(t)=10sin(πt)","d(t)=10cos(2πt)","d(t)=10sin(2t)"],c:0,x:"ω=2π/2=π. Starts at max→cosine: d(t)=10cos(πt)."},
+  {d:"medium",q:"Bearing N 60° W. Which direction?",o:["60° west of due north","60° east of north","60° south of west","Due northwest"],c:0,x:"N 60° W = 60° from north toward west."},
+  {d:"medium",q:"Plane flies N 25° E for 200 miles. Northward distance?",o:["≈181.3 mi","≈84.5 mi","≈200 mi","≈125 mi"],c:0,x:"North=200cos25°≈200(0.9063)≈181.3."},
+  {d:"hard",q:"Two observers 500m apart. Angles of elevation to a balloon: 35° and 50°. Find the balloon's height.",o:["≈226 m","≈300 m","≈500 m","≈175 m"],c:0,x:"Using Law of Sines on the triangle: angle at balloon=180−35−50=95°. Let d₁ be distance from observer 1 to balloon. d₁/sin50°=500/sin95°→d₁≈384.6. h=d₁·sin35°≈384.6(0.5736)≈220.6m≈226m."},
+  {d:"hard",q:"Ferris wheel: diameter 40m, center 25m high, 1 revolution/min. Height model?",o:["h(t)=20sin(2πt−π/2)+25","h(t)=−20cos(2πt)+25","Both A and B","h(t)=20cos(2πt)+25"],c:2,x:"Amplitude=20, midline=25, period=1min→ω=2π. Starting at bottom: −cos or sin shifted. Both A and B represent the same curve."}
+],
+qz:[
+  {q:"Frequency = 4 Hz means the period is:",o:["0.25 sec","4 sec","1/4 sec","2π sec"],c:0,x:"T=1/f=1/4=0.25 sec."},
+  {q:"d(t)=3cos(10t). Angular frequency ω?",o:["10","3","30","5"],c:0,x:"ω=10 (coefficient of t)."},
+  {q:"N 0° E is the same as:",o:["Due north","Due east","Due south","Northeast"],c:0,x:"0° from north → due north."},
+  {q:"A surveyor measures angle of elevation 20° from 100m away. Height?",o:["≈36.4 m","≈94.0 m","≈20 m","≈34.2 m"],c:0,x:"h=100tan20°≈100(0.364)≈36.4m."},
+  {q:"Tides modeled as sinusoidal. High tide 12ft, low tide 2ft. Amplitude?",o:["5 ft","12 ft","10 ft","7 ft"],c:0,x:"Amplitude=(max−min)/2=(12−2)/2=5."}
+],
+  deeperLinks: [{"label":"Modeling with Trigonometry","url":"math/modeling-with-trigonometry/walkthrough.html"}]
+}
+];;
+
+const STATE = { currentUnit: 0, currentTab: 'lesson', answers: {}, quizSubmitted: {}, completedUnits: new Set() };
+
+function loadProgress() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('trigonometry-progress') || '{}');
+    if (saved.answers) STATE.answers = saved.answers;
+    if (saved.quizSubmitted) STATE.quizSubmitted = saved.quizSubmitted;
+    if (saved.completedUnits) STATE.completedUnits = new Set(saved.completedUnits);
+  } catch (e) {}
+}
+
+function saveProgress() {
+  try {
+    localStorage.setItem('trigonometry-progress', JSON.stringify({
+      answers: STATE.answers,
+      quizSubmitted: STATE.quizSubmitted,
+      completedUnits: Array.from(STATE.completedUnits)
+    }));
+  } catch (e) {}
+}
+
+function updateOverallProgress() {
+  const count = STATE.completedUnits.size;
+  const pct = Math.round((count / TRIGONOMETRY_CURRICULUM.length) * 100);
+  document.getElementById('trigCompletedUnits').textContent = count;
+  document.getElementById('trigProgressPct').textContent = pct;
+  document.getElementById('trigProgressBar').style.width = pct + '%';
+}
+
+function render() {
+  const D = TRIGONOMETRY_CURRICULUM;
+  const u = D[STATE.currentUnit];
+  const app = document.getElementById('trigApp');
+
+  const navBtns = D.map((c, i) => {
+    const on = i === STATE.currentUnit ? ' on' : '';
+    const ok = STATE.completedUnits.has(i) ? ' ok' : '';
+    return `<button class="${on}${ok}" onclick="selectUnit(${i})">${STATE.completedUnits.has(i) ? '✓ ' : ''}U${c.id}</button>`;
+  }).join('');
+
+  const deeperHtml = (u.deeperLinks && u.deeperLinks.length) ? `
+    <div class="trig-deeper">
+      <div class="lbl">Go Deeper →</div>
+      ${u.deeperLinks.map(l => `<a href="${l.url}">${l.label}</a>`).join('')}
+    </div>` : '';
+
+  app.innerHTML = `
+    <div class="trig-nav">${navBtns}</div>
+    <div class="trig-uhdr">
+      <div class="trig-unum">Unit ${u.id} of 12</div>
+      <div class="trig-utitle">${u.title}</div>
+      <div class="trig-uobj">${u.obj}</div>
+    </div>
+    ${deeperHtml}
+    <div class="trig-tabs">
+      <button class="trig-tb ${STATE.currentTab === 'lesson' ? 'on' : ''}" onclick="setTab('lesson')">Lessons</button>
+      <button class="trig-tb ${STATE.currentTab === 'practice' ? 'on' : ''}" onclick="setTab('practice')">Practice</button>
+      <button class="trig-tb ${STATE.currentTab === 'quiz' ? 'on' : ''}" onclick="setTab('quiz')">Unit Quiz</button>
+    </div>
+    ${STATE.currentTab === 'lesson' ? renderLessons(u) : ''}
+    ${STATE.currentTab === 'practice' ? renderPractice(u) : ''}
+    ${STATE.currentTab === 'quiz' ? renderQuiz(u) : ''}
+    ${renderFootnotes(u)}
+  `;
+  updateOverallProgress();
+}
+
+function renderLessons(u) {
+  return u.ls.map(l => `
+    <div class="trig-lcard">
+      <h3>${l.t}</h3>
+      <p>${l.c}</p>
+      ${l.f.map(f => `<div class="trig-fm">${f}</div>`).join('')}
+      ${l.ex ? `<div class="trig-wex"><div class="wl">Worked Example</div><div class="wp">${l.ex.p}</div>${l.ex.s.map(s => `<div class="ws">→ ${s}</div>`).join('')}</div>` : ''}
+    </div>`).join('') + `
+    <div class="trig-prbox"><div class="prt">Prerequisite Knowledge</div>${u.prs.map(p => `<p><b>[${p.id}]</b> ${p.text}</p>`).join('')}</div>`;
+}
+
+function renderPractice(u) {
+  return ['easy','medium','hard'].map(d => {
+    const qs = u.pr.filter(q => q.d === d);
+    if (!qs.length) return '';
+    const cls = d === 'easy' ? 'trig-de' : d === 'medium' ? 'trig-dm' : 'trig-dh';
+    return `<div style="margin-bottom:8px"><span class="trig-dtag ${cls}">${d}</span></div>
+      ${qs.map(q => renderQ(q, `${STATE.currentUnit}-p-${u.pr.indexOf(q)}`, false)).join('')}`;
+  }).join('');
+}
+
+function renderQuiz(u) {
+  const key = `${STATE.currentUnit}-qz`;
+  const sub = STATE.quizSubmitted[key];
+  let sc = 0;
+  if (sub) u.qz.forEach((q, i) => { if (STATE.answers[`${STATE.currentUnit}-q-${i}`] === q.c) sc++; });
+  return `
+    <div class="trig-qhd">
+      <h3 style="font-size:1.15rem;font-weight:700;">Unit ${u.id} Quiz</h3>
+      <div class="trig-qct">${sub ? sc + '/' + u.qz.length : u.qz.length + ' questions'}</div>
+    </div>
+    ${u.qz.map((q, i) => renderQ(q, `${STATE.currentUnit}-q-${i}`, sub)).join('')}
+    ${!sub ? `<button class="trig-btn trig-bf" onclick="submitQuiz()">Submit Quiz</button>` : ''}
+    ${sub ? `<div class="trig-qres"><div class="trig-sbig">${Math.round(sc/u.qz.length*100)}%</div><div class="trig-ssub">${sc} of ${u.qz.length} correct</div><button class="trig-btn" onclick="retakeQuiz()">Retake</button></div>` : ''}`;
+}
+
+function renderQ(q, key, forceShow) {
+  const sel = STATE.answers[key];
+  const isQuiz = key.includes('-q-');
+  const unsub = isQuiz && !STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  const show = (sel !== undefined && !unsub) || forceShow;
+  const cor = sel === q.c;
+  const text = q.q || q.question;
+  const opts = q.o || q.options || [];
+  const correct = q.c;
+  const expl = q.x || q.explanation;
+  const optsHtml = opts.map((o, i) => {
+    let c = 'trig-ob';
+    if (show) { c += ' lk'; if (i === sel && cor) c += ' sc'; else if (i === sel && !cor) c += ' sw'; if (i === correct && !cor) c += ' rv'; }
+    else if (unsub && i === sel) c += ' qs'; else if (sel !== undefined && !unsub) c += ' lk';
+    return `<button class="${c}" onclick="answerQ('${key}',${i})" ${(show || (sel !== undefined && !unsub)) ? 'disabled' : ''}>${o}</button>`;
+  }).join('');
+  return `<div class="trig-qc ${show ? (cor ? 'gc' : 'bc') : ''}"><div class="trig-qt">${text}</div><div class="trig-os">${optsHtml}</div>${show && expl ? `<div class="trig-ex">${expl}</div>` : ''}</div>`;
+}
+
+function renderFootnotes(u) {
+  if (!u.prs || !u.prs.length) return '';
+  return `<div class="trig-fns"><h4>Prerequisite Footnotes</h4>${u.prs.map(p => `<div class="trig-fni"><span class="trig-fnm">[${p.id}]</span> ${p.text}</div>`).join('')}</div>`;
+}
+
+function selectUnit(i) { STATE.currentUnit = i; STATE.currentTab = 'lesson'; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function setTab(t) { STATE.currentTab = t; render(); }
+
+function answerQ(key, opt) {
+  const unsub = key.includes('-q-') && !STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  if (!unsub && STATE.answers[key] !== undefined) return;
+  STATE.answers[key] = opt;
+  saveProgress();
+  render();
+}
+
+function submitQuiz() {
+  const u = TRIGONOMETRY_CURRICULUM[STATE.currentUnit];
+  const all = u.qz.every((_, i) => STATE.answers[`${STATE.currentUnit}-q-${i}`] !== undefined);
+  if (!all) { alert('Answer all questions first.'); return; }
+  STATE.quizSubmitted[`${STATE.currentUnit}-qz`] = true;
+  let sc = 0;
+  u.qz.forEach((q, i) => { if (STATE.answers[`${STATE.currentUnit}-q-${i}`] === q.c) sc++; });
+  if (sc / u.qz.length >= 0.6) STATE.completedUnits.add(STATE.currentUnit);
+  saveProgress();
+  render();
+}
+
+function retakeQuiz() {
+  const u = TRIGONOMETRY_CURRICULUM[STATE.currentUnit];
+  u.qz.forEach((_, i) => delete STATE.answers[`${STATE.currentUnit}-q-${i}`]);
+  delete STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  STATE.completedUnits.delete(STATE.currentUnit);
+  saveProgress();
+  render();
+}
+
+const savedTheme = localStorage.getItem('mathbored-theme');
+if (savedTheme) document.body.className = savedTheme;
+loadProgress();
+render();
+</script>
+</body>
+</html>

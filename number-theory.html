@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Theory — Complete Curriculum | MathBored</title>
+<meta name="description" content="Complete Number Theory course: 12 units from divisibility through primes, modular arithmetic, quadratic reciprocity, and cryptography. Free interactive lessons, practice, and quizzes.">
+<meta name="keywords" content="Number theory, primes, modular arithmetic, GCD, RSA, quadratic reciprocity, math, free, college">
+<link rel="canonical" href="https://math.boredgames.site/number-theory.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://math.boredgames.site/number-theory.html">
+<meta property="og:title" content="Number Theory — Complete Curriculum | MathBored">
+<meta property="og:description" content="Complete Number Theory course: 12 units from divisibility through primes, modular arithmetic, and cryptography.">
+<meta property="og:image" content="https://math.boredgames.site/og-image.png">
+<meta property="og:site_name" content="MathBored">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Course","name":"Number Theory — Complete Curriculum","description":"Complete Number Theory course: 12 units from divisibility through primes, modular arithmetic, quadratic reciprocity, and cryptography.","provider":{"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},"educationalLevel":"College","learningResourceType":"Course","inLanguage":"en","isAccessibleForFree":true}
+</script>
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Number Theory — local styles (wine theme) */
+.nt-app { max-width: 960px; margin: 0 auto; padding: 20px; }
+.back-link { display: inline-block; margin-bottom: 20px; color: #7a2e3a; text-decoration: none; font-weight: 600; }
+.back-link:hover { opacity: 0.9; }
+.nt-hero { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary)); border: 1px solid var(--border); border-radius: 20px; padding: 48px 28px 40px; text-align: center; margin-bottom: 32px; }
+.nt-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; color: #5e2230; margin-bottom: 8px; }
+.nt-hero .sub { font-size: 0.9rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; }
+.nt-stats { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
+.nt-stat { background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 12px; padding: 14px 24px; }
+.nt-stat-num { font-size: 1.8rem; font-weight: 800; display: block; color: var(--text-primary); }
+.nt-stat-lbl { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; }
+.nt-progress { background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 14px; padding: 20px 24px; margin-bottom: 28px; }
+.nt-progress-bar { background: var(--bg-tertiary); border-radius: 20px; height: 10px; overflow: hidden; margin: 10px 0 6px; }
+.nt-progress-fill { height: 100%; background: linear-gradient(90deg, #5e2230, #7a2e3a); border-radius: 20px; transition: width 0.5s ease; }
+.nt-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; padding: 14px; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border); }
+.nt-nav button { font-family: inherit; font-size: 0.75rem; font-weight: 700; padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+.nt-nav button:hover { border-color: #7a2e3a; color: var(--text-primary); }
+.nt-nav button.on { background: #7a2e3a; color: #fff; border-color: #7a2e3a; }
+.nt-nav button.ok { border-color: var(--success); color: var(--success); }
+.nt-uhdr { margin-bottom: 22px; }
+.nt-unum { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #7a2e3a; font-weight: 700; }
+.nt-utitle { font-size: clamp(1.4rem, 3.5vw, 2.2rem); font-weight: 800; margin: 4px 0 8px; }
+.nt-uobj { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.75; }
+.nt-deeper { background: var(--bg-secondary); border: 1px solid var(--border); border-left: 3px solid #7a2e3a; border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; font-size: 0.86rem; }
+.nt-deeper .lbl { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: #7a2e3a; font-weight: 700; margin-bottom: 8px; }
+.nt-deeper a { display: inline-block; margin: 2px 6px 2px 0; padding: 4px 12px; border-radius: 6px; border: 1px solid var(--border); color: var(--text-secondary); text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.2s; }
+.nt-deeper a:hover { border-color: #7a2e3a; color: #7a2e3a; background: rgba(122,46,58,0.1); }
+.nt-tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
+.nt-tb { font-family: inherit; font-size: 0.86rem; font-weight: 700; padding: 10px 20px; border: none; background: transparent; color: var(--text-secondary); cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.nt-tb:hover { color: var(--text-primary); }
+.nt-tb.on { color: #7a2e3a; border-bottom-color: #7a2e3a; }
+.nt-lcard { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; padding: 24px 26px; margin-bottom: 14px; }
+.nt-lcard h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: #7a2e3a; }
+.nt-lcard p { font-size: 0.9rem; margin-bottom: 8px; line-height: 1.7; }
+.nt-fm { background: var(--bg-tertiary); border-left: 3px solid #7a2e3a; border-radius: 6px; padding: 10px 14px; margin: 10px 0; font-family: var(--font-mono); font-size: 0.84rem; color: #a34a5a; overflow-x: auto; }
+.nt-wex { background: var(--bg-tertiary); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; margin: 12px 0; }
+.nt-wex .wl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--warning); font-weight: 700; margin-bottom: 6px; }
+.nt-wex .wp { font-weight: 600; margin-bottom: 4px; font-size: 0.88rem; }
+.nt-wex .ws { color: var(--text-secondary); font-size: 0.82rem; margin-bottom: 2px; }
+.nt-prbox { background: rgba(74,94,122,0.08); border: 1px solid rgba(74,94,122,0.2); border-left: 3px solid #4a5e7a; border-radius: 8px; padding: 12px 16px; margin: 12px 0; font-size: 0.84rem; }
+.nt-prbox .prt { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: #4a5e7a; font-weight: 700; margin-bottom: 6px; }
+.nt-prbox p { color: var(--text-secondary); margin-bottom: 4px; }
+.nt-dtag { display: inline-block; font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-bottom: 8px; }
+.nt-de { background: rgba(16,185,129,0.12); color: var(--success); border: 1px solid rgba(16,185,129,0.25); }
+.nt-dm { background: rgba(245,158,11,0.12); color: var(--warning); border: 1px solid rgba(245,158,11,0.25); }
+.nt-dh { background: rgba(239,68,68,0.12); color: var(--error); border: 1px solid rgba(239,68,68,0.25); }
+.nt-qc { background: var(--bg-secondary); border: 2px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-bottom: 12px; transition: border-color 0.3s; }
+.nt-qc.gc { border-color: var(--success); }
+.nt-qc.bc { border-color: var(--error); }
+.nt-qt { font-size: 0.9rem; margin-bottom: 12px; font-weight: 600; line-height: 1.6; }
+.nt-os { display: flex; flex-direction: column; gap: 6px; }
+.nt-ob { font-family: inherit; font-size: 0.86rem; text-align: left; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-tertiary); color: var(--text-primary); cursor: pointer; transition: all 0.2s; }
+.nt-ob:hover:not(.lk) { border-color: #7a2e3a; background: rgba(122,46,58,0.08); }
+.nt-ob.sc { border-color: var(--success); background: rgba(16,185,129,0.12); color: var(--success); font-weight: 600; }
+.nt-ob.sw { border-color: var(--error); background: rgba(239,68,68,0.12); color: var(--error); }
+.nt-ob.rv { border-color: var(--success); background: rgba(16,185,129,0.08); }
+.nt-ob.lk { cursor: default; opacity: 0.75; }
+.nt-ob.qs { border-color: #7a2e3a; background: rgba(122,46,58,0.1); font-weight: 600; }
+.nt-ex { margin-top: 10px; padding: 10px 14px; background: var(--bg-tertiary); border-radius: 6px; font-size: 0.82rem; color: var(--text-secondary); border-left: 3px solid #7a2e3a; animation: ntFade 0.3s ease; }
+@keyframes ntFade { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: none; } }
+.nt-qhd { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+.nt-qct { font-family: var(--font-mono); font-size: 0.84rem; color: #7a2e3a; font-weight: 700; }
+.nt-qres { text-align: center; padding: 36px; background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 12px; margin-top: 18px; }
+.nt-sbig { font-size: 3rem; font-weight: 800; color: #7a2e3a; line-height: 1; margin-bottom: 4px; }
+.nt-ssub { color: var(--text-secondary); font-size: 0.88rem; }
+.nt-btn { font-family: inherit; font-size: 0.84rem; font-weight: 700; padding: 10px 22px; border: 1px solid #7a2e3a; border-radius: 8px; background: transparent; color: #7a2e3a; cursor: pointer; margin-top: 14px; transition: all 0.2s; }
+.nt-btn:hover { background: #7a2e3a; color: #fff; }
+.nt-bf { background: #7a2e3a; color: #fff; }
+.nt-bf:hover { background: #5e2230; }
+.nt-fns { margin-top: 32px; padding-top: 18px; border-top: 1px solid var(--border); }
+.nt-fns h4 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.18em; color: #4a5e7a; margin-bottom: 10px; font-weight: 700; }
+.nt-fni { font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 6px; padding-left: 14px; }
+.nt-fnm { color: #4a5e7a; font-weight: 700; }
+@media (max-width: 640px) { .nt-app { padding: 12px; } .nt-lcard, .nt-qc { padding: 16px; } .nt-nav button { font-size: 0.68rem; padding: 4px 8px; } }
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1>🎯 MathBored</h1>
+        <div class="tagline">Number Theory — Complete Curriculum</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="nt-app">
+  <a href="index.html" class="back-link">← Back to Main App</a>
+
+  <div class="nt-hero">
+    <h1>∞ Number Theory</h1>
+    <p class="sub">Complete Curriculum · 12 Units · Practice &amp; Quizzes</p>
+    <div class="nt-stats">
+      <div class="nt-stat"><span class="nt-stat-num">12</span><span class="nt-stat-lbl">Units</span></div>
+      <div class="nt-stat"><span class="nt-stat-num">24</span><span class="nt-stat-lbl">Lessons</span></div>
+      <div class="nt-stat"><span class="nt-stat-num">84</span><span class="nt-stat-lbl">Practice Qs</span></div>
+      <div class="nt-stat"><span class="nt-stat-num">60</span><span class="nt-stat-lbl">Quiz Qs</span></div>
+    </div>
+  </div>
+
+  <div class="nt-progress">
+    <h2 style="margin:0 0 6px;font-size:1.1rem;font-weight:700;">Your Progress</h2>
+    <p style="color:var(--text-secondary);font-size:0.88rem;margin:0;">
+      <span id="ntCompletedUnits">0</span> of 12 units completed · <span id="ntProgressPct">0</span>% done
+    </p>
+    <div class="nt-progress-bar">
+      <div class="nt-progress-fill" id="ntProgressBar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div id="ntApp"></div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+  </div>
+</footer>
+
+<script>
+const NUMBER_THEORY_CURRICULUM = [
+// ═══════════ UNIT 1 ═══════════
+{id:1,title:"Divisibility & the Division Algorithm",
+obj:"Define divisibility. State and apply the Division Algorithm. Understand the Well-Ordering Principle.",
+prs:[{id:1,text:"Integer arithmetic: fluency with multiplication, division, remainders. (Pre-Algebra / Grade 5–6)"},{id:2,text:"Basic proof techniques: direct proof, proof by contradiction. Familiarity helps but we will build these."}],
+ls:[
+{t:"Divisibility",
+c:`We say <b>a divides b</b> (written a|b) if there exists an integer k such that b = ak.<sup class="fn">¹</sup> For example, 3|12 since 12 = 3·4. Divisibility is transitive: if a|b and b|c then a|c.`,
+f:["a|b ⟺ ∃k ∈ ℤ : b = ak","If a|b and a|c then a|(bx + cy) for any x,y ∈ ℤ"],
+ex:{p:"Prove: if 6|n then 3|n.",s:["6|n means n = 6k for some integer k","n = 6k = 3(2k)","2k is an integer, so 3|n ✓"]}},
+{t:"The Division Algorithm",
+c:`For any integers a and d with d > 0, there exist <b>unique</b> integers q (quotient) and r (remainder) such that a = dq + r where 0 ≤ r < d.<sup class="fn">²</sup> This is guaranteed by the <b>Well-Ordering Principle</b>: every nonempty set of non-negative integers has a smallest element.`,
+f:["a = dq + r, 0 ≤ r < d","Example: 23 = 5·4 + 3 (q=4, r=3)"],
+ex:{p:"Apply the Division Algorithm: a = −17, d = 5.",s:["−17 = 5·(−4) + 3","q = −4, r = 3 (note: 0 ≤ 3 < 5)","The remainder is always non-negative"]}}
+],
+pr:[
+{d:"easy",q:"Does 4|20?",o:["Yes (20 = 4·5)","No","Only if 20 is prime","Undefined"],c:0,x:"20 = 4·5, so 4|20."},
+{d:"easy",q:"Division Algorithm: 29 ÷ 6. Quotient and remainder?",o:["q=4, r=5","q=5, r=−1","q=4, r=6","q=3, r=11"],c:0,x:"29 = 6·4 + 5. r=5, 0 ≤ 5 < 6."},
+{d:"easy",q:"If a|b, then a|(-b). True or false?",o:["True","False","Only if a > 0","Only if b > 0"],c:0,x:"b=ak → −b=a(−k) → a|(−b)."},
+{d:"medium",q:"If 5|n and 5|m, does 5|(3n+2m)?",o:["Yes","No","Only if n=m","Cannot determine"],c:0,x:"n=5a, m=5b → 3n+2m=5(3a+2b). 5 divides it."},
+{d:"medium",q:"Division Algorithm: a=−30, d=7. Find q, r.",o:["q=−5, r=5","q=−4, r=−2","q=−5, r=−5","q=−4, r=2"],c:0,x:"−30 = 7·(−5)+5. r=5, 0≤5<7."},
+{d:"hard",q:"Prove: for any integer n, n² − n is divisible by 2.",o:["n²−n=n(n−1), product of consecutive integers → one is even","Need more info","Only for even n","Only for prime n"],c:0,x:"n(n−1): consecutive integers → one must be even → product divisible by 2."},
+{d:"hard",q:"If a|b and b|a, what can we conclude?",o:["a = ±b","a = b","a = 0","Nothing"],c:0,x:"b=ak and a=bj → a=akj → kj=1 → k,j=±1 → a=±b."}
+],
+qz:[
+{q:"a|0 for every nonzero a. True?",o:["True (0 = a·0)","False","Only if a=1","Undefined"],c:0,x:"0 = a·0 for any a."},
+{q:"The remainder r in the Division Algorithm satisfies:",o:["0 ≤ r < d","0 < r ≤ d","−d < r < d","r ≥ 0"],c:0,x:"Strictly: 0 ≤ r < d."},
+{q:"0|5?",o:["No (5 ≠ 0·k)","Yes","Undefined","Only in modular arithmetic"],c:0,x:"There's no k with 0·k=5. Zero divides only zero."},
+{q:"If a|b and a|c, then a|(b+c). This follows from:",o:["Linear combination property","Division Algorithm","Well-Ordering","Fundamental Theorem"],c:0,x:"b=ak₁, c=ak₂ → b+c=a(k₁+k₂)."},
+{q:"Well-Ordering Principle applies to:",o:["Non-negative integers","All integers","Rationals","Reals"],c:0,x:"Every nonempty subset of non-negative integers has a least element."}
+],
+  deeperLinks: [{"label":"Divisibility","url":"math/divisibility/walkthrough.html"},{"label":"Division Algorithm","url":"math/division-algorithm/walkthrough.html"}],
+},
+// ═══════════ UNIT 2 ═══════════
+{id:2,title:"Greatest Common Divisor & the Euclidean Algorithm",
+obj:"Define GCD and LCM. Compute GCD using the Euclidean Algorithm. Express GCD as a linear combination (Bézout's Identity).",
+prs:[{id:3,text:"Division Algorithm (Unit 1): the Euclidean Algorithm repeatedly applies it."},{id:4,text:"Solving linear equations: Bézout's identity involves finding integer coefficients. (Algebra I)"}],
+ls:[
+{t:"GCD, LCM & the Euclidean Algorithm",
+c:`gcd(a,b) is the largest positive integer dividing both a and b.<sup class="fn">³</sup> The <b>Euclidean Algorithm</b> computes gcd by repeated division: gcd(a,b) = gcd(b, a mod b). Stop when remainder = 0; the last nonzero remainder is the gcd. lcm(a,b) = |ab|/gcd(a,b).`,
+f:["gcd(a,b) = gcd(b, a mod b)","lcm(a,b) = |ab|/gcd(a,b)","gcd(a,b)·lcm(a,b) = |ab|"],
+ex:{p:"Find gcd(252, 198) by Euclidean Algorithm.",s:["252 = 198·1 + 54","198 = 54·3 + 36","54 = 36·1 + 18","36 = 18·2 + 0","gcd = 18"]}},
+{t:"Bézout's Identity & Extended Euclidean Algorithm",
+c:`<b>Bézout's Identity</b>: gcd(a,b) = ax + by for some integers x, y.<sup class="fn">⁴</sup> The <b>Extended Euclidean Algorithm</b> finds x and y by back-substituting through the Euclidean Algorithm steps.`,
+f:["gcd(a,b) = ax + by (Bézout's Identity)","Coprime: gcd(a,b) = 1 ↔ ∃x,y : ax + by = 1"],
+ex:{p:"Express gcd(252,198)=18 as 252x+198y.",s:["From above: 18=54−36·1","36=198−54·3 → 18=54−(198−54·3)=4·54−198","54=252−198 → 18=4(252−198)−198=4·252−5·198","x=4, y=−5. Check: 4·252−5·198=1008−990=18 ✓"]}}
+],
+pr:[
+{d:"easy",q:"gcd(12, 8) = ?",o:["4","2","8","12"],c:0,x:"12=8·1+4, 8=4·2+0. gcd=4."},
+{d:"easy",q:"gcd(7, 5) = ?",o:["1","5","7","35"],c:0,x:"7=5·1+2, 5=2·2+1, 2=1·2+0. gcd=1. They're coprime."},
+{d:"easy",q:"lcm(4, 6) = ?",o:["12","24","2","10"],c:0,x:"gcd=2. lcm=4·6/2=12."},
+{d:"medium",q:"gcd(a, 0) = ?",o:["|a|","0","1","Undefined"],c:0,x:"Every integer divides 0, so gcd(a,0)=|a|."},
+{d:"medium",q:"If gcd(a,b)=1, we say a and b are:",o:["Coprime / relatively prime","Equal","Composite","Associates"],c:0,x:"gcd=1 ↔ coprime."},
+{d:"hard",q:"Find x,y: 35x+15y=5.",o:["x=1, y=−2","x=−2, y=5","x=0, y=1/3","No integer solution"],c:0,x:"gcd(35,15)=5|5 → solution exists. 35(1)+15(−2)=35−30=5."},
+{d:"hard",q:"gcd(n, n+1) for any positive integer n?",o:["1 (always coprime)","n","n+1","Depends on n"],c:0,x:"If d|n and d|(n+1), then d|((n+1)−n)=1 → d=1."}
+],
+qz:[
+{q:"Euclidean Algorithm terminates because:",o:["Remainders decrease toward 0","Quotients increase","Numbers get larger","It's random"],c:0,x:"Remainders form a strictly decreasing sequence of non-negative integers → must reach 0."},
+{q:"gcd(100, 75) = ?",o:["25","5","75","50"],c:0,x:"100=75·1+25, 75=25·3+0. gcd=25."},
+{q:"Bézout: if gcd(a,b)=d, then d = ax+by has:",o:["Integer solutions x,y","No integer solutions","Exactly one solution","Only positive solutions"],c:0,x:"Bézout guarantees integer x,y exist."},
+{q:"lcm(a,b) × gcd(a,b) = ?",o:["|a·b|","a+b","a−b","a²+b²"],c:0,x:"Fundamental relationship."},
+{q:"gcd(0,0) = ?",o:["0 (by convention)","1","Undefined","∞"],c:0,x:"Convention: gcd(0,0)=0."}
+],
+  deeperLinks: [{"label":"Greatest Common Divisor","url":"math/greatest-common-divisor/walkthrough.html"},{"label":"Euclidean Algorithm","url":"math/euclidean-algorithm/walkthrough.html"}],
+},
+// ═══════════ UNIT 3 ═══════════
+{id:3,title:"Primes & the Fundamental Theorem of Arithmetic",
+obj:"Define primes and composites. Prove the Fundamental Theorem of Arithmetic (unique factorization). Apply the Sieve of Eratosthenes.",
+prs:[{id:5,text:"Divisibility and GCD (Units 1–2): prime factorization builds on these."},{id:6,text:"Well-Ordering Principle (Unit 1): used in the proof of unique factorization."}],
+ls:[
+{t:"Primes, Composites & Infinitude of Primes",
+c:`A prime p > 1 has no positive divisors other than 1 and p.<sup class="fn">⁵</sup> A composite has additional divisors. 1 is neither prime nor composite. <b>Euclid's theorem</b>: there are infinitely many primes (proof by contradiction: if p₁,…,pₖ are all primes, consider N = p₁p₂…pₖ + 1).`,
+f:["Prime: p > 1, divisors are only 1 and p","Composite: n > 1, n has a divisor 1 < d < n","If p is prime and p|ab, then p|a or p|b (Euclid's Lemma)"],
+ex:{p:"Prove there is no largest prime.",s:["Assume p₁,…,pₖ are ALL primes","Let N = p₁·p₂·…·pₖ + 1","N is not divisible by any pᵢ (remainder 1)","So N has a prime factor not in our list → contradiction"]}},
+{t:"Fundamental Theorem of Arithmetic",
+c:`Every integer n > 1 can be written <b>uniquely</b> (up to order) as a product of primes: n = p₁^a₁ · p₂^a₂ · … · pₖ^aₖ.<sup class="fn">⁶</sup> Existence uses strong induction; uniqueness uses Euclid's Lemma.`,
+f:["n = p₁^a₁ · p₂^a₂ · … · pₖ^aₖ (unique)","Example: 360 = 2³ · 3² · 5"],
+ex:{p:"Find the prime factorization of 2520.",s:["2520 ÷ 2 = 1260 ÷ 2 = 630 ÷ 2 = 315","315 ÷ 3 = 105 ÷ 3 = 35","35 ÷ 5 = 7","2520 = 2³ · 3² · 5 · 7"]}}
+],
+pr:[
+{d:"easy",q:"Is 37 prime?",o:["Yes","No","Cannot tell","Only if 37|74"],c:0,x:"Check primes up to √37≈6: not divisible by 2,3,5. Prime."},
+{d:"easy",q:"Prime factorization of 60?",o:["2² · 3 · 5","2 · 3 · 10","4 · 15","2³ · 5"],c:0,x:"60=2·30=2·2·15=2·2·3·5=2²·3·5."},
+{d:"easy",q:"Is 1 prime?",o:["No","Yes","Sometimes","Only in some systems"],c:0,x:"1 is neither prime nor composite by convention."},
+{d:"medium",q:"Euclid's Lemma: if p|ab and p is prime, then:",o:["p|a or p|b","p|a and p|b","p|(a+b)","p=ab"],c:0,x:"This is the key lemma for unique factorization."},
+{d:"medium",q:"How many primes below 20?",o:["8","7","9","10"],c:0,x:"2,3,5,7,11,13,17,19 → 8 primes."},
+{d:"hard",q:"If gcd(a,b)=1, prove gcd(a²,b²)=1.",o:["If p|a² then p|a (p prime), but gcd(a,b)=1 so p∤b thus p∤b²","Cannot be proven","gcd(a²,b²) could be a or b","Requires a,b to be prime"],c:0,x:"Any prime divisor of a² must divide a. Since gcd(a,b)=1, it can't divide b or b²."},
+{d:"hard",q:"Number of divisors of n = 2³·3²·5?",o:["24","10","30","48"],c:0,x:"τ(n) = (3+1)(2+1)(1+1) = 4·3·2 = 24."}
+],
+qz:[
+{q:"Fundamental Theorem of Arithmetic states:",o:["Every n>1 has unique prime factorization","Every number is prime","Primes are infinite","gcd always exists"],c:0,x:"Unique factorization into primes."},
+{q:"To check if n is prime, test primes up to:",o:["√n","n/2","n−1","n"],c:0,x:"If n has a factor > √n, the other factor < √n."},
+{q:"2 is the only ___ prime.",o:["Even","Odd","Negative","Composite"],c:0,x:"2 is the smallest and only even prime."},
+{q:"The Sieve of Eratosthenes finds:",o:["All primes up to n","Only twin primes","Composite numbers","GCDs"],c:0,x:"Systematically crosses out composites, leaving primes."},
+{q:"gcd(a,b) in terms of prime factorizations uses:",o:["Minimum exponents","Maximum exponents","Sum of exponents","Product of exponents"],c:0,x:"gcd takes min of each prime's exponent; lcm takes max."}
+],
+  deeperLinks: [{"label":"Prime Numbers","url":"math/prime-numbers/walkthrough.html"},{"label":"Prime Factorization","url":"math/prime-factorization/walkthrough.html"}],
+},
+// ═══════════ UNIT 4 ═══════════
+{id:4,title:"Modular Arithmetic",
+obj:"Define congruences. Perform modular addition, subtraction, multiplication. Understand congruence classes and ℤ/nℤ.",
+prs:[{id:7,text:"Division Algorithm (Unit 1): a ≡ b (mod n) iff n|(a−b), i.e., same remainder."},{id:8,text:"Properties of equality and arithmetic: congruence behaves like equality for +, −, ×."}],
+ls:[
+{t:"Congruences",
+c:`a ≡ b (mod n) means n|(a−b), equivalently a and b have the same remainder when divided by n.<sup class="fn">⁷</sup> Congruence is an equivalence relation (reflexive, symmetric, transitive). Arithmetic: if a≡b and c≡d (mod n), then a+c≡b+d, a−c≡b−d, ac≡bd (mod n).`,
+f:["a ≡ b (mod n) ⟺ n|(a−b)","a+c ≡ b+d (mod n)","ac ≡ bd (mod n)"],
+ex:{p:"Is 17 ≡ 5 (mod 6)?",s:["17 − 5 = 12","6|12? Yes","So 17 ≡ 5 (mod 6) ✓"]}},
+{t:"Congruence Classes & ℤ/nℤ",
+c:`The <b>congruence class</b> [a] mod n is {a + kn : k ∈ ℤ}.<sup class="fn">⁸</sup> There are exactly n classes: [0],[1],…,[n−1]. The set ℤ/nℤ = {[0],[1],…,[n−1]} forms a ring under modular + and ×.`,
+f:["ℤ/nℤ = {[0], [1], …, [n−1]}","[a] + [b] = [a+b], [a]·[b] = [a·b]"],
+ex:{p:"In ℤ/5ℤ, compute [3] + [4] and [3]·[4].",s:["[3]+[4] = [7] = [2] (since 7 mod 5 = 2)","[3]·[4] = [12] = [2] (since 12 mod 5 = 2)"]}}
+],
+pr:[
+{d:"easy",q:"15 mod 4 = ?",o:["3","1","0","15"],c:0,x:"15 = 4·3 + 3. Remainder = 3."},
+{d:"easy",q:"Is 25 ≡ 1 (mod 8)?",o:["Yes (25−1=24, 8|24)","No","Only mod 5","Undefined"],c:0,x:"25−1=24, 8|24 → yes."},
+{d:"easy",q:"7 + 9 mod 10 = ?",o:["6","16","7","9"],c:0,x:"16 mod 10 = 6."},
+{d:"medium",q:"3⁴ mod 5 = ?",o:["1","3","4","2"],c:0,x:"3⁴=81. 81=5·16+1. 81 mod 5=1."},
+{d:"medium",q:"Solve: x ≡ 3 (mod 5). Which is NOT a solution?",o:["9","3","8","13"],c:0,x:"Solutions: 3,8,13,18,… 9 mod 5=4≠3."},
+{d:"hard",q:"Find 2¹⁰ mod 7.",o:["2","4","1","3"],c:0,x:"2³=8≡1(mod7). 2¹⁰=2⁹·2=(2³)³·2≡1³·2=2(mod7)."},
+{d:"hard",q:"In ℤ/6ℤ, [2]·[3] = ?",o:["[0]","[6]","[5]","[1]"],c:0,x:"2·3=6≡0(mod 6). Zero divisors exist in ℤ/6ℤ!"}
+],
+qz:[
+{q:"a ≡ a (mod n) for all a. This is:",o:["Reflexive property","Symmetric","Transitive","Closure"],c:0,x:"n|(a−a)=0 always."},
+{q:"If a ≡ b (mod n), then b ≡ a (mod n). This is:",o:["Symmetric property","Reflexive","Transitive","Antisymmetric"],c:0,x:"n|(a−b) → n|(b−a)."},
+{q:"Can you always divide in modular arithmetic?",o:["No — need multiplicative inverse","Yes always","Only mod primes","Only for even moduli"],c:0,x:"Division requires gcd(divisor, n)=1."},
+{q:"How many congruence classes mod 7?",o:["7","6","8","∞"],c:0,x:"[0],[1],[2],[3],[4],[5],[6] → 7 classes."},
+{q:"17⁰ mod 5 = ?",o:["1","0","17","5"],c:0,x:"Any nonzero number to the 0 power is 1. 1 mod 5=1."}
+],
+  deeperLinks: [{"label":"Modular Arithmetic","url":"math/modular-arithmetic/walkthrough.html"}],
+},
+// ═══════════ UNIT 5 ═══════════
+{id:5,title:"Linear Congruences & the Chinese Remainder Theorem",
+obj:"Solve linear congruences ax ≡ b (mod n). Apply the Chinese Remainder Theorem (CRT) to systems of congruences.",
+prs:[{id:9,text:"GCD and Bézout's Identity (Unit 2): solving ax ≡ b requires gcd(a,n)|b."},{id:10,text:"Modular arithmetic (Unit 4): fluency with mod operations."}],
+ls:[
+{t:"Solving Linear Congruences",
+c:`ax ≡ b (mod n) has a solution iff gcd(a,n)|b.<sup class="fn">⁹</sup> If d = gcd(a,n) divides b, there are exactly d solutions mod n. To solve: use Extended Euclidean Algorithm to find a⁻¹ mod n when gcd(a,n)=1, then x ≡ a⁻¹b (mod n).`,
+f:["ax ≡ b (mod n) solvable ⟺ gcd(a,n)|b","If gcd(a,n)=1: x ≡ a⁻¹·b (mod n)","Number of solutions = gcd(a,n) if solvable"],
+ex:{p:"Solve: 3x ≡ 4 (mod 7).",s:["gcd(3,7)=1|4 ✓ → unique solution mod 7","Find 3⁻¹ mod 7: 3·5=15≡1(mod7) → 3⁻¹≡5","x ≡ 5·4 = 20 ≡ 6 (mod 7)"]}},
+{t:"Chinese Remainder Theorem",
+c:`If n₁,n₂,…,nₖ are pairwise coprime, the system x ≡ a₁ (mod n₁), …, x ≡ aₖ (mod nₖ) has a <b>unique solution</b> modulo N = n₁n₂…nₖ.<sup class="fn">¹⁰</sup>`,
+f:["Pairwise coprime: gcd(nᵢ,nⱼ)=1 for i≠j","Unique solution mod N = n₁·n₂·…·nₖ"],
+ex:{p:"Solve: x ≡ 2 (mod 3), x ≡ 3 (mod 5).",s:["N = 15. Try: x=2→2mod5=2≠3. x=5→5mod3=2✓,5mod5=0≠3.","x=8→8mod3=2✓,8mod5=3✓","x ≡ 8 (mod 15)"]}}
+],
+pr:[
+{d:"easy",q:"Does 2x ≡ 1 (mod 5) have a solution?",o:["Yes (gcd(2,5)=1)","No","Only if x is even","Two solutions"],c:0,x:"gcd(2,5)=1|1 → solvable. x≡3(mod5): 2·3=6≡1."},
+{d:"easy",q:"5⁻¹ mod 7 = ?",o:["3","5","2","6"],c:0,x:"5·3=15≡1(mod7). So 5⁻¹≡3."},
+{d:"medium",q:"Solve: 4x ≡ 2 (mod 6).",o:["x ≡ 2 or 5 (mod 6)","x ≡ 3 (mod 6)","No solution","x ≡ 2 (mod 6) only"],c:0,x:"gcd(4,6)=2|2→solvable, 2 solutions. 4·2=8≡2✓. 4·5=20≡2✓."},
+{d:"medium",q:"CRT: x≡1(mod2), x≡2(mod3). Solution mod 6?",o:["x ≡ 5 (mod 6)","x ≡ 1 (mod 6)","x ≡ 2 (mod 6)","No solution"],c:0,x:"x=5: 5mod2=1✓, 5mod3=2✓."},
+{d:"hard",q:"Find 7⁻¹ mod 11.",o:["8","7","4","3"],c:0,x:"7·8=56=5·11+1≡1(mod11). 7⁻¹≡8."},
+{d:"hard",q:"CRT: x≡2(mod3), x≡3(mod5), x≡2(mod7). Solution mod 105?",o:["23","53","8","93"],c:0,x:"x=23: 23mod3=2✓, 23mod5=3✓, 23mod7=2✓. Solution: x≡23(mod105)."}
+],
+qz:[
+{q:"ax≡b(mod n) has no solution when:",o:["gcd(a,n) ∤ b","gcd(a,n)=1","a=0 and b≠0","b=0"],c:0,x:"Solution exists iff gcd(a,n)|b."},
+{q:"CRT requires the moduli to be:",o:["Pairwise coprime","All prime","All equal","Consecutive"],c:0,x:"gcd(nᵢ,nⱼ)=1 for distinct i,j."},
+{q:"3⁻¹ mod 11 = ?",o:["4","3","8","7"],c:0,x:"3·4=12≡1(mod11)."},
+{q:"CRT: solution is unique modulo:",o:["N = product of all moduli","Sum of moduli","Largest modulus","gcd of moduli"],c:0,x:"Unique mod n₁·n₂·…·nₖ."},
+{q:"Is 2x ≡ 3 (mod 4) solvable?",o:["No (gcd(2,4)=2, 2∤3)","Yes, x=2","Yes, x=3","Yes, x=1"],c:0,x:"gcd(2,4)=2 doesn't divide 3 → no solution."}
+],
+  deeperLinks: [{"label":"Linear Congruences","url":"math/linear-congruences/walkthrough.html"},{"label":"Chinese Remainder Theorem","url":"math/chinese-remainder-theorem/walkthrough.html"}],
+},
+// ═══════════ UNIT 6 ═══════════
+{id:6,title:"Fermat's Little Theorem & Euler's Theorem",
+obj:"State and apply Fermat's Little Theorem. Define Euler's totient function φ(n). State and apply Euler's Theorem.",
+prs:[{id:11,text:"Modular arithmetic and inverses (Units 4–5): these theorems give powerful shortcuts for modular exponentiation."},{id:12,text:"Prime factorization (Unit 3): φ(n) is computed from the factorization."}],
+ls:[
+{t:"Fermat's Little Theorem",
+c:`If p is prime and gcd(a,p)=1, then a^(p−1) ≡ 1 (mod p).<sup class="fn">¹¹</sup> Equivalently: aᵖ ≡ a (mod p) for all integers a. This gives a shortcut for computing large powers mod p.`,
+f:["a^(p−1) ≡ 1 (mod p), p prime, gcd(a,p)=1","aᵖ ≡ a (mod p) for all a"],
+ex:{p:"Find 2¹⁰⁰ mod 13.",s:["13 is prime, gcd(2,13)=1","By Fermat: 2¹² ≡ 1 (mod 13)","100 = 12·8 + 4","2¹⁰⁰ = (2¹²)⁸ · 2⁴ ≡ 1⁸ · 16 ≡ 3 (mod 13)"]}},
+{t:"Euler's Totient & Euler's Theorem",
+c:`<b>Euler's totient</b> φ(n) counts integers from 1 to n coprime to n.<sup class="fn">¹²</sup> Formula: φ(n) = n · ∏(1 − 1/p) over prime divisors p of n. <b>Euler's Theorem</b>: if gcd(a,n)=1, then a^φ(n) ≡ 1 (mod n). This generalizes Fermat (φ(p)=p−1).`,
+f:["φ(p) = p−1, φ(pᵏ) = pᵏ−pᵏ⁻¹","φ(mn) = φ(m)φ(n) if gcd(m,n)=1","a^φ(n) ≡ 1 (mod n) when gcd(a,n)=1"],
+ex:{p:"Find φ(12) and compute 5^φ(12) mod 12.",s:["12 = 2²·3. φ(12) = 12(1−1/2)(1−1/3) = 12·½·⅔ = 4","Integers 1–12 coprime to 12: {1,5,7,11} → 4 ✓","5⁴ = 625. 625 mod 12: 625=52·12+1 → 5⁴ ≡ 1 (mod 12) ✓"]}}
+],
+pr:[
+{d:"easy",q:"φ(7) = ?",o:["6","7","3","1"],c:0,x:"7 is prime: φ(7)=7−1=6."},
+{d:"easy",q:"By Fermat: 3⁶ mod 7 = ?",o:["1","3","6","2"],c:0,x:"p=7, gcd(3,7)=1 → 3⁶≡1(mod7)."},
+{d:"medium",q:"φ(10) = ?",o:["4","5","8","10"],c:0,x:"10=2·5. φ(10)=10(1−1/2)(1−1/5)=10·½·⅘=4."},
+{d:"medium",q:"Find 7¹⁰⁰ mod 11.",o:["1","7","10","4"],c:0,x:"Fermat: 7¹⁰≡1(mod11). 100=10·10. 7¹⁰⁰=(7¹⁰)¹⁰≡1(mod11)."},
+{d:"hard",q:"φ(100) = ?",o:["40","50","80","20"],c:0,x:"100=2²·5². φ=100(1−1/2)(1−1/5)=100·½·⅘=40."},
+{d:"hard",q:"Find 3¹⁰⁰⁰⁰⁰ mod 14.",o:["9","1","3","11"],c:0,x:"14=2·7, gcd(3,14)=1. φ(14)=6. 1000000 mod 6=0. 3¹⁰⁰⁰⁰⁰⁰≡3⁰≡1? Wait: 3⁶≡1(mod14)? 729mod14=729−52·14=729−728=1✓. So 3¹⁰⁰⁰⁰⁰⁰=(3⁶)^166666·3⁰≡1."}
+],
+qz:[
+{q:"Fermat's Little Theorem requires p to be:",o:["Prime","Composite","Even","Greater than a"],c:0,x:"p must be prime."},
+{q:"Euler's Theorem generalizes Fermat by replacing p−1 with:",o:["φ(n)","n−1","n","gcd(a,n)"],c:0,x:"a^φ(n) ≡ 1 (mod n)."},
+{q:"φ(1) = ?",o:["1","0","Undefined","−1"],c:0,x:"The only integer from 1 to 1 coprime to 1 is 1 itself."},
+{q:"If p and q are distinct primes, φ(pq) = ?",o:["(p−1)(q−1)","pq−1","p+q−1","pq"],c:0,x:"φ(pq) = φ(p)φ(q) = (p−1)(q−1)."},
+{q:"Fermat: a^p ≡ ___ (mod p)",o:["a","1","0","p"],c:0,x:"aᵖ ≡ a (mod p) for all a."}
+],
+  deeperLinks: [{"label":"Fermat's Little Theorem","url":"math/fermats-little-theorem/walkthrough.html"},{"label":"Euler's Theorem","url":"math/eulers-theorem/walkthrough.html"}],
+},
+// ═══════════ UNIT 7 ═══════════
+{id:7,title:"Multiplicative Functions & Perfect Numbers",
+obj:"Define multiplicative functions. Study σ(n) (sum of divisors), τ(n) (number of divisors). Explore perfect, abundant, and deficient numbers.",
+prs:[{id:13,text:"Prime factorization (Unit 3): multiplicative functions are computed from factorizations."},{id:14,text:"Euler's totient (Unit 6): φ is a multiplicative function."}],
+ls:[
+{t:"Multiplicative Functions: τ and σ",
+c:`A function f is <b>multiplicative</b> if f(mn)=f(m)f(n) whenever gcd(m,n)=1.<sup class="fn">¹³</sup> <b>τ(n)</b>=number of divisors. <b>σ(n)</b>=sum of divisors. For n=p₁^a₁·…·pₖ^aₖ: τ(n)=∏(aᵢ+1), σ(n)=∏((pᵢ^(aᵢ+1)−1)/(pᵢ−1)).`,
+f:["τ(n) = Π(aᵢ + 1)","σ(n) = Π(pᵢ^(aᵢ+1)−1)/(pᵢ−1)","Both are multiplicative"],
+ex:{p:"Find τ(72) and σ(72).",s:["72 = 2³·3². τ = (3+1)(2+1) = 12","σ = (2⁴−1)/(2−1) · (3³−1)/(3−1) = 15 · 13 = 195"]}},
+{t:"Perfect Numbers",
+c:`n is <b>perfect</b> if σ(n) = 2n (sum of proper divisors = n).<sup class="fn">¹⁴</sup> Examples: 6, 28, 496. <b>Euclid-Euler Theorem</b>: even perfect numbers have the form 2^(p−1)(2^p−1) where 2^p−1 is prime (a Mersenne prime). No odd perfect numbers are known.`,
+f:["Perfect: σ(n) = 2n","Even perfect: n = 2^(p−1)·(2^p − 1), with 2^p−1 prime"],
+ex:{p:"Verify 28 is perfect.",s:["28 = 2²·7. σ(28) = (2³−1)/(1) · (7²−1)/(6) = 7·8 = 56","σ(28) = 56 = 2·28 ✓ → perfect"]}}
+],
+pr:[
+{d:"easy",q:"τ(12) = ?",o:["6","4","12","3"],c:0,x:"12=2²·3. τ=(2+1)(1+1)=6. Divisors: 1,2,3,4,6,12."},
+{d:"easy",q:"Is 6 perfect?",o:["Yes (1+2+3=6)","No","Only abundant","Deficient"],c:0,x:"Proper divisors: 1,2,3. Sum=6=n."},
+{d:"medium",q:"σ(p) for prime p?",o:["p+1","p","2p","p−1"],c:0,x:"Divisors of p: 1 and p. σ=1+p=p+1."},
+{d:"medium",q:"n is abundant if σ(n) > ?",o:["2n","n","n²","3n"],c:0,x:"Abundant: σ(n)>2n (proper divisor sum > n)."},
+{d:"hard",q:"The next even perfect number after 28?",o:["496","120","128","256"],c:0,x:"2^(5−1)(2⁵−1)=16·31=496."},
+{d:"hard",q:"τ(n) is odd iff n is:",o:["A perfect square","Prime","Even","Odd"],c:0,x:"Divisors pair up except when d=n/d, i.e., d²=n."}
+],
+qz:[
+{q:"τ(p²) for prime p?",o:["3","2","p","p²"],c:0,x:"p²: divisors 1, p, p² → τ=3."},
+{q:"φ(n) is multiplicative. True?",o:["True","False","Only for primes","Only for squarefree n"],c:0,x:"φ is multiplicative: φ(mn)=φ(m)φ(n) when gcd(m,n)=1."},
+{q:"First four perfect numbers:",o:["6, 28, 496, 8128","6, 12, 28, 496","6, 28, 120, 496","6, 28, 496, 1024"],c:0,x:"6, 28, 496, 8128."},
+{q:"Mersenne prime has the form:",o:["2^p − 1 (p prime, result prime)","2^p + 1","p² − 1","2p − 1"],c:0,x:"2^p−1 where both p and the result are prime."},
+{q:"σ(1) = ?",o:["1","0","2","Undefined"],c:0,x:"Only divisor of 1 is 1. σ(1)=1."}
+],
+  deeperLinks: [{"label":"Multiplicative Functions","url":"math/multiplicative-functions/walkthrough.html"},{"label":"Perfect Numbers","url":"math/perfect-numbers/walkthrough.html"}],
+},
+// ═══════════ UNIT 8 ═══════════
+{id:8,title:"Primitive Roots & Discrete Logarithms",
+obj:"Define order of an element mod n. Identify primitive roots. Understand the discrete logarithm problem.",
+prs:[{id:15,text:"Euler's theorem and φ(n) (Unit 6): the order of a divides φ(n)."},{id:16,text:"Cyclic groups (conceptual): if a primitive root exists, the units mod n form a cyclic group."}],
+ls:[
+{t:"Order of an Element",
+c:`The <b>order</b> of a mod n (written ord_n(a)) is the smallest positive k such that aᵏ ≡ 1 (mod n).<sup class="fn">¹⁵</sup> Key fact: ord_n(a) divides φ(n). The order divides any exponent e with aᵉ ≡ 1 (mod n).`,
+f:["ord_n(a) = min{k > 0 : aᵏ ≡ 1 (mod n)}","ord_n(a) | φ(n)","aᵉ ≡ 1 ⟺ ord_n(a) | e"],
+ex:{p:"Find ord₇(3).",s:["3¹=3, 3²=9≡2, 3³=27≡6, 3⁴≡18≡4, 3⁵≡12≡5, 3⁶≡15≡1","ord₇(3) = 6 = φ(7) → 3 is a primitive root mod 7"]}},
+{t:"Primitive Roots & Discrete Logarithm",
+c:`a is a <b>primitive root</b> mod n if ord_n(a) = φ(n).<sup class="fn">¹⁶</sup> Primitive roots exist for n = 1, 2, 4, pᵏ, 2pᵏ (p odd prime). If g is a primitive root mod n, every integer coprime to n is a power of g. The <b>discrete logarithm</b>: given g, h, n, find x such that gˣ ≡ h (mod n). This problem is computationally hard — the basis of cryptography.`,
+f:["Primitive root g: ord_n(g) = φ(n)","{g¹, g², …, g^φ(n)} = all units mod n","Discrete log: given gˣ ≡ h, find x"],
+ex:{p:"List all primitive roots mod 7.",s:["φ(7)=6. Need ord₇(a)=6.","a=3: ord=6 ✓. a=5: 5¹=5,5²=4,5³=6,5⁴=2,5⁵=3,5⁶=1→ord=6 ✓","Primitive roots mod 7: {3, 5}"]}}
+],
+pr:[
+{d:"easy",q:"ord₅(2) = ?",o:["4","2","5","1"],c:0,x:"2¹=2, 2²=4, 2³=3, 2⁴=1(mod5). ord=4=φ(5)."},
+{d:"easy",q:"If ord_n(a)=φ(n), then a is a:",o:["Primitive root mod n","Prime","Quadratic residue","Zero divisor"],c:0,x:"Definition of primitive root."},
+{d:"medium",q:"Does a primitive root exist mod 8?",o:["No","Yes","Only for 1 and 3","Always"],c:0,x:"φ(8)=4. 1¹=1(ord1), 3²=1(ord2), 5²=1(ord2), 7²=1(ord2). No element has order 4."},
+{d:"medium",q:"ord₁₃(2) must divide:",o:["12 = φ(13)","13","26","6"],c:0,x:"Order divides φ(n)."},
+{d:"hard",q:"Number of primitive roots mod p (p prime)?",o:["φ(p−1)","p−1","1","p"],c:0,x:"There are exactly φ(p−1) primitive roots mod p."},
+{d:"hard",q:"Discrete logarithm: 3ˣ ≡ 5 (mod 7). Find x.",o:["5","3","6","2"],c:0,x:"3⁵=243. 243mod7: 243=34·7+5. 3⁵≡5(mod7). x=5."}
+],
+qz:[
+{q:"ord_n(1) = ?",o:["1","n","φ(n)","0"],c:0,x:"1¹=1. Order is 1."},
+{q:"The discrete log problem is:",o:["Hard to compute (basis of crypto)","Always easy","Impossible","Only hard for small n"],c:0,x:"No efficient algorithm is known → used in cryptography."},
+{q:"Primitive roots exist mod pᵏ for odd prime p. True?",o:["True","False","Only k=1","Only p=2"],c:0,x:"Primitive roots exist for odd prime powers."},
+{q:"If ord_n(a)=d, then a^k ≡ 1 (mod n) iff:",o:["d | k","k | d","d = k","k > d"],c:0,x:"aᵏ≡1 iff order divides k."},
+{q:"How many primitive roots mod 11?",o:["4 = φ(10)","10","5","2"],c:0,x:"φ(φ(11))=φ(10)=4."}
+],
+  deeperLinks: [{"label":"Primitive Roots","url":"math/primitive-roots/walkthrough.html"},{"label":"Discrete Logarithm","url":"math/discrete-logarithm/walkthrough.html"}],
+},
+// ═══════════ UNIT 9 ═══════════
+{id:9,title:"Quadratic Residues & Legendre Symbol",
+obj:"Define quadratic residues mod p. Compute the Legendre symbol. State and apply Euler's criterion.",
+prs:[{id:17,text:"Modular exponentiation (Units 4, 6): Euler's criterion involves computing a^((p−1)/2) mod p."},{id:18,text:"Primitive roots (Unit 8): QRs are even powers of a primitive root."}],
+ls:[
+{t:"Quadratic Residues",
+c:`a is a <b>quadratic residue</b> (QR) mod p if x² ≡ a (mod p) has a solution.<sup class="fn">¹⁷</sup> Otherwise it's a <b>quadratic non-residue</b> (QNR). Among 1,2,…,p−1 exactly (p−1)/2 are QRs and (p−1)/2 are QNRs.`,
+f:["a is QR mod p ⟺ ∃x : x² ≡ a (mod p)","Exactly (p−1)/2 QRs mod p (p odd prime)"],
+ex:{p:"Find all QRs mod 7.",s:["1²≡1, 2²≡4, 3²≡2, 4²≡2, 5²≡4, 6²≡1","QRs: {1, 2, 4}. QNRs: {3, 5, 6}"]}},
+{t:"Legendre Symbol & Euler's Criterion",
+c:`The <b>Legendre symbol</b> (a/p) = 1 if a is QR, −1 if QNR, 0 if p|a.<sup class="fn">¹⁸</sup> <b>Euler's Criterion</b>: (a/p) ≡ a^((p−1)/2) (mod p). This efficiently determines QR status.`,
+f:["(a/p) = a^((p−1)/2) mod p","(a/p) = 1 → QR, (a/p) = −1 → QNR","(ab/p) = (a/p)(b/p) → multiplicative"],
+ex:{p:"Is 2 a QR mod 13?",s:["Euler: 2⁶ mod 13","2⁶ = 64. 64 mod 13: 64−4·13=64−52=12≡−1","(2/13) = −1 → 2 is a QNR mod 13"]}}
+],
+pr:[
+{d:"easy",q:"Is 4 a QR mod 7?",o:["Yes (2²≡4)","No","Only mod 5","Cannot tell"],c:0,x:"2²=4≡4(mod7). Yes, 4 is QR."},
+{d:"easy",q:"(a/p)=0 when:",o:["p | a","a is QR","a is QNR","Always"],c:0,x:"Legendre symbol is 0 when p divides a."},
+{d:"medium",q:"Euler's criterion: 3^((11−1)/2) mod 11 = 3⁵ mod 11 = ?",o:["1 (QR)","−1 ≡ 10 (QNR)","3","0"],c:0,x:"3⁵=243. 243=22·11+1 → 243≡1(mod11). So 3 is QR mod 11."},
+{d:"medium",q:"(−1/p) = 1 iff:",o:["p ≡ 1 (mod 4)","p ≡ 3 (mod 4)","p is even","Always"],c:0,x:"−1 is QR mod p iff p≡1(mod4)."},
+{d:"hard",q:"(2/p) = 1 iff:",o:["p ≡ ±1 (mod 8)","p ≡ 1 (mod 4)","p is odd","p ≡ 3 (mod 8)"],c:0,x:"2 is QR mod p iff p≡1 or 7(mod8)."},
+{d:"hard",q:"Legendre symbol is multiplicative: (ab/p) = ?",o:["(a/p)·(b/p)","(a/p)+(b/p)","(a+b/p)","Cannot simplify"],c:0,x:"Completely multiplicative property."}
+],
+qz:[
+{q:"How many QRs mod 17 (among 1–16)?",o:["8","16","4","9"],c:0,x:"(17−1)/2 = 8 QRs."},
+{q:"Euler's criterion: (a/p) ≡ ?",o:["a^((p−1)/2) (mod p)","a^(p−1) (mod p)","a^p (mod p)","a² (mod p)"],c:0,x:"Exponent is (p−1)/2."},
+{q:"1 is always a QR mod any p. True?",o:["True (1²≡1)","False","Only for p=2","Only for p≡1(mod4)"],c:0,x:"1=1² is always a QR."},
+{q:"(a/p) takes values in:",o:["{−1, 0, 1}","ℤ","ℕ","{0, 1}"],c:0,x:"Three possible values: −1, 0, or 1."},
+{q:"QR × QR = ?",o:["QR","QNR","Either","0"],c:0,x:"(a/p)·(b/p)=1·1=1 → product is QR."}
+],
+  deeperLinks: [{"label":"Quadratic Residues","url":"math/quadratic-residues/walkthrough.html"},{"label":"Legendre Symbol","url":"math/legendre-symbol/walkthrough.html"}],
+},
+// ═══════════ UNIT 10 ═══════════
+{id:10,title:"Quadratic Reciprocity",
+obj:"State the Law of Quadratic Reciprocity. Apply it to compute Legendre symbols. Understand the supplementary laws.",
+prs:[{id:19,text:"Legendre symbol and QRs (Unit 9): QR is the central object."},{id:20,text:"Modular arithmetic fluency (Unit 4): needed for the computations."}],
+ls:[
+{t:"The Law of Quadratic Reciprocity",
+c:`For distinct odd primes p, q:<sup class="fn">¹⁹</sup> (p/q)(q/p) = (−1)^((p−1)/2 · (q−1)/2). Equivalently: (p/q) = (q/p) unless both p ≡ q ≡ 3 (mod 4), in which case (p/q) = −(q/p).`,
+f:["(p/q)(q/p) = (−1)^((p−1)(q−1)/4)","If p or q ≡ 1 (mod 4): (p/q) = (q/p)","If both ≡ 3 (mod 4): (p/q) = −(q/p)"],
+ex:{p:"Compute (3/13) using QR.",s:["p=3, q=13. (3·12/4)=(36/4)=9 → (−1)⁹=−1? No: ((3−1)/2)·((13−1)/2)=1·6=6→(−1)⁶=1","So (3/13)=(13/3)=(1/3)=1 (since 13≡1 mod 3)","3 is a QR mod 13. Check: 4²=16≡3(mod13) ✓"]}},
+{t:"Supplementary Laws",
+c:`<sup class="fn">²⁰</sup> <b>First supplement</b>: (−1/p) = (−1)^((p−1)/2). Equals 1 iff p ≡ 1 (mod 4). <b>Second supplement</b>: (2/p) = (−1)^((p²−1)/8). Equals 1 iff p ≡ ±1 (mod 8).`,
+f:["(−1/p) = 1 iff p ≡ 1 (mod 4)","(2/p) = 1 iff p ≡ 1 or 7 (mod 8)"],
+ex:{p:"Is 5 a QR mod 41?",s:["(5/41): by QR, since 41≡1(mod4): (5/41)=(41/5)=(1/5)=1","5 is a QR mod 41."]}}
+],
+pr:[
+{d:"easy",q:"(−1/7) = ?",o:["−1 (since 7≡3 mod 4)","1","0","7"],c:0,x:"7≡3(mod4) → (−1/7)=−1 → −1 is QNR mod 7."},
+{d:"easy",q:"(2/7) = ?",o:["1 (7≡7≡−1 mod 8)","−1","0","2"],c:0,x:"7≡7(mod8)≡−1(mod8) → (2/7)=1."},
+{d:"medium",q:"(5/11): both ≡ 1 mod 4? 5≡1, 11≡3. QR says:",o:["(5/11)=(11/5)=(1/5)=1","(5/11)=−(11/5)","Cannot determine","(5/11)=−1"],c:0,x:"Not both ≡3(mod4), so (5/11)=(11/5). 11mod5=1. (1/5)=1."},
+{d:"hard",q:"Compute (7/19) step by step.",o:["(7/19)=(19/7)=(5/7); 5≡5,7≡3→(5/7)=−(7/5)=−(2/5)=−(−1)=1? Let me use Euler instead: 7⁹ mod 19","This requires careful QR chain computation","(7/19) = 1","(7/19) = −1"],c:2,x:"7≡3(mod4), 19≡3(mod4)→both≡3→(7/19)=−(19/7). 19mod7=5. (5/7): 5≡1(mod4)→(5/7)=(7/5)=(2/5). (2/5): 5≡5≡−3(mod8)→p²−1=24→24/8=3→(−1)³=−1. So (2/5)=−1. Back: (5/7)=−1. (7/19)=−(−1)=1."},
+{d:"hard",q:"(3/23) = ?",o:["1","−1","0","3"],c:0,x:"3≡3(mod4), 23≡3(mod4)→(3/23)=−(23/3)=−(2/3). (2/3): 3²−1=8, 8/8=1, (−1)¹=−1→(2/3)=−1. So (3/23)=−(−1)=1."}
+],
+qz:[
+{q:"QR is often called the 'golden theorem' because:",o:["Gauss considered it the gem of number theory","It involves gold ratios","It's easy to prove","It's about perfect numbers"],c:0,x:"Gauss called it the theorema aureum (golden theorem)."},
+{q:"For both p,q ≡ 3 (mod 4), (p/q) = ?",o:["−(q/p)","(q/p)","0","1"],c:0,x:"The sign flips when both ≡ 3 (mod 4)."},
+{q:"(−1/p)=1 exactly when p ≡ ___ (mod 4).",o:["1","3","0","2"],c:0,x:"First supplementary law."},
+{q:"Gauss published how many proofs of QR?",o:["6 (he published six!)","1","2","0"],c:0,x:"Gauss gave six different proofs over his lifetime."},
+{q:"QR connects the Legendre symbols (p/q) and (q/p). This is remarkable because:",o:["It relates 'p as seen from q' to 'q as seen from p'","It's trivially obvious","It only works for small primes","It requires calculus"],c:0,x:"The 'reciprocity' — information flows both ways between two primes."}
+],
+  deeperLinks: [{"label":"Quadratic Reciprocity","url":"math/quadratic-reciprocity/walkthrough.html"}],
+},
+// ═══════════ UNIT 11 ═══════════
+{id:11,title:"Continued Fractions & Diophantine Equations",
+obj:"Represent rationals and irrationals as continued fractions. Solve linear Diophantine equations. Understand Pell's equation.",
+prs:[{id:21,text:"Euclidean Algorithm (Unit 2): continued fractions and the EA are deeply connected."},{id:22,text:"GCD and Bézout's Identity (Unit 2): linear Diophantine equations are solved via Bézout."}],
+ls:[
+{t:"Continued Fractions",
+c:`A <b>continued fraction</b> represents a number as a₀ + 1/(a₁ + 1/(a₂ + …)).<sup class="fn">²¹</sup> Notation: [a₀; a₁, a₂, …]. Rationals have finite CF; irrationals have infinite CF. Convergents pₙ/qₙ give best rational approximations.`,
+f:["[a₀; a₁, a₂, …, aₙ] = a₀ + 1/(a₁ + 1/(a₂ + …))","√2 = [1; 2, 2, 2, …] (periodic)","Convergents: best rational approximations"],
+ex:{p:"Express 43/19 as a continued fraction.",s:["43/19 = 2 + 5/19 = 2 + 1/(19/5) = 2 + 1/(3 + 4/5) = 2 + 1/(3 + 1/(5/4))","= 2 + 1/(3 + 1/(1 + 1/4))","[2; 3, 1, 4]"]}},
+{t:"Linear Diophantine Equations & Pell's Equation",
+c:`ax + by = c has integer solutions iff gcd(a,b)|c.<sup class="fn">²²</sup> General solution: (x₀ + (b/d)t, y₀ − (a/d)t) for integer t. <b>Pell's equation</b>: x² − Dy² = 1 (D non-square). Solutions come from the continued fraction expansion of √D.`,
+f:["ax+by=c solvable ⟺ gcd(a,b)|c","General solution: x=x₀+(b/d)t, y=y₀−(a/d)t","Pell: x²−Dy²=1, solved via CF of √D"],
+ex:{p:"Solve: 5x + 3y = 1.",s:["gcd(5,3)=1|1 ✓","Particular: 5(2)+3(−3)=10−9=1. x₀=2, y₀=−3","General: x=2+3t, y=−3−5t"]}}
+],
+pr:[
+{d:"easy",q:"Express 7/3 as a continued fraction.",o:["[2; 3]","[2; 1, 3]","[7; 3]","[3; 2]"],c:0,x:"7/3=2+1/3=[2;3]."},
+{d:"easy",q:"Does 6x+4y=3 have integer solutions?",o:["No (gcd(6,4)=2, 2∤3)","Yes","Infinitely many","Exactly one"],c:0,x:"gcd=2 doesn't divide 3 → no solution."},
+{d:"medium",q:"Solve: 3x+7y=1. Find one solution.",o:["x=−2, y=1","x=1, y=−2","x=3, y=−1","x=−7, y=3"],c:0,x:"3(−2)+7(1)=−6+7=1 ✓."},
+{d:"medium",q:"√3 = [1; 1, 2, 1, 2, …]. The period is:",o:["(1, 2) repeating","(1) repeating","(2) repeating","(1, 2, 3) repeating"],c:0,x:"The block (1,2) repeats."},
+{d:"hard",q:"Smallest positive solution to x²−2y²=1 (Pell)?",o:["x=3, y=2","x=1, y=0","x=5, y=3","x=7, y=5"],c:0,x:"3²−2·4=9−8=1 ✓. (1,0) is trivial."},
+{d:"hard",q:"General solution of 12x+8y=4?",o:["x=1+2t, y=−1−3t","x=1+8t, y=−1−12t","x=4t, y=−4t","No pattern"],c:0,x:"d=4. 12x+8y=4→3x+2y=1. Particular: x=1,y=−1. Gen: x=1+2t,y=−1−3t."}
+],
+qz:[
+{q:"Rationals have ___ continued fractions.",o:["Finite","Infinite","No","Periodic"],c:0,x:"Rationals terminate; irrationals are infinite."},
+{q:"Pell's equation x²−Dy²=1 always has:",o:["Infinitely many solutions","No solutions","Exactly one solution","Solutions only for prime D"],c:0,x:"Infinitely many (generated from the fundamental solution)."},
+{q:"CF of √D for non-square D is:",o:["Eventually periodic","Finite","Random","Constant"],c:0,x:"Quadratic irrationals have periodic continued fractions."},
+{q:"5x+10y=7 solvable?",o:["No (gcd=5, 5∤7)","Yes","Infinitely many","Exactly 5 solutions"],c:0,x:"gcd(5,10)=5 doesn't divide 7."},
+{q:"Convergents of a CF are the ___ rational approximations.",o:["Best","Worst","Only even","Random"],c:0,x:"Convergents give the best rational approximations for their denominator size."}
+],
+  deeperLinks: [{"label":"Continued Fractions","url":"math/continued-fractions/walkthrough.html"},{"label":"Diophantine Equations","url":"math/diophantine-equations/walkthrough.html"}],
+},
+// ═══════════ UNIT 12 ═══════════
+{id:12,title:"Cryptographic Applications",
+obj:"Understand RSA encryption. Apply modular exponentiation. Explore Diffie-Hellman key exchange and primality testing.",
+prs:[{id:23,text:"Euler's theorem and φ(n) (Unit 6): RSA decryption relies on a^φ(n)≡1."},{id:24,text:"Discrete logarithm (Unit 8): Diffie-Hellman security rests on the DLP."},{id:25,text:"Prime factorization hardness (Unit 3): RSA security assumes factoring large numbers is computationally infeasible."}],
+ls:[
+{t:"RSA Encryption",
+c:`<b>RSA</b>:<sup class="fn">²³</sup><sup class="fn">²⁵</sup> Choose two large primes p, q. Compute n=pq, φ(n)=(p−1)(q−1). Choose e coprime to φ(n). Compute d ≡ e⁻¹ (mod φ(n)). Public key: (n, e). Private key: d. Encrypt: c ≡ mᵉ (mod n). Decrypt: m ≡ cᵈ (mod n). Security: factoring n is hard.`,
+f:["Key gen: n=pq, φ=(p−1)(q−1), ed≡1(mod φ)","Encrypt: c = mᵉ mod n","Decrypt: m = cᵈ mod n"],
+ex:{p:"RSA with p=5, q=11, e=3.",s:["n=55, φ=40","d: 3d≡1(mod40)→d=27 (3·27=81=2·40+1)","Encrypt m=2: c=2³=8","Decrypt: 8²⁷mod55. 8²⁷≡2(mod55) ✓"]}},
+{t:"Diffie-Hellman & Primality Testing",
+c:`<b>Diffie-Hellman</b>:<sup class="fn">²⁴</sup> Public prime p and generator g. Alice sends gᵃ mod p, Bob sends gᵇ mod p. Shared secret: gᵃᵇ mod p. Attacker sees gᵃ and gᵇ but can't find gᵃᵇ without solving the discrete log. <b>Primality tests</b>: Fermat test (check aⁿ⁻¹≡1), Miller-Rabin (stronger probabilistic test).`,
+f:["DH shared secret: K = gᵃᵇ mod p","Fermat test: if aⁿ⁻¹ ≢ 1 (mod n) → composite","Miller-Rabin: probabilistic, very reliable"],
+ex:{p:"DH: p=23, g=5, a=6, b=15.",s:["Alice sends: 5⁶mod23=8","Bob sends: 5¹⁵mod23=19","Shared: 19⁶mod23=2 and 8¹⁵mod23=2","Both get K=2"]}}
+],
+pr:[
+{d:"easy",q:"In RSA, the public key consists of:",o:["(n, e)","(p, q)","d","φ(n)"],c:0,x:"n and e are public. p, q, d, φ(n) are secret."},
+{d:"easy",q:"RSA security relies on difficulty of:",o:["Factoring large n=pq","Adding primes","Finding GCD","Computing square roots"],c:0,x:"Factoring is the hard problem."},
+{d:"medium",q:"RSA: p=3, q=7, e=5. Find d.",o:["5","11","3","7"],c:0,x:"n=21, φ=12. 5d≡1(mod12). 5·5=25≡1(mod12). d=5."},
+{d:"medium",q:"Diffie-Hellman: attacker knows g, p, gᵃ mod p, gᵇ mod p. To find K=gᵃᵇ, they need:",o:["To solve the discrete log (hard)","Just multiply gᵃ·gᵇ","Factor p","Nothing — K is public"],c:0,x:"gᵃ·gᵇ=gᵃ⁺ᵇ≠gᵃᵇ. Need DLP."},
+{d:"hard",q:"Fermat test: 2³⁴⁰ mod 341. If result ≠ 1, then 341 is:",o:["Composite","Prime","A Carmichael number","Cannot tell"],c:0,x:"If Fermat test fails, definitely composite. (Actually 341=11·31 is a pseudoprime to base 2: 2³⁴⁰≡1, so Fermat test passes — demonstrating its weakness.)"},
+{d:"hard",q:"Why can't we use RSA with n=p (single prime)?",o:["φ(p)=p−1 is easy to compute → d easily found","It still works fine","p is too small","Euler's theorem fails"],c:0,x:"With n=pq, knowing φ requires knowing p,q (hard). With n=p, φ=p−1 is trivial."}
+],
+qz:[
+{q:"RSA decrypt formula: m = ?",o:["c^d mod n","c^e mod n","m^e mod n","c + d mod n"],c:0,x:"Decrypt with private key d."},
+{q:"DH shared secret K is computed as:",o:["g^(ab) mod p","g^(a+b) mod p","g^a + g^b","(g^a)(g^b)"],c:0,x:"Both sides independently compute g^(ab)."},
+{q:"Miller-Rabin improves on Fermat test by:",o:["Catching Carmichael numbers / reducing false primes","Being slower","Using factoring","Avoiding modular arithmetic"],c:0,x:"MR is more reliable — almost no false positives."},
+{q:"If ed ≡ 1 (mod φ(n)), then c^d ≡ m because:",o:["c^d = m^(ed) = m^(1+kφ) = m·(m^φ)^k ≡ m (Euler)","Magic","c = m always","d = e"],c:0,x:"Euler's theorem makes the exponent 'wrap around' to 1."},
+{q:"The smallest RSA-like system uses primes of size:",o:["Hundreds of digits (2048+ bits in practice)","Single digits","Two digits","Thousands of digits"],c:0,x:"Modern RSA uses 2048-bit or larger primes."}
+],
+  deeperLinks: [{"label":"RSA Encryption","url":"math/rsa-encryption/walkthrough.html"},{"label":"Diffie-Hellman","url":"math/diffie-hellman/walkthrough.html"}]
+}
+];;
+
+const STATE = { currentUnit: 0, currentTab: 'lesson', answers: {}, quizSubmitted: {}, completedUnits: new Set() };
+
+function loadProgress() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('number-theory-progress') || '{}');
+    if (saved.answers) STATE.answers = saved.answers;
+    if (saved.quizSubmitted) STATE.quizSubmitted = saved.quizSubmitted;
+    if (saved.completedUnits) STATE.completedUnits = new Set(saved.completedUnits);
+  } catch (e) {}
+}
+
+function saveProgress() {
+  try {
+    localStorage.setItem('number-theory-progress', JSON.stringify({
+      answers: STATE.answers,
+      quizSubmitted: STATE.quizSubmitted,
+      completedUnits: Array.from(STATE.completedUnits)
+    }));
+  } catch (e) {}
+}
+
+function updateOverallProgress() {
+  const count = STATE.completedUnits.size;
+  const pct = Math.round((count / NUMBER_THEORY_CURRICULUM.length) * 100);
+  document.getElementById('ntCompletedUnits').textContent = count;
+  document.getElementById('ntProgressPct').textContent = pct;
+  document.getElementById('ntProgressBar').style.width = pct + '%';
+}
+
+function render() {
+  const D = NUMBER_THEORY_CURRICULUM;
+  const u = D[STATE.currentUnit];
+  const app = document.getElementById('ntApp');
+
+  const navBtns = D.map((c, i) => {
+    const on = i === STATE.currentUnit ? ' on' : '';
+    const ok = STATE.completedUnits.has(i) ? ' ok' : '';
+    return `<button class="${on}${ok}" onclick="selectUnit(${i})">${STATE.completedUnits.has(i) ? '✓ ' : ''}U${c.id}</button>`;
+  }).join('');
+
+  const deeperHtml = (u.deeperLinks && u.deeperLinks.length) ? `
+    <div class="nt-deeper">
+      <div class="lbl">Go Deeper →</div>
+      ${u.deeperLinks.map(l => `<a href="${l.url}">${l.label}</a>`).join('')}
+    </div>` : '';
+
+  app.innerHTML = `
+    <div class="nt-nav">${navBtns}</div>
+    <div class="nt-uhdr">
+      <div class="nt-unum">Unit ${u.id} of 12</div>
+      <div class="nt-utitle">${u.title}</div>
+      <div class="nt-uobj">${u.obj}</div>
+    </div>
+    ${deeperHtml}
+    <div class="nt-tabs">
+      <button class="nt-tb ${STATE.currentTab === 'lesson' ? 'on' : ''}" onclick="setTab('lesson')">Lessons</button>
+      <button class="nt-tb ${STATE.currentTab === 'practice' ? 'on' : ''}" onclick="setTab('practice')">Practice</button>
+      <button class="nt-tb ${STATE.currentTab === 'quiz' ? 'on' : ''}" onclick="setTab('quiz')">Unit Quiz</button>
+    </div>
+    ${STATE.currentTab === 'lesson' ? renderLessons(u) : ''}
+    ${STATE.currentTab === 'practice' ? renderPractice(u) : ''}
+    ${STATE.currentTab === 'quiz' ? renderQuiz(u) : ''}
+    ${renderFootnotes(u)}
+  `;
+  updateOverallProgress();
+}
+
+function renderLessons(u) {
+  return u.ls.map(l => `
+    <div class="nt-lcard">
+      <h3>${l.t}</h3>
+      <p>${l.c}</p>
+      ${l.f.map(f => `<div class="nt-fm">${f}</div>`).join('')}
+      ${l.ex ? `<div class="nt-wex"><div class="wl">Worked Example</div><div class="wp">${l.ex.p}</div>${l.ex.s.map(s => `<div class="ws">→ ${s}</div>`).join('')}</div>` : ''}
+    </div>`).join('') + `
+    <div class="nt-prbox"><div class="prt">Prerequisite Knowledge</div>${u.prs.map(p => `<p><b>[${p.id}]</b> ${p.text}</p>`).join('')}</div>`;
+}
+
+function renderPractice(u) {
+  return ['easy','medium','hard'].map(d => {
+    const qs = u.pr.filter(q => q.d === d);
+    if (!qs.length) return '';
+    const cls = d === 'easy' ? 'nt-de' : d === 'medium' ? 'nt-dm' : 'nt-dh';
+    return `<div style="margin-bottom:8px"><span class="nt-dtag ${cls}">${d}</span></div>
+      ${qs.map(q => renderQ(q, `${STATE.currentUnit}-p-${u.pr.indexOf(q)}`, false)).join('')}`;
+  }).join('');
+}
+
+function renderQuiz(u) {
+  const key = `${STATE.currentUnit}-qz`;
+  const sub = STATE.quizSubmitted[key];
+  let sc = 0;
+  if (sub) u.qz.forEach((q, i) => { if (STATE.answers[`${STATE.currentUnit}-q-${i}`] === q.c) sc++; });
+  return `
+    <div class="nt-qhd">
+      <h3 style="font-size:1.15rem;font-weight:700;">Unit ${u.id} Quiz</h3>
+      <div class="nt-qct">${sub ? sc + '/' + u.qz.length : u.qz.length + ' questions'}</div>
+    </div>
+    ${u.qz.map((q, i) => renderQ(q, `${STATE.currentUnit}-q-${i}`, sub)).join('')}
+    ${!sub ? `<button class="nt-btn nt-bf" onclick="submitQuiz()">Submit Quiz</button>` : ''}
+    ${sub ? `<div class="nt-qres"><div class="nt-sbig">${Math.round(sc/u.qz.length*100)}%</div><div class="nt-ssub">${sc} of ${u.qz.length} correct</div><button class="nt-btn" onclick="retakeQuiz()">Retake</button></div>` : ''}`;
+}
+
+function renderQ(q, key, forceShow) {
+  const sel = STATE.answers[key];
+  const isQuiz = key.includes('-q-');
+  const unsub = isQuiz && !STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  const show = (sel !== undefined && !unsub) || forceShow;
+  const cor = sel === q.c;
+  const text = q.q || q.question;
+  const opts = q.o || q.options || [];
+  const correct = q.c;
+  const expl = q.x || q.explanation;
+  const optsHtml = opts.map((o, i) => {
+    let c = 'nt-ob';
+    if (show) { c += ' lk'; if (i === sel && cor) c += ' sc'; else if (i === sel && !cor) c += ' sw'; if (i === correct && !cor) c += ' rv'; }
+    else if (unsub && i === sel) c += ' qs'; else if (sel !== undefined && !unsub) c += ' lk';
+    return `<button class="${c}" onclick="answerQ('${key}',${i})" ${(show || (sel !== undefined && !unsub)) ? 'disabled' : ''}>${o}</button>`;
+  }).join('');
+  return `<div class="nt-qc ${show ? (cor ? 'gc' : 'bc') : ''}"><div class="nt-qt">${text}</div><div class="nt-os">${optsHtml}</div>${show && expl ? `<div class="nt-ex">${expl}</div>` : ''}</div>`;
+}
+
+function renderFootnotes(u) {
+  if (!u.prs || !u.prs.length) return '';
+  return `<div class="nt-fns"><h4>Prerequisite Footnotes</h4>${u.prs.map(p => `<div class="nt-fni"><span class="nt-fnm">[${p.id}]</span> ${p.text}</div>`).join('')}</div>`;
+}
+
+function selectUnit(i) { STATE.currentUnit = i; STATE.currentTab = 'lesson'; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+function setTab(t) { STATE.currentTab = t; render(); }
+
+function answerQ(key, opt) {
+  const unsub = key.includes('-q-') && !STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  if (!unsub && STATE.answers[key] !== undefined) return;
+  STATE.answers[key] = opt;
+  saveProgress();
+  render();
+}
+
+function submitQuiz() {
+  const u = NUMBER_THEORY_CURRICULUM[STATE.currentUnit];
+  const all = u.qz.every((_, i) => STATE.answers[`${STATE.currentUnit}-q-${i}`] !== undefined);
+  if (!all) { alert('Answer all questions first.'); return; }
+  STATE.quizSubmitted[`${STATE.currentUnit}-qz`] = true;
+  let sc = 0;
+  u.qz.forEach((q, i) => { if (STATE.answers[`${STATE.currentUnit}-q-${i}`] === q.c) sc++; });
+  if (sc / u.qz.length >= 0.6) STATE.completedUnits.add(STATE.currentUnit);
+  saveProgress();
+  render();
+}
+
+function retakeQuiz() {
+  const u = NUMBER_THEORY_CURRICULUM[STATE.currentUnit];
+  u.qz.forEach((_, i) => delete STATE.answers[`${STATE.currentUnit}-q-${i}`]);
+  delete STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  STATE.completedUnits.delete(STATE.currentUnit);
+  saveProgress();
+  render();
+}
+
+const savedTheme = localStorage.getItem('mathbored-theme');
+if (savedTheme) document.body.className = savedTheme;
+loadProgress();
+render();
+</script>
+</body>
+</html>
