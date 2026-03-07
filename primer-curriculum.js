@@ -41,7 +41,7 @@ function getLessonBySequence(seq) {
 }
 
 function getNextLesson(currentSequence) {
-    if (currentSequence >= 75) return null;
+    if (currentSequence >= 105) return null;
     return getLessonBySequence(currentSequence + 1);
 }
 
@@ -52,7 +52,7 @@ function getPreviousLesson(currentSequence) {
 
 function getProgressPercentage() {
     const completed = parseInt(localStorage.getItem('primer-progress') || '0');
-    return Math.round((completed / 48) * 100); // Based on 48 core lessons
+    return Math.round((completed / 78) * 100); // Based on 78 core lessons
 }
 
 function markLessonComplete(lessonId) {
