@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algebra II — Complete Curriculum | MathBored</title>
+<meta name="description" content="Complete Algebra II course: 12 units covering advanced equations, polynomials, rational/radical functions, logarithms, conics, sequences, matrices, and trigonometry. Free interactive lessons, practice, and quizzes.">
+<meta name="keywords" content="Algebra II, algebra 2, polynomials, logarithms, complex numbers, conic sections, matrices, trigonometry, sequences, series, math, free, K-12, 11th grade">
+<link rel="canonical" href="https://math.boredgames.site/algebra-ii.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://math.boredgames.site/algebra-ii.html">
+<meta property="og:title" content="Algebra II — Complete Curriculum | MathBored">
+<meta property="og:description" content="Complete Algebra II course: 12 units covering advanced equations, polynomials, rational/radical functions, logarithms, conics, sequences, matrices, and trigonometry.">
+<meta property="og:image" content="https://math.boredgames.site/og-image.png">
+<meta property="og:site_name" content="MathBored">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Algebra II — Complete Curriculum",
+  "description": "Complete Algebra II course: 12 units covering advanced equations, polynomials, rational and radical functions, logarithms, conic sections, sequences, matrices, and trigonometry.",
+  "provider": { "@type": "Organization", "name": "MathBored", "url": "https://math.boredgames.site" },
+  "educationalLevel": "11th Grade",
+  "learningResourceType": "Course",
+  "inLanguage": "en",
+  "isAccessibleForFree": true
+}
+</script>
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* ===== ALGEBRA II — LOCAL STYLES ===== */
+.alg-app { max-width: 1000px; margin: 0 auto; padding: 20px; }
+
+.alg-hero {
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(168,85,247,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(59,130,246,0.12) 0%, transparent 55%),
+    linear-gradient(135deg, var(--bg-secondary), var(--bg-tertiary));
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 56px 28px 48px;
+  text-align: center;
+  margin-bottom: 36px;
+}
+.alg-hero h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #a855f7;
+  margin-bottom: 8px;
+}
+.alg-hero .subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+.alg-stats {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.alg-stat {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 18px 28px;
+}
+.alg-stat-num {
+  font-size: 2.2rem;
+  font-weight: 800;
+  display: block;
+  line-height: 1;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+.alg-stat-lbl {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.alg-progress-section {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.alg-progress-bar-wrap {
+  background: var(--bg-tertiary);
+  border-radius: 20px;
+  height: 10px;
+  overflow: hidden;
+  margin: 14px 0 8px;
+}
+.alg-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #a855f7, #7c3aed);
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+.alg-unit-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 32px;
+  padding: 16px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+.alg-unit-nav button {
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 7px 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.alg-unit-nav button:hover { border-color: #a855f7; color: var(--text-primary); }
+.alg-unit-nav button.active { background: #a855f7; color: #fff; border-color: #a855f7; }
+.alg-unit-nav button.completed { border-color: var(--success); color: var(--success); }
+
+.alg-unit-header { margin-bottom: 24px; }
+.alg-unit-number {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #a855f7;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.alg-unit-title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.alg-unit-objectives {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.alg-deeper {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-left: 3px solid #7c3aed;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  font-size: 0.88rem;
+}
+.alg-deeper .deeper-lbl {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #a855f7;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.alg-deeper a {
+  display: inline-block;
+  margin: 2px 6px 2px 0;
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+.alg-deeper a:hover { border-color: #a855f7; color: #a855f7; background: rgba(168,85,247,0.08); }
+
+.alg-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.alg-tab-btn {
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 10px 22px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.alg-tab-btn:hover { color: var(--text-primary); }
+.alg-tab-btn.active { color: #a855f7; border-bottom-color: #a855f7; }
+
+.alg-lesson-section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 18px;
+}
+.alg-lesson-section h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #a855f7;
+}
+.alg-lesson-section p, .alg-lesson-section li {
+  font-size: 0.93rem;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+  line-height: 1.75;
+}
+.alg-lesson-section ul { padding-left: 20px; }
+
+.alg-formula {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-left: 3px solid #a855f7;
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #a855f7;
+  overflow-x: auto;
+}
+.alg-example {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  margin: 12px 0;
+}
+.alg-example .ex-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--warning);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.alg-example p { font-size: 0.88rem; margin-bottom: 5px; }
+.alg-example .ex-step { color: var(--text-secondary); font-size: 0.85rem; }
+
+.alg-prereq {
+  background: rgba(74,110,138,0.07);
+  border: 1px solid rgba(74,110,138,0.22);
+  border-left: 3px solid #4a6e8a;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-size: 0.85rem;
+}
+.alg-prereq .pre-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #4a6e8a;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.alg-prereq p { color: var(--text-secondary); margin-bottom: 4px; }
+
+.alg-diff {
+  display: inline-block;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.alg-diff-easy { background: rgba(16,185,129,0.12); color: var(--success); border: 1px solid rgba(16,185,129,0.25); }
+.alg-diff-medium { background: rgba(245,158,11,0.12); color: var(--warning); border: 1px solid rgba(245,158,11,0.25); }
+.alg-diff-hard { background: rgba(239,68,68,0.12); color: var(--error); border: 1px solid rgba(239,68,68,0.25); }
+
+.alg-q-card {
+  background: var(--bg-secondary);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 14px;
+  transition: border-color 0.3s;
+}
+.alg-q-card.correct { border-color: var(--success); }
+.alg-q-card.incorrect { border-color: var(--error); }
+
+.alg-q-text {
+  font-size: 0.94rem;
+  margin-bottom: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+.alg-options { display: flex; flex-direction: column; gap: 8px; }
+.alg-opt-btn {
+  font-family: inherit;
+  font-size: 0.88rem;
+  text-align: left;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.alg-opt-btn:hover:not(.disabled) { border-color: #a855f7; background: rgba(168,85,247,0.08); }
+.alg-opt-btn.sel-correct { border-color: var(--success); background: rgba(16,185,129,0.12); color: var(--success); }
+.alg-opt-btn.sel-incorrect { border-color: var(--error); background: rgba(239,68,68,0.12); color: var(--error); }
+.alg-opt-btn.show-correct { border-color: var(--success); background: rgba(16,185,129,0.08); }
+.alg-opt-btn.quiz-sel { border-color: #a855f7; background: rgba(168,85,247,0.1); font-weight: 700; }
+.alg-opt-btn.disabled { cursor: default; opacity: 0.75; }
+
+.alg-explanation {
+  margin-top: 12px;
+  padding: 12px 16px;
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-left: 3px solid #a855f7;
+  animation: algFadeIn 0.3s ease;
+}
+@keyframes algFadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+.alg-quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.alg-quiz-score {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #a855f7;
+  font-weight: 700;
+}
+.alg-quiz-result {
+  text-align: center;
+  padding: 40px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-top: 20px;
+}
+.alg-quiz-result .score-big {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #a855f7;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.alg-quiz-result .score-lbl { color: var(--text-secondary); font-size: 0.9rem; }
+.alg-btn {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 24px;
+  border: 1px solid #a855f7;
+  border-radius: 8px;
+  background: transparent;
+  color: #a855f7;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 16px;
+}
+.alg-btn:hover { background: #a855f7; color: #fff; }
+.alg-btn-solid { background: #a855f7; color: #fff; }
+.alg-btn-solid:hover { background: #7c3aed; }
+
+.alg-footnotes {
+  margin-top: 36px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.alg-footnotes h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #4a6e8a;
+  margin-bottom: 10px;
+}
+.alg-fn-item {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  padding-left: 14px;
+}
+.alg-fn-num { color: #4a6e8a; font-weight: 700; }
+
+@media (max-width: 600px) {
+  .alg-app { padding: 10px; }
+  .alg-hero { padding: 36px 14px 32px; }
+  .alg-lesson-section, .alg-q-card { padding: 16px; }
+  .alg-unit-nav { padding: 10px; gap: 5px; }
+  .alg-unit-nav button { font-size: 0.7rem; padding: 4px 8px; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div>
+        <h1>🎯 MathBored</h1>
+        <div class="tagline">Algebra II — Complete Curriculum</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="alg-app">
+  <a href="index.html" class="back-link">← Back to Main App</a>
+
+  <div class="alg-hero">
+    <h1>𝑥² Algebra II</h1>
+    <p class="subtitle">Complete Curriculum · 12 Units · Practice &amp; Quizzes</p>
+    <div class="alg-stats">
+      <div class="alg-stat"><span class="alg-stat-num">12</span><span class="alg-stat-lbl">Units</span></div>
+      <div class="alg-stat"><span class="alg-stat-num">36</span><span class="alg-stat-lbl">Lessons</span></div>
+      <div class="alg-stat"><span class="alg-stat-num">108</span><span class="alg-stat-lbl">Practice Qs</span></div>
+      <div class="alg-stat"><span class="alg-stat-num">60</span><span class="alg-stat-lbl">Quiz Qs</span></div>
+    </div>
+  </div>
+
+  <div class="alg-progress-section">
+    <h2 style="margin:0 0 8px;font-size:1.15rem;font-weight:700;">Your Progress</h2>
+    <p style="color:var(--text-secondary);font-size:0.9rem;margin:0;">
+      <span id="algCompletedUnits">0</span> of 12 units completed
+      · <span id="algProgressPct">0</span>% done
+    </p>
+    <div class="alg-progress-bar-wrap">
+      <div class="alg-progress-bar-fill" id="algProgressBar" style="width:0%"></div>
+    </div>
+  </div>
+
+  <div id="algApp"></div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+  </div>
+</footer>
+
+<script>
+// =====================================================================
+// CURRICULUM DATA
+// =====================================================================
+const ALGEBRA2_CURRICULUM = [
+{
+  id:1, title:"Equations & Inequalities Review",
+  objectives:"Review multi-step linear equations, literal equations, absolute value equations and inequalities. Extend to compound and complex absolute value problems.",
+  deeperLinks:[
+    {label:"Absolute Value Equations",url:"math/absolute-value-equations/walkthrough.html"},
+    {label:"Systems of Inequalities",url:"math/systems-of-inequalities/walkthrough.html"},
+    {label:"One-Step Equations",url:"math/one-step-equations/walkthrough.html"}
+  ],
+  prereqs:[
+    {id:1,text:"Algebra I linear equations: solving one-step through multi-step equations, including variables on both sides. (Algebra I, Unit 2)"},
+    {id:2,text:"Algebra I inequalities: solving and graphing one-variable inequalities, flipping the sign when multiplying/dividing by negatives. (Algebra I, Unit 3)"},
+    {id:3,text:"Absolute value basics: |a| represents distance from 0; |x| = k splits into two cases. (Algebra I, Unit 2)"}
+  ],
+  lessons:[
+    {title:"Literal Equations & Formulas",
+     content:`A <b>literal equation</b> has multiple variables. Solving for one variable means isolating it, treating every other variable as a constant.<sup style='color:#4a6e8a'>¹</sup> This is identical to solving any equation — just with letters instead of numbers.`,
+     formulas:["Solve A = ½bh for h → h = 2A/b","Solve ax + by = c for y → y = (c − ax)/b"],
+     example:{problem:"Solve the formula V = πr²h for h.",steps:["Divide both sides by πr²","h = V / (πr²)"]}
+    },
+    {title:"Absolute Value Equations (Advanced)",
+     content:`For |expression| = k: if k > 0, split into two cases. If k = 0, one solution. If k < 0, no solution.<sup style='color:#4a6e8a'>³</sup> Always <b>isolate</b> the absolute value first before splitting.`,
+     formulas:["3|2x − 1| + 5 = 20 → |2x − 1| = 5 → two cases"],
+     example:{problem:"Solve: 2|x + 4| − 3 = 9",steps:["Add 3: 2|x + 4| = 12","Divide by 2: |x + 4| = 6","Case 1: x + 4 = 6 → x = 2","Case 2: x + 4 = −6 → x = −10"]}
+    },
+    {title:"Absolute Value Inequalities",
+     content:`|x| < k (k > 0) means −k < x < k (AND). |x| > k means x < −k OR x > k (union).<sup style='color:#4a6e8a'>²</sup> Think: "less than" → "between," "greater than" → "outside."`,
+     formulas:["|ax + b| < c → −c < ax + b < c","|ax + b| > c → ax + b < −c OR ax + b > c"],
+     example:{problem:"Solve: |3x − 2| ≤ 7",steps:["−7 ≤ 3x − 2 ≤ 7","Add 2: −5 ≤ 3x ≤ 9","Divide by 3: −5/3 ≤ x ≤ 3"]}
+    }
+  ],
+  practice:[
+    {difficulty:"easy",question:"Solve for y: 3x + y = 10",options:["y = 10 − 3x","y = 3x − 10","y = 10/3x","y = 10 + 3x"],correct:0,explanation:"Subtract 3x from both sides: y = 10 − 3x."},
+    {difficulty:"easy",question:"Solve: |x| = 9",options:["x = 9 or x = −9","x = 9","x = −9","x = 81"],correct:0,explanation:"|x| = 9 gives x = 9 or x = −9."},
+    {difficulty:"easy",question:"Solve: |x − 3| < 5",options:["−2 < x < 8","x > 8 or x < −2","x < 8","x > −2"],correct:0,explanation:"−5 < x−3 < 5 → −2 < x < 8."},
+    {difficulty:"medium",question:"Solve for r: A = πr² (r > 0)",options:["r = √(A/π)","r = A/(2π)","r = A²/π","r = πA²"],correct:0,explanation:"r² = A/π, so r = √(A/π)."},
+    {difficulty:"medium",question:"Solve: 4|2x + 1| = 20",options:["x = 2 or x = −3","x = 2","x = −3","x = 5 or x = −5"],correct:0,explanation:"|2x+1|=5 → 2x+1=5 (x=2) or 2x+1=−5 (x=−3)."},
+    {difficulty:"medium",question:"Solve: |2x − 5| > 3",options:["x < 1 or x > 4","1 < x < 4","x > 4","x < 1"],correct:0,explanation:"2x−5 > 3 → x > 4 OR 2x−5 < −3 → x < 1."},
+    {difficulty:"hard",question:"Solve for b: S = 2πr(r + b)",options:["b = S/(2πr) − r","b = S − 2πr²","b = (S − r)/(2πr)","b = 2πrS − r"],correct:0,explanation:"Divide by 2πr: r + b = S/(2πr). Then b = S/(2πr) − r."},
+    {difficulty:"hard",question:"Solve: |3x + 2| = |x − 6|",options:["x = −4 or x = 1","x = 1 only","x = −4 only","No solution"],correct:0,explanation:"Case 1: 3x+2=x−6→x=−4. Case 2: 3x+2=−(x−6)→4x=4→x=1."},
+    {difficulty:"hard",question:"Solve: −2|4 − x| + 6 ≥ −8",options:["−3 ≤ x ≤ 11","x ≤ −3 or x ≥ 11","All reals","No solution"],correct:0,explanation:"−2|4−x| ≥ −14 → |4−x| ≤ 7 → −7 ≤ 4−x ≤ 7 → −3 ≤ x ≤ 11."}
+  ],
+  quiz:[
+    {question:"Solve for t: d = rt",options:["t = d/r","t = dr","t = r/d","t = d − r"],correct:0,explanation:"Divide both sides by r: t = d/r."},
+    {question:"Solve: |5x − 3| = 12",options:["x = 3 or x = −9/5","x = 3","x = −9/5","x = 15 or x = −9"],correct:0,explanation:"5x−3=12→x=3. 5x−3=−12→x=−9/5."},
+    {question:"Solve: |x + 2| ≤ 4",options:["−6 ≤ x ≤ 2","x ≤ 2","x ≥ −6","x < −6 or x > 2"],correct:0,explanation:"−4 ≤ x+2 ≤ 4 → −6 ≤ x ≤ 2."},
+    {question:"Solve for x: ax − b = cx + d",options:["x = (b+d)/(a−c)","x = (d−b)/(a+c)","x = (a−c)/(b+d)","x = (d+b)/(c−a)"],correct:0,explanation:"ax − cx = b + d → x(a−c) = b+d → x = (b+d)/(a−c)."},
+    {question:"How many solutions? |2x + 7| = −1",options:["None","One","Two","Infinite"],correct:0,explanation:"Absolute value is never negative → no solution."}
+  ]
+},
+{
+  id:2, title:"Linear Functions & Systems (Advanced)",
+  objectives:"Master piecewise, step, and absolute value functions. Solve 2-variable and 3-variable systems using substitution, elimination, and matrices introduction.",
+  deeperLinks:[
+    {label:"Functions",url:"math/functions/walkthrough.html"},
+    {label:"Functions Introduction",url:"math/functions-introduction/walkthrough.html"},
+    {label:"Systems of Equations",url:"math/systems-of-equations/walkthrough.html"},
+    {label:"Linear vs Non-Linear",url:"math/linear-vs-non-linear-functions/walkthrough.html"}
+  ],
+  prereqs:[
+    {id:4,text:"Slope-intercept & standard form: y = mx + b and Ax + By = C. Graphing, slope calculation. (Algebra I, Unit 5)"},
+    {id:5,text:"Systems of equations: Solving by graphing, substitution, and elimination. Classifying as consistent/inconsistent/dependent. (Algebra I, Unit 6)"}
+  ],
+  lessons:[
+    {title:"Piecewise & Step Functions",
+     content:`A <b>piecewise function</b> uses different formulas for different intervals of x.<sup style='color:#4a6e8a'>⁴</sup> A <b>step function</b> (like the greatest integer function ⌊x⌋) outputs constant values over intervals, creating a staircase graph.`,
+     formulas:["f(x) = { 2x + 1  if x < 0 ; x² if x ≥ 0 }","⌊3.7⌋ = 3, ⌊−1.2⌋ = −2"],
+     example:{problem:"Evaluate f(x) = { x+3 if x<2; 2x−1 if x≥2 } at x=0 and x=5.",steps:["f(0): use x+3 (since 0<2) → 0+3 = 3","f(5): use 2x−1 (since 5≥2) → 10−1 = 9"]}
+    },
+    {title:"Absolute Value Functions & Transformations",
+     content:`y = a|x − h| + k is a V-shaped graph with vertex at (h, k). If a > 0, opens up. If a < 0, opens down. |a| controls the steepness.`,
+     formulas:["Parent: y = |x|, Vertex (0,0)","y = −2|x + 3| + 5 → vertex (−3, 5), opens down, steepness 2"],
+     example:{problem:"Graph y = |x − 2| − 4. Find vertex and intercepts.",steps:["Vertex: (2, −4)","Opens up (a = 1)","x-intercepts: |x−2|=4 → x=6 or x=−2","y-intercept: |0−2|−4 = −2"]}
+    },
+    {title:"3×3 Systems of Equations",
+     content:`A system of three equations in three unknowns is solved by repeated elimination.<sup style='color:#4a6e8a'>⁵</sup> Eliminate one variable from two pairs of equations to get a 2×2 system, then solve.`,
+     formulas:["x + y + z = 6, 2x − y + z = 3, x + 2y − z = 5"],
+     example:{problem:"Solve: x + y + z = 10, x = 2, y = 3.",steps:["Substitute known values: 2 + 3 + z = 10","z = 5","Solution: (2, 3, 5)"]}
+    }
+  ],
+  practice:[
+    {difficulty:"easy",question:"f(x) = { x−1 if x<3; 5 if x≥3 }. Find f(3).",options:["5","2","3","undefined"],correct:0,explanation:"x=3 uses the x≥3 branch: f(3) = 5."},
+    {difficulty:"easy",question:"What is the vertex of y = |x + 1| − 3?",options:["(−1, −3)","(1, −3)","(−1, 3)","(1, 3)"],correct:0,explanation:"y = |x−(−1)| + (−3). Vertex at (−1, −3)."},
+    {difficulty:"easy",question:"⌊4.9⌋ = ?",options:["4","5","4.9","9"],correct:0,explanation:"The floor function rounds down to 4."},
+    {difficulty:"medium",question:"For y = −3|x − 2| + 6, does the graph open up or down? What's the vertex?",options:["Down, vertex (2, 6)","Up, vertex (2, 6)","Down, vertex (−2, 6)","Up, vertex (−2, −6)"],correct:0,explanation:"a = −3 < 0 → opens down. Vertex (h,k) = (2,6)."},
+    {difficulty:"medium",question:"Solve: x + y + z = 10, x = 2, y = 3. Find z.",options:["5","10","3","15"],correct:0,explanation:"2 + 3 + z = 10 → z = 5."},
+    {difficulty:"medium",question:"Graph of y = |x| is shifted right 4, up 2. Equation?",options:["y = |x − 4| + 2","y = |x + 4| + 2","y = |x − 2| + 4","y = |x + 4| − 2"],correct:0,explanation:"Right 4 → (x−4). Up 2 → +2. y = |x−4| + 2."},
+    {difficulty:"hard",question:"f(x) = { x² if x ≤ 1; 3x − 2 if x > 1 }. Is f continuous at x = 1?",options:["Yes (both give 1)","No (left=1, right=3)","No (left=0, right=1)","Cannot determine"],correct:0,explanation:"Left: 1² = 1. Right: 3(1)−2 = 1. Both equal 1 → continuous."},
+    {difficulty:"hard",question:"Solve: 2x − y + z = 3, x + y − z = 4, sum gives 3x = 7. Solve for x.",options:["x = 7/3","x = 3","x = 7","x = 1"],correct:0,explanation:"Adding eq1 + eq2: 3x = 7 → x = 7/3."},
+    {difficulty:"hard",question:"How many solutions? y = |x − 1| + 2 and y = −|x + 1| + 6",options:["Two","One","None","Infinite"],correct:0,explanation:"First: V at (1,2) opening up. Second: V at (−1,6) opening down. They intersect at two points."}
+  ],
+  quiz:[
+    {question:"f(x) = { −x if x<0; x² if x≥0 }. Find f(−3) + f(2).",options:["7","1","−1","5"],correct:0,explanation:"f(−3)=−(−3)=3. f(2)=4. Sum=7."},
+    {question:"Vertex of y = 2|x + 5| − 1?",options:["(−5, −1)","(5, −1)","(−5, 1)","(5, 1)"],correct:0,explanation:"h=−5, k=−1."},
+    {question:"How does y = −|x| compare to y = |x|?",options:["Reflected over x-axis","Shifted down","Shifted left","Steeper"],correct:0,explanation:"The negative reflects the graph over the x-axis."},
+    {question:"In a 3-variable system, you get: 2x+y=5 and x−y=1. Solve for x and y.",options:["x=2, y=1","x=1, y=3","x=3, y=−1","x=2, y=−1"],correct:0,explanation:"Add: 3x=6→x=2. Then 2−y=1→y=1."},
+    {question:"⌊−2.3⌋ = ?",options:["−3","−2","−2.3","2"],correct:0,explanation:"Floor rounds toward negative infinity: ⌊−2.3⌋ = −3."}
+  ]
+},
+{
+  id:3, title:"Quadratic Functions & Complex Numbers",
+  objectives:"Graph and transform quadratics in all three forms. Complete the square. Introduce the complex number system. Solve quadratics with complex solutions.",
+  deeperLinks:[
+    {label:"Quadratic Equations",url:"math/quadratic-equations/walkthrough.html"},
+    {label:"Completing the Square",url:"math/completing-the-square/walkthrough.html"},
+    {label:"Complex Numbers",url:"math/complex-numbers/walkthrough.html"},
+    {label:"Quadratic Formula Lesson",url:"math/quadratic-formula/lesson.html"}
+  ],
+  prereqs:[
+    {id:6,text:"Quadratic basics: standard form y = ax²+bx+c, vertex formula x = −b/(2a), factoring, and the quadratic formula. (Algebra I, Unit 9)"},
+    {id:7,text:"Square roots: simplifying radicals like √50 = 5√2. (Algebra I, Unit 10)"}
+  ],
+  lessons:[
+    {title:"Three Forms of Quadratics",
+     content:`<b>Standard form</b>: y = ax² + bx + c. <b>Vertex form</b>: y = a(x−h)² + k with vertex (h,k). <b>Factored form</b>: y = a(x−r₁)(x−r₂) with x-intercepts r₁, r₂.<sup style='color:#4a6e8a'>⁶</sup>`,
+     formulas:["Standard → Vertex: complete the square","Vertex → Standard: expand","Factored: read zeros directly"],
+     example:{problem:"Convert y = 2x² − 12x + 22 to vertex form.",steps:["Factor out 2: y = 2(x²−6x) + 22","Complete the square: (−6/2)²=9","y = 2(x²−6x+9−9)+22 = 2(x−3)²−18+22","y = 2(x−3)² + 4. Vertex: (3, 4)"]}
+    },
+    {title:"Complex Numbers",
+     content:`The <b>imaginary unit</b> i is defined as i = √(−1), so i² = −1. A <b>complex number</b> has the form a + bi.<sup style='color:#4a6e8a'>⁷</sup>`,
+     formulas:["i² = −1, i³ = −i, i⁴ = 1 (cycle repeats)","(a+bi)(c+di) = (ac−bd) + (ad+bc)i"],
+     example:{problem:"Multiply: (3 + 2i)(1 − 4i)",steps:["FOIL: 3 − 12i + 2i − 8i²","= 3 − 10i − 8(−1)","= 11 − 10i"]}
+    },
+    {title:"Quadratic Equations with Complex Solutions",
+     content:`When the discriminant b²−4ac < 0, the quadratic formula yields complex solutions. The solutions are <b>complex conjugates</b>: a+bi and a−bi.`,
+     formulas:["x² + 4 = 0 → x = ±2i","x²+x+1=0: Δ=1−4=−3, x=(−1±i√3)/2"],
+     example:{problem:"Solve: x² + 2x + 5 = 0",steps:["Δ = 4 − 20 = −16","x = (−2 ± √(−16))/2","x = (−2 ± 4i)/2","x = −1 ± 2i"]}
+    }
+  ],
+  practice:[
+    {difficulty:"easy",question:"What is i²?",options:["−1","1","i","−i"],correct:0,explanation:"By definition, i² = −1."},
+    {difficulty:"easy",question:"Simplify: √(−25)",options:["5i","−5","5","−5i"],correct:0,explanation:"√(−25) = √25 · √(−1) = 5i."},
+    {difficulty:"easy",question:"What is the vertex of y = (x−3)² + 7?",options:["(3, 7)","(−3, 7)","(3, −7)","(7, 3)"],correct:0,explanation:"Vertex form y = a(x−h)²+k → vertex (3, 7)."},
+    {difficulty:"medium",question:"Add: (4 + 3i) + (−2 + 5i)",options:["2 + 8i","6 + 8i","2 − 2i","6 − 2i"],correct:0,explanation:"(4−2) + (3+5)i = 2 + 8i."},
+    {difficulty:"medium",question:"Complete the square: x² + 8x + ___",options:["16 → (x+4)²","64 → (x+8)²","4 → (x+2)²","32 → (x+4)²"],correct:0,explanation:"(8/2)² = 16. x²+8x+16 = (x+4)²."},
+    {difficulty:"medium",question:"How many real solutions? x² + 4x + 5 = 0",options:["None (Δ < 0)","One","Two","Cannot tell"],correct:0,explanation:"Δ = 16−20 = −4 < 0 → no real solutions (two complex)."},
+    {difficulty:"hard",question:"Multiply: (2 − 3i)(2 + 3i)",options:["13","4 − 9i²","−5","4 + 9"],correct:0,explanation:"(2)²−(3i)² = 4−9i² = 4−(−9) = 13."},
+    {difficulty:"hard",question:"Convert y = 3x² + 6x − 2 to vertex form.",options:["y = 3(x+1)² − 5","y = 3(x−1)² − 5","y = 3(x+1)² + 1","y = 3(x+1)² − 2"],correct:0,explanation:"3(x²+2x)−2. Complete: 3(x+1)²−3−2 = 3(x+1)²−5."},
+    {difficulty:"hard",question:"Solve: 2x² − 4x + 10 = 0",options:["x = 1 ± 2i","x = 1 ± 4i","x = 2 ± 2i","x = −1 ± 2i"],correct:0,explanation:"Divide by 2: x²−2x+5=0. Δ=4−20=−16. x=(2±4i)/2=1±2i."}
+  ],
+  quiz:[
+    {question:"Simplify: i⁷",options:["−i","i","1","−1"],correct:0,explanation:"i⁷=i⁴·i³=1·(−i)=−i."},
+    {question:"Convert y=x²−6x+11 to vertex form.",options:["y=(x−3)²+2","y=(x+3)²+2","y=(x−3)²−2","y=(x−6)²+11"],correct:0,explanation:"x²−6x+9+2=(x−3)²+2."},
+    {question:"Solve: x²+1=0",options:["x = ±i","x = ±1","x = 0","No real solution"],correct:0,explanation:"x²=−1→x=±√(−1)=±i."},
+    {question:"Discriminant of 3x²−2x+4=0?",options:["−44","52","−8","20"],correct:0,explanation:"Δ=4−48=−44."},
+    {question:"(5−2i)−(3+4i)=?",options:["2−6i","8−6i","2+2i","8+2i"],correct:0,explanation:"(5−3)+(−2−4)i=2−6i."}
+  ]
+},
+{
+  id:4, title:"Polynomial Functions",
+  objectives:"Classify polynomials by degree and terms. Apply end behavior, find zeros, use the Remainder and Factor Theorems, and graph higher-degree polynomials.",
+  deeperLinks:[
+    {label:"Polynomials",url:"math/polynomials/walkthrough.html"},
+    {label:"Polynomial Division",url:"math/polynomial-division/walkthrough.html"},
+    {label:"Factoring",url:"math/factoring/walkthrough.html"}
+  ],
+  prereqs:[
+    {id:8,text:"Polynomial arithmetic & factoring: adding, subtracting, multiplying polynomials, factoring trinomials, difference of squares. (Algebra I, Unit 8)"},
+    {id:9,text:"Quadratic graphing: parabola shape, vertex, axis of symmetry. Polynomials of degree 2 are special cases. (Algebra I, Unit 9)"}
+  ],
+  lessons:[
+    {title:"Classifying & End Behavior",
+     content:`A polynomial's <b>degree</b> is its highest exponent.<sup style='color:#4a6e8a'>⁸</sup> <b>End behavior</b> depends on the leading term: even degree → both ends same direction; odd degree → opposite directions.`,
+     formulas:["Degree 3, positive lead: ↙ up to ↗","Degree 4, negative lead: both ends down"],
+     example:{problem:"Describe end behavior of f(x) = −2x⁵ + 3x² − 1.",steps:["Degree 5 (odd), leading coeff −2 (negative)","As x → −∞, f(x) → +∞","As x → +∞, f(x) → −∞"]}
+    },
+    {title:"Zeros & the Factor/Remainder Theorems",
+     content:`If f(c) = 0, then c is a <b>zero</b> and (x − c) is a factor. <b>Remainder Theorem</b>: f(c) equals the remainder when dividing f(x) by (x − c). <b>Factor Theorem</b>: (x − c) is a factor iff f(c) = 0.`,
+     formulas:["f(x) ÷ (x − c) → remainder = f(c)","Rational Root Theorem: possible zeros = ±(factors of constant)/(factors of leading coeff)"],
+     example:{problem:"Is (x − 2) a factor of x³ − 4x² + x + 6?",steps:["Evaluate f(2) = 8 − 16 + 2 + 6 = 0","f(2) = 0, so yes — (x − 2) is a factor."]}
+    },
+    {title:"Polynomial Long Division & Synthetic Division",
+     content:`<b>Synthetic division</b> is a shortcut for dividing by (x − c). Write coefficients, bring down, multiply by c, add. The last number is the remainder.`,
+     formulas:["Divide x³ + 2x² − 5x + 1 by (x − 2)","Synthetic: 2 | 1  2  −5  1 → 1  4  3  7 (remainder 7)"],
+     example:{problem:"Use synthetic division: (x³ − 3x² + 4) ÷ (x − 2)",steps:["Coefficients: 1, −3, 0, 4","2 | 1  −3  0  4 →  1  −1  −2  0","Quotient: x² − x − 2, Remainder: 0","(x−2) is a factor!"]}
+    }
+  ],
+  practice:[
+    {difficulty:"easy",question:"Classify: 4x³ − x + 7",options:["Cubic trinomial","Quadratic trinomial","Cubic binomial","Linear"],correct:0,explanation:"Degree 3 = cubic. Three terms = trinomial."},
+    {difficulty:"easy",question:"End behavior of f(x) = x⁴?",options:["Both ends up","Both ends down","Left down, right up","Left up, right down"],correct:0,explanation:"Even degree, positive lead → both ends up."},
+    {difficulty:"easy",question:"f(x) = x² − 9. Find f(3).",options:["0","9","−9","18"],correct:0,explanation:"9−9=0. So x=3 is a zero."},
+    {difficulty:"medium",question:"Is (x+1) a factor of x³ + 3x² + 3x + 1?",options:["Yes, f(−1)=0","No, f(−1)≠0","Yes, f(1)=0","Cannot determine"],correct:0,explanation:"f(−1)=−1+3−3+1=0. Yes."},
+    {difficulty:"medium",question:"End behavior of f(x) = −3x³ + x?",options:["Left: up, Right: down","Left: down, Right: up","Both up","Both down"],correct:0,explanation:"Odd degree, negative lead: left up, right down."},
+    {difficulty:"medium",question:"Possible rational zeros of x³ − 2x + 4 (Rational Root Theorem)?",options:["±1, ±2, ±4","±1, ±4","±1, ±2","Only ±1"],correct:0,explanation:"Factors of 4: ±1,±2,±4. Factors of leading 1: ±1. Possible: ±1,±2,±4."},
+    {difficulty:"hard",question:"Divide (2x³ + 5x² − x − 6) by (x + 2) using synthetic division. Quotient?",options:["2x² + x − 3","2x² + 9x + 17","2x² − x + 3","x² + 3x − 3"],correct:0,explanation:"Synthetic with c=−2: 2,5,−1,−6 → 2,1,−3,0. Quotient: 2x²+x−3."},
+    {difficulty:"hard",question:"How many turning points can a degree-5 polynomial have at most?",options:["4","5","3","6"],correct:0,explanation:"A degree-n polynomial has at most n−1 turning points. 5−1=4."},
+    {difficulty:"hard",question:"f(x) = x⁴ − 5x² + 4. Find all zeros.",options:["x = ±1, ±2","x = ±1, ±4","x = 1, 2, 4","x = ±2, ±√5"],correct:0,explanation:"Let u=x²: u²−5u+4=0→(u−1)(u−4)=0→x=±1 or ±2."}
+  ],
+  quiz:[
+    {question:"Degree of 7x⁵ − 3x² + 1?",options:["5","7","2","3"],correct:0,explanation:"Highest exponent is 5."},
+    {question:"f(x)=x³−x. Find f(1).",options:["0","2","−2","1"],correct:0,explanation:"1−1=0."},
+    {question:"Remainder when x³+2x−5 is divided by (x−1)?",options:["−2","0","−4","5"],correct:0,explanation:"f(1)=1+2−5=−2."},
+    {question:"A polynomial has zeros at 2, −3, and 5. Minimum degree?",options:["3","2","5","4"],correct:0,explanation:"At least one factor per zero → minimum degree 3."},
+    {question:"End behavior of −x⁶ + 2x?",options:["Both ends down","Both up","Left down, right up","Left up, right down"],correct:0,explanation:"Even degree, negative lead → both ends down."}
+  ]
+},
+{
+  id:5, title:"Rational Functions & Expressions",
+  objectives:"Simplify, add, subtract, multiply, and divide rational expressions. Find asymptotes, holes, and graph rational functions. Solve rational equations.",
+  deeperLinks:[
+    {label:"Rational Functions",url:"math/rational-functions/walkthrough.html"},
+    {label:"Factoring",url:"math/factoring/walkthrough.html"}
+  ],
+  prereqs:[
+    {id:10,text:"Factoring polynomials: Required for simplifying rational expressions. (Algebra I, Unit 8 & this course Unit 4)"},
+    {id:11,text:"Fraction arithmetic: Finding LCDs, adding/subtracting fractions. (Algebra I prerequisite)"}
+  ],
+  lessons:[
+    {title:"Simplifying & Operations on Rational Expressions",
+     content:`A <b>rational expression</b> is a ratio of two polynomials.<sup style='color:#4a6e8a'>¹⁰</sup> Simplify by factoring and canceling common factors. State restrictions (values making denominator = 0).`,
+     formulas:["(x²−4)/(x²−4x+4) = (x+2)/(x−2), x≠2"],
+     example:{problem:"Simplify: (x²+5x+6)/(x²+x−2)",steps:["Factor: (x+2)(x+3) / (x+2)(x−1)","Cancel (x+2)","= (x+3)/(x−1), x ≠ −2"]}
+    },
+    {title:"Graphing Rational Functions: Asymptotes & Holes",
+     content:`<b>Vertical asymptotes</b>: x-values making denominator 0 (after simplification). <b>Horizontal asymptotes</b>: if degrees equal, HA = leading coeff ratio; if deg(top) < deg(bottom), HA: y=0. A <b>hole</b> occurs at a canceled factor.`,
+     formulas:["f(x) = (2x+1)/(x−3): VA at x=3, HA at y=2"],
+     example:{problem:"Find asymptotes: f(x) = (3x²+1)/(x²−4)",steps:["VA: x²−4=0 → x=±2","HA: degrees equal, ratio = 3/1 → y = 3","No holes (nothing cancels)"]}
+    },
+    {title:"Solving Rational Equations",
+     content:`Multiply every term by the LCD to clear fractions.<sup style='color:#4a6e8a'>¹¹</sup> Always check for <b>extraneous solutions</b> — answers that make the original denominator 0.`,
+     formulas:["1/x + 1/(x+2) = 3/4 → multiply by 4x(x+2)"],
+     example:{problem:"Solve: x/(x−3) = 2 + 3/(x−3)",steps:["Multiply by (x−3): x = 2(x−3) + 3","x = 2x − 3","−x = −3 → x = 3","Check: x=3 makes denominator 0 → EXTRANEOUS","No solution!"]}
+    }
+  ],
+  practice:[
+    {difficulty:"easy",question:"Simplify: (x²−9)/(x+3)",options:["x − 3","x + 3","(x−3)/(x+3)","x² − 3"],correct:0,explanation:"(x+3)(x−3)/(x+3) = x−3."},
+    {difficulty:"easy",question:"Find the vertical asymptote: f(x) = 1/(x−5)",options:["x = 5","x = −5","y = 5","y = 0"],correct:0,explanation:"Denominator = 0 when x = 5."},
+    {difficulty:"easy",question:"Horizontal asymptote of f(x) = 3/(x+1)?",options:["y = 0","y = 3","y = 1","No HA"],correct:0,explanation:"Degree top (0) < degree bottom (1) → HA: y = 0."},
+    {difficulty:"medium",question:"Multiply: (x/(x+2)) · ((x+2)/(x−1))",options:["x/(x−1)","(x+2)/x","x(x+2)/(x−1)","1/(x−1)"],correct:0,explanation:"Cancel (x+2): x/(x−1)."},
+    {difficulty:"medium",question:"HA of f(x) = (4x²−1)/(2x²+3)?",options:["y = 2","y = 4","y = 0","No HA"],correct:0,explanation:"Equal degrees: 4/2 = 2."},
+    {difficulty:"medium",question:"Solve: 5/x = 3 − 2/x",options:["x = 7/3","x = 3","x = 5/3","x = 1"],correct:0,explanation:"Multiply by x: 5 = 3x − 2 → 7 = 3x → x = 7/3."},
+    {difficulty:"hard",question:"f(x) = (x²−1)/(x²−x). Find hole and VA.",options:["Hole at x=1, VA at x=0","VA at x=0 and x=1","Hole at x=0, VA at x=1","No holes"],correct:0,explanation:"Factor: (x+1)(x−1)/(x(x−1)). Cancel (x−1) → hole at x=1. Remaining denom x=0 → VA."},
+    {difficulty:"hard",question:"Solve: 2/(x+1) − 1/(x−1) = 4/(x²−1). Find x.",options:["x = 7","x = 3","No solution","x = 1"],correct:0,explanation:"LCD=(x+1)(x−1). 2(x−1)−(x+1)=4 → x−3=4 → x=7."},
+    {difficulty:"hard",question:"Find the slant asymptote of f(x) = (x²+2x+1)/(x−1).",options:["y = x + 3","y = x + 1","y = x + 2","No slant asymptote"],correct:0,explanation:"Divide x²+2x+1 ÷ (x−1) = x+3 remainder 4. Slant: y = x+3."}
+  ],
+  quiz:[
+    {question:"Simplify: (2x²+6x)/(x²+3x)",options:["2","2x","2/(x+3)","(2x+6)/x"],correct:0,explanation:"2x(x+3)/(x(x+3)) = 2."},
+    {question:"VA and HA of f(x)=5x/(x+4)?",options:["VA: x=−4, HA: y=5","VA: x=4, HA: y=5","VA: x=−4, HA: y=0","VA: x=4, HA: y=0"],correct:0,explanation:"Denom=0 at x=−4. Equal degrees: 5/1=5."},
+    {question:"Solve: 3/(x−2) = 6/(x+1).",options:["x = 5","x = −5","x = 2 (extraneous)","No solution"],correct:0,explanation:"Cross multiply: 3(x+1)=6(x−2)→3x+3=6x−12→x=5."},
+    {question:"What creates a 'hole' in a rational function?",options:["A factor that cancels from both num and denom","A zero of the denominator only","A zero of the numerator only","An imaginary root"],correct:0,explanation:"Holes occur at canceled common factors."},
+    {question:"Add: 1/(x+1) + 2/(x−1)",options:["(3x+1)/(x²−1)","3/(2x)","(3x−1)/(x²−1)","(2x+1)/(x²−1)"],correct:0,explanation:"LCD=(x+1)(x−1). (x−1)+2(x+1)=3x+1."}
+  ]
+},
+{
+  id:6, title:"Radical Functions & Rational Exponents",
+  objectives:"Convert between radical and exponential form. Simplify expressions with rational exponents. Graph and transform radical functions. Solve radical equations.",
+  deeperLinks:[
+    {label:"Radical Expressions",url:"math/radical-expressions/walkthrough.html"},
+    {label:"Roots & Radicals",url:"math/roots-and-radicals/walkthrough.html"},
+    {label:"Rational Functions",url:"math/rational-functions/walkthrough.html"}
+  ],
+  prereqs:[
+    {id:12,text:"Simplifying radicals: √(a·b)=√a·√b, rationalizing denominators. (Algebra I, Unit 10)"},
+    {id:13,text:"Exponent rules: product, quotient, power, zero, and negative exponent rules. (Algebra I, Unit 7)"}
+  ],
+  lessons:[
+    {title:"Rational Exponents",
+     content:`A rational exponent connects exponents and radicals:<sup style='color:#4a6e8a'>¹³</sup> a^(1/n) = ⁿ√a, and a^(m/n) = ⁿ√(aᵐ) = (ⁿ√a)ᵐ. All exponent rules still apply.`,
+     formulas:["8^(1/3) = ³√8 = 2","x^(3/2) = (√x)³ = √(x³)","(16)^(3/4) = (⁴√16)³ = 2³ = 8"],
+     example:{problem:"Simplify: 27^(2/3)",steps:["= (³√27)²","= 3²","= 9"]}
+    },
+    {title:"Graphing Radical Functions",
+     content:`y = a√(x−h) + k has starting point (h, k).<sup style='color:#4a6e8a'>¹²</sup> Square root functions have domain x ≥ h. Cube root functions y = ³√x have domain of all reals.`,
+     formulas:["y = √(x−3) + 1: starts at (3, 1)","y = −√x: reflected over x-axis"],
+     example:{problem:"Graph y = √(x+2) − 3. State domain and range.",steps:["Starting point: (−2, −3)","Domain: x ≥ −2","Range: y ≥ −3"]}
+    },
+    {title:"Solving Radical Equations",
+     content:`Isolate the radical, then raise both sides to the appropriate power. Always <b>check for extraneous solutions</b> — squaring can introduce false answers.`,
+     formulas:["√(2x+1) = 5 → 2x+1 = 25 → x = 12","√(x+3) = x − 3 → check carefully!"],
+     example:{problem:"Solve: √(x+7) = x + 1",steps:["Square: x+7 = (x+1)² = x²+2x+1","0 = x²+x−6 = (x+3)(x−2)","x=−3 (extraneous, 2≠−2) or x=2 ✓","Solution: x = 2 only"]}
+    }
+  ],
+  practice:[
+    {difficulty:"easy",question:"Simplify: 16^(1/2)",options:["4","8","256","2"],correct:0,explanation:"16^(1/2) = √16 = 4."},
+    {difficulty:"easy",question:"Rewrite ³√x using exponents.",options:["x^(1/3)","x^3","x^(3/1)","3x"],correct:0,explanation:"ⁿ√x = x^(1/n), so ³√x = x^(1/3)."},
+    {difficulty:"easy",question:"Domain of f(x) = √(x−5)?",options:["x ≥ 5","x > 5","All reals","x ≤ 5"],correct:0,explanation:"Radicand ≥ 0: x−5 ≥ 0 → x ≥ 5."},
+    {difficulty:"medium",question:"Simplify: 8^(4/3)",options:["16","32","8","24"],correct:0,explanation:"(³√8)⁴ = 2⁴ = 16."},
+    {difficulty:"medium",question:"Solve: √(3x−2) = 4",options:["x = 6","x = 2","x = 18","x = 14/3"],correct:0,explanation:"Square: 3x−2=16→3x=18→x=6."},
+    {difficulty:"medium",question:"Simplify: x^(2/3) · x^(1/3)",options:["x","x²","x^(2/9)","x^(1/3)"],correct:0,explanation:"Add exponents: 2/3 + 1/3 = 1 → x."},
+    {difficulty:"hard",question:"Solve: √(2x+3) = √(x+7)",options:["x = 4","x = −4","x = 10","No solution"],correct:0,explanation:"Square both sides: 2x+3=x+7→x=4. Check: √11=√11 ✓."},
+    {difficulty:"hard",question:"Simplify: (x^(3/4) · y^(−1/2))²",options:["x^(3/2) / y","x^(3/2) · y","x^(6/4) · y","x³/y²"],correct:0,explanation:"(x^(3/4))² = x^(3/2). (y^(−1/2))² = y^(−1). Answer: x^(3/2)/y."},
+    {difficulty:"hard",question:"Solve: √(x+5) + 1 = x",options:["x = 4 only","x = −1 only","x = 4 and x = −1","No real solution"],correct:0,explanation:"√(x+5)=x−1. Square: x²−3x−4=0→(x−4)(x+1)=0. Check x=4 ✓, x=−1 fails. Only x=4."}
+  ],
+  quiz:[
+    {question:"Simplify: 32^(2/5)",options:["4","8","16","2"],correct:0,explanation:"(⁵√32)²=2²=4."},
+    {question:"Starting point of y = √(x+4) − 2?",options:["(−4, −2)","(4, −2)","(−4, 2)","(4, 2)"],correct:0,explanation:"h=−4, k=−2. Starts at (−4,−2)."},
+    {question:"Solve: ³√(x−1) = 3",options:["x = 28","x = 10","x = 27","x = 4"],correct:0,explanation:"Cube both sides: x−1=27→x=28."},
+    {question:"Simplify: (x^(1/2))⁶",options:["x³","x^(1/12)","x^(3/2)","x⁶"],correct:0,explanation:"(1/2)·6 = 3 → x³."},
+    {question:"Is x=5 extraneous in √(x+4)=x−2?",options:["No, it checks out","Yes, it's extraneous","Cannot determine","Depends on domain"],correct:0,explanation:"√9=3, x−2=3. 3=3 ✓. Not extraneous."}
+  ]
+},
+{
+  id:7, title:"Exponential & Logarithmic Functions",
+  objectives:"Understand logarithms as inverses of exponentials. Apply log rules. Solve exponential and logarithmic equations. Model growth/decay with e.",
+  deeperLinks:[
+    {label:"Exponential Growth & Decay",url:"math/exponential-growth-and-decay/walkthrough.html"},
+    {label:"Logarithms",url:"math/logarithms/walkthrough.html"}
+  ],
+  prereqs:[
+    {id:14,text:"Exponential functions: y = a·bˣ for growth (b>1) and decay (0<b<1). (Algebra I, Unit 7)"},
+    {id:15,text:"Inverse functions conceptually: if f undoes g, then g undoes f."}
+  ],
+  lessons:[
+    {title:"Logarithms: Definition & Properties",
+     content:`log_b(x) = y means b^y = x.<sup style='color:#4a6e8a'>¹⁴</sup> In other words, "the log is the exponent." Common log: log₁₀(x) = log(x). Natural log: ln(x) = log_e(x), where e ≈ 2.718.`,
+     formulas:["log₂(8) = 3 because 2³ = 8","log(1000) = 3 because 10³ = 1000","ln(e) = 1"],
+     example:{problem:"Evaluate: log₃(81)",steps:["Ask: 3 to what power = 81?","3⁴ = 81","log₃(81) = 4"]}
+    },
+    {title:"Logarithm Rules",
+     content:`<b>Product rule</b>: log(ab) = log(a) + log(b). <b>Quotient rule</b>: log(a/b) = log(a) − log(b). <b>Power rule</b>: log(aⁿ) = n·log(a). <b>Change of base</b>: log_b(x) = log(x)/log(b).`,
+     formulas:["log(xy) = log(x) + log(y)","log(x/y) = log(x) − log(y)","log(x³) = 3·log(x)"],
+     example:{problem:"Expand: log₂(8x³/y)",steps:["= log₂(8) + log₂(x³) − log₂(y)","= 3 + 3·log₂(x) − log₂(y)"]}
+    },
+    {title:"Solving Exponential & Log Equations",
+     content:`For exponential equations, take the log of both sides. For log equations, rewrite in exponential form.<sup style='color:#4a6e8a'>¹⁵</sup> Always check for extraneous solutions (log is undefined for non-positive arguments).`,
+     formulas:["2ˣ = 10 → x = log(10)/log(2) ≈ 3.32","log(x−1) = 2 → x−1 = 100 → x = 101"],
+     example:{problem:"Solve: 5^(x+1) = 125",steps:["125 = 5³","5^(x+1) = 5³","x + 1 = 3","x = 2"]}
+    }
+  ],
+  practice:[
+    {difficulty:"easy",question:"log₂(32) = ?",options:["5","4","6","3"],correct:0,explanation:"2⁵=32."},
+    {difficulty:"easy",question:"ln(1) = ?",options:["0","1","e","undefined"],correct:0,explanation:"Any log of 1 is 0, since b⁰=1."},
+    {difficulty:"easy",question:"Rewrite 4³ = 64 in log form.",options:["log₄(64) = 3","log₃(64) = 4","log(64) = 12","ln(64) = 3"],correct:0,explanation:"4³=64 → log₄(64)=3."},
+    {difficulty:"medium",question:"Expand: log(x²y/z)",options:["2log(x)+log(y)−log(z)","log(2x)+log(y)−log(z)","2log(xy)−log(z)","log(x²)+log(yz)"],correct:0,explanation:"log(x²)+log(y)−log(z) = 2log(x)+log(y)−log(z)."},
+    {difficulty:"medium",question:"Solve: 3ˣ = 20 (to nearest hundredth)",options:["x ≈ 2.73","x ≈ 6.67","x ≈ 1.30","x ≈ 3.00"],correct:0,explanation:"x = log(20)/log(3) ≈ 2.73."},
+    {difficulty:"medium",question:"Solve: log₅(x) = 3",options:["x = 125","x = 15","x = 243","x = 8"],correct:0,explanation:"5³ = 125."},
+    {difficulty:"hard",question:"Solve: log(x) + log(x−3) = 1",options:["x = 5","x = −2 and x = 5","x = −2","No solution"],correct:0,explanation:"log(x(x−3))=1→x²−3x=10→(x−5)(x+2)=0. x=5 (x=−2 is extraneous)."},
+    {difficulty:"hard",question:"Condense: 3ln(x) − ln(y) + ½ln(z)",options:["ln(x³√z/y)","ln(3x/(y+z))","3ln(xz/y)","ln(x³yz)"],correct:0,explanation:"3ln(x)=ln(x³). ½ln(z)=ln(√z). Result: ln(x³√z/y)."},
+    {difficulty:"hard",question:"Solve: e^(2x) − 5e^x + 6 = 0",options:["x = ln(2) or x = ln(3)","x = 2 or x = 3","x = ln(6)","No real solution"],correct:0,explanation:"Let u=eˣ: u²−5u+6=0→u=2 or 3→x=ln2 or ln3."}
+  ],
+  quiz:[
+    {question:"log₃(1/9) = ?",options:["−2","2","−3","1/2"],correct:0,explanation:"3^(−2)=1/9."},
+    {question:"Solve: 2^(x−1) = 16",options:["x = 5","x = 4","x = 3","x = 8"],correct:0,explanation:"16=2⁴. x−1=4→x=5."},
+    {question:"Which equals log₇(x) using change of base?",options:["ln(x)/ln(7)","ln(7)/ln(x)","7/ln(x)","log(7x)"],correct:0,explanation:"Change of base: log_b(x) = ln(x)/ln(b)."},
+    {question:"Expand: ln(e²x⁴)",options:["2 + 4ln(x)","2ln(e) + 4ln(x)","8ln(x)","2 + ln(4x)"],correct:0,explanation:"ln(e²)+ln(x⁴)=2+4ln(x)."},
+    {question:"A population doubles every 3 years from 500. Model?",options:["P = 500·2^(t/3)","P = 500·2^(3t)","P = 1000·2^t","P = 500·e^(3t)"],correct:0,explanation:"Doubles: factor 2. Every 3 years: exponent t/3."}
+  ]
+},
+{
+  id:8, title:"Sequences & Series",
+  objectives:"Identify arithmetic and geometric sequences. Write explicit and recursive formulas. Evaluate partial sums using series formulas. Introduce sigma notation.",
+  deeperLinks:[
+    {label:"Sequences & Series",url:"math/sequences-and-series/walkthrough.html"}
+  ],
+  prereqs:[
+    {id:16,text:"Linear patterns: arithmetic sequences are linear (common difference). (Algebra I, Unit 5)"},
+    {id:17,text:"Exponential patterns: geometric sequences are exponential (common ratio). (Algebra I, Unit 7)"}
+  ],
+  lessons:[
+    {title:"Arithmetic Sequences & Series",
+     content:`An <b>arithmetic sequence</b> has a constant difference d.<sup style='color:#4a6e8a'>¹⁶</sup> Explicit formula: aₙ = a₁ + (n−1)d. The sum of n terms: Sₙ = n(a₁ + aₙ)/2.`,
+     formulas:["aₙ = a₁ + (n−1)d","Sₙ = n(a₁ + aₙ)/2"],
+     example:{problem:"Find a₂₀ and S₂₀ for 3, 7, 11, 15, …",steps:["d = 4, a₁ = 3","a₂₀ = 3 + 19(4) = 79","S₂₀ = 20(3 + 79)/2 = 820"]}
+    },
+    {title:"Geometric Sequences & Series",
+     content:`A <b>geometric sequence</b> has a constant ratio r.<sup style='color:#4a6e8a'>¹⁷</sup> Explicit: aₙ = a₁ · r^(n−1). Finite sum: Sₙ = a₁(1−rⁿ)/(1−r). Infinite sum (|r|<1): S = a₁/(1−r).`,
+     formulas:["aₙ = a₁ · r^(n−1)","Sₙ = a₁(1 − rⁿ)/(1 − r)","S∞ = a₁/(1 − r) when |r| < 1"],
+     example:{problem:"Find the 6th term of: 2, 6, 18, 54, …",steps:["r = 3, a₁ = 2","a₆ = 2 · 3⁵ = 486"]}
+    },
+    {title:"Sigma Notation",
+     content:`Sigma notation Σ compactly represents a sum. The variable below Σ is the index, the number above is the upper bound.`,
+     formulas:["Σ(k=1 to 5) k = 1+2+3+4+5 = 15","Σ(k=1 to 4) 3·2^(k-1) = 3+6+12+24 = 45"],
+     example:{problem:"Evaluate: Σ(k=1 to 4) (2k+1)",steps:["k=1: 3, k=2: 5, k=3: 7, k=4: 9","Sum = 24"]}
+    }
+  ],
+  practice:[
+    {difficulty:"easy",question:"Common difference: 5, 9, 13, 17, …",options:["4","5","9","−4"],correct:0,explanation:"9−5 = 4."},
+    {difficulty:"easy",question:"Common ratio: 3, 12, 48, 192, …",options:["4","3","12","9"],correct:0,explanation:"12/3 = 4."},
+    {difficulty:"easy",question:"10th term of: 2, 5, 8, 11, …",options:["29","32","26","30"],correct:0,explanation:"a₁₀ = 2+9(3)=29."},
+    {difficulty:"medium",question:"Sum of first 50 positive integers?",options:["1275","2550","1250","2500"],correct:0,explanation:"S₅₀ = 50(1+50)/2 = 1275."},
+    {difficulty:"medium",question:"8th term of geometric: 5, 10, 20, …",options:["640","320","1280","160"],correct:0,explanation:"r=2. a₈=5·2⁷=640."},
+    {difficulty:"medium",question:"Σ(k=1 to 3) k² = ?",options:["14","9","5","6"],correct:0,explanation:"1+4+9 = 14."},
+    {difficulty:"hard",question:"Find S∞ for 12, 4, 4/3, …",options:["18","36","16","24"],correct:0,explanation:"r=1/3. S∞=12/(1−1/3)=18."},
+    {difficulty:"hard",question:"Arithmetic series: a₁=7, a₂₀=64. Find S₂₀.",options:["710","640","1420","355"],correct:0,explanation:"S₂₀=20(7+64)/2=710."},
+    {difficulty:"hard",question:"Write a formula for: 1/2, 1/4, 1/8, …",options:["aₙ = (1/2)ⁿ","aₙ = 1/(2n)","aₙ = (1/2)^(n+1)","aₙ = 2^(n+1)"],correct:0,explanation:"a₁=1/2=2^(−1). aₙ = 2^(−n) = (1/2)ⁿ."}
+  ],
+  quiz:[
+    {question:"Is 3, 6, 12, 24 arithmetic or geometric?",options:["Geometric (r=2)","Arithmetic (d=3)","Neither","Both"],correct:0,explanation:"Each term ×2 → geometric."},
+    {question:"Sum of first 10 terms: 4, 4, 4, 4, …",options:["40","4","10","44"],correct:0,explanation:"10 × 4 = 40."},
+    {question:"Find S∞: 8 + 4 + 2 + 1 + …",options:["16","∞","8","12"],correct:0,explanation:"r=1/2. S∞=8/(1−1/2)=16."},
+    {question:"Σ(k=0 to 3) 5·2^k = ?",options:["75","40","80","60"],correct:0,explanation:"5+10+20+40=75."},
+    {question:"a₁=100, d=−7. Which term is first negative?",options:["a₁₆","a₁₅","a₁₄","a₁₇"],correct:0,explanation:"aₙ=100−7(n−1)<0 → n>15.28 → n=16."}
+  ]
+},
+{
+  id:9, title:"Conic Sections",
+  objectives:"Identify, write equations for, and graph circles, parabolas, ellipses, and hyperbolas. Convert between standard and general form.",
+  deeperLinks:[
+    {label:"Conic Sections",url:"math/conic-sections/walkthrough.html"},
+    {label:"Circles",url:"math/circles/walkthrough.html"},
+    {label:"Completing the Square",url:"math/completing-the-square/walkthrough.html"}
+  ],
+  prereqs:[
+    {id:18,text:"Completing the square: essential for converting general form to standard form. (This course Unit 3)"},
+    {id:19,text:"Distance formula: d = √((x₂−x₁)² + (y₂−y₁)²). Derived from the Pythagorean theorem. (Geometry)"}
+  ],
+  lessons:[
+    {title:"Circles",
+     content:`A circle with center (h, k) and radius r has equation (x−h)² + (y−k)² = r².<sup style='color:#4a6e8a'>¹⁹</sup> Every point is equidistant from the center.`,
+     formulas:["(x−h)² + (y−k)² = r²","General: x² + y² + Dx + Ey + F = 0 → complete the square"],
+     example:{problem:"Find center/radius: x² + y² − 6x + 4y − 12 = 0",steps:["Group and complete: (x−3)² + (y+2)² = 25","Center (3,−2), radius 5"]}
+    },
+    {title:"Parabolas (as Conics)",
+     content:`A parabola is the set of points equidistant from a <b>focus</b> and <b>directrix</b>.<sup style='color:#4a6e8a'>¹⁸</sup> Vertical: (x−h)² = 4p(y−k). Horizontal: (y−k)² = 4p(x−h). p = distance to focus.`,
+     formulas:["(x−h)² = 4p(y−k) opens up (p>0) or down (p<0)","(y−k)² = 4p(x−h) opens right (p>0) or left (p<0)"],
+     example:{problem:"Find focus and directrix: (x−1)² = 8(y+2)",steps:["4p = 8 → p = 2. Vertex: (1, −2)","Focus: (1, 0). Directrix: y = −4"]}
+    },
+    {title:"Ellipses & Hyperbolas",
+     content:`<b>Ellipse</b>: (x−h)²/a² + (y−k)²/b² = 1. <b>Hyperbola</b>: (x−h)²/a² − (y−k)²/b² = 1 (opens left/right) or (y−k)²/a² − (x−h)²/b² = 1 (opens up/down).`,
+     formulas:["Ellipse: sum of distances to foci = 2a","Hyperbola: |difference| of distances to foci = 2a"],
+     example:{problem:"Identify: x²/9 + y²/4 = 1",steps:["Both positive, sum = 1 → ellipse","a² = 9 → a = 3, b = 2. Major axis on x","Vertices: (±3, 0)"]}
+    }
+  ],
+  practice:[
+    {difficulty:"easy",question:"Center and radius of (x+1)² + (y−3)² = 16?",options:["(−1,3), r=4","(1,−3), r=4","(−1,3), r=16","(1,3), r=4"],correct:0,explanation:"h=−1, k=3, r=√16=4."},
+    {difficulty:"easy",question:"Which conic? x²/25 + y²/9 = 1",options:["Ellipse","Circle","Hyperbola","Parabola"],correct:0,explanation:"Positive terms, sum = 1, different denominators → ellipse."},
+    {difficulty:"easy",question:"Which conic? x² + y² = 49",options:["Circle","Ellipse","Parabola","Hyperbola"],correct:0,explanation:"x²+y²=r² form → circle, r=7."},
+    {difficulty:"medium",question:"Find the focus of (x−2)² = 12(y+1).",options:["(2, 2)","(2, −4)","(5, −1)","(2, −1)"],correct:0,explanation:"4p=12→p=3. Vertex (2,−1). Focus: (2,−1+3)=(2,2)."},
+    {difficulty:"medium",question:"Vertices of x²/16 + y²/25 = 1?",options:["(0,±5)","(±4,0)","(±5,0)","(0,±4)"],correct:0,explanation:"Larger denom under y² → major axis vertical. a=5. Vertices (0,±5)."},
+    {difficulty:"medium",question:"Which conic? x²/4 − y²/9 = 1",options:["Hyperbola","Ellipse","Circle","Parabola"],correct:0,explanation:"Subtraction → hyperbola."},
+    {difficulty:"hard",question:"Convert x²+y²+8x−2y+8=0 to standard form.",options:["(x+4)²+(y−1)²=9","(x−4)²+(y+1)²=9","(x+4)²+(y−1)²=8","(x+8)²+(y−2)²=9"],correct:0,explanation:"(x²+8x+16)+(y²−2y+1)=−8+16+1=9."},
+    {difficulty:"hard",question:"Eccentricity of ellipse x²/25+y²/16=1?",options:["3/5","4/5","5/3","5/4"],correct:0,explanation:"c²=25−16=9→c=3. e=c/a=3/5."},
+    {difficulty:"hard",question:"Asymptotes of x²/9 − y²/4 = 1?",options:["y = ±(2/3)x","y = ±(3/2)x","y = ±2x","y = ±(3/4)x"],correct:0,explanation:"y=±(b/a)x=±(2/3)x."}
+  ],
+  quiz:[
+    {question:"Equation: circle center (0,0), radius 6.",options:["x²+y²=36","x²+y²=6","(x−6)²+y²=36","x²+y²=12"],correct:0,explanation:"r²=36."},
+    {question:"Parabola (y+3)²=−8(x−1) opens which way?",options:["Left","Right","Up","Down"],correct:0,explanation:"(y−k)² form → horizontal. p=−2 (negative) → left."},
+    {question:"Foci of ellipse x²/25+y²/9=1 are at:",options:["(±4,0)","(0,±4)","(±5,0)","(±3,0)"],correct:0,explanation:"c²=25−9=16→c=4. Major axis on x → (±4,0)."},
+    {question:"Identify: 4x²−9y²=36",options:["Hyperbola","Ellipse","Circle","Parabola"],correct:0,explanation:"x²/9−y²/4=1. Subtraction → hyperbola."},
+    {question:"Circle (x−2)²+(y+5)²=1. Diameter?",options:["2","1","4","0.5"],correct:0,explanation:"r=1, diameter=2."}
+  ]
+},
+{
+  id:10, title:"Probability & Combinatorics",
+  objectives:"Use permutations and combinations. Calculate probabilities of compound events, conditional probability, and apply the Binomial Theorem.",
+  deeperLinks:[
+    {label:"Combinations & Permutations",url:"math/combinations-and-permutations/walkthrough.html"},
+    {label:"Conditional Probability",url:"math/conditional-probability/walkthrough.html"}
+  ],
+  prereqs:[
+    {id:20,text:"Basic probability: P = favorable/total, complementary events. (Algebra I, Unit 11)"},
+    {id:21,text:"Factorial notation: n! = n × (n−1) × … × 1. 0! = 1."}
+  ],
+  lessons:[
+    {title:"Permutations & Combinations",
+     content:`A <b>permutation</b> counts ordered arrangements: P(n,r) = n!/(n−r)!.<sup style='color:#4a6e8a'>²¹</sup> A <b>combination</b> counts unordered selections: C(n,r) = n!/(r!(n−r)!). Ask: does order matter?`,
+     formulas:["P(n,r) = n!/(n−r)!","C(n,r) = n!/(r!(n−r)!)","P(5,3) = 60, C(5,3) = 10"],
+     example:{problem:"A club of 10 picks a president, VP, secretary. How many ways?",steps:["Order matters → permutation","P(10,3) = 10·9·8 = 720"]}
+    },
+    {title:"Compound & Conditional Probability",
+     content:`<b>Independent events</b>: P(A and B) = P(A)·P(B). <b>Dependent events</b>: P(A and B) = P(A)·P(B|A).<sup style='color:#4a6e8a'>²⁰</sup> <b>Conditional</b>: P(B|A) = P(A∩B)/P(A).`,
+     formulas:["P(A or B) = P(A) + P(B) − P(A and B)","P(B|A) = P(A∩B)/P(A)"],
+     example:{problem:"Bag: 5 red, 3 blue. Draw 2 without replacement. P(both red)?",steps:["P(1st red) = 5/8","P(2nd red | 1st) = 4/7","P(both) = 20/56 = 5/14"]}
+    },
+    {title:"Binomial Theorem",
+     content:`The expansion of (a+b)ⁿ uses binomial coefficients. General term: C(n,k) · a^(n−k) · bᵏ for k=0 to n.`,
+     formulas:["(a+b)² = a² + 2ab + b²","(a+b)³ = a³ + 3a²b + 3ab² + b³","General term: C(n,k) · a^(n−k) · bᵏ"],
+     example:{problem:"Expand (x+2)⁴",steps:["Coefficients: 1, 4, 6, 4, 1","x⁴ + 4x³(2) + 6x²(4) + 4x(8) + 16","= x⁴ + 8x³ + 24x² + 32x + 16"]}
+    }
+  ],
+  practice:[
+    {difficulty:"easy",question:"C(6,2) = ?",options:["15","30","12","36"],correct:0,explanation:"6!/(2!·4!) = 15."},
+    {difficulty:"easy",question:"P(4,4) = ?",options:["24","4","1","16"],correct:0,explanation:"4! = 24."},
+    {difficulty:"easy",question:"Coin flip: P(heads and heads) on two flips?",options:["1/4","1/2","1/8","3/4"],correct:0,explanation:"(1/2)(1/2) = 1/4."},
+    {difficulty:"medium",question:"How many 3-letter codes from 26 letters, no repeats?",options:["15,600","17,576","650","78"],correct:0,explanation:"P(26,3) = 26·25·24 = 15,600."},
+    {difficulty:"medium",question:"Committee of 3 from 8 people. How many?",options:["56","336","24","512"],correct:0,explanation:"C(8,3)=56."},
+    {difficulty:"medium",question:"P(A)=0.4, P(B)=0.3, independent. P(A and B)?",options:["0.12","0.70","0.10","0.58"],correct:0,explanation:"0.4×0.3=0.12."},
+    {difficulty:"hard",question:"Find the coefficient of x³ in (x+3)⁵",options:["90","270","30","810"],correct:0,explanation:"C(5,2)·x³·3² = 10·9 = 90."},
+    {difficulty:"hard",question:"5 cards drawn from 52. P(all hearts)?",options:["C(13,5)/C(52,5)","13⁵/52⁵","5/52","1/4⁵"],correct:0,explanation:"C(13,5) ways / C(52,5) total."},
+    {difficulty:"hard",question:"P(A)=0.6, P(B|A)=0.5. Find P(A and B).",options:["0.30","0.55","1.10","0.83"],correct:0,explanation:"P(A∩B) = P(A)·P(B|A) = 0.6·0.5 = 0.30."}
+  ],
+  quiz:[
+    {question:"C(10,0) = ?",options:["1","0","10","undefined"],correct:0,explanation:"C(n,0)=1 always."},
+    {question:"5 books on a shelf. How many arrangements?",options:["120","25","5","60"],correct:0,explanation:"5! = 120."},
+    {question:"Row 4 of Pascal's Triangle (starting row 0)?",options:["1, 4, 6, 4, 1","1, 3, 3, 1","1, 5, 10, 10, 5, 1","4, 4, 4, 4"],correct:0,explanation:"Row 4: 1,4,6,4,1."},
+    {question:"P(at least one head in 3 flips)?",options:["7/8","3/4","1/2","1/8"],correct:0,explanation:"1 − P(all tails) = 1 − 1/8 = 7/8."},
+    {question:"In (2x−1)³, the constant term is:",options:["−1","1","−8","8"],correct:0,explanation:"k=3: C(3,3)·(2x)⁰·(−1)³ = −1."}
+  ]
+},
+{
+  id:11, title:"Introduction to Matrices",
+  objectives:"Perform matrix operations (add, subtract, scalar multiply, matrix multiply). Find determinants of 2×2 matrices. Use matrices to solve systems.",
+  deeperLinks:[
+    {label:"Matrices (Glossary)",url:"glossary/matrices.html"}
+  ],
+  prereqs:[
+    {id:22,text:"Systems of linear equations: solving 2×2 and 3×3 systems. Matrices provide an efficient alternative method. (This course Unit 2, Algebra I Unit 6)"},
+    {id:23,text:"Arithmetic with signed numbers: matrix operations require careful handling of negatives."}
+  ],
+  lessons:[
+    {title:"Matrix Operations",
+     content:`A <b>matrix</b> is a rectangular array of numbers. Dimensions are rows × columns.<sup style='color:#4a6e8a'>²²</sup> Add/subtract matrices of the <b>same dimensions</b> entry by entry. Scalar multiplication multiplies every entry.`,
+     formulas:["[a b; c d] + [e f; g h] = [a+e b+f; c+g d+h]","k·[a b; c d] = [ka kb; kc kd]"],
+     example:{problem:"Add: [1 2; 3 4] + [5 0; −1 2]",steps:["[1+5  2+0; 3+(−1)  4+2]","= [6  2; 2  6]"]}
+    },
+    {title:"Matrix Multiplication",
+     content:`To multiply A(m×n) by B(n×p), each entry of the result is the <b>dot product</b> of a row from A and a column from B. Order matters: AB ≠ BA generally.`,
+     formulas:["[a b; c d]·[e f; g h] = [ae+bg  af+bh; ce+dg  cf+dh]"],
+     example:{problem:"Multiply: [2 1; 0 3]·[4 −1; 2 5]",steps:["Row1·Col1: 8+2=10. Row1·Col2: −2+5=3","Row2·Col1: 0+6=6. Row2·Col2: 0+15=15","Result: [10 3; 6 15]"]}
+    },
+    {title:"Determinants & Solving Systems",
+     content:`For a 2×2 matrix [a b; c d], the <b>determinant</b> = ad − bc. If det ≠ 0, the matrix is invertible and the system has a unique solution. <b>Cramer's Rule</b> uses determinants to solve systems.`,
+     formulas:["det([a b; c d]) = ad − bc","[a b; c d]⁻¹ = (1/det)·[d −b; −c a]"],
+     example:{problem:"Solve using matrices: 2x + y = 5, 3x − y = 5",steps:["det = 2(−1)−1(3) = −5","x = det([5 1; 5 −1])/(−5) = −10/(−5) = 2","y = det([2 5; 3 5])/(−5) = −5/(−5) = 1"]}
+    }
+  ],
+  practice:[
+    {difficulty:"easy",question:"Dimensions of a matrix with 3 rows and 2 columns?",options:["3×2","2×3","6","3+2"],correct:0,explanation:"Rows × columns = 3×2."},
+    {difficulty:"easy",question:"3·[1 −2; 4 0] = ?",options:["[3 −6; 12 0]","[3 −2; 4 0]","[4 1; 7 3]","[1 −6; 12 0]"],correct:0,explanation:"Multiply each entry by 3."},
+    {difficulty:"easy",question:"Can you add a 2×3 matrix and a 3×2 matrix?",options:["No","Yes","Only if transposed","Sometimes"],correct:0,explanation:"Dimensions must match for addition."},
+    {difficulty:"medium",question:"det([4 3; 2 1]) = ?",options:["−2","10","2","−10"],correct:0,explanation:"4(1)−3(2) = −2."},
+    {difficulty:"medium",question:"[1 2]·[3; 4] = ?",options:["[11]","[3 8]","[7]","Cannot multiply"],correct:0,explanation:"1(3)+2(4)=11. Result: [11]."},
+    {difficulty:"medium",question:"If det = 0, the system has:",options:["No unique solution","Exactly one solution","Always infinite solutions","Exactly two solutions"],correct:0,explanation:"det=0 → no unique solution."},
+    {difficulty:"hard",question:"[2 0; 1 3]·[1 4; 2 −1] = ?",options:["[2 8; 7 1]","[2 0; 5 1]","[4 8; 7 1]","[2 8; 1 −3]"],correct:0,explanation:"Row1·Col1=2. Row1·Col2=8. Row2·Col1=1+6=7. Row2·Col2=4−3=1. [2 8; 7 1]."},
+    {difficulty:"hard",question:"Find inverse of [2 1; 5 3].",options:["[3 −1; −5 2]","[2 −1; −5 3]","[3 1; 5 2]","No inverse"],correct:0,explanation:"det=6−5=1. Inverse = [3 −1; −5 2]."},
+    {difficulty:"hard",question:"Use Cramer's: x+2y=8, 3x+y=9. Find x.",options:["2","3","10/5","−2"],correct:0,explanation:"D=1−6=−5. Dx=8−18=−10. x=−10/−5=2."}
+  ],
+  quiz:[
+    {question:"[1 0; 0 1]·[a b; c d] = ?",options:["[a b; c d]","[1 0; 0 1]","[a+1 b; c d+1]","[0 0; 0 0]"],correct:0,explanation:"The identity matrix times any matrix returns that matrix."},
+    {question:"det([5 2; 10 4]) = ?",options:["0","10","20","−10"],correct:0,explanation:"5(4)−2(10)=0."},
+    {question:"To multiply A(2×3) by B, B must have how many rows?",options:["3","2","Any","6"],correct:0,explanation:"Columns of A must equal rows of B: 3 rows."},
+    {question:"AB ≠ BA in general means matrix multiplication is:",options:["Not commutative","Not associative","Commutative","Distributive only"],correct:0,explanation:"AB ≠ BA → not commutative."},
+    {question:"Solve [3 1; 1 2]·[x;y]=[5;5]. Find y.",options:["2","1","3","5"],correct:0,explanation:"det=5. Dy=det([3 5;1 5])=10. y=10/5=2."}
+  ]
+},
+{
+  id:12, title:"Introduction to Trigonometry",
+  objectives:"Define sine, cosine, tangent using the unit circle and right triangles. Convert between degrees and radians. Graph basic trig functions.",
+  deeperLinks:[
+    {label:"Unit Circle",url:"math/unit-circle/walkthrough.html"},
+    {label:"Parent Functions",url:"math/parent-functions/walkthrough.html"},
+    {label:"Pythagorean Theorem",url:"math/pythagorean-theorem/walkthrough.html"}
+  ],
+  prereqs:[
+    {id:24,text:"Right triangle basics: identifying legs and hypotenuse, the Pythagorean Theorem a²+b²=c². (Geometry)"},
+    {id:25,text:"Coordinate plane and unit circle: the circle x²+y²=1. (This course Unit 9)"}
+  ],
+  lessons:[
+    {title:"Right Triangle Trigonometry",
+     content:`SOH-CAH-TOA:<sup style='color:#4a6e8a'>²⁴</sup> sin(θ) = opposite/hypotenuse, cos(θ) = adjacent/hypotenuse, tan(θ) = opposite/adjacent.`,
+     formulas:["sin θ = opp/hyp","cos θ = adj/hyp","tan θ = opp/adj = sin θ / cos θ"],
+     example:{problem:"Right triangle: legs 3, 4; hypotenuse 5. Find sin, cos, tan of angle opposite side 3.",steps:["sin θ = 3/5 = 0.6","cos θ = 4/5 = 0.8","tan θ = 3/4 = 0.75"]}
+    },
+    {title:"The Unit Circle & Radians",
+     content:`The <b>unit circle</b> has radius 1.<sup style='color:#4a6e8a'>²⁵</sup> A point (x,y) on it satisfies: cos θ = x, sin θ = y. Radians: 180° = π radians.`,
+     formulas:["360° = 2π, 180° = π, 90° = π/2","sin(π/6) = 1/2, cos(π/6) = √3/2","sin(π/4) = cos(π/4) = √2/2"],
+     example:{problem:"Convert 135° to radians. Find sin(135°).",steps:["135° × (π/180) = 3π/4","sin(135°) = sin(45°) = √2/2 (Q2, sin positive)"]}
+    },
+    {title:"Graphing Sine & Cosine",
+     content:`y = A·sin(Bx − C) + D. <b>Amplitude</b> = |A|. <b>Period</b> = 2π/|B|. <b>Phase shift</b> = C/B. <b>Vertical shift</b> = D.`,
+     formulas:["y = sin(x): amplitude 1, period 2π","y = 3sin(2x): amplitude 3, period π"],
+     example:{problem:"Find amplitude, period: y = −2cos(πx) + 1",steps:["Amplitude = |−2| = 2","Period = 2π/π = 2","Vertical shift: up 1","Reflected (negative A)"]}
+    }
+  ],
+  practice:[
+    {difficulty:"easy",question:"sin(30°) = ?",options:["1/2","√3/2","√2/2","1"],correct:0,explanation:"sin(30°) = sin(π/6) = 1/2."},
+    {difficulty:"easy",question:"Convert 90° to radians.",options:["π/2","π","2π","π/4"],correct:0,explanation:"90 × π/180 = π/2."},
+    {difficulty:"easy",question:"In SOH-CAH-TOA, cos uses which sides?",options:["Adjacent/Hypotenuse","Opposite/Hypotenuse","Opposite/Adjacent","Hypotenuse/Adjacent"],correct:0,explanation:"CAH: cos = Adjacent / Hypotenuse."},
+    {difficulty:"medium",question:"cos(π/3) = ?",options:["1/2","√3/2","√2/2","0"],correct:0,explanation:"cos(60°) = 1/2."},
+    {difficulty:"medium",question:"Period of y = sin(3x)?",options:["2π/3","6π","3","π/3"],correct:0,explanation:"Period = 2π/B = 2π/3."},
+    {difficulty:"medium",question:"tan(45°) = ?",options:["1","0","√2","undefined"],correct:0,explanation:"sin(45°)/cos(45°) = 1."},
+    {difficulty:"hard",question:"sin(5π/6) = ?",options:["1/2","−1/2","√3/2","−√3/2"],correct:0,explanation:"5π/6 is in Q2 (sin positive). Reference angle π/6. sin(π/6)=1/2."},
+    {difficulty:"hard",question:"Amplitude and period of y = −4sin(πx/2 − π) + 3?",options:["Amp=4, Period=4","Amp=4, Period=2","Amp=−4, Period=4","Amp=4, Period=π"],correct:0,explanation:"A=−4, |A|=4. B=π/2. Period=2π/(π/2)=4."},
+    {difficulty:"hard",question:"Find θ in [0°, 360°) if sin θ = −√3/2.",options:["240° and 300°","60° and 120°","150° and 210°","120° and 240°"],correct:0,explanation:"sin is −√3/2 in Q3 and Q4. θ=240° and 300°."}
+  ],
+  quiz:[
+    {question:"Convert 2π/3 radians to degrees.",options:["120°","60°","150°","135°"],correct:0,explanation:"(2π/3)·(180/π) = 120°."},
+    {question:"On the unit circle, the point at 0° is:",options:["(1, 0)","(0, 1)","(−1, 0)","(0, −1)"],correct:0,explanation:"cos(0)=1, sin(0)=0 → (1,0)."},
+    {question:"cos(π) = ?",options:["−1","1","0","undefined"],correct:0,explanation:"The point at π is (−1, 0). cos = −1."},
+    {question:"If sin θ = 3/5 and θ is in Q1, find cos θ.",options:["4/5","3/4","5/3","−4/5"],correct:0,explanation:"sin²+cos²=1→cos²=16/25→cos=4/5 (positive in Q1)."},
+    {question:"Amplitude of y = 5cos(x)?",options:["5","1","10","5π"],correct:0,explanation:"|A| = 5."}
+  ]
+}
+];
+
+// =====================================================================
+// STATE
+// =====================================================================
+const STATE = {
+  currentUnit: 0,
+  currentTab: 'lesson',
+  answers: {},
+  quizSubmitted: {},
+  completedUnits: new Set()
+};
+
+// =====================================================================
+// PERSISTENCE
+// =====================================================================
+function loadProgress() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('algebraII-progress') || '{}');
+    if (saved.answers) STATE.answers = saved.answers;
+    if (saved.quizSubmitted) STATE.quizSubmitted = saved.quizSubmitted;
+    if (saved.completedUnits) STATE.completedUnits = new Set(saved.completedUnits);
+  } catch (e) { /* ignore */ }
+}
+
+function saveProgress() {
+  try {
+    localStorage.setItem('algebraII-progress', JSON.stringify({
+      answers: STATE.answers,
+      quizSubmitted: STATE.quizSubmitted,
+      completedUnits: Array.from(STATE.completedUnits)
+    }));
+  } catch (e) { /* ignore */ }
+}
+
+function updateOverallProgress() {
+  const count = STATE.completedUnits.size;
+  const pct = Math.round((count / ALGEBRA2_CURRICULUM.length) * 100);
+  document.getElementById('algCompletedUnits').textContent = count;
+  document.getElementById('algProgressPct').textContent = pct;
+  document.getElementById('algProgressBar').style.width = pct + '%';
+}
+
+// =====================================================================
+// RENDER
+// =====================================================================
+function render() {
+  const unit = ALGEBRA2_CURRICULUM[STATE.currentUnit];
+  const app = document.getElementById('algApp');
+
+  const navButtons = ALGEBRA2_CURRICULUM.map((u, i) => {
+    const isActive = i === STATE.currentUnit;
+    const isDone = STATE.completedUnits.has(i);
+    return `<button class="${isActive ? 'active' : ''} ${isDone ? 'completed' : ''}"
+      onclick="selectUnit(${i})">${isDone ? '✓ ' : ''}U${u.id}</button>`;
+  }).join('');
+
+  app.innerHTML = `
+    <div class="alg-unit-nav">${navButtons}</div>
+    <div class="alg-unit-header">
+      <div class="alg-unit-number">Unit ${unit.id} of ${ALGEBRA2_CURRICULUM.length}</div>
+      <div class="alg-unit-title">${unit.title}</div>
+      <div class="alg-unit-objectives">${unit.objectives}</div>
+    </div>
+    ${renderDeeperLinks(unit)}
+    <div class="alg-tabs">
+      <button class="alg-tab-btn ${STATE.currentTab === 'lesson' ? 'active' : ''}" onclick="setTab('lesson')">Lessons</button>
+      <button class="alg-tab-btn ${STATE.currentTab === 'practice' ? 'active' : ''}" onclick="setTab('practice')">Practice</button>
+      <button class="alg-tab-btn ${STATE.currentTab === 'quiz' ? 'active' : ''}" onclick="setTab('quiz')">Unit Quiz</button>
+    </div>
+    <div>
+      ${STATE.currentTab === 'lesson' ? renderLessons(unit) : ''}
+      ${STATE.currentTab === 'practice' ? renderPractice(unit) : ''}
+      ${STATE.currentTab === 'quiz' ? renderQuiz(unit) : ''}
+    </div>
+    ${renderFootnotes(unit)}
+  `;
+  updateOverallProgress();
+}
+
+function renderDeeperLinks(unit) {
+  if (!unit.deeperLinks || unit.deeperLinks.length === 0) return '';
+  return `<div class="alg-deeper">
+    <div class="deeper-lbl">Go Deeper →</div>
+    ${unit.deeperLinks.map(l => `<a href="${l.url}">${l.label}</a>`).join('')}
+  </div>`;
+}
+
+function renderLessons(unit) {
+  const lessons = unit.lessons.map(lesson => `
+    <div class="alg-lesson-section">
+      <h3>${lesson.title}</h3>
+      <p>${lesson.content}</p>
+      ${lesson.formulas.map(f => `<div class="alg-formula">${f}</div>`).join('')}
+      ${lesson.example ? `
+        <div class="alg-example">
+          <div class="ex-label">Worked Example</div>
+          <p><strong>${lesson.example.problem}</strong></p>
+          ${lesson.example.steps.map(s => `<p class="ex-step">→ ${s}</p>`).join('')}
+        </div>` : ''}
+    </div>`).join('');
+
+  const prereq = unit.prereqs && unit.prereqs.length > 0 ? `
+    <div class="alg-prereq">
+      <div class="pre-label">Prerequisite Knowledge</div>
+      ${unit.prereqs.map(p => `<p><strong>[${p.id}]</strong> ${p.text}</p>`).join('')}
+    </div>` : '';
+
+  return lessons + prereq;
+}
+
+function renderPractice(unit) {
+  return ['easy', 'medium', 'hard'].map(diff => {
+    const qs = unit.practice.filter(q => q.difficulty === diff);
+    if (qs.length === 0) return '';
+    return `
+      <div style="margin-bottom:6px;"><span class="alg-diff alg-diff-${diff}">${diff}</span></div>
+      ${qs.map(q => {
+        const idx = unit.practice.indexOf(q);
+        return renderQuestion(q, `${STATE.currentUnit}-p-${idx}`, false);
+      }).join('')}`;
+  }).join('');
+}
+
+function renderQuiz(unit) {
+  const key = `${STATE.currentUnit}-qz`;
+  const submitted = STATE.quizSubmitted[key];
+  let score = 0;
+  if (submitted) {
+    unit.quiz.forEach((q, i) => {
+      if (STATE.answers[`${STATE.currentUnit}-q-${i}`] === q.correct) score++;
+    });
+  }
+  return `
+    <div class="alg-quiz-header">
+      <h3 style="font-size:1.2rem;font-weight:700;">Unit ${unit.id} Quiz</h3>
+      <div class="alg-quiz-score">${submitted ? `${score} / ${unit.quiz.length}` : `${unit.quiz.length} questions`}</div>
+    </div>
+    ${unit.quiz.map((q, i) => renderQuestion(q, `${STATE.currentUnit}-q-${i}`, submitted)).join('')}
+    ${!submitted ? `<button class="alg-btn alg-btn-solid" onclick="submitQuiz()">Submit Quiz</button>` : ''}
+    ${submitted ? `
+      <div class="alg-quiz-result">
+        <div class="score-big">${Math.round((score / unit.quiz.length) * 100)}%</div>
+        <div class="score-lbl">${score} of ${unit.quiz.length} correct</div>
+        <button class="alg-btn" onclick="retakeQuiz()">Retake Quiz</button>
+      </div>` : ''}`;
+}
+
+function renderQuestion(q, key, forceShow) {
+  const selected = STATE.answers[key];
+  const isQuizUnsubmitted = key.includes('-q-') && !STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  const answered = selected !== undefined;
+  const showFeedback = (answered && !isQuizUnsubmitted) || forceShow;
+  const isCorrect = selected === q.correct;
+
+  return `
+    <div class="alg-q-card ${showFeedback ? (isCorrect ? 'correct' : 'incorrect') : ''}">
+      <div class="alg-q-text">${q.question}</div>
+      <div class="alg-options">
+        ${q.options.map((opt, i) => {
+          let cls = 'alg-opt-btn';
+          if (showFeedback) {
+            cls += ' disabled';
+            if (i === selected && isCorrect) cls += ' sel-correct';
+            else if (i === selected && !isCorrect) cls += ' sel-incorrect';
+            if (i === q.correct && !isCorrect) cls += ' show-correct';
+          } else if (isQuizUnsubmitted && i === selected) {
+            cls += ' quiz-sel';
+          } else if (answered && !isQuizUnsubmitted) {
+            cls += ' disabled';
+          }
+          return `<button class="${cls}" onclick="answerQ('${key}', ${i})"
+            ${(showFeedback || (answered && !isQuizUnsubmitted)) ? 'disabled' : ''}>${opt}</button>`;
+        }).join('')}
+      </div>
+      ${showFeedback ? `<div class="alg-explanation">${q.explanation}</div>` : ''}
+    </div>`;
+}
+
+function renderFootnotes(unit) {
+  if (!unit.prereqs || unit.prereqs.length === 0) return '';
+  return `
+    <div class="alg-footnotes">
+      <h4>Prerequisite Footnotes</h4>
+      ${unit.prereqs.map(p => `
+        <div class="alg-fn-item"><span class="alg-fn-num">[${p.id}]</span> ${p.text}</div>
+      `).join('')}
+    </div>`;
+}
+
+// =====================================================================
+// EVENT HANDLERS
+// =====================================================================
+function selectUnit(i) {
+  STATE.currentUnit = i;
+  STATE.currentTab = 'lesson';
+  render();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function setTab(tab) {
+  STATE.currentTab = tab;
+  render();
+}
+
+function answerQ(key, option) {
+  const isQuizUnsubmitted = key.includes('-q-') && !STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  if (!isQuizUnsubmitted && STATE.answers[key] !== undefined) return;
+  STATE.answers[key] = option;
+  saveProgress();
+  render();
+}
+
+function submitQuiz() {
+  const unit = ALGEBRA2_CURRICULUM[STATE.currentUnit];
+  const allAnswered = unit.quiz.every((_, i) =>
+    STATE.answers[`${STATE.currentUnit}-q-${i}`] !== undefined
+  );
+  if (!allAnswered) {
+    alert('Please answer all questions before submitting.');
+    return;
+  }
+  STATE.quizSubmitted[`${STATE.currentUnit}-qz`] = true;
+  let score = 0;
+  unit.quiz.forEach((q, i) => {
+    if (STATE.answers[`${STATE.currentUnit}-q-${i}`] === q.correct) score++;
+  });
+  if (score / unit.quiz.length >= 0.6) {
+    STATE.completedUnits.add(STATE.currentUnit);
+  }
+  saveProgress();
+  render();
+}
+
+function retakeQuiz() {
+  const unit = ALGEBRA2_CURRICULUM[STATE.currentUnit];
+  unit.quiz.forEach((_, i) => {
+    delete STATE.answers[`${STATE.currentUnit}-q-${i}`];
+  });
+  delete STATE.quizSubmitted[`${STATE.currentUnit}-qz`];
+  STATE.completedUnits.delete(STATE.currentUnit);
+  saveProgress();
+  render();
+}
+
+// =====================================================================
+// INIT
+// =====================================================================
+const savedTheme = localStorage.getItem('mathbored-theme');
+if (savedTheme) document.body.className = savedTheme;
+
+loadProgress();
+render();
+</script>
+</body>
+</html>
