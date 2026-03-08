@@ -6,294 +6,147 @@
     <title>Percentages - Essential Math Primer | MathBored</title>
     <meta name="description" content="Percent concept, conversions, calculations">
     <meta name="keywords" content="math, education, learning, Middle School Bridge, percent, conversions, calculations, K-12, free">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://math.boredgames.site/primer/M17.html">
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://math.boredgames.site/primer/M17.html">
     <meta property="og:title" content="Percentages - Essential Math Primer | MathBored">
     <meta property="og:description" content="Percent concept, conversions, calculations">
     <meta property="og:image" content="https://math.boredgames.site/og-image.png">
     <meta property="og:site_name" content="MathBored">
-    
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://math.boredgames.site/primer/M17.html">
     <meta property="twitter:title" content="Percentages - Essential Math Primer | MathBored">
     <meta property="twitter:description" content="Percent concept, conversions, calculations">
     <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
-    
-    <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Percentages",
         "description": "Percent concept, conversions, calculations",
-        "provider": {
-            "@type": "Organization",
-            "name": "MathBored",
-            "url": "https://math.boredgames.site"
-        },
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
         "educationalLevel": "6-8",
         "learningResourceType": "Lesson",
         "timeRequired": "PT15M",
         "inLanguage": "en",
-        "isPartOf": {
-            "@type": "Course",
-            "name": "Essential Math Primer",
-            "url": "https://math.boredgames.site/primer.html"
-        },
-        "hasCourseInstance": {
-            "@type": "CourseInstance",
-            "courseMode": "online",
-            "courseWorkload": "PT15M"
-        },
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
         "teaches": ["percent","conversions","calculations"]
     }
     </script>
-    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
+
         .lesson-header {
-            background: 
-                radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
                 linear-gradient(135deg, var(--accent), var(--accent-hover));
-            color: white;
-            padding: 40px 24px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
         }
-
         .lesson-header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-            pointer-events: none;
+            opacity: 0.3; pointer-events: none;
         }
-
-        .lesson-header > * {
-            position: relative;
-            z-index: 1;
-        }
-
+        .lesson-header > * { position: relative; z-index: 1; }
         .lesson-id-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 9px 20px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            margin-bottom: 18px;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 700;
-            letter-spacing: 0.02em;
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
         }
-
         .lesson-content {
-            background: var(--bg-secondary);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            line-height: 1.75;
-            font-size: 1.05rem;
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
         }
-        
-        .lesson-content h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            color: var(--text);
-            letter-spacing: -0.01em;
-        }
-        
-        .lesson-content h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin-top: 28px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        
-        .lesson-content h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 1.5;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-        
-        .lesson-content p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 18px;
-            color: var(--text);
-        }
-        
-        .lesson-content ul, .lesson-content ol {
-            line-height: 1.9;
-            margin-bottom: 20px;
-            padding-left: 28px;
-        }
-        
-        .lesson-content li {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .lesson-nav {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
         .nav-btn {
-            padding: 16px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
         }
-
-        .nav-btn.prev {
-            background: var(--bg-tertiary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn.next {
-            background: var(--accent);
-            color: white;
-            border: 2px solid var(--accent);
-        }
-
-        .nav-btn.overview {
-            background: var(--bg-secondary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn:hover:not(.disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .nav-btn.prev:hover:not(.disabled) {
-            border-color: var(--accent);
-        }
-
-        .nav-btn.next:hover:not(.disabled) {
-            background: var(--accent-hover);
-        }
-
-        .nav-btn.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .key-concepts {
-            background: var(--bg-tertiary);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border-left: 4px solid var(--accent);
-        }
-
-        .key-concepts h3 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.3rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 16px;
-        }
-
-        .key-concepts ul {
-            margin: 15px 0 0 0;
-            padding-left: 28px;
-            line-height: 1.9;
-        }
-        
-        .key-concepts li {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 8px;
-        }
-
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
         .complete-btn {
-            background: var(--success);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 10px;
-            border: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 30px 0;
-            line-height: 1.5;
-            letter-spacing: -0.01em;
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
         }
-
-        .complete-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        .complete-btn.completed {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            cursor: default;
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        @media (max-width: 768px) {
-            .lesson-nav {
-                grid-template-columns: 1fr;
-            }
-
-            .lesson-content {
-                padding: 28px;
-                font-size: 1rem;
-            }
-            
-            .lesson-content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .lesson-content h3 {
-                font-size: 1.25rem;
-            }
-            
-            .lesson-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            .lesson-content p {
-                font-size: 1rem;
-            }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
         }
     </style>
 </head>
@@ -302,7 +155,7 @@
         <div class="container">
             <div class="header-content">
                 <div>
-                    <h1>🎯 MathBored</h1>
+                    <h1>MathBored</h1>
                     <div class="tagline">Essential Math Primer</div>
                 </div>
             </div>
@@ -310,141 +163,167 @@
     </header>
 
     <div class="container">
-        <a href="/primer.html" class="back-link">← Back to Primer Overview</a>
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
 
         <div class="lesson-header">
-            <span class="lesson-id-badge">M17 • Lesson 17 of 75</span>
-            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Percentages</h1>
-            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Percent concept, conversions, calculations</p>
-            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">Middle School Bridge • 6-8</p>
+            <span class="lesson-id-badge">M17 &bull; Lesson 31 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Percentages</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Percent concept, conversions, calculations</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">Middle School Bridge &bull; 6-8</p>
         </div>
-
-        
 
         <div class="lesson-content">
-            
-            <div style="background: var(--bg-tertiary); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                <strong>📋 Prerequisites:</strong> 
-                <span style="color: var(--accent); font-weight: 500;">M16</span>
-            </div>
-        
-            
-            <div class="key-concepts">
-                <h3>🎯 Key Concepts</h3>
-                <ul><li>percent</li><li>conversions</li><li>calculations</li></ul>
-            </div>
+            <div class="prereq-bar"><strong>Prerequisites:</strong> <a href="M16.html" class="prereq-link">M16</a></div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>percent</li><li>conversions</li><li>calculations</li></ul></div>
 
-            
-        <div style="margin-top: 30px;">
-            <h2>📖 Lesson Overview</h2>
-            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
-                This 15-minute lesson provides a focused introduction to percentages. 
-                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
-            </p>
 
-            <h3>What You'll Learn</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                Percent concept, conversions, calculations
-            </p>
+<h2>Percentages</h2>
+<p>When a store advertises "30% off," you instantly know you are saving a meaningful chunk of the price. When a weather forecast says "80% chance of rain," you grab an umbrella. Percentages are everywhere in daily life because they provide a universal way to express parts of a whole using 100 as the base.</p>
 
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
-                <ul style="line-height: 2;">
-                    <li>Understand the fundamental concepts of percentages</li>
-                    <li>Apply these concepts to solve basic problems</li>
-                    <li>Connect this topic to other areas of mathematics</li>
-                    <li>Build confidence for more advanced topics</li>
-                </ul>
-            </div>
+<h3>What Is a Percent?</h3>
+<p>The word <em>percent</em> comes from the Latin <em>per centum</em>, meaning "per hundred." A percentage is simply a fraction with a denominator of 100.</p>
 
-            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
-                <p style="color: var(--text-secondary); font-style: italic;">
-                    Detailed lesson content is currently being developed. This will include:
-                </p>
-                <ul style="color: var(--text-secondary); line-height: 2;">
-                    <li>Clear explanations with visual aids</li>
-                    <li>Step-by-step worked examples</li>
-                    <li>Practice problems with solutions</li>
-                    <li>Real-world applications</li>
-                    <li>Common misconceptions and tips</li>
-                </ul>
-            </div>
+<div class="math-display">
+  45% = <sup>45</sup>&frasl;<sub>100</sub> = 0.45
+</div>
 
-            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
-                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
-                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
-            </div>
-        </div>
-    
+<h3>Converting Between Forms</h3>
+<table class="vocab-table">
+  <tr><th>Conversion</th><th>Method</th><th>Example</th></tr>
+  <tr><td>Percent to Decimal</td><td>Divide by 100 (move decimal 2 left)</td><td>75% = 0.75</td></tr>
+  <tr><td>Decimal to Percent</td><td>Multiply by 100 (move decimal 2 right)</td><td>0.4 = 40%</td></tr>
+  <tr><td>Percent to Fraction</td><td>Write over 100, simplify</td><td>60% = <sup>60</sup>&frasl;<sub>100</sub> = <sup>3</sup>&frasl;<sub>5</sub></td></tr>
+  <tr><td>Fraction to Percent</td><td>Divide, then multiply by 100</td><td><sup>3</sup>&frasl;<sub>8</sub> = 0.375 = 37.5%</td></tr>
+</table>
 
-            
-            <div style="text-align: center; margin-top: 40px;">
+<div class="example-box">
+  <h4>Example 1 -- Finding a Percent of a Number</h4>
+  <p>What is 20% of 85?</p>
+  <ol class="step-list">
+    <li>Convert 20% to a decimal: 0.20.</li>
+    <li>Multiply: 0.20 &times; 85 = 17.</li>
+  </ol>
+  <p>20% of 85 is 17.</p>
+</div>
+
+<div class="example-box">
+  <h4>Example 2 -- Finding the Percent</h4>
+  <p>You scored 18 out of 24 on a quiz. What percent is that?</p>
+  <ol class="step-list">
+    <li>Divide: 18 &divide; 24 = 0.75.</li>
+    <li>Convert to percent: 0.75 &times; 100 = 75%.</li>
+  </ol>
+  <p>You scored 75%.</p>
+</div>
+
+<div class="example-box">
+  <h4>Example 3 -- Finding the Whole</h4>
+  <p>15% of what number is 36?</p>
+  <ol class="step-list">
+    <li>Set up the equation: 0.15 &times; n = 36.</li>
+    <li>Divide both sides by 0.15: n = 36 &divide; 0.15 = 240.</li>
+  </ol>
+  <p>The number is 240.</p>
+</div>
+
+<div class="tip-box">
+  <h4>The Three Percent Problems</h4>
+  <p>Every percent question is one of three types: (1) find the <strong>part</strong> (percent &times; whole), (2) find the <strong>percent</strong> (part &divide; whole &times; 100), or (3) find the <strong>whole</strong> (part &divide; percent as decimal). Identify which piece is missing and use the appropriate formula.</p>
+</div>
+
+<div class="warning-box">
+  <h4>Common Mistake</h4>
+  <p>Do not confuse moving the decimal point left versus right. To go from percent to decimal, move the decimal <em>left</em> two places (making the number smaller). To go from decimal to percent, move it <em>right</em> two places (making the number larger). A quick sanity check: 50% should equal 0.5, not 5.0.</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>1.</strong> Convert 0.08 to a percent.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>0.08 &times; 100 = 8%.</p>
+  </details>
+
+  <p><strong>2.</strong> What is 35% of 200?</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>0.35 &times; 200 = 70.</p>
+  </details>
+
+  <p><strong>3.</strong> Express <sup>5</sup>&frasl;<sub>8</sub> as a percent.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>5 &divide; 8 = 0.625. 0.625 &times; 100 = 62.5%.</p>
+  </details>
+
+  <p><strong>4.</strong> A shirt originally costs $40. It is on sale for 25% off. What is the sale price?</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Discount = 0.25 &times; 40 = $10. Sale price = 40 &minus; 10 = $30.</p>
+  </details>
+
+  <p><strong>5.</strong> 12 is 60% of what number?</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>n = 12 &divide; 0.60 = 20.</p>
+  </details>
+</div>
+
+<h3>Lesson Summary</h3>
+<p>A percent is a ratio out of 100. Convert between percents, decimals, and fractions by multiplying or dividing by 100. The three core percent calculations are finding the part, finding the percent, and finding the whole. Use the formula: Part = Percent (as decimal) &times; Whole, and rearrange as needed.</p>
+
+
+            <div style="text-align:center;margin-top:40px;">
                 <button id="completeBtn" class="complete-btn" onclick="markComplete()">
-                    <span>✓</span> Mark Lesson as Complete
+                    <span>&#10003;</span> Mark Lesson as Complete
                 </button>
             </div>
-            
         </div>
 
         <div class="lesson-nav">
-            <a href="M16.html" class="nav-btn prev">← Decimals & Place Value</a>
-            <a href="/primer.html" class="nav-btn overview">📚 Overview</a>
-            <a href="M18.html" class="nav-btn next">Ratios & Proportional Reasoning →</a>
+            <a href="M16.html" class="nav-btn prev">&larr; Decimals &amp; Place Value</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="M18.html" class="nav-btn next">Ratios &amp; Proportional Reasoning &rarr;</a>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
         </div>
     </footer>
 
     <script>
-        // Load theme
         const savedTheme = localStorage.getItem('mathbored-theme');
-        if (savedTheme) {
-            document.body.className = savedTheme;
-        }
+        if (savedTheme) document.body.className = savedTheme;
 
-        // Check if lesson is already completed
         function checkComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
             const btn = document.getElementById('completeBtn');
-            if (btn && completedLessons.includes('M17')) {
+            if (btn && done.includes('M17')) {
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
             }
         }
 
-        // Mark lesson as complete
         function markComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
-            if (!completedLessons.includes('M17')) {
-                completedLessons.push('M17');
-                localStorage.setItem('primer-completed', JSON.stringify(completedLessons));
-                
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('M17')) {
+                done.push('M17');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
                 const btn = document.getElementById('completeBtn');
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
-                
-                // Show success message
-                const successMsg = document.createElement('div');
-                successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; animation: slideIn 0.3s ease;';
-                successMsg.innerHTML = '✓ Lesson completed!';
-                document.body.appendChild(successMsg);
-                
-                setTimeout(() => {
-                    successMsg.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => successMsg.remove(), 300);
-                }, 2000);
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
             }
         }
-
-        // Initialize
         checkComplete();
     </script>
 </body>

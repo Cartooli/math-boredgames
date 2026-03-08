@@ -5,295 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Why Division by Zero is Undefined - Essential Math Primer | MathBored</title>
     <meta name="description" content="Understanding why dividing by zero breaks mathematics and what 'undefined' means">
-    <meta name="keywords" content="math, education, learning, Reserve & Extensions, division by zero, undefined, mathematical reasoning, limits, K-12, free">
-    
-    <!-- Canonical URL -->
+    <meta name="keywords" content="math, education, learning, Reserve &amp; Extensions, division by zero, undefined, mathematical reasoning, limits, K-12, free">
     <link rel="canonical" href="https://math.boredgames.site/primer/R52.html">
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://math.boredgames.site/primer/R52.html">
     <meta property="og:title" content="Why Division by Zero is Undefined - Essential Math Primer | MathBored">
     <meta property="og:description" content="Understanding why dividing by zero breaks mathematics and what 'undefined' means">
     <meta property="og:image" content="https://math.boredgames.site/og-image.png">
     <meta property="og:site_name" content="MathBored">
-    
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://math.boredgames.site/primer/R52.html">
     <meta property="twitter:title" content="Why Division by Zero is Undefined - Essential Math Primer | MathBored">
     <meta property="twitter:description" content="Understanding why dividing by zero breaks mathematics and what 'undefined' means">
     <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
-    
-    <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Why Division by Zero is Undefined",
         "description": "Understanding why dividing by zero breaks mathematics and what 'undefined' means",
-        "provider": {
-            "@type": "Organization",
-            "name": "MathBored",
-            "url": "https://math.boredgames.site"
-        },
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
         "educationalLevel": "K-12",
         "learningResourceType": "Lesson",
         "timeRequired": "PT15M",
         "inLanguage": "en",
-        "isPartOf": {
-            "@type": "Course",
-            "name": "Essential Math Primer",
-            "url": "https://math.boredgames.site/primer.html"
-        },
-        "hasCourseInstance": {
-            "@type": "CourseInstance",
-            "courseMode": "online",
-            "courseWorkload": "PT15M"
-        },
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
         "teaches": ["division by zero","undefined","mathematical reasoning","limits"]
     }
     </script>
-    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
+
         .lesson-header {
-            background: 
-                radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
                 linear-gradient(135deg, var(--accent), var(--accent-hover));
-            color: white;
-            padding: 40px 24px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
         }
-
         .lesson-header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-            pointer-events: none;
+            opacity: 0.3; pointer-events: none;
         }
-
-        .lesson-header > * {
-            position: relative;
-            z-index: 1;
-        }
-
+        .lesson-header > * { position: relative; z-index: 1; }
         .lesson-id-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 9px 20px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            margin-bottom: 18px;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 700;
-            letter-spacing: 0.02em;
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
         }
-
         .lesson-content {
-            background: var(--bg-secondary);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            line-height: 1.75;
-            font-size: 1.05rem;
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
         }
-        
-        .lesson-content h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            color: var(--text);
-            letter-spacing: -0.01em;
-        }
-        
-        .lesson-content h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin-top: 28px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        
-        .lesson-content h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 1.5;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-        
-        .lesson-content p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 18px;
-            color: var(--text);
-        }
-        
-        .lesson-content ul, .lesson-content ol {
-            line-height: 1.9;
-            margin-bottom: 20px;
-            padding-left: 28px;
-        }
-        
-        .lesson-content li {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .lesson-nav {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
         .nav-btn {
-            padding: 16px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
         }
-
-        .nav-btn.prev {
-            background: var(--bg-tertiary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn.next {
-            background: var(--accent);
-            color: white;
-            border: 2px solid var(--accent);
-        }
-
-        .nav-btn.overview {
-            background: var(--bg-secondary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn:hover:not(.disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .nav-btn.prev:hover:not(.disabled) {
-            border-color: var(--accent);
-        }
-
-        .nav-btn.next:hover:not(.disabled) {
-            background: var(--accent-hover);
-        }
-
-        .nav-btn.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .key-concepts {
-            background: var(--bg-tertiary);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border-left: 4px solid var(--accent);
-        }
-
-        .key-concepts h3 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.3rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 16px;
-        }
-
-        .key-concepts ul {
-            margin: 15px 0 0 0;
-            padding-left: 28px;
-            line-height: 1.9;
-        }
-        
-        .key-concepts li {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 8px;
-        }
-
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
         .complete-btn {
-            background: var(--success);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 10px;
-            border: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 30px 0;
-            line-height: 1.5;
-            letter-spacing: -0.01em;
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
         }
-
-        .complete-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        .complete-btn.completed {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            cursor: default;
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        @media (max-width: 768px) {
-            .lesson-nav {
-                grid-template-columns: 1fr;
-            }
-
-            .lesson-content {
-                padding: 28px;
-                font-size: 1rem;
-            }
-            
-            .lesson-content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .lesson-content h3 {
-                font-size: 1.25rem;
-            }
-            
-            .lesson-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            .lesson-content p {
-                font-size: 1rem;
-            }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
         }
     </style>
 </head>
@@ -302,7 +155,7 @@
         <div class="container">
             <div class="header-content">
                 <div>
-                    <h1>🎯 MathBored</h1>
+                    <h1>MathBored</h1>
                     <div class="tagline">Essential Math Primer</div>
                 </div>
             </div>
@@ -310,106 +163,176 @@
     </header>
 
     <div class="container">
-        <a href="/primer.html" class="back-link">← Back to Primer Overview</a>
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
 
         <div class="lesson-header">
-            <span class="lesson-id-badge">R52 • Lesson 52 of 75</span>
-            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Why Division by Zero is Undefined</h1>
-            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Understanding why dividing by zero breaks mathematics and what 'undefined' means</p>
-            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">Reserve & Extensions • K-12</p>
+            <span class="lesson-id-badge">R52 &bull; Lesson 82 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Why Division by Zero is Undefined</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Understanding why dividing by zero breaks mathematics and what 'undefined' means</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">Reserve &amp; Extensions &bull; K-12</p>
         </div>
-
-        
-        <div style="background: var(--warning); color: white; padding: 20px; border-radius: 12px; margin-bottom: 30px; text-align: center;">
-            <strong>🔮 Reserve Slot</strong><br>
-            This lesson is part of the curriculum expansion plan and will be developed based on community needs and feedback.
-        </div>
-    
 
         <div class="lesson-content">
-            
-            <div style="background: var(--bg-tertiary); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                <strong>📋 Prerequisites:</strong> 
-                <span style="color: var(--accent); font-weight: 500;">E05</span>, <span style="color: var(--accent); font-weight: 500;">M21</span>
-            </div>
-        
-            
-            <div class="key-concepts">
-                <h3>🎯 Key Concepts</h3>
-                <ul><li>division by zero</li><li>undefined</li><li>mathematical reasoning</li><li>limits</li></ul>
-            </div>
+            <div class="prereq-bar"><strong>Prerequisites:</strong> <a href="E05.html" class="prereq-link">E05</a>, <a href="M21.html" class="prereq-link">M21</a></div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>division by zero</li><li>undefined</li><li>mathematical reasoning</li><li>limits</li></ul></div>
 
-            
-        <div style="text-align: center; padding: 60px 20px;">
-            <div style="font-size: 4rem; margin-bottom: 20px;">🚧</div>
-            <h2>Coming Soon</h2>
-            <p style="color: var(--text-secondary); max-width: 500px; margin: 20px auto;">
-                This reserve lesson slot will be filled with additional content as the curriculum expands. 
-                Topics may include advanced applications, common misconceptions, specialized content, or community-requested lessons.
-            </p>
-        </div>
-    
 
-            
+<h2>Why Division by Zero is Undefined</h2>
+<p>You have been told since elementary school: "You cannot divide by zero." But has anyone explained <em>why</em>? This lesson explores the deep mathematical reasons behind this rule, and why defining it would break the entire number system.</p>
+
+<h3>Division as the Reverse of Multiplication</h3>
+<p>Division and multiplication are inverse operations. When we write:</p>
+<div class="math-display">12 &divide; 3 = 4</div>
+<p>we are really asking: "What number times 3 equals 12?" The answer is 4, because 4 &times; 3 = 12.</p>
+<p>So when we write:</p>
+<div class="math-display">7 &divide; 0 = ?</div>
+<p>we are asking: "What number times 0 equals 7?" In other words, ? &times; 0 = 7.</p>
+<p>But any number times zero is zero. There is no number that, when multiplied by 0, gives 7. The question has <strong>no answer</strong>.</p>
+
+<div class="example-box">
+  <h4>Worked Example 1: Testing with Multiplication</h4>
+  <p>Suppose someone claims 10 &divide; 0 = 5. Let us check:</p>
+  <ol class="step-list">
+    <li>If 10 &divide; 0 = 5, then 5 &times; 0 should equal 10.</li>
+    <li>But 5 &times; 0 = 0, not 10.</li>
+    <li>Contradiction. So 10 &divide; 0 cannot be 5.</li>
+  </ol>
+  <p>Try any number in place of 5 -- the result is always 0, never 10. No value works.</p>
+</div>
+
+<h3>The Special Case: 0 &divide; 0</h3>
+<p>What about 0 &divide; 0? Now we ask: "What number times 0 equals 0?"</p>
+<p>The answer is: <strong>every number</strong>. Since any number times 0 is 0, there are infinitely many "answers." When a question has infinitely many answers, it does not have a meaningful single answer. Mathematicians call this <strong>indeterminate</strong>.</p>
+
+<div class="example-box">
+  <h4>Worked Example 2: The Indeterminate Case</h4>
+  <p>If 0 &divide; 0 = x, then x &times; 0 = 0.</p>
+  <ol class="step-list">
+    <li>x = 1? Check: 1 &times; 0 = 0. Works.</li>
+    <li>x = 42? Check: 42 &times; 0 = 0. Works.</li>
+    <li>x = -7? Check: -7 &times; 0 = 0. Works.</li>
+  </ol>
+  <p>Every number satisfies the equation, so no single answer can be chosen. This is why 0 &divide; 0 is called indeterminate.</p>
+</div>
+
+<h3>What Happens as the Divisor Approaches Zero?</h3>
+<p>Let us examine a sequence of divisions and see what happens as we divide by smaller and smaller numbers:</p>
+
+<table class="vocab-table">
+  <tr><th>Expression</th><th>Result</th></tr>
+  <tr><td>10 &divide; 1</td><td>10</td></tr>
+  <tr><td>10 &divide; 0.1</td><td>100</td></tr>
+  <tr><td>10 &divide; 0.01</td><td>1,000</td></tr>
+  <tr><td>10 &divide; 0.001</td><td>10,000</td></tr>
+  <tr><td>10 &divide; 0.0001</td><td>100,000</td></tr>
+</table>
+
+<p>As the divisor gets closer to zero, the result grows without bound -- it "blows up" toward infinity. But infinity is not a number, so we cannot assign a finite answer.</p>
+
+<div class="example-box">
+  <h4>Worked Example 3: Approaching from Both Sides</h4>
+  <p>Consider 1 &divide; x as x approaches 0:</p>
+  <ol class="step-list">
+    <li>From the positive side: 1 &divide; 0.1 = 10, 1 &divide; 0.01 = 100, ... heading toward +infinity.</li>
+    <li>From the negative side: 1 &divide; (-0.1) = -10, 1 &divide; (-0.01) = -100, ... heading toward -infinity.</li>
+    <li>The two sides disagree -- one goes to positive infinity, the other to negative infinity.</li>
+  </ol>
+  <p>Since the limit is different from each side, there is no single value to assign to 1 &divide; 0.</p>
+</div>
+
+<div class="warning-box">
+  <h4>Why Not Just Define It?</h4>
+  <p>If we decided 1 &divide; 0 = "infinity," we would break basic algebra. For instance: if a &divide; 0 = infinity for any a, then 1 &divide; 0 = 2 &divide; 0, which would imply 1 = 2. The entire number system collapses. Leaving division by zero undefined protects the consistency of mathematics.</p>
+</div>
+
+<div class="tip-box">
+  <h4>Calculators and Computers</h4>
+  <p>When you try dividing by zero on a calculator, you get an "Error" or "Undefined" message. Programming languages either throw an error (for integers) or return a special value like "NaN" (Not a Number) or "Infinity" (for floating-point numbers). These are not real answers -- they are signals that something went wrong.</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>1.</strong> Explain, using multiplication, why 15 &divide; 0 has no answer.</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>If 15 &divide; 0 = x, then x &times; 0 = 15. But any number times 0 equals 0, never 15. No such x exists.</p>
+  </details>
+
+  <p><strong>2.</strong> Why is 0 &divide; 0 different from 5 &divide; 0?</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>For 5 &divide; 0, no number times 0 equals 5 (no solution). For 0 &divide; 0, every number times 0 equals 0 (infinitely many solutions). One has no answer; the other has too many.</p>
+  </details>
+
+  <p><strong>3.</strong> Calculate: 10 &divide; 0.0001. What pattern do you notice as the divisor shrinks toward zero?</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>10 &divide; 0.0001 = 100,000. As the divisor approaches zero, the quotient grows without bound, suggesting it would "reach infinity" -- which is not a real number.</p>
+  </details>
+
+  <p><strong>4.</strong> If someone claims a &divide; 0 = 0 for all a, show why this leads to a contradiction when a = 6.</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>If 6 &divide; 0 = 0, then 0 &times; 0 should equal 6. But 0 &times; 0 = 0, not 6. Contradiction.</p>
+  </details>
+</div>
+
+<h3>Lesson Summary</h3>
+<ul>
+  <li>Division by zero is undefined because no number times zero yields a non-zero result.</li>
+  <li>0 &divide; 0 is indeterminate because every number times zero yields zero.</li>
+  <li>As a divisor approaches zero, the quotient grows without bound.</li>
+  <li>Defining division by zero would create contradictions that break arithmetic.</li>
+</ul>
+
+
+            <div style="text-align:center;margin-top:40px;">
+                <button id="completeBtn" class="complete-btn" onclick="markComplete()">
+                    <span>&#10003;</span> Mark Lesson as Complete
+                </button>
+            </div>
         </div>
 
         <div class="lesson-nav">
-            <a href="R51.html" class="nav-btn prev">← Percent Applications</a>
-            <a href="/primer.html" class="nav-btn overview">📚 Overview</a>
-            <a href="R53.html" class="nav-btn next">Why We 'Flip and Multiply' for Fraction Division →</a>
+            <a href="R51.html" class="nav-btn prev">&larr; Percent Applications</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="R53.html" class="nav-btn next">Why We 'Flip and Multiply' for Fraction Division &rarr;</a>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
         </div>
     </footer>
 
     <script>
-        // Load theme
         const savedTheme = localStorage.getItem('mathbored-theme');
-        if (savedTheme) {
-            document.body.className = savedTheme;
-        }
+        if (savedTheme) document.body.className = savedTheme;
 
-        // Check if lesson is already completed
         function checkComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
             const btn = document.getElementById('completeBtn');
-            if (btn && completedLessons.includes('R52')) {
+            if (btn && done.includes('R52')) {
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
             }
         }
 
-        // Mark lesson as complete
         function markComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
-            if (!completedLessons.includes('R52')) {
-                completedLessons.push('R52');
-                localStorage.setItem('primer-completed', JSON.stringify(completedLessons));
-                
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('R52')) {
+                done.push('R52');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
                 const btn = document.getElementById('completeBtn');
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
-                
-                // Show success message
-                const successMsg = document.createElement('div');
-                successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; animation: slideIn 0.3s ease;';
-                successMsg.innerHTML = '✓ Lesson completed!';
-                document.body.appendChild(successMsg);
-                
-                setTimeout(() => {
-                    successMsg.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => successMsg.remove(), 300);
-                }, 2000);
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
             }
         }
-
-        // Initialize
         checkComplete();
     </script>
 </body>

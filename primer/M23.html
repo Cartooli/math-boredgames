@@ -3,297 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exponents & Powers - Essential Math Primer | MathBored</title>
+    <title>Exponents &amp; Powers - Essential Math Primer | MathBored</title>
     <meta name="description" content="Exponential notation, properties of exponents, powers of 10">
     <meta name="keywords" content="math, education, learning, Middle School Bridge, exponents, powers, notation, K-12, free">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://math.boredgames.site/primer/M23.html">
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://math.boredgames.site/primer/M23.html">
-    <meta property="og:title" content="Exponents & Powers - Essential Math Primer | MathBored">
+    <meta property="og:title" content="Exponents &amp; Powers - Essential Math Primer | MathBored">
     <meta property="og:description" content="Exponential notation, properties of exponents, powers of 10">
     <meta property="og:image" content="https://math.boredgames.site/og-image.png">
     <meta property="og:site_name" content="MathBored">
-    
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://math.boredgames.site/primer/M23.html">
-    <meta property="twitter:title" content="Exponents & Powers - Essential Math Primer | MathBored">
+    <meta property="twitter:title" content="Exponents &amp; Powers - Essential Math Primer | MathBored">
     <meta property="twitter:description" content="Exponential notation, properties of exponents, powers of 10">
     <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
-    
-    <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Exponents & Powers",
         "description": "Exponential notation, properties of exponents, powers of 10",
-        "provider": {
-            "@type": "Organization",
-            "name": "MathBored",
-            "url": "https://math.boredgames.site"
-        },
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
         "educationalLevel": "6-8",
         "learningResourceType": "Lesson",
         "timeRequired": "PT15M",
         "inLanguage": "en",
-        "isPartOf": {
-            "@type": "Course",
-            "name": "Essential Math Primer",
-            "url": "https://math.boredgames.site/primer.html"
-        },
-        "hasCourseInstance": {
-            "@type": "CourseInstance",
-            "courseMode": "online",
-            "courseWorkload": "PT15M"
-        },
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
         "teaches": ["exponents","powers","notation"]
     }
     </script>
-    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
+
         .lesson-header {
-            background: 
-                radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
                 linear-gradient(135deg, var(--accent), var(--accent-hover));
-            color: white;
-            padding: 40px 24px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
         }
-
         .lesson-header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-            pointer-events: none;
+            opacity: 0.3; pointer-events: none;
         }
-
-        .lesson-header > * {
-            position: relative;
-            z-index: 1;
-        }
-
+        .lesson-header > * { position: relative; z-index: 1; }
         .lesson-id-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 9px 20px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            margin-bottom: 18px;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 700;
-            letter-spacing: 0.02em;
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
         }
-
         .lesson-content {
-            background: var(--bg-secondary);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            line-height: 1.75;
-            font-size: 1.05rem;
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
         }
-        
-        .lesson-content h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            color: var(--text);
-            letter-spacing: -0.01em;
-        }
-        
-        .lesson-content h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin-top: 28px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        
-        .lesson-content h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 1.5;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-        
-        .lesson-content p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 18px;
-            color: var(--text);
-        }
-        
-        .lesson-content ul, .lesson-content ol {
-            line-height: 1.9;
-            margin-bottom: 20px;
-            padding-left: 28px;
-        }
-        
-        .lesson-content li {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .lesson-nav {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
         .nav-btn {
-            padding: 16px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
         }
-
-        .nav-btn.prev {
-            background: var(--bg-tertiary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn.next {
-            background: var(--accent);
-            color: white;
-            border: 2px solid var(--accent);
-        }
-
-        .nav-btn.overview {
-            background: var(--bg-secondary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn:hover:not(.disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .nav-btn.prev:hover:not(.disabled) {
-            border-color: var(--accent);
-        }
-
-        .nav-btn.next:hover:not(.disabled) {
-            background: var(--accent-hover);
-        }
-
-        .nav-btn.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .key-concepts {
-            background: var(--bg-tertiary);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border-left: 4px solid var(--accent);
-        }
-
-        .key-concepts h3 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.3rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 16px;
-        }
-
-        .key-concepts ul {
-            margin: 15px 0 0 0;
-            padding-left: 28px;
-            line-height: 1.9;
-        }
-        
-        .key-concepts li {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 8px;
-        }
-
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
         .complete-btn {
-            background: var(--success);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 10px;
-            border: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 30px 0;
-            line-height: 1.5;
-            letter-spacing: -0.01em;
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
         }
-
-        .complete-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        .complete-btn.completed {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            cursor: default;
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        @media (max-width: 768px) {
-            .lesson-nav {
-                grid-template-columns: 1fr;
-            }
-
-            .lesson-content {
-                padding: 28px;
-                font-size: 1rem;
-            }
-            
-            .lesson-content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .lesson-content h3 {
-                font-size: 1.25rem;
-            }
-            
-            .lesson-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            .lesson-content p {
-                font-size: 1rem;
-            }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
         }
     </style>
 </head>
@@ -302,7 +155,7 @@
         <div class="container">
             <div class="header-content">
                 <div>
-                    <h1>🎯 MathBored</h1>
+                    <h1>MathBored</h1>
                     <div class="tagline">Essential Math Primer</div>
                 </div>
             </div>
@@ -310,141 +163,173 @@
     </header>
 
     <div class="container">
-        <a href="/primer.html" class="back-link">← Back to Primer Overview</a>
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
 
         <div class="lesson-header">
-            <span class="lesson-id-badge">M23 • Lesson 23 of 75</span>
-            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Exponents & Powers</h1>
-            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Exponential notation, properties of exponents, powers of 10</p>
-            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">Middle School Bridge • 6-8</p>
+            <span class="lesson-id-badge">M23 &bull; Lesson 37 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Exponents &amp; Powers</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Exponential notation, properties of exponents, powers of 10</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">Middle School Bridge &bull; 6-8</p>
         </div>
-
-        
 
         <div class="lesson-content">
-            
-            <div style="background: var(--bg-tertiary); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                <strong>📋 Prerequisites:</strong> 
-                <span style="color: var(--accent); font-weight: 500;">M22</span>
-            </div>
-        
-            
-            <div class="key-concepts">
-                <h3>🎯 Key Concepts</h3>
-                <ul><li>exponents</li><li>powers</li><li>notation</li></ul>
-            </div>
+            <div class="prereq-bar"><strong>Prerequisites:</strong> <a href="M22.html" class="prereq-link">M22</a></div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>exponents</li><li>powers</li><li>notation</li></ul></div>
 
-            
-        <div style="margin-top: 30px;">
-            <h2>📖 Lesson Overview</h2>
-            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
-                This 15-minute lesson provides a focused introduction to exponents & powers. 
-                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
-            </p>
 
-            <h3>What You'll Learn</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                Exponential notation, properties of exponents, powers of 10
-            </p>
+<h2>Exponents and Powers</h2>
+<p>What happens when you multiply a number by itself over and over? Writing 2 &times; 2 &times; 2 &times; 2 &times; 2 gets tedious fast. Exponential notation gives us a compact way to express repeated multiplication. Beyond convenience, exponents unlock powerful patterns, especially with powers of 10 that underlie our entire number system.</p>
 
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
-                <ul style="line-height: 2;">
-                    <li>Understand the fundamental concepts of exponents & powers</li>
-                    <li>Apply these concepts to solve basic problems</li>
-                    <li>Connect this topic to other areas of mathematics</li>
-                    <li>Build confidence for more advanced topics</li>
-                </ul>
-            </div>
+<h3>Exponential Notation</h3>
+<p>An <strong>exponent</strong> tells you how many times to use the base as a factor.</p>
 
-            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
-                <p style="color: var(--text-secondary); font-style: italic;">
-                    Detailed lesson content is currently being developed. This will include:
-                </p>
-                <ul style="color: var(--text-secondary); line-height: 2;">
-                    <li>Clear explanations with visual aids</li>
-                    <li>Step-by-step worked examples</li>
-                    <li>Practice problems with solutions</li>
-                    <li>Real-world applications</li>
-                    <li>Common misconceptions and tips</li>
-                </ul>
-            </div>
+<div class="math-display">
+  b<sup>n</sup> = b &times; b &times; b &times; ... &times; b (n times)
+</div>
 
-            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
-                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
-                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
-            </div>
-        </div>
-    
+<p>Here, <strong>b</strong> is the <em>base</em> and <strong>n</strong> is the <em>exponent</em> (or power). For example, 3<sup>4</sup> = 3 &times; 3 &times; 3 &times; 3 = 81.</p>
 
-            
-            <div style="text-align: center; margin-top: 40px;">
+<table class="vocab-table">
+  <tr><th>Expression</th><th>Meaning</th><th>Value</th></tr>
+  <tr><td>2<sup>5</sup></td><td>2 &times; 2 &times; 2 &times; 2 &times; 2</td><td>32</td></tr>
+  <tr><td>5<sup>3</sup></td><td>5 &times; 5 &times; 5</td><td>125</td></tr>
+  <tr><td>10<sup>4</sup></td><td>10 &times; 10 &times; 10 &times; 10</td><td>10,000</td></tr>
+  <tr><td>7<sup>1</sup></td><td>7</td><td>7</td></tr>
+</table>
+
+<h3>Special Exponent Rules</h3>
+<ul>
+  <li><strong>Any number to the power of 1</strong> is itself: a<sup>1</sup> = a.</li>
+  <li><strong>Any nonzero number to the power of 0</strong> is 1: a<sup>0</sup> = 1 (as long as a is not 0).</li>
+</ul>
+
+<div class="example-box">
+  <h4>Example 1 -- Evaluating Powers</h4>
+  <p>Evaluate (-2)<sup>4</sup>.</p>
+  <ol class="step-list">
+    <li>Write out: (-2) &times; (-2) &times; (-2) &times; (-2).</li>
+    <li>(-2) &times; (-2) = 4.</li>
+    <li>4 &times; (-2) = -8.</li>
+    <li>-8 &times; (-2) = 16.</li>
+  </ol>
+  <p>Notice: an even exponent on a negative base gives a positive result.</p>
+</div>
+
+<h3>Properties of Exponents</h3>
+<p>These rules let you work with exponents without expanding everything:</p>
+
+<table class="vocab-table">
+  <tr><th>Property</th><th>Rule</th><th>Example</th></tr>
+  <tr><td>Product Rule</td><td>a<sup>m</sup> &times; a<sup>n</sup> = a<sup>m+n</sup></td><td>2<sup>3</sup> &times; 2<sup>4</sup> = 2<sup>7</sup> = 128</td></tr>
+  <tr><td>Quotient Rule</td><td>a<sup>m</sup> &divide; a<sup>n</sup> = a<sup>m-n</sup></td><td>5<sup>6</sup> &divide; 5<sup>2</sup> = 5<sup>4</sup> = 625</td></tr>
+  <tr><td>Power of a Power</td><td>(a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup></td><td>(3<sup>2</sup>)<sup>3</sup> = 3<sup>6</sup> = 729</td></tr>
+</table>
+
+<div class="example-box">
+  <h4>Example 2 -- Using the Product Rule</h4>
+  <p>Simplify: 4<sup>3</sup> &times; 4<sup>2</sup>.</p>
+  <p>Same base (4), so add exponents: 4<sup>3+2</sup> = 4<sup>5</sup> = 1024.</p>
+</div>
+
+<div class="example-box">
+  <h4>Example 3 -- Powers of 10</h4>
+  <p>Powers of 10 create the foundation of our place value system.</p>
+  <p>10<sup>1</sup> = 10, 10<sup>2</sup> = 100, 10<sup>3</sup> = 1,000, 10<sup>6</sup> = 1,000,000. The exponent tells you how many zeros follow the 1. This is why scientific notation uses powers of 10 to express very large or very small numbers.</p>
+</div>
+
+<div class="warning-box">
+  <h4>Common Mistake</h4>
+  <p>Do not multiply the base by the exponent. 3<sup>4</sup> does NOT mean 3 &times; 4 = 12. It means 3 &times; 3 &times; 3 &times; 3 = 81. The exponent tells you how many times the base is used as a factor, not what to multiply the base by.</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>1.</strong> Evaluate 6<sup>3</sup>.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>6 &times; 6 &times; 6 = 216.</p>
+  </details>
+
+  <p><strong>2.</strong> Evaluate (-3)<sup>3</sup>.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>(-3) &times; (-3) &times; (-3) = 9 &times; (-3) = -27. An odd exponent on a negative base gives a negative result.</p>
+  </details>
+
+  <p><strong>3.</strong> Simplify: 7<sup>2</sup> &times; 7<sup>5</sup>.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Same base, add exponents: 7<sup>7</sup>.</p>
+  </details>
+
+  <p><strong>4.</strong> Simplify: 10<sup>8</sup> &divide; 10<sup>3</sup>.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Subtract exponents: 10<sup>5</sup> = 100,000.</p>
+  </details>
+
+  <p><strong>5.</strong> What is 2<sup>0</sup> + 5<sup>0</sup>?</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Any nonzero number to the 0th power is 1. So 2<sup>0</sup> + 5<sup>0</sup> = 1 + 1 = 2.</p>
+  </details>
+</div>
+
+<h3>Lesson Summary</h3>
+<p>Exponents express repeated multiplication compactly. The base is the number being multiplied, and the exponent tells how many times. Key properties include the product rule (add exponents when multiplying same bases), quotient rule (subtract exponents when dividing), and power of a power rule (multiply exponents). Any nonzero number raised to the 0th power equals 1.</p>
+
+
+            <div style="text-align:center;margin-top:40px;">
                 <button id="completeBtn" class="complete-btn" onclick="markComplete()">
-                    <span>✓</span> Mark Lesson as Complete
+                    <span>&#10003;</span> Mark Lesson as Complete
                 </button>
             </div>
-            
         </div>
 
         <div class="lesson-nav">
-            <a href="M22.html" class="nav-btn prev">← Order of Operations</a>
-            <a href="/primer.html" class="nav-btn overview">📚 Overview</a>
-            <a href="M24.html" class="nav-btn next">Square Roots & Radicals →</a>
+            <a href="M22.html" class="nav-btn prev">&larr; Order of Operations</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="M24.html" class="nav-btn next">Square Roots &amp; Radicals &rarr;</a>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
         </div>
     </footer>
 
     <script>
-        // Load theme
         const savedTheme = localStorage.getItem('mathbored-theme');
-        if (savedTheme) {
-            document.body.className = savedTheme;
-        }
+        if (savedTheme) document.body.className = savedTheme;
 
-        // Check if lesson is already completed
         function checkComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
             const btn = document.getElementById('completeBtn');
-            if (btn && completedLessons.includes('M23')) {
+            if (btn && done.includes('M23')) {
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
             }
         }
 
-        // Mark lesson as complete
         function markComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
-            if (!completedLessons.includes('M23')) {
-                completedLessons.push('M23');
-                localStorage.setItem('primer-completed', JSON.stringify(completedLessons));
-                
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('M23')) {
+                done.push('M23');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
                 const btn = document.getElementById('completeBtn');
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
-                
-                // Show success message
-                const successMsg = document.createElement('div');
-                successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; animation: slideIn 0.3s ease;';
-                successMsg.innerHTML = '✓ Lesson completed!';
-                document.body.appendChild(successMsg);
-                
-                setTimeout(() => {
-                    successMsg.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => successMsg.remove(), 300);
-                }, 2000);
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
             }
         }
-
-        // Initialize
         checkComplete();
     </script>
 </body>

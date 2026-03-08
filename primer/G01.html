@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angles &amp; Angle Relationships - Essential Math Primer | MathBored</title>
+    <meta name="description" content="Introduces angle measurement in degrees, classifies angles as acute, right, obtuse, and straight, and explores key angle relationships including complementary, supplementary, vertical, and adjacent angles. Students learn to use these relationships to find unknown angle measures.">
+    <meta name="keywords" content="math, education, learning, Middle School Geometry &amp; Data, classifying angles (acute, right, obtuse, straight), complementary angles (sum to 90 degrees), supplementary angles (sum to 180 degrees), vertical angles are congruent, K-12, free">
+    <link rel="canonical" href="https://math.boredgames.site/primer/G01.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://math.boredgames.site/primer/G01.html">
+    <meta property="og:title" content="Angles &amp; Angle Relationships - Essential Math Primer | MathBored">
+    <meta property="og:description" content="Introduces angle measurement in degrees, classifies angles as acute, right, obtuse, and straight, and explores key angle relationships including complementary, supplementary, vertical, and adjacent angles. Students learn to use these relationships to find unknown angle measures.">
+    <meta property="og:image" content="https://math.boredgames.site/og-image.png">
+    <meta property="og:site_name" content="MathBored">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://math.boredgames.site/primer/G01.html">
+    <meta property="twitter:title" content="Angles &amp; Angle Relationships - Essential Math Primer | MathBored">
+    <meta property="twitter:description" content="Introduces angle measurement in degrees, classifies angles as acute, right, obtuse, and straight, and explores key angle relationships including complementary, supplementary, vertical, and adjacent angles. Students learn to use these relationships to find unknown angle measures.">
+    <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Angles & Angle Relationships",
+        "description": "Introduces angle measurement in degrees, classifies angles as acute, right, obtuse, and straight, and explores key angle relationships including complementary, supplementary, vertical, and adjacent angles. Students learn to use these relationships to find unknown angle measures.",
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
+        "educationalLevel": "6-8",
+        "learningResourceType": "Lesson",
+        "timeRequired": "PT15M",
+        "inLanguage": "en",
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
+        "teaches": ["classifying angles (acute, right, obtuse, straight)","complementary angles (sum to 90 degrees)","supplementary angles (sum to 180 degrees)","vertical angles are congruent"]
+    }
+    </script>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <style>
+
+        .lesson-header {
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
+                linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
+        }
+        .lesson-header::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3; pointer-events: none;
+        }
+        .lesson-header > * { position: relative; z-index: 1; }
+        .lesson-id-badge {
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
+        }
+        .lesson-content {
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
+        }
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
+        .nav-btn {
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
+        }
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
+        .complete-btn {
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
+        }
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>MathBored</h1>
+                    <div class="tagline">Essential Math Primer</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
+
+        <div class="lesson-header">
+            <span class="lesson-id-badge">G01 &bull; Lesson 42 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Angles &amp; Angle Relationships</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Introduces angle measurement in degrees, classifies angles as acute, right, obtuse, and straight, and explores key angle relationships including complementary, supplementary, vertical, and adjacent angles. Students learn to use these relationships to find unknown angle measures.</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">Middle School Geometry &amp; Data &bull; 6-8</p>
+        </div>
+
+        <div class="lesson-content">
+            <div class="prereq-bar"><strong>Prerequisites:</strong> <a href="E09.html" class="prereq-link">E09</a></div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>classifying angles (acute, right, obtuse, straight)</li><li>complementary angles (sum to 90 degrees)</li><li>supplementary angles (sum to 180 degrees)</li><li>vertical angles are congruent</li></ul></div>
+
+
+<h2>Angles &amp; Angle Relationships</h2>
+
+<p>Every time two rays share a starting point, they form an <strong>angle</strong>. Angles are measured in <strong>degrees</strong> (the symbol is a tiny circle: &deg;). A full rotation around a point is 360&deg;. Understanding angle types and their relationships lets you find unknown measurements without a protractor&mdash;just by reasoning.</p>
+
+<h3>Classifying Angles</h3>
+
+<div class="vocab-table">
+  <table>
+    <tr><th>Type</th><th>Measure</th><th>Picture Cue</th></tr>
+    <tr><td><strong>Acute</strong></td><td>Between 0&deg; and 90&deg;</td><td>Looks "sharp" &mdash; narrower than a corner of a page</td></tr>
+    <tr><td><strong>Right</strong></td><td>Exactly 90&deg;</td><td>A perfect square corner; marked with a small square</td></tr>
+    <tr><td><strong>Obtuse</strong></td><td>Between 90&deg; and 180&deg;</td><td>Wider than a page corner but not a flat line</td></tr>
+    <tr><td><strong>Straight</strong></td><td>Exactly 180&deg;</td><td>A flat line&mdash;the two rays point in opposite directions</td></tr>
+  </table>
+</div>
+
+<h3>Complementary &amp; Supplementary Angles</h3>
+
+<p>Two angles are <strong>complementary</strong> when their measures add to <strong>90&deg;</strong>. Two angles are <strong>supplementary</strong> when their measures add to <strong>180&deg;</strong>. They do not need to be next to each other&mdash;only their measures matter.</p>
+
+<div class="math-display">
+  Complementary: angle A + angle B = 90&deg;<br>
+  Supplementary: angle A + angle B = 180&deg;
+</div>
+
+<div class="tip-box">
+  <h4>Memory Trick</h4>
+  <p><strong>C</strong>omplementary &rarr; <strong>C</strong>orner (90&deg;). <strong>S</strong>upplementary &rarr; <strong>S</strong>traight line (180&deg;).</p>
+</div>
+
+<h3>Vertical &amp; Adjacent Angles</h3>
+
+<p>When two lines cross, they create two special relationships:</p>
+<ul>
+  <li><strong>Adjacent angles</strong> share a side and a vertex. They sit next to each other and are supplementary (they form a straight line together).</li>
+  <li><strong>Vertical angles</strong> are across from each other at the intersection. They are always <strong>equal</strong>.</li>
+</ul>
+
+<p>Picture two lines crossing like an X. Label the four angles 1, 2, 3, 4 going clockwise. Angles 1 and 3 are vertical (equal). Angles 2 and 4 are vertical (equal). Angles 1 and 2 are adjacent (supplementary).</p>
+
+<div class="example-box">
+  <h4>Example 1 &mdash; Complementary Angles</h4>
+  <p>One angle measures 37&deg;. Find its complement.</p>
+  <div class="step-list">
+    <li>Complementary angles sum to 90&deg;.</li>
+    <li>Unknown = 90&deg; &minus; 37&deg; = <strong>53&deg;</strong>.</li>
+  </div>
+</div>
+
+<div class="example-box">
+  <h4>Example 2 &mdash; Vertical Angles &amp; Supplements</h4>
+  <p>Two lines intersect. One of the four angles is 125&deg;. Find the other three.</p>
+  <div class="step-list">
+    <li>The vertical angle is also <strong>125&deg;</strong>.</li>
+    <li>Each adjacent angle is supplementary: 180&deg; &minus; 125&deg; = <strong>55&deg;</strong>.</li>
+    <li>The four angles are 125&deg;, 55&deg;, 125&deg;, 55&deg;.</li>
+  </div>
+</div>
+
+<div class="example-box">
+  <h4>Example 3 &mdash; Algebra with Angle Relationships</h4>
+  <p>Two supplementary angles measure (3x + 10)&deg; and (2x)&deg;. Find x and both angles.</p>
+  <div class="step-list">
+    <li>Set up: (3x + 10) + 2x = 180.</li>
+    <li>Combine: 5x + 10 = 180.</li>
+    <li>Solve: 5x = 170, so x = 34.</li>
+    <li>Angles: 3(34) + 10 = <strong>112&deg;</strong> and 2(34) = <strong>68&deg;</strong>.</li>
+    <li>Check: 112 + 68 = 180. Correct.</li>
+  </div>
+</div>
+
+<div class="warning-box">
+  <h4>Common Mistake</h4>
+  <p>Students sometimes mix up complementary (90&deg;) and supplementary (180&deg;). Always double-check which sum the problem asks for before subtracting.</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>1.</strong> Classify each angle: (a) 17&deg; (b) 90&deg; (c) 143&deg; (d) 180&deg;</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>(a) Acute (b) Right (c) Obtuse (d) Straight</p>
+  </details>
+
+  <p><strong>2.</strong> Find the complement of 58&deg;.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>90&deg; &minus; 58&deg; = <strong>32&deg;</strong></p>
+  </details>
+
+  <p><strong>3.</strong> Find the supplement of 47&deg;.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>180&deg; &minus; 47&deg; = <strong>133&deg;</strong></p>
+  </details>
+
+  <p><strong>4.</strong> Two lines cross. One angle is 72&deg;. Find the other three angles.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Vertical angle = 72&deg;. Each adjacent angle = 180&deg; &minus; 72&deg; = 108&deg;. The four angles are <strong>72&deg;, 108&deg;, 72&deg;, 108&deg;</strong>.</p>
+  </details>
+
+  <p><strong>5.</strong> Two complementary angles are (4x)&deg; and (x + 15)&deg;. Find both angle measures.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>4x + x + 15 = 90 &rarr; 5x = 75 &rarr; x = 15. Angles: 4(15) = <strong>60&deg;</strong> and 15 + 15 = <strong>30&deg;</strong>. Check: 60 + 30 = 90.</p>
+  </details>
+</div>
+
+<h3>Lesson Summary</h3>
+<ul>
+  <li>Angles are classified as acute (&lt;90&deg;), right (=90&deg;), obtuse (90&deg;&ndash;180&deg;), or straight (=180&deg;).</li>
+  <li>Complementary angles sum to 90&deg;; supplementary angles sum to 180&deg;.</li>
+  <li>Vertical angles are equal. Adjacent angles on a line are supplementary.</li>
+  <li>You can use these relationships to set up equations and solve for unknowns.</li>
+</ul>
+
+
+            <div style="text-align:center;margin-top:40px;">
+                <button id="completeBtn" class="complete-btn" onclick="markComplete()">
+                    <span>&#10003;</span> Mark Lesson as Complete
+                </button>
+            </div>
+        </div>
+
+        <div class="lesson-nav">
+            <a href="M27.html" class="nav-btn prev">&larr; Linear Relationships</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="G02.html" class="nav-btn next">Parallel Lines &amp; Transversals &rarr;</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
+        </div>
+    </footer>
+
+    <script>
+        const savedTheme = localStorage.getItem('mathbored-theme');
+        if (savedTheme) document.body.className = savedTheme;
+
+        function checkComplete() {
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const btn = document.getElementById('completeBtn');
+            if (btn && done.includes('G01')) {
+                btn.classList.add('completed');
+                btn.innerHTML = '<span>&#10003;</span> Completed';
+                btn.disabled = true;
+            }
+        }
+
+        function markComplete() {
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('G01')) {
+                done.push('G01');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
+                const btn = document.getElementById('completeBtn');
+                btn.classList.add('completed');
+                btn.innerHTML = '<span>&#10003;</span> Completed';
+                btn.disabled = true;
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
+            }
+        }
+        checkComplete();
+    </script>
+</body>
+</html>

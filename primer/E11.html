@@ -3,297 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patterns & Sequences - Essential Math Primer | MathBored</title>
+    <title>Patterns &amp; Sequences - Essential Math Primer | MathBored</title>
     <meta name="description" content="Identifying and extending patterns, sequence basics">
     <meta name="keywords" content="math, education, learning, Elementary Foundations, patterns, sequences, rules, K-12, free">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://math.boredgames.site/primer/E11.html">
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://math.boredgames.site/primer/E11.html">
-    <meta property="og:title" content="Patterns & Sequences - Essential Math Primer | MathBored">
+    <meta property="og:title" content="Patterns &amp; Sequences - Essential Math Primer | MathBored">
     <meta property="og:description" content="Identifying and extending patterns, sequence basics">
     <meta property="og:image" content="https://math.boredgames.site/og-image.png">
     <meta property="og:site_name" content="MathBored">
-    
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://math.boredgames.site/primer/E11.html">
-    <meta property="twitter:title" content="Patterns & Sequences - Essential Math Primer | MathBored">
+    <meta property="twitter:title" content="Patterns &amp; Sequences - Essential Math Primer | MathBored">
     <meta property="twitter:description" content="Identifying and extending patterns, sequence basics">
     <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
-    
-    <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Patterns & Sequences",
         "description": "Identifying and extending patterns, sequence basics",
-        "provider": {
-            "@type": "Organization",
-            "name": "MathBored",
-            "url": "https://math.boredgames.site"
-        },
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
         "educationalLevel": "K-5",
         "learningResourceType": "Lesson",
         "timeRequired": "PT15M",
         "inLanguage": "en",
-        "isPartOf": {
-            "@type": "Course",
-            "name": "Essential Math Primer",
-            "url": "https://math.boredgames.site/primer.html"
-        },
-        "hasCourseInstance": {
-            "@type": "CourseInstance",
-            "courseMode": "online",
-            "courseWorkload": "PT15M"
-        },
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
         "teaches": ["patterns","sequences","rules"]
     }
     </script>
-    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
+
         .lesson-header {
-            background: 
-                radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
                 linear-gradient(135deg, var(--accent), var(--accent-hover));
-            color: white;
-            padding: 40px 24px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
         }
-
         .lesson-header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-            pointer-events: none;
+            opacity: 0.3; pointer-events: none;
         }
-
-        .lesson-header > * {
-            position: relative;
-            z-index: 1;
-        }
-
+        .lesson-header > * { position: relative; z-index: 1; }
         .lesson-id-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 9px 20px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            margin-bottom: 18px;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 700;
-            letter-spacing: 0.02em;
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
         }
-
         .lesson-content {
-            background: var(--bg-secondary);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            line-height: 1.75;
-            font-size: 1.05rem;
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
         }
-        
-        .lesson-content h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            color: var(--text);
-            letter-spacing: -0.01em;
-        }
-        
-        .lesson-content h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin-top: 28px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        
-        .lesson-content h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 1.5;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-        
-        .lesson-content p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 18px;
-            color: var(--text);
-        }
-        
-        .lesson-content ul, .lesson-content ol {
-            line-height: 1.9;
-            margin-bottom: 20px;
-            padding-left: 28px;
-        }
-        
-        .lesson-content li {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .lesson-nav {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
         .nav-btn {
-            padding: 16px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
         }
-
-        .nav-btn.prev {
-            background: var(--bg-tertiary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn.next {
-            background: var(--accent);
-            color: white;
-            border: 2px solid var(--accent);
-        }
-
-        .nav-btn.overview {
-            background: var(--bg-secondary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn:hover:not(.disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .nav-btn.prev:hover:not(.disabled) {
-            border-color: var(--accent);
-        }
-
-        .nav-btn.next:hover:not(.disabled) {
-            background: var(--accent-hover);
-        }
-
-        .nav-btn.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .key-concepts {
-            background: var(--bg-tertiary);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border-left: 4px solid var(--accent);
-        }
-
-        .key-concepts h3 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.3rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 16px;
-        }
-
-        .key-concepts ul {
-            margin: 15px 0 0 0;
-            padding-left: 28px;
-            line-height: 1.9;
-        }
-        
-        .key-concepts li {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 8px;
-        }
-
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
         .complete-btn {
-            background: var(--success);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 10px;
-            border: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 30px 0;
-            line-height: 1.5;
-            letter-spacing: -0.01em;
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
         }
-
-        .complete-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        .complete-btn.completed {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            cursor: default;
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        @media (max-width: 768px) {
-            .lesson-nav {
-                grid-template-columns: 1fr;
-            }
-
-            .lesson-content {
-                padding: 28px;
-                font-size: 1rem;
-            }
-            
-            .lesson-content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .lesson-content h3 {
-                font-size: 1.25rem;
-            }
-            
-            .lesson-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            .lesson-content p {
-                font-size: 1rem;
-            }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
         }
     </style>
 </head>
@@ -302,7 +155,7 @@
         <div class="container">
             <div class="header-content">
                 <div>
-                    <h1>🎯 MathBored</h1>
+                    <h1>MathBored</h1>
                     <div class="tagline">Essential Math Primer</div>
                 </div>
             </div>
@@ -310,141 +163,180 @@
     </header>
 
     <div class="container">
-        <a href="/primer.html" class="back-link">← Back to Primer Overview</a>
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
 
         <div class="lesson-header">
-            <span class="lesson-id-badge">E11 • Lesson 11 of 75</span>
-            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Patterns & Sequences</h1>
-            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Identifying and extending patterns, sequence basics</p>
-            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">Elementary Foundations • K-5</p>
+            <span class="lesson-id-badge">E11 &bull; Lesson 11 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Patterns &amp; Sequences</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Identifying and extending patterns, sequence basics</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">Elementary Foundations &bull; K-5</p>
         </div>
-
-        
 
         <div class="lesson-content">
-            
-            <div style="background: var(--bg-tertiary); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                <strong>📋 Prerequisites:</strong> 
-                <span style="color: var(--accent); font-weight: 500;">E01</span>
-            </div>
-        
-            
-            <div class="key-concepts">
-                <h3>🎯 Key Concepts</h3>
-                <ul><li>patterns</li><li>sequences</li><li>rules</li></ul>
-            </div>
+            <div class="prereq-bar"><strong>Prerequisites:</strong> <a href="E01.html" class="prereq-link">E01</a></div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>patterns</li><li>sequences</li><li>rules</li></ul></div>
 
-            
-        <div style="margin-top: 30px;">
-            <h2>📖 Lesson Overview</h2>
-            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
-                This 15-minute lesson provides a focused introduction to patterns & sequences. 
-                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
-            </p>
 
-            <h3>What You'll Learn</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                Identifying and extending patterns, sequence basics
-            </p>
+<h2>Patterns and Sequences</h2>
+<p>Patterns are everywhere -- in wallpaper, music, seasons, and numbers. A pattern is something that repeats or follows a rule. Being able to spot patterns is one of the most important skills in all of math because patterns help you predict what comes next.</p>
 
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
-                <ul style="line-height: 2;">
-                    <li>Understand the fundamental concepts of patterns & sequences</li>
-                    <li>Apply these concepts to solve basic problems</li>
-                    <li>Connect this topic to other areas of mathematics</li>
-                    <li>Build confidence for more advanced topics</li>
-                </ul>
-            </div>
+<h3>Repeating Patterns</h3>
+<p>A <strong>repeating pattern</strong> has a core that repeats over and over:</p>
 
-            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
-                <p style="color: var(--text-secondary); font-style: italic;">
-                    Detailed lesson content is currently being developed. This will include:
-                </p>
-                <ul style="color: var(--text-secondary); line-height: 2;">
-                    <li>Clear explanations with visual aids</li>
-                    <li>Step-by-step worked examples</li>
-                    <li>Practice problems with solutions</li>
-                    <li>Real-world applications</li>
-                    <li>Common misconceptions and tips</li>
-                </ul>
-            </div>
+<div class="example-box">
+  <h4>Finding the Core of a Repeating Pattern</h4>
+  <p>Look at this pattern:</p>
+  <div class="math-display">&#9650; &#9679; &#9679; &#9650; &#9679; &#9679; &#9650; &#9679; &#9679; ...</div>
+  <p>The <strong>core</strong> is: &#9650; &#9679; &#9679; (triangle, circle, circle)</p>
+  <p>It repeats every 3 shapes. The next shape would be <strong>&#9650;</strong> (triangle), because the core starts over.</p>
+</div>
 
-            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
-                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
-                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
-            </div>
-        </div>
-    
+<h3>Growing Patterns</h3>
+<p>A <strong>growing pattern</strong> (also called a sequence) gets bigger or smaller following a rule.</p>
 
-            
-            <div style="text-align: center; margin-top: 40px;">
+<div class="example-box">
+  <h4>Number Pattern: Adding the Same Amount</h4>
+  <p>Look at this sequence:</p>
+  <div class="math-display">2, 5, 8, 11, 14, ...</div>
+  <p>Find the rule: What happens between each number?</p>
+  <div class="math-display">2 <span style="color:#c0392b;">(+3)</span> 5 <span style="color:#c0392b;">(+3)</span> 8 <span style="color:#c0392b;">(+3)</span> 11 <span style="color:#c0392b;">(+3)</span> 14</div>
+  <p>The rule is <strong>"add 3"</strong> each time. The next number is 14 + 3 = <strong>17</strong>.</p>
+</div>
+
+<div class="example-box">
+  <h4>Number Pattern: Multiplying</h4>
+  <p>Look at this sequence:</p>
+  <div class="math-display">3, 6, 12, 24, 48, ...</div>
+  <p>Each number is <strong>doubled</strong> (multiplied by 2):</p>
+  <div class="math-display">3 <span style="color:#c0392b;">(x2)</span> 6 <span style="color:#c0392b;">(x2)</span> 12 <span style="color:#c0392b;">(x2)</span> 24 <span style="color:#c0392b;">(x2)</span> 48</div>
+  <p>The next number is 48 x 2 = <strong>96</strong>.</p>
+</div>
+
+<h3>How to Find a Pattern Rule</h3>
+<ol class="step-list">
+  <li>Look at the <strong>difference</strong> between consecutive numbers. Is it always the same? Then the rule is "add ___" or "subtract ___."</li>
+  <li>If the differences are not the same, look at the <strong>ratio</strong>. Is each number double (or triple) the one before? Then the rule is "multiply by ___."</li>
+  <li>Some patterns alternate or follow more creative rules. Look for any relationship that works for every step.</li>
+</ol>
+
+<h3>Patterns in Math You Already Know</h3>
+<p>You have already seen many patterns:</p>
+<ul>
+  <li><strong>Skip counting by 2s:</strong> 2, 4, 6, 8, 10, 12... (rule: add 2)</li>
+  <li><strong>Skip counting by 5s:</strong> 5, 10, 15, 20, 25... (rule: add 5)</li>
+  <li><strong>Multiplication tables</strong> are patterns! The 3s table: 3, 6, 9, 12, 15...</li>
+  <li><strong>Even numbers</strong> always end in 0, 2, 4, 6, or 8.</li>
+  <li><strong>Odd numbers</strong> always end in 1, 3, 5, 7, or 9.</li>
+</ul>
+
+<div class="tip-box">
+  <h4>Helpful Tip: Use a Table</h4>
+  <p>When a pattern is hard to see, organize the numbers in a table. Write the position (1st, 2nd, 3rd...) in one column and the value in another. This often reveals the rule.</p>
+  <div class="vocab-table">
+    <table>
+      <tr><th>Position</th><th>Value</th><th>Change</th></tr>
+      <tr><td>1st</td><td>4</td><td>--</td></tr>
+      <tr><td>2nd</td><td>7</td><td>+3</td></tr>
+      <tr><td>3rd</td><td>10</td><td>+3</td></tr>
+      <tr><td>4th</td><td>13</td><td>+3</td></tr>
+      <tr><td>5th</td><td>?</td><td>+3</td></tr>
+    </table>
+  </div>
+  <p>The 5th value is 13 + 3 = <strong>16</strong>.</p>
+</div>
+
+<div class="warning-box">
+  <h4>Common Mistake</h4>
+  <p>Students sometimes guess a rule from only two numbers. Always check your rule against ALL the numbers in the sequence. If the rule does not work for every step, it is not the right rule. For example, 2, 4, 8: the rule is NOT "add 2" (that would give 2, 4, 6), it IS "multiply by 2."</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>1.</strong> What are the next two numbers? 10, 20, 30, 40, ___, ___</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>The rule is "add 10." The next two numbers are <strong>50, 60</strong>.</p>
+  </details>
+
+  <p><strong>2.</strong> What is the rule? What comes next? 64, 32, 16, 8, ___</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Each number is halved (divided by 2). The next number is 8 &divide; 2 = <strong>4</strong>.</p>
+  </details>
+
+  <p><strong>3.</strong> Complete the repeating pattern: A B C A B C A B ___</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>The core is A B C and it repeats. The next letter is <strong>C</strong>.</p>
+  </details>
+
+  <p><strong>4.</strong> Find the rule and the next number: 1, 4, 9, 16, 25, ___</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>These are <strong>perfect squares</strong>: 1x1, 2x2, 3x3, 4x4, 5x5. The next is 6x6 = <strong>36</strong>.</p>
+  </details>
+
+  <p><strong>5.</strong> A pattern starts at 100 and subtracts 7 each time. Write the first five numbers.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>100, 93, 86, 79, <strong>72</strong>. (100-7=93, 93-7=86, 86-7=79, 79-7=72)</p>
+  </details>
+</div>
+
+<p><strong>Summary:</strong> Patterns follow a rule that lets you predict what comes next. Repeating patterns have a core that cycles. Growing patterns increase or decrease by a consistent rule (adding, subtracting, multiplying, or dividing). To find a rule, look at what changes between each step and verify it works for every pair of consecutive terms.</p>
+
+
+            <div style="text-align:center;margin-top:40px;">
                 <button id="completeBtn" class="complete-btn" onclick="markComplete()">
-                    <span>✓</span> Mark Lesson as Complete
+                    <span>&#10003;</span> Mark Lesson as Complete
                 </button>
             </div>
-            
         </div>
 
         <div class="lesson-nav">
-            <a href="E10.html" class="nav-btn prev">← Word Problems Strategy</a>
-            <a href="/primer.html" class="nav-btn overview">📚 Overview</a>
-            <a href="E12.html" class="nav-btn next">Data & Basic Graphing →</a>
+            <a href="E10.html" class="nav-btn prev">&larr; Word Problems Strategy</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="E12.html" class="nav-btn next">Data &amp; Basic Graphing &rarr;</a>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
         </div>
     </footer>
 
     <script>
-        // Load theme
         const savedTheme = localStorage.getItem('mathbored-theme');
-        if (savedTheme) {
-            document.body.className = savedTheme;
-        }
+        if (savedTheme) document.body.className = savedTheme;
 
-        // Check if lesson is already completed
         function checkComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
             const btn = document.getElementById('completeBtn');
-            if (btn && completedLessons.includes('E11')) {
+            if (btn && done.includes('E11')) {
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
             }
         }
 
-        // Mark lesson as complete
         function markComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
-            if (!completedLessons.includes('E11')) {
-                completedLessons.push('E11');
-                localStorage.setItem('primer-completed', JSON.stringify(completedLessons));
-                
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('E11')) {
+                done.push('E11');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
                 const btn = document.getElementById('completeBtn');
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
-                
-                // Show success message
-                const successMsg = document.createElement('div');
-                successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; animation: slideIn 0.3s ease;';
-                successMsg.innerHTML = '✓ Lesson completed!';
-                document.body.appendChild(successMsg);
-                
-                setTimeout(() => {
-                    successMsg.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => successMsg.remove(), 300);
-                }, 2000);
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
             }
         }
-
-        // Initialize
         checkComplete();
     </script>
 </body>

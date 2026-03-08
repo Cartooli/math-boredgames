@@ -3,297 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data & Basic Graphing - Essential Math Primer | MathBored</title>
+    <title>Data &amp; Basic Graphing - Essential Math Primer | MathBored</title>
     <meta name="description" content="Collecting data, pictographs, bar graphs, interpretation">
     <meta name="keywords" content="math, education, learning, Elementary Foundations, data, graphing, representation, K-12, free">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://math.boredgames.site/primer/E12.html">
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://math.boredgames.site/primer/E12.html">
-    <meta property="og:title" content="Data & Basic Graphing - Essential Math Primer | MathBored">
+    <meta property="og:title" content="Data &amp; Basic Graphing - Essential Math Primer | MathBored">
     <meta property="og:description" content="Collecting data, pictographs, bar graphs, interpretation">
     <meta property="og:image" content="https://math.boredgames.site/og-image.png">
     <meta property="og:site_name" content="MathBored">
-    
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://math.boredgames.site/primer/E12.html">
-    <meta property="twitter:title" content="Data & Basic Graphing - Essential Math Primer | MathBored">
+    <meta property="twitter:title" content="Data &amp; Basic Graphing - Essential Math Primer | MathBored">
     <meta property="twitter:description" content="Collecting data, pictographs, bar graphs, interpretation">
     <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
-    
-    <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Data & Basic Graphing",
         "description": "Collecting data, pictographs, bar graphs, interpretation",
-        "provider": {
-            "@type": "Organization",
-            "name": "MathBored",
-            "url": "https://math.boredgames.site"
-        },
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
         "educationalLevel": "K-5",
         "learningResourceType": "Lesson",
         "timeRequired": "PT15M",
         "inLanguage": "en",
-        "isPartOf": {
-            "@type": "Course",
-            "name": "Essential Math Primer",
-            "url": "https://math.boredgames.site/primer.html"
-        },
-        "hasCourseInstance": {
-            "@type": "CourseInstance",
-            "courseMode": "online",
-            "courseWorkload": "PT15M"
-        },
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
         "teaches": ["data","graphing","representation"]
     }
     </script>
-    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
+
         .lesson-header {
-            background: 
-                radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
                 linear-gradient(135deg, var(--accent), var(--accent-hover));
-            color: white;
-            padding: 40px 24px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
         }
-
         .lesson-header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-            pointer-events: none;
+            opacity: 0.3; pointer-events: none;
         }
-
-        .lesson-header > * {
-            position: relative;
-            z-index: 1;
-        }
-
+        .lesson-header > * { position: relative; z-index: 1; }
         .lesson-id-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 9px 20px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            margin-bottom: 18px;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 700;
-            letter-spacing: 0.02em;
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
         }
-
         .lesson-content {
-            background: var(--bg-secondary);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            line-height: 1.75;
-            font-size: 1.05rem;
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
         }
-        
-        .lesson-content h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            color: var(--text);
-            letter-spacing: -0.01em;
-        }
-        
-        .lesson-content h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin-top: 28px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        
-        .lesson-content h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 1.5;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-        
-        .lesson-content p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 18px;
-            color: var(--text);
-        }
-        
-        .lesson-content ul, .lesson-content ol {
-            line-height: 1.9;
-            margin-bottom: 20px;
-            padding-left: 28px;
-        }
-        
-        .lesson-content li {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .lesson-nav {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
         .nav-btn {
-            padding: 16px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
         }
-
-        .nav-btn.prev {
-            background: var(--bg-tertiary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn.next {
-            background: var(--accent);
-            color: white;
-            border: 2px solid var(--accent);
-        }
-
-        .nav-btn.overview {
-            background: var(--bg-secondary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn:hover:not(.disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .nav-btn.prev:hover:not(.disabled) {
-            border-color: var(--accent);
-        }
-
-        .nav-btn.next:hover:not(.disabled) {
-            background: var(--accent-hover);
-        }
-
-        .nav-btn.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .key-concepts {
-            background: var(--bg-tertiary);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border-left: 4px solid var(--accent);
-        }
-
-        .key-concepts h3 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.3rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 16px;
-        }
-
-        .key-concepts ul {
-            margin: 15px 0 0 0;
-            padding-left: 28px;
-            line-height: 1.9;
-        }
-        
-        .key-concepts li {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 8px;
-        }
-
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
         .complete-btn {
-            background: var(--success);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 10px;
-            border: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 30px 0;
-            line-height: 1.5;
-            letter-spacing: -0.01em;
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
         }
-
-        .complete-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        .complete-btn.completed {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            cursor: default;
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        @media (max-width: 768px) {
-            .lesson-nav {
-                grid-template-columns: 1fr;
-            }
-
-            .lesson-content {
-                padding: 28px;
-                font-size: 1rem;
-            }
-            
-            .lesson-content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .lesson-content h3 {
-                font-size: 1.25rem;
-            }
-            
-            .lesson-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            .lesson-content p {
-                font-size: 1rem;
-            }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
         }
     </style>
 </head>
@@ -302,7 +155,7 @@
         <div class="container">
             <div class="header-content">
                 <div>
-                    <h1>🎯 MathBored</h1>
+                    <h1>MathBored</h1>
                     <div class="tagline">Essential Math Primer</div>
                 </div>
             </div>
@@ -310,136 +163,197 @@
     </header>
 
     <div class="container">
-        <a href="/primer.html" class="back-link">← Back to Primer Overview</a>
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
 
         <div class="lesson-header">
-            <span class="lesson-id-badge">E12 • Lesson 12 of 75</span>
-            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Data & Basic Graphing</h1>
-            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Collecting data, pictographs, bar graphs, interpretation</p>
-            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">Elementary Foundations • K-5</p>
+            <span class="lesson-id-badge">E12 &bull; Lesson 12 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Data &amp; Basic Graphing</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Collecting data, pictographs, bar graphs, interpretation</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">Elementary Foundations &bull; K-5</p>
         </div>
-
-        
 
         <div class="lesson-content">
-            
-            
-            <div class="key-concepts">
-                <h3>🎯 Key Concepts</h3>
-                <ul><li>data</li><li>graphing</li><li>representation</li></ul>
-            </div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>data</li><li>graphing</li><li>representation</li></ul></div>
 
-            
-        <div style="margin-top: 30px;">
-            <h2>📖 Lesson Overview</h2>
-            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
-                This 15-minute lesson provides a focused introduction to data & basic graphing. 
-                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
-            </p>
 
-            <h3>What You'll Learn</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                Collecting data, pictographs, bar graphs, interpretation
-            </p>
+<h2>Data and Basic Graphing</h2>
+<p>Data is information we collect about the world. How many students walk to school? What is the most popular ice cream flavor? When we organize data into graphs, it becomes easy to see patterns, compare groups, and answer questions. Let's learn how to collect, organize, and display data!</p>
 
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
-                <ul style="line-height: 2;">
-                    <li>Understand the fundamental concepts of data & basic graphing</li>
-                    <li>Apply these concepts to solve basic problems</li>
-                    <li>Connect this topic to other areas of mathematics</li>
-                    <li>Build confidence for more advanced topics</li>
-                </ul>
-            </div>
+<h3>Collecting and Organizing Data</h3>
+<p>The first step is to <strong>collect</strong> data by counting, measuring, or surveying. Then <strong>organize</strong> it in a <strong>tally chart</strong> or <strong>frequency table</strong>.</p>
 
-            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
-                <p style="color: var(--text-secondary); font-style: italic;">
-                    Detailed lesson content is currently being developed. This will include:
-                </p>
-                <ul style="color: var(--text-secondary); line-height: 2;">
-                    <li>Clear explanations with visual aids</li>
-                    <li>Step-by-step worked examples</li>
-                    <li>Practice problems with solutions</li>
-                    <li>Real-world applications</li>
-                    <li>Common misconceptions and tips</li>
-                </ul>
-            </div>
+<div class="example-box">
+  <h4>Making a Tally Chart</h4>
+  <p>A class voted for their favorite fruit. Here are the results:</p>
+  <div class="vocab-table">
+    <table>
+      <tr><th>Fruit</th><th>Tallies</th><th>Count</th></tr>
+      <tr><td>Apple</td><td>|||| ||</td><td>7</td></tr>
+      <tr><td>Banana</td><td>||||</td><td>5</td></tr>
+      <tr><td>Grape</td><td>|||| |||</td><td>8</td></tr>
+      <tr><td>Orange</td><td>||||</td><td>4</td></tr>
+    </table>
+  </div>
+  <p>Every fifth tally mark crosses the previous four (||||), making groups of five that are easy to count.</p>
+</div>
 
-            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
-                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
-                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
-            </div>
-        </div>
-    
+<h3>Pictographs</h3>
+<p>A <strong>pictograph</strong> uses pictures or symbols to show data. Each picture stands for a certain number of items.</p>
 
-            
-            <div style="text-align: center; margin-top: 40px;">
+<div class="example-box">
+  <h4>Reading a Pictograph</h4>
+  <p>Books read by each student (each symbol = 2 books):</p>
+  <div style="font-family:monospace;line-height:1.8;">
+    <p style="margin:0;">Ana &nbsp; &nbsp;: &#9733; &#9733; &#9733; &#9733;</p>
+    <p style="margin:0;">Ben &nbsp; &nbsp;: &#9733; &#9733; &#9733;</p>
+    <p style="margin:0;">Cara &nbsp; : &#9733; &#9733; &#9733; &#9733; &#9733;</p>
+  </div>
+  <p style="font-size:0.9em;">Key: &#9733; = 2 books</p>
+  <p>Ana: 4 stars x 2 = <strong>8 books</strong><br>
+  Ben: 3 stars x 2 = <strong>6 books</strong><br>
+  Cara: 5 stars x 2 = <strong>10 books</strong></p>
+</div>
+
+<h3>Bar Graphs</h3>
+<p>A <strong>bar graph</strong> uses bars of different lengths to show data. The taller the bar, the greater the value.</p>
+
+<p>Every bar graph needs:</p>
+<ul>
+  <li>A <strong>title</strong> that tells what the graph is about</li>
+  <li><strong>Labels</strong> on both axes (the bottom and side lines)</li>
+  <li>A <strong>scale</strong> with evenly spaced numbers</li>
+  <li><strong>Bars</strong> that match the data values</li>
+</ul>
+
+<div class="example-box">
+  <h4>Reading a Bar Graph</h4>
+  <p>Using the fruit data from above, imagine bars going up from each fruit name:</p>
+  <div style="font-family:monospace;line-height:1.4;">
+    <p style="margin:0;">8 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9608;&#9608;</p>
+    <p style="margin:0;">7 |&nbsp;&nbsp;&#9608;&#9608;</p>
+    <p style="margin:0;">6 |&nbsp;&nbsp;&#9608;&#9608;</p>
+    <p style="margin:0;">5 |&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;</p>
+    <p style="margin:0;">4 |&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;</p>
+    <p style="margin:0;">3 |&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;</p>
+    <p style="margin:0;">2 |&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;</p>
+    <p style="margin:0;">1 |&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;&nbsp;&nbsp;&#9608;&#9608;</p>
+    <p style="margin:0;">&nbsp;&nbsp;+--Apple-Banana-Grape-Orange</p>
+  </div>
+  <p>Questions you can answer from this graph:</p>
+  <ul>
+    <li>Which fruit is most popular? <strong>Grape</strong> (tallest bar = 8)</li>
+    <li>Which is least popular? <strong>Orange</strong> (shortest bar = 4)</li>
+    <li>How many more votes did Apple get than Orange? 7 - 4 = <strong>3 more</strong></li>
+    <li>How many votes in all? 7 + 5 + 8 + 4 = <strong>24 total</strong></li>
+  </ul>
+</div>
+
+<h3>Interpreting Data</h3>
+<p>Once data is displayed, you can answer important questions:</p>
+<ul>
+  <li><strong>Which category has the most/least?</strong> Look for the tallest or shortest bar.</li>
+  <li><strong>How many in a specific category?</strong> Read the value from the scale.</li>
+  <li><strong>How many altogether?</strong> Add up all the values.</li>
+  <li><strong>How many more/fewer?</strong> Subtract one value from another.</li>
+</ul>
+
+<div class="warning-box">
+  <h4>Common Mistake</h4>
+  <p>In pictographs, students forget to use the <strong>key</strong>. If each picture equals 2 items and you see 5 pictures, the answer is NOT 5 -- it is 5 x 2 = <strong>10</strong>. Always check the key before reading the data!</p>
+</div>
+
+<div class="tip-box">
+  <h4>Helpful Tip</h4>
+  <p>When making your own bar graph, choose a scale that fits your data. If your biggest value is 20, count by 2s or 5s. If it is 100, count by 10s or 20s. The scale should make the graph easy to read without being too tall or too squished.</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>1.</strong> In a pictograph, each star symbol equals 3 votes. If the "Pizza" row shows 6 stars, how many votes did Pizza get?</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>6 stars x 3 votes each = <strong>18 votes</strong>.</p>
+  </details>
+
+  <p><strong>2.</strong> Look at this data: Red = 12, Blue = 8, Green = 15, Yellow = 5. Which color is most popular? Which is least?</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Most popular: <strong>Green (15)</strong>. Least popular: <strong>Yellow (5)</strong>.</p>
+  </details>
+
+  <p><strong>3.</strong> Using the data from problem 2, how many more people chose Green than Blue?</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>15 - 8 = <strong>7 more</strong> people chose Green than Blue.</p>
+  </details>
+
+  <p><strong>4.</strong> A bar graph shows: Monday = 3 books, Tuesday = 5, Wednesday = 2, Thursday = 6, Friday = 4. How many total books were read?</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>3 + 5 + 2 + 6 + 4 = <strong>20 books</strong> total.</p>
+  </details>
+
+  <p><strong>5.</strong> You surveyed 5 friends about their favorite pet. Results: Dog = 8, Cat = 6, Fish = 3, Bird = 3. If you made a pictograph where each symbol equals 2, how many symbols would you draw for Cat?</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>6 &divide; 2 = <strong>3 symbols</strong> for Cat.</p>
+  </details>
+</div>
+
+<p><strong>Summary:</strong> Data is information we collect and organize. Tally charts, pictographs, and bar graphs are three ways to display data visually. Every pictograph needs a key, and every bar graph needs a title, labels, and a scale. Once data is graphed, you can answer comparison and total questions easily.</p>
+
+
+            <div style="text-align:center;margin-top:40px;">
                 <button id="completeBtn" class="complete-btn" onclick="markComplete()">
-                    <span>✓</span> Mark Lesson as Complete
+                    <span>&#10003;</span> Mark Lesson as Complete
                 </button>
             </div>
-            
         </div>
 
         <div class="lesson-nav">
-            <a href="E11.html" class="nav-btn prev">← Patterns & Sequences</a>
-            <a href="/primer.html" class="nav-btn overview">📚 Overview</a>
-            <a href="M13.html" class="nav-btn next">Equivalent Fractions & Simplification →</a>
+            <a href="E11.html" class="nav-btn prev">&larr; Patterns &amp; Sequences</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="K01.html" class="nav-btn next">Place Value: Tens and Ones &rarr;</a>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
         </div>
     </footer>
 
     <script>
-        // Load theme
         const savedTheme = localStorage.getItem('mathbored-theme');
-        if (savedTheme) {
-            document.body.className = savedTheme;
-        }
+        if (savedTheme) document.body.className = savedTheme;
 
-        // Check if lesson is already completed
         function checkComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
             const btn = document.getElementById('completeBtn');
-            if (btn && completedLessons.includes('E12')) {
+            if (btn && done.includes('E12')) {
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
             }
         }
 
-        // Mark lesson as complete
         function markComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
-            if (!completedLessons.includes('E12')) {
-                completedLessons.push('E12');
-                localStorage.setItem('primer-completed', JSON.stringify(completedLessons));
-                
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('E12')) {
+                done.push('E12');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
                 const btn = document.getElementById('completeBtn');
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
-                
-                // Show success message
-                const successMsg = document.createElement('div');
-                successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; animation: slideIn 0.3s ease;';
-                successMsg.innerHTML = '✓ Lesson completed!';
-                document.body.appendChild(successMsg);
-                
-                setTimeout(() => {
-                    successMsg.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => successMsg.remove(), 300);
-                }, 2000);
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
             }
         }
-
-        // Initialize
         checkComplete();
     </script>
 </body>

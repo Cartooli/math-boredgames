@@ -3,297 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equivalent Fractions & Simplification - Essential Math Primer | MathBored</title>
+    <title>Equivalent Fractions &amp; Simplification - Essential Math Primer | MathBored</title>
     <meta name="description" content="Equivalent fractions, reducing to lowest terms">
     <meta name="keywords" content="math, education, learning, Middle School Bridge, equivalent fractions, simplification, GCF, K-12, free">
-    
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://math.boredgames.site/primer/M13.html">
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://math.boredgames.site/primer/M13.html">
-    <meta property="og:title" content="Equivalent Fractions & Simplification - Essential Math Primer | MathBored">
+    <meta property="og:title" content="Equivalent Fractions &amp; Simplification - Essential Math Primer | MathBored">
     <meta property="og:description" content="Equivalent fractions, reducing to lowest terms">
     <meta property="og:image" content="https://math.boredgames.site/og-image.png">
     <meta property="og:site_name" content="MathBored">
-    
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://math.boredgames.site/primer/M13.html">
-    <meta property="twitter:title" content="Equivalent Fractions & Simplification - Essential Math Primer | MathBored">
+    <meta property="twitter:title" content="Equivalent Fractions &amp; Simplification - Essential Math Primer | MathBored">
     <meta property="twitter:description" content="Equivalent fractions, reducing to lowest terms">
     <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
-    
-    <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Equivalent Fractions & Simplification",
         "description": "Equivalent fractions, reducing to lowest terms",
-        "provider": {
-            "@type": "Organization",
-            "name": "MathBored",
-            "url": "https://math.boredgames.site"
-        },
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
         "educationalLevel": "6-8",
         "learningResourceType": "Lesson",
         "timeRequired": "PT15M",
         "inLanguage": "en",
-        "isPartOf": {
-            "@type": "Course",
-            "name": "Essential Math Primer",
-            "url": "https://math.boredgames.site/primer.html"
-        },
-        "hasCourseInstance": {
-            "@type": "CourseInstance",
-            "courseMode": "online",
-            "courseWorkload": "PT15M"
-        },
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
         "teaches": ["equivalent fractions","simplification","GCF"]
     }
     </script>
-    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
+
         .lesson-header {
-            background: 
-                radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
                 linear-gradient(135deg, var(--accent), var(--accent-hover));
-            color: white;
-            padding: 40px 24px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
         }
-
         .lesson-header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-            pointer-events: none;
+            opacity: 0.3; pointer-events: none;
         }
-
-        .lesson-header > * {
-            position: relative;
-            z-index: 1;
-        }
-
+        .lesson-header > * { position: relative; z-index: 1; }
         .lesson-id-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 9px 20px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            margin-bottom: 18px;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 700;
-            letter-spacing: 0.02em;
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
         }
-
         .lesson-content {
-            background: var(--bg-secondary);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            line-height: 1.75;
-            font-size: 1.05rem;
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
         }
-        
-        .lesson-content h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            color: var(--text);
-            letter-spacing: -0.01em;
-        }
-        
-        .lesson-content h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin-top: 28px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        
-        .lesson-content h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 1.5;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-        
-        .lesson-content p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 18px;
-            color: var(--text);
-        }
-        
-        .lesson-content ul, .lesson-content ol {
-            line-height: 1.9;
-            margin-bottom: 20px;
-            padding-left: 28px;
-        }
-        
-        .lesson-content li {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .lesson-nav {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
         .nav-btn {
-            padding: 16px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
         }
-
-        .nav-btn.prev {
-            background: var(--bg-tertiary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn.next {
-            background: var(--accent);
-            color: white;
-            border: 2px solid var(--accent);
-        }
-
-        .nav-btn.overview {
-            background: var(--bg-secondary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn:hover:not(.disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .nav-btn.prev:hover:not(.disabled) {
-            border-color: var(--accent);
-        }
-
-        .nav-btn.next:hover:not(.disabled) {
-            background: var(--accent-hover);
-        }
-
-        .nav-btn.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .key-concepts {
-            background: var(--bg-tertiary);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border-left: 4px solid var(--accent);
-        }
-
-        .key-concepts h3 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.3rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 16px;
-        }
-
-        .key-concepts ul {
-            margin: 15px 0 0 0;
-            padding-left: 28px;
-            line-height: 1.9;
-        }
-        
-        .key-concepts li {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 8px;
-        }
-
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
         .complete-btn {
-            background: var(--success);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 10px;
-            border: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 30px 0;
-            line-height: 1.5;
-            letter-spacing: -0.01em;
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
         }
-
-        .complete-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        .complete-btn.completed {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            cursor: default;
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        @media (max-width: 768px) {
-            .lesson-nav {
-                grid-template-columns: 1fr;
-            }
-
-            .lesson-content {
-                padding: 28px;
-                font-size: 1rem;
-            }
-            
-            .lesson-content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .lesson-content h3 {
-                font-size: 1.25rem;
-            }
-            
-            .lesson-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            .lesson-content p {
-                font-size: 1rem;
-            }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
         }
     </style>
 </head>
@@ -302,7 +155,7 @@
         <div class="container">
             <div class="header-content">
                 <div>
-                    <h1>🎯 MathBored</h1>
+                    <h1>MathBored</h1>
                     <div class="tagline">Essential Math Primer</div>
                 </div>
             </div>
@@ -310,141 +163,163 @@
     </header>
 
     <div class="container">
-        <a href="/primer.html" class="back-link">← Back to Primer Overview</a>
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
 
         <div class="lesson-header">
-            <span class="lesson-id-badge">M13 • Lesson 13 of 75</span>
-            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Equivalent Fractions & Simplification</h1>
-            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Equivalent fractions, reducing to lowest terms</p>
-            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">Middle School Bridge • 6-8</p>
+            <span class="lesson-id-badge">M13 &bull; Lesson 27 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Equivalent Fractions &amp; Simplification</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Equivalent fractions, reducing to lowest terms</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">Middle School Bridge &bull; 6-8</p>
         </div>
-
-        
 
         <div class="lesson-content">
-            
-            <div style="background: var(--bg-tertiary); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                <strong>📋 Prerequisites:</strong> 
-                <span style="color: var(--accent); font-weight: 500;">E06</span>
-            </div>
-        
-            
-            <div class="key-concepts">
-                <h3>🎯 Key Concepts</h3>
-                <ul><li>equivalent fractions</li><li>simplification</li><li>GCF</li></ul>
-            </div>
+            <div class="prereq-bar"><strong>Prerequisites:</strong> <a href="E06.html" class="prereq-link">E06</a></div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>equivalent fractions</li><li>simplification</li><li>GCF</li></ul></div>
 
-            
-        <div style="margin-top: 30px;">
-            <h2>📖 Lesson Overview</h2>
-            <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 30px;">
-                This 15-minute lesson provides a focused introduction to equivalent fractions & simplification. 
-                You'll learn the essential concepts, see practical examples, and build a solid foundation for future learning.
-            </p>
 
-            <h3>What You'll Learn</h3>
-            <p style="color: var(--text-secondary); margin-bottom: 20px;">
-                Equivalent fractions, reducing to lowest terms
-            </p>
+<h2>Equivalent Fractions and Simplification</h2>
+<p>Have you ever split a pizza equally among friends? Whether you cut it into 4 slices and take 2, or cut it into 8 slices and take 4, you still get the same amount of pizza. That idea -- that different-looking fractions can represent the same quantity -- is one of the most important concepts in all of mathematics. Mastering equivalent fractions gives you the power to simplify complex problems and see hidden connections between numbers.</p>
 
-            <div style="background: var(--bg-tertiary); padding: 25px; border-radius: 12px; margin: 30px 0;">
-                <h3 style="margin-top: 0;">🎯 Learning Objectives</h3>
-                <p style="color: var(--text-secondary); margin-bottom: 15px;">By the end of this lesson, you will be able to:</p>
-                <ul style="line-height: 2;">
-                    <li>Understand the fundamental concepts of equivalent fractions & simplification</li>
-                    <li>Apply these concepts to solve basic problems</li>
-                    <li>Connect this topic to other areas of mathematics</li>
-                    <li>Build confidence for more advanced topics</li>
-                </ul>
-            </div>
+<h3>What Are Equivalent Fractions?</h3>
+<p>Two fractions are <strong>equivalent</strong> when they represent the same value. The key principle is this: <em>multiplying or dividing both the numerator and denominator by the same nonzero number produces an equivalent fraction.</em></p>
 
-            <div style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1)); padding: 25px; border-radius: 12px; border-left: 4px solid var(--accent); margin: 30px 0;">
-                <h3 style="margin-top: 0;">📝 Lesson Content</h3>
-                <p style="color: var(--text-secondary); font-style: italic;">
-                    Detailed lesson content is currently being developed. This will include:
-                </p>
-                <ul style="color: var(--text-secondary); line-height: 2;">
-                    <li>Clear explanations with visual aids</li>
-                    <li>Step-by-step worked examples</li>
-                    <li>Practice problems with solutions</li>
-                    <li>Real-world applications</li>
-                    <li>Common misconceptions and tips</li>
-                </ul>
-            </div>
+<div class="math-display">
+  <sup>1</sup>&frasl;<sub>2</sub> = <sup>2</sup>&frasl;<sub>4</sub> = <sup>3</sup>&frasl;<sub>6</sub> = <sup>4</sup>&frasl;<sub>8</sub> = <sup>5</sup>&frasl;<sub>10</sub>
+</div>
 
-            <div style="text-align: center; margin: 40px 0; padding: 30px; background: var(--bg-secondary); border-radius: 12px; border: 2px dashed var(--border);">
-                <div style="font-size: 2rem; margin-bottom: 15px;">⏱️</div>
-                <p style="font-size: 1.2rem; font-weight: bold; margin: 0;">Estimated Time: 15 minutes</p>
-            </div>
-        </div>
-    
+<p>Each of these fractions names exactly half of a whole. We obtained them by multiplying the numerator and denominator of <sup>1</sup>&frasl;<sub>2</sub> by 2, 3, 4, and 5 respectively.</p>
 
-            
-            <div style="text-align: center; margin-top: 40px;">
+<div class="example-box">
+  <h4>Example 1 -- Building Equivalent Fractions</h4>
+  <p>Write three fractions equivalent to <sup>3</sup>&frasl;<sub>5</sub>.</p>
+  <ol class="step-list">
+    <li>Multiply numerator and denominator by 2: <sup>3 &times; 2</sup>&frasl;<sub>5 &times; 2</sub> = <sup>6</sup>&frasl;<sub>10</sub></li>
+    <li>Multiply by 3: <sup>3 &times; 3</sup>&frasl;<sub>5 &times; 3</sub> = <sup>9</sup>&frasl;<sub>15</sub></li>
+    <li>Multiply by 4: <sup>3 &times; 4</sup>&frasl;<sub>5 &times; 4</sub> = <sup>12</sup>&frasl;<sub>20</sub></li>
+  </ol>
+  <p>So <sup>3</sup>&frasl;<sub>5</sub> = <sup>6</sup>&frasl;<sub>10</sub> = <sup>9</sup>&frasl;<sub>15</sub> = <sup>12</sup>&frasl;<sub>20</sub>.</p>
+</div>
+
+<h3>Simplifying Fractions Using the GCF</h3>
+<p>Simplifying (or "reducing") a fraction means rewriting it with the smallest possible numerator and denominator. To do this, divide both parts by their <strong>Greatest Common Factor (GCF)</strong> -- the largest number that divides evenly into both.</p>
+
+<div class="math-display">
+  <sup>a</sup>&frasl;<sub>b</sub> simplified: divide both a and b by GCF(a, b)
+</div>
+
+<p><strong>Finding the GCF:</strong> List the factors of each number and pick the largest one they share. For example, the factors of 12 are 1, 2, 3, 4, 6, 12 and the factors of 18 are 1, 2, 3, 6, 9, 18. The GCF is 6.</p>
+
+<div class="example-box">
+  <h4>Example 2 -- Simplifying a Fraction</h4>
+  <p>Simplify <sup>18</sup>&frasl;<sub>24</sub>.</p>
+  <ol class="step-list">
+    <li>Find factors of 18: 1, 2, 3, 6, 9, 18</li>
+    <li>Find factors of 24: 1, 2, 3, 4, 6, 8, 12, 24</li>
+    <li>GCF = 6</li>
+    <li>Divide both by 6: <sup>18 &divide; 6</sup>&frasl;<sub>24 &divide; 6</sub> = <sup>3</sup>&frasl;<sub>4</sub></li>
+  </ol>
+  <p>The simplified form is <sup>3</sup>&frasl;<sub>4</sub>.</p>
+</div>
+
+<div class="example-box">
+  <h4>Example 3 -- Already in Lowest Terms?</h4>
+  <p>Simplify <sup>7</sup>&frasl;<sub>15</sub>.</p>
+  <p>Factors of 7: 1, 7. Factors of 15: 1, 3, 5, 15. The only common factor is 1, so GCF = 1. The fraction is already in lowest terms.</p>
+</div>
+
+<div class="warning-box">
+  <h4>Common Mistake</h4>
+  <p>Students sometimes add or subtract the same number from the numerator and denominator, thinking this creates an equivalent fraction. It does not. For example, <sup>3</sup>&frasl;<sub>5</sub> is NOT equal to <sup>3 + 1</sup>&frasl;<sub>5 + 1</sub> = <sup>4</sup>&frasl;<sub>6</sub>. You must <em>multiply or divide</em> both parts by the same number -- never add or subtract.</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>1.</strong> Write two fractions equivalent to <sup>2</sup>&frasl;<sub>7</sub>.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Multiply by 2: <sup>4</sup>&frasl;<sub>14</sub>. Multiply by 3: <sup>6</sup>&frasl;<sub>21</sub>. (Any correct multiplications are valid.)</p>
+  </details>
+
+  <p><strong>2.</strong> Simplify <sup>20</sup>&frasl;<sub>35</sub>.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>GCF(20, 35) = 5. Divide both by 5: <sup>20 &divide; 5</sup>&frasl;<sub>35 &divide; 5</sub> = <sup>4</sup>&frasl;<sub>7</sub>.</p>
+  </details>
+
+  <p><strong>3.</strong> Simplify <sup>36</sup>&frasl;<sub>48</sub>.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>GCF(36, 48) = 12. Divide both by 12: <sup>36 &divide; 12</sup>&frasl;<sub>48 &divide; 12</sub> = <sup>3</sup>&frasl;<sub>4</sub>.</p>
+  </details>
+
+  <p><strong>4.</strong> Are <sup>5</sup>&frasl;<sub>8</sub> and <sup>15</sup>&frasl;<sub>24</sub> equivalent? Explain.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Yes. Simplify <sup>15</sup>&frasl;<sub>24</sub> by dividing both by 3: <sup>5</sup>&frasl;<sub>8</sub>. Since both reduce to the same fraction, they are equivalent. You can also cross-multiply: 5 &times; 24 = 120 and 8 &times; 15 = 120, confirming equality.</p>
+  </details>
+
+  <p><strong>5.</strong> Simplify <sup>42</sup>&frasl;<sub>56</sub>.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>GCF(42, 56) = 14. Divide both by 14: <sup>42 &divide; 14</sup>&frasl;<sub>56 &divide; 14</sub> = <sup>3</sup>&frasl;<sub>4</sub>.</p>
+  </details>
+</div>
+
+<h3>Lesson Summary</h3>
+<p>Equivalent fractions represent the same value and are created by multiplying or dividing both the numerator and denominator by the same nonzero number. To simplify a fraction, find the GCF of the numerator and denominator and divide both by it. A fraction is in <strong>lowest terms</strong> when its GCF is 1.</p>
+
+
+            <div style="text-align:center;margin-top:40px;">
                 <button id="completeBtn" class="complete-btn" onclick="markComplete()">
-                    <span>✓</span> Mark Lesson as Complete
+                    <span>&#10003;</span> Mark Lesson as Complete
                 </button>
             </div>
-            
         </div>
 
         <div class="lesson-nav">
-            <a href="E12.html" class="nav-btn prev">← Data & Basic Graphing</a>
-            <a href="/primer.html" class="nav-btn overview">📚 Overview</a>
-            <a href="M14.html" class="nav-btn next">Adding & Subtracting Fractions →</a>
+            <a href="U08.html" class="nav-btn prev">&larr; Area, Perimeter &amp; Volume Applications</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="M14.html" class="nav-btn next">Adding &amp; Subtracting Fractions &rarr;</a>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
         </div>
     </footer>
 
     <script>
-        // Load theme
         const savedTheme = localStorage.getItem('mathbored-theme');
-        if (savedTheme) {
-            document.body.className = savedTheme;
-        }
+        if (savedTheme) document.body.className = savedTheme;
 
-        // Check if lesson is already completed
         function checkComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
             const btn = document.getElementById('completeBtn');
-            if (btn && completedLessons.includes('M13')) {
+            if (btn && done.includes('M13')) {
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
             }
         }
 
-        // Mark lesson as complete
         function markComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
-            if (!completedLessons.includes('M13')) {
-                completedLessons.push('M13');
-                localStorage.setItem('primer-completed', JSON.stringify(completedLessons));
-                
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('M13')) {
+                done.push('M13');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
                 const btn = document.getElementById('completeBtn');
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
-                
-                // Show success message
-                const successMsg = document.createElement('div');
-                successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; animation: slideIn 0.3s ease;';
-                successMsg.innerHTML = '✓ Lesson completed!';
-                document.body.appendChild(successMsg);
-                
-                setTimeout(() => {
-                    successMsg.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => successMsg.remove(), 300);
-                }, 2000);
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
             }
         }
-
-        // Initialize
         checkComplete();
     </script>
 </body>

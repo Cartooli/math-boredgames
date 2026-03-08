@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parametric Equations and Polar Coordinates Introduction - Essential Math Primer | MathBored</title>
+    <meta name="description" content="Representing curves and points using alternative coordinate systems. Covers parametric equations: defining x(t) and y(t) to trace curves (lines, circles, projectile paths), eliminating the parameter to find Cartesian equations. Introduces polar coordinates (r, theta), converting between polar and Cartesian forms, and graphing basic polar curves.">
+    <meta name="keywords" content="math, education, learning, High School Advanced, parametric equations for lines, circles, and projectile motion, eliminating the parameter to convert to Cartesian form, polar coordinate system and polar-Cartesian conversion, graphing basic polar curves, K-12, free">
+    <link rel="canonical" href="https://math.boredgames.site/primer/A08.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://math.boredgames.site/primer/A08.html">
+    <meta property="og:title" content="Parametric Equations and Polar Coordinates Introduction - Essential Math Primer | MathBored">
+    <meta property="og:description" content="Representing curves and points using alternative coordinate systems. Covers parametric equations: defining x(t) and y(t) to trace curves (lines, circles, projectile paths), eliminating the parameter to find Cartesian equations. Introduces polar coordinates (r, theta), converting between polar and Cartesian forms, and graphing basic polar curves.">
+    <meta property="og:image" content="https://math.boredgames.site/og-image.png">
+    <meta property="og:site_name" content="MathBored">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://math.boredgames.site/primer/A08.html">
+    <meta property="twitter:title" content="Parametric Equations and Polar Coordinates Introduction - Essential Math Primer | MathBored">
+    <meta property="twitter:description" content="Representing curves and points using alternative coordinate systems. Covers parametric equations: defining x(t) and y(t) to trace curves (lines, circles, projectile paths), eliminating the parameter to find Cartesian equations. Introduces polar coordinates (r, theta), converting between polar and Cartesian forms, and graphing basic polar curves.">
+    <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Parametric Equations and Polar Coordinates Introduction",
+        "description": "Representing curves and points using alternative coordinate systems. Covers parametric equations: defining x(t) and y(t) to trace curves (lines, circles, projectile paths), eliminating the parameter to find Cartesian equations. Introduces polar coordinates (r, theta), converting between polar and Cartesian forms, and graphing basic polar curves.",
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
+        "educationalLevel": "9-12",
+        "learningResourceType": "Lesson",
+        "timeRequired": "PT15M",
+        "inLanguage": "en",
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
+        "teaches": ["parametric equations for lines, circles, and projectile motion","eliminating the parameter to convert to Cartesian form","polar coordinate system and polar-Cartesian conversion","graphing basic polar curves"]
+    }
+    </script>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <style>
+
+        .lesson-header {
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
+                linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
+        }
+        .lesson-header::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3; pointer-events: none;
+        }
+        .lesson-header > * { position: relative; z-index: 1; }
+        .lesson-id-badge {
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
+        }
+        .lesson-content {
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
+        }
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
+        .nav-btn {
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
+        }
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
+        .complete-btn {
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
+        }
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>MathBored</h1>
+                    <div class="tagline">Essential Math Primer</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
+
+        <div class="lesson-header">
+            <span class="lesson-id-badge">A08 &bull; Lesson 78 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Parametric Equations and Polar Coordinates Introduction</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Representing curves and points using alternative coordinate systems. Covers parametric equations: defining x(t) and y(t) to trace curves (lines, circles, projectile paths), eliminating the parameter to find Cartesian equations. Introduces polar coordinates (r, theta), converting between polar and Cartesian forms, and graphing basic polar curves.</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">High School Advanced &bull; 9-12</p>
+        </div>
+
+        <div class="lesson-content">
+            <div class="prereq-bar"><strong>Prerequisites:</strong> <a href="H43.html" class="prereq-link">H43</a>, <a href="H44.html" class="prereq-link">H44</a>, <a href="R54.html" class="prereq-link">R54</a>, <a href="H36.html" class="prereq-link">H36</a></div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>parametric equations for lines, circles, and projectile motion</li><li>eliminating the parameter to convert to Cartesian form</li><li>polar coordinate system and polar-Cartesian conversion</li><li>graphing basic polar curves</li></ul></div>
+
+
+<h2>Parametric Equations and Polar Coordinates Introduction</h2>
+<p>Until now, you have described curves as y = f(x), where y is explicitly a function of x. But many curves cannot be expressed this way -- a full circle, for instance, fails the vertical line test. <strong>Parametric equations</strong> and <strong>polar coordinates</strong> offer two powerful alternatives. Parametric equations describe motion by letting both x and y depend on a third variable (time). Polar coordinates describe position by distance and direction rather than horizontal and vertical displacement. Together, they vastly expand what you can describe and analyze.</p>
+
+<h3>Parametric Equations</h3>
+<p>A parametric curve is defined by a pair of equations:</p>
+<div class="math-display">x = f(t), &nbsp; y = g(t)</div>
+<p>where t is the <strong>parameter</strong> (often representing time). As t varies, the point (x, y) traces out a curve in the plane. The parameter gives you something Cartesian equations do not: a sense of <em>direction and speed</em> along the curve.</p>
+
+<h3>Common Parametric Curves</h3>
+
+<div class="vocab-table">
+  <table>
+    <tr><th>Curve</th><th>Parametric Equations</th><th>Parameter Range</th></tr>
+    <tr><td>Line through (x_0, y_0) with direction (a, b)</td><td>x = x_0 + at, &nbsp; y = y_0 + bt</td><td>all real t</td></tr>
+    <tr><td>Circle centered at origin, radius r</td><td>x = r cos(t), &nbsp; y = r sin(t)</td><td>0 &le; t &lt; 2&pi;</td></tr>
+    <tr><td>Ellipse with semi-axes a, b</td><td>x = a cos(t), &nbsp; y = b sin(t)</td><td>0 &le; t &lt; 2&pi;</td></tr>
+    <tr><td>Projectile (initial velocity v_0, angle &alpha;)</td><td>x = v_0 cos(&alpha;) t, &nbsp; y = v_0 sin(&alpha;) t - (1/2)g t^2</td><td>t &ge; 0</td></tr>
+  </table>
+</div>
+
+<h3>Eliminating the Parameter</h3>
+<p>To convert parametric equations to a single Cartesian equation, solve one parametric equation for t and substitute into the other.</p>
+
+<div class="step-list">
+  <ol>
+    <li>Choose the simpler parametric equation and solve for t in terms of x or y.</li>
+    <li>Substitute this expression for t into the other equation.</li>
+    <li>Simplify to get y in terms of x (or a relation between x and y).</li>
+  </ol>
+</div>
+
+<p>For trigonometric parametrizations, use the Pythagorean identity sin^2(t) + cos^2(t) = 1 instead.</p>
+
+<h3>Polar Coordinates</h3>
+<p>Polar coordinates describe a point by its <strong>distance from the origin</strong> (r) and <strong>angle from the positive x-axis</strong> (&theta;):</p>
+<div class="math-display">Point: (r, &theta;)</div>
+<p>Unlike Cartesian coordinates, the same point can have multiple polar representations (by adding 2&pi; to &theta;, or by using negative r with a shifted angle).</p>
+
+<h3>Converting Between Polar and Cartesian</h3>
+
+<div class="columns-2">
+  <div>
+    <strong>Polar to Cartesian:</strong>
+    <div class="math-display">x = r cos(&theta;)</div>
+    <div class="math-display">y = r sin(&theta;)</div>
+  </div>
+  <div>
+    <strong>Cartesian to Polar:</strong>
+    <div class="math-display">r = &radic;(x^2 + y^2)</div>
+    <div class="math-display">&theta; = arctan(y/x)</div>
+    <p>(Adjust &theta; for the correct quadrant.)</p>
+  </div>
+</div>
+
+<h3>Basic Polar Curves</h3>
+<p>Some standard polar curves and their equations:</p>
+<ul>
+  <li><strong>Circle centered at origin:</strong> r = a (constant). All points at distance a from the origin.</li>
+  <li><strong>Line through origin:</strong> &theta; = c (constant). All points at angle c, any distance.</li>
+  <li><strong>Circle through origin:</strong> r = 2a cos(&theta;) (circle of radius a, centered at (a, 0)).</li>
+  <li><strong>Cardioid:</strong> r = a(1 + cos(&theta;)) or r = a(1 + sin(&theta;)). A heart-shaped curve.</li>
+  <li><strong>Rose curves:</strong> r = a cos(n&theta;). If n is odd, there are n petals; if n is even, there are 2n petals.</li>
+</ul>
+
+<div class="example-box">
+  <h4>Worked Example 1: Eliminating the Parameter (Linear)</h4>
+  <p><strong>Problem:</strong> Eliminate the parameter from x = 2t + 1, y = 3t - 4.</p>
+  <p><strong>Solution:</strong> Solve the first equation for t:</p>
+  <div class="math-display">x = 2t + 1 &rarr; t = (x - 1)/2</div>
+  <p>Substitute into the second equation:</p>
+  <div class="math-display">y = 3 &middot; (x - 1)/2 - 4 = (3x - 3)/2 - 4 = (3x - 3 - 8)/2 = (3x - 11)/2</div>
+  <p>Cartesian equation: y = (3/2)x - 11/2. This is a line with slope 3/2.</p>
+</div>
+
+<div class="example-box">
+  <h4>Worked Example 2: Eliminating the Parameter (Circle)</h4>
+  <p><strong>Problem:</strong> Eliminate the parameter from x = 5 cos(t), y = 5 sin(t).</p>
+  <p><strong>Solution:</strong> From the equations: cos(t) = x/5 and sin(t) = y/5.</p>
+  <p>Use the Pythagorean identity:</p>
+  <div class="math-display">cos^2(t) + sin^2(t) = 1</div>
+  <div class="math-display">(x/5)^2 + (y/5)^2 = 1</div>
+  <div class="math-display">x^2 + y^2 = 25</div>
+  <p>This is a circle of radius 5 centered at the origin.</p>
+</div>
+
+<div class="example-box">
+  <h4>Worked Example 3: Polar-Cartesian Conversion</h4>
+  <p><strong>Problem:</strong> (a) Convert the polar point (4, &pi;/3) to Cartesian. (b) Convert the Cartesian point (-3, 3) to polar.</p>
+  <p><strong>Solution (a):</strong></p>
+  <div class="math-display">x = 4 cos(&pi;/3) = 4 &middot; (1/2) = 2</div>
+  <div class="math-display">y = 4 sin(&pi;/3) = 4 &middot; (&radic;3/2) = 2&radic;3</div>
+  <p>Cartesian point: (2, 2&radic;3).</p>
+
+  <p><strong>Solution (b):</strong></p>
+  <div class="math-display">r = &radic;((-3)^2 + 3^2) = &radic;(9 + 9) = &radic;18 = 3&radic;2</div>
+  <div class="math-display">&theta; = arctan(3/(-3)) = arctan(-1)</div>
+  <p>Since the point is in Quadrant II (x &lt; 0, y &gt; 0), &theta; = &pi; - &pi;/4 = 3&pi;/4.</p>
+  <p>Polar point: (3&radic;2, 3&pi;/4).</p>
+</div>
+
+<div class="warning-box">
+  <h4>Common Mistakes</h4>
+  <ul>
+    <li><strong>Wrong quadrant for &theta;:</strong> The arctan function only gives values in (-&pi;/2, &pi;/2). If the point is in Quadrant II or III, you must add &pi; to the arctan result. Always check which quadrant (x, y) is in.</li>
+    <li><strong>Losing direction when eliminating the parameter:</strong> The Cartesian equation x^2 + y^2 = 25 does not tell you that the circle is traced counterclockwise starting at (5, 0). Parametric form carries directional information that Cartesian form loses.</li>
+    <li><strong>Restricting r to positive values:</strong> In polar coordinates, r can be negative. The point (-r, &theta;) is the same as (r, &theta; + &pi;) -- it reflects through the origin.</li>
+  </ul>
+</div>
+
+<div class="tip-box">
+  <h4>Why Parametric and Polar?</h4>
+  <p>Parametric equations are indispensable in physics and computer graphics. Every animation, every simulated trajectory, every robot path is described parametrically. Polar coordinates simplify problems with circular or rotational symmetry -- radar systems, orbital mechanics, and antenna radiation patterns all use polar coordinates naturally. Mastering both systems gives you the flexibility to choose the best tool for each problem.</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>Problem 1:</strong> Eliminate the parameter from x = t^2, y = 2t + 1. What type of curve is this?</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>From y = 2t + 1: t = (y - 1)/2.</p>
+    <p>Substitute: x = ((y - 1)/2)^2 = (y - 1)^2/4.</p>
+    <p>Rewrite: 4x = (y - 1)^2, or equivalently x = (1/4)(y - 1)^2.</p>
+    <p>This is a <strong>parabola</strong> opening to the right with vertex at (0, 1).</p>
+  </details>
+
+  <p><strong>Problem 2:</strong> Convert the polar point (6, 5&pi;/6) to Cartesian coordinates.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>x = 6 cos(5&pi;/6) = 6 &middot; (-&radic;3/2) = -3&radic;3</p>
+    <p>y = 6 sin(5&pi;/6) = 6 &middot; (1/2) = 3</p>
+    <p>Cartesian point: (-3&radic;3, 3).</p>
+  </details>
+
+  <p><strong>Problem 3:</strong> Convert the Cartesian equation x^2 + y^2 = 16 to polar form.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Since x^2 + y^2 = r^2 in polar coordinates:</p>
+    <p>r^2 = 16, so r = 4.</p>
+    <p>The polar equation is simply r = 4 (a circle of radius 4 centered at the origin).</p>
+  </details>
+
+  <p><strong>Problem 4:</strong> A projectile is launched at 30 m/s at an angle of 60 degrees above horizontal (g = 10 m/s^2). Write parametric equations for its position. How long is it in the air, and how far does it travel horizontally?</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>x = 30 cos(60&deg;) t = 30(1/2)t = 15t</p>
+    <p>y = 30 sin(60&deg;) t - (1/2)(10)t^2 = 15&radic;3 t - 5t^2</p>
+    <p>The projectile lands when y = 0: 15&radic;3 t - 5t^2 = 0 &rarr; t(15&radic;3 - 5t) = 0.</p>
+    <p>t = 0 (launch) or t = 3&radic;3 seconds (landing).</p>
+    <p>Horizontal distance: x = 15 &middot; 3&radic;3 = 45&radic;3 &approx; 77.9 meters.</p>
+  </details>
+
+  <p><strong>Problem 5:</strong> Describe the polar curve r = 3(1 + cos(&theta;)). Identify the type of curve and find the value of r at &theta; = 0, &pi;/2, &pi;, and 3&pi;/2.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>This is a <strong>cardioid</strong> (heart-shaped curve) with a = 3.</p>
+    <p>&theta; = 0: r = 3(1 + cos(0)) = 3(1 + 1) = 6 (farthest from origin)</p>
+    <p>&theta; = &pi;/2: r = 3(1 + cos(&pi;/2)) = 3(1 + 0) = 3</p>
+    <p>&theta; = &pi;: r = 3(1 + cos(&pi;)) = 3(1 + (-1)) = 0 (curve passes through origin)</p>
+    <p>&theta; = 3&pi;/2: r = 3(1 + cos(3&pi;/2)) = 3(1 + 0) = 3</p>
+    <p>The cardioid is symmetric about the x-axis (the polar axis), extends from r = 0 to r = 6, and has its cusp at the origin when &theta; = &pi;.</p>
+  </details>
+</div>
+
+<h3>Summary</h3>
+<p>Parametric equations define curves by expressing x and y each as functions of a parameter t, capturing not just shape but direction and timing. Eliminating the parameter recovers a Cartesian equation but loses directional information. Polar coordinates (r, &theta;) describe points by distance and angle, offering an elegant framework for curves with rotational symmetry. Converting between polar and Cartesian uses x = r cos(&theta;), y = r sin(&theta;), r = &radic;(x^2 + y^2), and &theta; = arctan(y/x) (with quadrant adjustment). These coordinate systems complement Cartesian coordinates and are essential tools in physics, engineering, and advanced mathematics.</p>
+
+
+            <div style="text-align:center;margin-top:40px;">
+                <button id="completeBtn" class="complete-btn" onclick="markComplete()">
+                    <span>&#10003;</span> Mark Lesson as Complete
+                </button>
+            </div>
+        </div>
+
+        <div class="lesson-nav">
+            <a href="A07.html" class="nav-btn prev">&larr; Introduction to Limits</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="R49.html" class="nav-btn next">Scientific Notation &rarr;</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
+        </div>
+    </footer>
+
+    <script>
+        const savedTheme = localStorage.getItem('mathbored-theme');
+        if (savedTheme) document.body.className = savedTheme;
+
+        function checkComplete() {
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const btn = document.getElementById('completeBtn');
+            if (btn && done.includes('A08')) {
+                btn.classList.add('completed');
+                btn.innerHTML = '<span>&#10003;</span> Completed';
+                btn.disabled = true;
+            }
+        }
+
+        function markComplete() {
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('A08')) {
+                done.push('A08');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
+                const btn = document.getElementById('completeBtn');
+                btn.classList.add('completed');
+                btn.innerHTML = '<span>&#10003;</span> Completed';
+                btn.disabled = true;
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
+            }
+        }
+        checkComplete();
+    </script>
+</body>
+</html>

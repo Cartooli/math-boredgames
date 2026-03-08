@@ -5,295 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Community Choice Topic - Essential Math Primer | MathBored</title>
     <meta name="description" content="Reserved for highest-requested topic from community feedback">
-    <meta name="keywords" content="math, education, learning, Reserve & Extensions, to be determined, K-12, free">
-    
-    <!-- Canonical URL -->
+    <meta name="keywords" content="math, education, learning, Reserve &amp; Extensions, to be determined, K-12, free">
     <link rel="canonical" href="https://math.boredgames.site/primer/R75.html">
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://math.boredgames.site/primer/R75.html">
     <meta property="og:title" content="Community Choice Topic - Essential Math Primer | MathBored">
     <meta property="og:description" content="Reserved for highest-requested topic from community feedback">
     <meta property="og:image" content="https://math.boredgames.site/og-image.png">
     <meta property="og:site_name" content="MathBored">
-    
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://math.boredgames.site/primer/R75.html">
     <meta property="twitter:title" content="Community Choice Topic - Essential Math Primer | MathBored">
     <meta property="twitter:description" content="Reserved for highest-requested topic from community feedback">
     <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
-    
-    <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Community Choice Topic",
         "description": "Reserved for highest-requested topic from community feedback",
-        "provider": {
-            "@type": "Organization",
-            "name": "MathBored",
-            "url": "https://math.boredgames.site"
-        },
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
         "educationalLevel": "K-12",
         "learningResourceType": "Lesson",
         "timeRequired": "PT15M",
         "inLanguage": "en",
-        "isPartOf": {
-            "@type": "Course",
-            "name": "Essential Math Primer",
-            "url": "https://math.boredgames.site/primer.html"
-        },
-        "hasCourseInstance": {
-            "@type": "CourseInstance",
-            "courseMode": "online",
-            "courseWorkload": "PT15M"
-        },
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
         "teaches": ["to be determined"]
     }
     </script>
-    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
+
         .lesson-header {
-            background: 
-                radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
                 linear-gradient(135deg, var(--accent), var(--accent-hover));
-            color: white;
-            padding: 40px 24px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
         }
-
         .lesson-header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-            pointer-events: none;
+            opacity: 0.3; pointer-events: none;
         }
-
-        .lesson-header > * {
-            position: relative;
-            z-index: 1;
-        }
-
+        .lesson-header > * { position: relative; z-index: 1; }
         .lesson-id-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 9px 20px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            margin-bottom: 18px;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 700;
-            letter-spacing: 0.02em;
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
         }
-
         .lesson-content {
-            background: var(--bg-secondary);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            line-height: 1.75;
-            font-size: 1.05rem;
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
         }
-        
-        .lesson-content h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            color: var(--text);
-            letter-spacing: -0.01em;
-        }
-        
-        .lesson-content h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin-top: 28px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        
-        .lesson-content h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 1.5;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-        
-        .lesson-content p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 18px;
-            color: var(--text);
-        }
-        
-        .lesson-content ul, .lesson-content ol {
-            line-height: 1.9;
-            margin-bottom: 20px;
-            padding-left: 28px;
-        }
-        
-        .lesson-content li {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .lesson-nav {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
         .nav-btn {
-            padding: 16px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
         }
-
-        .nav-btn.prev {
-            background: var(--bg-tertiary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn.next {
-            background: var(--accent);
-            color: white;
-            border: 2px solid var(--accent);
-        }
-
-        .nav-btn.overview {
-            background: var(--bg-secondary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn:hover:not(.disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .nav-btn.prev:hover:not(.disabled) {
-            border-color: var(--accent);
-        }
-
-        .nav-btn.next:hover:not(.disabled) {
-            background: var(--accent-hover);
-        }
-
-        .nav-btn.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .key-concepts {
-            background: var(--bg-tertiary);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border-left: 4px solid var(--accent);
-        }
-
-        .key-concepts h3 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.3rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 16px;
-        }
-
-        .key-concepts ul {
-            margin: 15px 0 0 0;
-            padding-left: 28px;
-            line-height: 1.9;
-        }
-        
-        .key-concepts li {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 8px;
-        }
-
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
         .complete-btn {
-            background: var(--success);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 10px;
-            border: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 30px 0;
-            line-height: 1.5;
-            letter-spacing: -0.01em;
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
         }
-
-        .complete-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        .complete-btn.completed {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            cursor: default;
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        @media (max-width: 768px) {
-            .lesson-nav {
-                grid-template-columns: 1fr;
-            }
-
-            .lesson-content {
-                padding: 28px;
-                font-size: 1rem;
-            }
-            
-            .lesson-content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .lesson-content h3 {
-                font-size: 1.25rem;
-            }
-            
-            .lesson-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            .lesson-content p {
-                font-size: 1rem;
-            }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
         }
     </style>
 </head>
@@ -302,7 +155,7 @@
         <div class="container">
             <div class="header-content">
                 <div>
-                    <h1>🎯 MathBored</h1>
+                    <h1>MathBored</h1>
                     <div class="tagline">Essential Math Primer</div>
                 </div>
             </div>
@@ -310,101 +163,195 @@
     </header>
 
     <div class="container">
-        <a href="/primer.html" class="back-link">← Back to Primer Overview</a>
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
 
         <div class="lesson-header">
-            <span class="lesson-id-badge">R75 • Lesson 75 of 75</span>
-            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Community Choice Topic</h1>
-            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Reserved for highest-requested topic from community feedback</p>
-            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">Reserve & Extensions • K-12</p>
+            <span class="lesson-id-badge">R75 &bull; Lesson 105 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Community Choice Topic</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Reserved for highest-requested topic from community feedback</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">Reserve &amp; Extensions &bull; K-12</p>
         </div>
-
-        
-        <div style="background: var(--warning); color: white; padding: 20px; border-radius: 12px; margin-bottom: 30px; text-align: center;">
-            <strong>🔮 Reserve Slot</strong><br>
-            This lesson is part of the curriculum expansion plan and will be developed based on community needs and feedback.
-        </div>
-    
 
         <div class="lesson-content">
-            
-            
-            <div class="key-concepts">
-                <h3>🎯 Key Concepts</h3>
-                <ul><li>to be determined</li></ul>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>to be determined</li></ul></div>
+
+
+<h2>Mathematical Problem-Solving Strategies</h2>
+
+<p>Mathematics is not about memorizing formulas and plugging in numbers. It is about <strong>thinking</strong>. When you face a problem you have never seen before, you need strategies -- systematic approaches that give you a way in, even when the path is not obvious. These strategies, formalized by mathematician George Polya in 1945, remain the gold standard for problem solving.</p>
+
+<h3>Polya's Four Steps</h3>
+
+<ol class="step-list">
+<li><strong>Understand the problem.</strong> What is given? What is asked? What are the conditions? Can you restate the problem in your own words?</li>
+<li><strong>Devise a plan.</strong> Choose a strategy (see below). Have you seen a similar problem? Can you break it into parts?</li>
+<li><strong>Carry out the plan.</strong> Execute your strategy carefully. Check each step as you go.</li>
+<li><strong>Look back.</strong> Is the answer reasonable? Can you verify it? Could you solve it a different way? Can you generalize?</li>
+</ol>
+
+<h3>Strategy 1: Draw a Diagram</h3>
+
+<p>Many problems become clearer -- sometimes trivially easy -- once you draw a picture.</p>
+
+<div class="example-box">
+<h4>Worked Example 1: Drawing a Diagram</h4>
+<p><strong>Problem:</strong> A snail is at the bottom of a 30-foot well. Each day it climbs 3 feet, but each night it slides back 2 feet. How many days does it take to reach the top?</p>
+<p><strong>Without a diagram,</strong> students often say: "Net progress = 1 foot per day, so 30 days." But draw it out:</p>
+<p>After day 1: 3 ft up, slides to 1 ft. After day 2: up to 4, slides to 2. ... After day 27: up to 29, slides to 27. After day 28: climbs 3 to reach 30 -- at the top! No sliding back.</p>
+<p><strong>Answer: 28 days.</strong> The diagram reveals that on the final day, the snail reaches the top during the climb and does not slide back.</p>
+</div>
+
+<h3>Strategy 2: Work Backwards</h3>
+
+<p>When you know the <em>end result</em> and need to find the <em>starting point</em>, work from the answer back to the beginning.</p>
+
+<div class="example-box">
+<h4>Worked Example 2: Working Backwards</h4>
+<p><strong>Problem:</strong> After doubling a number, adding 5, and then dividing by 3, you get 7. What was the original number?</p>
+<p>Work backwards from 7:</p>
+<ul>
+<li>Before dividing by 3: 7 &times; 3 = 21</li>
+<li>Before adding 5: 21 &minus; 5 = 16</li>
+<li>Before doubling: 16 / 2 = 8</li>
+</ul>
+<p><strong>The original number is 8.</strong></p>
+<p>Check: 2(8) = 16, 16 + 5 = 21, 21/3 = 7. Correct.</p>
+</div>
+
+<h3>Strategy 3: Look for Patterns</h3>
+
+<p>Try several cases and look for a pattern that lets you jump to the answer.</p>
+
+<div class="example-box">
+<h4>Worked Example 3: Finding a Pattern</h4>
+<p><strong>Problem:</strong> How many handshakes occur if 20 people each shake hands with every other person exactly once?</p>
+<p>Start small:</p>
+<div class="vocab-table">
+<table>
+<tr><th>People</th><th>Handshakes</th><th>Pattern</th></tr>
+<tr><td>2</td><td>1</td><td>1</td></tr>
+<tr><td>3</td><td>3</td><td>1 + 2</td></tr>
+<tr><td>4</td><td>6</td><td>1 + 2 + 3</td></tr>
+<tr><td>5</td><td>10</td><td>1 + 2 + 3 + 4</td></tr>
+<tr><td>n</td><td>n(n&minus;1)/2</td><td>1 + 2 + ... + (n&minus;1)</td></tr>
+</table>
+</div>
+<p>For 20 people: 20(19)/2 = <strong>190 handshakes</strong>.</p>
+</div>
+
+<h3>Strategy 4: Simplify the Problem</h3>
+
+<p>If the problem is too complex, solve a simpler version first, then build up.</p>
+
+<h3>Strategy 5: Guess and Check (Systematic)</h3>
+
+<p>Make an educated guess, check it, and adjust. This is not random guessing -- each guess is informed by the previous result.</p>
+
+<div class="tip-box">
+<h4>Strategy Selection Guide</h4>
+<ul>
+<li><strong>Geometry or spatial:</strong> Draw a diagram.</li>
+<li><strong>Know the end, find the start:</strong> Work backwards.</li>
+<li><strong>Sequence or series:</strong> Look for patterns.</li>
+<li><strong>Too many variables:</strong> Simplify to fewer first.</li>
+<li><strong>Equations are hard to set up:</strong> Guess and check systematically.</li>
+<li><strong>Stuck completely:</strong> Try a different strategy. Combine strategies.</li>
+</ul>
+</div>
+
+<div class="warning-box">
+<h4>Common Mistake</h4>
+<p>The most common problem-solving failure is skipping Step 1 (understanding the problem). Students rush to compute without knowing what they are looking for. Spend time re-reading the problem, identifying what is given and what is asked. Circle key words. Restate the problem in your own words. This step alone prevents most errors.</p>
+</div>
+
+<div class="practice-problems">
+<h3>Practice Problems</h3>
+
+<p><strong>1.</strong> A frog is at the bottom of a 10-step staircase. It can jump 1 or 2 steps at a time. How many different ways can it reach the top? (Hint: look for a pattern starting with small numbers of steps.)</p>
+<details class="solution"><summary>Solution</summary>
+<p>Use "look for patterns." 1 step: 1 way. 2 steps: 2 ways (1+1 or 2). 3 steps: 3 ways. 4 steps: 5 ways. This is the Fibonacci sequence! Each number is the sum of the two before it: 1, 2, 3, 5, 8, 13, 21, 34, 55, <strong>89 ways</strong> for 10 steps.</p>
+</details>
+
+<p><strong>2.</strong> I am thinking of two numbers. Their sum is 25 and their product is 144. What are they? (Hint: guess and check.)</p>
+<details class="solution"><summary>Solution</summary>
+<p>Guess and check: try 12 and 13. Sum = 25. Product = 156 (too high). Try 9 and 16. Sum = 25. Product = 144. The numbers are <strong>9 and 16</strong>.</p>
+</details>
+
+<p><strong>3.</strong> After tripling a number and subtracting 8, you get 19. Find the number. (Hint: work backwards.)</p>
+<details class="solution"><summary>Solution</summary>
+<p>Work backwards from 19: before subtracting 8: 19 + 8 = 27. Before tripling: 27 / 3 = <strong>9</strong>. Check: 3(9) &minus; 8 = 27 &minus; 8 = 19.</p>
+</details>
+
+<p><strong>4.</strong> How many diagonals does a 10-sided polygon have? (Hint: start with simpler polygons and find a pattern.)</p>
+<details class="solution"><summary>Solution</summary>
+<p>Triangle: 0 diagonals. Quadrilateral: 2. Pentagon: 5. Hexagon: 9. Pattern: n(n&minus;3)/2. For n = 10: 10(7)/2 = <strong>35 diagonals</strong>.</p>
+</details>
+
+<p><strong>5.</strong> Three friends split a restaurant bill. The total after tax was $47.25. They want to leave a 20% tip on the pre-tax amount. Tax was 8%. How much does each person pay total? (Hint: work backwards to find the pre-tax amount.)</p>
+<details class="solution"><summary>Solution</summary>
+<p>Work backwards: $47.25 includes 8% tax, so pre-tax amount = 47.25 / 1.08 = $43.75. Tip = 20% of $43.75 = $8.75. Total = $47.25 + $8.75 = $56.00. Each person pays 56.00 / 3 = <strong>$18.67</strong> (rounding to nearest cent).</p>
+</details>
+</div>
+
+<h3>Summary</h3>
+<ul>
+<li>Polya's four steps: Understand, Plan, Execute, Look Back.</li>
+<li>Key strategies: draw a diagram, work backwards, look for patterns, simplify, guess-and-check.</li>
+<li>The most important step is understanding the problem before attempting to solve it.</li>
+<li>If one strategy does not work, try another -- flexibility is the hallmark of a good problem solver.</li>
+</ul>
+
+
+            <div style="text-align:center;margin-top:40px;">
+                <button id="completeBtn" class="complete-btn" onclick="markComplete()">
+                    <span>&#10003;</span> Mark Lesson as Complete
+                </button>
             </div>
-
-            
-        <div style="text-align: center; padding: 60px 20px;">
-            <div style="font-size: 4rem; margin-bottom: 20px;">🚧</div>
-            <h2>Coming Soon</h2>
-            <p style="color: var(--text-secondary); max-width: 500px; margin: 20px auto;">
-                This reserve lesson slot will be filled with additional content as the curriculum expands. 
-                Topics may include advanced applications, common misconceptions, specialized content, or community-requested lessons.
-            </p>
-        </div>
-    
-
-            
         </div>
 
         <div class="lesson-nav">
-            <a href="R74.html" class="nav-btn prev">← Area vs Perimeter Confusion</a>
-            <a href="/primer.html" class="nav-btn overview">📚 Overview</a>
-            <span class="nav-btn next disabled">Next →</span>
+            <a href="R74.html" class="nav-btn prev">&larr; Area vs Perimeter Confusion</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <span class="nav-btn next disabled">Next &rarr;</span>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
         </div>
     </footer>
 
     <script>
-        // Load theme
         const savedTheme = localStorage.getItem('mathbored-theme');
-        if (savedTheme) {
-            document.body.className = savedTheme;
-        }
+        if (savedTheme) document.body.className = savedTheme;
 
-        // Check if lesson is already completed
         function checkComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
             const btn = document.getElementById('completeBtn');
-            if (btn && completedLessons.includes('R75')) {
+            if (btn && done.includes('R75')) {
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
             }
         }
 
-        // Mark lesson as complete
         function markComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
-            if (!completedLessons.includes('R75')) {
-                completedLessons.push('R75');
-                localStorage.setItem('primer-completed', JSON.stringify(completedLessons));
-                
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('R75')) {
+                done.push('R75');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
                 const btn = document.getElementById('completeBtn');
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
-                
-                // Show success message
-                const successMsg = document.createElement('div');
-                successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; animation: slideIn 0.3s ease;';
-                successMsg.innerHTML = '✓ Lesson completed!';
-                document.body.appendChild(successMsg);
-                
-                setTimeout(() => {
-                    successMsg.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => successMsg.remove(), 300);
-                }, 2000);
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
             }
         }
-
-        // Initialize
         checkComplete();
     </script>
 </body>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Value: Tens and Ones - Essential Math Primer | MathBored</title>
+    <meta name="description" content="Students explore how two-digit numbers are built from groups of ten and leftover ones using base-10 blocks and place value charts. They learn to decompose numbers like 47 into 4 tens and 7 ones, read and write two-digit numbers in expanded form, and understand that the position of a digit determines its value.">
+    <meta name="keywords" content="math, education, learning, K-2 Foundations, tens and ones places, grouping by ten, expanded form of two-digit numbers, base-10 block representations, K-12, free">
+    <link rel="canonical" href="https://math.boredgames.site/primer/K01.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://math.boredgames.site/primer/K01.html">
+    <meta property="og:title" content="Place Value: Tens and Ones - Essential Math Primer | MathBored">
+    <meta property="og:description" content="Students explore how two-digit numbers are built from groups of ten and leftover ones using base-10 blocks and place value charts. They learn to decompose numbers like 47 into 4 tens and 7 ones, read and write two-digit numbers in expanded form, and understand that the position of a digit determines its value.">
+    <meta property="og:image" content="https://math.boredgames.site/og-image.png">
+    <meta property="og:site_name" content="MathBored">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://math.boredgames.site/primer/K01.html">
+    <meta property="twitter:title" content="Place Value: Tens and Ones - Essential Math Primer | MathBored">
+    <meta property="twitter:description" content="Students explore how two-digit numbers are built from groups of ten and leftover ones using base-10 blocks and place value charts. They learn to decompose numbers like 47 into 4 tens and 7 ones, read and write two-digit numbers in expanded form, and understand that the position of a digit determines its value.">
+    <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Place Value: Tens and Ones",
+        "description": "Students explore how two-digit numbers are built from groups of ten and leftover ones using base-10 blocks and place value charts. They learn to decompose numbers like 47 into 4 tens and 7 ones, read and write two-digit numbers in expanded form, and understand that the position of a digit determines its value.",
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
+        "educationalLevel": "K-2",
+        "learningResourceType": "Lesson",
+        "timeRequired": "PT15M",
+        "inLanguage": "en",
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
+        "teaches": ["tens and ones places","grouping by ten","expanded form of two-digit numbers","base-10 block representations"]
+    }
+    </script>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <style>
+
+        .lesson-header {
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
+                linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
+        }
+        .lesson-header::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3; pointer-events: none;
+        }
+        .lesson-header > * { position: relative; z-index: 1; }
+        .lesson-id-badge {
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
+        }
+        .lesson-content {
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
+        }
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
+        .nav-btn {
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
+        }
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
+        .complete-btn {
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
+        }
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>MathBored</h1>
+                    <div class="tagline">Essential Math Primer</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
+
+        <div class="lesson-header">
+            <span class="lesson-id-badge">K01 &bull; Lesson 13 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Place Value: Tens and Ones</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Students explore how two-digit numbers are built from groups of ten and leftover ones using base-10 blocks and place value charts. They learn to decompose numbers like 47 into 4 tens and 7 ones, read and write two-digit numbers in expanded form, and understand that the position of a digit determines its value.</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">K-2 Foundations &bull; K-2</p>
+        </div>
+
+        <div class="lesson-content">
+            <div class="prereq-bar"><strong>Prerequisites:</strong> <a href="E01.html" class="prereq-link">E01</a></div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>tens and ones places</li><li>grouping by ten</li><li>expanded form of two-digit numbers</li><li>base-10 block representations</li></ul></div>
+
+
+<h2>Place Value: Tens and Ones</h2>
+
+<p>Every number has a special place for each digit. When we write a two-digit number like <strong>34</strong>, each digit tells us something different. The <strong>3</strong> tells us how many <em>groups of ten</em> we have. The <strong>4</strong> tells us how many <em>ones</em> are left over.</p>
+
+<div class="tip-box">
+  <h4>Big Idea</h4>
+  <p>We group things by <strong>ten</strong> because it makes counting easier. Instead of counting 34 things one by one, we can make 3 groups of ten and have 4 left over.</p>
+</div>
+
+<h3>Base-10 Blocks</h3>
+
+<p>We use special blocks to show numbers:</p>
+
+<div class="vocab-table">
+  <table>
+    <tr><th>Block</th><th>What It Looks Like</th><th>Value</th></tr>
+    <tr><td><strong>Ones cube</strong></td><td>A tiny single cube</td><td>1</td></tr>
+    <tr><td><strong>Tens rod</strong></td><td>A long stick made of 10 cubes</td><td>10</td></tr>
+  </table>
+</div>
+
+<p>To show the number <strong>27</strong>, we use:</p>
+<div class="math-display">2 tens rods + 7 ones cubes = 27</div>
+
+<h3>The Place Value Chart</h3>
+
+<p>A place value chart has two columns for two-digit numbers:</p>
+
+<div class="vocab-table">
+  <table>
+    <tr><th>Tens</th><th>Ones</th></tr>
+    <tr><td>2</td><td>7</td></tr>
+  </table>
+</div>
+
+<p>Read this as: 2 tens and 7 ones, which equals <strong>twenty-seven</strong>.</p>
+
+<div class="example-box">
+  <h4>Worked Example 1: Breaking Apart a Number</h4>
+  <p>Show <strong>53</strong> using base-10 blocks and a place value chart.</p>
+  <ol class="step-list">
+    <li>Ask: How many tens are in 53? The tens digit is <strong>5</strong>, so we need 5 tens rods.</li>
+    <li>Ask: How many ones? The ones digit is <strong>3</strong>, so we need 3 ones cubes.</li>
+    <li>Place value chart:</li>
+  </ol>
+  <div class="vocab-table">
+    <table>
+      <tr><th>Tens</th><th>Ones</th></tr>
+      <tr><td>5</td><td>3</td></tr>
+    </table>
+  </div>
+  <div class="math-display">53 = 50 + 3</div>
+</div>
+
+<h3>Expanded Form</h3>
+
+<p><strong>Expanded form</strong> shows a number as the sum of the value of each digit:</p>
+<div class="math-display">46 = 40 + 6</div>
+<div class="math-display">81 = 80 + 1</div>
+<div class="math-display">70 = 70 + 0</div>
+
+<div class="example-box">
+  <h4>Worked Example 2: Writing Expanded Form</h4>
+  <p>Write <strong>95</strong> in expanded form.</p>
+  <ol class="step-list">
+    <li>The 9 is in the tens place. Its value is <strong>90</strong>.</li>
+    <li>The 5 is in the ones place. Its value is <strong>5</strong>.</li>
+    <li>Write the sum: <strong>95 = 90 + 5</strong></li>
+  </ol>
+</div>
+
+<div class="example-box">
+  <h4>Worked Example 3: From Blocks to Numbers</h4>
+  <p>You have 6 tens rods and 2 ones cubes. What number is this?</p>
+  <ol class="step-list">
+    <li>6 tens = 60</li>
+    <li>2 ones = 2</li>
+    <li>60 + 2 = <strong>62</strong></li>
+  </ol>
+</div>
+
+<div class="warning-box">
+  <h4>Watch Out!</h4>
+  <p>Do not mix up tens and ones! In the number <strong>38</strong>, the <strong>3</strong> does not mean three -- it means <strong>thirty</strong> (3 groups of ten). The <strong>8</strong> means eight ones.</p>
+</div>
+
+<div class="tip-box">
+  <h4>Real-World Connection</h4>
+  <p>Think of egg cartons that hold 10 eggs each. If you have 4 full cartons and 7 extra eggs, you have 47 eggs total!</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>1.</strong> How many tens and ones are in the number 74?</p>
+  <details class="solution">
+    <summary>Show Answer</summary>
+    <p>7 tens and 4 ones. The value of the tens digit is 70, and the value of the ones digit is 4.</p>
+  </details>
+
+  <p><strong>2.</strong> Write 58 in expanded form.</p>
+  <details class="solution">
+    <summary>Show Answer</summary>
+    <p>58 = 50 + 8</p>
+  </details>
+
+  <p><strong>3.</strong> You have 3 tens rods and 9 ones cubes. What number do you have?</p>
+  <details class="solution">
+    <summary>Show Answer</summary>
+    <p>39. Three tens is 30, plus 9 ones is 39.</p>
+  </details>
+
+  <p><strong>4.</strong> What is the value of the digit 6 in the number 63?</p>
+  <details class="solution">
+    <summary>Show Answer</summary>
+    <p>60. The 6 is in the tens place, so it stands for 6 tens, which is 60.</p>
+  </details>
+
+  <p><strong>5.</strong> A number has 0 tens and 5 ones. What is the number?</p>
+  <details class="solution">
+    <summary>Show Answer</summary>
+    <p>5. When there are 0 tens, the number is just the ones digit.</p>
+  </details>
+</div>
+
+<h3>Lesson Summary</h3>
+<ul>
+  <li>Two-digit numbers have a <strong>tens place</strong> and a <strong>ones place</strong>.</li>
+  <li>The tens digit tells how many groups of ten. The ones digit tells how many are left over.</li>
+  <li><strong>Expanded form</strong> shows each digit's value added together (e.g., 46 = 40 + 6).</li>
+  <li>Base-10 blocks help us see tens and ones.</li>
+</ul>
+
+
+            <div style="text-align:center;margin-top:40px;">
+                <button id="completeBtn" class="complete-btn" onclick="markComplete()">
+                    <span>&#10003;</span> Mark Lesson as Complete
+                </button>
+            </div>
+        </div>
+
+        <div class="lesson-nav">
+            <a href="E12.html" class="nav-btn prev">&larr; Data &amp; Basic Graphing</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="K02.html" class="nav-btn next">Hundreds and Regrouping: Building Bigger Numbers &rarr;</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
+        </div>
+    </footer>
+
+    <script>
+        const savedTheme = localStorage.getItem('mathbored-theme');
+        if (savedTheme) document.body.className = savedTheme;
+
+        function checkComplete() {
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const btn = document.getElementById('completeBtn');
+            if (btn && done.includes('K01')) {
+                btn.classList.add('completed');
+                btn.innerHTML = '<span>&#10003;</span> Completed';
+                btn.disabled = true;
+            }
+        }
+
+        function markComplete() {
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('K01')) {
+                done.push('K01');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
+                const btn = document.getElementById('completeBtn');
+                btn.classList.add('completed');
+                btn.innerHTML = '<span>&#10003;</span> Completed';
+                btn.disabled = true;
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
+            }
+        }
+        checkComplete();
+    </script>
+</body>
+</html>

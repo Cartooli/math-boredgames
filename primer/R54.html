@@ -5,295 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Distance Formula - Essential Math Primer | MathBored</title>
     <meta name="description" content="Finding distance between two points using coordinates and the Pythagorean theorem">
-    <meta name="keywords" content="math, education, learning, Reserve & Extensions, distance formula, coordinate plane, Pythagorean theorem, applications, K-12, free">
-    
-    <!-- Canonical URL -->
+    <meta name="keywords" content="math, education, learning, Reserve &amp; Extensions, distance formula, coordinate plane, Pythagorean theorem, applications, K-12, free">
     <link rel="canonical" href="https://math.boredgames.site/primer/R54.html">
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://math.boredgames.site/primer/R54.html">
     <meta property="og:title" content="Distance Formula - Essential Math Primer | MathBored">
     <meta property="og:description" content="Finding distance between two points using coordinates and the Pythagorean theorem">
     <meta property="og:image" content="https://math.boredgames.site/og-image.png">
     <meta property="og:site_name" content="MathBored">
-    
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://math.boredgames.site/primer/R54.html">
     <meta property="twitter:title" content="Distance Formula - Essential Math Primer | MathBored">
     <meta property="twitter:description" content="Finding distance between two points using coordinates and the Pythagorean theorem">
     <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
-    
-    <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Distance Formula",
         "description": "Finding distance between two points using coordinates and the Pythagorean theorem",
-        "provider": {
-            "@type": "Organization",
-            "name": "MathBored",
-            "url": "https://math.boredgames.site"
-        },
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
         "educationalLevel": "K-12",
         "learningResourceType": "Lesson",
         "timeRequired": "PT15M",
         "inLanguage": "en",
-        "isPartOf": {
-            "@type": "Course",
-            "name": "Essential Math Primer",
-            "url": "https://math.boredgames.site/primer.html"
-        },
-        "hasCourseInstance": {
-            "@type": "CourseInstance",
-            "courseMode": "online",
-            "courseWorkload": "PT15M"
-        },
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
         "teaches": ["distance formula","coordinate plane","Pythagorean theorem","applications"]
     }
     </script>
-    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
+
         .lesson-header {
-            background: 
-                radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
                 linear-gradient(135deg, var(--accent), var(--accent-hover));
-            color: white;
-            padding: 40px 24px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
         }
-
         .lesson-header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-            pointer-events: none;
+            opacity: 0.3; pointer-events: none;
         }
-
-        .lesson-header > * {
-            position: relative;
-            z-index: 1;
-        }
-
+        .lesson-header > * { position: relative; z-index: 1; }
         .lesson-id-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 9px 20px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            margin-bottom: 18px;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 700;
-            letter-spacing: 0.02em;
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
         }
-
         .lesson-content {
-            background: var(--bg-secondary);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            line-height: 1.75;
-            font-size: 1.05rem;
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
         }
-        
-        .lesson-content h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            color: var(--text);
-            letter-spacing: -0.01em;
-        }
-        
-        .lesson-content h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin-top: 28px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        
-        .lesson-content h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 1.5;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-        
-        .lesson-content p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 18px;
-            color: var(--text);
-        }
-        
-        .lesson-content ul, .lesson-content ol {
-            line-height: 1.9;
-            margin-bottom: 20px;
-            padding-left: 28px;
-        }
-        
-        .lesson-content li {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .lesson-nav {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
         .nav-btn {
-            padding: 16px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
         }
-
-        .nav-btn.prev {
-            background: var(--bg-tertiary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn.next {
-            background: var(--accent);
-            color: white;
-            border: 2px solid var(--accent);
-        }
-
-        .nav-btn.overview {
-            background: var(--bg-secondary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn:hover:not(.disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .nav-btn.prev:hover:not(.disabled) {
-            border-color: var(--accent);
-        }
-
-        .nav-btn.next:hover:not(.disabled) {
-            background: var(--accent-hover);
-        }
-
-        .nav-btn.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .key-concepts {
-            background: var(--bg-tertiary);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border-left: 4px solid var(--accent);
-        }
-
-        .key-concepts h3 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.3rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 16px;
-        }
-
-        .key-concepts ul {
-            margin: 15px 0 0 0;
-            padding-left: 28px;
-            line-height: 1.9;
-        }
-        
-        .key-concepts li {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 8px;
-        }
-
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
         .complete-btn {
-            background: var(--success);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 10px;
-            border: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 30px 0;
-            line-height: 1.5;
-            letter-spacing: -0.01em;
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
         }
-
-        .complete-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        .complete-btn.completed {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            cursor: default;
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        @media (max-width: 768px) {
-            .lesson-nav {
-                grid-template-columns: 1fr;
-            }
-
-            .lesson-content {
-                padding: 28px;
-                font-size: 1rem;
-            }
-            
-            .lesson-content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .lesson-content h3 {
-                font-size: 1.25rem;
-            }
-            
-            .lesson-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            .lesson-content p {
-                font-size: 1rem;
-            }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
         }
     </style>
 </head>
@@ -302,7 +155,7 @@
         <div class="container">
             <div class="header-content">
                 <div>
-                    <h1>🎯 MathBored</h1>
+                    <h1>MathBored</h1>
                     <div class="tagline">Essential Math Primer</div>
                 </div>
             </div>
@@ -310,106 +163,168 @@
     </header>
 
     <div class="container">
-        <a href="/primer.html" class="back-link">← Back to Primer Overview</a>
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
 
         <div class="lesson-header">
-            <span class="lesson-id-badge">R54 • Lesson 54 of 75</span>
-            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Distance Formula</h1>
-            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Finding distance between two points using coordinates and the Pythagorean theorem</p>
-            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">Reserve & Extensions • K-12</p>
+            <span class="lesson-id-badge">R54 &bull; Lesson 84 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Distance Formula</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Finding distance between two points using coordinates and the Pythagorean theorem</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">Reserve &amp; Extensions &bull; K-12</p>
         </div>
-
-        
-        <div style="background: var(--warning); color: white; padding: 20px; border-radius: 12px; margin-bottom: 30px; text-align: center;">
-            <strong>🔮 Reserve Slot</strong><br>
-            This lesson is part of the curriculum expansion plan and will be developed based on community needs and feedback.
-        </div>
-    
 
         <div class="lesson-content">
-            
-            <div style="background: var(--bg-tertiary); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                <strong>📋 Prerequisites:</strong> 
-                <span style="color: var(--accent); font-weight: 500;">M25</span>, <span style="color: var(--accent); font-weight: 500;">H29</span>, <span style="color: var(--accent); font-weight: 500;">M24</span>
-            </div>
-        
-            
-            <div class="key-concepts">
-                <h3>🎯 Key Concepts</h3>
-                <ul><li>distance formula</li><li>coordinate plane</li><li>Pythagorean theorem</li><li>applications</li></ul>
-            </div>
+            <div class="prereq-bar"><strong>Prerequisites:</strong> <a href="M25.html" class="prereq-link">M25</a>, <a href="H29.html" class="prereq-link">H29</a>, <a href="M24.html" class="prereq-link">M24</a></div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>distance formula</li><li>coordinate plane</li><li>Pythagorean theorem</li><li>applications</li></ul></div>
 
-            
-        <div style="text-align: center; padding: 60px 20px;">
-            <div style="font-size: 4rem; margin-bottom: 20px;">🚧</div>
-            <h2>Coming Soon</h2>
-            <p style="color: var(--text-secondary); max-width: 500px; margin: 20px auto;">
-                This reserve lesson slot will be filled with additional content as the curriculum expands. 
-                Topics may include advanced applications, common misconceptions, specialized content, or community-requested lessons.
-            </p>
-        </div>
-    
 
-            
+<h2>Distance Formula</h2>
+<p>How far is it between two points on a coordinate plane? You cannot simply measure along the x-axis or the y-axis -- in most cases the path is diagonal. The <strong>distance formula</strong> gives us the exact straight-line distance between any two points, and it comes directly from a theorem you already know: the Pythagorean theorem.</p>
+
+<h3>Deriving the Formula</h3>
+<p>Given two points (x<sub>1</sub>, y<sub>1</sub>) and (x<sub>2</sub>, y<sub>2</sub>), imagine drawing a right triangle where:</p>
+<ul>
+  <li>The horizontal leg has length |x<sub>2</sub> - x<sub>1</sub>|</li>
+  <li>The vertical leg has length |y<sub>2</sub> - y<sub>1</sub>|</li>
+  <li>The hypotenuse is the distance we want</li>
+</ul>
+<p>By the Pythagorean theorem (a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup>):</p>
+<div class="math-display">d = &radic;[(x<sub>2</sub> - x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub> - y<sub>1</sub>)<sup>2</sup>]</div>
+
+<div class="example-box">
+  <h4>Worked Example 1: Finding Distance</h4>
+  <p>Find the distance between A(1, 2) and B(4, 6).</p>
+  <ol class="step-list">
+    <li>Identify coordinates: x<sub>1</sub> = 1, y<sub>1</sub> = 2, x<sub>2</sub> = 4, y<sub>2</sub> = 6</li>
+    <li>Horizontal distance: 4 - 1 = 3</li>
+    <li>Vertical distance: 6 - 2 = 4</li>
+    <li>Apply formula: d = &radic;(3<sup>2</sup> + 4<sup>2</sup>) = &radic;(9 + 16) = &radic;25 = 5</li>
+  </ol>
+</div>
+
+<div class="example-box">
+  <h4>Worked Example 2: With Negative Coordinates</h4>
+  <p>Find the distance between P(-3, 5) and Q(2, -7).</p>
+  <ol class="step-list">
+    <li>Horizontal: 2 - (-3) = 5</li>
+    <li>Vertical: -7 - 5 = -12 (the square makes it positive)</li>
+    <li>d = &radic;(5<sup>2</sup> + (-12)<sup>2</sup>) = &radic;(25 + 144) = &radic;169 = 13</li>
+  </ol>
+</div>
+
+<div class="tip-box">
+  <h4>Squaring Removes the Worry About Order</h4>
+  <p>Since we square the differences, it does not matter which point you call (x<sub>1</sub>, y<sub>1</sub>) and which you call (x<sub>2</sub>, y<sub>2</sub>). The result is always the same.</p>
+</div>
+
+<h3>The Midpoint Formula</h3>
+<p>The <strong>midpoint</strong> is the point exactly halfway between two given points. Simply average the x-coordinates and average the y-coordinates:</p>
+<div class="math-display">Midpoint = ((x<sub>1</sub> + x<sub>2</sub>) / 2, (y<sub>1</sub> + y<sub>2</sub>) / 2)</div>
+
+<div class="example-box">
+  <h4>Worked Example 3: Finding the Midpoint</h4>
+  <p>Find the midpoint of A(2, 8) and B(10, -4).</p>
+  <ol class="step-list">
+    <li>Average x-coordinates: (2 + 10) / 2 = 12 / 2 = 6</li>
+    <li>Average y-coordinates: (8 + (-4)) / 2 = 4 / 2 = 2</li>
+    <li>Midpoint: (6, 2)</li>
+  </ol>
+</div>
+
+<h3>Applications</h3>
+<p>The distance formula is used in navigation (GPS calculates distances between coordinates), computer graphics (collision detection in games), and physics (displacement calculations).</p>
+
+<div class="warning-box">
+  <h4>Common Mistake: Forgetting to Square</h4>
+  <p>The formula is d = &radic;[(x<sub>2</sub> - x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub> - y<sub>1</sub>)<sup>2</sup>], not d = (x<sub>2</sub> - x<sub>1</sub>) + (y<sub>2</sub> - y<sub>1</sub>). Simply adding the differences gives the wrong answer.</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>1.</strong> Find the distance between (0, 0) and (5, 12).</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>d = &radic;(25 + 144) = &radic;169 = 13</p>
+  </details>
+
+  <p><strong>2.</strong> Find the distance between (-1, 3) and (3, 3).</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>d = &radic;(4<sup>2</sup> + 0<sup>2</sup>) = &radic;16 = 4. (These points share a y-coordinate, so the distance is purely horizontal.)</p>
+  </details>
+
+  <p><strong>3.</strong> Find the midpoint of (-6, 4) and (8, -2).</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>Midpoint = ((-6 + 8)/2, (4 + (-2))/2) = (2/2, 2/2) = (1, 1)</p>
+  </details>
+
+  <p><strong>4.</strong> Find the distance between (2, -1) and (-3, 11).</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>d = &radic;[(-3 - 2)<sup>2</sup> + (11 - (-1))<sup>2</sup>] = &radic;[25 + 144] = &radic;169 = 13</p>
+  </details>
+
+  <p><strong>5.</strong> A phone shows you are at location (3, 7) on a grid map. A coffee shop is at (9, 15). Each grid unit represents 0.1 miles. How far away is the coffee shop?</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>d = &radic;[(9-3)<sup>2</sup> + (15-7)<sup>2</sup>] = &radic;[36 + 64] = &radic;100 = 10 grid units. At 0.1 miles each: 10 &times; 0.1 = 1 mile.</p>
+  </details>
+</div>
+
+<h3>Lesson Summary</h3>
+<ul>
+  <li>The distance formula d = &radic;[(x<sub>2</sub> - x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub> - y<sub>1</sub>)<sup>2</sup>] is derived from the Pythagorean theorem.</li>
+  <li>The midpoint formula averages the coordinates: ((x<sub>1</sub>+x<sub>2</sub>)/2, (y<sub>1</sub>+y<sub>2</sub>)/2).</li>
+  <li>Order of the points does not matter because the differences are squared.</li>
+</ul>
+
+
+            <div style="text-align:center;margin-top:40px;">
+                <button id="completeBtn" class="complete-btn" onclick="markComplete()">
+                    <span>&#10003;</span> Mark Lesson as Complete
+                </button>
+            </div>
         </div>
 
         <div class="lesson-nav">
-            <a href="R53.html" class="nav-btn prev">← Why We 'Flip and Multiply' for Fraction Division</a>
-            <a href="/primer.html" class="nav-btn overview">📚 Overview</a>
-            <a href="R55.html" class="nav-btn next">Combining Like Terms & Distributive Property →</a>
+            <a href="R53.html" class="nav-btn prev">&larr; Why We 'Flip and Multiply' for Fraction Division</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="R55.html" class="nav-btn next">Combining Like Terms &amp; Distributive Property &rarr;</a>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
         </div>
     </footer>
 
     <script>
-        // Load theme
         const savedTheme = localStorage.getItem('mathbored-theme');
-        if (savedTheme) {
-            document.body.className = savedTheme;
-        }
+        if (savedTheme) document.body.className = savedTheme;
 
-        // Check if lesson is already completed
         function checkComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
             const btn = document.getElementById('completeBtn');
-            if (btn && completedLessons.includes('R54')) {
+            if (btn && done.includes('R54')) {
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
             }
         }
 
-        // Mark lesson as complete
         function markComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
-            if (!completedLessons.includes('R54')) {
-                completedLessons.push('R54');
-                localStorage.setItem('primer-completed', JSON.stringify(completedLessons));
-                
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('R54')) {
+                done.push('R54');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
                 const btn = document.getElementById('completeBtn');
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
-                
-                // Show success message
-                const successMsg = document.createElement('div');
-                successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; animation: slideIn 0.3s ease;';
-                successMsg.innerHTML = '✓ Lesson completed!';
-                document.body.appendChild(successMsg);
-                
-                setTimeout(() => {
-                    successMsg.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => successMsg.remove(), 300);
-                }, 2000);
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
             }
         }
-
-        // Initialize
         checkComplete();
     </script>
 </body>

@@ -3,297 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combinations & Permutations - Essential Math Primer | MathBored</title>
+    <title>Combinations &amp; Permutations - Essential Math Primer | MathBored</title>
     <meta name="description" content="Counting principles for ordered and unordered arrangements">
-    <meta name="keywords" content="math, education, learning, Reserve & Extensions, combinations, permutations, counting, nCr, nPr, factorial, K-12, free">
-    
-    <!-- Canonical URL -->
+    <meta name="keywords" content="math, education, learning, Reserve &amp; Extensions, combinations, permutations, counting, nCr, nPr, factorial, K-12, free">
     <link rel="canonical" href="https://math.boredgames.site/primer/R61.html">
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://math.boredgames.site/primer/R61.html">
-    <meta property="og:title" content="Combinations & Permutations - Essential Math Primer | MathBored">
+    <meta property="og:title" content="Combinations &amp; Permutations - Essential Math Primer | MathBored">
     <meta property="og:description" content="Counting principles for ordered and unordered arrangements">
     <meta property="og:image" content="https://math.boredgames.site/og-image.png">
     <meta property="og:site_name" content="MathBored">
-    
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://math.boredgames.site/primer/R61.html">
-    <meta property="twitter:title" content="Combinations & Permutations - Essential Math Primer | MathBored">
+    <meta property="twitter:title" content="Combinations &amp; Permutations - Essential Math Primer | MathBored">
     <meta property="twitter:description" content="Counting principles for ordered and unordered arrangements">
     <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
-    
-    <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "Course",
         "name": "Combinations & Permutations",
         "description": "Counting principles for ordered and unordered arrangements",
-        "provider": {
-            "@type": "Organization",
-            "name": "MathBored",
-            "url": "https://math.boredgames.site"
-        },
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
         "educationalLevel": "K-12",
         "learningResourceType": "Lesson",
         "timeRequired": "PT15M",
         "inLanguage": "en",
-        "isPartOf": {
-            "@type": "Course",
-            "name": "Essential Math Primer",
-            "url": "https://math.boredgames.site/primer.html"
-        },
-        "hasCourseInstance": {
-            "@type": "CourseInstance",
-            "courseMode": "online",
-            "courseWorkload": "PT15M"
-        },
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
         "teaches": ["combinations","permutations","counting","nCr","nPr","factorial"]
     }
     </script>
-    
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/icon.svg">
     <style>
+
         .lesson-header {
-            background: 
-                radial-gradient(ellipse at 30% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
                 linear-gradient(135deg, var(--accent), var(--accent-hover));
-            color: white;
-            padding: 40px 24px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
         }
-
         .lesson-header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.3;
-            pointer-events: none;
+            opacity: 0.3; pointer-events: none;
         }
-
-        .lesson-header > * {
-            position: relative;
-            z-index: 1;
-        }
-
+        .lesson-header > * { position: relative; z-index: 1; }
         .lesson-id-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 9px 20px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            margin-bottom: 18px;
-            border: 1px solid rgba(255,255,255,0.3);
-            font-weight: 700;
-            letter-spacing: 0.02em;
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
         }
-
         .lesson-content {
-            background: var(--bg-secondary);
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 30px;
-            line-height: 1.75;
-            font-size: 1.05rem;
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
         }
-        
-        .lesson-content h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            color: var(--text);
-            letter-spacing: -0.01em;
-        }
-        
-        .lesson-content h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin-top: 28px;
-            margin-bottom: 16px;
-            color: var(--text);
-        }
-        
-        .lesson-content h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            line-height: 1.5;
-            margin-top: 24px;
-            margin-bottom: 12px;
-            color: var(--text);
-        }
-        
-        .lesson-content p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 18px;
-            color: var(--text);
-        }
-        
-        .lesson-content ul, .lesson-content ol {
-            line-height: 1.9;
-            margin-bottom: 20px;
-            padding-left: 28px;
-        }
-        
-        .lesson-content li {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        .lesson-nav {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            gap: 15px;
-            margin-top: 40px;
-        }
-
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
         .nav-btn {
-            padding: 16px 24px;
-            border-radius: 10px;
-            text-decoration: none;
-            text-align: center;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
         }
-
-        .nav-btn.prev {
-            background: var(--bg-tertiary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn.next {
-            background: var(--accent);
-            color: white;
-            border: 2px solid var(--accent);
-        }
-
-        .nav-btn.overview {
-            background: var(--bg-secondary);
-            color: var(--text);
-            border: 2px solid var(--border);
-        }
-
-        .nav-btn:hover:not(.disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        .nav-btn.prev:hover:not(.disabled) {
-            border-color: var(--accent);
-        }
-
-        .nav-btn.next:hover:not(.disabled) {
-            background: var(--accent-hover);
-        }
-
-        .nav-btn.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .key-concepts {
-            background: var(--bg-tertiary);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border-left: 4px solid var(--accent);
-        }
-
-        .key-concepts h3 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.3rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 16px;
-        }
-
-        .key-concepts ul {
-            margin: 15px 0 0 0;
-            padding-left: 28px;
-            line-height: 1.9;
-        }
-        
-        .key-concepts li {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 8px;
-        }
-
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
         .complete-btn {
-            background: var(--success);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 10px;
-            border: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin: 30px 0;
-            line-height: 1.5;
-            letter-spacing: -0.01em;
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
         }
-
-        .complete-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        .complete-btn.completed {
-            background: var(--bg-tertiary);
-            color: var(--text-secondary);
-            cursor: default;
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
         }
-
-        @media (max-width: 768px) {
-            .lesson-nav {
-                grid-template-columns: 1fr;
-            }
-
-            .lesson-content {
-                padding: 28px;
-                font-size: 1rem;
-            }
-            
-            .lesson-content h2 {
-                font-size: 1.5rem;
-            }
-            
-            .lesson-content h3 {
-                font-size: 1.25rem;
-            }
-            
-            .lesson-content h4 {
-                font-size: 1.1rem;
-            }
-            
-            .lesson-content p {
-                font-size: 1rem;
-            }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
         }
     </style>
 </head>
@@ -302,7 +155,7 @@
         <div class="container">
             <div class="header-content">
                 <div>
-                    <h1>🎯 MathBored</h1>
+                    <h1>MathBored</h1>
                     <div class="tagline">Essential Math Primer</div>
                 </div>
             </div>
@@ -310,106 +163,178 @@
     </header>
 
     <div class="container">
-        <a href="/primer.html" class="back-link">← Back to Primer Overview</a>
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
 
         <div class="lesson-header">
-            <span class="lesson-id-badge">R61 • Lesson 61 of 75</span>
-            <h1 style="margin: 18px 0; font-size: 2.4rem; font-weight: 700; line-height: 1.3; letter-spacing: -0.02em;">Combinations & Permutations</h1>
-            <p style="opacity: 0.95; font-size: 1.2rem; margin: 12px 0; line-height: 1.6; font-weight: 500;">Counting principles for ordered and unordered arrangements</p>
-            <p style="margin-top: 18px; opacity: 0.9; font-size: 1rem; font-weight: 500; line-height: 1.5;">Reserve & Extensions • K-12</p>
+            <span class="lesson-id-badge">R61 &bull; Lesson 91 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Combinations &amp; Permutations</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Counting principles for ordered and unordered arrangements</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">Reserve &amp; Extensions &bull; K-12</p>
         </div>
-
-        
-        <div style="background: var(--warning); color: white; padding: 20px; border-radius: 12px; margin-bottom: 30px; text-align: center;">
-            <strong>🔮 Reserve Slot</strong><br>
-            This lesson is part of the curriculum expansion plan and will be developed based on community needs and feedback.
-        </div>
-    
 
         <div class="lesson-content">
-            
-            <div style="background: var(--bg-tertiary); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
-                <strong>📋 Prerequisites:</strong> 
-                <span style="color: var(--accent); font-weight: 500;">H46</span>, <span style="color: var(--accent); font-weight: 500;">E11</span>
-            </div>
-        
-            
-            <div class="key-concepts">
-                <h3>🎯 Key Concepts</h3>
-                <ul><li>combinations</li><li>permutations</li><li>counting</li><li>nCr</li><li>nPr</li><li>factorial</li></ul>
-            </div>
+            <div class="prereq-bar"><strong>Prerequisites:</strong> <a href="H46.html" class="prereq-link">H46</a>, <a href="E11.html" class="prereq-link">E11</a></div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>combinations</li><li>permutations</li><li>counting</li><li>nCr</li><li>nPr</li><li>factorial</li></ul></div>
 
-            
-        <div style="text-align: center; padding: 60px 20px;">
-            <div style="font-size: 4rem; margin-bottom: 20px;">🚧</div>
-            <h2>Coming Soon</h2>
-            <p style="color: var(--text-secondary); max-width: 500px; margin: 20px auto;">
-                This reserve lesson slot will be filled with additional content as the curriculum expands. 
-                Topics may include advanced applications, common misconceptions, specialized content, or community-requested lessons.
-            </p>
-        </div>
-    
 
-            
+<h2>Combinations &amp; Permutations</h2>
+<p>How many ways can you arrange a group of objects? How many ways can you choose a team? These questions are at the heart of <strong>counting</strong>, and the answers depend on one critical question: <strong>does order matter?</strong></p>
+
+<h3>The Fundamental Counting Principle</h3>
+<p>If one event has <strong>m</strong> outcomes and a second event has <strong>n</strong> outcomes, then together they have <strong>m &times; n</strong> possible outcomes.</p>
+
+<div class="example-box">
+  <h4>Worked Example 1: Counting Principle</h4>
+  <p>A restaurant offers 4 appetizers, 6 entrees, and 3 desserts. How many different 3-course meals are possible?</p>
+  <ol class="step-list">
+    <li>Appetizer choices: 4</li>
+    <li>Entree choices: 6</li>
+    <li>Dessert choices: 3</li>
+    <li>Total: 4 &times; 6 &times; 3 = 72 different meals</li>
+  </ol>
+</div>
+
+<h3>Factorials</h3>
+<p>The <strong>factorial</strong> of a positive integer n, written n!, is the product of all positive integers from 1 to n:</p>
+<div class="math-display">n! = n &times; (n-1) &times; (n-2) &times; ... &times; 2 &times; 1</div>
+<table class="vocab-table">
+  <tr><th>n</th><th>n!</th></tr>
+  <tr><td>0</td><td>1 (by definition)</td></tr>
+  <tr><td>1</td><td>1</td></tr>
+  <tr><td>3</td><td>6</td></tr>
+  <tr><td>5</td><td>120</td></tr>
+  <tr><td>7</td><td>5,040</td></tr>
+  <tr><td>10</td><td>3,628,800</td></tr>
+</table>
+
+<h3>Permutations: Order Matters</h3>
+<p>A <strong>permutation</strong> is an arrangement of objects where <strong>order matters</strong>. Choosing president, vice-president, and treasurer from a group is a permutation problem -- the same three people in different roles count as different outcomes.</p>
+<div class="math-display">P(n, r) = n! / (n - r)!</div>
+<p>This counts the number of ways to arrange r items chosen from n total items.</p>
+
+<div class="example-box">
+  <h4>Worked Example 2: Permutation</h4>
+  <p>From 8 runners, how many ways can gold, silver, and bronze medals be awarded?</p>
+  <ol class="step-list">
+    <li>Order matters (gold is different from silver), so use permutations.</li>
+    <li>P(8, 3) = 8! / (8-3)! = 8! / 5!</li>
+    <li>= (8 &times; 7 &times; 6 &times; 5!) / 5! = 8 &times; 7 &times; 6 = 336</li>
+  </ol>
+</div>
+
+<h3>Combinations: Order Does Not Matter</h3>
+<p>A <strong>combination</strong> is a selection where <strong>order does not matter</strong>. Choosing 3 people for a committee (no specific roles) is a combination problem -- the same three people in any order form the same committee.</p>
+<div class="math-display">C(n, r) = n! / [r! &times; (n - r)!]</div>
+
+<div class="example-box">
+  <h4>Worked Example 3: Combination</h4>
+  <p>From 10 students, how many ways can a committee of 4 be formed?</p>
+  <ol class="step-list">
+    <li>Order does not matter, so use combinations.</li>
+    <li>C(10, 4) = 10! / (4! &times; 6!)</li>
+    <li>= (10 &times; 9 &times; 8 &times; 7) / (4 &times; 3 &times; 2 &times; 1) = 5,040 / 24 = 210</li>
+  </ol>
+</div>
+
+<div class="tip-box">
+  <h4>How to Decide: Permutation or Combination?</h4>
+  <p>Ask: "If I rearrange the selected items, do I get a different outcome?" If <strong>yes</strong>, use permutations (order matters). If <strong>no</strong>, use combinations (order does not matter). Assigning roles = permutation. Choosing a group = combination.</p>
+</div>
+
+<div class="warning-box">
+  <h4>Common Mistake: Forgetting to Divide for Combinations</h4>
+  <p>The difference between P(n, r) and C(n, r) is dividing by r!. When order does not matter, many permutations represent the same group. Dividing by r! accounts for duplicate arrangements. Choosing A-B-C is the same committee as C-B-A; there are 3! = 6 ways to arrange 3 people, so we divide by 6.</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>1.</strong> A lock has 3 dials, each with digits 0-9. How many possible codes are there?</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>Fundamental counting principle: 10 &times; 10 &times; 10 = 1,000 codes.</p>
+  </details>
+
+  <p><strong>2.</strong> How many ways can 5 books be arranged on a shelf?</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>This is P(5, 5) = 5! = 120.</p>
+  </details>
+
+  <p><strong>3.</strong> From 12 players, a coach selects 5 starters. How many different starting lineups are possible?</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>Order does not matter (no assigned positions): C(12, 5) = 12! / (5! &times; 7!) = (12 &times; 11 &times; 10 &times; 9 &times; 8) / 120 = 792.</p>
+  </details>
+
+  <p><strong>4.</strong> How many 3-letter "words" (arrangements) can be made from the letters A, B, C, D, E with no repeats?</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>Order matters: P(5, 3) = 5 &times; 4 &times; 3 = 60.</p>
+  </details>
+
+  <p><strong>5.</strong> A pizza shop offers 8 toppings. How many 3-topping pizzas are possible?</p>
+  <details class="solution"><summary>Show Solution</summary>
+    <p>Order does not matter: C(8, 3) = 8! / (3! &times; 5!) = (8 &times; 7 &times; 6) / 6 = 56.</p>
+  </details>
+</div>
+
+<h3>Lesson Summary</h3>
+<ul>
+  <li>Fundamental counting principle: multiply the number of options at each stage.</li>
+  <li>n! = n &times; (n-1) &times; ... &times; 1, and 0! = 1.</li>
+  <li>Permutations (order matters): P(n, r) = n! / (n-r)!</li>
+  <li>Combinations (order does not matter): C(n, r) = n! / [r!(n-r)!]</li>
+  <li>The key question: does rearranging the selection create a different outcome?</li>
+</ul>
+
+
+            <div style="text-align:center;margin-top:40px;">
+                <button id="completeBtn" class="complete-btn" onclick="markComplete()">
+                    <span>&#10003;</span> Mark Lesson as Complete
+                </button>
+            </div>
         </div>
 
         <div class="lesson-nav">
-            <a href="R60.html" class="nav-btn prev">← Line of Best Fit & Linear Regression</a>
-            <a href="/primer.html" class="nav-btn overview">📚 Overview</a>
-            <a href="R62.html" class="nav-btn next">Conditional Probability →</a>
+            <a href="R60.html" class="nav-btn prev">&larr; Line of Best Fit &amp; Linear Regression</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="R62.html" class="nav-btn next">Conditional Probability &rarr;</a>
         </div>
     </div>
 
     <footer>
         <div class="container">
-            <p>MathBored @ math.boredgames.site • Free forever • Community-driven development</p>
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
         </div>
     </footer>
 
     <script>
-        // Load theme
         const savedTheme = localStorage.getItem('mathbored-theme');
-        if (savedTheme) {
-            document.body.className = savedTheme;
-        }
+        if (savedTheme) document.body.className = savedTheme;
 
-        // Check if lesson is already completed
         function checkComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
             const btn = document.getElementById('completeBtn');
-            if (btn && completedLessons.includes('R61')) {
+            if (btn && done.includes('R61')) {
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
             }
         }
 
-        // Mark lesson as complete
         function markComplete() {
-            const completedLessons = JSON.parse(localStorage.getItem('primer-completed') || '[]');
-            if (!completedLessons.includes('R61')) {
-                completedLessons.push('R61');
-                localStorage.setItem('primer-completed', JSON.stringify(completedLessons));
-                
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('R61')) {
+                done.push('R61');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
                 const btn = document.getElementById('completeBtn');
                 btn.classList.add('completed');
-                btn.innerHTML = '<span>✓</span> Completed';
+                btn.innerHTML = '<span>&#10003;</span> Completed';
                 btn.disabled = true;
-                
-                // Show success message
-                const successMsg = document.createElement('div');
-                successMsg.style.cssText = 'position: fixed; top: 20px; right: 20px; background: var(--success); color: white; padding: 15px 25px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 1000; animation: slideIn 0.3s ease;';
-                successMsg.innerHTML = '✓ Lesson completed!';
-                document.body.appendChild(successMsg);
-                
-                setTimeout(() => {
-                    successMsg.style.animation = 'slideOut 0.3s ease';
-                    setTimeout(() => successMsg.remove(), 300);
-                }, 2000);
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
             }
         }
-
-        // Initialize
         checkComplete();
     </script>
 </body>

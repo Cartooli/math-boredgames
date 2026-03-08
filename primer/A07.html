@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Limits - Essential Math Primer | MathBored</title>
+    <meta name="description" content="Building intuitive understanding of limits as the foundation of calculus. Covers the informal definition of a limit (the value a function approaches as x approaches a given value), evaluating limits from tables and graphs, one-sided limits, limits at infinity and horizontal asymptotes, and cases where limits do not exist.">
+    <meta name="keywords" content="math, education, learning, High School Advanced, informal definition of limit and limit notation, evaluating limits numerically and graphically, one-sided limits and conditions for limit existence, limits at infinity and connection to horizontal asymptotes, K-12, free">
+    <link rel="canonical" href="https://math.boredgames.site/primer/A07.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://math.boredgames.site/primer/A07.html">
+    <meta property="og:title" content="Introduction to Limits - Essential Math Primer | MathBored">
+    <meta property="og:description" content="Building intuitive understanding of limits as the foundation of calculus. Covers the informal definition of a limit (the value a function approaches as x approaches a given value), evaluating limits from tables and graphs, one-sided limits, limits at infinity and horizontal asymptotes, and cases where limits do not exist.">
+    <meta property="og:image" content="https://math.boredgames.site/og-image.png">
+    <meta property="og:site_name" content="MathBored">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://math.boredgames.site/primer/A07.html">
+    <meta property="twitter:title" content="Introduction to Limits - Essential Math Primer | MathBored">
+    <meta property="twitter:description" content="Building intuitive understanding of limits as the foundation of calculus. Covers the informal definition of a limit (the value a function approaches as x approaches a given value), evaluating limits from tables and graphs, one-sided limits, limits at infinity and horizontal asymptotes, and cases where limits do not exist.">
+    <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Introduction to Limits",
+        "description": "Building intuitive understanding of limits as the foundation of calculus. Covers the informal definition of a limit (the value a function approaches as x approaches a given value), evaluating limits from tables and graphs, one-sided limits, limits at infinity and horizontal asymptotes, and cases where limits do not exist.",
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
+        "educationalLevel": "9-12",
+        "learningResourceType": "Lesson",
+        "timeRequired": "PT15M",
+        "inLanguage": "en",
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
+        "teaches": ["informal definition of limit and limit notation","evaluating limits numerically and graphically","one-sided limits and conditions for limit existence","limits at infinity and connection to horizontal asymptotes"]
+    }
+    </script>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <style>
+
+        .lesson-header {
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
+                linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
+        }
+        .lesson-header::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3; pointer-events: none;
+        }
+        .lesson-header > * { position: relative; z-index: 1; }
+        .lesson-id-badge {
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
+        }
+        .lesson-content {
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
+        }
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
+        .nav-btn {
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
+        }
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
+        .complete-btn {
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
+        }
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>MathBored</h1>
+                    <div class="tagline">Essential Math Primer</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
+
+        <div class="lesson-header">
+            <span class="lesson-id-badge">A07 &bull; Lesson 77 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Introduction to Limits</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Building intuitive understanding of limits as the foundation of calculus. Covers the informal definition of a limit (the value a function approaches as x approaches a given value), evaluating limits from tables and graphs, one-sided limits, limits at infinity and horizontal asymptotes, and cases where limits do not exist.</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">High School Advanced &bull; 9-12</p>
+        </div>
+
+        <div class="lesson-content">
+            <div class="prereq-bar"><strong>Prerequisites:</strong> <a href="H36.html" class="prereq-link">H36</a>, <a href="R65.html" class="prereq-link">R65</a>, <a href="A05.html" class="prereq-link">A05</a></div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>informal definition of limit and limit notation</li><li>evaluating limits numerically and graphically</li><li>one-sided limits and conditions for limit existence</li><li>limits at infinity and connection to horizontal asymptotes</li></ul></div>
+
+
+<h2>Introduction to Limits</h2>
+<p>The concept of a <strong>limit</strong> is the gateway to calculus and one of the most profound ideas in all of mathematics. Limits formalize the intuition of "approaching" a value. They answer the question: What value does a function <em>get closer and closer to</em> as the input gets closer and closer to some target? Remarkably, the function does not need to actually reach or even be defined at that target -- what matters is the <em>trend</em>.</p>
+
+<h3>The Informal Definition of a Limit</h3>
+<p>We write:</p>
+<div class="math-display">lim (x &rarr; c) f(x) = L</div>
+<p>and read this as "the limit of f(x) as x approaches c equals L." This means: as x gets arbitrarily close to c (from both sides), f(x) gets arbitrarily close to L.</p>
+
+<p>Critical insight: <strong>the limit depends on what happens near c, not at c.</strong> The function f(c) might not exist, or it might exist but differ from L. The limit only cares about the trend as x approaches c.</p>
+
+<h3>Evaluating Limits from Tables</h3>
+<p>To estimate a limit numerically, compute f(x) for values of x approaching c from both sides:</p>
+
+<div class="vocab-table">
+  <table>
+    <tr><th>x</th><th>1.9</th><th>1.99</th><th>1.999</th><th>&rarr; 2 &larr;</th><th>2.001</th><th>2.01</th><th>2.1</th></tr>
+    <tr><td>f(x)</td><td>3.61</td><td>3.9601</td><td>3.996</td><td>?</td><td>4.004</td><td>4.0401</td><td>4.41</td></tr>
+  </table>
+</div>
+
+<p>If f(x) = x^2, the table shows f(x) approaching 4 as x approaches 2 from both sides. We conclude lim (x &rarr; 2) x^2 = 4.</p>
+
+<h3>Evaluating Limits from Graphs</h3>
+<p>On a graph, the limit as x &rarr; c is the y-value that the curve approaches as you trace along it toward x = c. Look at the curve's behavior <em>near</em> c, not the dot (or hole) at c itself. A filled dot at a different height than the curve indicates f(c) differs from the limit.</p>
+
+<h3>One-Sided Limits</h3>
+<p>Sometimes the function approaches different values from the left and right:</p>
+<div class="math-display">lim (x &rarr; c&minus;) f(x) = L &nbsp;&nbsp; (left-hand limit: x approaches c from below)</div>
+<div class="math-display">lim (x &rarr; c&plus;) f(x) = M &nbsp;&nbsp; (right-hand limit: x approaches c from above)</div>
+
+<p><strong>The two-sided limit exists if and only if both one-sided limits exist and are equal:</strong></p>
+<div class="math-display">lim (x &rarr; c) f(x) = L &nbsp; if and only if &nbsp; lim (x &rarr; c&minus;) f(x) = lim (x &rarr; c&plus;) f(x) = L</div>
+
+<h3>Limits at Infinity</h3>
+<p>We can also ask what happens as x grows without bound:</p>
+<div class="math-display">lim (x &rarr; &infin;) f(x) = L</div>
+<p>This means f(x) approaches L as x becomes very large. If such a limit L exists (and is finite), the line y = L is a <strong>horizontal asymptote</strong>.</p>
+
+<p>For rational functions (ratios of polynomials), limits at infinity depend on the degrees of the numerator and denominator:</p>
+<ul>
+  <li>If degree of numerator &lt; degree of denominator: limit is 0.</li>
+  <li>If degree of numerator = degree of denominator: limit is the ratio of leading coefficients.</li>
+  <li>If degree of numerator &gt; degree of denominator: no finite limit (goes to &plusmn;&infin;).</li>
+</ul>
+
+<h3>When Limits Do Not Exist</h3>
+<p>A limit fails to exist in three main situations:</p>
+<ol>
+  <li><strong>Left and right limits are different:</strong> lim (x &rarr; c&minus;) f(x) &ne; lim (x &rarr; c&plus;) f(x). Example: a step function with a jump at c.</li>
+  <li><strong>Unbounded behavior:</strong> f(x) &rarr; &plusmn;&infin; as x &rarr; c. This indicates a vertical asymptote, not a finite limit.</li>
+  <li><strong>Oscillation:</strong> f(x) oscillates infinitely often near c without settling. Example: sin(1/x) as x &rarr; 0.</li>
+</ol>
+
+<div class="example-box">
+  <h4>Worked Example 1: Limit via Algebraic Simplification</h4>
+  <p><strong>Problem:</strong> Find lim (x &rarr; 3) (x^2 - 9)/(x - 3).</p>
+  <p><strong>Solution:</strong> Direct substitution gives 0/0, which is indeterminate. Factor the numerator:</p>
+  <div class="math-display">(x^2 - 9)/(x - 3) = (x - 3)(x + 3)/(x - 3) = x + 3 &nbsp; (for x &ne; 3)</div>
+  <p>Now the limit is straightforward:</p>
+  <div class="math-display">lim (x &rarr; 3) (x + 3) = 6</div>
+  <p>The function is not defined at x = 3 (there is a hole), but the limit exists and equals 6.</p>
+</div>
+
+<div class="example-box">
+  <h4>Worked Example 2: One-Sided Limits</h4>
+  <p><strong>Problem:</strong> For the function f(x) = { x + 1 if x &lt; 2; 5 if x = 2; 2x - 1 if x &gt; 2 }, find the one-sided limits and determine if the two-sided limit exists at x = 2.</p>
+  <p><strong>Solution:</strong></p>
+  <p>Left-hand limit: lim (x &rarr; 2&minus;) (x + 1) = 3</p>
+  <p>Right-hand limit: lim (x &rarr; 2&plus;) (2x - 1) = 3</p>
+  <p>Both one-sided limits equal 3, so lim (x &rarr; 2) f(x) = 3.</p>
+  <p>Note: f(2) = 5 &ne; 3. The limit exists but does not equal the function value. The function is discontinuous at x = 2.</p>
+</div>
+
+<div class="example-box">
+  <h4>Worked Example 3: Limit at Infinity</h4>
+  <p><strong>Problem:</strong> Find lim (x &rarr; &infin;) (3x^2 + 5x)/(2x^2 - 1).</p>
+  <p><strong>Solution:</strong> The degrees of numerator and denominator are both 2 (equal). The limit is the ratio of leading coefficients:</p>
+  <div class="math-display">lim (x &rarr; &infin;) (3x^2 + 5x)/(2x^2 - 1) = 3/2</div>
+  <p>To see why, divide every term by x^2 (the highest power):</p>
+  <div class="math-display">(3 + 5/x)/(2 - 1/x^2) &rarr; (3 + 0)/(2 - 0) = 3/2 as x &rarr; &infin;</div>
+  <p>The horizontal asymptote is y = 3/2.</p>
+</div>
+
+<div class="warning-box">
+  <h4>Common Mistakes</h4>
+  <ul>
+    <li><strong>Confusing f(c) with the limit:</strong> The limit as x &rarr; c does not care about f(c). A function can have a hole at x = c yet have a perfectly well-defined limit there.</li>
+    <li><strong>Treating 0/0 as zero or undefined:</strong> The expression 0/0 is <em>indeterminate</em>, meaning the limit could be any value. You must simplify (factor, rationalize, etc.) to find the actual limit.</li>
+    <li><strong>Forgetting to check both sides:</strong> Even if the left-hand limit exists, the two-sided limit does not exist unless the right-hand limit matches.</li>
+  </ul>
+</div>
+
+<div class="tip-box">
+  <h4>Why Limits Matter</h4>
+  <p>Limits are not just a theoretical curiosity. The entire edifice of calculus rests on two limits: the <strong>derivative</strong> (a limit of difference quotients, measuring instantaneous rate of change) and the <strong>integral</strong> (a limit of Riemann sums, measuring accumulated area). Understanding limits now will prepare you for the most powerful mathematical tools ever developed.</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>Problem 1:</strong> Find lim (x &rarr; 5) (x^2 - 25)/(x - 5).</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Factor: (x^2 - 25)/(x - 5) = (x - 5)(x + 5)/(x - 5) = x + 5 for x &ne; 5.</p>
+    <p>lim (x &rarr; 5) (x + 5) = 10.</p>
+  </details>
+
+  <p><strong>Problem 2:</strong> Find lim (x &rarr; &infin;) (5x + 3)/(2x^2 + 1).</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Degree of numerator (1) &lt; degree of denominator (2), so the limit is 0.</p>
+    <p>Alternatively, divide by x^2: (5/x + 3/x^2)/(2 + 1/x^2) &rarr; (0 + 0)/(2 + 0) = 0.</p>
+  </details>
+
+  <p><strong>Problem 3:</strong> For f(x) = { 2x if x &lt; 1; 4 - x if x &ge; 1 }, find lim (x &rarr; 1) f(x) and determine if f is continuous at x = 1.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Left-hand limit: lim (x &rarr; 1&minus;) 2x = 2.</p>
+    <p>Right-hand limit: lim (x &rarr; 1&plus;) (4 - x) = 3.</p>
+    <p>Since 2 &ne; 3, the two-sided limit does not exist. Therefore f is not continuous at x = 1.</p>
+  </details>
+
+  <p><strong>Problem 4:</strong> Does lim (x &rarr; 0) 1/x^2 exist? Explain.</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>As x &rarr; 0 from either side, 1/x^2 grows without bound (goes to +&infin;).</p>
+    <p>Since the function does not approach a finite value, the limit <strong>does not exist</strong>. We can write lim (x &rarr; 0) 1/x^2 = +&infin; (informally), but this means the limit fails to exist in the finite sense. There is a vertical asymptote at x = 0.</p>
+  </details>
+
+  <p><strong>Problem 5:</strong> Find lim (x &rarr; -2) (x^2 + 5x + 6)/(x + 2).</p>
+  <details class="solution">
+    <summary>Show Solution</summary>
+    <p>Factor: x^2 + 5x + 6 = (x + 2)(x + 3).</p>
+    <p>(x + 2)(x + 3)/(x + 2) = x + 3 for x &ne; -2.</p>
+    <p>lim (x &rarr; -2) (x + 3) = 1.</p>
+  </details>
+</div>
+
+<h3>Summary</h3>
+<p>A limit describes the value a function approaches as the input approaches a target, regardless of the function's actual value (or existence) at that target. One-sided limits examine the approach from a single direction, and the two-sided limit exists only when both one-sided limits agree. Limits at infinity reveal horizontal asymptotes. Limits fail to exist when one-sided limits disagree, when the function grows unboundedly, or when it oscillates without settling. Mastering limits opens the door to calculus and the precise study of change and accumulation.</p>
+
+
+            <div style="text-align:center;margin-top:40px;">
+                <button id="completeBtn" class="complete-btn" onclick="markComplete()">
+                    <span>&#10003;</span> Mark Lesson as Complete
+                </button>
+            </div>
+        </div>
+
+        <div class="lesson-nav">
+            <a href="A06.html" class="nav-btn prev">&larr; Piecewise and Absolute Value Functions</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="A08.html" class="nav-btn next">Parametric Equations and Polar Coordinates Introduction &rarr;</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
+        </div>
+    </footer>
+
+    <script>
+        const savedTheme = localStorage.getItem('mathbored-theme');
+        if (savedTheme) document.body.className = savedTheme;
+
+        function checkComplete() {
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const btn = document.getElementById('completeBtn');
+            if (btn && done.includes('A07')) {
+                btn.classList.add('completed');
+                btn.innerHTML = '<span>&#10003;</span> Completed';
+                btn.disabled = true;
+            }
+        }
+
+        function markComplete() {
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('A07')) {
+                done.push('A07');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
+                const btn = document.getElementById('completeBtn');
+                btn.classList.add('completed');
+                btn.innerHTML = '<span>&#10003;</span> Completed';
+                btn.disabled = true;
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
+            }
+        }
+        checkComplete();
+    </script>
+</body>
+</html>

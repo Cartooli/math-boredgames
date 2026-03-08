@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixed Numbers &amp; Improper Fractions - Essential Math Primer | MathBored</title>
+    <meta name="description" content="Introduces the relationship between mixed numbers and improper fractions. Students use visual models (fraction strips, number lines) to convert between the two forms, compare mixed numbers, and place them on a number line, building the foundation for fraction computation with values greater than one.">
+    <meta name="keywords" content="math, education, learning, Upper Elementary, converting improper fractions to mixed numbers, converting mixed numbers to improper fractions, comparing and ordering mixed numbers, placing mixed numbers on a number line, K-12, free">
+    <link rel="canonical" href="https://math.boredgames.site/primer/U04.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://math.boredgames.site/primer/U04.html">
+    <meta property="og:title" content="Mixed Numbers &amp; Improper Fractions - Essential Math Primer | MathBored">
+    <meta property="og:description" content="Introduces the relationship between mixed numbers and improper fractions. Students use visual models (fraction strips, number lines) to convert between the two forms, compare mixed numbers, and place them on a number line, building the foundation for fraction computation with values greater than one.">
+    <meta property="og:image" content="https://math.boredgames.site/og-image.png">
+    <meta property="og:site_name" content="MathBored">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://math.boredgames.site/primer/U04.html">
+    <meta property="twitter:title" content="Mixed Numbers &amp; Improper Fractions - Essential Math Primer | MathBored">
+    <meta property="twitter:description" content="Introduces the relationship between mixed numbers and improper fractions. Students use visual models (fraction strips, number lines) to convert between the two forms, compare mixed numbers, and place them on a number line, building the foundation for fraction computation with values greater than one.">
+    <meta property="twitter:image" content="https://math.boredgames.site/og-image.png">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Mixed Numbers & Improper Fractions",
+        "description": "Introduces the relationship between mixed numbers and improper fractions. Students use visual models (fraction strips, number lines) to convert between the two forms, compare mixed numbers, and place them on a number line, building the foundation for fraction computation with values greater than one.",
+        "provider": {"@type":"Organization","name":"MathBored","url":"https://math.boredgames.site"},
+        "educationalLevel": "3-5",
+        "learningResourceType": "Lesson",
+        "timeRequired": "PT15M",
+        "inLanguage": "en",
+        "isPartOf": {"@type":"Course","name":"Essential Math Primer","url":"https://math.boredgames.site/primer.html"},
+        "hasCourseInstance": {"@type":"CourseInstance","courseMode":"online","courseWorkload":"PT15M"},
+        "teaches": ["converting improper fractions to mixed numbers","converting mixed numbers to improper fractions","comparing and ordering mixed numbers","placing mixed numbers on a number line"]
+    }
+    </script>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/icon.svg">
+    <style>
+
+        .lesson-header {
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(59,130,246,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139,92,246,0.12) 0%, transparent 50%),
+                linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white; padding: 40px 24px; border-radius: 20px;
+            margin-bottom: 30px; position: relative; overflow: hidden;
+        }
+        .lesson-header::before {
+            content: ''; position: absolute; inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3; pointer-events: none;
+        }
+        .lesson-header > * { position: relative; z-index: 1; }
+        .lesson-id-badge {
+            display: inline-block; background: rgba(255,255,255,0.2);
+            padding: 9px 20px; border-radius: 20px; font-size: 0.95rem;
+            margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.3);
+            font-weight: 700; letter-spacing: 0.02em;
+        }
+        .lesson-content {
+            background: var(--bg-secondary); border: 2px solid var(--border);
+            border-radius: 12px; padding: 40px; margin-bottom: 30px;
+            line-height: 1.75; font-size: 1.05rem;
+        }
+        .lesson-content h2 { font-size:1.75rem; font-weight:700; line-height:1.4; margin-top:35px; margin-bottom:20px; color:var(--text); letter-spacing:-0.01em; }
+        .lesson-content h3 { font-size:1.4rem; font-weight:700; line-height:1.5; margin-top:28px; margin-bottom:16px; color:var(--text); }
+        .lesson-content h4 { font-size:1.2rem; font-weight:600; line-height:1.5; margin-top:24px; margin-bottom:12px; color:var(--text); }
+        .lesson-content p  { font-size:1.05rem; line-height:1.8; margin-bottom:18px; color:var(--text); }
+        .lesson-content ul, .lesson-content ol { line-height:1.9; margin-bottom:20px; padding-left:28px; }
+        .lesson-content li { margin-bottom:8px; font-size:1.05rem; line-height:1.8; }
+        .lesson-nav { display:grid; grid-template-columns:1fr auto 1fr; gap:15px; margin-top:40px; }
+        .nav-btn {
+            padding:16px 24px; border-radius:10px; text-decoration:none;
+            text-align:center; font-weight:bold; transition:all 0.3s ease;
+            display:flex; align-items:center; justify-content:center; gap:8px;
+        }
+        .nav-btn.prev { background:var(--bg-tertiary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn.next { background:var(--accent); color:white; border:2px solid var(--accent); }
+        .nav-btn.overview { background:var(--bg-secondary); color:var(--text); border:2px solid var(--border); }
+        .nav-btn:hover:not(.disabled) { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+        .nav-btn.prev:hover:not(.disabled) { border-color:var(--accent); }
+        .nav-btn.next:hover:not(.disabled) { background:var(--accent-hover); }
+        .nav-btn.disabled { opacity:0.4; cursor:not-allowed; pointer-events:none; }
+        .key-concepts { background:var(--bg-tertiary); padding:25px; border-radius:10px; margin:25px 0; border-left:4px solid var(--accent); }
+        .key-concepts h3 { margin-top:0; color:var(--accent); font-size:1.3rem; font-weight:700; line-height:1.4; margin-bottom:16px; }
+        .key-concepts ul { margin:15px 0 0 0; padding-left:28px; line-height:1.9; }
+        .key-concepts li { font-size:1.05rem; line-height:1.8; margin-bottom:8px; }
+        .prereq-bar { background:var(--bg-tertiary); padding:15px; border-radius:8px; margin-bottom:20px; }
+        .prereq-link { color:var(--accent); font-weight:500; text-decoration:none; }
+        .prereq-link:hover { text-decoration:underline; }
+        .complete-btn {
+            background:var(--success); color:white; padding:16px 32px;
+            border-radius:10px; border:none; font-weight:700; font-size:1.1rem;
+            cursor:pointer; transition:all 0.3s ease; display:inline-flex;
+            align-items:center; gap:10px; margin:30px 0; line-height:1.5; letter-spacing:-0.01em;
+        }
+        .complete-btn:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(16,185,129,0.3); }
+        .complete-btn.completed { background:var(--bg-tertiary); color:var(--text-secondary); cursor:default; }
+        .example-box {
+            background:var(--bg-tertiary); border-left:4px solid var(--accent);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .example-box h4 { color:var(--accent); margin-top:0; }
+        .warning-box {
+            background:rgba(239,68,68,0.08); border-left:4px solid #ef4444;
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .warning-box h4 { color:#ef4444; margin-top:0; }
+        .tip-box {
+            background:rgba(16,185,129,0.08); border-left:4px solid var(--success);
+            border-radius:0 12px 12px 0; padding:20px 24px; margin:24px 0;
+        }
+        .tip-box h4 { color:var(--success); margin-top:0; }
+        .math-display {
+            text-align:center; font-size:1.25rem;
+            font-family:'Georgia','Times New Roman',serif;
+            margin:20px 0; padding:16px; background:var(--bg-tertiary);
+            border-radius:8px; overflow-x:auto;
+        }
+        .practice-problems {
+            background:var(--bg-tertiary); border:2px dashed var(--border);
+            border-radius:12px; padding:24px; margin:24px 0;
+        }
+        .practice-problems h3 { margin-top:0; }
+        .practice-problems ol { margin-bottom:16px; }
+        details.solution { margin-top:8px; padding:12px 16px; background:var(--bg-secondary); border-radius:8px; }
+        details.solution summary { cursor:pointer; color:var(--accent); font-weight:600; padding:4px 0; }
+        details.solution[open] summary { margin-bottom:8px; }
+        .vocab-table { width:100%; border-collapse:collapse; margin:16px 0; }
+        .vocab-table th, .vocab-table td { text-align:left; padding:10px 14px; border-bottom:1px solid var(--border); }
+        .vocab-table th { font-weight:700; background:var(--bg-tertiary); }
+        .step-list { counter-reset:step; list-style:none; padding-left:0; }
+        .step-list li { counter-increment:step; padding:8px 0 8px 40px; position:relative; }
+        .step-list li::before {
+            content:counter(step); position:absolute; left:0; top:8px;
+            width:28px; height:28px; background:var(--accent); color:white;
+            border-radius:50%; text-align:center; line-height:28px;
+            font-weight:700; font-size:0.85rem;
+        }
+        .columns-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+        @media (max-width:768px) {
+            .lesson-nav { grid-template-columns:1fr; }
+            .lesson-content { padding:28px; font-size:1rem; }
+            .lesson-content h2 { font-size:1.5rem; }
+            .lesson-content h3 { font-size:1.25rem; }
+            .lesson-content h4 { font-size:1.1rem; }
+            .lesson-content p  { font-size:1rem; }
+            .columns-2 { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1>MathBored</h1>
+                    <div class="tagline">Essential Math Primer</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <a href="/primer.html" class="back-link">&larr; Back to Primer Overview</a>
+
+        <div class="lesson-header">
+            <span class="lesson-id-badge">U04 &bull; Lesson 22 of 105</span>
+            <h1 style="margin:18px 0;font-size:2.4rem;font-weight:700;line-height:1.3;letter-spacing:-0.02em;">Mixed Numbers &amp; Improper Fractions</h1>
+            <p style="opacity:0.95;font-size:1.2rem;margin:12px 0;line-height:1.6;font-weight:500;">Introduces the relationship between mixed numbers and improper fractions. Students use visual models (fraction strips, number lines) to convert between the two forms, compare mixed numbers, and place them on a number line, building the foundation for fraction computation with values greater than one.</p>
+            <p style="margin-top:18px;opacity:0.9;font-size:1rem;font-weight:500;line-height:1.5;">Upper Elementary &bull; 3-5</p>
+        </div>
+
+        <div class="lesson-content">
+            <div class="prereq-bar"><strong>Prerequisites:</strong> <a href="E06.html" class="prereq-link">E06</a>, <a href="M13.html" class="prereq-link">M13</a></div>
+            <div class="key-concepts"><h3>Key Concepts</h3><ul><li>converting improper fractions to mixed numbers</li><li>converting mixed numbers to improper fractions</li><li>comparing and ordering mixed numbers</li><li>placing mixed numbers on a number line</li></ul></div>
+
+
+<h2>Mixed Numbers and Improper Fractions</h2>
+
+<p>You know that fractions like 3/4 represent parts of a whole. But what happens when you have <em>more</em> than one whole? You can write the amount as a <strong>mixed number</strong> (like 2 3/4) or as an <strong>improper fraction</strong> (like 11/4). These are just two different ways to write the same amount.</p>
+
+<h3>Key Vocabulary</h3>
+
+<div class="vocab-table">
+  <table>
+    <tr><th>Term</th><th>Definition</th><th>Example</th></tr>
+    <tr><td><strong>Proper fraction</strong></td><td>Numerator is less than the denominator (less than 1 whole)</td><td>3/4</td></tr>
+    <tr><td><strong>Improper fraction</strong></td><td>Numerator is greater than or equal to the denominator (1 whole or more)</td><td>11/4</td></tr>
+    <tr><td><strong>Mixed number</strong></td><td>A whole number plus a proper fraction</td><td>2 3/4</td></tr>
+  </table>
+</div>
+
+<h3>Converting Improper Fractions to Mixed Numbers</h3>
+
+<p>Divide the numerator by the denominator. The quotient is the whole number, and the remainder becomes the new numerator.</p>
+
+<div class="example-box">
+  <h4>Worked Example 1: Improper to Mixed</h4>
+  <p>Convert 17/5 to a mixed number.</p>
+  <ol class="step-list">
+    <li><strong>Divide:</strong> 17 / 5 = 3 remainder 2.</li>
+    <li>Whole number part: <strong>3</strong></li>
+    <li>Fraction part: <strong>2/5</strong> (remainder over the original denominator)</li>
+  </ol>
+  <div class="math-display">17/5 = 3 2/5</div>
+</div>
+
+<h3>Converting Mixed Numbers to Improper Fractions</h3>
+
+<p>Multiply the whole number by the denominator, add the numerator. Keep the same denominator.</p>
+
+<div class="example-box">
+  <h4>Worked Example 2: Mixed to Improper</h4>
+  <p>Convert 4 2/3 to an improper fraction.</p>
+  <ol class="step-list">
+    <li><strong>Multiply:</strong> 4 x 3 = 12</li>
+    <li><strong>Add the numerator:</strong> 12 + 2 = 14</li>
+    <li><strong>Keep the denominator:</strong> 3</li>
+  </ol>
+  <div class="math-display">4 2/3 = 14/3</div>
+</div>
+
+<h3>Visualizing with Models</h3>
+
+<p>Imagine circles divided into equal slices. For 2 3/4:</p>
+<ul>
+  <li>First circle: 4/4 (completely full)</li>
+  <li>Second circle: 4/4 (completely full)</li>
+  <li>Third circle: 3/4 (three out of four slices)</li>
+</ul>
+<p>Total slices: 4 + 4 + 3 = <strong>11 slices</strong>, each one is a fourth, so 11/4.</p>
+
+<h3>Comparing Mixed Numbers</h3>
+
+<div class="example-box">
+  <h4>Worked Example 3: Comparing</h4>
+  <p>Which is greater: 3 1/4 or 3 2/5?</p>
+  <ol class="step-list">
+    <li>The whole number parts are both 3, so compare the fractions.</li>
+    <li>Find a common denominator: 1/4 = 5/20 and 2/5 = 8/20.</li>
+    <li>Since 5/20 &lt; 8/20, we know 1/4 &lt; 2/5.</li>
+  </ol>
+  <div class="math-display">3 1/4 &lt; 3 2/5</div>
+</div>
+
+<div class="tip-box">
+  <h4>Number Line Placement</h4>
+  <p>To place 2 3/4 on a number line, find 2 and 3, then divide the space between them into 4 equal parts. Count 3 parts past 2. That is where 2 3/4 goes.</p>
+</div>
+
+<div class="warning-box">
+  <h4>Common Mistake</h4>
+  <p>When converting a mixed number to an improper fraction, students sometimes forget to add the numerator. Remember: multiply the whole number by the denominator, then <strong>add</strong> the numerator on top.</p>
+</div>
+
+<div class="practice-problems">
+  <h3>Practice Problems</h3>
+
+  <p><strong>1.</strong> Convert 23/6 to a mixed number.</p>
+  <details class="solution">
+    <summary>Show Answer</summary>
+    <p>23 / 6 = 3 remainder 5. So 23/6 = <strong>3 5/6</strong>.</p>
+  </details>
+
+  <p><strong>2.</strong> Convert 5 1/8 to an improper fraction.</p>
+  <details class="solution">
+    <summary>Show Answer</summary>
+    <p>5 x 8 = 40, plus 1 = 41. So 5 1/8 = <strong>41/8</strong>.</p>
+  </details>
+
+  <p><strong>3.</strong> Is 7/7 a proper fraction, improper fraction, or whole number?</p>
+  <details class="solution">
+    <summary>Show Answer</summary>
+    <p>7/7 = 1. It is an <strong>improper fraction</strong> equal to the <strong>whole number</strong> 1.</p>
+  </details>
+
+  <p><strong>4.</strong> Which is greater: 2 5/6 or 2 3/4?</p>
+  <details class="solution">
+    <summary>Show Answer</summary>
+    <p>Same whole number (2). Compare fractions: 5/6 = 10/12 and 3/4 = 9/12. Since 10/12 &gt; 9/12, <strong>2 5/6 &gt; 2 3/4</strong>.</p>
+  </details>
+
+  <p><strong>5.</strong> Place 1 2/3 on a number line. Between which two whole numbers does it fall?</p>
+  <details class="solution">
+    <summary>Show Answer</summary>
+    <p>Between <strong>1 and 2</strong>. Divide the space between 1 and 2 into 3 equal parts and mark the second line.</p>
+  </details>
+</div>
+
+<h3>Lesson Summary</h3>
+<ul>
+  <li>A <strong>mixed number</strong> has a whole number and a fraction (e.g., 3 1/2).</li>
+  <li>An <strong>improper fraction</strong> has a numerator greater than or equal to the denominator (e.g., 7/2).</li>
+  <li>To convert improper to mixed: <strong>divide</strong>. The quotient is the whole part; the remainder is the new numerator.</li>
+  <li>To convert mixed to improper: <strong>multiply</strong> whole by denominator, then <strong>add</strong> numerator.</li>
+</ul>
+
+
+            <div style="text-align:center;margin-top:40px;">
+                <button id="completeBtn" class="complete-btn" onclick="markComplete()">
+                    <span>&#10003;</span> Mark Lesson as Complete
+                </button>
+            </div>
+        </div>
+
+        <div class="lesson-nav">
+            <a href="U03.html" class="nav-btn prev">&larr; Long Division Algorithm</a>
+            <a href="/primer.html" class="nav-btn overview">Overview</a>
+            <a href="U05.html" class="nav-btn next">Fraction Operations with Mixed Numbers &rarr;</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>MathBored @ math.boredgames.site &bull; Free forever &bull; Community-driven development</p>
+        </div>
+    </footer>
+
+    <script>
+        const savedTheme = localStorage.getItem('mathbored-theme');
+        if (savedTheme) document.body.className = savedTheme;
+
+        function checkComplete() {
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            const btn = document.getElementById('completeBtn');
+            if (btn && done.includes('U04')) {
+                btn.classList.add('completed');
+                btn.innerHTML = '<span>&#10003;</span> Completed';
+                btn.disabled = true;
+            }
+        }
+
+        function markComplete() {
+            const done = JSON.parse(localStorage.getItem('primer-completed') || '[]');
+            if (!done.includes('U04')) {
+                done.push('U04');
+                localStorage.setItem('primer-completed', JSON.stringify(done));
+                const btn = document.getElementById('completeBtn');
+                btn.classList.add('completed');
+                btn.innerHTML = '<span>&#10003;</span> Completed';
+                btn.disabled = true;
+                const msg = document.createElement('div');
+                msg.style.cssText = 'position:fixed;top:20px;right:20px;background:var(--success);color:white;padding:15px 25px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.2);z-index:1000;animation:slideIn 0.3s ease;';
+                msg.textContent = 'Lesson completed!';
+                document.body.appendChild(msg);
+                setTimeout(() => { msg.style.animation = 'slideOut 0.3s ease'; setTimeout(() => msg.remove(), 300); }, 2000);
+            }
+        }
+        checkComplete();
+    </script>
+</body>
+</html>
