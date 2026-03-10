@@ -166,6 +166,18 @@ The codebase is intentionally simple:
 
 No build tools, no frameworks, just vanilla JavaScript!
 
+### Essential Math Primer
+
+The Primer is a standalone 105-lesson curriculum in the `primer/` directory. Lesson HTML is generated from content modules in `scripts/`:
+
+```bash
+npm run generate-primer   # regenerate all primer/*.html
+```
+
+- **Lesson authoring guide**: [LESSON_TEMPLATE.md](LESSON_TEMPLATE.md)
+- **Reserve lessons plan (R49–R75)**: [RESERVE_LESSONS_PLAN.md](RESERVE_LESSONS_PLAN.md)
+- **Full contributor guide**: [CONTRIBUTING.md](CONTRIBUTING.md)
+
 ## 📱 Browser Support
 
 Works on all modern browsers:

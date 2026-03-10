@@ -5,6 +5,8 @@
   "main": "app.js",
   "scripts": {
     "generate-seo": "node generate-seo-pages.js",
+    "generate-primer": "node scripts/generate-primer.js",
+    "generate-primer-pages": "node generate-primer-pages.js",
     "minify": "terser app.js -o app.min.js -c -m --comments false",
     "build": "npm run minify && npm run generate-seo",
     "precommit": "npm run build"

@@ -26,6 +26,30 @@ if (!fs.existsSync(curriculumPath)) {
 const curriculum = JSON.parse(fs.readFileSync(curriculumPath, 'utf8'));
 console.log(`✅ Loaded curriculum: ${curriculum.title}\n`);
 
+// Load content modules (same set used by scripts/generate-primer.js)
+const CONTENT_FILES = [
+    'scripts/primer-content-elementary.js',
+    'scripts/primer-content-k2-upper.js',
+    'scripts/primer-content-middle.js',
+    'scripts/primer-content-geo.js',
+    'scripts/primer-content-high1.js',
+    'scripts/primer-content-high2.js',
+    'scripts/primer-content-advanced.js',
+    'scripts/primer-content-reserve-a.js',
+    'scripts/primer-content-reserve-b.js',
+];
+const primerContent = {};
+for (const file of CONTENT_FILES) {
+    const fp = path.join(__dirname, file);
+    if (fs.existsSync(fp)) {
+        Object.assign(primerContent, require(fp));
+        console.log(`  ✓ loaded ${file}`);
+    } else {
+        console.warn(`  ⚠ missing ${file} (skipped)`);
+    }
+}
+console.log('');
+
 // Flatten all lessons from curriculum
 const allLessons = [];
 curriculum.grade_bands.forEach(band => {
@@ -71,14 +95,20 @@ function generateLessonPage(lesson, allLessons) {
         `
         : '';
 
-    const reserveNotice = lesson.is_reserve ? `
+    // Reserve lessons: use content module HTML if available, else show Coming Soon
+    const reserveHasContent = lesson.is_reserve && primerContent[lesson.id];
+    const reserveNotice = (lesson.is_reserve && !reserveHasContent) ? `
         <div style="background: var(--warning); color: white; padding: 20px; border-radius: 12px; margin-bottom: 30px; text-align: center;">
             <strong>🔮 Reserve Slot</strong><br>
             This lesson is part of the curriculum expansion plan and will be developed based on community needs and feedback.
         </div>
     ` : '';
 
-    const lessonContent = lesson.is_reserve ? `
+    const lessonContent = reserveHasContent ? `
+        <div class="lesson-content-body" style="margin-top: 30px;">
+            ${primerContent[lesson.id]}
+        </div>
+    ` : lesson.is_reserve ? `
         <div style="text-align: center; padding: 60px 20px;">
             <div style="font-size: 4rem; margin-bottom: 20px;">🚧</div>
             <h2>Coming Soon</h2>
@@ -434,6 +464,102 @@ function generateLessonPage(lesson, allLessons) {
                 font-size: 1rem;
             }
         }
+
+        /* ── Lesson content component styles (used by content modules) ── */
+        .example-box {
+            background: var(--bg-tertiary);
+            border-left: 4px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        .example-box h4 { color: var(--accent); margin-top: 0; }
+
+        .warning-box {
+            background: rgba(239,68,68,0.08);
+            border-left: 4px solid #ef4444;
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        .warning-box h4 { color: #ef4444; margin-top: 0; }
+
+        .tip-box {
+            background: rgba(16,185,129,0.08);
+            border-left: 4px solid var(--success);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        .tip-box h4 { color: var(--success); margin-top: 0; }
+
+        .math-display {
+            text-align: center;
+            font-size: 1.25rem;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            margin: 20px 0;
+            padding: 16px;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .practice-problems {
+            background: var(--bg-tertiary);
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+        .practice-problems h3 { margin-top: 0; }
+        .practice-problems ol { margin-bottom: 16px; }
+
+        details.solution {
+            margin-top: 8px;
+            padding: 12px 16px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+        }
+        details.solution summary {
+            cursor: pointer;
+            color: var(--accent);
+            font-weight: 600;
+            padding: 4px 0;
+        }
+        details.solution[open] summary { margin-bottom: 8px; }
+
+        .vocab-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        .vocab-table th, .vocab-table td {
+            text-align: left;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+        .vocab-table th { font-weight: 700; background: var(--bg-tertiary); }
+
+        .step-list { counter-reset: step; list-style: none; padding-left: 0; }
+        .step-list li {
+            counter-increment: step;
+            padding: 8px 0 8px 40px;
+            position: relative;
+        }
+        .step-list li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .columns-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .columns-2 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>

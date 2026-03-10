@@ -119,6 +119,50 @@ const lessons = {
 - Use proper mathematical notation
 - Break complex topics into smaller sections
 
+## 📖 Essential Math Primer
+
+The Primer is a separate 105-lesson curriculum (`primer/` directory) distinct from the main practice app.
+
+### How the Primer is built
+
+| File | Purpose |
+|------|---------|
+| `scripts/generate-primer.js` | **Primary generator** — reads curriculum JSON + content modules, writes all `primer/*.html` files |
+| `primer-curriculum.json` | Source of truth for lesson metadata (title, description, key concepts, prerequisites) |
+| `scripts/primer-content-elementary.js` | Lesson HTML for Elementary Foundations (E01–E12) |
+| `scripts/primer-content-k2-upper.js` | Lesson HTML for K-2 and Upper Elementary (K01–K06, U01–U08) |
+| `scripts/primer-content-middle.js` | Lesson HTML for Middle School (M13–M27) |
+| `scripts/primer-content-geo.js` | Lesson HTML for Geometry & Data (G01–G08) |
+| `scripts/primer-content-high1.js` | Lesson HTML for High School Essentials (H28–H40) |
+| `scripts/primer-content-high2.js` | Lesson HTML for High School Advanced (H41–H48) |
+| `scripts/primer-content-advanced.js` | Lesson HTML for Advanced topics (A01–A08) |
+| `scripts/primer-content-reserve-a.js` | Lesson HTML for Reserve lessons R49–R62 |
+| `scripts/primer-content-reserve-b.js` | Lesson HTML for Reserve lessons R63–R75 |
+
+### Regenerating primer pages
+
+```bash
+npm run generate-primer
+# or directly:
+node scripts/generate-primer.js
+```
+
+This reads all content modules and rebuilds the full `primer/` directory. **Do not use `generate-primer-pages.js`** for reserve lessons — it only reads `primer-curriculum.json` metadata and will replace full lesson HTML with a "Coming Soon" placeholder.
+
+### Adding or editing a lesson
+
+1. Find the correct content module (e.g., `scripts/primer-content-reserve-a.js` for R49–R62).
+2. Edit or add the lesson's HTML block. Each entry is keyed by lesson ID (e.g., `'R55'`).
+3. Follow `LESSON_TEMPLATE.md` for structure — Hook, Core Concept, Worked Examples, Practice Problems, Key Takeaways, Looking Ahead.
+4. Regenerate: `npm run generate-primer`
+5. Open the generated `primer/<ID>.html` in a browser to verify.
+
+### Authoring reserve lessons (R49–R75)
+
+All 27 reserve slots already have full lesson content in the reserve content modules. To request a topic priority or claim a slot, open an issue or use the in-app feedback form. See `RESERVE_LESSONS_PLAN.md` for the full topic list.
+
+---
+
 ## 🧪 Testing
 
 ### Before Submitting
