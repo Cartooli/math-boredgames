@@ -16875,7 +16875,7 @@ x+2 | x² + 5x + 6
         return `
             <div class="progress-indicator" style="margin-top: 20px; padding: 15px; background: var(--card-bg); border-radius: 12px; border-left: 4px solid var(--success);">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                    <h3 style="margin: 0; color: var(--success); font-size: 1.1rem;">📊 Grade ${this.currentGrade === 'K' ? 'Kindergarten' : this.currentGrade} Progress</h3>
+                    <h3 style="margin: 0; color: var(--success); font-size: 1.1rem;"><span class="icon-chart" aria-hidden="true"></span> Grade ${this.currentGrade === 'K' ? 'Kindergarten' : this.currentGrade} Progress</h3>
                     <span style="font-weight: 700; color: var(--accent);">${stats.completed}/${stats.total} topics</span>
                 </div>
                 <div style="background: var(--bg); border-radius: 8px; height: 24px; overflow: hidden; position: relative;">

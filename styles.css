@@ -322,6 +322,80 @@ h1 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Icon replacements for emojis - more professional and consistent */
+.icon-target,
+.icon-chart {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
+    position: relative;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.icon-target::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.8em;
+    height: 0.8em;
+    border: 0.15em solid var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.1em var(--accent);
+}
+
+.icon-target::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.3em;
+    height: 0.3em;
+    background: var(--accent);
+    border-radius: 50%;
+}
+
+.icon-chart {
+    background: var(--success);
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background-clip: unset;
+}
+
+.icon-chart::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0.15em;
+    height: 0.4em;
+    background: var(--success);
+    border-radius: 0.05em 0.05em 0 0;
+    box-shadow: 0.25em 0 0 0 var(--success), 0.5em 0 0 0 var(--success), 0.75em 0 0 0 var(--success);
+}
+
+.icon-chart::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0.25em;
+    width: 0.15em;
+    height: 0.6em;
+    background: var(--success);
+    border-radius: 0.05em 0.05em 0 0;
+    box-shadow: 0.25em 0 0 0 var(--success), 0.5em 0 0 0 var(--success);
 }
 
 .tagline {
@@ -391,20 +465,54 @@ h1 {
 .theme-light { background: #f8fafc; border-color: #94a3b8; }
 
 .controls {
-    background: var(--bg-secondary);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
     padding: 25px;
     border-radius: 16px;
     margin-bottom: 30px;
     border: 1px solid var(--border);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--accent);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.05);
     display: grid;
     gap: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.controls::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .control-group {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding: 16px;
+    background: rgba(59, 130, 246, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.control-group:hover {
+    background: rgba(59, 130, 246, 0.05);
+    border-color: rgba(59, 130, 246, 0.2);
+}
+
+.control-group:nth-child(even) {
+    background: rgba(16, 185, 129, 0.03);
+    border-color: rgba(16, 185, 129, 0.1);
+}
+
+.control-group:nth-child(even):hover {
+    background: rgba(16, 185, 129, 0.05);
+    border-color: rgba(16, 185, 129, 0.2);
 }
 
 /* Topic Search Input */
@@ -652,21 +760,59 @@ input:focus {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 15px;
     margin-top: 20px;
+    padding: 20px;
     padding-top: 20px;
-    border-top: 1px solid var(--border);
+    border-top: 2px solid var(--border);
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     justify-items: center;
+    position: relative;
+}
+
+.stats-panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.5;
 }
 
 .stat-item {
     text-align: center;
     padding: 15px;
-    background: var(--bg-tertiary);
+    background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
     border-radius: 10px;
     border: 1px solid var(--border);
+    border-top: 2px solid var(--accent);
     min-height: 80px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-item:nth-child(2) {
+    border-top-color: var(--success);
+}
+
+.stat-item:nth-child(3) {
+    border-top-color: var(--warning);
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0.3;
 }
 
 .stat-label {
@@ -726,7 +872,7 @@ input:focus {
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     margin-top: 10px;
 }
 
@@ -746,11 +892,24 @@ input:focus {
     padding: 35px;
     border-radius: 16px;
     border: 1px solid var(--border);
+    border-top: 3px solid var(--accent);
     min-height: 500px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08);
     animation: fadeIn 0.3s ease;
     max-width: 100%;
     overflow-x: auto;
+    position: relative;
+}
+
+.content-area::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover), var(--accent));
+    border-radius: 16px 16px 0 0;
 }
 
 @keyframes fadeIn {
@@ -767,9 +926,23 @@ input:focus {
 .lesson-content h2 {
     color: var(--accent);
     margin-bottom: 24px;
+    margin-top: 0;
     font-size: var(--font-size-3xl);
     font-weight: 800;
     line-height: var(--line-height-tight);
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+    position: relative;
+}
+
+.lesson-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
 }
 
 .lesson-content h3 {
@@ -779,6 +952,20 @@ input:focus {
     font-size: var(--font-size-xl);
     font-weight: 700;
     line-height: var(--line-height-normal);
+    padding-left: 16px;
+    border-left: 3px solid var(--accent);
+    position: relative;
+}
+
+.lesson-content h3::before {
+    content: '';
+    position: absolute;
+    left: -3px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent), transparent);
+    opacity: 0.6;
 }
 
 .lesson-content p {
