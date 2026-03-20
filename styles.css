@@ -102,7 +102,7 @@ body.theme-light {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: var(--space-5);
     flex: 1;
     width: 100%;
 }
@@ -272,7 +272,10 @@ h1 {
     text-decoration: none;
     font-weight: 600;
     transition: all 0.2s ease;
-    padding: 2px 8px;
+    padding: 11px 12px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
     border-radius: 4px;
 }
 
@@ -288,8 +291,10 @@ h1 {
 }
 
 .theme-btn {
-    width: 35px;
-    height: 35px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     border-radius: 50%;
     border: 2px solid var(--border);
     cursor: pointer;
@@ -1080,8 +1085,10 @@ footer {
     }
     
     .theme-btn {
-        width: 30px;
-        height: 30px;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
     }
     
     .lesson-content h2 {
@@ -1397,8 +1404,10 @@ button:hover {
     background: rgba(255, 255, 255, 0.2);
     border: none;
     color: white;
-    width: 28px;
-    height: 28px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     border-radius: 50%;
     cursor: pointer;
     font-size: 1.2rem;
@@ -1588,8 +1597,10 @@ button:hover {
     position: absolute;
     top: 16px;
     right: 16px;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     border: none;
     background: var(--bg-tertiary);
     color: var(--text-primary);
@@ -1723,10 +1734,13 @@ button:hover {
 }
 
 .checkbox-label input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     cursor: pointer;
     accent-color: var(--accent);
+    flex-shrink: 0;
 }
 
 /* ============================================
@@ -4134,8 +4148,10 @@ footer a:hover {
 }
 
 .search-modal-close {
-    width: 32px;
-    height: 32px;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     border: none;
     background: var(--bg-secondary);
     color: var(--text-secondary);
