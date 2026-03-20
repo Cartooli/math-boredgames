@@ -83,6 +83,12 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="MathBored">
     
+    <!-- Font preloading for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"></noscript>
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="growth-engine.css">
     
@@ -203,8 +209,13 @@
         <div class="container">
             <div class="header-content">
                 <div>
-                    <h1>🎯 MathBored</h1>
-                    <div class="tagline">Never be bored with math again • Always free, always helpful • <a href="demo.html">Try Demo</a> • <a href="primer.html">Math Primer</a> • <a href="algebra-i.html">𝑥 Algebra I</a> · <a href="algebra-ii.html">𝑥² Algebra II</a> · <a href="geometry.html">△ Geometry</a> · <a href="trigonometry.html">∿ Trigonometry</a> · <a href="linear-algebra.html">◫ Linear Algebra</a> · <a href="number-theory.html">∞ Number Theory</a> · <a href="statistics.html">Statistics</a> • <a href="glossary.html">Glossary</a> • <a href="#" id="quickStartLink">Quick Start</a></div>
+                    <div class="header-title-row">
+                        <h1>🎯 MathBored</h1>
+                        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation" aria-expanded="false">
+                            <span class="hamburger-icon">☰</span>
+                        </button>
+                    </div>
+                    <div class="tagline" id="taglineNav">Never be bored with math again • Always free, always helpful • <a href="demo.html">Try Demo</a> • <a href="primer.html">Math Primer</a> • <a href="algebra-i.html">𝑥 Algebra I</a> · <a href="algebra-ii.html">𝑥² Algebra II</a> · <a href="geometry.html">△ Geometry</a> · <a href="trigonometry.html">∿ Trigonometry</a> · <a href="linear-algebra.html">◫ Linear Algebra</a> · <a href="number-theory.html">∞ Number Theory</a> · <a href="statistics.html">Statistics</a> • <a href="glossary.html">Glossary</a> • <a href="#" id="quickStartLink">Quick Start</a></div>
                 </div>
                 <div class="header-actions">
                     <button class="search-trigger-btn" id="searchTriggerBtn" aria-label="Search all topics" title="Search all topics (Ctrl/Cmd+K)">
@@ -541,6 +552,22 @@
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js" defer></script>
     <!-- Search Index - deferred for better initial load performance -->
     <script src="search-index.js?v=1" defer></script>
+    
+    <!-- Mobile Navigation Toggle -->
+    <script>
+    (function() {
+        const mobileNavToggle = document.getElementById('mobileNavToggle');
+        const taglineNav = document.getElementById('taglineNav');
+        
+        if (mobileNavToggle && taglineNav) {
+            mobileNavToggle.addEventListener('click', function() {
+                const isExpanded = mobileNavToggle.getAttribute('aria-expanded') === 'true';
+                mobileNavToggle.setAttribute('aria-expanded', !isExpanded);
+                taglineNav.classList.toggle('mobile-nav-open', !isExpanded);
+            });
+        }
+    })();
+    </script>
     <script>
     // ============================================
     // SEARCH MODAL CONTROLLER

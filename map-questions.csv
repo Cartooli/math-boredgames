@@ -1,0 +1,154 @@
+ID,Difficulty,Question,Option A,Option B,Option C,Option D,Correct Answer,Hint
+m1,easy,A basket contains 6 red apples and 10 green apples. What is the ratio of red apples to total apples?,6:10,10:16,6:16,16:6,6:16,"First, find the total number of apples in the basket."
+m2,easy,A car travels 180 miles on 6 gallons of gas. What is the unit rate in miles per gallon?,30 miles per gallon,6 miles per gallon,180 miles per gallon,0.03 miles per gallon,30 miles per gallon,Unit rate means 'how many miles for 1 gallon?' You need to divide.
+m3,easy,What is 25% of 60?,15,20,25,4,15,25% is the same as the fraction 1/4. What is 1/4 of 60?
+m4,medium,Solve: 3/4 ÷ 1/2 = ?,3/8,4/6,2/3,3/2 or 1½,3/2 or 1½,"To divide fractions, remember to 'keep, change, flip.' Multiply the first fraction by the reciprocal of the second."
+m5,medium,A recipe for one batch of cookies requires 1½ cups of flour. How many cups of flour are needed to make 3 batches?,2½ cups,3 cups,4½ cups,5 cups,4½ cups,You need to multiply the amount for one batch (1½) by 3.
+m6,medium,What is the result of 5.2 × 0.4?,20.8,2.08,0.208,208,2.08,"Multiply 52 × 4 first. Then, count the total number of decimal places in the original numbers to place the decimal in the answer."
+m7,easy,What is the Greatest Common Factor (GCF) of 12 and 18?,3,6,12,36,6,List the factors of 12 (numbers that divide into it) and the factors of 18. Find the largest number that is in both lists.
+m8,easy,Which of the following numbers has the greatest absolute value?,-10,7,-3,0,-10,Absolute value is a number's distance from zero on a number line. It is always a positive value.
+m9,medium,"A point is located at (-4, 5) on a coordinate plane. In which quadrant is the point located?",Quadrant I,Quadrant II,Quadrant III,Quadrant IV,Quadrant II,"The order is (x, y). Quadrant I is (+,+). Quadrant II is (-,+). Quadrant III is (-,-). Quadrant IV is (+,-)."
+m10,easy,Evaluate the expression: 4² + (10 - 5),13,21,26,11,21,"Follow the order of operations (PEMDAS/BODMAS). Exponents and Parentheses first, then Addition."
+m11,medium,Which expression is equivalent to 3(x + 5)?,3x + 5,x + 15,8x,3x + 15,3x + 15,Use the distributive property. Multiply the number outside the parentheses by *each* term inside.
+m12,medium,Which of these is a statistical question?,How tall is the principal of your school?,What is the favorite subject of the students in your class?,How many states are in the United States?,What time does your school start?,What is the favorite subject of the students in your class?,A statistical question is one that can have many different answers.
+m13,easy,"What is the mean (average) of the following data set: 5, 10, 3, 8, 4",5,6,7,30,6,"To find the mean, add all the numbers together and then divide by how many numbers are in the set."
+m14,medium,"What is the median of the following data set: 10, 4, 8, 6, 4, 3",4,5,6,6.83,5,"First, put the numbers in order from least to greatest. Then, find the middle number."
+m15,easy,What is the area of a triangle with a base of 8 inches and a height of 6 inches?,14 in²,24 in²,28 in²,48 in²,24 in²,The formula for the area of a triangle is ½ × base × height.
+m16,easy,"A box is 5 feet long, 4 feet wide, and 3 feet high. What is its volume?",12 ft³,20 ft³,60 ft³,94 ft²,60 ft³,Volume of a rectangular prism is length × width × height.
+m17,medium,"Which algebraic expression represents the phrase 'a number, n, decreased by 7'?",7 - n,n + 7,n/7,n - 7,n - 7,'Decreased by' means you are subtracting from the number that came first.
+m18,easy,Solve the equation for x: x + 9 = 22,x = 31,x = 13,x = 2.4,x = 198,x = 13,"To get x by itself, you must do the opposite of adding 9 to both sides."
+m19,easy,Solve the equation for y: 4y = 36,y = 32,y = 40,y = 9,y = 144,y = 9,"4y means 4 × y. To get y by itself, do the opposite of multiplying by 4."
+m20,medium,Which inequality represents the statement 'You must be at least 12 years old to ride the roller coaster' (where a = age)?,a < 12,a > 12,a ≤ 12,a ≥ 12,a ≥ 12,'At least' means that number or higher. The symbol must include 'equal to.'
+m21,medium,What is the Least Common Multiple (LCM) of 6 and 8?,2,14,24,48,24,"List the multiples of 6 (6, 12, 18...) and the multiples of 8 (8, 16, 24...). What is the smallest number in both lists?"
+m22,easy,"What is the range of the following data set: 15, 8, 22, 10, 19",14,15,22,14.8,14,Range is the 'distance' between the highest number and the lowest number in the set. (Highest - Lowest).
+m23,easy,"A pizza is cut into 8 equal slices. If you eat 2 slices, what percentage of the pizza did you eat?",20%,25%,40%,50%,25%,"First, write the amount you ate as a fraction: 2/8. Then, simplify the fraction and convert it to a percentage."
+m24,medium,"The coordinates of a rectangle are (1, 1), (1, 4), (5, 4), and (5, 1). What is the length of the side connecting (1, 1) and (5, 1)?",3 units,4 units,5 units,1 unit,4 units,"The points are (1, 1) and (5, 1). Since the y-values are the same, find the distance between the x-values."
+m25,medium,What is the surface area of a cube with all side lengths of 4 cm?,16 cm²,64 cm³,96 cm²,24 cm²,96 cm²,"Find the area of *one* square face, then multiply that by the total number of faces on a cube."
+m26,medium,What is 30% of 80?,16,24,30,48,24,30% is the same as 0.30. Multiply 80 by 0.30.
+m27,medium,"A recipe calls for 2¾ cups of flour. If you want to make ½ of the recipe, how many cups of flour do you need?",1⅜ cups,2¼ cups,2 cups,5½ cups,1⅜ cups,"You need to multiply 2¾ by ½. First convert 2¾ to an improper fraction (11/4), then multiply by ½."
+m28,hard,Solve for x: 3x + 7 = 22,x = 3,x = 5,x = 7,x = 15,x = 5,"First subtract 7 from both sides, then divide by 3."
+m29,easy,What is the perimeter of a rectangle that is 8 cm long and 5 cm wide?,13 cm,26 cm,40 cm,20 cm,26 cm,"Perimeter = 2(length + width). Add the length and width, then multiply by 2."
+m30,medium,Which fraction is equivalent to 0.625?,3/5,5/8,7/10,6/7,5/8,Convert each fraction to a decimal and see which one equals 0.625. Or divide 5 by 8.
+m31,hard,"A triangle has angles measuring 45°, 60°, and 75°. What type of triangle is this?",Right triangle,Equilateral triangle,Isosceles triangle,Acute triangle,Acute triangle,"All three angles are less than 90°, so this is an acute triangle."
+m32,medium,What is the value of 8² × 2?,64,128,16,256,128,"First calculate 8² (which is 64), then multiply by 2."
+m33,easy,"If a bag contains 3 red marbles and 5 blue marbles, what is the probability of drawing a red marble?",3/5,3/8,5/8,5/3,3/8,Probability = favorable outcomes / total outcomes. There are 3 red marbles out of 8 total marbles.
+m34,hard,Solve for y: 2y - 5 = 3y + 7,y = 2,y = -2,y = -12,y = 12,y = -12,"First get all y terms on one side and all constants on the other. Subtract 3y from both sides, then add 5 to both sides."
+m35,medium,What is the area of a circle with a radius of 6 inches? (Use π ≈ 3.14),18.84 in²,37.68 in²,113.04 in²,226.08 in²,113.04 in²,"Area of a circle = π × r². Square the radius (36), then multiply by π (3.14)."
+m36,medium,"What is the mode of this data set: 3, 5, 7, 5, 8, 5, 2?",3,5,7,8,5,The mode is the number that appears most frequently in the data set.
+m37,easy,What is ¾ of 32?,8,24,28,42,24,"Multiply 32 by ¾. Or find ¼ of 32 (which is 8), then multiply by 3."
+m38,hard,Which expression is equivalent to 5(x + 3) - 2x?,3x + 3,3x + 15,7x + 3,7x + 15,3x + 15,Distribute the 5: 5(x + 3) = 5x + 15. Then subtract 2x to get 3x + 15.
+m39,medium,What is 0.6 expressed as a fraction in simplest form?,3/5,6/10,1/6,2/3,3/5,0.6 = 6/10. Simplify by dividing both numerator and denominator by 2.
+m40,medium,A right triangle has legs measuring 6 inches and 8 inches. What is the length of the hypotenuse?,10 inches,14 inches,48 inches,100 inches,10 inches,Use the Pythagorean theorem: a² + b² = c². Then take the square root.
+m41,easy,"What is the next number in the pattern: 2, 5, 8, 11, __?",13,14,15,16,14,Look at the difference between consecutive numbers.
+m42,hard,"What is the Least Common Multiple (LCM) of 4, 6, and 10?",12,20,60,120,60,"Find multiples of 4, 6, and 10. What's the smallest number that appears in all three lists?"
+m43,medium,What is the circumference of a circle with a diameter of 10 inches? (Use π ≈ 3.14),15.7 inches,31.4 inches,78.5 inches,314 inches,31.4 inches,Circumference = π × diameter. Multiply 10 by π (3.14).
+m44,easy,What is 1.25 × 4?,4.25,5,5.25,8,5,"Multiply 1.25 by 4, or think of 1.25 as 5/4 (so 5/4 × 4 = 5)."
+m45,hard,Solve: (12 - 5) × 2 ÷ 7,2,4,6,14,2,"Follow order of operations: parentheses first (12 - 5 = 7), then multiply (7 × 2 = 14), then divide (14 ÷ 7 = 2)."
+m46,medium,"A store offers 20% off all items. If a jacket originally costs $50, what is the sale price?",$10,$30,$40,$45,$40,"Find 20% of $50 (which is $10), then subtract from the original price."
+m47,medium,"What is the volume of a rectangular prism that is 6 cm long, 4 cm wide, and 3 cm tall?",13 cm³,72 cm³,108 cm³,48 cm³,72 cm³,Volume = length × width × height. Multiply all three dimensions.
+m48,easy,What is 5/6 × 3/10?,1/4,8/16,1/2,15/60,1/4,"Multiply the numerators (5 × 3 = 15) and denominators (6 × 10 = 60), then simplify the fraction."
+m49,medium,"A recipe calls for 2/3 cup of sugar. If you want to make 1½ times the recipe, how much sugar do you need?",1 cup,3/4 cup,1⅓ cups,2 cups,1 cup,Multiply 2/3 by 1½ (or 3/2). Remember: 2/3 × 3/2 = 6/6 = 1.
+m50,hard,What is the value of x in the equation: 4(2x + 3) = 36?,x = 2,x = 3,x = 4,x = 6,x = 3,"First distribute the 4: 8x + 12 = 36. Then subtract 12 from both sides, and divide by 8."
+m51,medium,"What is the slope of a line that passes through points (2, 3) and (6, 11)?",2,1/2,4,8,2,Slope = (y₂ - y₁) / (x₂ - x₁). Calculate the change in y divided by the change in x.
+m52,hard,"If a number is increased by 25% and then decreased by 20%, what is the net percentage change?",5% increase,0% (no change),5% decrease,45% increase,0% (no change),"Try with a specific number like 100. Increase by 25% to get 125, then decrease by 20% of 125."
+m53,easy,What is the prime factorization of 36?,2 × 18,2² × 3²,4 × 9,6 × 6,2² × 3²,"Break down 36 into its prime factors. Start with 2: 36 = 2 × 18, then continue factoring."
+m54,medium,A cylinder has a radius of 5 cm and a height of 8 cm. What is its volume? (Use π ≈ 3.14),125.6 cm³,628 cm³,251.2 cm³,"1,256 cm³",628 cm³,"Volume of a cylinder = π × r² × h. Square the radius first (5² = 25), then multiply by π and height."
+m55,hard,"Solve the system of equations:
+
+x + y = 10
+2x - y = 5","x = 3, y = 7","x = 5, y = 5","x = 7, y = 3","x = 4, y = 6","x = 5, y = 5","Add the two equations together to eliminate y. Then solve for x, and substitute back to find y."
+m56,medium,"What is the surface area of a rectangular prism with length 6 cm, width 4 cm, and height 5 cm?",120 cm²,148 cm²,60 cm²,74 cm²,148 cm²,Surface area = 2(lw + lh + wh). Calculate the area of each pair of opposite faces and add them all together.
+m57,easy,Which number is irrational?,0.5,√9,√2,3/4,√2,An irrational number cannot be expressed as a simple fraction. It has a decimal that goes on forever without repeating.
+m58,hard,What is the domain of the function f(x) = √(x - 3)?,x ≥ 0,x ≥ 3,x > 3,All real numbers,x ≥ 3,The expression under the square root must be greater than or equal to zero. Set x - 3 ≥ 0 and solve.
+m59,medium,"A triangle has side lengths of 7, 9, and 12. What type of triangle is this?",Equilateral,Isosceles,Scalene,Right,Scalene,A scalene triangle has all three sides of different lengths. Check if 7² + 9² = 12² for a right triangle.
+m60,medium,"What is the interquartile range (IQR) of the data set: 5, 8, 10, 12, 15, 18, 20?",10,15,12,8,10,"IQR = Q₃ - Q₁. Find the median (Q₂), then find the median of the lower half (Q₁) and upper half (Q₃)."
+m61,easy,What is 2³ × 2²?,2⁵,2⁶,4⁵,2¹,2⁵,"When multiplying powers with the same base, add the exponents: 2³ × 2² = 2³⁺² = 2⁵."
+m62,medium,What is √144?,12,72,14,24,12,"The square root of a number is what number, when multiplied by itself, equals that number. What times itself equals 144?"
+m63,hard,Simplify: (3x²y)(4xy³),12x³y⁴,7x³y⁴,12x²y³,7x²y³,12x³y⁴,"Multiply the coefficients (3 × 4 = 12), then add the exponents for like variables: x² × x = x³, y × y³ = y⁴."
+m64,easy,What is 15% of 200?,15,30,45,60,30,"15% means 15 out of 100, or 0.15. Multiply 200 by 0.15, or find 10% (20) and add half of that (10)."
+m65,medium,"A map has a scale of 1 inch = 50 miles. If two cities are 3.5 inches apart on the map, how far apart are they in real life?",150 miles,175 miles,200 miles,350 miles,175 miles,Set up a proportion: 1 inch / 50 miles = 3.5 inches / x miles. Cross multiply and solve.
+m66,hard,What is the y-intercept of the line with equation y = 3x - 7?,3,-7,7,-3,-7,"In the form y = mx + b, b is the y-intercept. This is the point where the line crosses the y-axis (when x = 0)."
+m67,easy,What is the complement of a 35° angle?,45°,55°,145°,90°,55°,Complementary angles add up to 90°. Subtract 35° from 90° to find the complement.
+m68,medium,What is the supplement of a 120° angle?,60°,80°,240°,30°,60°,Supplementary angles add up to 180°. Subtract 120° from 180° to find the supplement.
+m69,hard,"If f(x) = 2x + 5, what is f(3)?",11,13,15,21,11,Substitute 3 for x in the function: f(3) = 2(3) + 5 = 6 + 5 = 11.
+m70,medium,What is the area of a circle with a diameter of 10 inches? (Use π ≈ 3.14),31.4 in²,78.5 in²,314 in²,157 in²,78.5 in²,"If the diameter is 10, the radius is 5. Area = π × r². Square the radius (25), then multiply by π."
+m71,easy,"What is the next number in the pattern: 3, 6, 12, 24, __?",30,36,48,72,48,Each number is multiplied by 2 to get the next number. 24 × 2 = 48.
+m72,medium,"A bag contains 4 red marbles, 3 blue marbles, and 5 green marbles. What is the probability of drawing a blue marble?",1/3,1/4,3/12,1/5,1/4,Probability = favorable outcomes / total outcomes. There are 3 blue marbles out of 12 total marbles.
+m73,hard,Solve for x: 2x + 5 < 15,x < 5,x < 10,x > 5,x > 10,x < 5,Subtract 5 from both sides: 2x < 10. Then divide both sides by 2: x < 5.
+m74,easy,What is 0.75 expressed as a fraction in simplest form?,3/4,75/100,7/10,1/2,3/4,0.75 = 75/100. Simplify by dividing both numerator and denominator by 25.
+m75,medium,What is the perimeter of a square with an area of 64 cm²?,16 cm,32 cm,64 cm,8 cm,32 cm,"If the area is 64 cm², the side length is √64 = 8 cm. Perimeter of a square = 4 × side = 4 × 8 = 32 cm."
+m76,hard,What is the range of the function f(x) = x² + 3?,All real numbers,y ≥ 0,y ≥ 3,y > 3,y ≥ 3,"Since x² is always ≥ 0, x² + 3 is always ≥ 3. The range is all y-values greater than or equal to 3."
+m77,easy,What is 5/8 + 1/4?,6/12,7/8,6/8,3/4,7/8,Find a common denominator. 1/4 = 2/8. Then add: 5/8 + 2/8 = 7/8.
+m78,medium,"A triangle has angles measuring 30°, 60°, and 90°. What type of triangle is this?",Acute triangle,Right triangle,Obtuse triangle,Equilateral triangle,Right triangle,A triangle with a 90° angle is a right triangle. The 30-60-90 triangle is a special right triangle.
+m79,hard,What is the slope-intercept form of a line with slope 4 and y-intercept -3?,y = 4x - 3,y = -3x + 4,y = 4x + 3,y = -4x - 3,y = 4x - 3,"Slope-intercept form is y = mx + b, where m is the slope and b is the y-intercept."
+m80,easy,What is 3.5 × 10² in standard form?,350,"3,500",35,0.35,350,3.5 × 10² means move the decimal point 2 places to the right: 3.5 → 350.
+m81,medium,What is the volume of a sphere with a radius of 3 cm? (Use π ≈ 3.14),28.26 cm³,84.78 cm³,113.04 cm³,37.68 cm³,113.04 cm³,"Volume of a sphere = (4/3)πr³. Cube the radius (27), multiply by 4/3, then by π."
+m82,hard,Factor completely: x² - 9,(x - 3)(x + 3),(x - 9)(x + 1),(x - 3)²,x(x - 9),(x - 3)(x + 3),"This is a difference of squares: a² - b² = (a - b)(a + b). Here, x² - 9 = x² - 3²."
+m83,easy,"What is the mode of the data set: 5, 7, 5, 9, 7, 5, 3?",5,7,9,6,5,The mode is the number that appears most frequently. Count how many times each number appears.
+m84,medium,What is 2/3 ÷ 4/5?,8/15,5/6,6/8,10/12,5/6,"To divide fractions, multiply by the reciprocal: 2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6."
+m85,hard,What is the vertex of the parabola y = (x - 3)² + 5?,"(3, 5)","(-3, 5)","(3, -5)","(-3, -5)","(3, 5)","In the form y = (x - h)² + k, the vertex is at (h, k). Notice the sign: (x - 3) means h = 3."
+m86,easy,What is 40% of 250?,100,150,200,50,100,"40% = 0.40. Multiply 250 by 0.40, or find 10% (25) and multiply by 4."
+m87,medium,A rectangle is 8 cm long and has a perimeter of 24 cm. What is its width?,4 cm,6 cm,8 cm,16 cm,4 cm,"Perimeter = 2(length + width). So 24 = 2(8 + width). Divide both sides by 2, then subtract 8."
+m88,hard,What is the discriminant of the quadratic equation x² - 5x + 6 = 0?,1,-1,25,49,1,"Discriminant = b² - 4ac. Here, a = 1, b = -5, c = 6. So (-5)² - 4(1)(6) = 25 - 24 = 1."
+m89,easy,What is the greatest common factor (GCF) of 24 and 36?,6,12,24,72,12,"List the factors of 24 (1, 2, 3, 4, 6, 8, 12, 24) and 36 (1, 2, 3, 4, 6, 9, 12, 18, 36). Find the largest common factor."
+m90,medium,"What is the area of a trapezoid with bases of 6 cm and 10 cm, and a height of 5 cm?",30 cm²,40 cm²,50 cm²,80 cm²,40 cm²,"Area of a trapezoid = (1/2) × (base₁ + base₂) × height. Add the bases (16), multiply by height (5), then divide by 2."
+m91,hard,What is the solution to the equation 2x² - 8 = 0?,x = 2 or x = -2,x = 4 or x = -4,x = 8,x = 0,x = 2 or x = -2,Add 8 to both sides: 2x² = 8. Divide by 2: x² = 4. Take the square root: x = ±2.
+m92,easy,What is 1/3 + 1/6?,2/9,1/2,1/9,2/6,1/2,Find a common denominator. 1/3 = 2/6. Then add: 2/6 + 1/6 = 3/6 = 1/2.
+m93,medium,What is the circumference of a circle with a radius of 7 inches? (Use π ≈ 3.14),21.98 inches,43.96 inches,153.86 inches,14 inches,43.96 inches,"Circumference = 2πr. Multiply the radius (7) by 2, then by π: 2 × 7 × 3.14 = 43.96."
+m94,hard,What is the axis of symmetry of the parabola y = x² - 6x + 8?,x = 3,x = -3,x = 6,x = -6,x = 3,"For a quadratic in the form ax² + bx + c, the axis of symmetry is x = -b/(2a). Here, x = -(-6)/(2×1) = 3."
+m95,easy,What is 7²?,14,49,42,56,49,7² means 7 × 7. Multiply 7 by itself to get 49.
+m96,medium,"What is the median of the data set: 12, 8, 15, 10, 6, 9, 11?",9,10,11,12,10,"First, put the numbers in order from least to greatest. Then find the middle number."
+m97,hard,What is the simplified form of (x + 3)(x - 2)?,x² + x - 6,x² - x - 6,x² + 5x - 6,x² - 5x - 6,x² + x - 6,"Use FOIL: First (x × x), Outside (x × -2), Inside (3 × x), Last (3 × -2). Then combine like terms."
+m98,easy,What is 0.4 expressed as a fraction in simplest form?,2/5,4/10,1/4,4/9,2/5,0.4 = 4/10. Simplify by dividing both numerator and denominator by 2 to get 2/5.
+m99,medium,A triangle has a base of 12 cm and an area of 48 cm². What is its height?,4 cm,8 cm,6 cm,10 cm,8 cm,Area of a triangle = (1/2) × base × height. So 48 = (1/2) × 12 × height. Solve for height.
+m100,hard,What is the x-intercept of the line with equation y = 2x - 6?,x = 3,x = -3,x = 6,x = -6,x = 3,"The x-intercept is where y = 0. Set 0 = 2x - 6, then solve for x: 2x = 6, so x = 3."
+m101,easy,What is 8 × 7?,48,56,54,64,56,"Multiply 8 by 7. You can think of it as 8 × 5 = 40, plus 8 × 2 = 16, so 40 + 16 = 56."
+m102,medium,What is the Least Common Denominator (LCD) of 1/3 and 1/4?,3,4,12,7,12,"Find the LCM of 3 and 4. The multiples of 3 are 3, 6, 9, 12... and the multiples of 4 are 4, 8, 12..."
+m103,easy,What is 144 ÷ 12?,10,11,12,13,12,Think: what number times 12 equals 144? Or divide 144 by 12.
+m104,medium,A rectangle has a length of 9 cm and a width of 7 cm. What is its perimeter?,16 cm,32 cm,63 cm,28 cm,32 cm,"Perimeter = 2(length + width). Add 9 + 7 = 16, then multiply by 2."
+m105,hard,What is the slope of a line perpendicular to a line with slope 3/4?,4/3,-4/3,-3/4,3/4,-4/3,"Perpendicular lines have slopes that are negative reciprocals. Flip 3/4 to get 4/3, then make it negative."
+m106,easy,What is 3/4 - 1/4?,1/4,1/2,2/4,1/8,1/2,"When denominators are the same, subtract the numerators: 3 - 1 = 2, so 2/4 = 1/2."
+m107,medium,What is 0.125 expressed as a fraction in simplest form?,1/8,1/4,125/1000,1/5,1/8,0.125 = 125/1000. Simplify by dividing both numerator and denominator by 125.
+m108,easy,What is the area of a square with side length 9 inches?,18 in²,36 in²,81 in²,27 in²,81 in²,Area of a square = side × side. So 9 × 9 = 81.
+m109,hard,Solve for x: 5x - 3 = 2x + 9,x = 2,x = 4,x = 6,x = 12,x = 4,"Get all x terms on one side and constants on the other. Subtract 2x from both sides, then add 3 to both sides."
+m110,medium,What is 60% of 45?,24,27,30,33,27,"60% = 0.60. Multiply 45 by 0.60, or find 10% (4.5) and multiply by 6."
+m111,easy,What is the sum of -8 and 15?,-23,7,-7,23,7,"When adding a negative and positive number, subtract the smaller absolute value from the larger: 15 - 8 = 7."
+m112,medium,What is the circumference of a circle with a radius of 5 inches? (Use π ≈ 3.14),15.7 inches,31.4 inches,78.5 inches,25 inches,31.4 inches,"Circumference = 2πr. Multiply the radius (5) by 2, then by π: 2 × 5 × 3.14 = 31.4."
+m113,hard,What is the simplified form of (2x + 4)(x - 3)?,2x² - 2x - 12,2x² + 2x - 12,2x² - 6x - 12,2x² + 10x - 12,2x² - 2x - 12,"Use FOIL: First (2x × x), Outside (2x × -3), Inside (4 × x), Last (4 × -3). Then combine like terms."
+m114,easy,What is 4³?,12,16,64,81,64,"4³ means 4 × 4 × 4. Multiply: 4 × 4 = 16, then 16 × 4 = 64."
+m115,medium,"A store marks up an item by 30%. If the original price was $40, what is the new price?",$52,$50,$48,$46,$52,"Find 30% of $40 (which is $12), then add it to the original price: $40 + $12 = $52."
+m116,easy,What is the difference between 47 and 29?,16,18,20,22,18,"Subtract 29 from 47. You can think: 47 - 20 = 27, then 27 - 9 = 18."
+m117,hard,What is the domain of the function f(x) = 1/(x - 2)?,All real numbers,x ≠ 0,x ≠ 2,x > 2,x ≠ 2,"The denominator cannot be zero. Set x - 2 = 0, so x = 2. The domain is all real numbers except x = 2."
+m118,medium,What is the volume of a cube with edge length 5 cm?,15 cm³,25 cm³,125 cm³,625 cm³,125 cm³,Volume of a cube = edge × edge × edge. So 5 × 5 × 5 = 125.
+m119,easy,What is 2/5 + 3/10?,5/15,7/10,5/10,6/10,7/10,Find a common denominator. 2/5 = 4/10. Then add: 4/10 + 3/10 = 7/10.
+m120,medium,"What is the mean of the data set: 8, 12, 15, 10, 5?",9,10,11,12,10,Add all numbers: 8 + 12 + 15 + 10 + 5 = 50. Then divide by 5 (the number of values): 50 ÷ 5 = 10.
+m121,hard,"What is the y-intercept of the line passing through points (2, 5) and (4, 11)?",-1,1,3,5,-1,"First find the slope: (11 - 5)/(4 - 2) = 6/2 = 3. Then use point-slope form: y - 5 = 3(x - 2). When x = 0, y = -1."
+m122,easy,What is 9 × 6?,48,54,56,63,54,"Multiply 9 by 6. You can think: 9 × 5 = 45, plus 9 × 1 = 9, so 45 + 9 = 54."
+m123,medium,What is 1.5 × 8?,10,12,14,16,12,1.5 = 3/2. So 1.5 × 8 = (3/2) × 8 = 3 × 4 = 12.
+m124,easy,What is the product of 7 and 8?,54,56,58,64,56,Product means multiply. 7 × 8 = 56.
+m125,hard,What is the solution set for the inequality 3x + 7 ≥ 22?,x ≥ 5,x ≤ 5,x ≥ 15,x ≤ 15,x ≥ 5,Subtract 7 from both sides: 3x ≥ 15. Then divide by 3: x ≥ 5.
+m126,medium,What is the area of a parallelogram with base 10 cm and height 6 cm?,16 cm²,32 cm²,60 cm²,120 cm²,60 cm²,Area of a parallelogram = base × height. So 10 × 6 = 60.
+m127,easy,What is 6²?,12,36,30,42,36,6² means 6 × 6. Multiply 6 by itself to get 36.
+m128,medium,What is 3/8 × 4/9?,7/17,12/72,1/6,7/72,1/6,"Multiply numerators (3 × 4 = 12) and denominators (8 × 9 = 72), then simplify: 12/72 = 1/6."
+m129,hard,What is the vertex form of the quadratic y = x² - 6x + 5?,y = (x - 3)² - 4,y = (x - 3)² + 4,y = (x + 3)² - 4,y = (x - 6)² + 5,y = (x - 3)² - 4,Complete the square: (x² - 6x + 9) - 9 + 5 = (x - 3)² - 4.
+m130,easy,What is 35 ÷ 5?,5,6,7,8,7,Think: what number times 5 equals 35? Or divide 35 by 5.
+m131,medium,What is 75% of 80?,55,60,65,70,60,"75% = 0.75. Multiply 80 by 0.75, or find 25% (20) and subtract from 80, or find 3/4 of 80."
+m132,hard,What is the range of the function f(x) = -x² + 4?,y ≥ 4,y ≤ 4,y ≥ 0,All real numbers,y ≤ 4,"Since -x² is always ≤ 0, -x² + 4 is always ≤ 4. The maximum value is 4, so the range is y ≤ 4."
+m133,easy,What is the sum of 23 and 47?,60,70,80,90,70,"Add 23 + 47. You can think: 20 + 40 = 60, plus 3 + 7 = 10, so 60 + 10 = 70."
+m134,medium,What is the circumference of a circle with a diameter of 14 inches? (Use π ≈ 3.14),21.98 inches,43.96 inches,153.86 inches,615.44 inches,43.96 inches,Circumference = π × diameter. Multiply 14 by π (3.14): 14 × 3.14 = 43.96.
+m135,hard,What is the discriminant of the quadratic equation 2x² - 7x + 3 = 0?,25,-25,49,1,25,"Discriminant = b² - 4ac. Here, a = 2, b = -7, c = 3. So (-7)² - 4(2)(3) = 49 - 24 = 25."
+m136,easy,What is 11 × 4?,40,44,48,52,44,"Multiply 11 by 4. You can think: 10 × 4 = 40, plus 1 × 4 = 4, so 40 + 4 = 44."
+m137,medium,What is the area of a triangle with base 15 cm and height 8 cm?,23 cm²,60 cm²,120 cm²,240 cm²,60 cm²,Area of a triangle = (1/2) × base × height. So (1/2) × 15 × 8 = 60.
+m138,hard,What is the simplified form of √72?,6√2,8√2,12√2,36√2,6√2,Factor 72: 72 = 36 × 2 = 6² × 2. So √72 = √(36 × 2) = 6√2.
+m139,easy,What is 0.5 expressed as a fraction?,1/4,1/2,1/3,2/3,1/2,0.5 = 5/10. Simplify by dividing both numerator and denominator by 5 to get 1/2.
+m140,medium,"A shirt costs $25. If it's on sale for 20% off, what is the sale price?",$5,$20,$22,$23,$20,"Find 20% of $25 (which is $5), then subtract from the original price: $25 - $5 = $20."
+m141,hard,What is the inverse of the function f(x) = 3x + 2?,f⁻¹(x) = (x - 2)/3,f⁻¹(x) = (x + 2)/3,f⁻¹(x) = 3x - 2,f⁻¹(x) = x/3 - 2,f⁻¹(x) = (x - 2)/3,"Switch x and y: x = 3y + 2. Solve for y: x - 2 = 3y, so y = (x - 2)/3."
+m142,easy,What is 13 + 27?,38,40,42,44,40,"Add 13 + 27. You can think: 10 + 20 = 30, plus 3 + 7 = 10, so 30 + 10 = 40."
+m143,medium,What is the volume of a cylinder with radius 4 cm and height 10 cm? (Use π ≈ 3.14),125.6 cm³,251.2 cm³,502.4 cm³,"1,004.8 cm³",502.4 cm³,"Volume = π × r² × h. Square the radius (16), multiply by π (3.14), then by height (10): 16 × 3.14 × 10 = 502.4."
+m144,hard,What is the axis of symmetry of the parabola y = -2x² + 8x - 5?,x = 2,x = -2,x = 4,x = -4,x = 2,"For ax² + bx + c, the axis of symmetry is x = -b/(2a). Here, x = -8/(2×-2) = -8/-4 = 2."
+m145,easy,What is 9²?,18,72,81,90,81,9² means 9 × 9. Multiply 9 by itself to get 81.
+m146,medium,What is 2.5 × 6?,12,15,18,20,15,2.5 = 5/2. So 2.5 × 6 = (5/2) × 6 = 5 × 3 = 15.
+m147,hard,What is the simplified form of (x + 5)²?,x² + 25,x² + 10x + 25,x² + 5x + 25,x² + 10x + 10,x² + 10x + 25,Use the formula (a + b)² = a² + 2ab + b². So (x + 5)² = x² + 2(x)(5) + 5² = x² + 10x + 25.
+m148,easy,What is 48 ÷ 6?,6,7,8,9,8,Think: what number times 6 equals 48? Or divide 48 by 6.
+m149,medium,What is the perimeter of a rectangle with length 12 cm and width 8 cm?,20 cm,40 cm,96 cm,80 cm,40 cm,"Perimeter = 2(length + width). Add 12 + 8 = 20, then multiply by 2."
+m150,hard,"What is the range of the data set: 5, 8, 12, 15, 20, 25?",15,20,25,30,20,"Range = maximum - minimum. The highest value is 25 and the lowest is 5, so 25 - 5 = 20."
